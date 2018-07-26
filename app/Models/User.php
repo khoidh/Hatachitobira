@@ -34,7 +34,7 @@ class User extends Authenticatable
         return $this->hasMany('App\Models\favorite','user_id');
     }
 
-    public function user_event()
+    public function user_events()
     {
         return $this->hasMany('App\Models\user_event','user_id');
     }
