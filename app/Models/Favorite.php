@@ -14,7 +14,7 @@ class Favorite extends Model
     }
 
 
-    public function favoritetable()
+    public function favoritable()
     {
         return $this->morphTo();
     }

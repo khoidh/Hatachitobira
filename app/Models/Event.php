@@ -15,6 +15,6 @@ class Event extends Model
 
     public function favorites()
     {
-        return $this->morphMany('App\Models\favorite','favoritetable');
+        return $this->morphMany('App\Models\favorite','favoritable');
     }
 }
