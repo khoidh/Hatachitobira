@@ -13,8 +13,8 @@ class Event extends Model
         return $this->belongsTo('App\Models\category','category_id');
     }
 
-    public function favorite()
+    public function favorites()
     {
-        return $this->hasMany('App\Models\favorite','event_id');
+        return $this->morphMany('App\Models\favorite','favoritetable');
     }
 }

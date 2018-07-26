@@ -13,13 +13,9 @@ class Favorite extends Model
         return $this->belongsTo('App\user','user_id');
     }
 
-    public function event()
-    {
-        return $this->belongsTo('App\event','event_id');
-    }
 
-    public function video()
+    public function favoritetable()
     {
-        return $this->belongsTo('App\video','video_id');
+        return $this->morphTo();
     }
 }
