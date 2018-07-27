@@ -39,8 +39,6 @@ Route::get('auth/{provider}/callback', 'Auth\LoginController@handleProviderCallb
 |--------------------------------------------------------------------------
 */
 
-//Route::get('admin','Admin\LoginController@index');
-//Route::post('admin', 'Admin\LoginController@index')->name('adminlogin');
 Route::group(['prefix' => 'admin'], function() {
     Route::get('/',         function () { return redirect('/admin/home'); });
     Route::get('login',     'Admin\LoginController@showLoginForm')->name('admin.login');
@@ -57,5 +55,4 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function() {
 | 4) Admin Event
 |--------------------------------------------------------------------------
 */
-
 Route::resource('events', 'Admin\EventController');

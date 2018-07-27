@@ -8,26 +8,10 @@ use App\Http\Controllers\Controller;
 
 class EventController extends Controller
 {
-//    public function showList()
-//    {
-//        return view('admin.event.list');
-//    }
-//    public function createForm()
-//    {
-//        return view('admin.event.create');
-//    }
-//    public function create(Request $request)
-//    {
-//        $title = $request->input('title');
-//        $category_id = $request->input('category');
-//        $time_from = $request->input('time_from');
-//        $time_to = $request->input('time_to');
-//        echo $category_id;
-//    }
+
     public function index()
     {
         $events = Event::all();
-//        dd($events);
         return view('admin.event.index', ['events' => $events]);
     }
 

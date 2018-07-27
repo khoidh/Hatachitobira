@@ -28,7 +28,6 @@
             <ul class="sub-menu collapse" id="products">
                 <li class="active"><a href="{{route('events.index')}}">List</a></li>
                 <li><a href="{{route('events.create')}}">New</a></li>
-                {{--<li><a href="#">Buttons</a></li>--}}
 
             </ul>
 
