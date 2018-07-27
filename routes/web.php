@@ -15,10 +15,39 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
+/*
+|--------------------------------------------------------------------------
+| 1) User login
+|--------------------------------------------------------------------------
+*/
 
+Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
+
+/*
+|--------------------------------------------------------------------------
+| 2) User login with facebook
+|--------------------------------------------------------------------------
+*/
 
 Route::get('auth/{provider}', 'Auth\LoginController@redirectToProvider');
 Route::get('auth/{provider}/callback', 'Auth\LoginController@handleProviderCallback');
 
+/*
+|--------------------------------------------------------------------------
+| 3) Admin login
+|--------------------------------------------------------------------------
+*/
+
+//Route::get('admin','Admin\LoginController@index');
+//Route::post('admin', 'Admin\LoginController@index')->name('adminlogin');
+Route::group(['prefix' => 'admin'], function() {
+    Route::get('/',         function () { return redirect('/admin/home'); });
+    Route::get('login',     'Admin\LoginController@showLoginForm')->name('admin.login');
+    Route::post('login',    'Admin\LoginController@login');
+});
+
+Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function() {
+    Route::post('logout',   'Admin\LoginController@logout')->name('admin.logout');
+    Route::get('home',      'Admin\HomeController@index')->name('admin.home');
+});
