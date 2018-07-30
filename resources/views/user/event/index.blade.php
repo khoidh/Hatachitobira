@@ -15,19 +15,36 @@
                 </p>
                 </p>
             </div>
+                @foreach($events as $event)
                 <div class="item">
                     <div class="wrapper">
                         <div class="icon">
-                            <img src="{{asset('image/event-icon.jpg')}}" alt="">
-                            <a href=""><i class="fa fa-heart-o" style="font-size:24px;"></i></a>
+                            <a href="/event/{{$event->id}}">
+                                <img src="{{asset('image/event/'.$event->image)}}" >
+                                <form action="/event" method="post">
+                                    {{ csrf_field() }}
+
+                                    <input type="hidden" name="favorite" value="1">
+                                    <input type="hidden" name="user_id" value="<?php echo Auth::user()->id?>">
+                                    <input type="hidden" name="event_id" value="<?php echo $event->id?>">
+                                    <button  type="submit">
+                                        <i class="fa fa-heart-o" style="font-size:24px;"></i>
+                                    </button>
+
+                                </form>
+                            </a>
                         </div>
                         <div class="content">
                             <div class="status">
+
+                                {{-- TODO xử lý check thời gian đăng ký--}}
+
                                 <h4>申し込み受付中
                                 </h4>
                             </div>
                             <div class="title">
-                                <p>タイトルタイトルタイトルタイトルタイトル
+                                <p>
+                                    <?php echo $event->title?>
                                 </p>
                             </div>
                             <div class="category">
@@ -35,14 +52,15 @@
                                 </p>
                             </div>
                             <div class="date">
-                                <p>2018.3.20
+                                <p>
+                                    <?php echo $event->time_from?>
                                 </p>
                             </div>
 
                         </div>
                     </div>
                 </div>
-
+                    @endforeach
             </div>
         </div>
     </div>
