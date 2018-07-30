@@ -56,3 +56,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function() {
 |--------------------------------------------------------------------------
 */
 Route::resource('events', 'Admin\EventController');
+
+Route::group(['prefix' => 'event', 'middleware' => 'auth:user'], function() {
+//    Route::post('logout',   'Admin\LoginController@logout')->name('admin.logout');
+    Route::get('index',      'User\EventController@index')->name('user.event');
+});

@@ -53,7 +53,7 @@
                             <span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <li><a href="#">動画一覧</a></li>
-                            <li><a href="#">イベント一覧</a></li>
+                            <li><a href="{{route('user.event')}}">イベント一覧</a></li>
                             <li><a href="#">記事一覧</a></li>
                             <li><a href="#">が格納されている</a></li>
                         </ul>
