@@ -36,6 +36,9 @@ class EventController extends Controller
         $event = new Event();
         $event->title = $request->title;
         $event->category_id = $request->category;
+
+        /*TODO xử lý upload ảnh */
+
         $event->image = $request->image;
         $event->sort = $request->sort;
         $event->time_from = $request->time_from;

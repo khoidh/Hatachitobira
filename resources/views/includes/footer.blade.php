@@ -1,6 +1,6 @@
 <footer>
     <div class="container">
-        <div class="row">
+        <div class="row" style="padding-left: 50px">
             <div class="col-6 col-md-4">
                 <ul>
                     <li><a href="#">マイテーマを</a></li>
