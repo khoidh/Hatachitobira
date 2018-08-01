@@ -1,19 +1,19 @@
 ## Setup môi trường dev
 
-##  1- Cài đặt xampp
-- 1- Clone sourcecode, checkout develop branch
-- 2- Config database
-- 3- Sửa file .env trong project
-- DB_DATABASE=
-- DB_USERNAME=
-- DB_PASSWORD=
-- 4- Chạy migration 
+- Cài đặt xampp
+- Clone sourcecode, checkout develop branch
+- Config database
+Sửa file .env trong project
+DB_DATABASE=
+DB_USERNAME=
+DB_PASSWORD=
+- Chạy migration 
 Mục đích: tạo các table
 cmd : php arisan db:migrate
-- 5- Chạy db seed
+- Chạy db seed
 Mục đích: để tạo dữ liệu mẫu
 cmd : php artisan db:seed
-- 6- Khởi động laravel
+- Khởi động laravel
 cmd : php artisan serve
 
 
