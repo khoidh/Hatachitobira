@@ -1,4 +1,5 @@
 @extends('admin.home')
+
 @section('content')
     <form action="{{route('events.update',$event->id)}}" method="post">
         {{ csrf_field() }}
@@ -13,11 +14,11 @@
 
             <label class="col-sm-2 col-form-label" for="inputState">Category</label>
             <div class="col-sm-10">
-
-                <select name="category_id" value="<?php echo $event->id ?>" class="form-control">
-                    @foreach($categories as $category)
-                        <option value="{{ $category->id }}" {{($category->id == $event->category_id) ? 'selected' : ''}} >{{$category->name}}</option>
-                    @endforeach
+                <select name="category" value="{{$event->category_id}}" class="form-control">
+                    <option selected>Choose Category</option>
+                    <option value="1">Category1</option>
+                    <option value="2">Category2</option>
+                    <option value="3">Category3</option>
                 </select>
             </div>
         </div>

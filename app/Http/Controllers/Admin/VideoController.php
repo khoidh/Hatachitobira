@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
+use App\Video;
+use App\Category;
+use Illuminate\Support\Facades\DB;
 class VideoController extends Controller
 {
     /**
@@ -14,7 +16,12 @@ class VideoController extends Controller
      */
     public function index()
     {
-        //
+        $videos = Video::all();
+        $videos = DB::table('videos')
+            ->join('categories','videos.category_id','categories.id')
+            ->get();
+        dd($videos);
+        return view('admin.video.index', ['videos' => $videos]);
     }
 
     /**
@@ -24,7 +31,8 @@ class VideoController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.video.create');
+
     }
 
     /**

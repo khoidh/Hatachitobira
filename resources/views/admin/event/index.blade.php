@@ -21,7 +21,7 @@
             <th scope="row">{{$event->id}}</th>
             <td>{{$event->title}}</td>
             <td>{{$event->image}}</td>
-            <td>{{$event->category_id}}</td>
+            <td>{{$event->category_name}}</td>
             <td>{{$event->sort}}</td>
             <td>{{$event->time_from}}</td>
             <td>{{$event->time_to}}</td>
