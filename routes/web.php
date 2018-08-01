@@ -45,20 +45,28 @@ Route::group(['prefix' => 'admin'], function() {
     Route::post('login',    'Admin\LoginController@login');
 });
 
+
+/*
+|--------------------------------------------------------------------------
+| 4) Admin Controller
+|--------------------------------------------------------------------------
+*/
 Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function() {
     Route::post('logout',   'Admin\LoginController@logout')->name('admin.logout');
     Route::get('home',      'Admin\HomeController@index')->name('admin.home');
+
+    Route::resource('events', 'Admin\EventController');
+    Route::resource('videos', 'Admin\VideoController');
+
 });
 
 /*
 |--------------------------------------------------------------------------
-| 4) Admin Event
+| 4) User Controller
 |--------------------------------------------------------------------------
 */
-Route::resource('events', 'Admin\EventController');
-Route::resource('event', 'User\EventController');
 
-//Route::group(['prefix' => 'event', 'middleware' => 'auth:user'], function() {
-////    Route::post('logout',   'Admin\LoginController@logout')->name('admin.logout');
-//    Route::get('index',      'User\EventController@index')->name('user.event');
-//});
+Route::group(['middleware' => 'auth:user'],function ()
+{
+    Route::resource('event', 'User\EventController');
+});

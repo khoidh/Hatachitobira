@@ -44,7 +44,7 @@ class EventController extends Controller
         $event->time_from = $request->time_from;
         $event->time_to = $request->time_to;
         $event->save();
-        return redirect('/events');
+        return redirect()->route('events.index');
     }
 
     /**
@@ -89,7 +89,7 @@ class EventController extends Controller
         $event->time_from = $request->time_from;
         $event->time_to = $request->time_to;
         $event->save();
-        return redirect("/events/".$id);
+        return redirect()->route('events.show',$event->id);
     }
 
     /**
@@ -104,6 +104,6 @@ class EventController extends Controller
         // 削除
         $event->delete();
         // 一覧にリダイレクト
-        return redirect('/events');
+        return redirect()->route('events.index');
     }
 }

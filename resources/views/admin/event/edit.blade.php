@@ -1,7 +1,7 @@
 @extends('admin.home')
 
 @section('content')
-    <form action="/events/{{$event->id}}" method="post">
+    <form action="{{route('events.update',$event->id)}}" method="post">
         {{ csrf_field() }}
         <div class="form-group row">
             <label for="inputEmail3" class="col-sm-2 col-form-label">Title</label>

@@ -26,8 +26,8 @@
             <td>{{$event->time_from}}</td>
             <td>{{$event->time_to}}</td>
             <td>
-                <a href="/events/{{$event->id}}">Detail</a>
-                <a href="/events/{{$event->id}}/edit">Edit</a>
+                <a href="{{route('events.show',$event->id)}}">Detail</a>
+                <a href="{{route('events.edit',$event->id)}}">Edit</a>
             </td>
         </tr>
     @endforeach
