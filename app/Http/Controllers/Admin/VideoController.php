@@ -16,12 +16,14 @@ class VideoController extends Controller
      */
     public function index()
     {
-        $videos = Video::all();
-        $videos = DB::table('videos')
-            ->join('categories','videos.category_id','categories.id')
+        $events = Video::select()
+            ->select('videos.*','categories.name as category_name')
+            ->join('categories','categories.id','=','videos.category_id')
             ->get();
-        dd($videos);
-        return view('admin.video.index', ['videos' => $videos]);
+//        dd($events[1]->id);
+//        $categories = Category::all();
+//        dd($categories);
+        return view('admin.video.index', ['videos' => $events]);
     }
 
     /**
@@ -31,8 +33,9 @@ class VideoController extends Controller
      */
     public function create()
     {
-        return view('admin.video.create');
+        $categories = Category::all();
 
+        return view('admin.video.create', ['categories' => $categories]);
     }
 
     /**
@@ -43,7 +46,14 @@ class VideoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $video = new Video();
+        $video->category_id = $request->category_id;
+        $video->url = $request->url;
+        $video->description = $request->description;
+        $video->image = $request->image;
+        $video->sort = $request->sort;
+        $video->save();
+        return redirect()->route('videos.index');
     }
 
     /**
@@ -54,7 +64,14 @@ class VideoController extends Controller
      */
     public function show($id)
     {
-        //
+        $video = Video::select()
+            ->where('videos.id', $id)
+            ->select('videos.*','categories.name as category_name')
+            ->join('categories','categories.id','=','videos.category_id')
+            ->first();
+
+        // viewにデータを渡す
+        return view('admin.video.show', ['video' => $video]);
     }
 
     /**
@@ -65,7 +82,9 @@ class VideoController extends Controller
      */
     public function edit($id)
     {
-        //
+        $video = Video::find($id);
+        $categories = Category::all();
+        return view('admin.video.edit', ['video' => $video, 'categories' => $categories]);
     }
 
     /**
@@ -77,7 +96,14 @@ class VideoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $video = Video::find($id);
+        $video->category_id = $request->category_id;
+        $video->url = $request->url;
+        $video->description = $request->description;
+        $video->image = $request->image;
+        $video->sort = $request->sort;
+        $video->save();
+        return redirect()->route('videos.show',$video->id);
     }
 
     /**
@@ -88,6 +114,8 @@ class VideoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $video = Video::find($id);
+        $video->delete();
+        return redirect()->route('videos.index');
     }
 }
