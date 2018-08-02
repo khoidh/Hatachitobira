@@ -20,9 +20,7 @@ class VideoController extends Controller
             ->select('videos.*','categories.name as category_name')
             ->join('categories','categories.id','=','videos.category_id')
             ->get();
-//        dd($events[1]->id);
-//        $categories = Category::all();
-//        dd($categories);
+
         return view('admin.video.index', ['videos' => $events]);
     }
 
