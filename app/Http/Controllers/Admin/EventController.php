@@ -3,15 +3,21 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Event;
+use App\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
 
 class EventController extends Controller
 {
 
     public function index()
     {
-        $events = Event::all();
+        $events = Event::select()
+            ->select('events.*','categories.name as category_name')
+            ->join('categories','categories.id','=','events.category_id')
+            ->get();
+
         return view('admin.event.index', ['events' => $events]);
     }
 
@@ -22,7 +28,9 @@ class EventController extends Controller
      */
     public function create()
     {
-        return view('admin.event.create');
+        $categories = Category::all();
+
+        return view('admin.event.create', ['categories' => $categories]);
     }
 
     /**
@@ -35,7 +43,7 @@ class EventController extends Controller
     {
         $event = new Event();
         $event->title = $request->title;
-        $event->category_id = $request->category;
+        $event->category_id = $request->category_id;
 
         /*TODO xử lý upload ảnh */
 
@@ -44,7 +52,7 @@ class EventController extends Controller
         $event->time_from = $request->time_from;
         $event->time_to = $request->time_to;
         $event->save();
-        return redirect('/events');
+        return redirect()->route('events.index');
     }
 
     /**
@@ -55,7 +63,12 @@ class EventController extends Controller
      */
     public function show($id)
     {
-        $event = Event::find($id);
+        $event = Event::select()
+            ->where('events.id', $id)
+            ->select('events.*','categories.name as category_name')
+            ->join('categories','categories.id','=','events.category_id')
+            ->first();
+
         // viewにデータを渡す
         return view('admin.event.show', ['event' => $event]);
     }
@@ -69,7 +82,8 @@ class EventController extends Controller
     public function edit($id)
     {
         $event = Event::find($id);
-        return view('admin.event.edit', ['event' => $event]);
+        $categories = Category::all();
+        return view('admin.event.edit', ['event' => $event, 'categories' => $categories]);
     }
 
     /**
@@ -83,13 +97,13 @@ class EventController extends Controller
     {
         $event = Event::find($id);
         $event->title = $request->title;
-        $event->category_id = $request->category;
+        $event->category_id = $request->category_id;
         $event->image = $request->image;
         $event->sort = $request->sort;
         $event->time_from = $request->time_from;
         $event->time_to = $request->time_to;
         $event->save();
-        return redirect("/events/".$id);
+        return redirect()->route('events.show',$event->id);
     }
 
     /**
@@ -104,6 +118,6 @@ class EventController extends Controller
         // 削除
         $event->delete();
         // 一覧にリダイレクト
-        return redirect('/events');
+        return redirect()->route('events.index');
     }
 }

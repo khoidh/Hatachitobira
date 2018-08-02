@@ -1,7 +1,7 @@
 @extends('admin.home')
 
 @section('content')
-<form method="POST"  action="/events">
+<form method="POST"  action="{{route('events.store')}}">
     {{ csrf_field() }}
     <div class="form-group row">
         <label for="inputEmail3" class="col-sm-2 col-form-label">Title</label>
@@ -14,11 +14,11 @@
 
         <label class="col-sm-2 col-form-label" for="inputState">Category</label>
         <div class="col-sm-10">
-        <select name="category" class="form-control">
+        <select name="category_id" class="form-control">
             <option selected>Choose Category</option>
-            <option value="1">Category1</option>
-            <option value="2">Category2</option>
-            <option value="3">Category3</option>
+            @foreach($categories as $category)
+                <option value="{{$category->id}}">{{$category->name}}</option>
+            @endforeach
         </select>
         </div>
     </div>

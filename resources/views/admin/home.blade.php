@@ -26,7 +26,7 @@
                 <a href="#"><i class="fa fa-gift fa-lg"></i> Events Manager <span class="arrow"></span></a>
             </li>
             <ul class="sub-menu collapse" id="products">
-                <li class="active"><a href="{{route('events.index')}}">List</a></li>
+                <li class=""><a href="{{route('events.index')}}">List</a></li>
                 <li><a href="{{route('events.create')}}">New</a></li>
 
             </ul>
@@ -36,9 +36,8 @@
                 <a href="#"><i class="fa fa-globe fa-lg"></i> Videos Manager <span class="arrow"></span></a>
             </li>
             <ul class="sub-menu collapse" id="service">
-                <li>New Service 1</li>
-                <li>New Service 2</li>
-                <li>New Service 3</li>
+                <li class=""><a href="{{route('videos.index')}}">List</a></li>
+                <li><a href="{{route('videos.create')}}">New</a></li>
             </ul>
 
 

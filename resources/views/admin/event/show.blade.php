@@ -18,14 +18,15 @@
         </thead>
         <tbody>
             <tr>
+                {{--{{dd($event)}}--}}
                 <th scope="row">{{$event->id}}</th>
                 <td>{{$event->title}}</td>
                 <td>{{$event->image}}</td>
-                <td>{{$event->category_id}}</td>
+                <td>{{$event->category_name}}</td>
                 <td>{{$event->sort}}</td>
                 <td>{{$event->time_from}}</td>
                 <td>{{$event->time_to}}</td>
-                <td><form action="/events/{{$event->id}}" method="post">
+                <td><form action="{{route('events.destroy', $event->id)}}" method="post">
                         {{ csrf_field() }}
                         <input type="hidden" name="_method" value="delete">
                         <input class="btn btn-danger" type="submit" name="" value="削除する">
@@ -35,6 +36,6 @@
 
         </tbody>
     </table>
-    <a class="btn btn-info" href="/events">一覧に戻る</a>
+    <a class="btn btn-info" href="{{route('events.index')}}">一覧に戻る</a>
 
 @endsection
