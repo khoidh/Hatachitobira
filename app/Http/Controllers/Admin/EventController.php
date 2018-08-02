@@ -13,23 +13,11 @@ class EventController extends Controller
 
     public function index()
     {
-        /* //query builder*/
-
-        /*
-         * $events = DB::table('events')
-            ->select('events.*','categories.name as cateogory_name')
-            ->join('categories','categories.id','events.category_id')
-            ->get();
-        */
-
-        /*Eloquent*/
         $events = Event::select()
             ->select('events.*','categories.name as category_name')
             ->join('categories','categories.id','=','events.category_id')
             ->get();
-//        dd($events[1]->id);
-//        $categories = Category::all();
-//        dd($categories);
+
         return view('admin.event.index', ['events' => $events]);
     }
 
