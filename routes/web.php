@@ -70,3 +70,7 @@ Route::group(['middleware' => 'auth:user'],function ()
 {
     Route::resource('event', 'User\EventController');
 });
+
+Route::get('/wyswyg', function () {
+    return view('admin.editor.editor');
+});
