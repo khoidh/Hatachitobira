@@ -1,0 +1,22 @@
+.video,
+.video .wrapper,
+.video .wrapper .thump,
+.video .wrapper .thump img,
+.video .wrapper .description,
+.video .wrapper .description .footer
+{
+    width: 100%;
+}
+.video .wrapper
+{
+    padding: 50px;
+}
+.video .wrapper .description
+{
+    margin-top: 10px;
+}
+.video .wrapper .description .footer .viewcount,
+.video .wrapper .description .footer .date
+{
+    display: inline-block;
+}
