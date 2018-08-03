@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Video extends Model
 {
     protected $table = 'videos';
+    protected $fillable = ['category_id', 'url', 'description', 'image', 'sort'];
 
     public function category()
     {
