@@ -5,6 +5,9 @@ namespace App\Http\Controllers\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 Use App\Video;
+use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Support\Collection;
+
 class VideoController extends Controller
 {
     public function index()
@@ -22,7 +25,16 @@ class VideoController extends Controller
             $result = json_decode(file_get_contents($api_url));
             array_push($results,$result);
         }
-        return view('user.video.index', ['videos' => $videos, 'results' => $results]);
+        /*Pagination */
+        $currentPage = LengthAwarePaginator::resolveCurrentPage();
+        $itemCollection = collect($results);
+        $perPage = 9;
+        $currentPageItems = $itemCollection->slice(($currentPage * $perPage) - $perPage, $perPage)->all();
+        $paginatedItems= new LengthAwarePaginator($currentPageItems , count($itemCollection), $perPage);
+        $paginatedItems->setPath('video');
+
+        return view('user.video.index', ['videos' => $videos, 'results' => $paginatedItems]);
+//        return view('user.video.index', ['videos' => $videos, 'results' => $results]);
     }
 
     public function create()

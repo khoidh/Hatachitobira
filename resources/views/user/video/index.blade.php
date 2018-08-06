@@ -49,10 +49,11 @@
                     </div>
                 </div>
                 @endforeach
-
             </div>
 
         </div>
+        {{ $results->links() }}
+
     </div>
 
 
