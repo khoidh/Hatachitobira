@@ -75,3 +75,6 @@ Route::group(['middleware' => 'auth:user'],function ()
 Route::get('/wyswyg', function () {
     return view('admin.editor.editor');
 });
+
+Route::get('enquiry','EnquiryController@index');
+Route::post('enquiry','EnquiryController@saveEnquiry');
