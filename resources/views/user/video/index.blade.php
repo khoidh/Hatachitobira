@@ -28,7 +28,8 @@
                     <div class="col-lg-4 col-sm-6 portfolio-item">
                     <div class="wrapper">
                         <div class="thump">
-                            <img src="{{$result->items[0]->snippet->thumbnails->standard->url}}" alt="">
+                            <?php echo ($result->items[0]->player->embedHtml) ?>
+
                         </div>
                         <div class="description">
                             <div class="title">
@@ -40,6 +41,7 @@
                                 </div>
                                 <div class="date">
                                     {{--<p>{{$result->items[0]->snippet->publishedAt}}</p>--}}
+                                    {{--TODO xử lý tháng--}}
                                     <p>7 month ago</p>
                                 </div>
                             </div>
