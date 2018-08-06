@@ -23,5 +23,11 @@ class Categories extends Seeder
             'name'          => '採用領域',
             'description'   => '採用担当者×大学生で考える、採用におけるジョブシャドウイング映像化の効果とは？〜ハタチのト...',
         ]);
+        DB::table('categories')->insert([
+            'id'            => 3,
+            'name'          => '企業提供講座',
+            'description'   => 'リクルート事業開発のプロが講師！起業アイデアの磨き方＆アイデアを行動に変えるステップとは？',
+        ]);
+
     }
 }
