@@ -69,6 +69,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function() {
 Route::group(['middleware' => 'auth:user'],function ()
 {
     Route::resource('event', 'User\EventController');
+    Route::resource('video', 'User\VideoController');
 });
 
 Route::get('/wyswyg', function () {
