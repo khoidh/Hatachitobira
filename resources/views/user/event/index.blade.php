@@ -19,9 +19,9 @@
                 <div class="item">
                     <div class="wrapper">
                         <div class="icon">
-                            <a href="/event/{{$event->id}}">
+                            <a href="{{route('event.show', $event->id)}}">
                                 <img src="{{asset('image/event/'.$event->image)}}" >
-                                <form action="/event" method="post">
+                                <form action="/event" method="post" name="favorite-form">
                                     {{ csrf_field() }}
 
                                     <input type="hidden" name="favorite" value="1">
@@ -30,6 +30,7 @@
                                     <button  type="submit">
                                         <i class="fa fa-heart-o" style="font-size:24px;"></i>
                                     </button>
+                                    <!-- <a class="submit"><i class="fa fa-heart-o" style="font-size:24px;"></i></a> -->
 
                                 </form>
                             </a>
@@ -44,16 +45,16 @@
                             </div>
                             <div class="title">
                                 <p>
-                                    <?php echo $event->title?>
+                                    {{$event->title}}
                                 </p>
                             </div>
                             <div class="category">
-                                <p>カテゴリ
+                                <p>{{$event->category_name}}
                                 </p>
                             </div>
                             <div class="date">
                                 <p>
-                                    <?php echo $event->time_from?>
+                                    {{$event->time_from}}
                                 </p>
                             </div>
 
@@ -61,8 +62,8 @@
                     </div>
                 </div>
                     @endforeach
+                    {{ $events->links() }}
             </div>
         </div>
     </div>
-
 @endsection

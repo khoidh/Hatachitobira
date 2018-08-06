@@ -45,7 +45,7 @@
     top: 2%;
     left: 80%;
 }
-.event .item .wrapper .icon a:hover
+.event .item .wrapper .icon i:hover
 {
     color: red;
 }

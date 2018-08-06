@@ -8,6 +8,7 @@ use App\Favorite;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
 
 class EventController extends Controller
 {
@@ -18,7 +19,11 @@ class EventController extends Controller
      */
     public function index()
     {
-        $events = Event::all();
+        // $events = Event::paginate(3);
+        $events = Event::select()
+            ->select('events.*','categories.name as category_name')
+            ->join('categories','categories.id','=','events.category_id')
+            ->paginate(3);
         return view('user.event.index', ['events' => $events]);
     }
 
@@ -48,12 +53,20 @@ class EventController extends Controller
         }
         if($request->favorite)
         {
-            $favorite = new Favorite();
-            $favorite->user_id = $request->user_id;
-            $favorite->favoritable_id = $request->event_id;
-            $favorite->favoritable_type = $favorite->getTable();
-            $favorite->save();
-            return redirect('/event');
+            $favorite = Favorite::where('user_id',$request->user_id)
+                        ->where('favoritable_id',$request->event_id)
+                        ->where('favoritable_type',(new Event())->getTable())
+                        ->exists();
+            if(!$favorite)
+            {
+                $favorite = new Favorite();
+                $favorite->user_id = $request->user_id;
+                $favorite->favoritable_id = $request->event_id;
+                $favorite->favoritable_type = (new Event())->getTable();
+                $favorite->save();
+            }
+                return redirect('/event');
+            
         }
     }
 
