@@ -6,22 +6,23 @@
         <div class="row">
             <div class="video">
                 <div class="navbar-collapse collapse" id="navbar-filter">
-                    <form class="navbar-form" role="search">
+                    <form method="post" action="{{route('video.index')}}" class="navbar-form" role="search">
+                        {{ csrf_field() }}
                         <div class="form-group">
-                            <select name="filter_type" id="filter_type" class="form-control">
+                            <select name="category_id" id="category_id" class="form-control">
                                 <option value="">Category</option>
-                                <option value="date">Creation Date</option>
-                                <option value="popularity">Popularity</option>
-                                <option value="like_count">Total Likes</option>
-                                <option value="comment_count">Total Comments</option>
+                                @foreach($categories as $category)
+                                <option value="{{$category->id}}">{{$category->name}}</option>
+                                @endforeach
                             </select>
                         </div>
 
                         <span id="filter-date">
                     <div class="form-group">
-                        <input type="text" class="form-control" name="start_date" placeholder="" style="width:300px">
+                        <input type="text" class="form-control" id ="description" name="description" style="width:300px">
                     </div>
                         <button type="submit" id="btn-filter-pending" class="btn btn-info">Search</button>
+                        </span>
                     </form>
                 </div>
                 @foreach($results as $result)
@@ -49,10 +50,11 @@
                     </div>
                 </div>
                 @endforeach
-
             </div>
 
         </div>
+        {{ $results->links() }}
+
     </div>
 
 
