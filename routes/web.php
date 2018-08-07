@@ -57,6 +57,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function() {
 
     Route::resource('events', 'Admin\EventController');
     Route::resource('videos', 'Admin\VideoController');
+    Route::resource('columns', 'Admin\ColumnController');
 
 });
 
