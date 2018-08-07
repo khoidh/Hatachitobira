@@ -30,6 +30,6 @@ class EnquiryController extends Controller
     public function saveEnquiry(Request $request) {
         $data = $request->all();
         Enquiry::create($data);
-        return redirect('/enquiry');
+        return view('thank_enquiry');
     }
 }

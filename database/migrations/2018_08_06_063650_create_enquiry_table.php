@@ -13,7 +13,7 @@ class CreateEnquiryTable extends Migration
      */
     public function up()
     {
-        Schema::create('enquirys', function (Blueprint $table) {
+        Schema::create('enquiries', function (Blueprint $table) {
             $table->increments('id')->unsigned();
             $table->string('first_name',256);
             $table->string('last_name',256);
