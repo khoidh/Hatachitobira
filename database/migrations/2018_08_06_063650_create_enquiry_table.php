@@ -33,6 +33,6 @@ class CreateEnquiryTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('enquiries');
     }
 }
