@@ -1,7 +1,7 @@
 @extends('admin.home')
 @section('javascrip')
 <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
-<link href="{{ asset('css/jquery.datatables.css')}}" rel="stylesheet">
+<link href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet">
 @endsection
 @section('content')
     <!-- <a class="btn btn-info" href="{{route('events.index')}}">一覧に戻る</a> -->
@@ -58,7 +58,7 @@
     </div>
 @endsection
 @section('customjavascript')
-<script src="{{ asset('js/jquery.datatables.min.js')}}"></script>
+<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
 <script type="text/javascript">
     $(document).ready(function () {
         $('#dataTables-example').DataTable({
