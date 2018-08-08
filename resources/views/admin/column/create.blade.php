@@ -1,5 +1,7 @@
 @extends('admin.home')
-
+@section('javascrip')
+<script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
+@endsection
 @section('content')
     <form method="POST"  action="{{route('columns.store')}}">
         {{ csrf_field() }}
@@ -26,8 +28,11 @@
         <div class="form-group row">
             <label for="inputEmail3" class="col-sm-2 col-form-label">Description</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" name="description" value="" placeholder="Description">
+                <textarea class="form-control" name="description" placeholder="Description" id="ckeditor-text"></textarea>
             </div>
+            <script type="text/javascript">
+                CKEDITOR.replace('ckeditor-text' );
+            </script>
         </div>
 
         <div class="form-group row">

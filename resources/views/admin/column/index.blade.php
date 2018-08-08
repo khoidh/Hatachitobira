@@ -18,7 +18,7 @@
             <tr>
                 <th scope="row">{{$column->id}}</th>
                 <td>{{$column->title}}</td>
-                <td>{{$column->description}}</td>
+                <td>{!! $column->description !!}</td>
                 <td>{{$column->image}}</td>
                 <td>{{$column->category_name}}</td>
                 <td>{{$column->sort}}</td>

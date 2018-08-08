@@ -73,7 +73,7 @@ class ColumnController extends Controller
         $data = $request->all();
         $column->update($data);
 
-        //return redirect()->route('columns.show',$column->id);
+        return redirect()->route('columns.show',$column->id);
     }
 
     public function destroy($id)
