@@ -5,6 +5,7 @@
     <link href="{{ asset('css/admin.css') }}" rel="stylesheet">
     {{--<link href="{{ asset('css/font-awesome.min.css') }}" rel="stylesheet">--}}
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
     @yield('javascrip')
 </head>
 <body>
@@ -50,6 +51,11 @@
                 <li>New New 3</li>
             </ul>
 
+            <li>
+                <a href="{{route('enquiry.index')}}">
+                    <i class="fa fa-user fa-lg"></i> Enquiry
+                </a>
+            </li>
 
             <li>
                 <a href="#">
@@ -70,6 +76,6 @@
     @yield('content')
 </div>
 <script src="{{ asset('js/app.js') }}"></script>
-
+@yield('customjavascript')
 </body>
 </html>
