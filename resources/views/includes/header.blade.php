@@ -44,6 +44,7 @@
                     <li><a href="{{ route('register') }}">新規登録</a></li>
                     <li><a href="{{ route('login') }}">グイン </a></li>
                     <li><a href="#">企業採用担当の方</a></li>
+                    <li><a href="{{ url('/enquiry')}}">問い合わせ</a></li>
 
                 @else
                     <li><a href="#">ABOUT</a></li>
@@ -58,6 +59,8 @@
                             <li><a href="#">が格納されている</a></li>
                         </ul>
                     </li>
+                    <li><a href="#">企業採用担当の方</a></li>
+                    <li><a href="{{ url('/enquiry')}}">問い合わせ</a></li>
                     <li><a href="#">MY PAGE</a></li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
