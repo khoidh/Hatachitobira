@@ -11,8 +11,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        $this->call(AdminSeeder::class);
         $this->call(Categories::class);
-
         $this->call(Events::class);
         $this->call(Columns::class);
         $this->call(Videos::class);

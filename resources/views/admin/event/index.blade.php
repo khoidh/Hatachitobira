@@ -31,8 +31,9 @@
             </td>
         </tr>
     @endforeach
-
     </tbody>
 </table>
+{{ $events->links() }}
+
 <a class="btn btn-info" href="{{route('events.create')}}">Add New</a>
 @endsection
