@@ -1,51 +1,37 @@
-<p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
+## Setup môi trường dev
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
+- Cài đặt xampp
+- Clone sourcecode, checkout develop branch
+- Config database
+Sửa file .env trong project
+DB_DATABASE=
+DB_USERNAME=
+DB_PASSWORD=
+- Chạy migration 
+Mục đích: tạo các table
+cmd : php arisan db:migrate
+- Chạy db seed
+Mục đích: để tạo dữ liệu mẫu
+cmd : php artisan db:seed
+- Khởi động laravel
+cmd : php artisan serve
 
-## About Laravel
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as:
+## Quản lý source code sử dụng git flow
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- Branch naming
+Với các feature, đặt tên theo format feature/[issue_no_][feature_code_][feature_short_description]
 
-Laravel is accessible, yet powerful, providing tools needed for large, robust applications. A superb combination of simplicity, elegance, and innovation give you tools you need to build any application with which you are tasked.
+Với các bugfix, đặt tên theo format bugfix/[issue_no_][bug_short_description]
 
-## Learning Laravel
+Nếu không có Issue No hay Feature Code thì bỏ qua.
 
-Laravel has the most extensive and thorough documentation and video tutorial library of any modern web application framework. The [Laravel documentation](https://laravel.com/docs) is thorough, complete, and makes it a breeze to get started learning the framework.
+- Commit
+Yêu cầu:
 
-If you're not in the mood to read, [Laracasts](https://laracasts.com) contains over 900 video tutorials on a range of topics including Laravel, modern PHP, unit testing, JavaScript, and more. Boost the skill level of yourself and your entire team by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for helping fund on-going Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](http://patreon.com/taylorotwell):
-
-- **[Vehikl](http://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[British Software Development](https://www.britishsoftware.co)**
-- **[Styde](https://styde.net)**
-- [Fragrantica](https://www.fragrantica.com)
-- [SOFTonSOFA](https://softonsofa.com/)
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
+Commit message phải rõ ràng, phải chứa issue #... nếu có issue tương ứng. Ví dụ: issue #01 fix bug on login.
+Add đầy đủ các file/đoạn code liên quan đến commit, không add những phần không liên quan.
+Tránh add quá nhiều file trong 1 commit gây khó khăn cho việc review và quản lý source code. Số file tối đa tham khảo: 5.
+Merge Request
+Title của Merge Request: tương tự commit message, chú ý điền issue liên quan nếu có.
+Nếu Merge Request chưa hoàn thành, cần sửa thêm, chưa sẵn sàng để merge: thêm prefix WIP: (Work In Progress) vào title của Merge Request để tránh bị merge nhầm.
