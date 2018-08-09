@@ -32,5 +32,6 @@
 
     </tbody>
 </table>
+{{$videos->links()}}
 <a class="btn btn-info" href="{{route('videos.create')}}">Add New</a>
 @endsection
