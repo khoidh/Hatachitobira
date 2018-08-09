@@ -1,7 +1,7 @@
 @extends('admin.home')
 @section('javascrip')
 <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
-<link href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet">
+
 @endsection
 @section('content')
     <!-- <a class="btn btn-info" href="{{route('events.index')}}">一覧に戻る</a> -->
@@ -37,6 +37,7 @@
                 @endforeach
             </tbody>
         </table>
+        {{ $enquiryData->links() }}
         <div id="myModal_delete" class="modal fade" role="dialog">
             <div class="modal-dialog" style="margin-top:300px">
                 <div class="modal-content">
@@ -58,14 +59,9 @@
     </div>
 @endsection
 @section('customjavascript')
-<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
 <script type="text/javascript">
     $(document).ready(function () {
-        $('#dataTables-example').DataTable({
-            responsive: true,
-            lengthMenu: [[15, 25, 50, 100, -1], [15, 25, 50, 100, "All"]]
-        });
-
+        
         $(document).on('click', '.delete', function (e) {
             e.preventDefault();
             $('.btn-danger.md-delete').attr('href', $(this).attr('data-url'));
