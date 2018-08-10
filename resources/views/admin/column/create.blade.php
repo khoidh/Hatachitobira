@@ -28,7 +28,14 @@
         <div class="form-group row">
             <label for="inputEmail3" class="col-sm-2 col-form-label">Description</label>
             <div class="col-sm-10">
-                <textarea class="form-control" name="description" placeholder="Description" id="ckeditor-text"></textarea>
+                <input type="text" class="form-control" name="description" value="" placeholder="Description">
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="inputEmail3" class="col-sm-2 col-form-label">Content</label>
+            <div class="col-sm-10">
+                <textarea class="form-control" name="content" placeholder="Content" id="ckeditor-text"></textarea>
             </div>
             <script type="text/javascript">
                 CKEDITOR.replace('ckeditor-text' );

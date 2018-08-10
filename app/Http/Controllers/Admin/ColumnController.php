@@ -37,6 +37,7 @@ class ColumnController extends Controller
         $dataInsertToDB = array(
             'title'         => $data['title'],
             'description'   => $data['description'],
+            'content'   => $data['content'],
             'image'         => $data['image'],
             'category_id' => $data['category_id'],
             'sort'          => $data['sort']
