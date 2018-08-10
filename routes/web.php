@@ -68,10 +68,13 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function() {
 
 Route::group(['middleware' => 'auth:user'],function ()
 {
-    Route::resource('event', 'User\EventController');
-    Route::resource('video', 'User\VideoController');
-    Route::post('video','User\Videocontroller@index')->name('video.index');
+    Route::resource('event' , 'User\EventController');
+    Route::resource('video' , 'User\VideoController');
+    Route::resource('column', 'User\ColumnController');
 
+    Route::post('video','User\Videocontroller@index')->name('video.index');
+    Route::post('columnFavorite', 'User\ColumnController@favorite')->name('column.favorite');
+    Route::post('columnFavorite', 'User\ColumnController@favorite')->name('column.favorite');
 });
 
 Route::get('/wyswyg', function () {

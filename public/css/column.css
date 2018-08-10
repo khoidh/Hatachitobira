@@ -1,0 +1,72 @@
+.column
+{
+    padding: 50px;
+}
+.column .info
+{
+    width: 600px;
+}
+.column .info p
+{
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+.column .item
+{
+    margin-top: 25px;
+}
+.column .item .wrapper
+{
+    background-color: black;
+    color: white;
+    display: flex;
+    flex-flow: row nowrap;
+    min-height: 100%;
+    /*width: 600px;*/
+    width: 100%;
+    height: 150px;
+}
+
+.column .item .wrapper .icon
+{
+    width: 150px;
+    height: 150px;
+    position: relative;
+
+}
+.column .item .wrapper .icon img
+{
+    width: 100%;
+    height: 100%;
+    /*position: relative;*/
+}
+.column .item .wrapper .icon i
+{
+    position: absolute;
+    top: 2%;
+    left: 80%;
+    color: blue;
+}
+.column .item .wrapper .icon i:hover
+{
+    color: red;
+}
+.column .item .wrapper .content
+{
+    background-color: lightgreen;
+    color: black;
+    flex: 12 1 auto;
+    padding: 10px;
+}
+.column .item .wrapper .content .status,
+.column .item .wrapper .content .date
+
+{
+    text-align: right;
+}
+
+.column .item .description
+{
+    margin-top: 10px;
+    width: 100%;
+}
