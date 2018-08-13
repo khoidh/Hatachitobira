@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Auth;
 use Socialite;
-use App\Models\User;
+use App\User;
 class LoginController extends Controller
 {
 
@@ -26,10 +26,29 @@ class LoginController extends Controller
 
     public function handleProviderCallback($provider)
     {
-        $user = Socialite::driver($provider)->user();
-
-        $authUser = $this->findOrCreateUser($user, $provider);
-        Auth::login($authUser, true);
+        $userFacebook = Socialite::driver($provider)->user();
+        if ($userFacebook) {
+            $user = User::where('email',$userFacebook->getEmail())->first();
+            if ($user) {
+                $user = $user;
+                Auth::login($user, true);
+            }
+            else {
+                $dataUser = array(
+                    'name' => $userFacebook->getName(),
+                    'email' => $userFacebook->getEmail(),
+                    'password' => bcrypt('123456'),
+                    'image' => $userFacebook->getAvatar(),
+                    'verifyToken' => $userFacebook->token
+                );
+                $data = User::create($dataUser);
+                Auth::login($data, true);
+            }
+        }
+        else {
+            $authUser = $this->findOrCreateUser($user, $provider);
+            Auth::login($authUser, true);
+        }
         return redirect($this->redirectTo);
     }
 
