@@ -21,7 +21,7 @@
                         <div class="icon">
                             <a href="{{route('event.show', $event->id)}}">
                                 <img src="{{asset('image/event/'.$event->image)}}" >
-                                <form action="/event" method="post" name="favorite-form">
+                                <form action="{{route('event.favorite')}}" method="post" name="favorite-form">
                                     {{ csrf_field() }}
 
                                     <input type="hidden" name="favorite" value="1">
