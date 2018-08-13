@@ -67,13 +67,17 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function() {
 | 4) User Controller
 |--------------------------------------------------------------------------
 */
-Route::resource('event', 'User\EventController');
+// Route::resource('event', 'User\EventController');
 Route::resource('u-video', 'User\VideoController');
 Route::resource('column', 'User\ColumnController');
+Route::get('event','User\EventController@index')->name('event.index');
+Route::get('event/{event}','User\EventController@show')->name('event.show');
 
 Route::group(['middleware' => 'auth:user'],function ()
 {
+    Route::post('event','User\EventController@register')->name('event.register');
     Route::post('event','User\EventController@favorite')->name('event.favorite');
+
     Route::post('u-video','User\VideoController@index')->name('u-video.index');
     Route::post('u-video','User\VideoController@favorite')->name('u-video.favorite');
     Route::post('columnFavorite', 'User\ColumnController@favorite')->name('column.favorite');

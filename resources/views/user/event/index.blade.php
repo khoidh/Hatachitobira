@@ -23,8 +23,6 @@
                                 <img src="{{asset('image/event/'.$event->image)}}" >
                                 <form action="{{route('event.favorite')}}" method="post" name="favorite-form">
                                     {{ csrf_field() }}
-
-                                    <input type="hidden" name="favorite" value="1">
                                     <input type="hidden" name="user_id" value="<?php if(Auth::user()) echo Auth::user()->id?>">
                                     <input type="hidden" name="event_id" value="<?php echo $event->id?>">
                                     <button  type="submit">
