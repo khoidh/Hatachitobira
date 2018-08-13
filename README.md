@@ -35,3 +35,6 @@ Tránh add quá nhiều file trong 1 commit gây khó khăn cho việc review v�
 Merge Request
 Title của Merge Request: tương tự commit message, chú ý điền issue liên quan nếu có.
 Nếu Merge Request chưa hoàn thành, cần sửa thêm, chưa sẵn sàng để merge: thêm prefix WIP: (Work In Progress) vào title của Merge Request để tránh bị merge nhầm.
+
+## Using Docker
+please read instruction in `DOCKER.md`

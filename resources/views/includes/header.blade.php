@@ -53,7 +53,7 @@
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">マイテーマ
                             <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="{{route('video.index')}}">動画一覧</a></li>
+                            <li><a href="{{route('u-video.index')}}">動画一覧</a></li>
                             <li><a href="{{route('event.index')}}">イベント一覧</a></li>
                             <li><a href="">記事一覧</a></li>
                             <li><a href="#">が格納されている</a></li>

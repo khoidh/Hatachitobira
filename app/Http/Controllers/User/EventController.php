@@ -27,7 +27,7 @@ class EventController extends Controller
         //
     }
 
-    public function store(Request $request)
+    public function favorite(Request $request)
     {
         if($request->register)
         {
@@ -63,18 +63,4 @@ class EventController extends Controller
         return view('user.event.show', ['event' => $event]);
     }
 
-    public function edit($id)
-    {
-        //
-    }
-
-    public function update(Request $request, $id)
-    {
-
-    }
-
-    public function destroy($id)
-    {
-
-    }
 }
