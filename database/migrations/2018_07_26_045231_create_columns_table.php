@@ -18,6 +18,7 @@ class CreateColumnsTable extends Migration
             $table->integer('category_id')->unsigned();
             $table->string('title',256);
             $table->string('description',256);
+            $table->text('content');
             $table->string('image',256);
             $table->integer('sort');
             $table->timestamps();

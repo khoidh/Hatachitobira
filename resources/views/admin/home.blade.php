@@ -46,9 +46,8 @@
                 <a href="#"><i class="fa fa-car fa-lg"></i> Colums Manager <span class="arrow"></span></a>
             </li>
             <ul class="sub-menu collapse" id="new">
-                <li>New New 1</li>
-                <li>New New 2</li>
-                <li>New New 3</li>
+                <li class=""><a href="{{route('columns.index')}}">List</a></li>
+                <li><a href="{{route('columns.create')}}">New</a></li>
             </ul>
 
             <li>
