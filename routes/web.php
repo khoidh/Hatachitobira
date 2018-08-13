@@ -67,33 +67,21 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function() {
 | 4) User Controller
 |--------------------------------------------------------------------------
 */
+Route::resource('event', 'User\EventController');
+Route::resource('u-video', 'User\VideoController');
+Route::resource('column', 'User\ColumnController');
 
 Route::group(['middleware' => 'auth:user'],function ()
 {
-<<<<<<< HEAD
-    Route::resource('event', 'User\EventController');
     Route::post('event','User\EventController@favorite')->name('event.favorite');
-
-    Route::resource('u-video', 'User\VideoController');
     Route::post('u-video','User\VideoController@index')->name('u-video.index');
     Route::post('u-video','User\VideoController@favorite')->name('u-video.favorite');
-=======
-    Route::resource('event' , 'User\EventController');
-    Route::resource('video' , 'User\VideoController');
-    Route::resource('column', 'User\ColumnController');
->>>>>>> feature/User_Favorite_Column
-
-    Route::post('video','User\Videocontroller@index')->name('video.index');
-    Route::post('columnFavorite', 'User\ColumnController@favorite')->name('column.favorite');
     Route::post('columnFavorite', 'User\ColumnController@favorite')->name('column.favorite');
 });
 
 Route::get('/wyswyg', function () {
     return view('admin.editor.editor');
 });
-<<<<<<< HEAD
 
 Route::get('enquiry','EnquiryController@index');
 Route::post('enquiry','EnquiryController@saveEnquiry');
-=======
->>>>>>> feature/User_Favorite_Column

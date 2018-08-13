@@ -25,7 +25,7 @@
                                     {{ csrf_field() }}
 
                                     <input type="hidden" name="favorite" value="1">
-                                    <input type="hidden" name="user_id" value="<?php echo Auth::user()->id?>">
+                                    <input type="hidden" name="user_id" value="<?php if(Auth::user()) echo Auth::user()->id?>">
                                     <input type="hidden" name="event_id" value="<?php echo $event->id?>">
                                     <button  type="submit">
                                         <i class="fa fa-heart-o" style="font-size:24px;"></i>
