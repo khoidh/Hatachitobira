@@ -54,6 +54,7 @@ Route::group(['prefix' => 'admin'], function() {
 Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function() {
     Route::post('logout',   'Admin\LoginController@logout')->name('admin.logout');
     Route::get('home',      'Admin\HomeController@index')->name('admin.home');
+    Route::get('dashboard', 'Admin\HomeController@dashboard')->name('admin.dashboard');
 
     Route::resource('events', 'Admin\EventController');
     Route::resource('videos', 'Admin\VideoController');
@@ -70,18 +71,15 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function() {
 
 Route::group(['middleware' => 'auth:user'],function ()
 {
-<<<<<<< HEAD
     Route::resource('event', 'User\EventController');
     Route::post('event','User\EventController@favorite')->name('event.favorite');
 
     Route::resource('u-video', 'User\VideoController');
     Route::post('u-video','User\VideoController@index')->name('u-video.index');
     Route::post('u-video','User\VideoController@favorite')->name('u-video.favorite');
-=======
     Route::resource('event' , 'User\EventController');
     Route::resource('video' , 'User\VideoController');
     Route::resource('column', 'User\ColumnController');
->>>>>>> feature/User_Favorite_Column
 
     Route::post('video','User\Videocontroller@index')->name('video.index');
     Route::post('columnFavorite', 'User\ColumnController@favorite')->name('column.favorite');
@@ -91,9 +89,7 @@ Route::group(['middleware' => 'auth:user'],function ()
 Route::get('/wyswyg', function () {
     return view('admin.editor.editor');
 });
-<<<<<<< HEAD
 
 Route::get('enquiry','EnquiryController@index');
 Route::post('enquiry','EnquiryController@saveEnquiry');
-=======
->>>>>>> feature/User_Favorite_Column
+
