@@ -36,9 +36,9 @@
                             <span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <li><a href="#">カテゴリから探す</a></li>
-                            <li><a href="#">動画から探す</a></li>
-                            <li><a href="#">イベントに参加</a></li>
-                            <li><a href="#">記事から知る</a></li>
+                            <li><a href="{{route('u-video.index')}}">動画から探す</a></li>
+                            <li><a href="{{route('event.index')}}">イベントに参加</a></li>
+                            <li><a href="{{route('column.index')}}">記事から知る</a></li>
                         </ul>
                     </li>
                     <li><a href="{{ route('register') }}">新規登録</a></li>

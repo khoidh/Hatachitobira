@@ -40,7 +40,7 @@
                             <span>
                                 <form action="{{route('u-video.favorite')}}" method="POST">
                                     {{ csrf_field() }}
-                                    <input type="hidden" name="user_id" value="{{Auth::user()->id}}">
+                                    <input type="hidden" name="user_id" value="<?php if(Auth::user()) echo Auth::user()->id?>">
                                     <input type="hidden" name="video_id" value="{{$result->id}}">
                                     <button type="submit" class="fa fa-thumbs-o-up"></button>
                                 </form>
