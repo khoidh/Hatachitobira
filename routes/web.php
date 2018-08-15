@@ -72,14 +72,12 @@ Route::group(['middleware' => 'auth:user'],function ()
 {
     Route::resource('event', 'User\EventController');
     Route::post('event','User\EventController@favorite')->name('event.favorite');
-
     Route::resource('u-video', 'User\VideoController');
     Route::post('u-video','User\VideoController@index')->name('u-video.index');
     Route::post('u-video','User\VideoController@favorite')->name('u-video.favorite');
     Route::resource('event' , 'User\EventController');
     Route::resource('video' , 'User\VideoController');
     Route::resource('column', 'User\ColumnController');
-
     Route::post('video','User\Videocontroller@index')->name('video.index');
     Route::post('columnFavorite', 'User\ColumnController@favorite')->name('column.favorite');
     Route::post('columnFavorite', 'User\ColumnController@favorite')->name('column.favorite');
