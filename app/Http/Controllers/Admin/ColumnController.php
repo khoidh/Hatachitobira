@@ -31,21 +31,7 @@ class ColumnController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-
-        //Todo: Error?
-//        Column::create($data);
-        $dataInsertToDB = array(
-            'title'         => $data['title'],
-            'description'   => $data['description'],
-            'content'   => $data['content'],
-            'image'         => $data['image'],
-            'category_id' => $data['category_id'],
-            'sort'          => $data['sort']
-        );
-
-        $objColumn=new Column();
-        $objColumn->insert($dataInsertToDB);
-
+        Column::create($data);
         return redirect()->route('columns.index');
     }
 

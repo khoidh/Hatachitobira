@@ -54,7 +54,7 @@ class EventController extends Controller
         }
 
         return redirect()->route('event.index');
-    
+
     }
 
 }

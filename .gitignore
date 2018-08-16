@@ -14,9 +14,11 @@ yarn-error.log
 /public/css
 /public/fonts
 /public/js
+/public/vendor
 public/media/
 
 /storage/debugbar
 /storage/tmp
 /storage/medialibrary
 /log
+
