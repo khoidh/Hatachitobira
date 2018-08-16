@@ -67,9 +67,9 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function() {
 | 4) User Controller
 |--------------------------------------------------------------------------
 */
-// Route::resource('event', 'User\EventController');
+// Route::resource('event', 'User\EventController')
 Route::resource('u-video', 'User\VideoController');
-Route::resource('column', 'User\ColumnController');
+Route::resource('column', 'ColumnController');
 Route::get('event','User\EventController@index')->name('event.index');
 Route::get('event/{event}','User\EventController@show')->name('event.show');
 
@@ -80,7 +80,7 @@ Route::group(['middleware' => 'auth:user'],function ()
 
     Route::post('u-video','User\VideoController@index')->name('u-video.index');
     Route::post('u-video','User\VideoController@favorite')->name('u-video.favorite');
-    Route::post('columnFavorite', 'User\ColumnController@favorite')->name('column.favorite');
+    Route::post('columnFavorite', 'ColumnController@favorite')->name('column.favorite');
 });
 
 Route::get('/wyswyg', function () {
