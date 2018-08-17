@@ -81,6 +81,9 @@ Route::group(['middleware' => 'auth:user'],function ()
     Route::post('u-video','User\VideoController@index')->name('u-video.index');
     Route::post('u-video','User\VideoController@favorite')->name('u-video.favorite');
     Route::post('columnFavorite', 'User\ColumnController@favorite')->name('column.favorite');
+
+    Route::get('user-profile','User\UserController@index')->name('userprofile.index');
+    Route::post('user-profile','User\UserController@update');
 });
 
 Route::get('/wyswyg', function () {
