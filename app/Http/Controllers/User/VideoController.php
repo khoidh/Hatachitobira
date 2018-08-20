@@ -7,8 +7,7 @@ use App\Http\Controllers\Controller;
 Use App\Video;
 Use App\Category;
 use Illuminate\Pagination\LengthAwarePaginator;
-use Illuminate\Support\Collection;
-
+use App\Favorite;
 class VideoController extends Controller
 {
     public function index(Request $request)
@@ -17,13 +16,17 @@ class VideoController extends Controller
          *  API Youtube information
          *
          */
-        $api_key = env('YOUTUBE_API_KEY');
+//        $api_key = env('YOUTUBE_API_KEY');
+        $api_key = 'AIzaSyCHOj6MNDK2YFRLQhK5yKP2KEBIRKHlHuU';
         $BASE_URL = 'https://www.googleapis.com/youtube/v3/videos?id=';
         $BASE_PART = '&part=id,contentDetails,snippet,statistics,player&key=';
         /**/
 
         $categories = Category::all();
-        $videos = Video::all();
+        $videos = Video::select()
+            ->select('videos.*','categories.name as category_name')
+            ->join('categories','categories.id','=','videos.category_id')->get();
+
         /*Filter*/
         if($request->isMethod('post'))
         {
@@ -49,9 +52,10 @@ class VideoController extends Controller
             $id =  $youtube['v'];
             $api_url = $BASE_URL . $id . $BASE_PART . $api_key . '';
             $result = json_decode(file_get_contents($api_url));
+            $result->id = $video->id;
+            $result->category = $video->category_name;
             array_push($results,$result);
         }
-
 
         /*Pagination */
 
@@ -61,7 +65,7 @@ class VideoController extends Controller
         $perPage = 9;
         $currentPageItems = $itemCollection->slice(($currentPage * $perPage) - $perPage, $perPage)->all();
         $paginatedItems= new LengthAwarePaginator($currentPageItems , count($itemCollection), $perPage);
-        $paginatedItems->setPath('video');
+        $paginatedItems->setPath('u-video');
         /*End pagination*/
 
 
@@ -69,33 +73,21 @@ class VideoController extends Controller
 //        return view('user.video.index', ['videos' => $videos, 'results' => $results]);
     }
 
-    public function create()
+    public function favorite(Request $request)
     {
-        //
-    }
 
-    public function store(Request $request)
-    {
-        //
-    }
-
-    public function show($id)
-    {
-        //
-    }
-
-    public function edit($id)
-    {
-        //
-    }
-
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    public function destroy($id)
-    {
-        //
+        $favorite = Favorite::where('user_id',$request->user_id)
+            ->where('favoritable_id',$request->video_id)
+            ->where('favoritable_type',(new Video())->getTable())
+            ->exists();
+        if(!$favorite)
+        {
+            $favorite = new Favorite();
+            $favorite->user_id = $request->user_id;
+            $favorite->favoritable_id = $request->video_id;
+            $favorite->favoritable_type = (new Video())->getTable();
+            $favorite->save();
+        }
+        return redirect()->route('u-video.index');
     }
 }

@@ -36,9 +36,9 @@
                             <span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <li><a href="#">カテゴリから探す</a></li>
-                            <li><a href="#">動画から探す</a></li>
-                            <li><a href="#">イベントに参加</a></li>
-                            <li><a href="#">記事から知る</a></li>
+                            <li><a href="{{route('u-video.index')}}">動画から探す</a></li>
+                            <li><a href="{{route('event.index')}}">イベントに参加</a></li>
+                            <li><a href="{{route('column.index')}}">記事から知る</a></li>
                         </ul>
                     </li>
                     <li><a href="{{ route('register') }}">新規登録</a></li>
@@ -53,9 +53,9 @@
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">マイテーマ
                             <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="{{route('video.index')}}">動画一覧</a></li>
+                            <li><a href="{{route('u-video.index')}}">動画一覧</a></li>
                             <li><a href="{{route('event.index')}}">イベント一覧</a></li>
-                            <li><a href="">記事一覧</a></li>
+                            <li><a href="{{route('column.index')}}">記事一覧</a></li>
                             <li><a href="#">が格納されている</a></li>
                         </ul>
                     </li>
@@ -69,6 +69,9 @@
 
                         <ul class="dropdown-menu" role="menu">
                             <li>
+                                <a href="{{ route('userprofile.index') }}">ユーザープロフィール</a>
+                            </li>
+                            <li>
                                 <a href="{{ route('logout') }}"
                                    onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -79,6 +82,7 @@
                                     {{ csrf_field() }}
                                 </form>
                             </li>
+                            
                         </ul>
                     </li>
                 @endif

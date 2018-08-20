@@ -6,7 +6,7 @@
         <div class="row">
             <div class="video">
                 <div class="navbar-collapse collapse" id="navbar-filter">
-                    <form method="post" action="{{route('video.index')}}" class="navbar-form" role="search">
+                    <form method="post" action="{{route('u-video.index')}}" class="navbar-form" role="search">
                         {{ csrf_field() }}
                         <div class="form-group">
                             <select name="category_id" id="category_id" class="form-control">
@@ -29,23 +29,22 @@
                     <div class="col-lg-4 col-sm-6 portfolio-item">
                     <div class="wrapper">
                         <div class="thump">
-                            <?php echo ($result->items[0]->player->embedHtml) ?>
-
+                            <img src="{{  $result->items[0]->snippet->thumbnails->medium->url}}" alt="">
+<!--                            --><?php //echo ($result->items[0]->player->embedHtml) ?>
                         </div>
                         <div class="description">
-                            <div class="title">
-                                <p>{{$result->items[0]->snippet->title}}</p>
-                            </div>
-                            <div class="footer">
-                                <div class="viewcount">
-                                    <p>{{$result->items[0]->statistics->viewCount}} Views</p>
-                                </div>
-                                <div class="date">
-                                    {{--<p>{{$result->items[0]->snippet->publishedAt}}</p>--}}
-                                    {{--TODO xử lý tháng--}}
-                                    <p>7 month ago</p>
-                                </div>
-                            </div>
+                            <p>{{$result->items[0]->snippet->title}}</p>
+                            <span>{{$result->items[0]->statistics->viewCount}} Views</span>
+                            <span>7 month ago</span>
+                            <strong>{{$result->category}}</strong>
+                            <span>
+                                <form action="{{route('u-video.favorite')}}" method="POST">
+                                    {{ csrf_field() }}
+                                    <input type="hidden" name="user_id" value="<?php if(Auth::user()) echo Auth::user()->id?>">
+                                    <input type="hidden" name="video_id" value="{{$result->id}}">
+                                    <button type="submit" class="fa fa-thumbs-o-up"></button>
+                                </form>
+                            </span>
                         </div>
                     </div>
                 </div>

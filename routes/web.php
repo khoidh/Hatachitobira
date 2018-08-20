@@ -54,11 +54,13 @@ Route::group(['prefix' => 'admin'], function() {
 Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function() {
     Route::post('logout',   'Admin\LoginController@logout')->name('admin.logout');
     Route::get('home',      'Admin\HomeController@index')->name('admin.home');
+    Route::get('dashboard', 'Admin\HomeController@dashboard')->name('admin.dashboard');
 
     Route::resource('events', 'Admin\EventController');
     Route::resource('videos', 'Admin\VideoController');
     Route::resource('enquiry', 'Admin\EnquiryController');
     Route::get('delete-enquiry/{id}','Admin\EnquiryController@destroy')->name('admin.delete-enquiry');
+    Route::resource('columns', 'Admin\ColumnController');
 });
 
 /*
@@ -66,13 +68,23 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function() {
 | 4) User Controller
 |--------------------------------------------------------------------------
 */
+// Route::resource('event', 'User\EventController')
+Route::resource('u-video', 'User\VideoController');
+Route::resource('column', 'ColumnController');
+Route::get('event','User\EventController@index')->name('event.index');
+Route::get('event/{event}','User\EventController@show')->name('event.show');
 
 Route::group(['middleware' => 'auth:user'],function ()
 {
-    Route::resource('event', 'User\EventController');
-    Route::resource('video', 'User\VideoController');
-    Route::post('video','User\Videocontroller@index')->name('video.index');
+    Route::post('event','User\EventController@register')->name('event.register');
+    Route::post('event','User\EventController@favorite')->name('event.favorite');
 
+    Route::post('u-video','User\VideoController@index')->name('u-video.index');
+    Route::post('u-video','User\VideoController@favorite')->name('u-video.favorite');
+    Route::post('columnFavorite', 'User\ColumnController@favorite')->name('column.favorite');
+
+    Route::get('user-profile','User\UserController@index')->name('userprofile.index');
+    Route::post('user-profile','User\UserController@update');
 });
 
 Route::get('/wyswyg', function () {
