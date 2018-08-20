@@ -68,9 +68,9 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function() {
 | 4) User Controller
 |--------------------------------------------------------------------------
 */
-// Route::resource('event', 'User\EventController');
+// Route::resource('event', 'User\EventController')
 Route::resource('u-video', 'User\VideoController');
-Route::resource('column', 'User\ColumnController');
+Route::resource('column', 'ColumnController');
 Route::get('event','User\EventController@index')->name('event.index');
 Route::get('event/{event}','User\EventController@show')->name('event.show');
 
