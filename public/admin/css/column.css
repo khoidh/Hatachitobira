@@ -1,0 +1,29 @@
+/*Customer*/
+.column-id {
+    width: 7%;
+}
+
+.column-title {
+    width: 20%;
+}
+
+.column-description {
+    text-align: center;
+}
+
+.column-image {
+    width: 100px;
+    text-align: center;
+}
+
+.column-category {
+    width: 10%;
+}
+
+.column-sort {
+    /*width: 10%;*/
+}
+
+.column-function {
+    width: 10%;
+}
