@@ -40,8 +40,9 @@
                     </div>
             </div>
             {{--  Xử lý đăng ký event--}}
-            <form method="POST"  action="{{route('event.register')}}">
+            <form method="POST"  action="{{route('event.update')}}">
                 {{ csrf_field() }}
+                <input type="hidden" name="register" value="1">
                 <input type="hidden" name="user_id" value="<?php if(Auth::user()) echo Auth::user()->id?>">
                 <input type="hidden" name="event_id" value="<?php echo $event->id?>">
                 <button type="submit"  class="btn btn-info">申し込む</button>
