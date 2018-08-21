@@ -1,29 +1,29 @@
 /*Customer*/
-.column-id {
+.table-responsive .table .id {
     width: 7%;
 }
 
-.column-title {
+.table-responsive .table .title {
     width: 20%;
 }
 
-.column-description {
+.table-responsive .table .description {
     text-align: center;
 }
 
-.column-image {
+.table-responsive .table .image {
     width: 100px;
     text-align: center;
 }
 
-.column-category {
+.table-responsive .table .category {
     width: 10%;
 }
 
-.column-sort {
+.table-responsive .table .sort {
     /*width: 10%;*/
 }
 
-.column-function {
+.table-responsive .table .function {
     width: 10%;
 }

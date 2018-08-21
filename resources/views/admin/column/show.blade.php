@@ -1,5 +1,10 @@
 @extends('admin.home')
 
+@section('css')
+    @parent
+    <link rel="stylesheet" href="{{asset('admin/css/column.css')}}">
+@endsection
+
 @section('content-header')
     <div class="content-header-left col-md-6 col-12 mb-2 breadcrumb-new">
         <h3 class="content-header-title mb-0 d-inline-block" style="font-size: 30px">Columns</h3>

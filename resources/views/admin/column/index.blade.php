@@ -35,13 +35,13 @@
         <table class="table mb-0">
             <thead>
             <tr>
-                <th class="column-id">ID</th>
-                <th class="column-title" >Title</th>
-                <th class="column-description" >Description</th>
-                <th class="column-image">Image</th>
-                <th class="column-category" >Category</th>
+                <th class="id">ID</th>
+                <th class="title" >Title</th>
+                <th class="description" >Description</th>
+                <th class="image">Image</th>
+                <th class="category" >Category</th>
                 {{--<th class="sort" >Sort</th>--}}
-                <th class="column-function"></th>
+                <th class="function"></th>
             </tr>
             </thead>
             <tbody>
