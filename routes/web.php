@@ -93,3 +93,12 @@ Route::get('/wyswyg', function () {
 
 Route::get('enquiry','EnquiryController@index');
 Route::post('enquiry','EnquiryController@saveEnquiry');
+
+/*
+    Static Page
+*/
+
+Route::get('/about',function()
+{
+    return view('staticpage/about');
+})->name('about');
