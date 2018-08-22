@@ -14,7 +14,7 @@ class ColumnController extends Controller
         $columns = Column::select()
             ->select('columns.*','categories.name as category_name')
             ->join('categories','categories.id','=','columns.category_id')
-            ->get();
+            ->paginate(10);
 
         return view('admin.column.index',['columns' => $columns]);
     }

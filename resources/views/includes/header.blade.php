@@ -29,7 +29,7 @@
             <ul class="nav navbar-nav navbar-right">
                 <!-- Authentication Links -->
                 @if (Auth::guest())
-                    <li><a href="{{route('about')}}">ABOUT</a></li>
+                    <li><a href="#">ABOUT</a></li>
                     {{--<li><a href="#">マイテーマ</a></li>--}}
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">マイテーマ
@@ -47,7 +47,7 @@
                     <li><a href="{{ url('/enquiry')}}">問い合わせ</a></li>
 
                 @else
-                    <li><a href="{{route('about')}}">ABOUT</a></li>
+                    <li><a href="#">ABOUT</a></li>
                     {{--<li><a href="#">マイテーマ</a></li>--}}
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">マイテーマ
@@ -69,9 +69,6 @@
 
                         <ul class="dropdown-menu" role="menu">
                             <li>
-                                <a href="{{ route('userprofile.index') }}">ユーザープロフィール</a>
-                            </li>
-                            <li>
                                 <a href="{{ route('logout') }}"
                                    onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -82,7 +79,6 @@
                                     {{ csrf_field() }}
                                 </form>
                             </li>
-                            
                         </ul>
                     </li>
                 @endif

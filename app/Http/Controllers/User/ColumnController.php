@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\User;
 
 use App\Column;
 use App\Favorite;
@@ -20,7 +20,7 @@ class ColumnController extends Controller
             ->select('columns.*','categories.name as category_name')
             ->join('categories','categories.id','=','columns.category_id')
             ->paginate(5);
-        return view('column.index', ['columns' => $columns]);
+        return view('user.column.index', ['columns' => $columns]);
     }
 
     /**
@@ -53,7 +53,7 @@ class ColumnController extends Controller
     public function show($id)
     {
         $column = Column::find($id);
-        return view('column.show', ['column' => $column]);
+        return view('user.column.show', ['column' => $column]);
     }
 
     /**

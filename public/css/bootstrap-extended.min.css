@@ -215,6 +215,9 @@ pre code {
     border-bottom: 2px solid #E3EBF3;
     border-top: 1px solid #E3EBF3
 }
+/*.table thead th id{*/
+/*width: 100px;*/
+/*}*/
 
 .table-bordered, .table-bordered td, .table-bordered th {
     border: 1px solid #E3EBF3

@@ -68,9 +68,9 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function() {
 | 4) User Controller
 |--------------------------------------------------------------------------
 */
-// Route::resource('event', 'User\EventController')
+// Route::resource('event', 'User\EventController');
 Route::resource('u-video', 'User\VideoController');
-Route::resource('column', 'ColumnController');
+Route::resource('column', 'User\ColumnController');
 Route::get('event','User\EventController@index')->name('event.index');
 Route::get('event/{event}','User\EventController@show')->name('event.show');
 
@@ -82,9 +82,6 @@ Route::group(['middleware' => 'auth:user'],function ()
     Route::post('u-video','User\VideoController@index')->name('u-video.index');
     Route::post('u-video','User\VideoController@favorite')->name('u-video.favorite');
     Route::post('columnFavorite', 'User\ColumnController@favorite')->name('column.favorite');
-
-    Route::get('user-profile','User\UserController@index')->name('userprofile.index');
-    Route::post('user-profile','User\UserController@update');
 });
 
 Route::get('/wyswyg', function () {
@@ -93,12 +90,3 @@ Route::get('/wyswyg', function () {
 
 Route::get('enquiry','EnquiryController@index');
 Route::post('enquiry','EnquiryController@saveEnquiry');
-
-/*
-    Static Page
-*/
-
-Route::get('/about',function()
-{
-    return view('staticpage/about');
-})->name('about');
