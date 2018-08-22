@@ -63,6 +63,5 @@
         </table>
     </div>
     {{$columns->links()}}
-{{--    <a class="btn btn-info" href="{{route('columns.create')}}">Add New</a>--}}
-    <a class="btn btn-info" href="{{route('events.create')}}">  Add New  </a>
+    <a class="btn btn-info" href="{{route('columns.create')}}">Add New</a>
 @endsection
