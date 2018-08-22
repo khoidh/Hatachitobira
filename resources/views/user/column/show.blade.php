@@ -36,7 +36,7 @@
                             <img src="{{asset('image/column/'.$column->image)}}">
                             <button type="button" class="favorite">
                                 <input type="hidden" class="favorite"    value="1">
-                                <input type="hidden" class="user_id"     value="<?php echo Auth::user()->id?>">
+                                <input type="hidden" class="user_id"     value="<?php if(Auth::user()) echo Auth::user()->id?>">
                                 <input type="hidden" class="column_id"   value="<?php echo $column->id?>">
                                 <i class="fa fa-heart-o" value="123" style="font-size:24px;"></i>
                             </button>
@@ -55,7 +55,7 @@
             <form method="POST"  action="/column">
                 {{ csrf_field() }}
                 <input type="hidden" name="register" value="1">
-                <input type="hidden" name="user_id" value="<?php echo Auth::user()->id?>">
+                <input type="hidden" name="user_id" value="<?php if(Auth::user()) echo Auth::user()->id?>">
                 <input type="hidden" name="column_id" value="<?php echo $column->id?>">
                 <button type="submit" value="Submit" class="btn btn-info">マイテーマを見つける</button>
             </form>

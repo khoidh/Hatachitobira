@@ -48,7 +48,7 @@
                                 <img src="{{asset('image/column/'.$column->image)}}">
                                 <button type="button" class="favorite">
                                     <input type="hidden" class="favorite"    value="0">
-                                    <input type="hidden" class="user_id"     value="<?php echo Auth::user()->id?>">
+                                    <input type="hidden" class="user_id"     value="<?php if(Auth::user()) echo Auth::user()->id?>">
                                     <input type="hidden" class="column_id"   value="<?php echo $column->id?>">
                                     <i class="fa fa-heart-o" style="font-size:24px;"></i>
                                 </button>
