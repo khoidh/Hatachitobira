@@ -1,6 +1,6 @@
 @extends('admin.home')
 @section('javascrip')
-    <script src="{{asset('vendor/unisharp/laravel-ckeditor/ckeditor.js')}}"></script>
+    <script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
 @endsection
 
 @section('content-header')
