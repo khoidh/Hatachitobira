@@ -76,9 +76,7 @@ Route::get('event/{event}','User\EventController@show')->name('event.show');
 
 Route::group(['middleware' => 'auth:user'],function ()
 {
-    Route::post('event','User\EventController@register')->name('event.register');
-    Route::post('event','User\EventController@favorite')->name('event.favorite');
-
+    Route::post('event','User\EventController@update')->name('event.update');
     Route::post('u-video','User\VideoController@index')->name('u-video.index');
     Route::post('u-video','User\VideoController@favorite')->name('u-video.favorite');
     Route::post('columnFavorite', 'User\ColumnController@favorite')->name('column.favorite');
