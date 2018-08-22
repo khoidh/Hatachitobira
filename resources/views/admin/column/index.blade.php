@@ -2,7 +2,7 @@
 
 @section('css')
     @parent
-    <link rel="stylesheet" href="{{asset('admin/css/column.css')}}">
+    <link rel="stylesheet" href="{{asset('admin_plugin/css/column.css')}}">
 @endsection
 
 @section('content-header')
