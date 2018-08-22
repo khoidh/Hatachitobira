@@ -88,3 +88,9 @@ Route::get('/wyswyg', function () {
 
 Route::get('enquiry','EnquiryController@index');
 Route::post('enquiry','EnquiryController@saveEnquiry');
+
+//Route::get('about','AboutController@index');
+
+Route::get('about',function () {
+    return view('about');
+});
