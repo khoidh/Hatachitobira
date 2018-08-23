@@ -40,7 +40,7 @@
         <th class="url">URL</th>
         <th class="description">Description</th>
         <th class="image">Image</th>
-        <th class="sort">Sort</th>
+        {{--<th class="sort">Sort</th>--}}
         <th class="function"></th>
 
     </tr>
@@ -58,7 +58,7 @@
             <td><img width="100px" height="100px"
                      src="{{ file_exists($image)?asset($image):asset('image/video/video_default.jpg')}}" ></td>
 
-            <td>{{$video->sort}}</td>
+{{--            <td>{{$video->sort}}</td>--}}
             <td>
                 <a href="{{route('videos.show',$video->id)}}">Detail</a>
                 <a href="{{route('videos.edit',$video->id)}}">Edit</a>
