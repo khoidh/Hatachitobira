@@ -43,7 +43,7 @@
         <label class="col-sm-2 col-form-label" for="category_id">Category</label>
         <div class="col-sm-10">
         <select name="category_id" id="category_id" class="form-control" required ="true">
-            <option selected>Choose Category</option>
+            {{--<option selected>Choose Category</option>--}}
             @foreach($categories as $category)
                 <option value="<?php  echo $category->id ?>"><?php  echo $category->name ?></option>
             @endforeach

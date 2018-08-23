@@ -45,7 +45,6 @@
             <th class="startAt">Start At</th>
             <th class="endAt">End At</th>
             <th class="delete">Delete</th>
-            <th class="function">Delete</th>
 
         </tr>
         </thead>
