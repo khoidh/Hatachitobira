@@ -27,7 +27,7 @@
             <ul class="nav navbar-nav navbar-right">
                 <!-- Authentication Links -->
                 @if (Auth::guest())
-                    <li><a href="#">ABOUT</a></li>
+                    <li><a href="{{url('about')}}">ABOUT</a></li>
                     {{--<li><a href="#">マイテーマ</a></li>--}}
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">マイテーマ
@@ -45,7 +45,7 @@
                     <li><a href="{{ url('/enquiry')}}">問い合わせ</a></li>
 
                 @else
-                    <li><a href="#">ABOUT</a></li>
+                    <li><a href="{{url('about')}}">ABOUT</a></li>
                     {{--<li><a href="#">マイテーマ</a></li>--}}
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">マイテーマ

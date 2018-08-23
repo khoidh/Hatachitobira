@@ -1,5 +1,5 @@
 <footer>
-    <div class="container">
+    <div class="container container-footer">
         <div class="row" style="padding-left: 50px">
             <div class="col-6 col-md-4">
                 <ul>
@@ -11,7 +11,7 @@
             </div>
             <div class="col-6 col-md-4">
                 <ul>
-                    <li><a href="#">ABOUT</a></li>
+                    <li><a href="{{url('about')}}">ABOUT</a></li>
                     <li><a href="#">-お問い合わせ</a></li>
                     <li><a href="#">運営会社</a></li>
                     <li><a href="#">プライバシーポリシー</a></li>
