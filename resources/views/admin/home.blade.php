@@ -15,12 +15,12 @@
     <link rel="apple-touch-icon" href="https://pixinvent.com/modern-admin-clean-bootstrap-4-dashboard-html-template/app-assets/images/ico/apple-icon-120.png">
     <link rel="shortcut icon" type="image/x-icon" href="https://pixinvent.com/modern-admin-clean-bootstrap-4-dashboard-html-template/app-assets/images/ico/favicon.ico">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Quicksand:300,400,500,700" rel="stylesheet">
-    <link href="{{ asset('admin/css/line-awesome.min.css')}}" rel="stylesheet">
+    <link href="{{ asset('admin_plugin/css/line-awesome.min.css')}}" rel="stylesheet">
     <!-- BEGIN VENDOR CSS-->
-    <link rel="stylesheet" type="text/css" href="{{ asset('admin/css/bootstrap.min.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('admin/css/style.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('admin_plugin/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('admin_plugin/css/style.min.css') }}">
     <link rel="stylesheet" type="text/css" href="https://pixinvent.com/modern-admin-clean-bootstrap-4-dashboard-html-template/app-assets/fonts/flag-icon-css/css/flag-icon.min.css">
-    <link rel="stylesheet" type="text/css" href="{{ asset('admin/css/vendors/css/extensions/pace.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('admin_plugin/css/vendors/css/extensions/pace.css') }}">
     <!-- END VENDOR CSS-->
     <!-- BEGIN MODERN CSS-->
     <link rel="stylesheet" type="text/css" href="{{ asset('css/app.min.css') }}">
