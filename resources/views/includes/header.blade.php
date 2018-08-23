@@ -36,7 +36,7 @@
                             <span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <li><a href="#">カテゴリから探す</a></li>
-                            <li><a href="{{route('u-video.index')}}">動画から探す</a></li>
+                            <li><a href="{{route('video.index')}}">動画から探す</a></li>
                             <li><a href="{{route('event.index')}}">イベントに参加</a></li>
                             <li><a href="{{route('column.index')}}">記事から知る</a></li>
                         </ul>
@@ -53,7 +53,7 @@
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">マイテーマ
                             <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="{{route('u-video.index')}}">動画一覧</a></li>
+                            <li><a href="{{route('video.index')}}">動画一覧</a></li>
                             <li><a href="{{route('event.index')}}">イベント一覧</a></li>
                             <li><a href="{{route('column.index')}}">記事一覧</a></li>
                             <li><a href="#">が格納されている</a></li>

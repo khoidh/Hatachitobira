@@ -6,7 +6,7 @@
         <div class="row">
             <div class="video">
                 <div class="navbar-collapse collapse" id="navbar-filter">
-                    <form method="post" action="{{route('u-video.index')}}" class="navbar-form" role="search">
+                    <form method="post" action="{{route('video.index')}}" class="navbar-form" role="search">
                         {{ csrf_field() }}
                         <div class="form-group">
                             <select name="category_id" id="category_id" class="form-control">
@@ -38,7 +38,7 @@
                             <span>7 month ago</span>
                             <strong>{{$result->category}}</strong>
                             <span>
-                                <form action="{{route('u-video.favorite')}}" method="POST">
+                                <form action="{{route('video.favorite')}}" method="POST">
                                     {{ csrf_field() }}
                                     <input type="hidden" name="user_id" value="<?php if(Auth::user()) echo Auth::user()->id?>">
                                     <input type="hidden" name="video_id" value="{{$result->id}}">
