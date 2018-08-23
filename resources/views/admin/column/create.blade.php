@@ -32,13 +32,12 @@
 @section('content')
     <div class="row justify-content-md-center">
         <div class="col-md-10">
-            <form method="POST"  action="{{route('columns.store')}}">
+            <form action="{{route('columns.store')}}" enctype="multipart/form-data" method="POST">
                 {{ csrf_field() }}
                 <div class="form-group row">
-
                     <label class="col-sm-2 col-form-label" for="inputState">Category</label>
                     <div class="col-sm-10">
-                        <select name="category_id" class="form-control">
+                        <select name="category_id" class="form-control" required="true">
                             <option selected>Choose Category</option>
                             @foreach($categories as $category)
                                 <option value="{{$category->id}}">{{$category->name}}</option>
@@ -50,21 +49,21 @@
                 <div class="form-group row">
                     <label for="inputEmail3" class="col-sm-2 col-form-label">Title</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" name="title" value="" placeholder="Title">
+                        <input type="text" class="form-control" name="title" value="" placeholder="Title" required="true">
                     </div>
                 </div>
 
                 <div class="form-group row">
                     <label for="inputEmail3" class="col-sm-2 col-form-label">Description</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" name="description" value="" placeholder="Description">
+                        <input type="text" class="form-control" name="description" value="" placeholder="Description" required="true">
                     </div>
                 </div>
 
                 <div class="form-group row">
                     <label for="inputEmail3" class="col-sm-2 col-form-label">Content</label>
                     <div class="col-sm-10">
-                        <textarea class="form-control" name="content" placeholder="Content" id="ckeditor-text"></textarea>
+                        <textarea class="form-control" name="content" placeholder="Content" id="ckeditor-text" required="true"></textarea>
                     </div>
                     <script type="text/javascript">
                         CKEDITOR.replace('ckeditor-text' );
@@ -74,14 +73,14 @@
                 <div class="form-group row">
                     <label for="inputPassword3" class="col-sm-2 col-form-label">Upload Image</label>
                     <div class="col-sm-10">
-                        <input type="file" name="image">
+                        <input type="file" name="image" required="true" image="jpeg, png, bmp, gif, or svg">
                     </div>
                 </div>
 
                 <div class="form-group row">
                     <label for="inputPassword3" class="col-sm-2 col-form-label">Sort</label>
                     <div class="col-sm-10">
-                        <input type="number" name="sort">
+                        <input type="number" name="sort" required="true">
                     </div>
                 </div>
 

@@ -51,7 +51,11 @@
                 <th scope="row">{{$column->id}}</th>
                 <td>{{$column->title}}</td>
                 <td>{{$column->description}}</td>
-                <td><img width="100px" height="100px" src="{{asset('image/column/'.$column->image)}}" ></td>
+
+                @php $image= 'image/column/'.$column->image @endphp
+                <td><img width="100px" height="100px"
+                         src="{{ file_exists($image)?asset($image):asset('image/column/column_default.jpg')}}" ></td>
+
                 <td>{{$column->category_name}}</td>
 {{--                <td>{{$column->sort}}</td>--}}
                 <td>

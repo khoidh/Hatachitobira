@@ -30,6 +30,16 @@ class VideoController extends Controller
     {
         $data = $request->all();
         Video::create($data);
+
+        //Upload file image
+        if($request->hasFile('image')){
+            //Lưu hình ảnh vào thư mục public/image/video
+            $file = $request->file('image');
+            $fileName = time().'_'.$file->getClientOriginalName();
+            $destinationPath = public_path('image/video');
+            $file->move($destinationPath, $fileName);
+        }
+
         return redirect()->route('videos.index');
     }
 
@@ -56,6 +66,16 @@ class VideoController extends Controller
         $video = Video::find($id);
         $data = $request->all();
         $video->update($data);
+
+        //Upload file image
+        if($request->hasFile('image')) {
+            //Lưu hình ảnh vào thư mục public/image/video
+            $file = $request->file('image');
+            $fileName = time() . '_' . $file->getClientOriginalName();
+            $destinationPath = public_path('image/video');
+            $file->move($destinationPath, $fileName);
+        }
+
         return redirect()->route('videos.show',$video->id);
     }
 
