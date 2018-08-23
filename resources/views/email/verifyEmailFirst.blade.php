@@ -1,1 +1,5 @@
-<h3>verifyEmailFirst.blade.php </h3>
+@extends('layouts.app')
+
+@section('content')
+	<h1>Registration complete. Please check your e-mail</h1>
+@endsection
