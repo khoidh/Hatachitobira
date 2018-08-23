@@ -21,18 +21,25 @@
                         <div class="icon">
                             <a href="{{route('event.show', $event->id)}}">
                                 <img src="{{asset('image/event/'.$event->image)}}" >
+                            </a>
+                                
+                                @if(Auth::user())
                                 <form action="{{route('event.update')}}" method="post" name="favorite-form">
                                     {{ csrf_field() }}
                                     <input type="hidden" name="favorite" value="1">
                                     <input type="hidden" name="user_id" value="<?php if(Auth::user()) echo Auth::user()->id?>">
                                     <input type="hidden" name="event_id" value="<?php echo $event->id?>">
                                     <button  type="submit">
-                                        <i class="fa fa-heart-o" style="font-size:24px;"></i>
+                                        <i class="fa fa-heart-o" style="font-size:24px;"> </i>
                                     </button>
                                     <!-- <a class="submit"><i class="fa fa-heart-o" style="font-size:24px;"></i></a> -->
 
                                 </form>
-                            </a>
+                                @else
+                                    <div type="submit">
+                                        <i class="fa fa-heart-o" style="font-size:24px;" data-toggle="modal" data-target="#modal_login"> </i>
+                                    </div>
+                                @endif
                         </div>
                         <div class="content">
                             <div class="status">

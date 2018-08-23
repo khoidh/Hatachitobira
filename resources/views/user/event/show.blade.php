@@ -7,10 +7,14 @@
                     <div class="item">
                         <div class="wrapper">
                             <div class="icon">
-                                <a href="/event/{{$event->id}}">
+                                <!-- <a href=""> -->
                                     <img src="{{asset('image/event/'.$event->image)}}" >
+                                    @if(Auth::user())
                                     <a href=""><i class="fa fa-heart-o" style="font-size:24px;"></i></a>
-                                </a>
+                                    @else
+                                        <i class="fa fa-heart-o" style="font-size:24px;" data-toggle="modal" data-target="#modal_login"> </i>
+                                    @endif
+                                <!-- </a> -->
                             </div>
                             <div class="content">
                                 <div class="status">
@@ -40,6 +44,7 @@
                     </div>
             </div>
             {{--  Xử lý đăng ký event--}}
+            @if(Auth::user())
             <form method="POST"  action="{{route('event.update')}}">
                 {{ csrf_field() }}
                 <input type="hidden" name="register" value="1">
@@ -47,6 +52,9 @@
                 <input type="hidden" name="event_id" value="<?php echo $event->id?>">
                 <button type="submit"  class="btn btn-info">申し込む</button>
             </form>
+            @else
+                <button type="submit"  class="btn btn-info" data-toggle="modal" data-target="#modal_login">申し込む</button>
+            @endif
         </div>
 
     </div>

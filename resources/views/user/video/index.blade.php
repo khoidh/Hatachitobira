@@ -29,21 +29,35 @@
                     <div class="col-lg-4 col-sm-6 portfolio-item">
                     <div class="wrapper">
                         <div class="thump">
-                            <img src="{{  $result->items[0]->snippet->thumbnails->medium->url}}" alt="">
-<!--                            --><?php //echo ($result->items[0]->player->embedHtml) ?>
+                            <!-- <img src="{{  $result->items[0]->snippet->thumbnails->medium->url}}" alt=""> -->
+                            <?php echo ($result->items[0]->player->embedHtml) ?>
                         </div>
                         <div class="description">
-                            <p>{{$result->items[0]->snippet->title}}</p>
+                            <p>
+                                <?php 
+                                    $title = $result->items[0]->snippet->title;
+                                    substr($title, 0,20);
+                                    echo $title. '...';
+                                ?>
+                                
+                            </p>
+
                             <span>{{$result->items[0]->statistics->viewCount}} Views</span>
                             <span>7 month ago</span>
                             <strong>{{$result->category}}</strong>
                             <span>
+                                @if(Auth::user())
                                 <form action="{{route('video.favorite')}}" method="POST">
                                     {{ csrf_field() }}
                                     <input type="hidden" name="user_id" value="<?php if(Auth::user()) echo Auth::user()->id?>">
                                     <input type="hidden" name="video_id" value="{{$result->id}}">
                                     <button type="submit" class="fa fa-thumbs-o-up"></button>
                                 </form>
+                                @else
+                                    <div type="submit">
+                                        <button type="submit" class="fa fa-thumbs-o-up" data-toggle="modal" data-target="#modal_login"></button>
+                                    </div>
+                                @endif
                             </span>
                         </div>
                     </div>
