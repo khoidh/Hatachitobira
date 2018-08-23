@@ -13,7 +13,7 @@ class UpdateUsersTable extends Migration
      */
     public function up()
     {
-        Schema::table('Users', function (Blueprint $table) {
+        Schema::table('users', function (Blueprint $table) {
             $table->string('verifyToken')->after('password')->nullable();
             $table->boolean('status')->after('verifyToken')->default(0);
         });
@@ -26,7 +26,7 @@ class UpdateUsersTable extends Migration
      */
     public function down()
     {
-        Schema::table('Users', function (Blueprint $table) {
+        Schema::table('users', function (Blueprint $table) {
             $table->dropColumn('verifyToken');
             $table->dropColumn('status');
 
