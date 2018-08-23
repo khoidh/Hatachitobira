@@ -23,8 +23,8 @@
 </head>
 <body>
     <div id="app">
-        @yield('slide');
-        @include('includes.header');
+        @include('includes.header')
+        @yield('slide')
         <div class="content">
             <div class="container-fluid">
                 @yield('content');

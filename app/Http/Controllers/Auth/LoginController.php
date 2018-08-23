@@ -7,6 +7,8 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Auth;
 use Socialite;
 use App\User;
+use Illuminate\Http\Request;
+
 class LoginController extends Controller
 {
 
@@ -50,6 +52,28 @@ class LoginController extends Controller
             Auth::login($authUser, true);
         }
         return redirect($this->redirectTo);
+    }
+
+    public function userLogin(Request $request){
+        $data = $request->all();
+        $user = User::where('email',$data['email'])->first();
+        $result = array();
+        if ($user) {
+            $user = $user;
+            Auth::attempt($data);
+            $usersd = Auth::user();
+            if($usersd){
+                $result['status'] = true;
+            }else {
+                $result['status'] = false;
+                $result['message'] = 'Username or password wrong';
+            }
+        }
+        else {
+            $result['status'] = false;
+            $result['message'] = 'Username not exist';
+        }
+        return json_encode($result);
     }
 
     public function findOrCreateUser($user, $provider)
