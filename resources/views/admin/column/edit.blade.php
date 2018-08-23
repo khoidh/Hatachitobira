@@ -32,13 +32,13 @@
 @section('content')
     <div class="row justify-content-md-center">
         <div class="col-md-10">
-            <form action="{{route('columns.update',$column->id)}}" method="post">
+            <form action="{{route('columns.update',$column->id)}}"  enctype="multipart/form-data" method="POST">
             {{ csrf_field() }}
 
             <div class="form-group row">
                 <label class="col-sm-2 col-form-label" for="inputState">Category</label>
                 <div class="col-sm-10">
-                    <select name="category_id" value="<?php echo $column->id ?>" class="form-control">
+                    <select name="category_id" value="<?php echo $column->id ?>" class="form-control" required="true">
                         @foreach($categories as $category)
                             <option value="{{ $category->id }}" {{($category->id == $column->category_id) ? 'selected' : ''}} >{{$category->name}}</option>
                         @endforeach
@@ -49,21 +49,21 @@
             <div class="form-group row">
                 <label for="inputEmail3" class="col-sm-2 col-form-label">Title</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" name="title" value="{{$column->title}}" placeholder="Title">
+                    <input type="text" class="form-control" name="title" value="{{$column->title}}" placeholder="Title" required="true">
                 </div>
             </div>
 
             <div class="form-group row">
                 <label for="inputEmail3" class="col-sm-2 col-form-label">Description</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" name="description" value="{{$column->description}}" placeholder="Description">
+                    <input type="text" class="form-control" name="description" value="{{$column->description}}" placeholder="Description" required="true">
                 </div>
             </div>
 
             <div class="form-group row">
                 <label for="inputEmail3" class="col-sm-2 col-form-label">Content</label>
                 <div class="col-sm-10">
-                    <textarea class="form-control" name="content" placeholder="Content" id="ckeditor-text">
+                    <textarea class="form-control" name="content" placeholder="Content" id="ckeditor-text" required="true">
                         {{$column->content}}
                     </textarea>
                 </div>
@@ -75,14 +75,14 @@
             <div class="form-group row">
                 <label for="inputPassword3" class="col-sm-2 col-form-label">Upload Image</label>
                 <div class="col-sm-10">
-                    <input type="file" name="image" value="{{$column->image}}">
+                    <input type="file" name="image" value="{{$column->image}}" required="true" image="jpeg, png, bmp, gif, or svg">
                 </div>
             </div>
 
             <div class="form-group row">
                 <label for="inputPassword3" class="col-sm-2 col-form-label">Sort</label>
                 <div class="col-sm-10">
-                    <input type="number" name="sort" value="{{$column->sort}}">
+                    <input type="number" name="sort" value="{{$column->sort}}" required="true">
                 </div>
             </div>
 
