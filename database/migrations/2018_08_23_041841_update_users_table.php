@@ -14,8 +14,8 @@ class UpdateUsersTable extends Migration
     public function up()
     {
         Schema::table('Users', function (Blueprint $table) {
-            $table->string('verifyToken')->after('password');
-            $table->boolean('status')->after('verifyToken');
+            $table->string('verifyToken')->after('password')->nullable();
+            $table->boolean('status')->after('verifyToken')->default(0);
         });
     }
 

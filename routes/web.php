@@ -94,3 +94,8 @@ Route::post('enquiry','EnquiryController@saveEnquiry');
 Route::get('about',function () {
     return view('about');
 });
+
+/* Register with email */
+Route::get('verifyEmailFirst','Auth\RegisterController@verifyEmailFirst')->name('verifyEmailFirst');
+
+Route::get('verify/{email}/{verifyToken}','Auth\RegisterController@sendEmailDone')->name('sendEmailDone');
