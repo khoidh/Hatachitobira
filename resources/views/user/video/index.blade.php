@@ -6,7 +6,7 @@
         <div class="row">
             <div class="video">
                 <div class="navbar-collapse collapse" id="navbar-filter">
-                    <form method="post" action="{{route('video.index')}}" class="navbar-form" role="search">
+                    <form method="post" action="{{route('video.search')}}" class="navbar-form" role="search">
                         {{ csrf_field() }}
                         <div class="form-group">
                             <select name="category_id" id="category_id" class="form-control">
