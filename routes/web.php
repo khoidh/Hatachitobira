@@ -73,11 +73,11 @@ Route::resource('video', 'User\VideoController');
 Route::resource('column', 'User\ColumnController');
 Route::get('event','User\EventController@index')->name('event.index');
 Route::get('event/{event}','User\EventController@show')->name('event.show');
+Route::post('video-search','User\VideoController@index')->name('video.search');
 
 Route::group(['middleware' => 'auth:user'],function ()
 {
     Route::post('event','User\EventController@update')->name('event.update');
-    Route::post('video','User\VideoController@index')->name('video.index');
     Route::post('video','User\VideoController@favorite')->name('video.favorite');
     Route::post('columnFavorite', 'User\ColumnController@favorite')->name('column.favorite');
 });

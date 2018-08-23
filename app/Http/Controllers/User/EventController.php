@@ -53,6 +53,8 @@ class EventController extends Controller
                 $favorite->favoritable_type = (new Event())->getTable();
                 $favorite->save();
             }
+            return redirect()->route('event.index');
+
         }
     }
 
