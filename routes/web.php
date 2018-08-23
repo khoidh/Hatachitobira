@@ -23,7 +23,7 @@ Route::get('/', function () {
 
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
-
+Route::post('user-login','Auth\LoginController@userLogin');
 /*
 |--------------------------------------------------------------------------
 | 2) User login with facebook
@@ -69,7 +69,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function() {
 |--------------------------------------------------------------------------
 */
 // Route::resource('event', 'User\EventController');
-Route::resource('u-video', 'User\VideoController');
+Route::resource('video', 'User\VideoController');
 Route::resource('column', 'User\ColumnController');
 Route::get('event','User\EventController@index')->name('event.index');
 Route::get('event/{event}','User\EventController@show')->name('event.show');
@@ -77,8 +77,8 @@ Route::get('event/{event}','User\EventController@show')->name('event.show');
 Route::group(['middleware' => 'auth:user'],function ()
 {
     Route::post('event','User\EventController@update')->name('event.update');
-    Route::post('u-video','User\VideoController@index')->name('u-video.index');
-    Route::post('u-video','User\VideoController@favorite')->name('u-video.favorite');
+    Route::post('video','User\VideoController@index')->name('video.index');
+    Route::post('video','User\VideoController@favorite')->name('video.favorite');
     Route::post('columnFavorite', 'User\ColumnController@favorite')->name('column.favorite');
 });
 
@@ -88,3 +88,14 @@ Route::get('/wyswyg', function () {
 
 Route::get('enquiry','EnquiryController@index');
 Route::post('enquiry','EnquiryController@saveEnquiry');
+
+//Route::get('about','AboutController@index');
+
+Route::get('about',function () {
+    return view('about');
+});
+
+/* Register with email */
+Route::get('verifyEmailFirst','Auth\RegisterController@verifyEmailFirst')->name('verifyEmailFirst');
+
+Route::get('verify/{email}/{verifyToken}','Auth\RegisterController@sendEmailDone')->name('sendEmailDone');

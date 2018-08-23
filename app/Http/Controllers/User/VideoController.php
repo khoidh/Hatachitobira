@@ -65,7 +65,7 @@ class VideoController extends Controller
         $perPage = 9;
         $currentPageItems = $itemCollection->slice(($currentPage * $perPage) - $perPage, $perPage)->all();
         $paginatedItems= new LengthAwarePaginator($currentPageItems , count($itemCollection), $perPage);
-        $paginatedItems->setPath('u-video');
+        $paginatedItems->setPath('video');
         /*End pagination*/
 
 
@@ -88,6 +88,6 @@ class VideoController extends Controller
             $favorite->favoritable_type = (new Video())->getTable();
             $favorite->save();
         }
-        return redirect()->route('u-video.index');
+        return redirect()->route('video.index');
     }
 }
