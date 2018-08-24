@@ -19,8 +19,12 @@
                 <div class="item">
                     <div class="wrapper">
                         <div class="icon">
+                            {{--<a href="{{route('event.show', $event->id)}}">--}}
+                                {{--<img src="{{asset('image/event/'.$event->image)}}" >--}}
+                            {{--</a>--}}
                             <a href="{{route('event.show', $event->id)}}">
-                                <img src="{{asset('image/event/'.$event->image)}}" >
+                                @php $image='image/event/'.$event->image; @endphp
+                                <img src="{{file_exists($image)?asset($image): asset('image/event/event_default.jpg')}}">
                             </a>
                                 
                                 @if(Auth::user())

@@ -8,7 +8,10 @@
                         <div class="wrapper">
                             <div class="icon">
                                 <!-- <a href=""> -->
-                                    <img src="{{asset('image/event/'.$event->image)}}" >
+{{--                                    <img src="{{asset('image/event/'.$event->image)}}" >--}}
+                                @php $image='image/event/'.$event->image; @endphp
+                                <img src="{{file_exists($image)?asset($image): asset('image/event/event_default.jpg')}}">
+
                                     @if(Auth::user())
                                     <a href=""><i class="fa fa-heart-o" style="font-size:24px;"></i></a>
                                     @else
