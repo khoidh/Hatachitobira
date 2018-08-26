@@ -4,8 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use App\Category;
 use App\Column;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Validator;
+use Illuminate\Http\Request;
+//use Illuminate\Http\Request;
 
 class ColumnController extends Controller
 {
@@ -14,7 +16,7 @@ class ColumnController extends Controller
         $columns = Column::select()
             ->select('columns.*','categories.name as category_name')
             ->join('categories','categories.id','=','columns.category_id')
-            ->get();
+            ->paginate(10);
 
         return view('admin.column.index',['columns' => $columns]);
     }
@@ -31,7 +33,32 @@ class ColumnController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
+//        var_dump($data);die;
+
         Column::create($data);
+
+        //Upload file image
+        if($request->hasFile('image')){
+            //Hàm kiểm tra dữ liệu
+//            $this->validate($request,
+//                [
+//                    //Kiểm tra đúng file đuôi .jpg,.jpeg,.png.gif và dung lượng không quá 2M
+//                    'image' => 'mimes:jpg,jpeg,png,gif|max:2048',
+//                ],
+//                [
+//                    //Tùy chỉnh hiển thị thông báo không thõa điều kiện
+//                    'image.mimes' => 'Chỉ chấp nhận ảnh với đuôi .jpg .jpeg .png .gif',
+//                    'image.max' => 'Ảnh giới hạn dung lượng không quá 2M',
+//                ]
+//            );
+
+            //Lưu hình ảnh vào thư mục public/image/column
+            $file = $request->file('image');
+            $fileName = time().'_'.$file->getClientOriginalName();
+            $destinationPath = public_path('image/column');
+            $file->move($destinationPath, $fileName);
+        }
+
         return redirect()->route('columns.index');
     }
 
@@ -59,6 +86,28 @@ class ColumnController extends Controller
         $column = Column::find($id);
         $data = $request->all();
         $column->update($data);
+
+        //Upload file image
+        if($request->hasFile('image')) {
+            //Hàm kiểm tra dữ liệu
+//            $this->validate($request,
+//                [
+//                    //Kiểm tra đúng file đuôi .jpg,.jpeg,.png.gif và dung lượng không quá 2M
+//                    'image' => 'mimes:jpg,jpeg,png,gif|max:2048',
+//                ],
+//                [
+//                    //Tùy chỉnh hiển thị thông báo không thõa điều kiện
+//                    'image.mimes' => 'Chỉ chấp nhận ảnh với đuôi .jpg .jpeg .png .gif',
+//                    'image.max' => 'Ảnh giới hạn dung lượng không quá 2M',
+//                ]
+//            );
+
+            //Lưu hình ảnh vào thư mục public/image/column
+            $file = $request->file('image');
+            $fileName = time() . '_' . $file->getClientOriginalName();
+            $destinationPath = public_path('image/column');
+            $file->move($destinationPath, $fileName);
+        }
 
         return redirect()->route('columns.show',$column->id);
     }

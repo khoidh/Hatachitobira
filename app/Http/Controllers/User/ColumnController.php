@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\User;
 
 use App\Column;
 use App\Favorite;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class ColumnController extends Controller
 {
@@ -20,7 +21,15 @@ class ColumnController extends Controller
             ->select('columns.*','categories.name as category_name')
             ->join('categories','categories.id','=','columns.category_id')
             ->paginate(5);
-        return view('column.index', ['columns' => $columns]);
+        if(Auth::user())
+        {
+            $user_id            = Auth::user()->id;
+            $favoritable_type   = (new Column())->getTable();
+            $favorites_id= Favorite::where([['user_id',$user_id],
+                ['favoritable_type',$favoritable_type]])->pluck('favoritable_id')->toArray();
+            return view('user.column.index', ['columns' => $columns,'favorites_id'=>$favorites_id]);
+        }
+        return view('user.column.index', ['columns' => $columns]);
     }
 
     /**
@@ -53,7 +62,7 @@ class ColumnController extends Controller
     public function show($id)
     {
         $column = Column::find($id);
-        return view('column.show', ['column' => $column]);
+        return view('user.column.show', ['column' => $column]);
     }
 
     /**

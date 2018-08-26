@@ -31,6 +31,16 @@ class EventController extends Controller
         $data = $request->all();
         Event::create($data);
 
+        //Upload file image
+        if($request->hasFile('image')){
+
+            //Lưu hình ảnh vào thư mục public/image/event
+            $file = $request->file('image');
+            $fileName = time().'_'.$file->getClientOriginalName();
+            $destinationPath = public_path('image/event');
+            $file->move($destinationPath, $fileName);
+        }
+
         return redirect()->route('events.index');
     }
 
@@ -58,6 +68,15 @@ class EventController extends Controller
         $event = Event::find($id);
         $data = $request->all();
         $event->update($data);
+
+        //Upload file image
+        if($request->hasFile('image')) {
+            //Lưu hình ảnh vào thư mục public/image/event
+            $file = $request->file('image');
+            $fileName = time() . '_' . $file->getClientOriginalName();
+            $destinationPath = public_path('image/event');
+            $file->move($destinationPath, $fileName);
+        }
 
         return redirect()->route('events.show',$event->id);
     }

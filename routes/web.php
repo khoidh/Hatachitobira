@@ -23,7 +23,7 @@ Route::get('/', function () {
 
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
-
+Route::post('user-login','Auth\LoginController@userLogin');
 /*
 |--------------------------------------------------------------------------
 | 2) User login with facebook
@@ -68,23 +68,20 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function() {
 | 4) User Controller
 |--------------------------------------------------------------------------
 */
-// Route::resource('event', 'User\EventController')
-Route::resource('u-video', 'User\VideoController');
-Route::resource('column', 'ColumnController');
+// Route::resource('event', 'User\EventController');
+Route::resource('video', 'User\VideoController');
+Route::resource('column', 'User\ColumnController');
 Route::get('event','User\EventController@index')->name('event.index');
 Route::get('event/{event}','User\EventController@show')->name('event.show');
+Route::post('video-search','User\VideoController@index')->name('video.search');
 
 Route::group(['middleware' => 'auth:user'],function ()
 {
-    Route::post('event','User\EventController@register')->name('event.register');
-    Route::post('event','User\EventController@favorite')->name('event.favorite');
-
-    Route::post('u-video','User\VideoController@index')->name('u-video.index');
-    Route::post('u-video','User\VideoController@favorite')->name('u-video.favorite');
+    Route::post('event','User\EventController@update')->name('event.update');
+    Route::post('video','User\VideoController@favorite')->name('video.favorite');
     Route::post('columnFavorite', 'User\ColumnController@favorite')->name('column.favorite');
 
-    Route::get('user-profile','User\UserController@index')->name('userprofile.index');
-    Route::post('user-profile','User\UserController@update');
+    Route::get('my-page','User\MypageController@index')->name('mypage.index');
 });
 
 Route::get('/wyswyg', function () {
@@ -93,3 +90,14 @@ Route::get('/wyswyg', function () {
 
 Route::get('enquiry','EnquiryController@index');
 Route::post('enquiry','EnquiryController@saveEnquiry');
+
+//Route::get('about','AboutController@index');
+
+Route::get('about',function () {
+    return view('about');
+});
+
+/* Register with email */
+Route::get('verifyEmailFirst','Auth\RegisterController@verifyEmailFirst')->name('verifyEmailFirst');
+
+Route::get('verify/{email}/{verifyToken}','Auth\RegisterController@sendEmailDone')->name('sendEmailDone');

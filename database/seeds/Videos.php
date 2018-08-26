@@ -11,31 +11,31 @@ class Videos extends Seeder
      */
     public function run()
     {
-        for($i=1;$i<=20;$i++) {
+        for($i=1;$i<=5;$i++) {
             DB::table('videos')->insert([
                 'id'            => $i,
-                'category_id'   => 1,
-                'url'           => 'https://i.ytimg.com/vi_webp/ObwNpMXlmPU/maxresdefault.webp',
+                'category_id'   => rand(1,3),
+                'url'           => 'https://www.youtube.com/watch?v=ObwNpMXlmPU',
                 'description'   => '部活の先輩後輩のキス【ファーストキス】。',
                 'image'         => 'video01.jpg',
                 'sort'          => 1,
             ]);
         }
-        for($i=21;$i<=40;$i++) {
+        for($i=6;$i<=10;$i++) {
             DB::table('videos')->insert([
                 'id'            => $i,
-                'category_id'   => 2,
-                'url'           => 'blob:https://www.youtube.com/fffc5984-677e-4cbd-bab3-d205eaedde49',
+                'category_id'   => rand(1,3),
+                'url'           => 'https://www.youtube.com/watch?v=xijH08HD2ns',
                 'description'   => 'ハタチのトビラ#3 （株）Huber. 〜インバウンド事業に取り組む社会人の1日にとは〜',
                 'image'         => 'video02.jpg',
                 'sort'          => 1,
             ]);
         }
-        for ($i = 41; $i <= 60; $i++) {
+        for ($i = 11; $i <= 15; $i++) {
             DB::table('videos')->insert([
                 'id'            => $i,
-                'category_id'   => 3,
-                'url'           => 'blob:https://www.youtube.com/5db0ab72-7d59-42e3-b571-7ceca817b758',
+                'category_id'   => rand(1,3),
+                'url'           => 'https://www.youtube.com/watch?v=Rdu0Cr1kJGo',
                 'description'   => 'ハタチのトビラ#6 NPO法人グリーンズ〜持続可能な社会をつくるために活動するNPO職員の1日とは〜',
                 'image'         => 'video03.jpg',
                 'sort'          => 1,

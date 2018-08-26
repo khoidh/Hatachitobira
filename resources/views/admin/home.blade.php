@@ -1,21 +1,26 @@
 <html>
 <head>
+    @section('meta')
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
     <meta name="description" content="Modern admin is super flexible, powerful, clean &amp; modern responsive bootstrap 4 admin template with unlimited possibilities with bitcoin dashboard.">
     <meta name="keywords" content="admin template, modern admin template, dashboard template, flat admin template, responsive admin template, web app, crypto dashboard, bitcoin dashboard">
     <meta name="author" content="PIXINVENT">
+    @show
+
     <title>Admin</title>
+
+    @section('css')
     <link rel="apple-touch-icon" href="https://pixinvent.com/modern-admin-clean-bootstrap-4-dashboard-html-template/app-assets/images/ico/apple-icon-120.png">
     <link rel="shortcut icon" type="image/x-icon" href="https://pixinvent.com/modern-admin-clean-bootstrap-4-dashboard-html-template/app-assets/images/ico/favicon.ico">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Quicksand:300,400,500,700" rel="stylesheet">
-    <link href="https://maxcdn.icons8.com/fonts/line-awesome/1.1/css/line-awesome.min.css" rel="stylesheet">
+    <link href="{{ asset('admin_plugin/css/line-awesome.min.css')}}" rel="stylesheet">
     <!-- BEGIN VENDOR CSS-->
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.min.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/style.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('admin_plugin/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('admin_plugin/css/style.min.css') }}">
     <link rel="stylesheet" type="text/css" href="https://pixinvent.com/modern-admin-clean-bootstrap-4-dashboard-html-template/app-assets/fonts/flag-icon-css/css/flag-icon.min.css">
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/vendors/css/extensions/pace.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('admin_plugin/css/vendors/css/extensions/pace.css') }}">
     <!-- END VENDOR CSS-->
     <!-- BEGIN MODERN CSS-->
     <link rel="stylesheet" type="text/css" href="{{ asset('css/app.min.css') }}">
@@ -28,7 +33,10 @@
     <!-- BEGIN Custom CSS-->
     <link rel="stylesheet" type="text/css" href="https://pixinvent.com/modern-admin-clean-bootstrap-4-dashboard-html-template/assets/css/style.css">
     <!-- END Custom CSS-->
+    @show
+
     @yield('javascrip')
+        <link rel="stylesheet" href="">
 </head>
 
 <body class="vertical-layout vertical-menu-modern 2-columns fixed-navbar pace-done menu-expanded" data-open="click" data-menu="vertical-menu-modern" data-col="2-columns" cz-shortcut-listen="true"><div class="pace  pace-inactive"><div class="pace-progress" data-progress-text="100%" data-progress="99" style="transform: translate3d(100%, 0px, 0px);">
@@ -42,7 +50,7 @@
             <ul class="nav navbar-nav flex-row">
                 <li class="nav-item mobile-menu d-md-none mr-auto"><a class="nav-link nav-menu-main menu-toggle hidden-xs is-active" href="#"><i class="ft-menu font-large-1"></i></a></li>
                 <li class="nav-item mr-auto">
-                    <a class="navbar-brand" href="{{ route('admin.dashboard') }}">
+                    <a class="navbar-brand" href="{{ route('admin.home') }}">
                         <img class="brand-logo" alt="modern admin logo" src="https://pixinvent.com/modern-admin-clean-bootstrap-4-dashboard-html-template/app-assets/images/logo/logo.png">
                         <h3 class="brand-text">Hatachi Admin</h3>
                     </a>
@@ -57,11 +65,11 @@
             <div class="collapse navbar-collapse" id="navbar-mobile">
                 <ul class="nav navbar-nav mr-auto float-left">
                     <li class="nav-item d-none d-md-block"><a class="nav-link nav-link-expand" href="#"><i class="ficon ft-maximize"></i></a></li>
-                    <li class="nav-item nav-search"><a class="nav-link nav-link-search" href="#"><i class="ficon ft-search"></i></a>
-                        <div class="search-input">
-                            <input class="input" type="text" placeholder="Explore Modern...">
-                        </div>
-                    </li>
+                    {{--<li class="nav-item nav-search"><a class="nav-link nav-link-search" href="#"><i class="ficon ft-search"></i></a>--}}
+                        {{--<div class="search-input">--}}
+                            {{--<input class="input" type="text" placeholder="Explore Modern...">--}}
+                        {{--</div>--}}
+                    {{--</li>--}}
                 </ul>
                 <ul class="nav navbar-nav float-right">
                     <li class="dropdown dropdown-user nav-item">
@@ -99,7 +107,7 @@
                 </ul>
             </li>
             {{--=========================================== Events ====================================================--}}
-            <li class="nav-item has-sub"><a href="#"><i class="la la-television"></i><span class="menu-title" data-i18n="nav.events.main">Events</span></a>
+            <li class="nav-item has-sub"><a href="#"><i class="la la-calendar"></i><span class="menu-title" data-i18n="nav.events.main">Events</span></a>
                 <ul class="menu-content" style="">
                     <li class=""><a class="menu-item" href="{{route('events.index')}}" data-i18n="nav.dash.allEvent">All Event</a>
                     </li>
@@ -108,7 +116,7 @@
                 </ul>
             </li>
             {{--=========================================== Videos ====================================================--}}
-            <li class="nav-item has-sub"><a href="#"><i class="la la-television"></i><span class="menu-title" data-i18n="nav.events.main">Videos</span></a>
+            <li class="nav-item has-sub"><a href="#"><i class="la la-file-video-o"></i><span class="menu-title" data-i18n="nav.events.main">Videos</span></a>
                 <ul class="menu-content" style="">
                     <li class=""><a class="menu-item" href="{{route('videos.index')}}" data-i18n="nav.dash.allVideo">All Video</a>
                     </li>
@@ -117,7 +125,7 @@
         </ul>
             </li>
             {{--=========================================== Columns ===================================================--}}
-            <li class="nav-item has-sub"><a href="#"><i class="la la-television"></i><span class="menu-title" data-i18n="nav.columns.main">Columns</span></a>
+            <li class="nav-item has-sub"><a href="#"><i class="la la-columns"></i><span class="menu-title" data-i18n="nav.columns.main">Columns</span></a>
                 <ul class="menu-content" style="">
                     <li class=""><a class="menu-item" href="{{route('columns.index')}}" data-i18n="nav.dash.allColumn">All Column</a>
                     </li>
@@ -130,7 +138,7 @@
                 <span data-i18n="nav.category.admin">Administration</span><i class="la la-ellipsis-h ft-minus" data-toggle="tooltip" data-placement="right" data-original-title="Layouts"></i>
             </li>
             {{--=========================================== Admin Management ==========================================--}}
-            <li class="nav-item has-sub"><a href="#"><i class="la la-television"></i><span class="menu-title" data-i18n="nav.admins.main">Admin Management</span></a>
+            <li class="nav-item has-sub"><a href="#"><i class="la la-users"></i><span class="menu-title" data-i18n="nav.admins.main">Admin Management</span></a>
                 <ul class="menu-content" style="">
                     <li class=""><a class="menu-item" href="#" data-i18n="nav.dash.allAdmin">All Admin</a>
                     </li>
@@ -139,7 +147,7 @@
                 </ul>
             </li>
             {{--=========================================== Users Management ==========================================--}}
-            <li class="nav-item has-sub"><a href="#"><i class="la la-navicon"></i><span class="menu-title" data-i18n="nav.users.main">Users Management</span></a>
+            <li class="nav-item has-sub"><a href="#"><i class="la la-user"></i><span class="menu-title" data-i18n="nav.users.main">Users Management</span></a>
                 <ul class="menu-content">
                     <li><a class="menu-item" href="#" data-i18n="nav.users.nav_light">All Users</a>
                     </li>
@@ -152,9 +160,9 @@
                 <span data-i18n="nav.category.general">General</span><i class="la la-ellipsis-h ft-minus" data-toggle="tooltip" data-placement="right" data-original-title="General"></i>
             </li>
             {{--=========================================== General ===================================================--}}
-            <li class="nav-item"><a href="#"><i class="la la-envelope"></i><span class="menu-title" data-i18n="">Tools</span></a>
+            <li class="nav-item"><a href="#"><i class="la la-wrench"></i><span class="menu-title" data-i18n="">Tools</span></a>
             </li>
-            <li class="nav-item"><a href="#"><i class="la la-comments"></i><span class="menu-title" data-i18n="">Settings</span></a>
+            <li class="nav-item"><a href="#"><i class="la la-cog"></i><span class="menu-title" data-i18n="">Settings</span></a>
             </li>
 
         </ul>
@@ -167,25 +175,60 @@
             @yield('content-header')
         </div>
         <div class="content-body">
-            <section id="css-classes" class="card">
-                <div class="card-header">
-                    <h4 class="card-title">CSS Classes</h4>
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="card-title">@yield('content-title')</h4>
+                            <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
+                            <div class="heading-elements">
+                                <ul class="list-inline mb-0">
+                                    {{--<li><a data-action="collapse"><i class="ft-minus"></i></a></li>--}}
+                                    <li><a data-action="reload"><i class="ft-rotate-cw"></i></a></li>
+                                    <li><a data-action="expand"><i class="ft-maximize"></i></a></li>
+                                    {{--<li><a data-action="close"><i class="ft-x"></i></a></li>--}}
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="card-content collapse show">
+                            {{-- Content home page only --}}
+                            @section('card-content')
+                                <section id="about_us">
+                                    <div class="inside">
+                                        <div class="section-title show">
+                                            <h2>ABOUT US</h2>
+                                            <h1>ハタチのトビラとは？</h1>
+                                            <div class="title_text">
+                                                <p>「自分のやりたいことってなんだ？」</p>
+                                                <p>ハタチのトビラは、就活や働くことを見据え将来と向き合うハタチの学生に、<br>
+                                                    自社の事業や仕事の魅力を訴求する動画配信サービスです。</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                            @show
+                            <!-- Tables start -->
+                            <div class="card-body">
+                                @yield('content')
+                            </div>
+
+                        </div>
+                    </div>
                 </div>
-                <div class="card-content">
-            @yield('content')
-                </div>
-            </section>
+            </div>
         </div>
     </div>
 </div>
+
 <!-- ////////////////////////////////////////////////////////////////////////////-->
 <footer class="footer footer-static footer-light navbar-border navbar-shadow">
     <p class="clearfix blue-grey lighten-2 text-sm-center mb-0 px-2">
-        <span class="float-md-left d-block d-md-inline-block">Copyright © 2018 <a class="text-bold-800 grey darken-2" href="https://themeforest.net/user/pixinvent/portfolio?ref=pixinvent" target="_blank">PIXINVENT </a>, All rights reserved. </span>
-        <span class="float-md-right d-block d-md-inline-blockd-none d-lg-block">Hand-crafted &amp; Made with <i class="ft-heart pink"></i></span>
+        {{--<span class="float-md-left d-block d-md-inline-block">Copyright © 2018 <a class="text-bold-800 grey darken-2" href="https://themeforest.net/user/pixinvent/portfolio?ref=pixinvent" target="_blank">PIXINVENT </a>, All rights reserved. </span>--}}
+        {{--<span class="float-md-right d-block d-md-inline-blockd-none d-lg-block">Hand-crafted &amp; Made with <i class="ft-heart pink"></i></span>--}}
     </p>
 </footer>
 
+@section('script')
 <!-- BEGIN VENDOR JS-->
 <script src="https://pixinvent.com/modern-admin-clean-bootstrap-4-dashboard-html-template/app-assets/vendors/js/vendors.min.js" type="text/javascript"></script>
 <!-- BEGIN VENDOR JS-->
@@ -201,6 +244,8 @@
 <!-- BEGIN PAGE LEVEL JS-->
 <script src="https://pixinvent.com/modern-admin-clean-bootstrap-4-dashboard-html-template/app-assets/js/scripts/extensions/drag-drop.min.js" type="text/javascript"></script>
 <!-- END PAGE LEVEL JS-->
+@show
 
-<div class="selection_bubble_root" style="display: none;"></div></body>
+<div class="selection_bubble_root" style="display: none;"></div>
+</body>
 </html>

@@ -19,19 +19,31 @@
                 <div class="item">
                     <div class="wrapper">
                         <div class="icon">
+                            {{--<a href="{{route('event.show', $event->id)}}">--}}
+                                {{--<img src="{{asset('image/event/'.$event->image)}}" >--}}
+                            {{--</a>--}}
                             <a href="{{route('event.show', $event->id)}}">
-                                <img src="{{asset('image/event/'.$event->image)}}" >
-                                <form action="{{route('event.favorite')}}" method="post" name="favorite-form">
+                                @php $image='image/event/'.$event->image; @endphp
+                                <img src="{{file_exists($image)?asset($image): asset('image/event/event_default.jpg')}}">
+                            </a>
+                                
+                                @if(Auth::user())
+                                <form action="{{route('event.update')}}" method="post" name="favorite-form">
                                     {{ csrf_field() }}
+                                    <input type="hidden" name="favorite" value="1">
                                     <input type="hidden" name="user_id" value="<?php if(Auth::user()) echo Auth::user()->id?>">
                                     <input type="hidden" name="event_id" value="<?php echo $event->id?>">
                                     <button  type="submit">
-                                        <i class="fa fa-heart-o" style="font-size:24px;"></i>
+                                        <i class="fa fa-heart-o" style="font-size:24px;"> </i>
                                     </button>
                                     <!-- <a class="submit"><i class="fa fa-heart-o" style="font-size:24px;"></i></a> -->
 
                                 </form>
-                            </a>
+                                @else
+                                    <div type="submit">
+                                        <i class="fa fa-heart-o" style="font-size:24px;" data-toggle="modal" data-target="#modal_login"> </i>
+                                    </div>
+                                @endif
                         </div>
                         <div class="content">
                             <div class="status">

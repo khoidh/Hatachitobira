@@ -29,32 +29,33 @@ class EventController extends Controller
         return view('user.event.show', ['event' => $event]);
     }
 
-     public function register(Request $request)
+    public function update(Request $request)
     {
-        $userEvent = new User_event();
-        $userEvent->user_id = $request->user_id;
-        $userEvent->event_id = $request->event_id;
-        $userEvent->save();
-        return redirect()->route('event.index');
-    }
-
-    public function favorite(Request $request)
-    {
-        $favorite = Favorite::where('user_id',$request->user_id)
+        if($request->register)
+        {
+            $userEvent = new User_event();
+            $userEvent->user_id = $request->user_id;
+            $userEvent->event_id = $request->event_id;
+            $userEvent->save();
+            return redirect()->route('event.index');
+        }
+        if($request->favorite)
+        {
+            $favorite = Favorite::where('user_id',$request->user_id)
                     ->where('favoritable_id',$request->event_id)
                     ->where('favoritable_type',(new Event())->getTable())
                     ->exists();
-        if(!$favorite)
-        {
-            $favorite = new Favorite();
-            $favorite->user_id = $request->user_id;
-            $favorite->favoritable_id = $request->event_id;
-            $favorite->favoritable_type = (new Event())->getTable();
-            $favorite->save();
+            if(!$favorite)
+            {
+                $favorite = new Favorite();
+                $favorite->user_id = $request->user_id;
+                $favorite->favoritable_id = $request->event_id;
+                $favorite->favoritable_type = (new Event())->getTable();
+                $favorite->save();
+            }
+            return redirect()->route('event.index');
+
         }
-
-        return redirect()->route('event.index');
-
     }
 
 }

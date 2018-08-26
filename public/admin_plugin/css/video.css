@@ -1,0 +1,33 @@
+/*Customer*/
+.table-responsive .table .id {
+    width: 7%;
+}
+
+.table-responsive .table .title {
+    width: 20%;
+}
+
+.table-responsive .table .description {
+    text-align: center;
+}
+
+.table-responsive .table .image {
+    width: 100px;
+    text-align: center;
+}
+
+.table-responsive .table .category {
+    width: 10%;
+}
+
+.table-responsive .table .sort {
+    /*width: 10%;*/
+}
+
+.table-responsive .table .function {
+    width: 10%;
+}
+
+.table-responsive .table .url {
+    width: 10%;
+}
