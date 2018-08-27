@@ -1,30 +1,11 @@
 @extends('layouts.app')
-@section('content')
-    <script>
-        $(function () {
 
-            $('.favorite').click(function () {
-                var user_id= $(this).find('.user_id').val();
-                var column_id= $(this).find('.column_id').val();
-                var favorite= $(this).find('.fa-heart-o');
-                if(user_id) {
-                    $.ajax({
-                        type: "POST",
-                        url: '{{route('column.favorite')}}', // This is what I have updated
-                        data: {user_id: user_id, column_id: column_id},
-                        headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')}
-                    }).done(function (msg) {
-                        alert(msg);
-                        favorite.css('color', 'red');
-                    });
-                }
-                else
-                {
-                    // Todo: Messege yêu cầu user đăng nhập
-                }
-            });
-        })
-    </script>
+@section('css')
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/top.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/column.css') }}" rel="stylesheet">
+@endsection
+@section('content')
 
     <div class="row">
         <h3>コラム</h3>
@@ -45,13 +26,33 @@
                     <div class="item">
                         <div class="wrapper">
                             <div class="icon">
-                                <img src="{{asset('image/column/'.$column->image)}}">
-                                <button type="button" class="favorite">
-                                    <input type="hidden" class="favorite"    value="0">
-                                    <input type="hidden" class="user_id"     value="<?php if(Auth::user()) echo Auth::user()->id?>">
-                                    <input type="hidden" class="column_id"   value="<?php echo $column->id?>">
-                                    <i class="fa fa-heart-o" style="font-size:24px;"></i>
-                                </button>
+                                <a href="{{route('column.show', $column->id)}}">
+                                    @php $image='image/column/'.$column->image; @endphp
+                                    <img src="{{file_exists($image)?asset($image): asset('image/column/column_default.jpg')}}">
+                                </a>
+
+                                {{--==================== favorite ====================--}}
+                                @if(Auth::user())
+                                    {{ csrf_field() }}
+                                    <div type="submit" class="favorite">
+                                        <input type="hidden" class="favorite" value="0">
+                                        <input type="hidden" class="user_id" value="{{Auth::user()->id}}">
+                                        <input type="hidden" class="column_id" value="{{$column->id}}">
+                                        {{--<input type="hidden" class="$favorites_id" value="{{$column->id}}">--}}
+                                        @if(in_array($column->id,$favorites_id))
+                                            <i class="fa fa-heart-o" style="font-size:24px; color: red;" ></i>
+                                        @else
+                                            <i class="fa fa-heart-o" style="font-size:24px; color: blue;"></i>
+                                        @endif
+                                    </div>
+                                @else
+                                    <div type="submit">
+                                        <i class="fa fa-heart-o" style="font-size:24px;" data-toggle="modal"
+                                           data-target="#modal_login"> </i>
+                                    </div>
+                                @endif
+                                {{--==================== /end favorite ====================--}}
+
                             </div>
                             <div class="content" >
                                 <a href="{{route('column.show', $column->id)}}">
@@ -70,4 +71,35 @@
         </div>
     </div>
 
+@endsection
+
+@section('javascript-add')
+    @parent
+    <script>
+        $(function () {
+            $('.favorite').click(function() {
+                var user_id= $(this).find('.user_id').val();
+                var column_id= $(this).find('.column_id').val();
+                var favorite= $(this).find('.fa-heart-o');
+                if(user_id) {
+                    // alert($favorites_id)
+                    $.ajax({
+                        type: "POST",
+                        url: '{{route('column.favorite')}}', // This is what I have updated
+                        data: {user_id: user_id, column_id: column_id},
+                        //=========
+                        headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')}
+                    }).done(function (msg) {
+                        alert(msg);
+                        favorite.css('color', 'red');
+                        favorite.css('disabled',true);
+                    });
+                }
+                else
+                {
+                    // Chưa login
+                }
+            });
+        })
+    </script>
 @endsection
