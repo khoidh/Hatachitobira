@@ -8,8 +8,10 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Str;
 use Mail;
+use Auth;
 use App\Mail\verifyEmail;
 use Session;
+use Illuminate\Http\Request;
 class RegisterController extends Controller
 {
     /*
@@ -63,19 +65,36 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\User
      */
-    protected function create(array $data)
+    protected function create(Request $request)
     {
-        Session::flash('status','Registration complete. Please check your e-mail');
-        $user = User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => bcrypt($data['password']),
-            'verifyToken' => Str::random(40),
-        ]);
+        $data = $request->all();
+        $result = array();
+        $users = User::where('email',$data['email'])->first();
 
-        $thisUser = User::findOrFail($user->id);
-        $this->sendEmail($thisUser);
-        return $user;
+        if ($data['name'] =='' || $data['email'] =='' || $data['password'] =='' || $data['password_confirmation'] =='') {
+            $result['status'] = false;
+            $result['message'] = 'Please enter full information';
+        }elseif ($data['password'] != $data['password_confirmation']) {
+            $result['status'] = false;
+            $result['message'] = 'Password not same';
+        }elseif ($users) {
+            $result['status'] = false;
+            $result['message'] = 'Email is exist';
+        }else { 
+            $user = User::create([
+                'name' => $data['name'],
+                'email' => $data['email'],
+                'password' => bcrypt($data['password']),
+                'verifyToken' => Str::random(40),
+            ]);
+
+            $thisUser = User::findOrFail($user->id);
+            Auth::login($thisUser, true);
+            $this->sendEmail($thisUser);
+            $result['status'] = true;
+        }
+
+        return json_encode($result);
     }
 
     public function sendEmail($thisUser)

@@ -24,6 +24,7 @@ Route::get('/', function () {
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::post('user-login','Auth\LoginController@userLogin');
+Route::post('user-register','Auth\RegisterController@create');
 /*
 |--------------------------------------------------------------------------
 | 2) User login with facebook
