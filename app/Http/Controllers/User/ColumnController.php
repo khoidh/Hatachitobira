@@ -41,17 +41,36 @@ class ColumnController extends Controller
     {
         $column = Column::find($id);
         // get previous $column id
-        $previous = Column::select('id','title')->where('id', '<', $column->id)->orderBy('id','desc')->first();
-        if(empty($previous))$previous=$column;
+        $previous = Column::select('id', 'title')->where('id', '<', $column->id)->orderBy('id', 'desc')->first();
+        if (empty($previous)) {
+            $previous = $column;
+        }
 
         // get next $column id
-        $next = Column::select('id','title')->where('id', '>', $column->id)->orderBy('id','asc')->first();
-        if(empty($next))$next=$column;
+        $next = Column::select('id', 'title')->where('id', '>', $column->id)->orderBy('id', 'asc')->first();
+        if (empty($next)) {
+            $next = $column;
+        }
 
-        // get 6 bài viết có id giống
-        $columns_random = Column::inRandomOrder()->select('id','title')->take(6)->get();
+        // get 6 bài viết ngẫu nhiên
+        $columns_random = Column::inRandomOrder()->select('id', 'title')->take(6)->get();
 
-        return view('user.column.show', ['column' => $column,'previous'=> $previous,'next'=> $next,'columns_random'=>$columns_random]);
+        // get 6 bài viết gần nhất
+        $columns_latest = Column::select('id', 'title')->orderBy('updated_at', 'desc')->take(6)->get();
+
+        ////////////////  Đã login //////////////////////
+        if(Auth::user())
+        {
+            $user_id            = Auth::user()->id;
+            $favoritable_type   = (new Column())->getTable();
+            $favorites_id= Favorite::where([['user_id',$user_id],
+                ['favoritable_type',$favoritable_type]])->pluck('favoritable_id')->toArray();
+            return view('user.column.show',
+                ['column' => $column, 'previous' => $previous, 'next' => $next, 'columns_random' => $columns_random, 'columns_latest' => $columns_latest, 'favorites_id'=>$favorites_id]);
+        }
+        ////////////////  Chưa login //////////////////////
+        return view('user.column.show',
+            ['column' => $column, 'previous' => $previous, 'next' => $next, 'columns_random' => $columns_random, 'columns_latest' => $columns_latest]);
     }
 
     public function edit($id)
