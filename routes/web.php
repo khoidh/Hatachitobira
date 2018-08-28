@@ -59,7 +59,9 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function() {
     Route::resource('events', 'Admin\EventController');
     Route::resource('videos', 'Admin\VideoController');
     Route::resource('enquiry', 'Admin\EnquiryController');
+    Route::resource('categories', 'Admin\CategoryController');
     Route::get('delete-enquiry/{id}','Admin\EnquiryController@destroy')->name('admin.delete-enquiry');
+    Route::get('delete-category/{id}','Admin\CategoryController@destroy')->name('admin.delete-category');
     Route::resource('columns', 'Admin\ColumnController');
 });
 
