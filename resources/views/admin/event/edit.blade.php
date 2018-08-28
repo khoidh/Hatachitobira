@@ -67,13 +67,13 @@
         <div class="form-group row">
             <label for="inputPassword3" class="col-sm-2 col-form-label">Start at </label>
             <div class="col-sm-10">
-                <input type="date" name="time_from" value="{{$event->time_from}}" required="true">
+                <input type="datetime-local" name="time_from" value="<?php echo date('Y-m-d\TH:i', strtotime($event->time_from));?>" required="true">
             </div>
         </div>
         <div class="form-group row">
             <label for="inputPassword3" class="col-sm-2 col-form-label">End at </label>
             <div class="col-sm-10">
-                <input type="date" name="time_to" value="{{$event->time_to}}" required="true">
+                <input type="datetime-local" name="time_to" value="<?php echo date('Y-m-d\TH:i', strtotime($event->time_to));?>" required="true">
             </div>
         </div>
         <div class="form-group row">
