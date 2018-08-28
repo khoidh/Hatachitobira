@@ -27,6 +27,15 @@
 @section('card-content')
 @endsection
 @section('content')
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
     <div class="row justify-content-md-center">
         <div class="col-md-10">
     <form action="{{route('events.update',$event->id)}}" enctype="multipart/form-data" method="POST">
