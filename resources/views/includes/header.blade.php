@@ -162,7 +162,7 @@
                         <div class="col-md-4">
                         <p>お気に入りorイベント申し込みは会員限定機能です。動画やイベント、あなたの興味のあるものを貯めて、マイテーマを形作っていこう！</p>
                         </div>
-                        <img src="{{ asset('image/Picture1.png') }}">
+                        <img src="{{ asset('image/picture1.png') }}">
                     </div>
                     <div class="form-group">
                         <div class="col-md-10 col-md-offset-1" style="text-align: left;">
