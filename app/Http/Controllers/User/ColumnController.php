@@ -10,11 +10,6 @@ use Illuminate\Support\Facades\Auth;
 
 class ColumnController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         $columns = Column::select()
@@ -32,57 +27,57 @@ class ColumnController extends Controller
         return view('user.column.index', ['columns' => $columns]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         //
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
         $column = Column::find($id);
-        return view('user.column.show', ['column' => $column]);
+        // get previous $column id
+        $previous = Column::select('id', 'title')->where('id', '<', $column->id)->orderBy('id', 'desc')->first();
+        if (empty($previous)) {
+            $previous = $column;
+        }
+
+        // get next $column id
+        $next = Column::select('id', 'title')->where('id', '>', $column->id)->orderBy('id', 'asc')->first();
+        if (empty($next)) {
+            $next = $column;
+        }
+
+        // get 6 bài viết ngẫu nhiên
+        $columns_random = Column::inRandomOrder()->select('id', 'title')->take(6)->get();
+
+        // get 6 bài viết gần nhất
+        $columns_latest = Column::select('id', 'title')->orderBy('updated_at', 'desc')->take(6)->get();
+
+        ////////////////  Đã login //////////////////////
+        if(Auth::user())
+        {
+            $user_id            = Auth::user()->id;
+            $favoritable_type   = (new Column())->getTable();
+            $favorites_id= Favorite::where([['user_id',$user_id],
+                ['favoritable_type',$favoritable_type]])->pluck('favoritable_id')->toArray();
+            return view('user.column.show',
+                ['column' => $column, 'previous' => $previous, 'next' => $next, 'columns_random' => $columns_random, 'columns_latest' => $columns_latest, 'favorites_id'=>$favorites_id]);
+        }
+        ////////////////  Chưa login //////////////////////
+        return view('user.column.show',
+            ['column' => $column, 'previous' => $previous, 'next' => $next, 'columns_random' => $columns_random, 'columns_latest' => $columns_latest]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
         //
@@ -105,12 +100,6 @@ class ColumnController extends Controller
             return "気に入っ成功";
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
         //

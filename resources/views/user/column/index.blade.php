@@ -1,4 +1,10 @@
 @extends('layouts.app')
+
+@section('css')
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/top.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/column.css') }}" rel="stylesheet">
+@endsection
 @section('content')
 
     <div class="row">
@@ -67,7 +73,7 @@
 
 @endsection
 
-@section('javascript')
+@section('javascript-add')
     @parent
     <script>
         $(function () {
