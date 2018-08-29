@@ -1,6 +1,53 @@
 @extends('admin.home')
+
+@section('css')
+    @parent
+    <style>
+        #selectedFiles img {
+            max-width: 125px;
+            max-height: 125px;
+            float: left;
+            margin-bottom: 10px;
+        }
+    </style>
+@endsection
 @section('javascrip')
     <script src= "/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
+    <script>
+        var selDiv = "";
+
+        document.addEventListener("DOMContentLoaded", init, false);
+        function init() {
+            document.querySelector('#image').addEventListener('change', handleFileSelect, false);
+            selDiv = document.querySelector("#selectedFiles");
+        }
+
+        function handleFileSelect(e) {
+
+            // debugger;
+            if(!e.target.files || !window.FileReader) return;
+
+            selDiv.innerHTML = "";
+
+            var files = e.target.files;
+            var filesArr = Array.prototype.slice.call(files);
+            filesArr.forEach(function(f) {
+                var f = files[i];
+                if(!f.type.match("image.*")) {
+                    return;
+                }
+
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    // var html = "<img src=\"" + e.target.result + "\">" + f.name + "<br clear=\"left\"/>";
+                    var html = "<img src=\"" + e.target.result + "\">" + "<br clear=\"left\"/>";
+                    selDiv.innerHTML += html;
+                }
+                reader.readAsDataURL(f);
+            });
+
+        }
+    </script>
 @endsection
 
 @section('content-header')
@@ -75,7 +122,10 @@
             <div class="form-group row">
                 <label for="inputPassword3" class="col-sm-2 col-form-label">Upload Image</label>
                 <div class="col-sm-10">
-                    <input type="file" name="image" value="{{$column->image}}" required="true" image="jpeg, png, bmp, gif, or svg">
+                    {{--<input type="file" name="image" value="{{$column->image}}" required="true" image="jpeg, png, bmp, gif, or svg">--}}
+                    <input type="file" id="image" name="image" required="true" image="jpeg, png, bmp, gif, or svg" ><br/>
+
+                    <div id="selectedFiles" style="margin-top: 10px"></div>
                 </div>
             </div>
 
@@ -95,4 +145,5 @@
         </form>
         </div>
     </div>
+
 @endsection
