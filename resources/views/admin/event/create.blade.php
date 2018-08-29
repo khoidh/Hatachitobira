@@ -28,6 +28,15 @@
 @section('card-content')
 @endsection
 @section('content')
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
     <div class="row justify-content-md-center">
         <div class="col-md-10">
 <form  action="{{route('events.store')}}" enctype="multipart/form-data" method="POST">
@@ -48,7 +57,7 @@
     <div class="form-group row">
         <label for="inputEmail3"  class="col-sm-2 col-form-label">Title</label>
         <div class="col-sm-10">
-            <input type="text" class="form-control" name="title" value="" placeholder="Title" required="true">
+            <input type="text" class="form-control" name="title" value="{{ old('title') }}" placeholder="Title" required="true">
         </div>
     </div>
 
@@ -56,26 +65,26 @@
     <div class="form-group row">
         <label for="inputPassword3" class="col-sm-2 col-form-label">Upload Image</label>
         <div class="col-sm-10">
-            <input type="file" name="image" required="true">
+            <input type="file" name="image" value="{{ old('image') }}" required="true">
         </div>
     </div>
      <div class="form-group row">
         <label for="inputPassword3" class="col-sm-2 col-form-label">Sort</label>
         <div class="col-sm-10">
-            <input type="number" name="sort" required="true">
+            <input type="number" name="sort" value="{{ old('sort') }}" required="true">
         </div>
     </div>
 
     <div class="form-group row">
         <label for="inputPassword3" class="col-sm-2 col-form-label">Start at </label>
         <div class="col-sm-10">
-            <input type="date" name="time_from" required="true">
+            <input type="datetime-local" name="time_from" value="{{ old('time_from') }}" required="true">
         </div>
     </div>
     <div class="form-group row">
         <label for="inputPassword3" class="col-sm-2 col-form-label">End at </label>
         <div class="col-sm-10">
-            <input type="date" name="time_to" required="true">
+            <input type="datetime-local" name="time_to" value="{{ old('time_to') }}" required="true">
         </div>
     </div>
     <div class="form-group row">

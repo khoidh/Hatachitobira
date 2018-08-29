@@ -74,11 +74,20 @@
                         <h4><u>イベントに参加する</u></h4>
                         <p>キャリアに対する考え方を社会人から聞いて、マイテーマを見つけるワークショップに参加しよう
                         </p>
-                        <a class="btn btn-info" href="#">イベント一覧を見てみる
+                        <a class="btn btn-info" href="{{route('event.index')}}">イベント一覧を見てみる
                         </a>
                     </li>
                     <li>
                         <h4><u>マイテーマについて知る</u></h4>
+                        @if(Auth::user())
+                            <a href="{{route('video.index')}}" class="btn btn-info">マイテーマを見つける</a>
+
+                        @else
+                            <div type="submit">
+                                <a href="#" class="btn btn-info" data-toggle="modal" data-target="#modal_register">マイテーマを見つける</a>
+
+                            </div>
+                        @endif
                     </li>
                 </ul>
             </div>
