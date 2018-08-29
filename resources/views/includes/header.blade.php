@@ -177,7 +177,7 @@
                     </div>
                     <div class="form-group">
                         <div class="col-md-10 col-md-offset-1">
-                            <a href="{{ route('register') }}" class="btn btn-success btn-register"> メールアドレスで登録</a>
+                            <a href="#" class="btn btn-success btn-register btn-register-btn"> メールアドレスで登録</a>
                         </div>
                     </div>
                 </div>
@@ -201,11 +201,11 @@
         var password = $(this).parents('#form-login').find("#password").val();
         var url = "{{URL::to('user-login') }}";
         if ($.trim(email) == ''){
-            alert("Please enter your username");
+            $('.error-login').text("Please enter your username");
             return false;
         }
         if ($.trim(password) == ''){
-            alert("Please enter your password");
+            $('.error-login').text("Please enter your password");
             return false;
         }
         $.ajax({
@@ -222,6 +222,96 @@
                     window.location.reload();
                 }else{
                     $('.error-login').text(result.message);
+                }
+            }
+        });
+    });
+    $(document).on('click','.btn-register.btn-register-btn',function(e){
+        e.preventDefault();
+        $html = '<h4 style="border-bottom: 1px solid #ddd;padding-bottom: 11px;"> Register </h4>';
+        $html += '<span class="error-register" style="color:red;font-size:16px;"></span>';
+        $html += '<div class="form-group">';
+        $html +='<label for="name" class="col-md-4 control-label">Name</label>';
+        $html +='<div class="col-md-7">';
+        $html +='<input id="name" type="text" class="form-control" name="name" value="" required autofocus>';
+        $html +='</div>';
+        $html +=' </div>';
+        $html +='<div class="form-group">';
+        $html +='<label for="email" class="col-md-4 control-label">E-Mail Address</label>';
+        $html +='<div class="col-md-7">';
+        $html +='<input id="email" type="email" class="form-control" name="email" value="" required>';
+        $html +='</div>';
+        $html +='</div>';
+        $html +='<div class="form-group">';
+        $html +='<label for="password" class="col-md-4 control-label">Password</label>';
+        $html +='<div class="col-md-7">';
+        $html +='<input id="password" type="password" class="form-control" name="password" required>';
+        $html +='</div>';
+        $html +='</div>';
+        $html +='<div class="form-group">';
+        $html +='<label for="password-confirm" class="col-md-4 control-label">Confirm Password</label>';
+        $html +='<div class="col-md-7">';
+        $html +='<input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>';
+        $html +='</div>';
+        $html +='</div>';
+        $html +='<div class="form-group">';
+        $html +='<div class="col-md-7 col-md-offset-3">';
+        $html +='<button type="submit" class="btn btn-primary btn-submit-register">';
+        $html +='Register';
+        $html +='</button>';
+        $html +='</div>';
+        $html +='</div>';
+        $html +='<div class="form-group">';
+        $html +='<div class="col-md-7 col-md-offset-3">';
+        $html +='<a href="{{ url("/auth/facebook") }}" class="btn btn-facebook"><i class="fa fa-facebook"></i> Facebook</a>';
+        $html +=' </div>';
+        $html +='</div>';
+
+        $('.modal_register').find('.panel-body').addClass('form-horizontal');
+        $('.modal_register').find('.panel-body').html($html);
+        $('.modal_register').find('.panel-body').css('display','block');
+    });
+
+    $(document).on('click','.btn-submit-register',function(e) {
+        e.preventDefault();
+        var name = $(this).parents('#modal_register').find("#name").val();
+        var email = $(this).parents('#modal_register').find("#email").val();
+        var password = $(this).parents('#modal_register').find("#password").val();
+        var repassword = $(this).parents('#modal_register').find("#password-confirm").val();
+        var url = "{{URL::to('user-register') }}";
+        $.ajax({
+            url : url,
+            type: 'post',
+            dataType: 'json',
+            data:{
+                name : name,
+                email :email,
+                password :password,
+                password_confirmation: repassword
+            },
+            success : function (result){
+                console.log(result)
+                if(result.status){
+                    // window.location.reload();
+                    $html = '<div class="form-group">';
+                    $html +='<label for="name" class="control-label">会員登録が完了しました！</label>';
+                    $html +=' </div>';
+                    $html += '<div class="form-group">';
+                    $html +='<label for="name" class="control-label">マイテーマを見つけるために、</label>';
+                    $html +=' </div>';
+                    $html += '<div class="form-group">';
+                    $html +='<label for="name" class="control-label">コンテンツを管理していきましょう。</label>';
+                    $html +=' </div>';
+                    $html += '<div class="form-group">';
+                    $html +='<img class="image-register" src="{{ asset("image/register_1.png") }}">';
+                    $html +=' </div>';
+                    $html += '<div class="form-group">';
+                    $html +='<a  class="btn btn-warning" href="{{route("mypage.index")}}">MY PAGEへ</a>';
+                    $html +=' </div>';
+                    $('.modal_register').find('.panel-body').addClass('form-horizontal');
+                    $('.modal_register').find('.panel-body').html($html);
+                }else{
+                    $('.error-register').text(result.message);
                 }
             }
         });

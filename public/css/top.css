@@ -114,3 +114,10 @@ ul li a
 .nav.navbar-nav.navbar-right li a {
     cursor: pointer;
 }
+
+#modal_register .image-register {
+    width: 170px;
+}
+#modal_register .btn.btn-warning {
+    width: 210px;
+}
