@@ -2,6 +2,9 @@
 @section('slide')
     @include('includes.slide');
 @endsection
+@section('css')
+    <link href="{{ asset('css/mypage.css') }}" rel="stylesheet">
+@endsection
 @section('content')
     <div class="row">
         <h3 id="title">「自分のやりたいことってなんだ？」</h3>
@@ -90,8 +93,59 @@
                         @endif
                     </li>
                 </ul>
+                <div class="event-information" style="margin-top: 30px">
+                    <div class="panel-body">
+                        <div class="clearfix">
+                            <a class="text-link" href="#">■マイテーマについて知る</a>
+                        </div>
+                        <div class="content-text">
+                            <div class="item">
+                                <div class="wrapper">
+                                    <div class="icon">
+                                        <img src="{{asset('image/mypage/image_mypage.png')}}" >
+                                        <i class="fa fa-heart-o" style="font-size: 24px;"></i>
+                                    </div>
+                                    <div class="content clearfix" >
+                                        <div class="status clearfix"><h4 class="text-status">インタビュー</h4></div>
+                                        <div class="title clearfix "><h4 class="text-title">タイトルタイトルタイトルタイトルタイトル</h4></div>
+                                        <div class="date clearfix"><p class="text-date">2018.3.20</p></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="content-text">
+                            <div class="item">
+                                <div class="wrapper">
+                                    <div class="icon">
+                                        <img src="{{asset('image/mypage/image_mypage.png')}}" >
+                                        <i class="fa fa-heart-o" style="font-size: 24px;"></i>
+                                    </div>
+                                    <div class="content clearfix" >
+                                        <div class="status clearfix"><h4 class="text-status">インタビュー</h4></div>
+                                        <div class="title clearfix "><h4 class="text-title">タイトルタイトルタイトルタイトルタイトル</h4></div>
+                                        <div class="date clearfix"><p class="text-date">2018.3.20</p></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="content-text">
+                            <div class="item">
+                                <div class="wrapper">
+                                    <div class="icon">
+                                        <img src="{{asset('image/mypage/image_mypage.png')}}" >
+                                        <i class="fa fa-heart-o" style="font-size: 24px;"></i>
+                                    </div>
+                                    <div class="content clearfix" >
+                                        <div class="status clearfix"><h4 class="text-status">インタビュー</h4></div>
+                                        <div class="title clearfix "><h4 class="text-title">タイトルタイトルタイトルタイトルタイトル</h4></div>
+                                        <div class="date clearfix"><p class="text-date">2018.3.20</p></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-
 
         </div>
     </div>
