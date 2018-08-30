@@ -57,7 +57,7 @@
             <div class="breadcrumb-wrapper col-12">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{ route('admin.home') }}">Home</a></li>
-                    <li class="breadcrumb-item"><a href="#">Columns</a></li>
+                    <li class="breadcrumb-item"><a href="{{ route('columns.index') }}">Columns</a></li>
                     <li class="breadcrumb-item active"> Edit</li>
                 </ol>
             </div>
@@ -96,14 +96,14 @@
             <div class="form-group row">
                 <label for="inputEmail3" class="col-sm-2 col-form-label">Title</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" name="title" value="{{$column->title}}" placeholder="Title" required="true">
+                    <input type="text" class="form-control" name="title" value="{{$column->title}}" placeholder="Title" required="true" maxlength="256">
                 </div>
             </div>
 
             <div class="form-group row">
                 <label for="inputEmail3" class="col-sm-2 col-form-label">Description</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" name="description" value="{{$column->description}}" placeholder="Description" required="true">
+                    <input type="text" class="form-control" name="description" value="{{$column->description}}" placeholder="Description" required="true" maxlength="256">
                 </div>
             </div>
 
@@ -123,7 +123,7 @@
                 <label for="inputPassword3" class="col-sm-2 col-form-label">Upload Image</label>
                 <div class="col-sm-10">
                     {{--<input type="file" name="image" value="{{$column->image}}" required="true" image="jpeg, png, bmp, gif, or svg">--}}
-                    <input type="file" id="image" name="image" required="true" image="jpeg, png, bmp, gif, or svg" ><br/>
+                    <input type="file" id="image" name="image" required="true" accept=".png, .jpg, .jpeg, .gif"><br/>
 
                     <div id="selectedFiles" style="margin-top: 10px"></div>
                 </div>

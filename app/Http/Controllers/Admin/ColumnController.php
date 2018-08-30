@@ -33,9 +33,6 @@ class ColumnController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-//        var_dump($data);die;
-
-        Column::create($data);
 
         //Upload file image
         if($request->hasFile('image')){
@@ -57,8 +54,11 @@ class ColumnController extends Controller
             $fileName = time().'_'.$file->getClientOriginalName();
             $destinationPath = public_path('image/column');
             $file->move($destinationPath, $fileName);
+
+            $data["image"]= $fileName;
         }
 
+        Column::create($data);
         return redirect()->route('columns.index');
     }
 
@@ -85,7 +85,6 @@ class ColumnController extends Controller
     {
         $column = Column::find($id);
         $data = $request->all();
-        $column->update($data);
 
         //Upload file image
         if($request->hasFile('image')) {
@@ -107,8 +106,10 @@ class ColumnController extends Controller
             $fileName = time() . '_' . $file->getClientOriginalName();
             $destinationPath = public_path('image/column');
             $file->move($destinationPath, $fileName);
-        }
 
+            $data["image"]= $fileName;
+        }
+        $column->update($data);
         return redirect()->route('columns.show',$column->id);
     }
 
