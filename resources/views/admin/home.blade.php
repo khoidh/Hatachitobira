@@ -203,16 +203,16 @@
                         <div class="card-content collapse show">
                             {{-- Content home page only --}}
                             @section('card-content')
-                                <section id="about_us">
+                                <section id="about_us" style="height: 61%">
                                     <div class="inside">
-                                        <div class="section-title show">
-                                            <h2>ABOUT US</h2>
-                                            <h1>ハタチのトビラとは？</h1>
-                                            <div class="title_text">
-                                                <p>「自分のやりたいことってなんだ？」</p>
-                                                <p>ハタチのトビラは、就活や働くことを見据え将来と向き合うハタチの学生に、<br>
-                                                    自社の事業や仕事の魅力を訴求する動画配信サービスです。</p>
-                                            </div>
+                                        <div class="section-title show" style="text-align:center">
+                                            <h2></h2>
+                                            <h1>ハタチのトビラへようこそ</h1>
+                                            {{--<div class="title_text">--}}
+                                                {{--<p>「自分のやりたいことってなんだ？」</p>--}}
+                                                {{--<p>ハタチのトビラは、就活や働くことを見据え将来と向き合うハタチの学生に、<br>--}}
+                                                    {{--自社の事業や仕事の魅力を訴求する動画配信サービスです。</p>--}}
+                                            {{--</div>--}}
                                         </div>
                                     </div>
                                 </section>
