@@ -30,27 +30,33 @@
         <h3>マイテーマを見つける理由</h3>
         <div class="container">
             <div id="content" style="width: 60%;margin-left: auto;margin-right: auto">
-
-                <div class="gallery">
-                <a target="_blank" href="#">
-                    <img src="https://www.w3schools.com/css/5terre.jpg" alt="5Terre" width="600" height="400">
-                </a>
-                <div class="desc">Add a description of the image here</div>
-            </div>
-
-                <div class="gallery">
-                <a target="_blank" href="#">
-                    <img src="https://www.w3schools.com/css/img_forest.jpg" alt="Forest" width="600" height="400">
-                </a>
-                <div class="desc">Add a description of the image here</div>
-            </div>
-
-                <div class="gallery">
-                <a target="_blank" href="#">
-                    <img src="https://www.w3schools.com/css/img_lights.jpg" alt="Northern Lights" width="600" height="400">
-                </a>
-                <div class="desc">Add a description of the image here</div>
-            </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="gallery">
+                            <a target="_blank" href="#">
+                                <img src="https://www.w3schools.com/css/5terre.jpg" alt="5Terre" width="600" height="400">
+                            </a>
+                            <div class="desc">Add a description of the image here</div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="gallery">
+                            <a target="_blank" href="#">
+                                <img src="https://www.w3schools.com/css/img_forest.jpg" alt="Forest" width="600" height="400">
+                            </a>
+                            <div class="desc">Add a description of the image here</div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="gallery">
+                            <a target="_blank" href="#">
+                                <img src="https://www.w3schools.com/css/img_lights.jpg" alt="Northern Lights" width="600"
+                                     height="400">
+                            </a>
+                            <div class="desc">Add a description of the image here</div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

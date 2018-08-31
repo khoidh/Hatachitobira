@@ -1,6 +1,11 @@
 @extends('layouts.app')
 @section('css')
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    <style>
+        .navbar{
+            border:0 !important;
+        }
+    </style>
 @endsection
 @section('content')
     <div class="container enquiry">
@@ -8,7 +13,8 @@
             <section id="about_us">
                 <div class="inside">
                     <div class="section-title show">
-                        <h2><img src="http://lp.hatachinotobira.com/wp-content/themes/hatachinotobira/images/number-01.svg" alt="01">ABOUT US</h2>
+                        {{--<h2><img src="http://lp.hatachinotobira.com/wp-content/themes/hatachinotobira/images/number-01.svg" alt="01">ABOUT US</h2>--}}
+                        <h2><img src="#" alt="">ABOUT US</h2>
                         <h1>ハタチのトビラとは？</h1>
                         <div class="title_text">
                             <p>「自分のやりたいことってなんだ？」</p>

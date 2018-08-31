@@ -52,7 +52,7 @@
                                         {{--<a href="#">--}}
                                         {{--<div class="status"><a href="#"><h4>インタビュー</h4></a></div>--}}
                                         {{--<div class="status"><h4>インタビュー</h4></div>--}}
-                                        <div class="title" ><h4 style="line-height: 200%">{{$column->title}}</h4></div>
+                                        <div class="title" style="color: #216A94;"><h4 style="line-height: 200%">{{$column->title}}</h4></div>
                                         {{--                                            <div class="title"><p>{{$column->title}}</p></div>--}}
                                         <div class="category"><p>{{$column->category_name}}</p></div>
                                         <div class="date"><p>{{$column->created_at}}</p></div>
