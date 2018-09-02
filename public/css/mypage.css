@@ -1,0 +1,133 @@
+.mypage .event-information {
+	width: calc(100% + 20px);
+    float: left;
+    margin: 24px -10px;
+}
+
+.event-information-wrapper.col-lg-4 {
+	padding: 0 10px;
+}
+
+.event-information-content {
+    border: 1px solid #dddddd;
+    margin-bottom: 20px;
+}
+
+.event-image img{
+	width: 100%
+}
+
+.mypage .select-item select{
+	height: 30px;
+    width: 70%;
+    margin-left: 10%;
+}
+
+.item .wrapper {
+    color: white;
+    display: flex;
+    flex-flow: row nowrap;
+    min-height: 100%;
+    /* width: 600px; */
+    width: 100%;
+    height: 150px;
+}
+
+.item .wrapper .icon {
+    width: 300px;
+    height: 200px;
+    position: relative;
+}
+
+.item .wrapper .icon img{
+	width: 100%
+}
+
+.item .wrapper .icon i {
+	position: absolute;
+    top: 2%;
+    left: 89%;
+    color: red;
+    cursor: pointer;
+}
+
+.item .wrapper .icon i:hover,
+.item .wrapper .icon i:focus  {
+	color: blue;
+}
+
+.event-information .item .content {
+    color: black;
+    flex: 12 1 auto;
+    padding: 10px;
+}
+
+.status {
+	text-align: right;
+}
+
+.status .text-status {
+	width: 30%;
+    float: right;
+    background-color: #f9e305;
+    padding: 7px;
+    margin-top: 0;
+    text-align: center;
+    color: #fff;
+}
+
+.category .text-category {
+	background-color: yellow;
+    width: 13%;
+    padding: 4px;
+}
+
+.date .text-date {
+	text-align: right;
+}
+
+.event-show-detail {
+	text-align: center;
+}
+
+.event-show-detail .btn{
+	color: #e0931a;
+    border-color: #e0931a;
+    padding: 5px 137px;
+    font-size: 20px;
+}
+
+.event-information .panel-body {
+	background-color: #d2d2d2;
+    padding: 8px;
+}
+.event-information .panel-body .text-link{
+    color: #000;
+    font-weight: bold;
+}
+.event-information .content-video {
+	background-color: #fff;
+	padding: 10px 5px;
+	margin-top: 20px;
+    height: 270px;
+}
+
+.event-information .content-column {
+	background-color: #fff;
+    padding: 34px 83px;
+    margin-top: 20px;
+    height: 200px;
+    font-size: 25px;
+}
+
+.content-column .event-show-detail button {
+	background-color: #e0931a;
+    color: #fff;
+    margin-top: 20px;
+}
+.event-information .content-text {
+	background-color: #fff;
+	padding: 10px 5px;
+	margin-top: 20px;
+    height: 210px;
+}

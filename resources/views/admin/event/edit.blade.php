@@ -7,7 +7,7 @@
             <div class="breadcrumb-wrapper col-12">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{ route('admin.home') }}">Home</a></li>
-                    <li class="breadcrumb-item"><a href="#">Events</a></li>
+                    <li class="breadcrumb-item"><a href="{{ route('events.index') }}">Events</a></li>
                     <li class="breadcrumb-item active"> Edit</li>
                 </ol>
             </div>
@@ -27,6 +27,15 @@
 @section('card-content')
 @endsection
 @section('content')
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
     <div class="row justify-content-md-center">
         <div class="col-md-10">
     <form action="{{route('events.update',$event->id)}}" enctype="multipart/form-data" method="POST">
@@ -67,13 +76,13 @@
         <div class="form-group row">
             <label for="inputPassword3" class="col-sm-2 col-form-label">Start at </label>
             <div class="col-sm-10">
-                <input type="date" name="time_from" value="{{$event->time_from}}" required="true">
+                <input type="datetime-local" name="time_from" value="<?php echo date('Y-m-d\TH:i', strtotime($event->time_from));?>" required="true">
             </div>
         </div>
         <div class="form-group row">
             <label for="inputPassword3" class="col-sm-2 col-form-label">End at </label>
             <div class="col-sm-10">
-                <input type="date" name="time_to" value="{{$event->time_to}}" required="true">
+                <input type="datetime-local" name="time_to" value="<?php echo date('Y-m-d\TH:i', strtotime($event->time_to));?>" required="true">
             </div>
         </div>
         <div class="form-group row">

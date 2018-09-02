@@ -29,6 +29,7 @@
     <link rel="stylesheet" type="text/css" href="https://pixinvent.com/modern-admin-clean-bootstrap-4-dashboard-html-template/app-assets/css/core/menu/menu-types/vertical-menu-modern.css">
     <link rel="stylesheet" type="text/css" href="https://pixinvent.com/modern-admin-clean-bootstrap-4-dashboard-html-template/app-assets/css/core/colors/palette-gradient.min.css">
     <link rel="stylesheet" type="text/css" href="https://pixinvent.com/modern-admin-clean-bootstrap-4-dashboard-html-template/app-assets/css/plugins/forms/switch.min.css">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <!-- END Page Level CSS-->
     <!-- BEGIN Custom CSS-->
     <link rel="stylesheet" type="text/css" href="https://pixinvent.com/modern-admin-clean-bootstrap-4-dashboard-html-template/assets/css/style.css">
@@ -98,11 +99,11 @@
         <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
 
             {{--=========================================== Categories ================================================--}}
-            <li class="nav-item has-sub"><a href="#"><i class="la la-home"></i><span class="menu-title" data-i18n="nav.dash.main">Categories</span></a>
+            <li class="nav-item has-sub"><a href="#"><i class="la la-columns"></i><span class="menu-title" data-i18n="nav.columns.main">Categories</span></a>
                 <ul class="menu-content" style="">
-                    <li class=""><a class="menu-item" href="#" data-i18n="nav.dash.allCategori">All Categori</a>
+                    <li class=""><a class="menu-item" href="{{route('categories.index')}}" data-i18n="nav.dash.allColumn">All Category</a>
                     </li>
-                    <li class=""><a class="menu-item" href="#" data-i18n="nav.dash.addCategori">Add New</a>
+                    <li class=""><a class="menu-item" href="{{route('categories.create')}}" data-i18n="nav.dash.addColumn">Add New</a>
                     </li>
                 </ul>
             </li>
@@ -133,7 +134,16 @@
                     </li>
                 </ul>
             </li>
-
+            {{--=========================================== category ===================================================--}}
+            
+            {{--=========================================== Enquiry ===================================================--}}
+            <li class="nav-item has-sub"><a href="#"><i class="la la-columns"></i><span class="menu-title" data-i18n="nav.columns.main">Enquiry</span></a>
+                <ul class="menu-content" style="">
+                    <li class=""><a class="menu-item" href="{{route('enquiry.index')}}" data-i18n="nav.dash.allColumn">All Enquiry</a>
+                    </li>
+                    
+                </ul>
+            </li>
             <li class="navigation-header">
                 <span data-i18n="nav.category.admin">Administration</span><i class="la la-ellipsis-h ft-minus" data-toggle="tooltip" data-placement="right" data-original-title="Layouts"></i>
             </li>
@@ -193,16 +203,16 @@
                         <div class="card-content collapse show">
                             {{-- Content home page only --}}
                             @section('card-content')
-                                <section id="about_us">
+                                <section id="about_us" style="height: 61%">
                                     <div class="inside">
-                                        <div class="section-title show">
-                                            <h2>ABOUT US</h2>
-                                            <h1>ハタチのトビラとは？</h1>
-                                            <div class="title_text">
-                                                <p>「自分のやりたいことってなんだ？」</p>
-                                                <p>ハタチのトビラは、就活や働くことを見据え将来と向き合うハタチの学生に、<br>
-                                                    自社の事業や仕事の魅力を訴求する動画配信サービスです。</p>
-                                            </div>
+                                        <div class="section-title show" style="text-align:center">
+                                            <h2></h2>
+                                            <h1>ハタチのトビラへようこそ</h1>
+                                            {{--<div class="title_text">--}}
+                                                {{--<p>「自分のやりたいことってなんだ？」</p>--}}
+                                                {{--<p>ハタチのトビラは、就活や働くことを見据え将来と向き合うハタチの学生に、<br>--}}
+                                                    {{--自社の事業や仕事の魅力を訴求する動画配信サービスです。</p>--}}
+                                            {{--</div>--}}
                                         </div>
                                     </div>
                                 </section>
@@ -210,6 +220,7 @@
                             <!-- Tables start -->
                             <div class="card-body">
                                 @yield('content')
+                                
                             </div>
 
                         </div>
@@ -245,7 +256,7 @@
 <script src="https://pixinvent.com/modern-admin-clean-bootstrap-4-dashboard-html-template/app-assets/js/scripts/extensions/drag-drop.min.js" type="text/javascript"></script>
 <!-- END PAGE LEVEL JS-->
 @show
-
+@yield('customjavascript')
 <div class="selection_bubble_root" style="display: none;"></div>
 </body>
 </html>

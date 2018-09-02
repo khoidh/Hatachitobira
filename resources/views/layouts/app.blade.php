@@ -12,13 +12,16 @@
     {{--<title>{{ config('app.name') }}</title>--}}
 
     <!-- Styles -->
+    @section('css-add')
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/top.css') }}" rel="stylesheet">
     <link href="{{ asset('css/event.css') }}" rel="stylesheet">
     <link href="{{ asset('css/video.css') }}" rel="stylesheet">
     <link href="{{ asset('css/column.css') }}" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js" type="text/javascript"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    @show
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js" type="text/javascript"></script>
     @yield('css')
 </head>
 <body>
@@ -35,7 +38,10 @@
     </div>
 
     <!-- Scripts -->
+    @section('javascript-add')
     <script src="{{ asset('js/app.js') }}"></script>
+    @show
+
     @yield('javascript')
 </body>
 </html>

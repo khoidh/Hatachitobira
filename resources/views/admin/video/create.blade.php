@@ -7,7 +7,7 @@
             <div class="breadcrumb-wrapper col-12">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{ route('admin.home') }}">Home</a></li>
-                    <li class="breadcrumb-item"><a href="#">Videos</a></li>
+                    <li class="breadcrumb-item"><a href="{{ route('videos.index') }}">Videos</a></li>
                     <li class="breadcrumb-item active">Add new </li>
                 </ol>
             </div>

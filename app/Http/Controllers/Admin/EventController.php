@@ -6,6 +6,9 @@ use App\Event;
 use App\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests;
+
+use Illuminate\Foundation\Validation\ValidatesRequests;
 
 class EventController extends Controller
 {
@@ -29,6 +32,16 @@ class EventController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
+
+        $this->validate($request,[
+         'title'=>'required',
+         'category_id' => 'required',
+         'image' => 'required',
+         'sort' => 'required',
+         'time_from'    => 'required|date',
+         'time_to'      => 'required|date|after_or_equal:time_from',
+      ]);
+
         Event::create($data);
 
         //Upload file image
