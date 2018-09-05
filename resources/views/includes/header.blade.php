@@ -39,7 +39,7 @@
                             <li><a href="{{route('column.index')}}">記事から知る</a></li>
                         </ul>
                     </li>
-                    <li><a data-toggle="modal" data-target="#modal_register" style="cursor: pointer;">新規登録</a></li>
+                    <li><a id="show-modal-register" style="cursor: pointer;">新規登録</a></li>
                     <li><a data-toggle="modal" data-target="#modal_login" style="cursor: pointer;">グイン </a></li>
                     <li><a href="#">企業採用担当の方</a></li>
                     <li><a href="{{ url('/enquiry')}}">問い合わせ</a></li>
@@ -158,28 +158,7 @@
             <div class="modal-body" style="text-align:center">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                 <div class="panel-body">
-                    <div class="form-group code-top">
-                        <div class="col-md-4">
-                        <p>お気に入りorイベント申し込みは会員限定機能です。動画やイベント、あなたの興味のあるものを貯めて、マイテーマを形作っていこう！</p>
-                        </div>
-                        <img src="{{ asset('image/Picture1.png') }}">
-                    </div>
-                    <div class="form-group">
-                        <div class="col-md-10 col-md-offset-1" style="text-align: left;">
-                            <input class="input-checkbox" type="checkbox">
-                            <label class="lblcheckbox"><a class="link-redirect" href="/">利用規約</a> と <a class="link-redirect" href="/">プライバシーポリシー</a> に同意する </label>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-md-10 col-md-offset-1">
-                            <a href="{{ url('/auth/facebook') }}" class="btn btn-primary btn-register"> Facebookで登録</a>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-md-10 col-md-offset-1">
-                            <a href="#" class="btn btn-success btn-register btn-register-btn"> メールアドレスで登録</a>
-                        </div>
-                    </div>
+                    
                 </div>
             </div>
         </div>
@@ -193,6 +172,38 @@
                 'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
             }
         });
+    });
+
+     $(document).on('click','#show-modal-register',function(e){
+        console.log('aaaa');
+        e.preventDefault();
+        $html = '';
+        $html +='<div class="form-group code-top">';
+            $html +='<div class="col-md-4">';
+            $html +='<p>お気に入りorイベント申し込みは会員限定機能です。動画やイベント、あなたの興味のあるものを貯めて、マイテーマを形作っていこう！</p>';
+            $html +='</div>';
+            $html +='<img src="{{ asset('image/picture1.png') }}">';
+        $html +='</div>';
+        $html +='<div class="form-group">';
+            $html +='<div class="col-md-10 col-md-offset-1" style="text-align: left;">';
+                $html +='<input class="input-checkbox" type="checkbox">';
+                $html +='<label class="lblcheckbox"><a class="link-redirect" href="/">利用規約</a> と <a class="link-redirect" href="/">プライバシーポリシー</a> に同意する </label>';
+            $html +='</div>';
+        $html +='</div>';
+        $html +='<div class="form-group">';
+            $html +='<div class="col-md-10 col-md-offset-1">';
+                $html +='<a href="{{ url("/auth/facebook") }}" class="btn btn-primary btn-register"> Facebookで登録</a>';
+            $html +='</div>';
+        $html +='</div>';
+        $html +='<div class="form-group">';
+            $html +='<div class="col-md-10 col-md-offset-1">';
+                $html +='<a href="#" class="btn btn-success btn-register btn-register-btn"> メールアドレスで登録</a>';
+            $html +='</div>';
+        $html +='</div>';
+
+        $('.modal_register').find('.panel-body').html($html);
+        $('#modal_register').modal("show");
+
     });
 
     $(document).on('click','#btnlogin',function(e){
