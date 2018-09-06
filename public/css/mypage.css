@@ -1,24 +1,26 @@
 .mypage .event-information {
-	width: calc(100% + 20px);
+    width: calc(100% + 20px);
     float: left;
     margin: 24px -10px;
 }
 
 .event-information-wrapper.col-lg-4 {
-	padding: 0 10px;
+    padding: 0 10px;
+    height: 250px;
+    margin-bottom: 34px;
 }
 
 .event-information-content {
-    border: 1px solid #dddddd;
+    border: 1px solid #000;
     margin-bottom: 20px;
 }
 
 .event-image img{
-	width: 100%
+    width: 100%
 }
 
 .mypage .select-item select{
-	height: 30px;
+    height: 30px;
     width: 70%;
     margin-left: 10%;
 }
@@ -40,11 +42,11 @@
 }
 
 .item .wrapper .icon img{
-	width: 100%
+    width: 100%
 }
 
 .item .wrapper .icon i {
-	position: absolute;
+    position: absolute;
     top: 2%;
     left: 89%;
     color: red;
@@ -53,7 +55,7 @@
 
 .item .wrapper .icon i:hover,
 .item .wrapper .icon i:focus  {
-	color: blue;
+    color: blue;
 }
 
 .event-information .item .content {
@@ -63,11 +65,11 @@
 }
 
 .status {
-	text-align: right;
+    text-align: right;
 }
 
 .status .text-status {
-	width: 30%;
+    width: 30%;
     float: right;
     background-color: #f9e305;
     padding: 7px;
@@ -77,28 +79,28 @@
 }
 
 .category .text-category {
-	background-color: yellow;
+    background-color: yellow;
     width: 13%;
     padding: 4px;
 }
 
 .date .text-date {
-	text-align: right;
+    text-align: right;
 }
 
 .event-show-detail {
-	text-align: center;
+    text-align: center;
 }
 
 .event-show-detail .btn{
-	color: #e0931a;
+    color: #e0931a;
     border-color: #e0931a;
     padding: 5px 137px;
     font-size: 20px;
 }
 
 .event-information .panel-body {
-	background-color: #d2d2d2;
+    background-color: #d2d2d2;
     padding: 8px;
 }
 .event-information .panel-body .text-link{
@@ -106,14 +108,14 @@
     font-weight: bold;
 }
 .event-information .content-video {
-	background-color: #fff;
-	padding: 10px 5px;
-	margin-top: 20px;
+    background-color: #fff;
+    padding: 10px 5px;
+    margin-top: 20px;
     height: 270px;
 }
 
 .event-information .content-column {
-	background-color: #fff;
+    background-color: #fff;
     padding: 34px 83px;
     margin-top: 20px;
     height: 200px;
@@ -121,13 +123,88 @@
 }
 
 .content-column .event-show-detail button {
-	background-color: #e0931a;
+    background-color: #e0931a;
     color: #fff;
     margin-top: 20px;
 }
 .event-information .content-text {
-	background-color: #fff;
-	padding: 10px 5px;
-	margin-top: 20px;
+    background-color: #fff;
+    padding: 10px 5px;
+    margin-top: 20px;
     height: 210px;
+}
+
+.a-user {
+    float: right;
+    color: #000;
+    background-color: yellow;
+}
+
+.event-information.select-month {
+    text-align: center;
+}
+.event-information.select-month .fa-caret-left{
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+.event-information.select-month .text-month{
+    margin-top: -35px;
+    display: block;
+    margin-right: -124px;
+}
+
+.favorite.edit i {
+    position: absolute;
+    top: 4%;
+    left: 80%;
+    color: #777676;
+    cursor: pointer;
+    font-size: 17px;
+}
+
+.mypage-text {
+    padding: 38px;
+    height: 230px;
+}
+
+.event-information-content .number {
+    width: 16%;
+    background-color: #fff;
+    text-align: center;
+    z-index: 11111;
+    margin-left: -3px;
+    margin-top: -10px;
+    padding: 0 11px 11px 0;
+    color: #000;
+}
+
+.event-information-content .number span,
+.mypage-number{ 
+    border: 1px solid;
+    padding: 5px 10px;
+    border-radius: 10px
+}
+
+#show-detail-mypage .number {
+    width: 25%
+}
+
+#show-detail-mypage .mypage-text {
+    padding: 8px;
+    height: 115px;
+}
+
+#show-detail-mypage .title-detail {
+    font-weight: bold;
+    color: #000
+}
+
+.detail-infor {
+    margin-top: 25px;
+}
+
+.detail-infor .event-information-content{
+        text-align: left;
+    padding: 6px;
 }
