@@ -1,0 +1,15 @@
+.select-search {
+    text-align: center;
+    margin-top: 25px;
+}
+
+.select-search .select-box {
+    padding: 10px 60px;
+    border-color: #000;
+    color: #000;
+}
+
+.row.event-search {
+	margin-top: 35px;
+    margin-bottom: 35px;
+}
