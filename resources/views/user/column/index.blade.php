@@ -16,7 +16,6 @@
     </style>
 @endsection
 @section('content')
-
     <div class="row">
         <h3>コラム</h3>
         <div class="container">
@@ -38,7 +37,7 @@
                 @foreach($columns as $column)
                         <div class="col-md-12" style="border:1px solid #EAEAEA; border-width:thin; margin-bottom: 20px">
                             <div class="item">
-                                <div class="wrapper" >
+                                <div class="wrapper">
                                     <div class="icon">
                                         <a href="{{route('column.show', $column->id)}}">
                                             @php $image='image/column/'.$column->image; @endphp
@@ -52,9 +51,8 @@
                                                 <input type="hidden" class="favorite" value="0">
                                                 <input type="hidden" class="user_id" value="{{Auth::user()->id}}">
                                                 <input type="hidden" class="column_id" value="{{$column->id}}">
-                                                {{--<input type="hidden" class="$favorites_id" value="{{$column->id}}">--}}
                                                 @if(in_array($column->id,$favorites_id))
-                                                    <i class="fa fa-heart-o" style="font-size:24px; color: red;" ></i>
+                                                    <i class="fa fa-heart-o" style="font-size:24px; color: red;"></i>
                                                 @else
                                                     <i class="fa fa-heart-o" style="font-size:24px; color: blue;"></i>
                                                 @endif
@@ -68,7 +66,7 @@
                                         {{--==================== /end favorite ====================--}}
 
                                     </div>
-                                    <div class="content" style="background: #FFFFFF" >
+                                    <div class="content" style="background: #FFFFFF">
                                         <a href="{{route('column.show', $column->id)}}" style="text-decoration:none;">
                                             <div class="row">
                                                 <div class="col-md-9">
@@ -83,22 +81,23 @@
                                             {{--<div class="status"><a href="#"><h4>インタビュー</h4></a></div>--}}
                                             {{--<div class="status"><h4>インタビュー</h4></div>--}}
                                             {{--<div class="title"><p>{{$column->title}}</p></div>--}}
-                                            <div class="category" style="color: #636B6F; font-weight: bold"  ><p>{{$column->category_name}}</p></div>
-                                            <div class="description" style="color: #636B6F;"  ><p>{{$column->description}}</p></div>
-
-                                            <div class="date" style="text-align: right"><p>{{$column->created_at}}</p></div>
+                                            <div class="category" style="color: #636B6F; font-weight: bold">
+                                                <p>{{$column->category_name}}</p></div>
+                                            <div class="description" style="color: #636B6F;">
+                                                <p>{{$column->description}}</p></div>
+                                            <div class="date" style="text-align: right"><p>{{date('Y-m-d', strtotime($column->created_at))}}</p>
+                                            </div>
                                         </a>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                @endforeach
+                    @endforeach
+                    {{ $columns->links() }}
                 </div>
-                {{ $columns->links() }}
             </div>
         </div>
     </div>
-
 @endsection
 
 @section('javascript-add')

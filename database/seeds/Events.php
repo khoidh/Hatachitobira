@@ -11,6 +11,10 @@ class Events extends Seeder
      */
     public function run()
     {
+        //Delete data in table before seed
+        DB::table('events')->delete();
+
+        //run seed
         for($i=1;$i<=20;$i++) {
             DB::table('events')->insert([
                 'id'            => $i,
@@ -20,6 +24,8 @@ class Events extends Seeder
                 'sort'          => 1,
                 'time_from'     => '2018-08-03 07:00:00',
                 'time_to'       => '2018-08-06 07:00:00',
+                'created_at'    => '2018-09-06 07:00:00',
+                'updated_at'    => '2018-09-06 07:00:00',
             ]);
         }
     }

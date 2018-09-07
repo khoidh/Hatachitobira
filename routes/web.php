@@ -83,6 +83,7 @@ Route::group(['middleware' => 'auth:user'],function ()
     Route::post('event','User\EventController@update')->name('event.update');
     Route::post('video','User\VideoController@favorite')->name('video.favorite');
     Route::post('columnFavorite', 'User\ColumnController@favorite')->name('column.favorite');
+    Route::post('eventFavorite', 'User\EventController@favorite')->name('event.favorite');
 
     Route::get('my-page','User\MypageController@index')->name('mypage.index');
 });

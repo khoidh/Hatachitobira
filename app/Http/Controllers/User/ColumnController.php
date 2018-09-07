@@ -13,28 +13,19 @@ class ColumnController extends Controller
     public function index()
     {
         $columns = Column::select()
-            ->select('columns.*','categories.name as category_name')
-            ->join('categories','categories.id','=','columns.category_id')
+            ->select('columns.*', 'categories.name as category_name')
+            ->join('categories', 'categories.id', '=', 'columns.category_id')
             ->paginate(5);
-        if(Auth::user())
-        {
-            $user_id            = Auth::user()->id;
-            $favoritable_type   = (new Column())->getTable();
-            $favorites_id= Favorite::where([['user_id',$user_id],
-                ['favoritable_type',$favoritable_type]])->pluck('favoritable_id')->toArray();
-            return view('user.column.index', ['columns' => $columns,'favorites_id'=>$favorites_id]);
+        if (Auth::user()) {
+            $user_id = Auth::user()->id;
+            $favoritable_type = (new Column())->getTable();    //Get table name "Columns"
+            $favorites_id = Favorite::where([
+                ['user_id', $user_id],
+                ['favoritable_type', $favoritable_type]
+            ])->pluck('favoritable_id')->toArray();
+            return view('user.column.index', ['columns' => $columns, 'favorites_id' => $favorites_id]);
         }
         return view('user.column.index', ['columns' => $columns]);
-    }
-
-    public function create()
-    {
-        //
-    }
-
-    public function store(Request $request)
-    {
-        //
     }
 
     public function show($id)
@@ -52,56 +43,47 @@ class ColumnController extends Controller
             $next = $column;
         }
 
-        // get 6 bài viết ngẫu nhiên
+        // get 6 random records
         $columns_random = Column::inRandomOrder()->select('id', 'title')->take(6)->get();
 
-        // get 6 bài viết gần nhất
+        // get 6 nearest records
         $columns_latest = Column::select('id', 'title')->orderBy('updated_at', 'desc')->take(6)->get();
 
-        ////////////////  Đã login //////////////////////
-        if(Auth::user())
-        {
-            $user_id            = Auth::user()->id;
-            $favoritable_type   = (new Column())->getTable();
-            $favorites_id= Favorite::where([['user_id',$user_id],
-                ['favoritable_type',$favoritable_type]])->pluck('favoritable_id')->toArray();
-            return view('user.column.show',
-                ['column' => $column, 'previous' => $previous, 'next' => $next, 'columns_random' => $columns_random, 'columns_latest' => $columns_latest, 'favorites_id'=>$favorites_id]);
+        $data = [
+            'column' => $column,
+            'previous' => $previous,
+            'next' => $next,
+            'columns_random' => $columns_random,
+            'columns_latest' => $columns_latest,
+        ];
+
+        //////////////// have logged //////////////////////
+        if (Auth::user()) {
+            $user_id = Auth::user()->id;
+            $favoritable_type = (new Column())->getTable();
+            $favorites_id = Favorite::where([
+                ['user_id', $user_id],
+                ['favoritable_type', $favoritable_type]
+            ])->pluck('favoritable_id')->toArray();
+            $data['favorites_id'] = $favorites_id;
         }
-        ////////////////  Chưa login //////////////////////
-        return view('user.column.show',
-            ['column' => $column, 'previous' => $previous, 'next' => $next, 'columns_random' => $columns_random, 'columns_latest' => $columns_latest]);
-    }
-
-    public function edit($id)
-    {
-        //
-    }
-
-    public function update(Request $request, $id)
-    {
-        //
+        return view('user.column.show', $data);
     }
 
     public function favorite(Request $request)
     {
-            $favorite = Favorite::where('user_id',$request->user_id)
-                ->where('favoritable_id',$request->column_id)
-                ->where('favoritable_type',(new Column())->getTable())
-                ->exists();
-            if(!$favorite)
-            {
-                $favorite = new Favorite();
-                $favorite->user_id = $request->user_id;
-                $favorite->favoritable_id = $request->column_id;
-                $favorite->favoritable_type = (new Column())->getTable();
-                $favorite->save();
-            }
-            return "気に入っ成功";
+        $favorite = Favorite::where('user_id', $request->user_id)
+            ->where('favoritable_id', $request->column_id)
+            ->where('favoritable_type', (new Column())->getTable())
+            ->exists();
+        if (!$favorite) {
+            $favorite = new Favorite();
+            $favorite->user_id = $request->user_id;
+            $favorite->favoritable_id = $request->column_id;
+            $favorite->favoritable_type = (new Column())->getTable();
+            $favorite->save();
+        }
+        return "気に入っ成功";
     }
 
-    public function destroy($id)
-    {
-        //
-    }
 }

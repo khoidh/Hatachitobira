@@ -4,11 +4,16 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/top.css') }}" rel="stylesheet">
     <link href="{{ asset('css/column.css') }}" rel="stylesheet">
-    <link rel='stylesheet' id='style-css'
-          href="{{ asset('css/style.2.2.1.css') }}" type='text/css'
-          media='all'/>
-
+    <link rel='stylesheet' id='style-css' href="{{ asset('css/style.2.2.1.css') }}" type='text/css' media='all'/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <style>
+        .fa-heart-o{
+            cursor: pointer !important;
+        }
+        .favorite{
+            height: 0 !important;
+        }
+    </style>
 @endsection
 @section('content')
     <div id="main_contents" class="clearfix">
@@ -16,7 +21,7 @@
             <ul class="clearfix">
                 <li itemscope="itemscope" itemtype="http://data-vocabulary.org/Breadcrumb" class="home"><a itemprop="url" href="{{ url('/') }}"><span>ホーム</span></a></li>
 
-                <li><a href="{{route('column.index')}}">コラム</a></li>
+                <li><a href="{{route('column.index')}}">記事一覧</a></li>
                 <li class="last">{{$column->title}}</li>
 
             </ul>
@@ -205,7 +210,6 @@
 
 
         </div><!-- END #main_col -->
-
 
     </div>
 

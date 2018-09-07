@@ -11,6 +11,10 @@ class Columns extends Seeder
      */
     public function run()
     {
+        //Delete data in table before seed
+        DB::table('columns')->delete();
+
+        //run seed
         for($i=1;$i<=20;$i++) {
             DB::table('columns')->insert([
                 'id'            => $i,
@@ -100,6 +104,8 @@ class Columns extends Seeder
 <p>※ハタチのトビラでは1分の広報動画と20分の本編動画を作成しております。是非、Huberの事業を疑似体験してみてください。1分動画は以下よりご覧ください</p>',
                 'image'         => 'column01.jpg',
                 'sort'          => 1,
+                'created_at'    => '2018-09-06 07:00:00',
+                'updated_at'    => '2018-09-06 07:00:00',
             ]);
         }
         for($i=21;$i<=40;$i++) {
@@ -196,6 +202,8 @@ class Columns extends Seeder
 <p>&nbsp;</p>',
                 'image'         => 'column02.jpg',
                 'sort'          => 1,
+                'created_at'    => '2018-09-06 07:00:00',
+                'updated_at'    => '2018-09-06 07:00:00',
             ]);
         }
         for($i=41;$i<=60;$i++) {
@@ -207,6 +215,8 @@ class Columns extends Seeder
                 'content'       => '<p>高度なIT人材育成のための日本語教師と、当社初の専任総務を募集。</p>',
                 'image'         => 'column01.jpg',
                 'sort'          => 1,
+                'created_at'    => '2018-09-06 07:00:00',
+                'updated_at'    => '2018-09-06 07:00:00',
             ]);
         }
     }
