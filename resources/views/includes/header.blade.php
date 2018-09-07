@@ -158,7 +158,6 @@
             <div class="modal-body" style="text-align:center">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                 <div class="panel-body">
-                    
                 </div>
             </div>
         </div>
