@@ -99,7 +99,7 @@
         <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
 
             {{--=========================================== Categories ================================================--}}
-            <li class="nav-item has-sub"><a href="#"><i class="la la-columns"></i><span class="menu-title" data-i18n="nav.columns.main">Categories</span></a>
+            <li class="nav-item has-sub"><a href="#"><i class="la la-sitemap"></i><span class="menu-title" data-i18n="nav.columns.main">Categories</span></a>
                 <ul class="menu-content" style="">
                     <li class=""><a class="menu-item" href="{{route('categories.index')}}" data-i18n="nav.dash.allColumn">All Category</a>
                     </li>
@@ -134,10 +134,9 @@
                     </li>
                 </ul>
             </li>
-            {{--=========================================== category ===================================================--}}
-            
+
             {{--=========================================== Enquiry ===================================================--}}
-            <li class="nav-item has-sub"><a href="#"><i class="la la-columns"></i><span class="menu-title" data-i18n="nav.columns.main">Enquiry</span></a>
+            <li class="nav-item has-sub"><a href="#"><i class="la la-edit"></i><span class="menu-title" data-i18n="nav.columns.main">Enquiry</span></a>
                 <ul class="menu-content" style="">
                     <li class=""><a class="menu-item" href="{{route('enquiry.index')}}" data-i18n="nav.dash.allColumn">All Enquiry</a>
                     </li>

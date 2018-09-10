@@ -3,50 +3,54 @@
 @section('css')
     @parent
     <style>
-        #selectedFiles img {
+        #file {
+            display: none;
+        }
+
+        .file-Select {
             max-width: 125px;
             max-height: 125px;
-            float: left;
-            margin-bottom: 10px;
+            margin-top: 10px;
+            /*border: 1px solid #ddd;*/
+            /*border-radius: 4px;*/
+            /*line-height: 10px;*/
+            /*padding: 4px;*/
+        }
+
+        /* this code is not required */
+        .btn.btn-default.btn-upload {
+            position: relative;
+            z-index: 1;
+            border: 1px solid #ddd;
+            -webkit-appearance: button;
+            -moz-appearance: button;
+            appearance: button;
+            line-height: 16px;
+            padding: .4em ;
+            margin: .2em;
+            height: 30px;
         }
     </style>
 @endsection
 @section('javascrip')
-    <script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
+    <script src= "{{asset("vendor/unisharp/laravel-ckeditor/ckeditor.js")}}"></script>
+    <script src="https://code.jquery.com/jquery-1.11.3.js"></script>
     <script>
-        var selDiv = "";
-
-        document.addEventListener("DOMContentLoaded", init, false);
-        function init() {
-            document.querySelector('#image').addEventListener('change', handleFileSelect, false);
-            selDiv = document.querySelector("#selectedFiles");
-        }
-
-        function handleFileSelect(e) {
-
-            // debugger;
-            if(!e.target.files || !window.FileReader) return;
-
-            selDiv.innerHTML = "";
-
-            var files = e.target.files;
-            var filesArr = Array.prototype.slice.call(files);
-            filesArr.forEach(function(f) {
-                var f = files[i];
-                if(!f.type.match("image.*")) {
-                    return;
+        $(document).ready(function () {
+            //this code is not required
+            $('#file').change(function(){
+                if (this.files && this.files[0]) {
+                    var reader = new FileReader();
+                    reader.onload = function (e) {
+                        selectedImage = e.target.result;
+                        $('.file-Select').attr('src', selectedImage);
+                        $('.file-Select').attr('style','border: 1px solid #ddd; border-radius: 4px; line-height: 10px; padding: 4px');
+                    };
+                    reader.readAsDataURL(this.files[0]);
+                    $('.file-edited-check').val(true);
                 }
-
-                var reader = new FileReader();
-                reader.onload = function (e) {
-                    // var html = "<img src=\"" + e.target.result + "\">" + f.name + "<br clear=\"left\"/>";
-                    var html = "<img src=\"" + e.target.result + "\">" + "<br clear=\"left\"/>";
-                    selDiv.innerHTML += html;
-                }
-                reader.readAsDataURL(f);
             });
-
-        }
+        })
     </script>
 @endsection
 
@@ -118,12 +122,16 @@
                 </div>
 
                 <div class="form-group row">
-                    <label for="inputPassword3" class="col-sm-2 col-form-label">Upload Image</label>
+                    <label class="col-sm-2 col-form-label">Upload Image</label>
                     <div class="col-sm-10">
-                        {{--<input type="file" name="image" required="true" image="jpeg, png, bmp, gif, or svg">--}}
-                        <input type="file" id="image" name="image" required="true" accept=".png, .jpg, .jpeg, .gif"><br/>
-
-                        <div id="selectedFiles" style="margin-top: 10px"></div>
+                        <div class="upload-actions">
+                            <label class="btn btn-default btn-upload" for="file" required="true"><i class="fa fa-upload"></i> Choose file</label>
+                            <input type="file" id="file"  name="image">
+                        </div>
+                        <div>
+                            <img class="file-Select">
+                            <input class="file-edited-check" type="hidden" name="image_edited_check" value=false>
+                        </div>
                     </div>
                 </div>
 
