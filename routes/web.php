@@ -107,4 +107,4 @@ Route::get('verify/{email}/{verifyToken}','Auth\RegisterController@sendEmailDone
 
 // Search Category
 
-Route::get('search-category','User\MypageController@searchCategory');
+Route::get('search-category','User\MypageController@searchCategory')->name('search-category');
