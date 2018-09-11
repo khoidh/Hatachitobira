@@ -898,7 +898,7 @@ main section .brackets-bottom:after {
 
 footer {
 	padding: 70px 50px 55px;
-	position: relative;
+	/*position: relative;*/
 	/*background: #000;*/
 }
 
