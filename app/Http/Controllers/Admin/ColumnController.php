@@ -88,7 +88,8 @@ class ColumnController extends Controller
 
         //Upload file image
         if($request->hasFile('image')) {
-            //Hàm kiểm tra dữ liệu
+            if (isset($data['image_edited_check']) && (bool)$data['image_edited_check'] == true) {
+                //Hàm kiểm tra file image dữ liệu
 //            $this->validate($request,
 //                [
 //                    //Kiểm tra đúng file đuôi .jpg,.jpeg,.png.gif và dung lượng không quá 2M
@@ -101,13 +102,14 @@ class ColumnController extends Controller
 //                ]
 //            );
 
-            //Lưu hình ảnh vào thư mục public/image/column
-            $file = $request->file('image');
-            $fileName = time() . '_' . $file->getClientOriginalName();
-            $destinationPath = public_path('image/column');
-            $file->move($destinationPath, $fileName);
+                //Lưu hình ảnh vào thư mục public/image/column
+                $file = $request->file('image');
+                $fileName = time() . '_' . $file->getClientOriginalName();
+                $destinationPath = public_path('image/column');
+                $file->move($destinationPath, $fileName);
 
-            $data["image"]= $fileName;
+                $data["image"] = $fileName;
+            }
         }
         $column->update($data);
         return redirect()->route('columns.show',$column->id);

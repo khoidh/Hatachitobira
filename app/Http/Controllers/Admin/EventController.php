@@ -80,17 +80,21 @@ class EventController extends Controller
     {
         $event = Event::find($id);
         $data = $request->all();
-        $event->update($data);
 
         //Upload file image
         if($request->hasFile('image')) {
-            //Lưu hình ảnh vào thư mục public/image/event
-            $file = $request->file('image');
-            $fileName = time() . '_' . $file->getClientOriginalName();
-            $destinationPath = public_path('image/event');
-            $file->move($destinationPath, $fileName);
-        }
+            if (isset($data['image_edited_check']) && (bool)$data['image_edited_check'] == true)
+            {//if changed image
+                //Lưu hình ảnh vào thư mục public/image/event
+                $file = $request->file('image');
+                $fileName = time() . '_' . $file->getClientOriginalName();
+                $destinationPath = public_path('image/event');
+                $file->move($destinationPath, $fileName);
 
+                $data["image"] = $fileName;
+            }
+        }
+        $event->update($data);
         return redirect()->route('events.show',$event->id);
     }
 

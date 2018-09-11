@@ -1,5 +1,61 @@
 @extends('admin.home')
 
+@section('css')
+    @parent
+    <style>
+        #file {
+            display: none;
+        }
+
+        .file-Select {
+            max-width: 125px;
+            max-height: 125px;
+            margin-top: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            line-height: 10px;
+            padding: 4px;
+        }
+
+        /* this code is not required */
+        .btn.btn-default.btn-upload {
+            position: relative;
+            z-index: 1;
+            border: 1px solid #ddd;
+            -webkit-appearance: button;
+            -moz-appearance: button;
+            appearance: button;
+            line-height: 16px;
+            padding: .4em ;
+            margin: .2em;
+            height: 30px;
+        }
+    </style>
+
+
+@endsection
+@section('javascrip')
+    <script src= "{{asset("vendor/unisharp/laravel-ckeditor/ckeditor.js")}}"></script>
+    <script src="https://code.jquery.com/jquery-1.11.3.js"></script>
+    <script>
+        $(document).ready(function () {
+            //this code is not required
+            $('#file').change(function(){
+                if (this.files && this.files[0]) {
+                    var reader = new FileReader();
+                    reader.onload = function (e) {
+                        selectedImage = e.target.result;
+                        $('.file-Select').attr('src', selectedImage);
+                    };
+                    reader.readAsDataURL(this.files[0]);
+                    $('.file-edited-check').val(true);
+
+                }
+            });
+        })
+    </script>
+@endsection
+
 @section('content-header')
     <div class="content-header-left col-md-6 col-12 mb-2 breadcrumb-new">
         <h3 class="content-header-title mb-0 d-inline-block" style="font-size: 30px">Events</h3>
@@ -63,7 +119,16 @@
         <div class="form-group row">
             <label for="inputPassword3" class="col-sm-2 col-form-label">Upload Image</label>
             <div class="col-sm-10">
-                <input type="file" name="image" value="{{$event->image}}" required="true">
+                {{--<input type="file" name="image" value="{{$event->image}}" required="true">--}}
+                <div class="upload-actions">
+                    <label class="btn btn-default btn-upload" for="file"><i class="fa fa-upload"></i> Choose file</label>
+                    <input type="file" id="file"  name="image">
+                </div>
+                <div>
+                    @php $image='image/event/'.$event->image; @endphp
+                    <img class="file-Select" src="{{file_exists($image)?asset($image): asset('image/event/event_default.jpg')}}">
+                    <input class="file-edited-check" type="hidden" name="image_edited_check" value=false>
+                </div>
             </div>
         </div>
         <div class="form-group row">
