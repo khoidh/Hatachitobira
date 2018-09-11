@@ -104,3 +104,4 @@ Route::get('about',function () {
 Route::get('verifyEmailFirst','Auth\RegisterController@verifyEmailFirst')->name('verifyEmailFirst');
 
 Route::get('verify/{email}/{verifyToken}','Auth\RegisterController@sendEmailDone')->name('sendEmailDone');
+Route::get('company-entrance','HomeController@companyEntrance')->name('company-entrance');
