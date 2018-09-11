@@ -11,6 +11,10 @@ class Categories extends Seeder
      */
     public function run()
     {
+        //Delete data in table before seed
+        DB::table('categories')->delete();
+
+        //run seed
         DB::table('categories')->insert([
             'id'            => 1,
             'name'          => 'ベトナムの求人/転職情報',

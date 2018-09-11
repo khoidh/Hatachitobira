@@ -11,6 +11,10 @@ class Videos extends Seeder
      */
     public function run()
     {
+        //Delete data in table before seed
+        DB::table('videos')->delete();
+
+        //run seed
         for($i=1;$i<=5;$i++) {
             DB::table('videos')->insert([
                 'id'            => $i,
