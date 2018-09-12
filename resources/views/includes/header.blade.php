@@ -202,7 +202,7 @@
             $html +='</div>';
         $html +='</div>';
 
-        $('.modal_register').find('.panel-body').html($html);
+        $('#modal_register').find('.panel-body').html($html);
         $('#modal_register').modal("show");
 
     });
@@ -279,9 +279,9 @@
         $html +=' </div>';
         $html +='</div>';
 
-        $('.modal_register').find('.panel-body').addClass('form-horizontal');
-        $('.modal_register').find('.panel-body').html($html);
-        $('.modal_register').find('.panel-body').css('display','block');
+        $('#modal_register').find('.panel-body').addClass('form-horizontal');
+        $('#modal_register').find('.panel-body').html($html);
+        $('#modal_register').find('.panel-body').css('display','block');
     });
 
     $(document).on('click','.btn-submit-register',function(e) {
@@ -320,8 +320,8 @@
                     $html += '<div class="form-group">';
                     $html +='<a  class="btn btn-warning" href="{{route("mypage.index")}}">MY PAGEへ</a>';
                     $html +=' </div>';
-                    $('.modal_register').find('.panel-body').addClass('form-horizontal');
-                    $('.modal_register').find('.panel-body').html($html);
+                    $('#modal_register').find('.panel-body').addClass('form-horizontal');
+                    $('#modal_register').find('.panel-body').html($html);
                 }else{
                     $('.error-register').text(result.message);
                 }
