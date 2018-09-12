@@ -317,3 +317,122 @@
 #workflow_list li .close-company:hover {
 	text-decoration: none;
 }
+
+@media screen and (max-width: 1200px) {
+	#workflow_list li h3 {
+		margin-top: 5px;
+	}
+}
+
+@media screen and (max-width: 900px) {
+	#workflow_list {
+		width: auto;
+		padding: 0 10px;
+		left: auto;
+	}
+	
+	#workflow_list li {
+		width: auto;
+		max-width: 400px;
+		margin: 0 auto;
+		float: none;
+	}
+	
+	#workflow_list li:not(:first-child) {
+		margin-top: 80px;
+	}
+	
+	#workflow_list li:not(:first-child):after {
+		top: auto;
+		bottom: calc(100% + 15px);
+		left: 0;
+		right: 0;
+		-webkit-transform: none;
+				transform: none;
+	}
+
+	#workflow_list li .number {
+		width: 45px;
+		font-size: 18px;
+	}
+}
+
+@media screen and (max-width: 480px) {
+	#workflow_list li:not(:first-child) {
+		margin-top: 60px;
+	}
+	
+	#workflow_list li:not(:first-child):after {
+		width: 12px;
+		bottom: calc(100% + 10px);
+	}
+	
+	#workflow_list li .close {
+		font-size: 8px;
+	}
+}
+
+@media screen and (max-width: 1200px) {
+	#service_list li .open {
+		font-size: 18px;
+	}
+	
+	#movie .viewer {
+		margin-right: auto;
+	}
+	
+	#movie .thumbnail {
+		width: auto;
+		padding: 0 5px 10px;
+		position: static;
+	}
+	
+	#movie .thumbnail:after {
+		content: "";
+		display: block;
+		clear: both;
+	}
+	
+	#movie .thumbnail li {
+		width: 33.3%;
+		height: 200px;
+		padding: 0 5px;
+		float: left;
+	}
+}
+
+@media screen and (max-width: 900px) {
+	.create_movie {
+		margin-top: 80px;
+	}
+	
+	#movie .viewer ul {
+		height: 350px;
+	}
+	
+	#movie .viewer li iframe {
+		height: 350px;
+	}
+	
+	#movie .thumbnail li {
+		height: 130px;
+	}
+	
+	.create_movie .more-link {
+		font-size: 15px;
+	}
+}
+
+@media screen and (max-width: 480px) {
+	#movie .viewer ul {
+		height: 200px;
+	}
+	
+	#movie .viewer li iframe {
+		height: 200px;
+	}
+	
+	#movie .thumbnail li {
+		height: 100px;
+	}
+}
