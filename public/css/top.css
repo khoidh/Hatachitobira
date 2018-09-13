@@ -13,7 +13,7 @@ footer
 {
     padding: 50px;
     background-color: ghostwhite;
-    bottom: 0;
+    /*bottom: 0;*/
     position: absolute;
     left: 0;
     width: 100%;
