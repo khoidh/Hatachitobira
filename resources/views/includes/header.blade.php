@@ -33,7 +33,7 @@
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">マイテーマ
                             <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">カテゴリから探す</a></li>
+                            <li><a href="{{route('search-category')}}">カテゴリから探す</a></li>
                             <li><a href="{{route('video.index')}}">動画から探す</a></li>
                             <li><a href="{{route('event.index')}}">イベントに参加</a></li>
                             <li><a href="{{route('column.index')}}">記事から知る</a></li>
@@ -42,7 +42,7 @@
                     <li><a id="show-modal-register" style="cursor: pointer;">新規登録</a></li>
                     <li><a data-toggle="modal" data-target="#modal_login" style="cursor: pointer;">グイン </a></li>
                     <li><a href="#">企業採用担当の方</a></li>
-                    <li><a href="{{ url('/enquiry')}}">問い合わせ</a></li>
+                    {{--<li><a href="{{ url('/enquiry')}}">問い合わせ</a></li>--}}
 
                 @else
                     <li><a href="{{url('about')}}">ABOUT</a></li>
