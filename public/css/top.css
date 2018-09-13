@@ -4,6 +4,7 @@
     background-color: gray;
     text-align: center;
     color: white;
+
 }
 .row h4
 {
@@ -52,11 +53,10 @@ ul li a
 }
 
 .navbar.navbar-static-top .container {
-    position: fixed;
+    /*position: fixed;*/
     top: 0;
     width: 100%;
     background-color: #fff;
-    border-bottom: 1px solid #d4d1d1;
 }
 
 .slide .container {
