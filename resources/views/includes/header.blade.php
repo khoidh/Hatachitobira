@@ -46,7 +46,7 @@
 
                 @else
                     <li><a href="{{url('about')}}">ABOUT</a></li>
-                    {{--<li><a href="#">マイテーマ</a></li>--}}
+                    <!-- {{--<li><a href="#">マイテーマ</a></li>--}} -->
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">マイテーマ
                             <span class="caret"></span></a>
@@ -57,8 +57,8 @@
                             <li><a href="#">が格納されている</a></li>
                         </ul>
                     </li>
-                    <li><a href="#">企業採用担当の方</a></li>
-                    <li><a href="{{ url('/enquiry')}}">問い合わせ</a></li>
+                   <!--  <li><a href="#">企業採用担当の方</a></li>
+                    <li><a href="{{ url('/enquiry')}}">問い合わせ</a></li> -->
                     <li><a href="{{ route('mypage.index') }}">MY PAGE</a></li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
