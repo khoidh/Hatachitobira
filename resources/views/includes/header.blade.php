@@ -41,7 +41,7 @@
                     </li>
                     <li><a id="show-modal-register" style="cursor: pointer;">新規登録</a></li>
                     <li><a data-toggle="modal" data-target="#modal_login" style="cursor: pointer;">グイン </a></li>
-                    <li><a href="#">企業採用担当の方</a></li>
+                    <li><a href="{{ route('company-entrance')}}">企業採用担当の方</a></li>
                     {{--<li><a href="{{ url('/enquiry')}}">問い合わせ</a></li>--}}
 
                 @else
@@ -59,7 +59,7 @@
                         </ul>
                     </li>
                     <li><a href="#">企業採用担当の方</a></li>
-                    <li><a href="{{ url('/enquiry')}}">問い合わせ</a></li>
+                    {{--<li><a href="{{ url('/enquiry')}}">問い合わせ</a></li>--}}
                     <li><a href="{{ route('mypage.index') }}">MY PAGE</a></li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -279,9 +279,9 @@
         $html +=' </div>';
         $html +='</div>';
 
-        $('.modal_register').find('.panel-body').addClass('form-horizontal');
-        $('.modal_register').find('.panel-body').html($html);
-        $('.modal_register').find('.panel-body').css('display','block');
+        $('#modal_register').find('.panel-body').addClass('form-horizontal');
+        $('#modal_register').find('.panel-body').html($html);
+        $('#modal_register').find('.panel-body').css('display','block');
     });
 
     $(document).on('click','.btn-submit-register',function(e) {
@@ -320,8 +320,8 @@
                     $html += '<div class="form-group">';
                     $html +='<a  class="btn btn-warning" href="{{route("mypage.index")}}">MY PAGEへ</a>';
                     $html +=' </div>';
-                    $('.modal_register').find('.panel-body').addClass('form-horizontal');
-                    $('.modal_register').find('.panel-body').html($html);
+                    $('#modal_register').find('.panel-body').addClass('form-horizontal');
+                    $('#modal_register').find('.panel-body').html($html);
                 }else{
                     $('.error-register').text(result.message);
                 }
