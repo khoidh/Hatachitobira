@@ -17,20 +17,23 @@
 }
 .column .item .wrapper
 {
-    background-color: black;
+    /*background-color: black;*/
     color: white;
     display: flex;
     flex-flow: row nowrap;
     min-height: 100%;
     /*width: 600px;*/
     width: 100%;
-    height: 150px;
+    height: 100%;
+    /*height: 150px;*/
 }
 
 .column .item .wrapper .icon
 {
-    width: 150px;
-    height: 150px;
+    /*width: 150px;*/
+    /*height: 150px;*/
+    width: 100%;
+    height: 100%;
     position: relative;
 
 }
@@ -38,13 +41,15 @@
 {
     width: 100%;
     height: 100%;
-    /*position: relative;*/
+    /*width: 150px;*/
+    /*height: 150px;*/
+    position: relative;
 }
 .column .item .wrapper .icon i
 {
     position: absolute;
-    top: 2%;
-    left: 80%;
+    top: 5%;
+    right: 5%;
     color: blue;
 }
 .column .item .wrapper .icon i:hover
@@ -53,7 +58,7 @@
 }
 .column .item .wrapper .content
 {
-    background-color: lightgreen;
+    /*background-color: lightgreen;*/
     color: black;
     flex: 12 1 auto;
     padding: 10px;
