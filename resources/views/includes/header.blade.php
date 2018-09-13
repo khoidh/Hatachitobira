@@ -58,7 +58,7 @@
                             <li><a href="#">が格納されている</a></li>
                         </ul>
                     </li>
-                    <li><a href="#">企業採用担当の方</a></li>
+                    <li><a href="{{ route('company-entrance')}}">企業採用担当の方</a></li>
                     {{--<li><a href="{{ url('/enquiry')}}">問い合わせ</a></li>--}}
                     <li><a href="{{ route('mypage.index') }}">MY PAGE</a></li>
                     <li class="dropdown">
@@ -202,7 +202,7 @@
             $html +='</div>';
         $html +='</div>';
 
-        $('.modal_register').find('.panel-body').html($html);
+        $('#modal_register').find('.panel-body').html($html);
         $('#modal_register').modal("show");
 
     });
