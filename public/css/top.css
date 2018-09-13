@@ -14,9 +14,8 @@ footer
     padding: 50px;
     background-color: ghostwhite;
     bottom: 0;
-    /*position: fixed;*/
+    position: absolute;
     left: 0;
-    bottom: 0;
     width: 100%;
 }
 
