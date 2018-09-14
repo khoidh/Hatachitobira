@@ -68,7 +68,6 @@ class VideoController extends Controller
         $paginatedItems->setPath('video');
         /*End pagination*/
 
-
         return view('user.video.index', ['videos' => $videos, 'results' => $paginatedItems,'categories'=>$categories]);
 //        return view('user.video.index', ['videos' => $videos, 'results' => $results]);
     }

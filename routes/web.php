@@ -110,3 +110,6 @@ Route::get('company-entrance','HomeController@companyEntrance')->name('company-e
 // Search Category
 
 Route::get('search-category','User\MypageController@searchCategory')->name('search-category');
+Route::get('paginate-column','User\MypageController@paginateColumn');
+Route::get('paginate-video','User\MypageController@paginateVideo');
+Route::get('paginate-event','User\MypageController@paginateEvent');
