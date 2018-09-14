@@ -26,8 +26,9 @@
 </head>
 <body>
     <div id="app">
-        @include('includes.header')
         @yield('slide')
+        @include('includes.header')
+
         <div class="content">
             <div class="container-fluid">
                 @yield('content');
