@@ -14,16 +14,16 @@
         </div>
         <div class="event-information">
             <div class="col-md-2">今月のマイテーマ：</div>
-            <div class="col-md-9">
+            <div class="col-md-10">
                 <input type="text" name="" style="width: 100%">
             </div>
             <div class="col-md-8">実現するために行う予定の行動目標：</div>
-            <div class="col-md-11">
-                <input type="text" name="" style="width: 100%">
+            <div class="col-md-12 col-sm-12">
+                <input type="text" name="" style="width: 100%; margin-top: 10px">
             </div>
         </div>
     	<div class="event-information">
-            <div class="event-information-wrapper col-lg-4 col-sm-6 col-xs-12">
+            <div class="event-information-wrapper col-lg-4 col-sm-4 col-xs-12">
                 <div class="event-information-content">
                     <div class="number">
                         <span>1</span>
@@ -39,7 +39,7 @@
                     </div>
                 </div>
             </div>
-            <div class="event-information-wrapper col-lg-4 col-sm-6 col-xs-12">
+            <div class="event-information-wrapper col-lg-4 col-sm-4 col-xs-12">
                 <div class="event-information-content">
                     <div class="number">
                         <span>2</span>
@@ -52,7 +52,7 @@
                     </div>
                 </div>
             </div>
-            <div class="event-information-wrapper col-lg-4 col-sm-6 col-xs-12">
+            <div class="event-information-wrapper col-lg-4 col-sm-4 col-xs-12">
                 <div class="event-information-content">
                     <div class="number">
                         <span>3</span>
@@ -65,7 +65,7 @@
                     </div>
                 </div>
             </div>
-            <div class="event-information-wrapper col-lg-4 col-sm-6 col-xs-12">
+            <div class="event-information-wrapper col-lg-4 col-sm-4 col-xs-12">
                 <div class="event-information-content">
                     <div class="number">
                         <span>4</span>
@@ -78,14 +78,14 @@
                     </div>
                 </div>
             </div>
-    		<div class="event-information-wrapper col-lg-4 col-sm-6 col-xs-12">
+    		<div class="event-information-wrapper col-lg-4 col-sm-4 col-xs-12">
     			<div class="event-information-content">
     				<div class="event-image">
 	    				<img src="{{ asset('image/column/column02.jpg')}}">
                     </div>
     			</div>
     		</div>
-            <div class="event-information-wrapper col-lg-4 col-sm-6 col-xs-12">
+            <div class="event-information-wrapper col-lg-4 col-sm-4 col-xs-12">
                 <div class="event-information-content">
                     <div class="number">
                         <span>5</span>
@@ -98,7 +98,7 @@
                     </div>
                 </div>
             </div>
-            <div class="event-information-wrapper col-lg-4 col-sm-6 col-xs-12">
+            <div class="event-information-wrapper col-lg-4 col-sm-4 col-xs-12">
                 <div class="event-information-content">
                     <div class="number">
                         <span>6</span>
@@ -111,7 +111,7 @@
                     </div>
                 </div>
             </div>
-            <div class="event-information-wrapper col-lg-4 col-sm-6 col-xs-12">
+            <div class="event-information-wrapper col-lg-4 col-sm-4 col-xs-12">
                 <div class="event-information-content">
                     <div class="number">
                         <span>7</span>
@@ -124,7 +124,7 @@
                     </div>
                 </div>
             </div>
-            <div class="event-information-wrapper col-lg-4 col-sm-6 col-xs-12">
+            <div class="event-information-wrapper col-lg-4 col-sm-4 col-xs-12">
                 <div class="event-information-content">
                     <div class="number">
                         <span>8</span>
@@ -138,12 +138,12 @@
                 </div>
             </div>
             <div class="col-md-8">メモ：</div>
-            <div class="col-md-11">
+            <div class="col-md-12">
                 <input type="text" name="" style="width: 100%">
             </div>
         </div>
        
-    	<div class="event-information">
+    	<div class="event-information e-vent-border">
     		<div class="select-item col-md-3">
     			<select class="">
     				<option value="0">あなたのカテゴリ</option>
@@ -185,10 +185,10 @@
 	    			<a class="text-link" href="#">お気に入り動画(3)</a>
     			</div>
     			<div class="content-video">
-    				<div class="event-information-wrapper col-lg-4 col-sm-6 col-xs-12">
+    				<div class="event-information-wrapper col-lg-4 col-sm-4 col-xs-12">
     					<div class="wrapper">
 	                        <div class="thump">
-	                            <img src="https://i.ytimg.com/vi/ObwNpMXlmPU/mqdefault.jpg" alt="">
+	                            <img class="img-video" src="https://i.ytimg.com/vi/ObwNpMXlmPU/mqdefault.jpg" alt="">
 	                        </div>
 	                        <div class="description">
 	                            <p>部活の先輩後輩のキス【ファーストキス】</p>
@@ -197,10 +197,10 @@
 	                        </div>
 	                    </div>
     				</div>
-    				<div class="event-information-wrapper col-lg-4 col-sm-6 col-xs-12">
+    				<div class="event-information-wrapper col-lg-4 col-sm-4 col-xs-12">
     					<div class="wrapper">
 	                        <div class="thump">
-	                            <img src="https://i.ytimg.com/vi/ObwNpMXlmPU/mqdefault.jpg" alt="">
+	                            <img class="img-video" src="https://i.ytimg.com/vi/ObwNpMXlmPU/mqdefault.jpg" alt="">
 	                        </div>
 	                        <div class="description">
 	                            <p>部活の先輩後輩のキス【ファーストキス】</p>
@@ -209,10 +209,10 @@
 	                        </div>
 	                    </div>
     				</div>
-    				<div class="event-information-wrapper col-lg-4 col-sm-6 col-xs-12">
+    				<div class="event-information-wrapper col-lg-4 col-sm-4 col-xs-12">
     					<div class="wrapper">
 	                        <div class="thump">
-	                            <img src="https://i.ytimg.com/vi/ObwNpMXlmPU/mqdefault.jpg" alt="">
+	                            <img  class="img-video" src="https://i.ytimg.com/vi/ObwNpMXlmPU/mqdefault.jpg" alt="">
 	                        </div>
 	                        <div class="description">
 	                            <p>部活の先輩後輩のキス【ファーストキス】</p>
@@ -228,7 +228,7 @@
     	<div class="event-information">
     		<div class="panel-body">
     			<div class="clearfix">
-	    			<a class="text-link" href="#">参加したイベント(0)</a>
+	    			<a class="text-link" href="#">イベントを探す(0)</a>
     			</div>
     			<div class="content-column">
     				<p>社会人から話を聞いて、マイテーマ探しをしてみよう</p>
@@ -240,6 +240,7 @@
     	</div>
     	<div class="event-information">
     		<div class="panel-body">
+                <h4 class="text-link">参加したイベント(1)</h4>
     			<div class="content-text">
     				<div class="item">
 		                <div class="wrapper">

@@ -23,7 +23,7 @@
                                             <label for="name" class="control-label"> 姓</label>
                                         </div>
                                         <div class="col-md-8 input">
-                                            <input id="name" type="text" class="form-control" name="first_name" value="" required autofocus>
+                                            <input id="name" type="text" class="form-control" name="first_name" value="" required autofocus tabindex=1>
                                         </div>
                                     </div>
 
@@ -33,7 +33,7 @@
                                             <label for="name" class="control-label">セイ</label>
                                         </div>
                                         <div class="col-md-8 input">
-                                            <input id="name" type="text" class="form-control" name="first_name_cn" value="" required>
+                                            <input id="name" type="text" class="form-control" name="first_name_cn" value="" required tabindex=3>
                                         </div>
                                     </div>
                                 </div>
@@ -42,14 +42,14 @@
                                     <div class="form-group clearfix">
                                         <label for="name" class="col-md-4 control-label">名</label>
                                         <div class="col-md-8 input">
-                                            <input id="name" type="text" class="form-control" name="last_name" value="" required>
+                                            <input id="name" type="text" class="form-control" name="last_name" value="" required tabindex=2>
                                         </div>
                                     </div>
 
                                     <div class="form-group clearfix">
                                         <label for="name" class="col-md-4 control-label">メイ</label>
                                         <div class="col-md-8 input">
-                                            <input id="name" type="text" class="form-control" name="last_name_cn" value="" required>
+                                            <input id="name" type="text" class="form-control" name="last_name_cn" value="" required tabindex=4>
                                         </div>
                                     </div>
                                 </div>
@@ -63,7 +63,7 @@
                                 </div>
 
                                 <div class="col-md-10 text-input-full">
-                                    <input id="name" type="text" class="form-control" name="company" value="" required >
+                                    <input id="name" type="text" class="form-control" name="company" value="" required tabindex=5>
                                 </div>
                             </div>
 
@@ -75,7 +75,7 @@
                                 </div>
 
                                 <div class="col-md-10 text-input-full">
-                                    <input id="name" type="text" class="form-control" name="email" value="{{Auth::guest() ? '' : Auth::user()->email}}" required >
+                                    <input id="name" type="text" class="form-control" name="email" value="{{Auth::guest() ? '' : Auth::user()->email}}" required tabindex=6>
                                 </div>
                             </div>
 
@@ -87,7 +87,7 @@
                                 </div>
 
                                 <div class="col-md-10 text-input-full">
-                                    <input id="name" type="text" class="form-control" name="content" value="" required  placeholder="研修or問い合わせ">
+                                    <input id="name" type="text" class="form-control" name="content" value="" required  placeholder="研修or問い合わせ" tabindex=7>
                                 </div>
                             </div>
                         </div>
@@ -103,14 +103,14 @@
 
                         <div class="content-checkbox">
                             <div class="col-md-1 col-md-1 ">
-                                <input type="checkbox" name="checkbox" required>
+                                <input type="checkbox" name="checkbox" required tabindex=8>
                             </div>
                             <div class="col-md-8 col-md-8 ">
                                 <label>プライバシーポリシーに同意する</label>
                             </div>
                         </div>
                         <div class="col-md-12 clearfix">
-                            <button type="submit" class="submit btn">送信</button>
+                            <button type="submit" class="submit btn" tabindex=9>送信</button>
                         </div>
                     </form>
                 </div>
