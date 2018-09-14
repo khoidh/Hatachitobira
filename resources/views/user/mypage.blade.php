@@ -14,7 +14,7 @@
         </div>
         <div class="event-information">
             <div class="col-md-2">今月のマイテーマ：</div>
-            <div class="col-md-9">
+            <div class="col-md-10">
                 <input type="text" name="" style="width: 100%">
             </div>
             <div class="col-md-8">実現するために行う予定の行動目標：</div>
@@ -138,7 +138,7 @@
                 </div>
             </div>
             <div class="col-md-8">メモ：</div>
-            <div class="col-md-11">
+            <div class="col-md-12">
                 <input type="text" name="" style="width: 100%">
             </div>
         </div>
