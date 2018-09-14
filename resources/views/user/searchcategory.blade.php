@@ -71,7 +71,7 @@
             </div>
         </div>
         <div class="row video-search">
-            <h3>イベント</h3>
+            <h3>動画</h3>
             <div class="container">
                 @foreach($results as $result)
                     @if(isset($result->items[0]))

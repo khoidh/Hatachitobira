@@ -1,9 +1,10 @@
 @extends('layouts.app')
 @section('content')
-    <div class="container">
+    <!-- <div class="container"> -->
+        <div class="row">
         <h3>動画から社会の選択肢を知って、マイテーマを探そう
         </h3>
-        <div class="row">
+            
             <div class="video">
                 <div class="navbar-collapse collapse" id="navbar-filter">
                     <form method="post" action="{{route('video.search')}}" class="navbar-form" role="search">
