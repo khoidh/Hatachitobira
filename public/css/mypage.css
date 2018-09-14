@@ -19,10 +19,19 @@
     width: 100%
 }
 
+.select-item-label.col-md-3 {
+    line-height: 2;
+    color: #000;
+    font-size: 18px;
+}
+
 .mypage .select-item select{
-    height: 30px;
-    width: 70%;
+    height: 44px;
+    width: 87%;
     margin-left: 10%;
+    padding: 8px 35px;
+    font-size: 16px;
+    color: #000;
 }
 
 .item .wrapper {
@@ -138,6 +147,8 @@
     float: right;
     color: #000;
     background-color: yellow;
+    font-size: 30px;
+    text-decoration: underline;
 }
 
 .event-information.select-month {
@@ -149,9 +160,10 @@
 }
 
 .event-information.select-month .text-month{
-    margin-top: -35px;
+    margin-top: -40px;
     display: block;
-    margin-right: -124px;
+    margin-right: -134px;
+    font-size: 25px;
 }
 
 .favorite.edit i {
@@ -207,4 +219,46 @@
 .detail-infor .event-information-content{
         text-align: left;
     padding: 6px;
+}
+
+.thump .img-video {
+    max-width: 100%
+}
+
+.event-information.e-vent-border {
+    border-top: 1px dashed;
+    padding-top: 30px;
+}
+
+@media (min-width: 768px) and (max-width: 1028px){
+    .event-image img {
+        width: 100%;
+        height: 253px;
+    }
+
+    .category .text-category {
+        width: 30%;
+    }
+
+    .favorite.edit i {
+        left: 68%;
+    }
+}
+
+@media (min-width: 375px) and (max-width: 767px){
+    .category .text-category,
+    .status .text-status,
+    .event-show-detail button {
+        width: 100%;
+    }
+
+    .item .wrapper .icon i {
+        top: 3%;
+        left: 80%
+    }
+
+    .event-show-detail .btn,
+    .event-information .content-column {
+        padding: 10px
+    }
 }

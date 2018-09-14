@@ -13,10 +13,8 @@ footer
 {
     padding: 50px;
     background-color: ghostwhite;
-    bottom: 0;
-    position: fixed;
+    position: absolute;
     left: 0;
-    bottom: 0;
     width: 100%;
 }
 
@@ -76,7 +74,7 @@ ul li a
 
 #modal_register .code-top img{
     position: relative;
-    margin-top: -193px;
+    margin-top: -215px;
     width: 400px;
 }
 
