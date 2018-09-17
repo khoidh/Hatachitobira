@@ -39,7 +39,7 @@
                             <li><a href="{{route('column.index')}}">記事から知る</a></li>
                         </ul>
                     </li>
-                    <li><a id="show-modal-register" style="cursor: pointer;">新規登録</a></li>
+                    <li><a class="show-modal-register" style="cursor: pointer;">新規登録</a></li>
                     <li><a data-toggle="modal" data-target="#modal_login" style="cursor: pointer;">グイン </a></li>
                     <li><a href="{{ route('company-entrance')}}">企業採用担当の方</a></li>
                     {{--<li><a href="{{ url('/enquiry')}}">問い合わせ</a></li>--}}
@@ -177,7 +177,7 @@
         });
     });
 
-     $(document).on('click','#show-modal-register',function(e){
+     $(document).on('click','.show-modal-register',function(e){
         console.log('aaaa');
         e.preventDefault();
         $html = '';
