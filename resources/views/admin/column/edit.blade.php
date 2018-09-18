@@ -143,7 +143,7 @@
             <div class="form-group row">
                 <label for="inputPassword3" class="col-sm-2 col-form-label">Sort</label>
                 <div class="col-sm-10">
-                    <input type="number" name="sort" value="{{$column->sort}}" required="true">
+                    <input type="number" class="form-control" name="sort" value="{{$column->sort}}" required="true">
                 </div>
             </div>
 

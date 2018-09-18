@@ -58,8 +58,8 @@
                     <td>{{$column->category_name}}</td>
 {{--                    <td>{{$column->sort}}</td>--}}
                     <td>
-                        <a href="{{route('columns.show',$column->id)}}">Detail</a>
-                        <a href="{{route('columns.edit',$column->id)}}">Edit</a>
+                        <a href="{{route('columns.show',$column->id)}}"><i title="Detail" class="fa fa-info-circle fa-2x" aria-hidden="true"></i></a>
+                        <a href="{{route('columns.edit',$column->id)}}"><i title="Edit" class="fa fa-edit fa-2x" aria-hidden="true"></i></a>
                     </td>
                 </tr>
             @endforeach
