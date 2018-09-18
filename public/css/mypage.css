@@ -245,7 +245,7 @@
     }
 }
 
-@media (min-width: 375px) and (max-width: 767px){
+@media (min-width: 375px) and (max-width: 768px){
     .category .text-category,
     .status .text-status,
     .event-show-detail button {
