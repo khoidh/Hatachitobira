@@ -16,7 +16,7 @@ class UpdateEventsTable extends Migration
         Schema::table('events', function (Blueprint $table) {
             $table->timestamp('started_at')->nullable()->after('time_to');
             $table->timestamp('closed_at')->nullable()->after('started_at');
-            $table->string('address')->after('closed_at');
+            $table->string('address',256)->after('closed_at');
             $table->text('overview')->after('address');
             $table->integer('entry_fee')->after('overview');
             $table->integer('capacity')->after('overview');
@@ -34,9 +34,9 @@ class UpdateEventsTable extends Migration
             $table->dropColumn('started_at');
             $table->dropColumn('closed_at');
             $table->dropColumn('address');
-            $table->dropColumn('overview');
-            $table->dropColumn('entry_fee');
-            $table->dropColumn('capacity');
+            $table->dropColumn('overview');     //Tóm tắt, tổng quan
+            $table->dropColumn('entry_fee');    //Phí tham gia
+            $table->dropColumn('capacity');     //Sức chứa
         });
     }
 }

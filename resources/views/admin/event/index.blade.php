@@ -39,7 +39,7 @@
         <th class="title">Title</th>
         <th class="image">Image</th>
         <th class="category">Category</th>
-        <th class="sort">Sort</th>
+        {{--<th class="sort">Sort</th>--}}
         <th class="startAt">Start At</th>
         <th class="endAt">End At</th>
         <th class="function"></th>
@@ -58,12 +58,12 @@
                      src="{{ file_exists($image)?asset($image):asset('image/event/event_default.jpg')}}" ></td>
 
             <td>{{$event->category_name}}</td>
-            <td>{{$event->sort}}</td>
+            {{--<td>{{$event->sort}}</td>--}}
             <td>{{$event->time_from}}</td>
             <td>{{$event->time_to}}</td>
             <td>
-                <a href="{{route('events.show',$event->id)}}">Detail</a>
-                <a href="{{route('events.edit',$event->id)}}">Edit</a>
+                <a href="{{route('events.show',$event->id)}}"><i title="Detail" class="fa fa-info-circle fa-2x" aria-hidden="true"></i></a>
+                <a href="{{route('events.edit',$event->id)}}"><i title="Edit" class="fa fa-edit fa-2x" aria-hidden="true"></i></a>
             </td>
         </tr>
     @endforeach

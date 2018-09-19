@@ -60,8 +60,8 @@
 
 {{--            <td>{{$video->sort}}</td>--}}
             <td>
-                <a href="{{route('videos.show',$video->id)}}">Detail</a>
-                <a href="{{route('videos.edit',$video->id)}}">Edit</a>
+                <a href="{{route('videos.show',$video->id)}}"><i title="Detail" class="fa fa-info-circle fa-2x" aria-hidden="true"></i></a>
+                <a href="{{route('videos.edit',$video->id)}}"><i title="Edit" class="fa fa-edit fa-2x" aria-hidden="true"></i></a>
             </td>
         </tr>
     @endforeach

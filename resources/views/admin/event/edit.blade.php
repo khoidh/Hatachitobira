@@ -117,6 +117,19 @@
         </div>
 
         <div class="form-group row">
+            <label for="inputEmail3" class="col-sm-2 col-form-label">Content</label>
+            <div class="col-sm-10">
+                    <textarea class="form-control" name="content" placeholder="Content" id="ckeditor-text" required="true">
+                        {{$event->contecnt}}
+                    </textarea>
+            </div>
+            <script type="text/javascript">
+                CKEDITOR.replace('ckeditor-text' );
+            </script>
+        </div>
+
+        {{--Image--}}
+        <div class="form-group row">
             <label for="inputPassword3" class="col-sm-2 col-form-label">Upload Image</label>
             <div class="col-sm-10">
                 {{--<input type="file" name="image" value="{{$event->image}}" required="true">--}}
@@ -131,25 +144,94 @@
                 </div>
             </div>
         </div>
+
+        {{--Sort--}}
         <div class="form-group row">
             <label for="inputPassword3" class="col-sm-2 col-form-label">Sort</label>
             <div class="col-sm-10">
-                <input type="number" name="sort" value="{{$event->sort}}" required="true">
+                <input type="number" class="form-control" name="sort" value="{{$event->sort}}" required="true">
             </div>
         </div>
 
+        {{--Thời gian đăng ký--}}
+        <dif class="form-group row">
+            <label for="inputPassword3" class="col-sm-2 col-form-label">登録時間</label>
+            <div class="col-sm-10 row">
+                {{--Start At--}}
+                <div class="col-sm-6">
+                    <label for="inputPassword3" class="col-sm-12 col-form-label">Start at </label>
+                    <div class="col-sm-12">
+                        <input type="datetime-local" class="form-control" name="time_from" value="<?php echo date('Y-m-d\TH:i', strtotime($event->time_from));?>" required="true">
+                    </div>
+                </div>
+
+                {{--End At--}}
+                <div class="col-sm-6">
+                    <label for="inputPassword3" class="col-sm-12 col-form-label">End at </label>
+                    <div class="col-sm-12">
+                        <input type="datetime-local" class="form-control" name="time_to" value="<?php echo date('Y-m-d\TH:i', strtotime($event->time_to));?>" required="true">
+                    </div>
+                </div>
+            </div>
+
+        </dif>
+        {{--End thời gian đăng ký--}}
+
+        {{--Thời gian diễn ra event--}}
         <div class="form-group row">
-            <label for="inputPassword3" class="col-sm-2 col-form-label">Start at </label>
-            <div class="col-sm-10">
-                <input type="datetime-local" name="time_from" value="<?php echo date('Y-m-d\TH:i', strtotime($event->time_from));?>" required="true">
+            <lable  for="inputPassword3" class="col-sm-2 col-form-lable">日程</lable>
+            <div class="col-sm-10 row">
+                {{--Start At--}}
+                <div class="col-sm-6" >
+                    <label for="inputPassword3" class="col-sm-12 col-form-label">Start hour </label>
+                    <div class="col-sm-12">
+                        <input type="datetime-local" class="form-control" name="started_at" value="<?php echo date('Y-m-d\TH:i', strtotime($event->started_at));?>" required="true">
+                    </div>
+                </div>
+                {{--End At--}}
+                <div class="col-sm-6">
+                    <label for="inputPassword3" class="col-sm-12 col-form-label">Close hour </label>
+                    <div class="col-sm-12">
+                        <input type="datetime-local" class="form-control" name="closed_at" value="<?php echo date('Y-m-d\TH:i', strtotime($event->closed_at));?>" required="true">
+                    </div>
+                </div>
             </div>
         </div>
+        {{--End thời gian diễn ra event--}}
+
+        {{--Địa điểm--}}
         <div class="form-group row">
-            <label for="inputPassword3" class="col-sm-2 col-form-label">End at </label>
+            <lable class="col-sm-2 col-form-lable">場所</lable>
             <div class="col-sm-10">
-                <input type="datetime-local" name="time_to" value="<?php echo date('Y-m-d\TH:i', strtotime($event->time_to));?>" required="true">
+                <input type="text" class="form-control" name="address" value="{{$event->address}}" placeholder="場所" require="true" maxlength="256">
             </div>
         </div>
+
+        {{--Tóm tắt--}}
+        <div class="form-group row">
+            <lable class="col-sm-2 col-form-lable">概要</lable>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" name="overview" value="{{$event->overview}}" placeholder="概要" required="true">
+            </div>
+        </div>
+
+        {{--Phí tham gia--}}
+        <div class="form-group row">
+            <lable class="col-sm-2 col-form-lable">参加費</lable>
+            <div class="col-sm-10">
+                <input type="number" class="form-control" name="entry_fee" value="{{$event->entry_fee}}" placeholder="参加費" required="true">
+            </div>
+        </div>
+
+        {{--Sức chứa--}}
+        <div class="form-group row">
+            <lable class="col-sm-2 col-form-lable">定員</lable>
+            <div class="col-sm-10">
+                <input type="number" class="form-control" name="capacity" value="{{$event->capacity}}" placeholder="定員" required="true">
+            </div>
+        </div>
+
+
         <div class="form-group row">
             <div class="col-sm-10">
                 <input type="hidden" name="_method" value="patch">

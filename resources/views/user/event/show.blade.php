@@ -131,10 +131,22 @@
                     </div>
 
                     {{--noi dung--}}
-                    <div class="row content-body" style="margin-top: 10px; margin-bottom: 10px">
+                    <div class="row content-body" style="margin-top: 10px; margin-bottom: 10px;">
                         <div class="post_content clearfix">
-                            {{--{!! $event->content !!}--}}
-                            <img width="100%" src="{{asset('image/event_detail.jpg')}}" alt="event_detail">
+                            {!! $event->content !!}
+                            {{--<img width="100%" src="{{asset('image/event_detail.jpg')}}" alt="event_detail">--}}
+                        </div>
+                    </div>
+
+                    <div class="row" style="border: 1px solid #f5f6f6; border-radius: 2px;  padding: 15px; margin-bottom: 15px; line-height: 1.5;">
+                        <div class="col-md-12">
+                            <ul style="list-style-type:square">
+                                <li>日程  ： {{$event->started_at}} 〜 {{$event->closed_at}}</li>
+                                <li>場所  ： {{$event->address}}</li>
+                                <li>概要  ： {{$event->overview}}</li>
+                                <li>参加費 ： {{$event->entry_fee}}</li>
+                                <li>定員  ： {{$event->capacity}}</li>
+                            </ul>
                         </div>
                     </div>
 
@@ -149,7 +161,11 @@
                             else
                                 $event_state="受付終了";
                         @endphp
-                        <button type="button" class="btn btn-primary center-block pl-2 pl-2">{{$event_state}}</button>
+                        @if($check)
+                            <button type="button" class="btn btn-primary center-block pl-2 pl-2">申し込む</button>
+                        @else
+                            <button type="button" class="btn btn-primary center-block pl-2 pl-2">受付終了</button>
+                        @endif
                     </p>
                     <p style="padding-bottom:30px "></p>
 
@@ -294,6 +310,10 @@
                     // Chưa login
                 }
             });
+
+            function myFunction() {
+                document.getElementById("demo").style.color = "red";
+            }
         })
     </script>
 @endsection
