@@ -75,7 +75,7 @@
             <div class="container">
                 @foreach($results as $result)
                     @if(isset($result->items[0]))
-                    <div class="col-md-4 col-sm-6 portfolio-item">
+                    <div class="col-md-4 col-sm-4 portfolio-item">
                         <div class="wrapper">
                             <div class="thump video">
                                 {!! $result->items[0]->player->embedHtml !!}

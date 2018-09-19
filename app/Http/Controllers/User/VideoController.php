@@ -25,7 +25,7 @@ class VideoController extends Controller
         $categories = Category::all();
         $videos = Video::select()
             ->select('videos.*','categories.name as category_name')
-            ->join('categories','categories.id','=','videos.category_id')->get();
+            ->join('categories','categories.id','=','videos.category_id');
 
         /*Filter*/
         if($request->isMethod('post'))
@@ -33,17 +33,18 @@ class VideoController extends Controller
             if($request->category_id)
             {
                 $category_id = $request->category_id;
-                $videos = Video::where('category_id',$category_id)->get();
+                $videos = $videos->where('category_id',$category_id);
             }
-            else if($request->description)
+            
+            if($request->description)
             {
                 $description = $request->description;
-                $videos = Video::where('description','LIKE',"%$description%")->get();
+                $videos = $videos->where('description','LIKE',"%$description%");
             }
 
         }
         /*End filter*/
-
+        $videos = $videos->get();
         $results = array();
         foreach ($videos as $video)
         {

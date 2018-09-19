@@ -27,3 +27,10 @@
 	width: 330px;
     height: 240px;
 }
+
+@media (max-width: 768px) {
+    .thump.video iframe {
+        width: 215px;
+        height: 181px;
+    }
+}
