@@ -15,7 +15,7 @@
                     <li><a href="{{url('about')}}">ABOUT</a></li>
                     <li><a href="{{url('/enquiry')}}">-お問い合わせ</a></li>
                     <li><a href="{{route('company-entrance')}}">運営会社</a></li>
-                    <li><a href="#">プライバシーポリシー</a></li>
+                    <li><a href="{{route('provider-polisy')}}">プライバシーポリシー</a></li>
                     <li><a href="#">利用規約</a></li>
                 </ul>
             </div>
