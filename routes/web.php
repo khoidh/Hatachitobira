@@ -113,3 +113,6 @@ Route::get('search-category','User\MypageController@searchCategory')->name('sear
 Route::get('paginate-column','User\MypageController@paginateColumn');
 Route::get('paginate-video','User\MypageController@paginateVideo');
 Route::get('paginate-event','User\MypageController@paginateEvent');
+
+/* Privacy policy- Terms of service */
+Route::get('provider','PrivateController@index')->name('provider-polisy');
