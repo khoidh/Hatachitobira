@@ -1,94 +1,38 @@
-
-<nav class="navbar navbar-default navbar-static-top">
-    <div class="container">
-        <div class="navbar-header">
-
-            <!-- Collapsed Hamburger -->
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
-                <span class="sr-only">Toggle Navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-
-            <!-- Branding Image -->
-            <a class="navbar-brand" href="{{ url('/') }}">
-                Hatachi Tobira
-            </a>
-        </div>
-
-        <div class="collapse navbar-collapse" id="app-navbar-collapse">
-            <!-- Left Side Of Navbar -->
-            <ul class="nav navbar-nav">
-                &nbsp;
-            </ul>
-
-            <!-- Right Side Of Navbar -->
-            <ul class="nav navbar-nav navbar-right">
-                <!-- Authentication Links -->
-                @if (Auth::guest())
-                    <li><a href="{{url('about')}}">ABOUT</a></li>
-                    {{--<li><a href="#">マイテーマ</a></li>--}}
-                    <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">マイテーマ
-                            <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="{{ url('/search-category')}}">カテゴリから探す</a></li>
-                            <li><a href="{{route('video.index')}}">動画から探す</a></li>
-                            <li><a href="{{route('event.index')}}">イベントに参加</a></li>
-                            <li><a href="{{route('column.index')}}">記事から知る</a></li>
-                        </ul>
+<header class="fixed headder">
+    <div class="bx_header">
+        
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <h1 class="logo navbar-brand">
+                <a href="/">
+                    
+                    <img src="{{ asset('image/top/logo.png') }}" alt="">
+                </a>
+            </h1>
+            <p>マイテーマ、探そ。</p>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+            <div class="collapse navbar-collapse clearfix" id="navbarSupportedContent">
+                <ul class="nav justify-content-end">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">ABOUT</a>
                     </li>
-                    <li><a class="show-modal-register" style="cursor: pointer;">新規登録</a></li>
-                    <li><a data-toggle="modal" data-target="#modal_login" style="cursor: pointer;">グイン </a></li>
-                    <li><a href="{{ route('company-entrance')}}">企業採用担当の方</a></li>
-                    {{--<li><a href="{{ url('/enquiry')}}">問い合わせ</a></li>--}}
-
-                @else
-                    <li><a href="{{url('about')}}">ABOUT</a></li>
-                    <!-- {{--<li><a href="#">マイテーマ</a></li>--}} -->
-                    <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">マイテーマ
-                            <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="{{ url('/search-category')}}">カテゴリから探す</a></li>
-                            <li><a href="{{route('video.index')}}">動画一覧</a></li>
-                            <li><a href="{{route('event.index')}}">イベント一覧</a></li>
-                            <li><a href="{{route('column.index')}}">記事一覧</a></li>
-                            <li><a href="#">が格納されている</a></li>
-                        </ul>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">マイテーマ</a>
                     </li>
-
-                    <li><a href="{{ route('company-entrance')}}">企業採用担当の方</a></li>
-                    {{--<li><a href="{{ url('/enquiry')}}">問い合わせ</a></li>--}}
-
-                    <li><a href="{{ route('mypage.index') }}">MY PAGE</a></li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                            {{ Auth::user()->name }} <span class="caret"></span>
-                        </a>
-
-                        <ul class="dropdown-menu" role="menu">
-                            <li>
-                                <a href="{{ route('logout') }}"
-                                   onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                    Logout
-                                </a>
-
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                    {{ csrf_field() }}
-                                </form>
-                            </li>
-                            
-                        </ul>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">新規登録</a>
                     </li>
-                @endif
-            </ul>
-        </div>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">企業採用担当の方</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <!--/.nav-->
     </div>
-    
-</nav>
+    <!--/.bx_header-->
+</header>
 <div id="modal_login" class="modal fade modal_register" role="dialog">
     <div class="modal-dialog" style="margin-top:150px">
         <div class="modal-content">
