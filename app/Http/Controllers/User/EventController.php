@@ -25,7 +25,7 @@ class EventController extends Controller
         $events = Event::select()
             ->select('events.*','categories.name as category_name')
             ->join('categories','categories.id','=','events.category_id')
-            ->paginate(5);
+            ->paginate(3);
         if(Auth::user())
         {
             $user_id            = Auth::user()->id;

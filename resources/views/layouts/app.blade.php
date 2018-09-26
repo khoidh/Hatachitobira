@@ -13,36 +13,51 @@
 
     <!-- Styles -->
     @section('css-add')
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/top.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/event.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/video.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/column.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/top.css') }}" rel="stylesheet">
     @show
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js" type="text/javascript"></script>
-    @yield('css')
+{{--    @yield('css')--}}
 </head>
 <body>
-    <div id="app">
+    <div id="app" style="background: #FFFFFF">
         @yield('slide')
-        @include('includes.header')
+{{--        @include('includes.header')--}}
 
         <div class="content">
             <div class="container-fluid">
-                @yield('content')
-
+                {{--Main--}}
+                <div class="main row" style=" height: 130px; margin-bottom: 16px;">
+                    <div class="title-lx"
+                         style="font-family: Oswald, sans-serif;background: #FFF100;color: #FFFA9D;display: block;font-size: 80px;height: 107px; width: 100%">
+                        <div class="container">
+                            <div class="relative row" style="  position: relative;">
+                                <div class="info col-md-12">
+                                    <span>@yield('title-e','Title')</span>
+                                    <div class="absolute"
+                                         style="font-size: 20px; position: absolute;color: white; bottom: 5px; font-weight: bold;">
+                                        <span style="background: #000000; letter-spacing:10px"> @yield('title-j','タートル')</span>
+                                        {{--</div>--}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
+
+            {{--Content--}}
+             @yield('content')
+
         </div>
-        @include('includes.footer')
+{{--        @include('includes.footer')--}}
     </div>
 
     <!-- Scripts -->
     @section('javascript-add')
-    <script src="{{ asset('js/app.js') }}"></script>
+        <script src="{{ asset('js/app.js') }}"></script>
     @show
 
-    @yield('javascript')
+{{--    @yield('javascript')--}}
 </body>
 </html>
