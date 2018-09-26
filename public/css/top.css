@@ -120,32 +120,28 @@ header.fixed .bx_header .hd_left .logo img{
     width: 200px;
     height: 65px;
 }
+
 header.fixed .bx_header .hd_left .nav{
     margin-left: 50px;
 }
+
 header.fixed .bx_header .hd_left .nav li{
     display: inline-block;
 }
+
 header.fixed .bx_header .hd_left .nav li:not(:last-child){
     margin-right: 30px;
 }
+
 header.fixed .bx_header .hd_right{
     width: 250px;
 }
 
 .image-top {
-    margin: 180px 10px 0px 10px;   
+    margin: 180px 10px 0px 10px !important;   
     right: 0
 }
 
-.image-top .img-detail{
-
-    max-width: 260px;
-    max-height: 260px;
-    width: 100%;
-    border-radius: 15px;
-    margin-right: 21px;
-}
 
 .image-top .img-detail.last {
     margin-right: 0;

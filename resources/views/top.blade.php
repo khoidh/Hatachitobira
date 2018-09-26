@@ -62,103 +62,121 @@
             </figure>
             <a href="#">SCROLL</a>
         </div>
-        <div class="image-top">
-            <img src="{{ asset('image/top/image-slide-1.png') }}" class="img-detail">
-            <img src="{{ asset('image/top/image-slide-2.png') }}" class="img-detail">
+        <div class="image-top row">
+            <div class="img-size">
+                <img src="{{ asset('image/top/image-slide-1.png') }}" class="img-detail">
+            </div>
+            <div class="img-size">
+                <img src="{{ asset('image/top/image-slide-2.png') }}" class="img-detail">
+            </div>
+            <div class="img-size">
+                <img src="{{ asset('image/top/image-slide-3.png') }}" class="img-detail">
+            </div>
+            <div class="img-size">
+                <img src="{{ asset('image/top/image-slide-4.png') }}" class="img-detail">
+            </div>
+            <div class="img-size">
+                <img src="{{ asset('image/top/image-slide-5.png') }}" class="img-detail">
+            </div>
+            <!-- <img src="{{ asset('image/top/image-slide-2.png') }}" class="img-detail">
             <img src="{{ asset('image/top/image-slide-3.png') }}" class="img-detail">
             <img src="{{ asset('image/top/image-slide-4.png') }}" class="img-detail">
-            <img src="{{ asset('image/top/image-slide-5.png') }}" class="img-detail last">
+            <img src="{{ asset('image/top/image-slide-5.png') }}" class="img-detail last"> -->
         </div>
-        <div id="app">
+        <div>
             <div class="content top">
                 <div class="container content-1">
-                    <div class="row">
-                        <div class="col-md-9 col-lg-9">
-                            <div class="cb-path"></div>
-                            <div class="row">
-                                <div class="text-my-theme ">
-                                    <p class="text-detail">ハタチのトビラとは？の説明が入ります。ハタチのトビラとは？の説明が入ります。ハタチのトビラとは？の説明が入ります。ハタチのトビラとは？の説明が入ります。ハタチのトビラとは？の説明が入ります。ハタチのトビラとは？の説明が入ります。ハタチのトビラとは？の説明が入ります。ハタチのトビラとは？の説明が入ります。ハタチのトビラとは？の説明が入ります。</p>
-                                </div>
-                            </div>
-                            <div class="cb-path"></div>
-                            <div class="row">
-                                <div class="text-my-theme">
-                                    <p class="text_detail_title">WHAT IS マイテーマ</p>
-                                    <p class="text-detail">説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります</p>
-                                </div>
-                            </div>
-                            <div class="cb-path"></div>
-                        </div>
-                        <div class="col-md-3 col-lg-3 title">
-                            <p class="content-1-title">「 自分の</p>
-                            <p class="content-1-title">やりたいことって</p>
-                            <p class="content-1-title">なんだ ？ 」</p>
-                        </div>
+                    <div class="content-title">
+                        <p class="content-1-title">「 自分の</p>
+                        <p class="content-1-title">やりたいことって</p>
+                        <p class="content-1-title">なんだ ？ 」</p>
                     </div>
+                    <div class="content-1-content">
+                        <div class="cb-path"></div>
+                        
+                        <div class="text-my-theme ">
+                            <p class="text-detail">ハタチのトビラとは？の説明が入ります。ハタチのトビラとは？の説明が入ります。ハタチのトビラとは？の説明が入ります。ハタチのトビラとは？の説明が入ります。ハタチのトビラとは？の説明が入ります。ハタチのトビラとは？の説明が入ります。ハタチのトビラとは？の説明が入ります。ハタチのトビラとは？の説明が入ります。ハタチのトビラとは？の説明が入ります。</p>
+                        </div>
+                        
+                        <div class="cb-path last"></div>
+                        
+                        <div class="text-my-theme">
+                            <p class="text_detail_title">WHAT IS マイテーマ</p>
+                            <p class="text-detail">説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります</p>
+                        </div>
+                        
+                        <div class="cb-path"></div>
+                    </div>
+                    
                 </div>
                 <div class="movie-top-1">
                     <p class="movie-top-title">Movie</p>
                     <p class="movie-top-description">コンセプトムービー</p>
                     <div class="corner-wrapper">
-                        <iframe width="100%" height="490" src="https://www.youtube.com/embed/ObwNpMXlmPU" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen="allowfullscreen"></iframe>
+                        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/ObwNpMXlmPU" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen="allowfullscreen"></iframe>
                     </div>
                 </div>
                 <div class="movie-top-2 row">
-                    <div class="col-md-2">
+                    <div class="col-md-2 col-sm-12 col-xs-12row">
                         <p class="text-vertical">見つける理由</p>
                         <p class="text-vertical last">マイテーマを</p>
                     </div>
-                    <div class="col-md-9 row">
-                        <div class="col-md-4">
+                    <div class="col-md-9 col-sm-12 col-xs-12 row">
+                        <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
                             <p><img class="movie-image" src="{{ asset('image/top/movie-image-1.png') }}"></p>
                             <p class="movie_image_description">説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります</p>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
                             <p><img class="movie-image" src="{{ asset('image/top/movie-image-2.png') }}"></p>
                             <p class="movie_image_description">説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります</p>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
                             <p><img class="movie-image" src="{{ asset('image/top/movie-image-3.png') }}"></p>
                             <p class="movie_image_description">説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります</p>
                         </div>
                     </div>
                 </div>
-                <div class="movie-top-3 row">
-                    <div class="cb-path cb-path-black"></div>
-                    <div class="col-md-10 row">
-                        <div class="col-md-12">
-                            <p class="text-title-3">私の興味からヒントを得る</p>
+                <div class="movie-top-3">
+                    <div class="container">
+                        
+                        <div class="content-tile-movie">
+                            <p class="text-vertical-1 last"><span>マイテーマ</span>の</p>
+                            <p class="text-vertical-1">見つけ方</p>
                         </div>
-                        <div class="col-md-3">
-                            <img class="img-cat" src="{{ asset('image/top/img-cate-1.png') }}" alt="">
+                        <div class="cb-path cb-path-black"></div>
+                        <div class="content-row">
+                            <div class="col-md-12">
+                                <p class="text-title-3">私の興味からヒントを得る</p>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3 img-cat-sp">
+                                    <img class="img-cat" src="{{ asset('image/top/img-cate-1.png') }}" alt="">
+                                </div>
+                                <div class="col-md-3 img-cat-sp">
+                                    <img class="img-cat" src="{{ asset('image/top/img-cate-2.png') }}" alt="">
+                                </div>
+                                <div class="col-md-3 img-cat-sp">
+                                    <img class="img-cat" src="{{ asset('image/top/img-cate-3.png') }}" alt="">
+                                </div>
+                                <div class="col-md-3 img-cat-sp">
+                                    <img class="img-cat" src="{{ asset('image/top/img-cate-4.png') }}" alt="">
+                                </div>
+                                <div class="col-md-3 img-cat-sp">
+                                    <img class="img-cat" src="{{ asset('image/top/img-cate-5.png') }}" alt="">
+                                </div>
+                                <div class="col-md-3 img-cat-sp">
+                                    <img class="img-cat" src="{{ asset('image/top/img-cate-6.png') }}" alt="">
+                                </div>
+                                <div class="col-md-3 img-cat-sp">
+                                    <img class="img-cat" src="{{ asset('image/top/img-cate-7.png') }}" alt="">
+                                </div>
+                                <div class="col-md-3 img-cat-sp">
+                                    <img class="img-cat" src="{{ asset('image/top/img-cate-8.png') }}" alt="">
+                                </div>
+                            </div>
                         </div>
-                        <div class="col-md-3">
-                            <img class="img-cat" src="{{ asset('image/top/img-cate-2.png') }}" alt="">
-                        </div>
-                        <div class="col-md-3">
-                            <img class="img-cat" src="{{ asset('image/top/img-cate-3.png') }}" alt="">
-                        </div>
-                        <div class="col-md-3">
-                            <img class="img-cat" src="{{ asset('image/top/img-cate-4.png') }}" alt="">
-                        </div>
-                        <div class="col-md-3">
-                            <img class="img-cat" src="{{ asset('image/top/img-cate-5.png') }}" alt="">
-                        </div>
-                        <div class="col-md-3">
-                            <img class="img-cat" src="{{ asset('image/top/img-cate-6.png') }}" alt="">
-                        </div>
-                        <div class="col-md-3">
-                            <img class="img-cat" src="{{ asset('image/top/img-cate-7.png') }}" alt="">
-                        </div>
-                        <div class="col-md-3">
-                            <img class="img-cat" src="{{ asset('image/top/img-cate-8.png') }}" alt="">
-                        </div>
-
                     </div>
-                    <div class="col-md-2">
-                        <p class="text-vertical-1 last"><span>マイテーマ</span>の</p>
-                        <p class="text-vertical-1">見つけ方</p>
-                    </div>
+                    
                 </div>
                 <div class="container movie-top-4">
                     <div class="cb-path"></div>
@@ -170,12 +188,12 @@
                                 <iframe width="100%" height="270" left="0" src="https://www.youtube.com/embed/ObwNpMXlmPU" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen="allowfullscreen"></iframe>
                             </div>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-4 video-movie">
                             <div class="corner-wrapper movie-2">
-                                <iframe width="100%" height="131" src="https://www.youtube.com/embed/ObwNpMXlmPU" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen="allowfullscreen"></iframe>
+                                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/ObwNpMXlmPU" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen="allowfullscreen"></iframe>
                             </div>
                             <div class="corner-wrapper movie-2">
-                                <iframe width="100%" height="131" src="https://www.youtube.com/embed/ObwNpMXlmPU" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen="allowfullscreen"></iframe>
+                                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/ObwNpMXlmPU" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen="allowfullscreen"></iframe>
                             </div>
                         </div>
                     </div>
@@ -195,12 +213,12 @@
                                 <iframe width="100%" height="270" left="0" src="https://www.youtube.com/embed/ObwNpMXlmPU" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen="allowfullscreen"></iframe>
                             </div>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-4 video-movie">
                             <div class="corner-wrapper movie-2">
-                                <iframe width="100%" height="131" src="https://www.youtube.com/embed/ObwNpMXlmPU" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen="allowfullscreen"></iframe>
+                                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/ObwNpMXlmPU" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen="allowfullscreen"></iframe>
                             </div>
                             <div class="corner-wrapper movie-2">
-                                <iframe width="100%" height="131" src="https://www.youtube.com/embed/ObwNpMXlmPU" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen="allowfullscreen"></iframe>
+                                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/ObwNpMXlmPU" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen="allowfullscreen"></iframe>
                             </div>
                         </div>
                     </div>
@@ -231,7 +249,7 @@
                                         <img src="{{ asset('image/top/img-event-1.png') }}" alt="">
                                     </div>
                                     <div class="content">
-                                        <p class="clearfix icon-favorior"><i class="fa fa-heart-o" style="font-size: 24px;"></i></p>
+                                        <p class="clearfix icon-favorior"><a href="#"><i class="fa fa-heart-o" style="font-size: 24px;"></i></a></p>
                                         <p class="text-title">タイトルが入りますタイトルが入りますタイトルが入りますタイトルが入りますタイトルが入ります</p>
                                         <p class="text-date">2018.3.20</p>
                                     </div>
@@ -245,12 +263,29 @@
                                         <img src="{{ asset('image/top/img-event-1.png') }}" alt="">
                                     </div>
                                     <div class="content">
-                                        <p class="clearfix icon-favorior"><i class="fa fa-heart-o" style="font-size: 24px;"></i></p>
+                                        <p class="clearfix icon-favorior"><a href="#"><i class="fa fa-heart-o" style="font-size: 24px;"></i></a></p>
                                         <p class="text-title">タイトルが入りますタイトルが入りますタイトルが入りますタイトルが入りますタイトルが入ります</p>
                                         <p class="text-date">2018.3.20</p>
                                     </div>
                                 </div>
                             </div>
+                            <div class="item second">
+                                <span class="text-category">インタビュー</span>
+                                <div class="wrapper">
+                                    <div class="icon">
+                                        <img src="{{ asset('image/top/img-event-1.png') }}" alt="">
+                                    </div>
+                                    <div class="content">
+                                        <p class="clearfix icon-favorior"><a href="#"><i class="fa fa-heart-o" style="font-size: 24px;"></i></a></p>
+                                        <p class="text-title">タイトルが入りますタイトルが入りますタイトルが入りますタイトルが入りますタイトルが入ります</p>
+                                        <p class="text-date">2018.3.20</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="#">
+                                <span class="more-detail ">MORE</span>
+                                <img src="{{ asset('image/top/arrow-1.png') }}" >
+                            </a>
                         </div>
                     </div>
                 </div>

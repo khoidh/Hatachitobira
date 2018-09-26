@@ -16,7 +16,6 @@
     background-color: #fff100;
     margin-bottom: 30px;
     margin-top: 60px;
-    margin-left: -15px;
 }
 
 .top .container .text_detail_title {
@@ -62,13 +61,14 @@
     padding: 90px 120px 160px 19.5%;
 }
 
-.top .movie-top-3 {
-	margin: -130px 20%;
-}
-
 .top .movie-top-2 .col-md-9{
 	margin-top: 60px;
     margin-left: -59px;
+}
+
+.top .movie-top-3 .content-tile-movie {
+    margin-top: -146px;
+    position: relative;
 }
 
 .top .movie-top-3 .col-md-10{
@@ -128,7 +128,13 @@
 	width: 46px;
     height: 4px;
     background-color: #000;
-    margin-top: 132px
+    margin-top: 132px;
+
+}
+
+.top .content-title {
+	position: relative;
+    top: -110px;
 }
 
 .top .text-title-3 {
@@ -222,7 +228,6 @@
 	position: relative;
     -webkit-transform: translateZ(0);
     transform: translateZ(0);
-    padding-bottom: 340px;
 }
 
 .top .content-last:after {
@@ -265,9 +270,18 @@
     background-size: 75%;
 }
 
+.top .content-last .more-detail {
+    margin-top: 25px;
+}
+
 .top .container {
     padding-left: 10%;
 	padding-right: 10%;
+}
+
+.top .movie-top-3 .content-row {
+    position: relative;
+    top: 130px;
 }
 
 .top .movie-top-2 {
@@ -351,6 +365,7 @@
 
 .top .content-last .second{
 	margin-top: 15px;
+    margin-bottom: 15px;
 }
 
 .top .content-last .content{
@@ -386,9 +401,9 @@ footer
     position: absolute;
     left: 0;
     width: 100%;
-    font-size: 15px;
+    font-size: 14px;
     font-family: "Kozuka Gothic Pr6N";
-    line-height: 2
+    line-height: 2;
 }
 
 footer .border-footer {
@@ -460,4 +475,269 @@ header.fixed.headder .logo.navbar-brand img{
 #app .content {
 	position: relative;
     top: 130px;
+}
+
+.image-top.row .img-size {
+    width: 20%;
+    padding: 10px;
+}
+
+.image-top.row .img-detail{
+    width: 100%;
+    border-radius: 15px;
+}
+
+.top .text-my-theme {
+    width: calc(100% - 250px);
+}
+
+.top .movie-top-3 {
+    position: relative;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+}
+
+.top .movie-top-3:after {
+    content: "";
+    background-color: #fff100;
+    width: 100%;
+    height: 96%;
+    position: absolute;
+    top: 52px;
+    left: 0;
+    z-index: -1;
+}
+
+.cb-path-black {
+    position: relative;
+    top: 90px;
+    background-color: #000 !important;
+    margin-top: 132px;
+    
+}
+
+.top .content-last .icon-favorior a {
+    color: #c3c2c2;
+}
+
+@media (min-width: 1590px)  {
+	.top .container {
+	    padding-left: 7%;
+	    padding-right: 6%;
+	}
+}
+
+@media (max-width: 376px) {
+    .top .content-title {
+        left: 20px;
+        top: 0;
+    }
+
+    .top .container.content-1 .content-1-title {
+        width: 100%;
+        font-size: 21px;
+        line-height: 1;
+        float: right;
+        font-weight: bold;
+        font-family: "Kozuka Gothic Pr6N";
+        padding: 0;
+        text-align: left;
+    }
+
+    .top .content-1-content {
+        position: relative;
+        top: 120px;
+    }
+
+    .top .container .cb-path {
+        margin-left: 20px;
+    }
+    
+    .top .container .cb-path.last {
+        position: relative;
+        top: -100px;
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    .top .text-my-theme {
+            width: 100%;
+        padding: 20px;
+        position: relative;
+        top: -90px;
+    }
+
+    .top .corner-wrapper {
+        height: 270px;
+    } 
+
+    .top .movie-top-1,
+    .top .movie-top-2 {
+        padding: 20px;
+        top: -100px;
+        position: relative;
+    }
+
+    .top .movie-top-1:after {
+        height: 73%;
+        top: 44px;
+    }
+
+    .top .text-vertical,
+    .top .text-vertical-1 {
+        width: 100%;
+        text-align: left;
+        font-size: 24px;
+    }
+
+    .top .text-vertical.last {
+        font-size: 30px
+    }
+
+    .top .movie-top-3 {
+        padding: 20px;
+        top: -100px;
+    }
+
+    .top .movie-top-3 .content-tile-movie {
+        margin-top: 0;
+    }
+
+
+    .top .movie-top-2 .col-md-9 {
+        margin-top: 30px;
+        right: 0;
+        padding-left: 0;
+        margin-left: 0px;
+    }
+
+    .top .movie_image_description {
+        width: 100%
+    }
+
+    .top .movie-image {
+        max-width: 205px;
+        left: 19%;
+        max-height: 205px;
+        position: relative;
+    }
+
+    .top .movie-top-3 .content-row .row{
+        margin-left: 0;
+    }
+
+    .top .movie-top-3 .content-row {
+        top: 50px;
+        position: relative;
+        margin-left: -24px;
+    }
+
+    .top .movie-top-3 .img-cat-sp {
+        width: 33%;
+    }
+
+    .top .movie-top-3 .img-cat-sp img{
+        width: 100%
+    }
+
+    .top .movie-top-3 .cb-path.cb-path-black {
+        margin-left: -7px !important
+    }
+
+    .top .movie-top-3:after {
+        height: 92%;
+        top: 0;
+    }
+
+    .top .container.movie-top-4 {
+        margin-top: -100px;
+        padding: 20px;
+    }
+    
+    .top .content-last {
+        padding: 20px;
+    }
+
+    .top .content-last .wrapper {
+        display: inline-block;
+    }
+    
+    .top .content-last .text-category {
+        position: relative;
+    }
+
+    .top .content-last .content {
+        margin-left: 0;
+    }
+
+    .top .content-last:after {
+        height: 93%;
+        top: 134px;
+    }
+
+    .top .button-link {
+        margin-top: 50px;
+    }
+
+    .top .button-link button {
+        padding: 10px;
+        margin-bottom: 40px;
+        font-size: 16px;
+        width: 95%;
+    }
+
+    .top .content-last .icon img {
+        width: 100%;
+    }
+    
+    .top .video-detail .col-md-8 {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .top .video-detail .video-movie {
+        width: 100%;
+        display: inline-flex;
+        padding-right: 0;
+    }
+
+    .top .corner-wrapper.movie-2 {
+        height: 131px;
+    }
+
+    .top .container.movie-top-4.content-2 {
+        margin-top: 0;
+    }
+}
+
+@media (max-width: 991px) {
+	.top .container {
+	    padding: 0;
+	}
+}
+
+@media (min-width: 376px) and (max-width: 768px) {
+    .top .movie-top-2 .col-md-9 {
+        margin-left: 0;
+    }
+
+    .top .content-last .content-text {
+        position: relative;
+        right: 20px;
+        left: -13px;
+    }
+
+    .top .movie-top-3 {
+        position: relative;
+        top: 100px;
+    }
+
+    .top .movie-top-1,
+    .top .movie-top-2 {
+        padding: 20px;
+    }
+
+    .top .button-link {
+        margin-bottom: 50px;
+    }
 }
