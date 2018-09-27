@@ -546,7 +546,26 @@ header.fixed.headder .logo.navbar-brand img{
         position: relative;
         margin-left: -19px;
     }
+    
+    #myHeader.fixed .bx_header{
+        padding: 10px;
+    }
 
+    #myHeader.fixed .navbar.navbar-expand-lg.navbar-light,
+    #myHeader.fixed .hd_left {
+        width: 100%;
+    }
+    #myHeader.fixed .logo.navbar-brand {
+        width: 50%;
+    }
+
+    #myHeader.fixed .hd_right {
+        display: none;
+    }
+    
+    .bx_header .hd_left {
+        padding-left: 0;
+    }
     footer {
         padding: 30px 55px 30px 45px;
         font-size: 12px;

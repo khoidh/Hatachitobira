@@ -22,13 +22,22 @@ var sticky = header.offsetTop;
 
 // Add the sticky class to the header when you reach its scroll position. Remove "sticky" when you leave the scroll position
 function myFunction() {
-  if (window.pageYOffset > sticky) {
+	if(window.innerWidth > 993) {
+	  if (window.pageYOffset > sticky) {
+	    header.classList.add("fixed");
+	    $('.navbar.navbar-expand-lg.navbar-light').removeClass('flex-column');
+	    $('.navbar-nav.mr-auto').removeClass('flex-column');
+	  } else {
+	    header.classList.remove("fixed");
+	    $('.navbar.navbar-expand-lg.navbar-light').addClass('flex-column');
+	    $('.navbar-nav.mr-auto').addClass('flex-column');
+	  }
+	}
+}
+
+if(window.innerWidth < 993) {
+	console.log('aaa');
     header.classList.add("fixed");
     $('.navbar.navbar-expand-lg.navbar-light').removeClass('flex-column');
     $('.navbar-nav.mr-auto').removeClass('flex-column');
-  } else {
-    header.classList.remove("fixed");
-    $('.navbar.navbar-expand-lg.navbar-light').addClass('flex-column');
-    $('.navbar-nav.mr-auto').addClass('flex-column');
-  }
 }

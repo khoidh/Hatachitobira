@@ -296,7 +296,7 @@
         </div>
         @include('includes.footer')
     </main>
-    @section('javascript-add')
     <script src="{{ asset('js/app.js') }}"></script>
+    
 </body>
 </html>
