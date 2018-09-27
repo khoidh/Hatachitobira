@@ -1,157 +1,302 @@
-@extends('layouts.app')
-@section('slide')
-    @include('includes.slide');
-@endsection
-@section('css')
-    <link href="{{ asset('css/mypage.css') }}" rel="stylesheet">
-@endsection
-@section('content')
-    <div class="row">
-        <h3 id="title">「自分のやりたいことってなんだ？」</h3>
-        <div class="container">
-            <div id="content" style="width: 60%;margin-left: auto;margin-right: auto">
-                <p style="border: 1px solid;padding: 15px;">ハタチのトビラとは？の説明が入ります。ハタチのトビラとは？の説明が入ります。ハタチのトビラとは？の説明が入ります。ハタチのトビラとは？の説明が入ります。ハタチのトビラとは？の説明が入ります。ハタチのトビラとは？の説明が入ります。
-                </p>
-                <p style="border: 1px solid #ffff00;padding: 15px;">
-                    WHAT IS マイテーマ
-                    <br>
-                    説明が入ります。説明が入ります。説明が入ります。説明が入ります。
-                    <br>
-                    説明が入ります。
-
-                </p>
-                <iframe width="100%" height="315" src="https://www.youtube.com/embed/ObwNpMXlmPU" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+<!DOCTYPE html>
+<html lang="{{ app()->getLocale() }}">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <title>Hatachi Tobira</title>
+    <link href="{{ asset('css/top.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+</head>
+<body>
+    <header id="myHeader">
+        <div class="bx_header">
+            <div class="hd_left">
+                <nav class="navbar navbar-expand-lg navbar-light flex-column">
+                    <h1 class="logo navbar-brand">
+                        <a href="/">
+                            <p>マイテーマ、探そ。</p>
+                            <img src="{{ asset('image/top/logo.png') }}" alt="">
+                        </a>
+                    </h1>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                      </button>
+                    <div class="collapse navbar-collapse clearfix" id="navbarSupportedContent">
+                        <ul class="navbar-nav mr-auto flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link active" href="#">ABOUT</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" href="#">マイテーマ</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">新規登録</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">企業採用担当の方</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">ログイン</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+                <!--/.nav-->
             </div>
-
+            <!--/.hd_left-->
+            <div class="hd_right">
+                <a class="btn_find" href="#">マイテーマを見つける</a>
+            </div>
+            <!--/.hd_right-->
         </div>
-    </div>
-
-    <div class="row">
-        <h3>マイテーマを見つける理由</h3>
-        <div class="container">
-            <div id="content" style="width: 60%;margin-left: auto;margin-right: auto">
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="gallery">
-                            <a target="_blank" href="#">
-                                <img src="https://www.w3schools.com/css/5terre.jpg" alt="5Terre" width="600" height="400">
-                            </a>
-                            <div class="desc">Add a description of the image here</div>
-                        </div>
+        <!--/.bx_header-->
+    </header>
+    <main>
+        <div class="banner">
+            <figure>
+                <img src="{{ asset('image/top/banner.png') }}">
+                <figcaption><img src="{{ asset('image/top/fig_banner.png') }}" alt=""></figcaption>
+            </figure>
+            <a href="#">SCROLL</a>
+        </div>
+        <div class="image-top row">
+            <div class="img-size">
+                <img src="{{ asset('image/top/image-slide-1.png') }}" class="img-detail">
+            </div>
+            <div class="img-size">
+                <img src="{{ asset('image/top/image-slide-2.png') }}" class="img-detail">
+            </div>
+            <div class="img-size">
+                <img src="{{ asset('image/top/image-slide-3.png') }}" class="img-detail">
+            </div>
+            <div class="img-size">
+                <img src="{{ asset('image/top/image-slide-4.png') }}" class="img-detail">
+            </div>
+            <div class="img-size">
+                <img src="{{ asset('image/top/image-slide-5.png') }}" class="img-detail">
+            </div>
+            <!-- <img src="{{ asset('image/top/image-slide-2.png') }}" class="img-detail">
+            <img src="{{ asset('image/top/image-slide-3.png') }}" class="img-detail">
+            <img src="{{ asset('image/top/image-slide-4.png') }}" class="img-detail">
+            <img src="{{ asset('image/top/image-slide-5.png') }}" class="img-detail last"> -->
+        </div>
+        <div>
+            <div class="content top">
+                <div class="container content-1">
+                    <div class="content-title">
+                        <p class="content-1-title">「 自分の</p>
+                        <p class="content-1-title">やりたいことって</p>
+                        <p class="content-1-title">なんだ ？ 」</p>
                     </div>
-                    <div class="col-md-4">
-                        <div class="gallery">
-                            <a target="_blank" href="#">
-                                <img src="https://www.w3schools.com/css/img_forest.jpg" alt="Forest" width="600" height="400">
-                            </a>
-                            <div class="desc">Add a description of the image here</div>
+                    <div class="content-1-content">
+                        <div class="cb-path"></div>
+                        
+                        <div class="text-my-theme ">
+                            <p class="text-detail">ハタチのトビラとは？の説明が入ります。ハタチのトビラとは？の説明が入ります。ハタチのトビラとは？の説明が入ります。ハタチのトビラとは？の説明が入ります。ハタチのトビラとは？の説明が入ります。ハタチのトビラとは？の説明が入ります。ハタチのトビラとは？の説明が入ります。ハタチのトビラとは？の説明が入ります。ハタチのトビラとは？の説明が入ります。</p>
                         </div>
+                        
+                        <div class="cb-path last"></div>
+                        
+                        <div class="text-my-theme">
+                            <p class="text_detail_title">WHAT IS マイテーマ</p>
+                            <p class="text-detail">説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります</p>
+                        </div>
+                        
+                        <div class="cb-path"></div>
                     </div>
-                    <div class="col-md-4">
-                        <div class="gallery">
-                            <a target="_blank" href="#">
-                                <img src="https://www.w3schools.com/css/img_lights.jpg" alt="Northern Lights" width="600"
-                                     height="400">
-                            </a>
-                            <div class="desc">Add a description of the image here</div>
+                    
+                </div>
+                <div class="movie-top-1">
+                    <p class="movie-top-title">Movie</p>
+                    <p class="movie-top-description">コンセプトムービー</p>
+                    <div class="corner-wrapper">
+                        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/ObwNpMXlmPU" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen="allowfullscreen"></iframe>
+                    </div>
+                </div>
+                <div class="movie-top-2 row">
+                    <div class="col-md-2 col-sm-12 col-xs-12row">
+                        <p class="text-vertical">見つける理由</p>
+                        <p class="text-vertical last">マイテーマを</p>
+                    </div>
+                    <div class="col-md-9 col-sm-12 col-xs-12 row">
+                        <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
+                            <p><img class="movie-image" src="{{ asset('image/top/movie-image-1.png') }}"></p>
+                            <p class="movie_image_description">説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります</p>
+                        </div>
+                        <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
+                            <p><img class="movie-image" src="{{ asset('image/top/movie-image-2.png') }}"></p>
+                            <p class="movie_image_description">説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります</p>
+                        </div>
+                        <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
+                            <p><img class="movie-image" src="{{ asset('image/top/movie-image-3.png') }}"></p>
+                            <p class="movie_image_description">説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります</p>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
+                <div class="movie-top-3">
+                    <div class="container">
+                        
+                        <div class="content-tile-movie">
+                            <p class="text-vertical-1 last"><span>マイテーマ</span>の</p>
+                            <p class="text-vertical-1">見つけ方</p>
+                        </div>
+                        <div class="cb-path cb-path-black"></div>
+                        <div class="content-row">
+                            <div class="col-md-12">
+                                <p class="text-title-3">私の興味からヒントを得る</p>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3 img-cat-sp">
+                                    <img class="img-cat" src="{{ asset('image/top/img-cate-1.png') }}" alt="">
+                                </div>
+                                <div class="col-md-3 img-cat-sp">
+                                    <img class="img-cat" src="{{ asset('image/top/img-cate-2.png') }}" alt="">
+                                </div>
+                                <div class="col-md-3 img-cat-sp">
+                                    <img class="img-cat" src="{{ asset('image/top/img-cate-3.png') }}" alt="">
+                                </div>
+                                <div class="col-md-3 img-cat-sp">
+                                    <img class="img-cat" src="{{ asset('image/top/img-cate-4.png') }}" alt="">
+                                </div>
+                                <div class="col-md-3 img-cat-sp">
+                                    <img class="img-cat" src="{{ asset('image/top/img-cate-5.png') }}" alt="">
+                                </div>
+                                <div class="col-md-3 img-cat-sp">
+                                    <img class="img-cat" src="{{ asset('image/top/img-cate-6.png') }}" alt="">
+                                </div>
+                                <div class="col-md-3 img-cat-sp">
+                                    <img class="img-cat" src="{{ asset('image/top/img-cate-7.png') }}" alt="">
+                                </div>
+                                <div class="col-md-3 img-cat-sp">
+                                    <img class="img-cat" src="{{ asset('image/top/img-cate-8.png') }}" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="container movie-top-4">
+                    <div class="cb-path"></div>
+                    <p class="movie-top-text">社会をのぞいてみる</p>
+                    <p class="movie-top-descroption">リアルな仕事から興味を広げてみよう</p>
+                    <div class="col-md-10 video-detail row">
+                        <div class="col-md-8">
+                            <div class="corner-wrapper movie-1">
+                                <iframe width="100%" height="270" left="0" src="https://www.youtube.com/embed/ObwNpMXlmPU" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen="allowfullscreen"></iframe>
+                            </div>
+                        </div>
+                        <div class="col-md-4 video-movie">
+                            <div class="corner-wrapper movie-2">
+                                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/ObwNpMXlmPU" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen="allowfullscreen"></iframe>
+                            </div>
+                            <div class="corner-wrapper movie-2">
+                                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/ObwNpMXlmPU" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen="allowfullscreen"></iframe>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#">
+                        <span class="more-detail ">MORE</span>
+                        <img src="{{ asset('image/top/arrow-1.png') }}" >
+                    </a>
+                </div>
 
-    <div class="row">
-        <h3>マイテーマの見つけ方</h3>
-        <div class="container">
-            <div style="width: 60%;margin-right: auto;margin-left: auto">
-                    <div>
-                        <h4>■ あなたが興味のあることから深ぼろう</h4>
-                        <img src="{{asset('image/search.png')}}" style="width: 100%">
+                <div class="container movie-top-4 content-2">
+                    <div class="cb-path"></div>
+                    <p class="movie-top-text">マイテーマをイメージする</p>
+                    <p class="movie-top-descroption">ロールモデルを参考にしてみよう</p>
+                    <div class="col-md-10 video-detail row">
+                        <div class="col-md-8">
+                            <div class="corner-wrapper movie-1">
+                                <iframe width="100%" height="270" left="0" src="https://www.youtube.com/embed/ObwNpMXlmPU" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen="allowfullscreen"></iframe>
+                            </div>
+                        </div>
+                        <div class="col-md-4 video-movie">
+                            <div class="corner-wrapper movie-2">
+                                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/ObwNpMXlmPU" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen="allowfullscreen"></iframe>
+                            </div>
+                            <div class="corner-wrapper movie-2">
+                                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/ObwNpMXlmPU" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen="allowfullscreen"></iframe>
+                            </div>
+                        </div>
                     </div>
-                    <div>
-                        <h4>■ 社会を知る</h4>
-                        <p>
-                            学生が社会人の1日に密着し、仕事ぶりやキャリア観について観察・対話する
-                            <br>
-                            ジョブシャドウイング動画からリアルな社会を知り、自分の選択肢を広げる
-                        </p>
-                        <iframe width="100%" height="315" src="https://www.youtube.com/embed/alBnG2esflw" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-                    </div>
-                    <div>
-                        <h4>■ イベントに参加する</h4>
-                        <p>キャリアに対する考え方を社会人から聞いて、マイテーマを見つけるワークショップに参加しよう
-                        </p>
-                        <div style="text-align: center; margin: 20px 0px">
-                            <a href="{{route('event.index')}}"
-                               style=" padding: 10px 50px; border: 1px solid #f9ca24; color: #f9ca24;">イベント一覧を見てみる
+                    <a href="#">
+                        <span class="more-detail ">MORE</span>
+                        <img src="{{ asset('image/top/arrow-1.png') }}">
+                    </a>
+                </div>
+                <div class="container movie-top-4 content-2">
+                    <div class="cb-path"></div>
+                    <p class="movie-top-text">イベントに参加する</p>
+                    <p class="movie-top-descroption">イベントからマイテーマを見つけよう</p>
+                    <a href="#">
+                        <span class="more-detail ">MORE</span>
+                        <img src="{{ asset('image/top/arrow-1.png') }}" >
+                    </a>
+                </div>
+                <div class=" content-last">
+                    <div class="container">
+                        <div class="cb-path"></div>
+                        <p class="movie-top-text">ハタチのトビラコラム</p>
+                        <p class="movie-top-descroption">マイテーマをみつけるノウハウ、イベントレポート、アラハタ世代の活躍を発信していきます</p>
+                        <div class="content-text">
+                            <div class="item">
+                                <span class="text-category">インタビュー</span>
+                                <div class="wrapper">
+                                    <div class="icon">
+                                        <img src="{{ asset('image/top/img-event-1.png') }}" alt="">
+                                    </div>
+                                    <div class="content">
+                                        <p class="clearfix icon-favorior"><a href="#"><i class="fa fa-heart-o" style="font-size: 24px;"></i></a></p>
+                                        <p class="text-title">タイトルが入りますタイトルが入りますタイトルが入りますタイトルが入りますタイトルが入ります</p>
+                                        <p class="text-date">2018.3.20</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="item second">
+                                <span class="text-category last">コラム</span>
+                                <div class="wrapper">
+                                    <div class="icon">
+                                        <img src="{{ asset('image/top/img-event-1.png') }}" alt="">
+                                    </div>
+                                    <div class="content">
+                                        <p class="clearfix icon-favorior"><a href="#"><i class="fa fa-heart-o" style="font-size: 24px;"></i></a></p>
+                                        <p class="text-title">タイトルが入りますタイトルが入りますタイトルが入りますタイトルが入りますタイトルが入ります</p>
+                                        <p class="text-date">2018.3.20</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item second">
+                                <span class="text-category">インタビュー</span>
+                                <div class="wrapper">
+                                    <div class="icon">
+                                        <img src="{{ asset('image/top/img-event-1.png') }}" alt="">
+                                    </div>
+                                    <div class="content">
+                                        <p class="clearfix icon-favorior"><a href="#"><i class="fa fa-heart-o" style="font-size: 24px;"></i></a></p>
+                                        <p class="text-title">タイトルが入りますタイトルが入りますタイトルが入りますタイトルが入りますタイトルが入ります</p>
+                                        <p class="text-date">2018.3.20</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="#">
+                                <span class="more-detail ">MORE</span>
+                                <img src="{{ asset('image/top/arrow-1.png') }}" >
                             </a>
                         </div>
-
-                    </div>
-
-                <div class="event-information" style="margin-top: 30px">
-                    <div class="panel-body">
-                        <div class="clearfix">
-                            <h4>■ マイテーマについて知る</h4>
-                        </div>
-                        <div class="content-text">
-                            <div class="item">
-                                <div class="wrapper">
-                                    <div class="icon">
-                                        <img src="{{asset('image/mypage/image_mypage.png')}}" >
-                                        <i class="fa fa-heart-o" style="font-size: 24px;"></i>
-                                    </div>
-                                    <div class="content clearfix" >
-                                        <div class="status clearfix"><p class="text-status">インタビュー</p></div>
-                                        <div class="title clearfix "><p class="text-title">タイトルタイトルタイトルタイトルタイトル</p></div>
-                                        <div class="date clearfix"><p class="text-date">2018.3.20</p></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="content-text">
-                            <div class="item">
-                                <div class="wrapper">
-                                    <div class="icon">
-                                        <img src="{{asset('image/mypage/image_mypage.png')}}" >
-                                        <i class="fa fa-heart-o" style="font-size: 24px;"></i>
-                                    </div>
-                                    <div class="content clearfix" >
-                                        <div class="status clearfix"><p class="text-status">インタビュー</p></div>
-                                        <div class="title clearfix "><p class="text-title">タイトルタイトルタイトルタイトルタイトル</p></div>
-                                        <div class="date clearfix"><p class="text-date">2018.3.20</p></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="content-text">
-                            <div class="item">
-                                <div class="wrapper">
-                                    <div class="icon">
-                                        <img src="{{asset('image/mypage/image_mypage.png')}}" >
-                                        <i class="fa fa-heart-o" style="font-size: 24px;"></i>
-                                    </div>
-                                    <div class="content clearfix" >
-                                        <div class="status clearfix"><p class="text-status">インタビュー</p></div>
-                                        <div class="title clearfix "><p class="text-title">タイトルタイトルタイトルタイトルタイトル</p></div>
-                                        <div class="date clearfix"><p class="text-date">2018.3.20</p></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div style="margin-top: 20px; margin-bottom: 20px; text-align: center;">
-                            <a href="" style="padding: 10px 50px; border: 1px solid white; color: white">もっと見る</a>
-                        </div>
-
                     </div>
                 </div>
-                <div style="text-align: center;position: relative; margin-top: 50px">
-                    <a href="#" style="padding: 10px 50px;background: #f9ca24; color: ghostwhite;font-weight: bold;">マイテーマを見つける</a>
+                <div class="container button-link">
+                    <button type="button" class="btn btn-dark">マイテーマを見つける</button>
                 </div>
             </div>
-
         </div>
-    </div>
-
-@endsection
+        @include('includes.footer')
+    </main>
+    <script src="{{ asset('js/app.js') }}"></script>
+    
+</body>
+</html>

@@ -1,0 +1,839 @@
+.top .movie-top-title {
+	font-size: 32px;
+	margin-bottom: 0;
+	font-family: "Myriad Pro";
+}
+
+.top .movie-top-description {
+	margin-top: 10px;
+	font-size: 16px;
+	font-family: "Kozuka Gothic Pr6N";
+}
+
+.top .container .cb-path {
+    width: 46px;
+    height: 4px;
+    background-color: #fff100;
+    margin-bottom: 30px;
+    margin-top: 60px;
+}
+
+.top .container .text_detail_title {
+    font-weight: bold;
+    font-size: 24px;
+    font-family: "Kozuka Gothic Pr6N";
+}
+
+.top .container .text-detail {
+    font-size: 16px;
+    line-height: 2;
+    font-family: "Kozuka Gothic Pr6N";
+}
+
+.top .movie-top-1 {
+	padding: 0 20%;
+	position: relative;
+    transform: translateZ(0);
+}
+
+.top .movie-top-1:after {
+	content: "";
+	background-color: $yellow-color;
+    width: 100%;
+    height: 80%;
+    position: absolute;
+	top: 26px;
+	left: 0;
+	z-index: -1;
+}
+
+.top .corner-wrapper{
+    display: block;
+    overflow: hidden;
+    width: 100%;
+    height: 490px;
+    border-radius: 24px;
+    transform: translateZ(0px);
+    border: 1px solid #fff;	
+}
+
+.top .movie-top-2 {
+    padding: 90px 120px 160px 19.5%;
+}
+
+.top .movie-top-2 .col-md-9{
+	margin-top: 60px;
+    margin-left: -59px;
+}
+
+.top .movie-top-3 .content-tile-movie {
+    margin-top: -146px;
+    position: relative;
+}
+
+.top .movie-top-3 .col-md-10{
+	margin-top: 185px;
+    margin-left: -72px;
+}
+
+
+.top .text-vertical,
+.top .text-vertical-1
+ {
+	width: 40px;
+    padding: 0 5px;
+    text-align: center;
+    font-size: 36px;
+    line-height: 1;
+    float: left;
+    font-family: "Kozuka Gothic Pr6N";
+}
+
+.top .text-vertical{
+	width: 50px;
+}
+
+.top .text-vertical-1 {
+	float: right;
+    margin-right: 15px;
+    font-size: 42px;
+}
+
+.top .text-vertical-1.last span{
+	background: $black-color;
+    color: $white-color;
+}
+
+.top .text-vertical.last {
+	font-size: 42px;
+	background-color: $yellow-color;
+    height: 48%;
+}
+
+.movie-image {
+	margin-bottom: 12px;
+	width: 100%;
+    max-height: 173px;
+    max-width: 173px;
+}
+
+.top .movie_image_description {
+	font-size: 16px;
+	line-height: 2;
+	font-family: "Kozuka Gothic Pr6N";
+	width: 96%;
+}
+
+.cb-path-black {
+	width: 46px;
+    height: 4px;
+    background-color: #000;
+    margin-top: 132px;
+
+}
+
+.top .content-title {
+	position: relative;
+    top: -110px;
+}
+
+.top .text-title-3 {
+	font-size: 24px;
+	font-weight: bold;
+    margin-top: -31px;
+    font-family: "Kozuka Gothic Pr6N";
+}
+
+.top .img-cat {
+	margin: 0 25px 30px 0;
+}
+
+.top .movie-top-text,
+.top .more-detail {
+	font-size: 24px;
+	font-weight: bold;
+	color: #000;
+	font-family: "Kozuka Gothic Pr6N";
+}
+.top .more-detail {
+	font-family: "Myriad Pro";
+}
+
+.top .movie-top-descroption {
+	color: #6b6b6b;
+	font-family: "Kozuka Gothic Pr6N";
+}
+
+.top a:hover {
+	color: #000;
+	text-decoration: none;
+}
+
+.top a .more-detail {
+	margin-top: 30px
+}
+
+.corner-wrapper.movie-1{
+    display: block;
+    overflow: hidden;
+    width: 100%;
+    height: 270px;
+    border-radius: 24px;
+    transform: translateZ(0px);
+    border: 3px solid #eee;	
+}
+
+.corner-wrapper.movie-2{
+
+    width: 100%;
+    height: 131px;
+}
+
+.top .video-detail {
+	margin: 22px 0 16px -12px;
+    padding: 0;
+}
+
+.top .container.movie-top-4.content-2 {
+	margin-top: 90px
+}
+
+.top .video-detail.row .col-md-4 {
+	padding-left: 0;
+}
+
+.top .video-detail.row .col-md-4:first {
+	margin-bottom: 10px
+}
+
+.flex-column .navbar-brand {
+	margin-right: -9rem !important;
+}
+
+.logo.navbar-brand a {
+	color: #000;
+	text-decoration: none;
+}
+
+.logo.navbar-brand a p{
+	margin-bottom: 0
+}
+
+.top .container.movie-top-4 .cb-path,
+.top .content-last .cb-path{
+	margin-left: 0
+}
+
+.top .content-last{
+	position: relative;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+}
+
+.top .content-last:after {
+	content: "";
+    background-color: #fff100;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 52px;
+    left: 0;
+    z-index: -1;
+}
+
+.top .container.content-1 .title{
+    padding-right: 0;
+    top: -40px;
+}
+
+.top .container.content-1 .content-1-title{
+	width: 50px;
+    padding: 0 5px;
+    text-align: center;
+    font-size: 42px;
+    line-height: 1;
+    float: right;
+    font-weight: bold;
+    font-family: "Kozuka Gothic Pr6N";
+}
+
+.top .container.content-1 > .row{
+	margin-right: 0px;
+    margin-left: 0px;
+}
+
+.top .container.content-1 {
+	background-image: url(/image/top/back-gr-1.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-position-y: 58%;
+    background-size: 75%;
+}
+
+.top .content-last .more-detail {
+    margin-top: 25px;
+}
+
+.top .container {
+    padding-left: 10%;
+	padding-right: 10%;
+}
+
+.top .movie-top-3 .content-row {
+    position: relative;
+    top: 130px;
+}
+
+.top .movie-top-2 {
+	background-image: url(/image/top/back-gr-2.png);
+    background-repeat: no-repeat;
+    background-position: left;
+    background-position-y: 227px;
+    background-size: 49%;
+    background-position-x: 99px;
+}
+
+.top .container.movie-top-4 {
+	margin-top: 174px;
+}
+
+.top .movie-top-3.row .col-md-10,
+.top .movie-top-3.row .col-md-10 .col-md-12{
+	padding-right: 0
+}
+
+.top .movie-top-3.row .col-md-2{
+	right: -60px
+}
+
+.top .content-last .wrapper {
+	display: flex;
+    background-color: #fff;
+    padding: 22px;
+    border-radius: 18px;
+    margin-top: -12px;
+}
+
+.top .content-last .text-category.last{
+	background: #d3d3d3;
+}
+.top .content-last .text-category{
+	background: #000000;
+    padding: 8px;
+    border-radius: 0 0 8px 8px;
+    margin-left: 20px;
+    color: #fff;
+    width: 96px;
+    height: 24px;
+    font-size: 12px;
+}
+
+.top .content-last .text-category:after{
+	content: "";
+    top: -24px;
+    position: relative;
+    left: 17px;
+    width: 0;
+    height: 0;
+    border-bottom: 17px solid #c6c6c6;
+    border-right: 9px solid transparent;
+}
+
+.top .content-last .text-category.last:after{
+	content: "";
+    border-bottom: 17px solid #ececec;
+    border-right: 9px solid transparent;
+}
+
+.top .content-last .icon img{
+	border-radius: 14px;
+}
+
+.top .content-last .icon-favorior{
+	text-align: right;
+    color: #c3c2c2;
+}
+
+.top .content-last .text-title{
+	font-family: "Kozuka Gothic Pr6N";
+	font-size: 16px;
+}
+
+.top .content-last .content-text{
+	margin-top: 28px;
+}
+
+.top .content-last .second{
+	margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.top .content-last .content{
+	margin-left: 25px;
+}
+
+
+.top .content-last .text-date{
+	text-align: right;
+}
+
+.top .button-link {
+	text-align: center;
+    margin-top: 110px;
+    font-family: "Kozuka Gothic Pr6N";
+    padding-bottom: 60px;
+}
+
+.top .button-link button{
+	padding: 26px 115px;
+	border-radius: 45px;
+	font-size: 24px;
+	font-family: "Kozuka Gothic Pr6N";
+	box-shadow: 5px 5px 12px 0px #fff100;
+    -moz-box-shadow: 5px 5px 12px 0px #fff100;
+    -webkit-box-shadow: 0px 4px 0px 0px #fff100;
+}
+
+footer
+{
+    padding: 50px 55px 30px 55px;
+    background-color: $black-color;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    font-size: 14px;
+    font-family: "Kozuka Gothic Pr6N";
+    line-height: 2;
+}
+
+footer .border-footer {
+	border-top: 1px solid #656464;
+    margin-top: 20px;
+    padding: 15px;
+}
+
+footer .text-bootom {
+	width: 100%;
+	text-align: center;
+}
+
+footer .icon-link.first {
+    margin-left: 15px;
+}
+
+footer .icon-link {
+    margin-right: 20px;
+}
+footer .text-bootom a {
+	padding-left: 14px;
+}
+
+footer .text-bootom .a-link:after {
+	content: "";
+    top: 0;
+    left: 0;
+    border-right: 1px solid #656464;
+    padding: 0 14px;
+}
+
+.logo-footer p {
+	margin-bottom: 0
+}
+
+.headder .nav.justify-content-end,
+.headder .navbar-expand-lg {
+	width: 100%;
+}
+
+.headder .nav li {
+    list-style: none;
+    margin-bottom: 20px;
+    padding: 0 20px;
+}
+
+header.fixed.headder .bx_header {
+	padding: 25px;
+}
+
+header.fixed.headder .navbar.navbar-expand-lg.navbar-light {
+	padding: 0px;
+}
+
+header.fixed.headder .navbar.navbar-expand-lg.navbar-light p{
+	margin-bottom: 0;
+	font-weight: bold;
+	font-size: 16px;
+}
+
+header.fixed.headder .logo.navbar-brand{
+	margin-bottom: 0;
+	padding: 0px;
+}
+
+header.fixed.headder .logo.navbar-brand img{
+	max-width: 190px;
+    max-height: 40px;
+}
+
+.fixed.headder .nav {
+	margin-top: 0
+}
+
+#app .content {
+	position: relative;
+    top: 130px;
+}
+
+.image-top.row .img-size {
+    width: 20%;
+    padding: 10px;
+}
+
+.image-top.row .img-detail{
+    width: 100%;
+    border-radius: 15px;
+}
+
+.top .text-my-theme {
+    width: calc(100% - 250px);
+}
+
+.top .movie-top-3 {
+    position: relative;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+}
+
+.top .movie-top-3:after {
+    content: "";
+    background-color: #fff100;
+    width: 100%;
+    height: 96%;
+    position: absolute;
+    top: 52px;
+    left: 0;
+    z-index: -1;
+}
+
+.cb-path-black {
+    position: relative;
+    top: 90px;
+    background-color: #000 !important;
+    margin-top: 132px;
+    
+}
+
+.top .content-last .icon-favorior a {
+    color: #c3c2c2;
+}
+
+@media (min-width: 1590px)  {
+	.top .container {
+	    padding-left: 7%;
+	    padding-right: 6%;
+	}
+}
+
+@media (max-width: 376px) {
+    .headder .nav.justify-content-end{
+        display: block;
+        position: relative;
+        top: 19px;
+    }
+
+    .headder .navbar.navbar-expand-lg.navbar-light p{
+        font-size: 12px !important;
+        position: relative;
+        margin-left: -19px;
+    }
+    
+    #myHeader.fixed .bx_header{
+        padding: 10px;
+    }
+
+    #myHeader.fixed .navbar.navbar-expand-lg.navbar-light,
+    #myHeader.fixed .hd_left {
+        width: 100%;
+    }
+    #myHeader.fixed .logo.navbar-brand {
+        width: 50%;
+    }
+
+    #myHeader.fixed .hd_right {
+        display: none;
+    }
+    
+    .bx_header .hd_left {
+        padding-left: 0;
+    }
+    footer {
+        padding: 30px 55px 30px 45px;
+        font-size: 12px;
+    }
+
+    footer .icon-link {
+        margin-right: 13px;
+    }
+    
+    footer .footter-mobile {
+        width: 50%;
+    } 
+
+    footer .link-assosial {
+        position: relative;
+        bottom: -85px;
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+    }
+    
+    footer .link-assosial:after {
+        content: "";
+        background-color: #656464;
+        width: 90%;
+        height: 1px;
+        position: absolute;
+        top: -11px;
+        left: 15px;
+        z-index: -1;
+    }
+
+    footer .border-footer {
+        position: relative;
+        top: -30px;
+    }
+    
+    footer .row.footer-bootom {
+        position: relative;
+        top: -51px;
+    }
+
+    footer .text-bootom .a-link:after{
+        padding: 0 8px;
+    }
+    
+    footer .text-bootom a {
+        padding-left: 10px;
+        font-size: 12px;
+    }
+    
+    footer .li-first img{
+        width: 100%
+    }
+
+    footer .li-first {
+        padding: 30px 30px 0 30px;
+    }
+
+    .top .content-title {
+        left: 20px;
+        top: 0;
+    }
+
+    .top .container.content-1 .content-1-title {
+        width: 100%;
+        font-size: 21px;
+        line-height: 1;
+        float: right;
+        font-weight: bold;
+        font-family: "Kozuka Gothic Pr6N";
+        padding: 0;
+        text-align: left;
+    }
+
+    .top .content-1-content {
+        position: relative;
+        top: 120px;
+    }
+
+    .top .container .cb-path {
+        margin-left: 20px;
+    }
+    
+    .top .container .cb-path.last {
+        position: relative;
+        top: -100px;
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    .top .text-my-theme {
+            width: 100%;
+        padding: 20px;
+        position: relative;
+        top: -90px;
+    }
+
+    .top .corner-wrapper {
+        height: 270px;
+    } 
+
+    .top .movie-top-1,
+    .top .movie-top-2 {
+        padding: 20px;
+        top: -100px;
+        position: relative;
+    }
+
+    .top .movie-top-1:after {
+        height: 73%;
+        top: 44px;
+    }
+
+    .top .text-vertical,
+    .top .text-vertical-1 {
+        width: 100%;
+        text-align: left;
+        font-size: 24px;
+    }
+
+    .top .text-vertical.last {
+        font-size: 30px
+    }
+
+    .top .movie-top-3 {
+        padding: 20px;
+        top: -100px;
+    }
+
+    .top .movie-top-3 .content-tile-movie {
+        margin-top: 0;
+    }
+
+
+    .top .movie-top-2 .col-md-9 {
+        margin-top: 30px;
+        right: 0;
+        padding-left: 0;
+        margin-left: 0px;
+    }
+
+    .top .movie_image_description {
+        width: 100%
+    }
+
+    .top .movie-image {
+        max-width: 205px;
+        left: 19%;
+        max-height: 205px;
+        position: relative;
+    }
+
+    .top .movie-top-3 .content-row .row{
+        margin-left: 0;
+    }
+
+    .top .movie-top-3 .content-row {
+        top: 50px;
+        position: relative;
+        margin-left: -24px;
+    }
+
+    .top .movie-top-3 .img-cat-sp {
+        width: 33%;
+    }
+
+    .top .movie-top-3 .img-cat-sp img{
+        width: 100%
+    }
+
+    .top .movie-top-3 .cb-path.cb-path-black {
+        margin-left: -7px !important
+    }
+
+    .top .movie-top-3:after {
+        height: 92%;
+        top: 0;
+    }
+
+    .top .container.movie-top-4 {
+        margin-top: -100px;
+        padding: 20px;
+    }
+    
+    .top .content-last {
+        padding: 20px;
+    }
+
+    .top .content-last .wrapper {
+        display: inline-block;
+    }
+    
+    .top .content-last .text-category {
+        position: relative;
+    }
+
+    .top .content-last .content {
+        margin-left: 0;
+    }
+
+    .top .content-last:after {
+        height: 93%;
+        top: 134px;
+    }
+
+    .top .button-link {
+        margin-top: 50px;
+    }
+
+    .top .button-link button {
+        padding: 10px;
+        margin-bottom: 40px;
+        font-size: 16px;
+        width: 95%;
+    }
+
+    .top .content-last .icon img {
+        width: 100%;
+    }
+    
+    .top .video-detail .col-md-8 {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .top .video-detail .video-movie {
+        width: 100%;
+        display: inline-flex;
+        padding-right: 0;
+    }
+
+    .top .corner-wrapper.movie-2 {
+        height: 131px;
+    }
+
+    .top .container.movie-top-4.content-2 {
+        margin-top: 0;
+    }
+}
+
+@media (max-width: 991px) {
+	.top .container {
+	    padding: 0;
+	}
+}
+
+@media (min-width: 376px) and (max-width: 768px) {
+    .top .movie-top-2 .col-md-9 {
+        margin-left: 0;
+    }
+
+    .top .content-last .content-text {
+        position: relative;
+        right: 20px;
+        left: -13px;
+    }
+
+    .top .movie-top-3 {
+        position: relative;
+        top: 100px;
+    }
+
+    .top .movie-top-1,
+    .top .movie-top-2 {
+        padding: 20px;
+    }
+
+    .top .button-link {
+        margin-bottom: 50px;
+    }
+}
