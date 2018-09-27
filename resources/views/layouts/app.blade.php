@@ -21,9 +21,8 @@
 </head>
 <body>
     <div id="app" style="background: #FFFFFF">
-        @yield('slide')
-{{--        @include('includes.header')--}}
-
+        <!-- @yield('slide') -->
+        @include('includes.header')
         <div class="content">
             <div class="container-fluid">
                 {{--Main--}}
@@ -35,8 +34,9 @@
                                 <div class="info col-md-12">
                                     <span>@yield('title-e','Title')</span>
                                     <div class="absolute"
-                                         style="font-size: 20px; position: absolute;color: white; bottom: 5px; font-weight: bold;">
-                                        <span style="background: #000000; letter-spacing:10px"> @yield('title-j','タートル')</span>
+                                         style="font-size: 20px; position: absolute;color: #111; bottom: -5px; font-weight: bold;">
+                                        <p style="margin-bottom: 0">@yield('title-black')</p>
+                                        <p style="margin-bottom: 0"><span style="background: #000000; letter-spacing:10px;color: white;"> @yield('title-j','タートル')</span>@yield('title-blackspan')</p>
                                         {{--</div>--}}
                                     </div>
                                 </div>
@@ -49,8 +49,8 @@
             {{--Content--}}
              @yield('content')
 
+            @include('includes.footer') 
         </div>
-{{--        @include('includes.footer')--}}
     </div>
 
     <!-- Scripts -->
