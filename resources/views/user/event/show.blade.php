@@ -7,58 +7,6 @@
 @endsection
 @section('title-e', 'Event')
 @section('title-j', 'イベント')
-{{--@section('css')--}}
-    {{--<link href="{{ asset('css/app.css') }}" rel="stylesheet">--}}
-    {{--<link href="{{ asset('css/top.css') }}" rel="stylesheet">--}}
-    {{--<link href="{{ asset('css/event.css') }}" rel="stylesheet">--}}
-    {{--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">--}}
-    {{--<link rel='stylesheet' id='style-css' href="{{ asset('css/style.2.2.1.css') }}" type='text/css' media='all'/>--}}
-    {{--<script src="https://originalpoint.co.jp/wp-content/themes/orion_tcd037/footer-bar/footer-bar.js?ver=2.2.1"></script>--}}
-    {{--<link rel="stylesheet" media="screen and (max-width:770px)" href="https://originalpoint.co.jp/wp-content/themes/orion_tcd037/footer-bar/footer-bar.css?ver=2.2.1">--}}
-    {{--<link rel="stylesheet" media="screen and (max-width:770px)" href="{{asset('css/responsive.css?ver=2.2.1')}}">--}}
-
-    {{--<style>--}}
-        {{--.fa-heart-o{--}}
-            {{--cursor: pointer !important;--}}
-        {{--}--}}
-        {{--.favorite{--}}
-            {{--height: 0 !important;--}}
-        {{--}--}}
-
-        {{--.content-header {--}}
-            {{--position: relative !important;--}}
-
-        {{--}--}}
-
-        {{--.absolute {--}}
-            {{--z-index: 1;--}}
-            {{--position: absolute;--}}
-            {{--background: #5B9BD5;--}}
-            {{--left: 35%;--}}
-            {{--right: 35%;--}}
-            {{--top: -10px;--}}
-            {{--padding: 8px 0 8px 0;--}}
-            {{--border-radius: 4px;--}}
-            {{--text-align: center;--}}
-        {{--}--}}
-
-        {{--.date,--}}
-        {{--.icon{--}}
-            {{--float: right;--}}
-            {{--/*text-align: right;*/--}}
-        {{--}--}}
-        {{--.date{--}}
-            {{--padding: 5px 5px 5px 10px;--}}
-        {{--}--}}
-
-        {{--/*Cho điện laptop, ipad*/--}}
-        {{--@media (min-width: 768px ) {--}}
-            {{--.content-header-right {--}}
-                {{--padding-top: 25px;--}}
-            {{--}--}}
-        {{--}--}}
-    {{--</style>--}}
-{{--@endsectionion--}}
 @section('content')
     <div class="container">
         <div class="event row">
@@ -344,36 +292,36 @@
 @endsection
 
 @section('javascript-add')
-    @parent
-    <script>
-        $(function () {
-            $('.favorite').click(function() {
-                var user_id= $(this).find('.user_id').val();
-                var event_id= $(this).find('.event_id').val();
-                var favorite= $(this).find('.fa-heart-o');
-                if(user_id) {
-                    // alert($favorites_id)
-                    $.ajax({
-                        type: "POST",
-                        url: '{{route('event.favorite')}}', // This is what I have updated
-                        data: {user_id: user_id, event_id: event_id},
-                        //=========
-                        headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')}
-                    }).done(function (msg) {
-                        alert(msg);
-                        favorite.css('color', 'red');
-                        favorite.css('disabled',true);
-                    });
-                }
-                else
-                {
-                    // Chưa login
-                }
-            });
+    {{--@parent--}}
+    {{--<script>--}}
+        {{--$(function () {--}}
+            {{--$('.favorite').click(function() {--}}
+                {{--var user_id= $(this).find('.user_id').val();--}}
+                {{--var event_id= $(this).find('.event_id').val();--}}
+                {{--var favorite= $(this).find('.fa-heart-o');--}}
+                {{--if(user_id) {--}}
+                    {{--// alert($favorites_id)--}}
+                    {{--$.ajax({--}}
+                        {{--type: "POST",--}}
+                        {{--url: '{{route('event.favorite')}}', // This is what I have updated--}}
+                        {{--data: {user_id: user_id, event_id: event_id},--}}
+                        {{--//=========--}}
+                        {{--headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')}--}}
+                    {{--}).done(function (msg) {--}}
+                        {{--alert(msg);--}}
+                        {{--favorite.css('color', 'red');--}}
+                        {{--favorite.css('disabled',true);--}}
+                    {{--});--}}
+                {{--}--}}
+                {{--else--}}
+                {{--{--}}
+                    {{--// Chưa login--}}
+                {{--}--}}
+            {{--});--}}
 
-            function myFunction() {
-                document.getElementById("demo").style.color = "red";
-            }
-        })
-    </script>
+            {{--function myFunction() {--}}
+                {{--document.getElementById("demo").style.color = "red";--}}
+            {{--}--}}
+        {{--})--}}
+    {{--</script>--}}
 @endsection
