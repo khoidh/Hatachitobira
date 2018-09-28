@@ -7,7 +7,7 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
+    
     <title>Hatachi Tobira</title>
     {{--<title>{{ config('app.name') }}</title>--}}
 
@@ -15,6 +15,7 @@
     @section('css-add')
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
         <link href="{{ asset('css/top.css') }}" rel="stylesheet">
+        <script src="{{ asset('js/app.js') }}"></script>
     @show
 
 {{--    @yield('css')--}}
@@ -55,7 +56,7 @@
 
     <!-- Scripts -->
     @section('javascript-add')
-        <script src="{{ asset('js/app.js') }}"></script>
+        
     @show
 
 {{--    @yield('javascript')--}}

@@ -20,7 +20,7 @@
                 <div class="topnav">
                     <div class="search-container">
                         <input type="text" placeholder="" name="search">
-                        <button type="submit"><i class="fa fa-search"></i></button>
+                        <button id="searchvideo"><i class="fa fa-search" ></i></button>
                     </div>
                 </div>
             </div>
@@ -31,18 +31,9 @@
                 <div class="col-lg-4 col-sm-4 col-md-4 video-detail">
                     <div class="wrapper">
                         <div class="thump">
-                            <div class="browse-details" data-toggle="modal" data-target="#modal_video">
-                                <img src="{{ asset('image/video/btn-play.png')}}" alt="">
-                                @if(Auth::user())
-                                <form action="{{route('video.favorite')}}" method="POST">
-                                    {{ csrf_field() }}
-                                    <input type="hidden" name="user_id" value="<?php if(Auth::user()) echo Auth::user()->id?>">
-                                    <input type="hidden" name="video_id" value="{{$result->id}}">
-                                    <input type="submit" class="fa fa-thumbs-o-up"></input>
-                                </form>
-                                @else
-                                    <div class="favorite" data-toggle="modal" data-target="#modal_login"><i class="fa fa-heart-o"></i></div>
-                                @endif
+                            <div class="browse-details" data-id='{{$result->id}}' data-user='{{Auth::user() ? Auth::user()->id : "" }}' data-src='{{$result->items[0]->player->embedHtml}}'>
+                                <img src="{{ asset('image/video/btn-play.png')}}" alt="" >
+                                <div class="favorite" data-id='{{$result->id}}' data-user='{{Auth::user() ? Auth::user()->id : "" }}'><i class="fa fa-heart-o {{$result->favorite == 1 ? 'liked' : ''}}"></i></div>
                             </div>
                             <a href="#">
                                 <img class="img-icon" src="{{  $result->items[0]->snippet->thumbnails->medium->url}}" alt="">
@@ -55,7 +46,6 @@
                                     substr($title, 0,20);
                                     echo $title. '...';
                                 ?>
-                                
                             </p>
                             <span>{{$result->items[0]->statistics->viewCount}} Views /</span>
                             <span>7 month ago /</span>
@@ -65,76 +55,93 @@
                 </div>
                 @endif
             @endforeach
-        </div>
-        <div class="paging text-center clearfix">
-            {{ $results->links() }}
+            <div class="col-md-12 col-lg-12 col-sm-12 col-xm-12 paging text-center clearfix">
+                {{ $results->links() }}
+            </div>
         </div>
         
     </div>
-
     <div id="modal_video" class="modal fade modal_register" role="dialog">
         <div class="modal-dialog" style="margin-top:150px">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h3 class="modal-title" style="text-align:center">Login</h3>
-                </div>
+            <div class="modal-content" style="width: 515px;border-radius: 13px;">
                 <div class="modal-body" style="text-align:center">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
                     <div class="panel-body">
-                        <span class="error-login" style="color:red;font-size:16px;"></span>
-                        <form class="form-horizontal" id="form-login">
-                            {{ csrf_field() }}
-                            <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                                <label for="email" class="col-md-4 control-label">E-Mail Address</label>
-
-                                <div class="col-md-6">
-                                    <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
-                                </div>
-                            </div>
-
-                            <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                                <label for="password" class="col-md-4 control-label">Password</label>
-
-                                <div class="col-md-6">
-                                    <input id="password" type="password" class="form-control" name="password" required>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <div class="col-md-5 col-md-offset-3">
-                                    <div class="checkbox">
-                                        <label>
-                                            <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember Me
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <div class="col-md-8 col-md-offset-3">
-                                    <button type="submit" class="btn btn-primary" id="btnlogin">
-                                        Login
-                                    </button>
-
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        Forgot Your Password?
-                                    </a>
-                                </div>
-                            </div>
-
-
-                        </form>
-                        <form class="form-horizontal" method="POST" action="{{ route('login') }}">
-                            {{ csrf_field() }}
-                            <div class="form-group">
-                                <div class="col-md-5 col-md-offset-3">
-                                    <a href="{{ url('/auth/facebook') }}" class="btn btn-primary"><i class="fa fa-facebook"></i> Facebook</a>
-                                </div>
-                            </div>
-                        </form>
                     </div>
                 </div>
             </div>
         </div>   
     </div>
+    <script type="text/javascript"  async defer>
+        $(document).ready(function() {
+            $(document).on('click','.video .video-list .browse-details', function(e){
+                e.preventDefault();
+                var idvideo = $(this).data('id');
+                var src = $(this).data('src');
+                $('#modal_video .panel-body').html(src);
+                $('#modal_video').modal('show');
+            });
+
+            $(document).on('change','#category_id',function(e){
+                e.preventDefault();
+                var id = $(this).val();
+                $.ajax({
+                    url : '{{url("video-search-category?category=")}}'+ id
+                }).done(function(data){
+                    $('.row.video-list').html(data);
+                });
+            })
+
+            $(document).on('click','#searchvideo',function(e){
+                e.preventDefault();
+                var text = $(this).val();
+                var id = $('#category_id').val();
+                console.log(text);
+                console.log(id);
+                $.ajax({
+                    url : '{{url("video-search-text?category_id=")}}'+ id +'&page=1&description='+text
+                }).done(function(data){
+                    $('.row.video-list').html(data);
+                });
+            });
+
+            $(document).on('click','.pagination .page-link',function(e){
+                e.preventDefault();
+                var text = $('.search-container input').val();
+                var id = $('#category_id').val();
+                var page = $(this).attr('href').split('page=')[1];
+                console.log(text);
+                console.log(id);
+                $.ajax({
+                    url : '{{url("video-search-text?category_id=")}}'+ id +'&page='+page+'&description='+text
+                }).done(function(data){
+                    $('.row.video-list').html(data);
+                });
+            });
+
+            $(document).on('click','.browse-details .favorite',function(e){
+                e.stopPropagation();
+                var idvideo = $(this).data('id');
+                var user = $(this).data('user');
+                var _this = $(this);
+                if (user == '') {
+                    $('#modal_login').modal('show');
+                }else {
+                    $.ajax({
+                        url : '{{route("video.favorite")}}',
+                        type: 'post',
+                        dataType: 'json',
+                        data: {
+                            video_id : idvideo,
+                            user_id: user
+                        },
+                        success : function (result){
+                            _this.find('.fa.fa-heart-o').addClass('like');
+                            _this.find('.fa.fa-heart-o').css('color','pink');
+                        }
+                    })
+                }
+            })
+        });
+    </script>
 @endsection
