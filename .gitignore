@@ -20,3 +20,5 @@ public/media/
 /storage/medialibrary
 /log
 
+public/
+package-lock.json
