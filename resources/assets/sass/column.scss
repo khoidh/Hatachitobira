@@ -135,21 +135,6 @@
     .txt_content{
       @extend .content-color;
     }
-    .txt-form{
-      padding-top: 24px;
-      font-size: 18pt;
-      line-height: 60pt;
-      .table-td_1{
-        @extend .table-color;
-        text-align: center;
-        font-size: 20px;
-        width: 25%;
-      }
-      .table-td_2{
-        @extend .content-color;
-        padding-left: 50px;
-      }
-    }
     .txt-btn{
       padding: 24px 0;
       button{
