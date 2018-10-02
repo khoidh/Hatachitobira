@@ -6,9 +6,11 @@ use App\Event;
 use App\Video;
 use App\Category;
 use App\Column;
+use App\Favorite;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class MypageController extends Controller
 {
@@ -19,7 +21,6 @@ class MypageController extends Controller
     }
 
     public function searchCategory() {
-
     	$api_key = 'AIzaSyCHOj6MNDK2YFRLQhK5yKP2KEBIRKHlHuU';
         $BASE_URL = 'https://www.googleapis.com/youtube/v3/videos?id=';
         $BASE_PART = '&part=id,contentDetails,snippet,statistics,player&key=';
@@ -57,6 +58,19 @@ class MypageController extends Controller
             $result = json_decode(file_get_contents($api_url));
             $result->id = $video->id;
             $result->category = $video->category_name;
+
+            $like = 0;
+            if (Auth::user()) {
+                $user_id = Auth::user()->id;
+                $favorite = Favorite::where('user_id',$user_id)
+                ->where('favoritable_id',$video->id)
+                ->where('favoritable_type','videos')->get();
+                if (count($favorite)>0) {
+                    $like =1;
+                }
+            }
+            $result->favorite = $like;
+
             array_push($results,$result);
         }
 
@@ -104,6 +118,17 @@ class MypageController extends Controller
             $result = json_decode(file_get_contents($api_url));
             $result->id = $video->id;
             $result->category = $video->category_name;
+            $like = 0;
+            if (Auth::user()) {
+                $user_id = Auth::user()->id;
+                $favorite = Favorite::where('user_id',$user_id)
+                ->where('favoritable_id',$video->id)
+                ->where('favoritable_type','videos')->get();
+                if (count($favorite)>0) {
+                    $like =1;
+                }
+            }
+            $result->favorite = $like;
             array_push($results,$result);
         }
 
