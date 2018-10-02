@@ -23,6 +23,7 @@ $font-size-base: 1rem;
 $line-height-base: 1.6;
 $text-color: #636b6f;
 $text2-color: #6b6b6b;
+$text3-color: #171717;
 
 // Navbar
 $navbar-default-bg: #fff;
@@ -74,7 +75,7 @@ $yellow-color: #fff100;
 //  line-height: 40px;
 //}
 
-@mixin standard-font($font-size: 16pt, $line-height: 30pt) {
+@mixin standard-font($font-size: 16px, $line-height: 30px) {
   font-size: $font-size;
   line-height: $line-height;
   //font-family: $font-family;
