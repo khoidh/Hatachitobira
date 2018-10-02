@@ -22,21 +22,19 @@
 <body>
     <div id="app" style="background: #FFFFFF">
         @yield('slide')
-        @include('includes.header')
+{{--        @include('includes.header')--}}
 
-        <div class="content">
+        <div class="content home">
             <div class="container-fluid">
                 {{--Main--}}
-                <div class="main row" style=" height: 190px; margin-bottom: 30px;">
-                    <div class="title-lx"
-                         style="font-family: Oswald, sans-serif;background: #fff100;color: #fffa9d;display: block;font-size: 120px;height: 175px; width: 100%">
+                <div class="main row">
+                    <div class="title-lx">
                         <div class="container">
-                            <div class="relative row" style="  position: relative;">
-                                <div class="info col-md-12" style=" margin-top: 35px">
-                                    <p style=" font-size: 120px; letter-spacing:-10px; margin-left: -8px;">@yield('title-e','Title')</p>
-                                    <div class="absolute"
-                                         style="font-size: 20px; position: absolute;color: white; bottom: 15px; font-weight: bold;">
-                                        <p style="background: #000000; font-size: 35px; letter-spacing:10px; line-height: 94%;"> @yield('title-j','タートル')</p>
+                            <div class="relative row">
+                                <div class="info col-md-12 col-sm-12 col-xs-12">
+                                    <p class="absolute-1">@yield('title-e','Title')</p>
+                                    <div class="absolute-2">
+                                        <p> @yield('title-j','タートル')</p>
                                         {{--</div>--}}
                                     </div>
                                 </div>
@@ -47,15 +45,16 @@
             </div>
 
             {{--Content--}}
-             @yield('content')
-
+            <div class="container">
+                @yield('content')
+            </div>
         </div>
 {{--        @include('includes.footer')--}}
     </div>
 
     <!-- Scripts -->
     @section('javascript-add')
-        <script src="{{ asset('js/app.js') }}"></script>
+        {{--<script src="{{ asset('js/app.js') }}"></script>--}}
     @show
 
 {{--    @yield('javascript')--}}

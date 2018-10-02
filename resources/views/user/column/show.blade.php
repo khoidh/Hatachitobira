@@ -8,54 +8,52 @@
 @section('title-e', 'Column')
 @section('title-j', 'コラム')
 @section('content')
-    <div class="container">
-        <div class="column row">
-            <div class="tit col-md-12">
-                <div class="underline">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
-                <br>
-                <p class="title">{{$column->title}}</p>
-                <div class="heart">
-                    <i class="heart-icon fa fa-heart-o">
-                        <span class="heart-create-at">&nbsp&nbsp{{date('Y-m-d', strtotime($column->created_at))}}</span>
-                    </i>
-                </div>
-                <hr class="shape-8" />
+    <div class="column row">
+        <div class="tit col-md-12 col-sm-12 col-xs-12">
+            <div class="underline">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+            <br>
+            <p class="title">{{$column->title}}</p>
+            <div class="heart">
+                <i class="heart-icon fa fa-heart-o">
+                    <span class="heart-create-at">&nbsp&nbsp{{date('Y-m-d', strtotime($column->created_at))}}</span>
+                </i>
             </div>
+            <hr class="shape-8"/>
+        </div>
 
-            <div class="txt col-md-12 col-sm-12 col-xs-12">
-                <div class="txt_content">
-                    {!! $column->content !!}
-                </div>
-                {{--<div class="txt-form">--}}
-                    {{--<table class="table">--}}
-                        {{--<tbody>--}}
-                        {{--<tr>--}}
-                            {{--<td class="table-td_1" scope="row"><b>日程</b></td>--}}
-                            {{--<td class="table-td_2">{{$column->started_at}} 〜 {{$column->closed_at}}</td>--}}
-                        {{--</tr>--}}
-                        {{--<tr>--}}
-                            {{--<td class="table-td_1"  scope="row"><b>場所</b></td>--}}
-                            {{--<td class="table-td_2">{{$column->address}}</td>--}}
-                        {{--</tr>--}}
-                        {{--<tr>--}}
-                            {{--<td class="table-td_1"  scope="row"><b>概要</b></td>--}}
-                            {{--<td class="table-td_2">{{$column->overview}}</td>--}}
-                        {{--</tr>--}}
-                        {{--<tr>--}}
-                            {{--<td class="table-td_1"  scope="row"><b>参加費</b></td>--}}
-                            {{--<td class="table-td_2">{{$column->entry_fee}}</td>--}}
-                        {{--</tr>--}}
-                        {{--<tr>--}}
-                            {{--<td class="table-td_1"  scope="row"><b>定員</b></td>--}}
-                            {{--<td class="table-td_2">{{$column->capacity}}</td>--}}
-                        {{--</tr>--}}
-                        {{--</tbody>--}}
-                    {{--</table>--}}
-                {{--</div>--}}
-                <div class="txt-btn row">
-                    <div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3">
-                        <button type="button" class="btn btn-primary btn-lg btn-block">マイテーマを見つける</button>
-                    </div>
+        <div class="txt col-md-12 col-sm-12 col-xs-12">
+            <div class="txt_content">
+                {!! $column->content !!}
+            </div>
+            {{--<div class="txt-form">--}}
+            {{--<table class="table">--}}
+            {{--<tbody>--}}
+            {{--<tr>--}}
+            {{--<td class="table-td_1" scope="row"><b>日程</b></td>--}}
+            {{--<td class="table-td_2">{{$column->started_at}} 〜 {{$column->closed_at}}</td>--}}
+            {{--</tr>--}}
+            {{--<tr>--}}
+            {{--<td class="table-td_1"  scope="row"><b>場所</b></td>--}}
+            {{--<td class="table-td_2">{{$column->address}}</td>--}}
+            {{--</tr>--}}
+            {{--<tr>--}}
+            {{--<td class="table-td_1"  scope="row"><b>概要</b></td>--}}
+            {{--<td class="table-td_2">{{$column->overview}}</td>--}}
+            {{--</tr>--}}
+            {{--<tr>--}}
+            {{--<td class="table-td_1"  scope="row"><b>参加費</b></td>--}}
+            {{--<td class="table-td_2">{{$column->entry_fee}}</td>--}}
+            {{--</tr>--}}
+            {{--<tr>--}}
+            {{--<td class="table-td_1"  scope="row"><b>定員</b></td>--}}
+            {{--<td class="table-td_2">{{$column->capacity}}</td>--}}
+            {{--</tr>--}}
+            {{--</tbody>--}}
+            {{--</table>--}}
+            {{--</div>--}}
+            <div class="txt-btn row">
+                <div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3">
+                    <button type="button" class="btn btn-primary btn-lg btn-block">マイテーマを見つける</button>
                 </div>
             </div>
         </div>

@@ -8,71 +8,70 @@
 @section('title-e', 'Column')
 @section('title-j', 'コラム')
 @section('content')
-    <div class="container">
-        <div class="column row">
-            <div class="article-list col-md-12">
-                @foreach($columns as $column)
-                    <div class="article">
-                        @php
-                            $column_state="インタビュー";
-                        @endphp
-                            {{-- Làm mờ ảnh --}}
-{{--                        <div class="article-status" style="background-image: url('{{asset('image/column/column-icon.png')}}'); opacity: 0.5; filter: alpha(opacity=50);">--}}
-                        <div class="article-status" style="background-image: url('{{asset('image/column/column-icon.png')}}');">
-                            <p>{{$column_state}}</p>
+    <div class="column row">
+        <div class="article-list col-md-12">
+            @foreach($columns as $column)
+                <div class="article">
+                    @php
+                        $column_state="インタビュー";
+                    @endphp
+                    {{-- Làm mờ ảnh --}}
+                    {{--                        <div class="article-status" style="background-image: url('{{asset('image/column/column-icon.png')}}'); opacity: 0.5; filter: alpha(opacity=50);">--}}
+                    <div class="article-status"
+                         style="background-image: url('{{asset('image/column/column-icon.png')}}');">
+                        <p>{{$column_state}}</p>
+                    </div>
+                    <div class="article-content row">
+                        <div class="content-left col-md-4">
+                            <a href="{{route('column.show', $column->id)}}" style="text-decoration:none;">
+                                @php $image='image/column/'.$column->image; @endphp
+                                <img src="{{file_exists($image)?asset($image): asset('image/column/column_default.jpg')}}">
+                            </a>
                         </div>
-                        <div class="article-content row">
-                            <div class="content-left col-md-4">
-                                <a href="{{route('column.show', $column->id)}}" style="text-decoration:none;">
-                                    @php $image='image/column/'.$column->image; @endphp
-                                    <img src="{{file_exists($image)?asset($image): asset('image/column/column_default.jpg')}}">
-                                </a>
+                        <div class="content-right col-md-8">
+                            <div class="icon-favorite">
+                                {{--==================== favorite ====================--}}
+                                <i class="fa fa-heart-o" style="font-size:24px; color: #D4D4D4;"></i>
+                                {{--@if(Auth::user())--}}
+                                {{--{{ csrf_field() }}--}}
+                                {{--<div type="submit" class="favorite">--}}
+                                {{--<input type="hidden" class="favorite" value="0">--}}
+                                {{--<input type="hidden" class="user_id"--}}
+                                {{--value="{{Auth::user()->id}}">--}}
+                                {{--<input type="hidden" class="column_id" value="{{$column->id}}">--}}
+                                {{--<div class="col-md-12 text-right">--}}
+                                {{--@if(in_array($column->id,$favorites_id))--}}
+                                {{--<i class="fa fa-heart-o"--}}
+                                {{--style="font-size:24px; color: red;"></i>--}}
+                                {{--@else--}}
+                                {{--<i class="fa fa-heart-o"--}}
+                                {{--style="font-size:24px; color: blue;"></i>--}}
+                                {{--@endif--}}
+                                {{--</div>--}}
+                                {{--</div>--}}
+                                {{--@else--}}
+                                {{--<div type="submit">--}}
+                                {{--<i class="fa fa-heart-o" style="font-size:24px;"--}}
+                                {{--data-toggle="modal"--}}
+                                {{--data-target="#modal_login"> </i>--}}
+                                {{--</div>--}}
+                                {{--@endif--}}
+                                {{--==================== /end favorite ====================--}}
                             </div>
-                            <div class="content-right col-md-8">
-                                <div class="icon-favorite">
-                                    {{--==================== favorite ====================--}}
-                                    <i class="fa fa-heart-o" style="font-size:24px; color: #D4D4D4;"></i>
-                                    {{--@if(Auth::user())--}}
-                                    {{--{{ csrf_field() }}--}}
-                                    {{--<div type="submit" class="favorite">--}}
-                                    {{--<input type="hidden" class="favorite" value="0">--}}
-                                    {{--<input type="hidden" class="user_id"--}}
-                                    {{--value="{{Auth::user()->id}}">--}}
-                                    {{--<input type="hidden" class="column_id" value="{{$column->id}}">--}}
-                                    {{--<div class="col-md-12 text-right">--}}
-                                    {{--@if(in_array($column->id,$favorites_id))--}}
-                                    {{--<i class="fa fa-heart-o"--}}
-                                    {{--style="font-size:24px; color: red;"></i>--}}
-                                    {{--@else--}}
-                                    {{--<i class="fa fa-heart-o"--}}
-                                    {{--style="font-size:24px; color: blue;"></i>--}}
-                                    {{--@endif--}}
-                                    {{--</div>--}}
-                                    {{--</div>--}}
-                                    {{--@else--}}
-                                    {{--<div type="submit">--}}
-                                    {{--<i class="fa fa-heart-o" style="font-size:24px;"--}}
-                                    {{--data-toggle="modal"--}}
-                                    {{--data-target="#modal_login"> </i>--}}
-                                    {{--</div>--}}
-                                    {{--@endif--}}
-                                    {{--==================== /end favorite ====================--}}
-                                </div>
-                                <div class="title">{{$column->title}}</div>
-                                <div class="category" style="color: #636B6F; font-weight: bold">
-                                    <p>{{$column->category_name}}</p>
-                                </div>
-                                <div class="date" style="text-align: right">
-                                    <p>{{date('Y-m-d', strtotime($column->created_at))}}</p>
-                                </div>
+                            <div class="title">{{$column->title}}</div>
+                            <div class="category" style="color: #636B6F; font-weight: bold">
+                                <p>{{$column->category_name}}</p>
+                            </div>
+                            <div class="date" style="text-align: right">
+                                <p>{{date('Y-m-d', strtotime($column->created_at))}}</p>
                             </div>
                         </div>
                     </div>
-                @endforeach
-                <hr  width="100%" size="30px" color="#DCDCDC" style="    padding-top: 1px;
+                </div>
+            @endforeach
+            <hr width="100%" size="30px" color="#DCDCDC" style="    padding-top: 1px;
     margin: 32px 0 8px;"/>
-                <div class="paging text-center">{{ $columns->links() }}</div>
-            </div>
+            <div class="paging text-center">{{ $columns->links() }}</div>
         </div>
     </div>
     {{--<div class="row">--}}

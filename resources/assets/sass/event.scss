@@ -1,37 +1,19 @@
-//color customize ===============================
-.table-color{ background-color: #FFF100; }
-.content-color{ color: #7B7B7B; }
-.heart-color{ color: #DCDCDC; }
-
-//Font ==========================================
-.standard-font{
-  font-size: 16pt;
-  line-height: 30pt;
-  font-family: Raleway,sans-serif;
-}
-.title-font{
-  font-weight: bold;
-  font-size: 20px;
-  line-height: 40px;
-}
-
 // Event ========================================
 .event {
-  @extend .standard-font;
+  @include standard_font();
+  font-family: Raleway,sans-serif;
   //======== event list =========
   .icon{
     width: 100%;
     .title-x{
-      @extend .title-font;
+      @include title-font();
       padding-bottom: 24px;
       .underline{
         font-size: large;
         font-weight: bold;
-        color:#000000;
         //padding-top: 24px;
-
-        border-bottom: 0 solid #FFF100;
-        box-shadow: inset 0 -5px 0 #FFF100;
+        border-bottom: 0 solid $yellow-color;
+        box-shadow: inset 0 -5px 0 $yellow-color;
         transition: background .15s cubic-bezier(.33,.66,.66,1);
         display: inline;
       }
@@ -71,7 +53,7 @@
       }
       .article-content{
         padding-top: 8px;
-        @extend .title-font;
+        @include title-font();
         img {
           border-radius: 15px;
           -moz-border-radius: 15px; /*Firefox*/
@@ -99,16 +81,16 @@
 
   //=========== event detail ===========
   .tit{
-    @extend .title-font;
+    @include title-font();
     padding-bottom: 24px;
     .underline{
       font-size: large;
       font-weight: bold;
-      color:#000000;
+      color: $black-color;
       //padding-top: 24px;
 
-      border-bottom: 0 solid #FFF100;
-      box-shadow: inset 0 -5px 0 #FFF100;
+      border-bottom: 0 solid $yellow-color;
+      box-shadow: inset 0 -5px 0 $yellow-color;
       transition: background .15s cubic-bezier(.33,.66,.66,1);
       display: inline;
     }
@@ -118,12 +100,12 @@
         font-size: 24px;
         color: #D4D4D4;
         .heart-create-at{
-          @extend .content-color;
+          color: $text2-color;
         }
       }
     }
     .shape-8{
-      @extend .heart-color;
+      color: $heart-color;
       width: 100%;
       size: 30px;
       padding-top: 1px;
@@ -132,20 +114,20 @@
   }
   .txt{
     .txt_content{
-      @extend .content-color;
+      color: $text2-color;
     }
     .txt-form{
       padding-top: 24px;
       font-size: 18pt;
       line-height: 60pt;
       .table-td_1{
-        @extend .table-color;
+        background-color: $color-yellow;
         text-align: center;
         font-size: 20px;
         width: 25%;
       }
       .table-td_2{
-        @extend .content-color;
+        color: $text2-color;
         padding-left: 50px;
       }
     }
@@ -157,16 +139,16 @@
         -moz-border-radius: 30px;
         -webkit-border-radius: 30px;
         border: none;
-        background: black;
-        color: white;
+        background: $black-color;
+        color: $white-color;
         font-weight: bold;
         font-size: 24pt;
         line-height: 40pt;
         cursor: pointer;
         //Đổ bóng phía dưới
-        box-shadow: 3px 3px 3px #FFF100;
-        -moz-box-shadow: 3px 3px 3px #FFF100;
-        -webkit-box-shadow: 3px 3px 3px #FFF100;
+        box-shadow: 3px 3px 3px $yellow-color;
+        -moz-box-shadow: 3px 3px 3px $yellow-color;
+        -webkit-box-shadow: 3px 3px 3px $yellow-color;
       }
     }
   }

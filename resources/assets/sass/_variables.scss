@@ -22,6 +22,7 @@ $font-family-sans-serif: "Raleway", sans-serif;
 $font-size-base: 1rem;
 $line-height-base: 1.6;
 $text-color: #636b6f;
+$text2-color: #6b6b6b;
 
 // Navbar
 $navbar-default-bg: #fff;
@@ -37,6 +38,8 @@ $input-color-placeholder: lighten($text-color, 30%);
 // Panels
 $panel-default-heading-bg: #fff;
 
+// Link color
+$heart-color: #DCDCDC;
 
 /* Colors */
 $color-navy: #001F3F;
@@ -58,3 +61,26 @@ $gray-color: #AAAAAA;
 $black-color: #111111;
 $yellow-color: #fff100;
 
+
+/* ========================== FONT ===========================*/
+//.standard-font{
+//  font-size: 16pt;
+//  line-height: 30pt;
+//  font-family: Raleway,sans-serif;
+//}
+//.title-font{
+//  font-weight: bold;
+//  font-size: 20px;
+//  line-height: 40px;
+//}
+
+@mixin standard-font($font-size: 16pt, $line-height: 30pt) {
+  font-size: $font-size;
+  line-height: $line-height;
+  //font-family: $font-family;
+}
+@mixin title-font($font-size: 20px, $line-height: 40px, $font-weight: bold) {
+  font-size: $font-size;
+  line-height: $line-height;
+  font-weight: $font-weight;
+}

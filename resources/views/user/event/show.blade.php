@@ -8,54 +8,52 @@
 @section('title-e', 'Event')
 @section('title-j', 'イベント')
 @section('content')
-    <div class="container">
-        <div class="event row">
-            <div class="tit col-md-12">
-                    <div class="underline">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
-                    <br>
-                    <p class="title">{{$event->title}}</p>
-                    <div class="heart">
-                        <i class="heart-icon fa fa-heart-o">
-                            <span class="heart-create-at">&nbsp&nbsp{{date('Y-m-d', strtotime($event->created_at))}}</span>
-                        </i>
-                    </div>
-                    <hr class="shape-8" />
+    <div class="event row">
+        <div class="tit col-md-12">
+            <div class="underline">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+            <br>
+            <p class="title">{{$event->title}}</p>
+            <div class="heart">
+                <i class="heart-icon fa fa-heart-o">
+                    <span class="heart-create-at">&nbsp&nbsp{{date('Y-m-d', strtotime($event->created_at))}}</span>
+                </i>
             </div>
+            <hr class="shape-8"/>
+        </div>
 
-            <div class="txt col-md-12 col-sm-12 col-xs-12">
-                <div class="txt_content">
-                    {!! $event->content !!}
-                </div>
-                <div class="txt-form">
-                    <table class="table">
-                        <tbody>
-                            <tr>
-                                <td class="table-td_1" scope="row"><b>日程</b></td>
-                                <td class="table-td_2">{{$event->started_at}} 〜 {{$event->closed_at}}</td>
-                            </tr>
-                            <tr>
-                                <td class="table-td_1"  scope="row"><b>場所</b></td>
-                                <td class="table-td_2">{{$event->address}}</td>
-                            </tr>
-                            <tr>
-                                <td class="table-td_1"  scope="row"><b>概要</b></td>
-                                <td class="table-td_2">{{$event->overview}}</td>
-                            </tr>
-                            <tr>
-                                <td class="table-td_1"  scope="row"><b>参加費</b></td>
-                                <td class="table-td_2">{{$event->entry_fee}}</td>
-                            </tr>
-                            <tr>
-                                <td class="table-td_1"  scope="row"><b>定員</b></td>
-                                <td class="table-td_2">{{$event->capacity}}</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="txt-btn row">
-                    <div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3">
-                        <button type="button" class="btn btn-primary btn-lg btn-block">送信</button>
-                    </div>
+        <div class="txt col-md-12 col-sm-12 col-xs-12">
+            <div class="txt_content">
+                {!! $event->content !!}
+            </div>
+            <div class="txt-form">
+                <table class="table">
+                    <tbody>
+                    <tr>
+                        <td class="table-td_1" scope="row"><b>日程</b></td>
+                        <td class="table-td_2">{{$event->started_at}} 〜 {{$event->closed_at}}</td>
+                    </tr>
+                    <tr>
+                        <td class="table-td_1" scope="row"><b>場所</b></td>
+                        <td class="table-td_2">{{$event->address}}</td>
+                    </tr>
+                    <tr>
+                        <td class="table-td_1" scope="row"><b>概要</b></td>
+                        <td class="table-td_2">{{$event->overview}}</td>
+                    </tr>
+                    <tr>
+                        <td class="table-td_1" scope="row"><b>参加費</b></td>
+                        <td class="table-td_2">{{$event->entry_fee}}</td>
+                    </tr>
+                    <tr>
+                        <td class="table-td_1" scope="row"><b>定員</b></td>
+                        <td class="table-td_2">{{$event->capacity}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="txt-btn row">
+                <div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3">
+                    <button type="button" class="btn btn-primary btn-lg btn-block">送信</button>
                 </div>
             </div>
         </div>
