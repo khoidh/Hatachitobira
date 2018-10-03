@@ -1,3 +1,7 @@
+.nav-item .nav-link {
+    cursor: pointer;
+}
+
 .top .movie-top-title {
 	font-size: 32px;
 	margin-bottom: 0;
@@ -837,4 +841,145 @@ header.fixed.headder .logo.navbar-brand img{
     .top .button-link {
         margin-bottom: 50px;
     }
+}
+
+
+#modal_register .code-top .col-md-5{
+    z-index: 10;
+    background-color: transparent;
+    margin: 7px 0 0px 45px;
+}
+
+#modal_register .code-top img{
+    position: relative;
+    left: -166px;
+    width: 325px;
+}
+
+#modal_register p.title-register {
+    position: relative;
+    top: 60px;
+    left: 40px;
+    font-weight: bold;
+    text-align: left;
+}
+
+#modal_login .btn-register ,
+#modal_register .btn-register {
+    border-radius: 20px;
+    width: 100%;
+}
+
+#modal_login .btn-register.btn-register-btn-1 ,
+#modal_login .btn-register.btn-register-btn ,
+#modal_register .btn-register.btn-register-btn {
+    background-color: #fff100;
+    color: #000;
+    border: 1px solid #fff100;
+}
+
+.modal_register .close {
+    margin-top: -28px;
+    background: #fff;
+    width: 33px;
+    opacity: 1;
+    border-radius: 13px;
+    border: 1px solid #b5adad;
+    height: 33px;
+    margin-right: -26px;
+}
+
+#modal_register .form-group .col-md-7 {
+    padding: 0
+}
+
+
+#modal_login .panel-body {
+    margin-top: 30px;
+}
+
+#modal_login .form-group.row{
+    margin: 0;
+}
+#modal_login .form-group ,
+#modal_register .form-group {
+    display: flex;
+}
+
+#modal_register .form-register-last {
+    text-align: center;
+    padding-top: 30px;
+}
+
+#modal_register .form-register-last h3 {
+    position: relative;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    margin-bottom: 30px;
+    font-weight: bold;
+}
+#modal_register .form-register-last .col-md-12 .btn-warning {
+    background-color: #fff100;
+    color: #111;
+    padding: 10px;
+    width: 100%;
+    border: 1px solid #fff100;
+    border-radius: 33px;
+}
+
+#modal_register .form-register-last h3:after {
+    content: "";
+    background-color: #fff100;
+    width: 71%;
+    height: 43%;
+    position: absolute;
+    top: 21px;
+    left: 70px;
+    z-index: -1;
+}
+
+#modal_register .form-register-last .form-group {
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+#modal_register .form-register-last .control-label {
+    margin-bottom: 0;
+    color: #fff;
+    background-color: #000;
+    line-height: 1.5
+}
+
+#modal_register .input-checkbox {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    position: absolute;
+    left: 0;
+}
+
+#modal_register .lblcheckbox {
+    padding-left: 10px;
+    vertical-align: middle;
+}
+
+#modal_register .link-redirect {
+    color: #b5b3b3;
+    text-decoration-line: underline;
+}
+
+.btn.btn-register {
+    width: 100%;
+    margin-top: 10px
+}
+
+.nav.navbar-nav.navbar-right li a {
+    cursor: pointer;
+}
+
+#modal_register .image-register {
+    width: 170px;
+}
+#modal_register .btn.btn-warning {
+    width: 210px;
 }

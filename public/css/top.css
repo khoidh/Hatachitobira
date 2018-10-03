@@ -180,64 +180,6 @@ ul li a
 }
 
 
-#modal_register .code-top .col-md-4{
-    z-index: 10;
-    background-color: #fff;
-    margin: 20px 0 0px 45px;
-}
-
-#modal_register .code-top img{
-    position: relative;
-    margin-top: -215px;
-    width: 400px;
-}
-
-.modal_register .close {
-    margin-top: -28px;
-    background: #fff;
-    width: 33px;
-    opacity: 1;
-    border-radius: 13px;
-    border: 1px solid #b5adad;
-    height: 33px;
-    margin-right: -26px;
-}
-
-#modal_register .input-checkbox {
-    width: 20px;
-    height: 20px;
-    cursor: pointer;
-    position: absolute;
-    top: -2px;
-    left: 0;
-}
-
-#modal_register .lblcheckbox {
-    padding-left: 10px;
-    vertical-align: middle;
-}
-
-#modal_register .link-redirect {
-    color: red;
-    text-decoration-line: underline;
-}
-
-.btn.btn-register {
-    width: 100%;
-    margin-top: 10px
-}
-
-.nav.navbar-nav.navbar-right li a {
-    cursor: pointer;
-}
-
-#modal_register .image-register {
-    width: 170px;
-}
-#modal_register .btn.btn-warning {
-    width: 210px;
-}
-
 footer li {
     list-style: none;
 }
