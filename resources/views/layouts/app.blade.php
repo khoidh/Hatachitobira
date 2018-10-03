@@ -24,9 +24,9 @@
     <div id="app" style="background: #FFFFFF">
 
         <!-- @yield('slide') -->
-        @include('includes.header')
         <div class="content">
             <div class="container-fluid">
+            @include('includes.header')
                 {{--Main--}}
                 <div class="main row">
                     <div class="title-lx">
@@ -47,10 +47,9 @@
                 </div>
             </div>
 
-            {{--Content--}}
-
+            <div class="container">
              @yield('content')
-
+            </div>
             @include('includes.footer') 
         </div>
     </div>
@@ -61,6 +60,5 @@
         
     @show
 
-{{--    @yield('javascript')--}}
 </body>
 </html>
