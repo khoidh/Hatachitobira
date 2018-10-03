@@ -1,9 +1,8 @@
 // Column
-.content-color{ color: #7B7B7B; }
-
 .column {
   @include standard-font();
   font-family: Raleway,sans-serif;
+
   //======== column list =========
   .icon{
     width: 100%;
@@ -118,7 +117,7 @@
   }
   .txt{
     .txt_content{
-      @extend .content-color;
+      color: $text2-color;
     }
     .txt-btn{
       padding: 24px 0;
