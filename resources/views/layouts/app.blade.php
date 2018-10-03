@@ -7,7 +7,7 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
+    
     <title>Hatachi Tobira</title>
     {{--<title>{{ config('app.name') }}</title>--}}
 
@@ -15,26 +15,29 @@
     @section('css-add')
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
         <link href="{{ asset('css/top.css') }}" rel="stylesheet">
+        <script src="{{ asset('js/app.js') }}"></script>
     @show
 
 {{--    @yield('css')--}}
 </head>
 <body>
     <div id="app" style="background: #FFFFFF">
-        @yield('slide')
-{{--        @include('includes.header')--}}
 
-        <div class="content home">
+        <!-- @yield('slide') -->
+        <div class="content">
             <div class="container-fluid">
+            @include('includes.header')
                 {{--Main--}}
                 <div class="main row">
                     <div class="title-lx">
                         <div class="container">
-                            <div class="relative row">
-                                <div class="info col-md-12 col-sm-12 col-xs-12">
-                                    <p class="absolute-1">@yield('title-e','Title')</p>
-                                    <div class="absolute-2">
-                                        <p> @yield('title-j','タートル')</p>
+                            <div class="relative row" style="  position: relative;">
+                                <div class="info col-md-12">
+                                    <span>@yield('title-e','Title')</span>
+                                    <div class="absolute"
+                                         style="font-size: 20px; position: absolute;color: #111; bottom: -5px; font-weight: bold;">
+                                        <p style="margin-bottom: 0">@yield('title-black')</p>
+                                        <p style="margin-bottom: 0"><span style="background: #000000; letter-spacing:10px;color: white;"> @yield('title-j','タートル')</span>@yield('title-blackspan')</p>
                                         {{--</div>--}}
                                     </div>
                                 </div>
@@ -43,20 +46,20 @@
                     </div>
                 </div>
             </div>
-
-            {{--Content--}}
+            @yield('content-top')
             <div class="container">
-                @yield('content')
+             @yield('content')
             </div>
+            @include('includes.footer') 
+            @include('includes.login') 
         </div>
-{{--        @include('includes.footer')--}}
     </div>
 
     <!-- Scripts -->
     @section('javascript-add')
-        {{--<script src="{{ asset('js/app.js') }}"></script>--}}
+
+        
     @show
 
-{{--    @yield('javascript')--}}
 </body>
 </html>

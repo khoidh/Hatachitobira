@@ -9,6 +9,7 @@
     <title>Hatachi Tobira</title>
     <link href="{{ asset('css/top.css') }}" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <script src="{{ asset('js/app.js') }}"></script>
 </head>
 <body>
     <header id="myHeader">
@@ -27,19 +28,19 @@
                     <div class="collapse navbar-collapse clearfix" id="navbarSupportedContent">
                         <ul class="navbar-nav mr-auto flex-column">
                             <li class="nav-item">
-                                <a class="nav-link active" href="#">ABOUT</a>
+                                <a class="nav-link active" href="{{url('about')}}">ABOUT</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link active" href="#">マイテーマ</a>
+                                <a class="nav-link" href="#">マイテーマ</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">新規登録</a>
+                                <a class="nav-link" data-toggle="modal" data-target="#modal_register">新規登録</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">企業採用担当の方</a>
+                                <a class="nav-link" href="{{url('company-entrance')}}">企業採用担当の方</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">ログイン</a>
+                                <a class="nav-link" data-toggle="modal" data-target="#modal_login">ログイン</a>
                             </li>
                         </ul>
                     </div>
@@ -295,8 +296,39 @@
             </div>
         </div>
         @include('includes.footer')
+        @include('includes.login') 
     </main>
-    <script src="{{ asset('js/app.js') }}"></script>
     
+    <script type="text/javascript" charset="utf-8" async defer>
+        if (window.innerWidth > 993) {
+            window.onscroll = function() { myFunction() };
+        }
+        // Get the header
+        var header = document.getElementById("myHeader");
+
+        // Get the offset position of the navbar
+        var sticky = header.offsetTop;
+
+        // Add the sticky class to the header when you reach its scroll position. Remove "sticky" when you leave the scroll position
+        function myFunction() {
+
+            if (window.pageYOffset > sticky) {
+                header.classList.add("fixed");
+                $('.navbar.navbar-expand-lg.navbar-light').removeClass('flex-column');
+                $('.navbar-nav.mr-auto').removeClass('flex-column');
+            } else {
+                header.classList.remove("fixed");
+                $('.navbar.navbar-expand-lg.navbar-light').addClass('flex-column');
+                $('.navbar-nav.mr-auto').addClass('flex-column');
+            }
+
+        }
+
+        if (window.innerWidth < 993) {
+            header.classList.add("fixed");
+            $('.navbar.navbar-expand-lg.navbar-light').removeClass('flex-column');
+            $('.navbar-nav.mr-auto').removeClass('flex-column');
+        }
+    </script>
 </body>
 </html>

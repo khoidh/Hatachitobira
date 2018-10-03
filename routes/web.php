@@ -76,7 +76,8 @@ Route::resource('video', 'User\VideoController');
 Route::resource('column', 'User\ColumnController');
 Route::get('event','User\EventController@index')->name('event.index');
 Route::get('event/{event}','User\EventController@show')->name('event.show');
-Route::post('video-search','User\VideoController@index')->name('video.search');
+Route::get('video-search-category','User\VideoController@videoSearchCategory');
+Route::get('video-search-text','User\VideoController@videoSearchText');
 
 Route::group(['middleware' => 'auth:user'],function ()
 {
