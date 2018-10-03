@@ -46,11 +46,12 @@
                     </div>
                 </div>
             </div>
-
+            @yield('content-top')
             <div class="container">
              @yield('content')
             </div>
             @include('includes.footer') 
+            @include('includes.login') 
         </div>
     </div>
 
