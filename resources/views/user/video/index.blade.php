@@ -1,69 +1,147 @@
 @extends('layouts.app')
+@section('title-e', 'My Theme')
+@section('title-black', '動画から将来の選択肢を知って')
+@section('title-blackspan', 'の種をみつけよう')
+@section('title-j')
+マイテーマ
+@endsection
 @section('content')
-        <h3 class="text-title-video">動画から社会の選択肢を知って、マイテーマを探そう</h3>
-    <div class="container">
+    <div class="container video">
         <div class="row">
-            <div class="video">
-                <div class="navbar-collapse collapse" id="navbar-filter">
-                    <form method="post" action="{{route('video.search')}}" class="navbar-form" role="search">
-                        {{ csrf_field() }}
-                        <div class="form-group col-md-5 col-sm-6">
-                            <select name="category_id" id="category_id" class="form-control">
-                                <option value="">Category</option>
-                                @foreach($categories as $category)
-                                <option value="{{$category->id}}">{{$category->name}}</option>
-                                @endforeach
-                            </select>
-                        </div>
-
-                        <span id="filter-date" class="col-md-7 col-sm-6">
-                            <div class="form-group col-md-10 col-sm-10">
-                                <input type="text" class="form-control" id ="description" name="description">
-                            </div>
-                            <button type="submit" id="btn-filter-pending" class="btn btn-basic col-md-1 col-sm-2"><i class="fa fa-search" aria-hidden="true"></i></button>
-                        </span>
-                    </form>
-                </div>
-                @foreach($results as $result)
-                    @if(isset($result->items[0]))
-                    <div class="col-lg-4 col-sm-4 portfolio-item">
-                        <div class="wrapper">
-                            <div class="thump">
-                                <a href="#">
-                                    <img src="{{  $result->items[0]->snippet->thumbnails->medium->url}}" alt="">
-                                </a>
-                                @if(Auth::user())
-                                <form action="{{route('video.favorite')}}" method="POST">
-                                    {{ csrf_field() }}
-                                    <input type="hidden" name="user_id" value="<?php if(Auth::user()) echo Auth::user()->id?>">
-                                    <input type="hidden" name="video_id" value="{{$result->id}}">
-                                    <input type="submit" class="fa fa-thumbs-o-up"></input>
-                                </form>
-                                @else
-                                    <div class="favorite" data-toggle="modal" data-target="#modal_login"><i class="fa fa-heart-o"></i></div>
-                                @endif
-                            </div>
-                            <div class="description">
-                                <p>
-                                    <?php 
-                                        $title = $result->items[0]->snippet->title;
-                                        substr($title, 0,20);
-                                        echo $title. '...';
-                                    ?>
-                                    
-                                </p>
-                                <span>{{$result->items[0]->statistics->viewCount}} Views</span>
-                                <span>7 month ago</span>
-                                <strong>{{$result->category}}</strong>
-                            </div>
-                        </div>
+            <div class="form-group col-md-6 col-sm-6">
+                <select name="category_id" id="category_id" class="form-control">
+                    <option value="">Category</option>
+                    @foreach($categories as $category)
+                    <option value="{{$category->id}}">{{$category->name}}</option>
+                    @endforeach
+                </select>
+            </div>
+            <div class="form-group col-md-6 col-sm-6">
+                <div class="topnav">
+                    <div class="search-container">
+                        <input type="text" placeholder="" name="search">
+                        <button id="searchvideo"><i class="fa fa-search" ></i></button>
                     </div>
-                    @endif
-                @endforeach
+                </div>
             </div>
         </div>
-        <div class="pagination video-pagination">
-            {{ $results->links() }}
+        <div class="row video-list">
+            @foreach($results as $result)
+                @if(isset($result->items[0]))
+                <div class="col-lg-4 col-sm-4 col-md-4 video-detail">
+                    <div class="wrapper">
+                        <div class="thump">
+                            <div class="browse-details" data-id='{{$result->id}}' data-user='{{Auth::user() ? Auth::user()->id : "" }}' data-src='{{$result->items[0]->player->embedHtml}}'>
+                                <img src="{{ asset('image/video/btn-play.png')}}" alt="" >
+                                <div class="favorite" data-id='{{$result->id}}' data-user='{{Auth::user() ? Auth::user()->id : "" }}'><i class="fa fa-heart-o {{$result->favorite == 1 ? 'liked' : ''}}"></i></div>
+                            </div>
+                            <a href="#">
+                                <img class="img-icon" src="{{  $result->items[0]->snippet->thumbnails->medium->url}}" alt="">
+                            </a>
+                        </div>
+                        <div class="description">
+                            <p>
+                                <?php 
+                                    $title = $result->items[0]->snippet->title;
+                                    substr($title, 0,20);
+                                    echo $title. '...';
+                                ?>
+                            </p>
+                            <span>{{$result->items[0]->statistics->viewCount}} Views /</span>
+                            <span>7 month ago /</span>
+                            <span>{{$result->category}}</span>
+                        </div>
+                    </div>
+                </div>
+                @endif
+            @endforeach
+            <div class="col-md-12 col-lg-12 col-sm-12 col-xm-12 paging text-center clearfix">
+                {{ $results->links() }}
+            </div>
         </div>
+        
     </div>
+    <div id="modal_video" class="modal fade modal_register" role="dialog">
+        <div class="modal-dialog" style="margin-top:150px">
+            <div class="modal-content" style="width: 515px;border-radius: 13px;">
+                <div class="modal-body" style="text-align:center">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <div class="panel-body">
+                    </div>
+                </div>
+            </div>
+        </div>   
+    </div>
+    <script type="text/javascript"  async defer>
+        $(document).ready(function() {
+            $(document).on('click','.video .video-list .browse-details', function(e){
+                e.preventDefault();
+                var idvideo = $(this).data('id');
+                var src = $(this).data('src');
+                $('#modal_video .panel-body').html(src);
+                $('#modal_video').modal('show');
+            });
+
+            $(document).on('change','#category_id',function(e){
+                e.preventDefault();
+                var id = $(this).val();
+                $.ajax({
+                    url : '{{url("video-search-category?category=")}}'+ id
+                }).done(function(data){
+                    $('.row.video-list').html(data);
+                });
+            })
+
+            $(document).on('click','#searchvideo',function(e){
+                e.preventDefault();
+                var text = $(this).val();
+                var id = $('#category_id').val();
+                console.log(text);
+                console.log(id);
+                $.ajax({
+                    url : '{{url("video-search-text?category_id=")}}'+ id +'&page=1&description='+text
+                }).done(function(data){
+                    $('.row.video-list').html(data);
+                });
+            });
+
+            $(document).on('click','.pagination .page-link',function(e){
+                e.preventDefault();
+                var text = $('.search-container input').val();
+                var id = $('#category_id').val();
+                var page = $(this).attr('href').split('page=')[1];
+                console.log(text);
+                console.log(id);
+                $.ajax({
+                    url : '{{url("video-search-text?category_id=")}}'+ id +'&page='+page+'&description='+text
+                }).done(function(data){
+                    $('.row.video-list').html(data);
+                });
+            });
+
+            $(document).on('click','.browse-details .favorite',function(e){
+                e.stopPropagation();
+                var idvideo = $(this).data('id');
+                var user = $(this).data('user');
+                var _this = $(this);
+                if (user == '') {
+                    $('#modal_login').modal('show');
+                }else {
+                    $.ajax({
+                        url : '{{route("video.favorite")}}',
+                        type: 'post',
+                        dataType: 'json',
+                        data: {
+                            video_id : idvideo,
+                            user_id: user
+                        },
+                        success : function (result){
+                            _this.find('.fa.fa-heart-o').addClass('like');
+                            _this.find('.fa.fa-heart-o').css('color','pink');
+                        }
+                    })
+                }
+            })
+        });
+    </script>
 @endsection
