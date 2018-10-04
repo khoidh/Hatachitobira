@@ -1,11 +1,9 @@
 <div id="modal_login" class="modal fade modal_register" role="dialog">
     <div class="modal-dialog" style="margin-top:150px">
         <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h3 class="modal-title" style="text-align:center">Login</h3>
-            </div>
             <div class="modal-body" style="text-align:center">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h3 style="border-bottom: 1px solid #ddd;padding-bottom: 11px;" class="modal-title" style="text-align:center">Login</h3>
                 <div class="panel-body">
                     <span class="error-login" style="color:red;font-size:16px;"></span>
                     <form class="form-horizontal" id="form-login">
@@ -13,7 +11,7 @@
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                             <label for="email" class="col-md-4 control-label">E-Mail Address</label>
 
-                            <div class="col-md-6">
+                            <div class="col-md-8">
                                 <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
                             </div>
                         </div>
@@ -21,7 +19,7 @@
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                             <label for="password" class="col-md-4 control-label">Password</label>
 
-                            <div class="col-md-6">
+                            <div class="col-md-8">
                                 <input id="password" type="password" class="form-control" name="password" required>
                             </div>
                         </div>
@@ -36,12 +34,13 @@
                             </div>
                         </div>
 
-                        <div class="form-group">
-                            <div class="col-md-8 col-md-offset-3">
-                                <button type="submit" class="btn btn-primary" id="btnlogin">
+                        <div class="form-group row">
+                            <div class="col-md-12">
+                                <button type="submit" class="btn btn-primary btn-register  btn-register-btn-1" id="btnlogin">
                                     Login
                                 </button>
-
+                            </div>
+                            <div class="col-md-12">
                                 <a class="btn btn-link" href="{{ route('password.request') }}">
                                     Forgot Your Password?
                                 </a>
@@ -49,15 +48,13 @@
                         </div>
 
 
-                    </form>
-                    <form class="form-horizontal" method="POST" action="{{ route('login') }}">
-                        {{ csrf_field() }}
-                        <div class="form-group">
-                            <div class="col-md-5 col-md-offset-3">
-                                <a href="{{ url('/auth/facebook') }}" class="btn btn-primary"><i class="fa fa-facebook"></i> Facebook</a>
-                            </div>
+                    </form>    
+                    <div class="form-group">
+                        <div class="col-md-12">
+                            <a href="{{ url('/auth/facebook') }}" class="btn btn-primary btn-register"><i class="fa fa-facebook"></i> Facebook</a>
                         </div>
-                    </form>
+                    </div>
+                    
                 </div>
             </div>
         </div>
@@ -91,24 +88,24 @@
         e.preventDefault();
         $html = '';
         $html +='<div class="form-group code-top">';
-            $html +='<div class="col-md-4">';
-            $html +='<p>お気に入りorイベント申し込みは会員限定機能です。動画やイベント、あなたの興味のあるものを貯めて、マイテーマを形作っていこう！</p>';
+            $html +='<div class="col-md-5">';
+            $html +='<p class="title-register">イベント参加・個人ページの利用は会員限定です。さあ、マイテーマを探そ。</p>';
             $html +='</div>';
-            $html +='<img src="{{ asset('image/picture1.png') }}">';
+            $html +='<img src="{{ asset("image/picture1.png") }}">';
         $html +='</div>';
         $html +='<div class="form-group">';
             $html +='<div class="col-md-10 col-md-offset-1" style="text-align: left;">';
                 $html +='<input class="input-checkbox" type="checkbox">';
-                $html +='<label class="lblcheckbox"><a class="link-redirect" href="/">利用規約</a> と <a class="link-redirect" href="/">プライバシーポリシー</a> に同意する </label>';
+                $html +='<label class="lblcheckbox"><a class="link-redirect" href="/">利用規約</a> と <a class="link-redirect" href="/private-polisy">プライバシーポリシー</a> に同意する </label>';
             $html +='</div>';
         $html +='</div>';
         $html +='<div class="form-group">';
-            $html +='<div class="col-md-10 col-md-offset-1">';
+            $html +='<div class="col-md-12">';
                 $html +='<a href="{{ url("/auth/facebook") }}" class="btn btn-primary btn-register"> Facebookで登録</a>';
             $html +='</div>';
         $html +='</div>';
         $html +='<div class="form-group">';
-            $html +='<div class="col-md-10 col-md-offset-1">';
+            $html +='<div class="col-md-12">';
                 $html +='<a href="#" class="btn btn-success btn-register btn-register-btn"> メールアドレスで登録</a>';
             $html +='</div>';
         $html +='</div>';
@@ -178,16 +175,16 @@
         $html +='</div>';
         $html +='</div>';
         $html +='<div class="form-group">';
-        $html +='<div class="col-md-7 col-md-offset-3">';
-        $html +='<button type="submit" class="btn btn-primary btn-submit-register">';
+        $html +='<div class="col-md-12">';
+        $html +='<button type="submit" class="btn btn-primary btn-submit-register btn-register btn-register-btn-1">';
         $html +='Register';
         $html +='</button>';
         $html +='</div>';
         $html +='</div>';
         $html +='<div class="form-group">';
-        $html +='<div class="col-md-7 col-md-offset-3">';
-        $html +='<a href="{{ url("/auth/facebook") }}" class="btn btn-facebook"><i class="fa fa-facebook"></i> Facebook</a>';
-        $html +=' </div>';
+        $html +='<div class="col-md-12">';
+            $html +='<a href="{{ url("/auth/facebook") }}" class="btn btn-primary btn-register"> Facebookで登録</a>';
+        $html +='</div>';
         $html +='</div>';
 
         $('#modal_register').find('.panel-body').addClass('form-horizontal');
@@ -216,20 +213,27 @@
                 console.log(result)
                 if(result.status){
                     // window.location.reload();
-                    $html = '<div class="form-group">';
-                    $html +='<label for="name" class="control-label">会員登録が完了しました！</label>';
+                    $html = '<div class ="form-register-last">'
+                    $html += '<div class="form-group">';
+                    $html +='<h3>会員登録が完了しました!</h3>';
                     $html +=' </div>';
                     $html += '<div class="form-group">';
-                    $html +='<label for="name" class="control-label">マイテーマを見つけるために、</label>';
+                    $html +='<label for="name" class="control-label">マイテーマを探すために、</label>';
                     $html +=' </div>';
                     $html += '<div class="form-group">';
-                    $html +='<label for="name" class="control-label">コンテンツを管理していきましょう。</label>';
+                    $html +='<label for="name" class="control-label">気になる動画の収集や、個人の活動の記録を</label>';
                     $html +=' </div>';
                     $html += '<div class="form-group">';
+                    $html +='<label for="name" class="control-label">管理していきましょう。</label>';
+                    $html +=' </div>';
+                    $html += '<div class="form-group" style="margin-bottom: 28px; margin-top: 30px;">';
                     $html +='<img class="image-register" src="{{ asset("image/register_1.png") }}">';
                     $html +=' </div>';
                     $html += '<div class="form-group">';
+                    $html += '<div class="col-md-12">'
                     $html +='<a  class="btn btn-warning" href="{{route("mypage.index")}}">MY PAGEへ</a>';
+                    $html +=' </div>';
+                    $html +=' </div>';
                     $html +=' </div>';
                     $('#modal_register').find('.panel-body').addClass('form-horizontal');
                     $('#modal_register').find('.panel-body').html($html);
@@ -240,3 +244,5 @@
         });
     });
 </script>
+
+
