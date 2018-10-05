@@ -29,4 +29,8 @@ class HomeController extends Controller
     public function companyEntrance() {
         return view('company_entrance');
     }
+
+    public function recruitmentStaff() {
+        return view('recruitment-staff');
+    }
 }

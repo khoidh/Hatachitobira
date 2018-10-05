@@ -24,7 +24,7 @@
     <div id="app" style="background: #FFFFFF">
 
         <!-- @yield('slide') -->
-        <div class="content">
+        <div class="content home">
             <div class="container-fluid">
             @include('includes.header')
                 {{--Main--}}
@@ -38,7 +38,7 @@
                                          style="font-size: 20px; position: absolute;color: #111; bottom: -5px; font-weight: bold;">
                                         <p style="margin-bottom: 0">@yield('title-black')</p>
                                         <p style="margin-bottom: 0"><span style="background: #000000; letter-spacing:10px;color: white;"> @yield('title-j','タートル')</span>@yield('title-blackspan')</p>
-                                        {{--</div>--}}
+                                       
                                     </div>
                                 </div>
                             </div>
@@ -46,10 +46,9 @@
                     </div>
                 </div>
             </div>
-            @yield('content-top')
-            <div class="container">
+           
+            
              @yield('content')
-            </div>
             @include('includes.footer') 
             @include('includes.login') 
         </div>

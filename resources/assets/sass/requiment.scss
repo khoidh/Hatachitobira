@@ -1,0 +1,186 @@
+.top .content-1.requiment {
+    background: none;
+    padding: 0
+}
+
+.container.content-1.requiment .content-1-title {
+    font-size: 36px;
+}
+
+.requiment-staff .video .cb-path {
+    margin-top: -60px;
+}
+
+.requiment-staff {
+	font-family: "Kozuka Gothic Pr6N";
+}
+
+.requiment-staff .corner-wrapper.movie-1 {
+    height: 395px;
+}
+
+.requiment-staff .movie-top-text {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.requiment-staff .video-movie .corner-wrapper {
+    padding-bottom: 5px
+}
+
+.requiment-staff .corner-wrapper img {
+    display: block;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+}
+
+.requiment-staff .video-requiment {
+    position: relative;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+}
+
+.requiment-staff .video-requiment:after {
+    content: "";
+    background-color: #fff100;
+    width: 100%;
+    height: 78%;
+    position: absolute;
+    top: 17px;
+    left: 0;
+    z-index: -1;
+}
+
+.requiment-staff .video-requiment .container .video-detail,
+.requiment-staff .container {
+    padding: 0;
+}
+
+.requiment-staff .video-requiment .container .video-detail .col-md-9 {
+    height: 100%
+}
+
+.requiment-staff .video-requiment .container .video-detail .video-movie {
+    padding-right: 0
+}
+
+.requiment-staff .video-requiment .container a {
+    color: #111;
+    top: 20px;
+    position: relative;
+}
+
+.requiment-staff .requiment-content {
+	position: relative;
+    margin-top: 160px;
+    background-color: #fff100;
+    text-align: center;
+    font-weight: bold;
+    padding-top: 60px;
+    font-size: 20px;
+    line-height: 1;
+    padding-bottom: 80px;
+}
+
+.requiment-staff .requiment-content .content-button a{
+	background: #111;
+    padding: 14px 48px;
+    top: 12px;
+    position: relative;
+    color: #fff;
+    border-radius: 15px;
+}
+
+.requiment-staff .requiment-slide {
+	position: relative;
+    top: 50px;
+}
+.requiment-staff .requiment-slide .carousel-indicators{
+	justify-content: left;
+	margin-left: 0;
+    position: relative;
+    bottom: 0;
+}
+
+.requiment-staff .requiment-slide .carousel-indicators .active {
+	background-color: #848386;
+}
+
+.requiment-staff .requiment-slide .carousel-indicators li{
+	background-color: #bbb8bd;
+    width: 10px;
+    height: 10px;
+    border-radius: 20px;
+}
+
+.requiment-staff .requiment-slide {}
+.requiment-staff .requiment-slide {}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  height: 100px;
+  width: 100px;
+  outline: black;
+  background-size: 70% 89% !important;
+  border-radius: 50%;
+  border: 1px solid black;
+  background-color: #111 !important;
+  
+}
+
+.carousel-control-prev, .carousel-control-next {
+	top: -30% !important;
+    bottom: unset !important;
+    opacity: 1 !important;
+}
+.carousel-control-next {
+    text-align: right !important;
+    display: block !important;
+    right: 15px !important;
+}
+
+.carousel-control-prev {
+	text-align: left !important;
+    left: auto !important;
+    right: -30px;
+}
+
+@media (min-width: 768px) {
+    .carousel-item.active-next {
+        display: flex;
+    }
+}
+
+.requiment-staff .requiment-step {
+	position: relative;
+	top: 60px;
+}
+
+.requiment-staff .requiment-step .col-md-4 {
+	position: relative;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+}
+
+.requiment-staff .requiment-step .col-md-4.arrow:after{
+	content: "";
+    background-image: url(/image/requiment/arrow-1.png);
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    justify-content: center;
+    z-index: -1;
+    left: -4.5%;
+    display: flex;
+    -webkit-box-pack: center;
+    top: 45%;
+    background-size: 17%;
+
+}
+
+.requiment-staff .requiment-step .image-step{
+	width: 100%
+}
