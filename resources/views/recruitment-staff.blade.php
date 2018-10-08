@@ -1,6 +1,5 @@
 @extends('layouts.app')
-@section('title-e', 'RECRUITMENT STAFF')
-@section('title-j', '企業採用担当の方へ')
+
 @section('content')
 <div>
 	<img style="width: 100%" src="{{ asset('image/requiment/requiment-1.png')}}" alt="">
@@ -40,15 +39,12 @@
 	                </div>
 	                <div class="col-md-3 video-movie ">
 	                    <div class="corner-wrapper pdd">
-	                        <!-- <iframe width="100%" height="100%" src="https://www.youtube.com/embed/ObwNpMXlmPU" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen="allowfullscreen"></iframe> -->
 	                        <img src="{{ asset('image/requiment/requiment-2.png')}}" alt="">
 	                    </div>
 	                    <div class="corner-wrapper pdd">
-	                        <!-- <iframe width="100%" height="100%" src="https://www.youtube.com/embed/ObwNpMXlmPU" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen="allowfullscreen"></iframe> -->
 	                        <img src="{{ asset('image/requiment/requiment-2.png')}}" alt="">
 	                    </div>
 	                    <div class="corner-wrapper">
-	                        <!-- <iframe width="100%" height="100%" src="https://www.youtube.com/embed/ObwNpMXlmPU" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen="allowfullscreen"></iframe> -->
 	                        <img src="{{ asset('image/requiment/requiment-2.png')}}" alt="">
 	                    </div>
 	                </div>
@@ -68,32 +64,32 @@
 		        <div class="carousel-inner row mx-auto" role="listbox">
 		            <div class="carousel-item active">
 		            	<div class="row">
-		            		<div class="col-md-2">
+		            		<div class="col-md-2 col-sm-2 col-xm-2">
                                 <a href="#">
                                     <img src="{{asset('image/requiment/slide-1.png')}}" style="max-width:100%;">
                                 </a>
                             </div>
-                            <div class="col-md-2">
+                            <div class="col-md-2 col-sm-2 col-xm-2">
                                 <a href="#">
                                     <img src="{{asset('image/requiment/slide-2.png')}}" style="max-width:100%;">
                                 </a>
                             </div>
-                            <div class="col-md-2">
+                            <div class="col-md-2 col-sm-2 col-xm-2">
                                 <a href="#">
                                     <img src="{{asset('image/requiment/slide-3.png')}}" style="max-width:100%;">
                                 </a>
                             </div>
-                            <div class="col-md-2">
+                            <div class="col-md-2 col-sm-2 col-xm-2">
                                 <a href="#">
                                     <img src="{{asset('image/requiment/slide-4.png')}}" style="max-width:100%;">
                                 </a>
                             </div>
-                            <div class="col-md-2">
+                            <div class="col-md-2 col-sm-2 col-xm-2">
                                 <a href="#">
                                     <img src="{{asset('image/requiment/slide-5.png')}}" style="max-width:100%;">
                                 </a>
                             </div>
-                            <div class="col-md-2">
+                            <div class="col-md-2 col-sm-2 col-xm-2">
                                 <a href="#">
                                     <img src="{{asset('image/requiment/slide-6.png')}}" style="max-width:100%;">
                                 </a>
@@ -102,32 +98,32 @@
 	            	</div>
 	            	<div class="carousel-item">
 		            	<div class="row">
-		            		<div class="col-md-2">
+		            		<div class="col-md-2 col-sm-2 col-xm-2">
                                 <a href="#">
                                     <img src="{{asset('image/requiment/slide-1.png')}}" style="max-width:100%;">
                                 </a>
                             </div>
-                            <div class="col-md-2">
+                            <div class="col-md-2 col-sm-2 col-xm-2">
                                 <a href="#">
                                     <img src="{{asset('image/requiment/slide-2.png')}}" style="max-width:100%;">
                                 </a>
                             </div>
-                            <div class="col-md-2">
+                            <div class="col-md-2 col-sm-2 col-xm-2">
                                 <a href="#">
                                     <img src="{{asset('image/requiment/slide-3.png')}}" style="max-width:100%;">
                                 </a>
                             </div>
-                            <div class="col-md-2">
+                            <div class="col-md-2 col-sm-2 col-xm-2">
                                 <a href="#">
                                     <img src="{{asset('image/requiment/slide-4.png')}}" style="max-width:100%;">
                                 </a>
                             </div>
-                            <div class="col-md-2">
+                            <div class="col-md-2 col-sm-2 col-xm-2">
                                 <a href="#">
                                     <img src="{{asset('image/requiment/slide-5.png')}}" style="max-width:100%;">
                                 </a>
                             </div>
-                            <div class="col-md-2">
+                            <div class="col-md-2 col-sm-2 col-xm-2">
                                 <a href="#">
                                     <img src="{{asset('image/requiment/slide-6.png')}}" style="max-width:100%;">
                                 </a>
@@ -154,31 +150,45 @@
 		<div class="container">
 			<div class="cb-path"></div>
 			<p class="movie-top-text">過去制作動画</p>
-			<div class="row offset-md-1 col-md-11 ">
-				<div class="col-md-4">
-					<a href="#">
+			<div class="row col-md-12 ">
+
+				<div class="col-md-3 col-sm-12 col-xm-12">
+					<div class="clearfix">
 						<img class="image-step" src="{{asset('image/requiment/step-1.png')}}" alt="">
-					</a>
-					<p>ジョブシャドウの対象社員と撮影日の設定</p>
+						<p class="text-title">事前準備</br>（打ち合わせ）</p>
+					</div>
+					<div>
+						<p class="number">01</p>
+						<p>ジョブシャドウの対象社員と撮影日の設定</p>
+						<p class="row-2">希望の採用ターゲット像を基に学生を選定し事前面談</p>
+					</div>
 				</div>
-				<div class="col-md-4 arrow">
-					<a href="#">
+				<div class="col-md-3 col-sm-12 col-xm-12 arrow">
+					<div>
 						<img class="image-step" src="{{asset('image/requiment/step-2.png')}}" alt="">
-					</a>
-					<p>ジョブシャドウ対象社員と職場の方の撮影協力</p>
+						<p class="text-title">ジョブシャドウ&撮影</p>
+						
+					</div>
+					<div>
+						<p class="number">02</p>
+						<p>ジョブシャドウ対象社員と職場の方の撮影協力</p>
+						<p class="row-2">撮影スタッフ2～3名の1日撮影同行</p>
+					</div>
 				</div>
-				<div class="col-md-4 arrow">
-					<a href="#">
+				<div class="col-md-3 col-sm-12 col-xm-12 arrow">
+					<div>
+						
 						<img class="image-step" src="{{asset('image/requiment/step-3.png')}}" alt="">
-					</a>
-					<p>作成した映像内容へのフィードバック</p>
+						<p class="text-title">映像化 </br>（編集・配信・拡散）</p>
+					</div>
+					<div>
+						<p class="number">03</p>
+						<p>作成した映像内容へのフィードバック</p>
+						<p class="row-2">ジョブシャドウの様子を学生の声を交え映像化&拡散</p>
+					</div>
 				</div>
 			</div>
-			<div class="row">
-				<div class="col-md-1">
-					<p>貴社</p>
-				</div>
-			</div>
+			
 		</div>
 	</div>
 	<div class="requiment-content">
@@ -192,10 +202,34 @@
 			</div>
 		</div>
 	</div>
+	<div class="requiment-convertion">
+		<div class="container">
+			<div class="cb-path"></div>
+			<p class="movie-top-text">利用者の声</p>
+			<div class="row">
+				<div class="col-md-6">
+					<img class="image" src="{{asset('image/requiment/convertion-1.png')}}" alt="">
+				</div>
+				<div class="col-md-6 convertion">
+					<p class="title-convertion">サービスを利用してみた手応えはいかがでしたか？</p>
+					<p class="detail-convertion">言葉だけでは伝えきれない社員1人ひとりの個性的な魅力や提供するサービスを立体的に可視化できたと感じています。</br>
+あとは、ジョブシャドウイング参加学生が、弊社へ長期インターンとして参画してくれたことも嬉しかったですね。</p>
+				</div>
+			</div>
+
+			<div class="row row-2">
+				<div class="col-md-6 convertion convertion-2">
+					<p class="title-convertion">サービスを利用してみた手応えはいかがでしたか？</p>
+					<p class="detail-convertion">言葉だけでは伝えきれない社員1人ひとりの個性的な魅力や提供するサービスを立体的に可視化できたと感じています。</br>
+あとは、ジョブシャドウイング参加学生が、弊社へ長期インターンとして参画してくれたことも嬉しかったですね。</p>
+				</div>
+				<div class="col-md-6">
+					<img class="image image-2" src="{{asset('image/requiment/convertion-2.png')}}" alt="">
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
 <script type="text/javascript" charset="utf-8" async defer>
-	
-    
-
 </script>
 @endsection

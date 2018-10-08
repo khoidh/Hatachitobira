@@ -12,7 +12,7 @@
 }
 
 .requiment-staff {
-	font-family: "Kozuka Gothic Pr6N";
+    font-family: "Kozuka Gothic Pr6N";
 }
 
 .requiment-staff .corner-wrapper.movie-1 {
@@ -73,7 +73,7 @@
 }
 
 .requiment-staff .requiment-content {
-	position: relative;
+    position: relative;
     margin-top: 160px;
     background-color: #fff100;
     text-align: center;
@@ -84,57 +84,62 @@
     padding-bottom: 80px;
 }
 
-.requiment-staff .requiment-content .content-button a{
-	background: #111;
+.requiment-staff .requiment-content .content-button a {
+    background: #111;
     padding: 14px 48px;
     top: 12px;
     position: relative;
     color: #fff;
     border-radius: 15px;
+    text-decoration: none;
 }
 
 .requiment-staff .requiment-slide {
-	position: relative;
+    position: relative;
     top: 50px;
 }
-.requiment-staff .requiment-slide .carousel-indicators{
-	justify-content: left;
-	margin-left: 0;
+
+.requiment-staff .requiment-slide .carousel-indicators {
+    justify-content: left;
+    margin-left: 0;
     position: relative;
     bottom: 0;
 }
 
 .requiment-staff .requiment-slide .carousel-indicators .active {
-	background-color: #848386;
+    background-color: #848386;
 }
 
-.requiment-staff .requiment-slide .carousel-indicators li{
-	background-color: #bbb8bd;
+.requiment-staff .requiment-slide .carousel-indicators li {
+    background-color: #bbb8bd;
     width: 10px;
     height: 10px;
     border-radius: 20px;
 }
 
 .requiment-staff .requiment-slide {}
+
 .requiment-staff .requiment-slide {}
 
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
-  height: 100px;
-  width: 100px;
-  outline: black;
-  background-size: 70% 89% !important;
-  border-radius: 50%;
-  border: 1px solid black;
-  background-color: #111 !important;
-  
+    height: 100px;
+    width: 100px;
+    outline: black;
+    background-size: 70% 89% !important;
+    border-radius: 50%;
+    border: 1px solid black;
+    background-color: #111 !important;
+
 }
 
-.carousel-control-prev, .carousel-control-next {
-	top: -30% !important;
+.carousel-control-prev,
+.carousel-control-next {
+    top: -30% !important;
     bottom: unset !important;
     opacity: 1 !important;
 }
+
 .carousel-control-next {
     text-align: right !important;
     display: block !important;
@@ -142,7 +147,7 @@
 }
 
 .carousel-control-prev {
-	text-align: left !important;
+    text-align: left !important;
     left: auto !important;
     right: -30px;
 }
@@ -154,33 +159,157 @@
 }
 
 .requiment-staff .requiment-step {
-	position: relative;
-	top: 60px;
+    position: relative;
+    top: 60px;
 }
 
-.requiment-staff .requiment-step .col-md-4 {
-	position: relative;
+.requiment-staff .requiment-step .row.col-md-12 {
+    position: relative;
+    top: 40px;
     -webkit-transform: translateZ(0);
     transform: translateZ(0);
+    left: 50px;
 }
 
-.requiment-staff .requiment-step .col-md-4.arrow:after{
-	content: "";
+.requiment-staff .requiment-step .row.col-md-12:before {
+    content: "貴社";
+    background-color: #e5e5e5;
+    width: 100%;
+    height: 25%;
+    position: absolute;
+    top: 157px;
+    left: -35px;
+    z-index: -1;
+    border-radius: 15px;
+    padding: 38px 24px;
+    font-weight: bold;
+}
+
+.requiment-staff .requiment-step .row.col-md-12:after {
+    content: "弊社";
+    background-color: #d1d1d1;
+    width: 100%;
+    height: 25%;
+    position: absolute;
+    top: 278px;
+    left: -35px;
+    z-index: -1;
+    border-radius: 15px;
+    padding: 45px 24px;
+    font-weight: bold;
+}
+
+.requiment-staff .requiment-step .col-md-3 {
+    position: relative;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    border: 2px solid;
+    border-radius: 15px;
+    text-align: center;
+    margin: 0 20px;
+    flex: 0 0 27%;
+    max-width: 27%;
+}
+
+.requiment-staff .requiment-step .col-md-3 p.number {
+    position: absolute;
+    top: -30px;
+    left: -34px;
+    color: #fff100;
+    font-size: 42px;
+    background-color: #111;
+    padding: 5px 17px;
+    border-radius: 50px;
+    font-family: "Myriad Pro";
+}
+
+.requiment-staff .requiment-step .col-md-3 p {
+    text-align: left;
+}
+
+.requiment-staff .requiment-step .col-md-3 p.row-2 {
+    margin-top: 73px;
+    margin-bottom: 55px;
+}
+
+.requiment-staff .requiment-step .col-md-3 p.text-title {
+    position: relative;
+    top: -33px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    min-height: 64px;
+}
+
+.requiment-staff .requiment-step .col-md-3.arrow:after {
+        content: "";
     background-image: url(/image/requiment/arrow-1.png);
     background-repeat: no-repeat;
     width: 100%;
-    height: 100%;
+    height: 18%;
     position: absolute;
     justify-content: center;
     z-index: -1;
-    left: -4.5%;
+    left: -16.5%;
     display: flex;
     -webkit-box-pack: center;
-    top: 45%;
-    background-size: 17%;
+    top: 44%;
 
 }
 
-.requiment-staff .requiment-step .image-step{
-	width: 100%
+.requiment-staff .requiment-step .image-step {
+    position: relative;
+    top: -40px;
+    background-color: #fff;
+}
+
+.requiment-staff .requiment-convertion .convertion {
+    max-width: 60%;
+    width: 100%;
+    position: relative;
+    left: -73px;
+    top: 55px;
+    background: #fff;
+    padding: 40px 0 25px 25px;
+    border-radius: 15px;
+    height: 80%;
+}
+
+.requiment-staff .requiment-convertion .convertion.convertion-2 {
+    left: 73px;
+    z-index: 1;
+}
+
+.requiment-staff .requiment-convertion .row.row-2 {
+    position: relative;
+    top: 30px;
+    margin-bottom: 50px;
+}
+
+.requiment-staff .requiment-convertion .image.image-2 {
+    border-radius: 29px;
+}
+
+.requiment-staff .requiment-convertion .image {
+    width: 100%;
+    border-radius: 15px;
+}
+
+.requiment-staff .requiment-convertion .title-convertion {
+    position: relative;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.requiment-staff .requiment-convertion .title-convertion:after {
+    content: "";
+    background-color: #fff100;
+    width: 80%;
+    height: 55%;
+    position: absolute;
+    top: 15px;
+    left: 0;
+    z-index: -1;
 }
