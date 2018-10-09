@@ -1,5 +1,4 @@
 <footer>
-
     <div class="row">
         <div class="col-sm-12 col-md-7 col-xs-12 logo-footer">
             <ul>
@@ -44,10 +43,10 @@
     </div>
     <div class="row link-assosial {{Auth::User() ? 'logined' :''}}">
         <a class="icon-link first" href="#"><img src="{{ asset('image/top/footer-icon-1.png') }}" alt=""></a>
-        <a class="icon-link" href="#"><img src="{{ asset('image/top/footer-icon.png') }}" alt=""></a>
-        <a class="icon-link" href="#"><i class="fa fa-2x fa-twitter" aria-hidden="true"></i></a>
-        <a class="icon-link" href="#"><i class="fa fa-2x fa-facebook" aria-hidden="true"></i></a>
-        <a class="icon-link" href="#"><i class="fa fa-2x fa-instagram" aria-hidden="true"></i></a>
+        <a class="icon-link" href="https://www.youtube.com/channel/UCUcAny1-bt4V-TB6UaBEkiw/featured"><img src="{{ asset('image/top/footer-icon.png') }}" alt=""></a>
+        <a class="icon-link" href="https://twitter.com/hatachi_tobira"><i class="fa fa-2x fa-twitter" aria-hidden="true"></i></a>
+        <a class="icon-link" href="https://ja-jp.facebook.com/hatachinotobira/"><i class="fa fa-2x fa-facebook" aria-hidden="true"></i></a>
+        <a class="icon-link" href="https://www.instagram.com/hatachi_tobira/"><i class="fa fa-2x fa-instagram" aria-hidden="true"></i></a>
     </div>
     @if(Auth::Guest())
     <div class="border-footer"></div>
