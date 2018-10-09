@@ -32,6 +32,9 @@
                             <ul>
                                 <li><a href="#">プライバシーポリシー</a></li>
                                 <li><a href="#">利用規約</a></li>
+                                @if(Auth::User())
+                                <li><a href="#">My Page</a></li>
+                                @endif
                             </ul>
                         </div>
                     </div>
@@ -39,13 +42,14 @@
             </div>
         </div>
     </div>
-    <div class="row link-assosial">
+    <div class="row link-assosial {{Auth::User() ? 'logined' :''}}">
         <a class="icon-link first" href="#"><img src="{{ asset('image/top/footer-icon-1.png') }}" alt=""></a>
         <a class="icon-link" href="#"><img src="{{ asset('image/top/footer-icon.png') }}" alt=""></a>
         <a class="icon-link" href="#"><i class="fa fa-2x fa-twitter" aria-hidden="true"></i></a>
         <a class="icon-link" href="#"><i class="fa fa-2x fa-facebook" aria-hidden="true"></i></a>
         <a class="icon-link" href="#"><i class="fa fa-2x fa-instagram" aria-hidden="true"></i></a>
     </div>
+    @if(Auth::Guest())
     <div class="border-footer"></div>
     <div class="row footer-bootom">
         <div class="text-bootom">
@@ -54,5 +58,5 @@
             <a href="#">企業の方</a>
         </div>
     </div>
-    
+    @endif
 </footer>
