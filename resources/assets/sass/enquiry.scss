@@ -3,7 +3,7 @@
   font-family: Raleway, sans-serif;
 
   .enquiry-title{
-    @include title-font(18px,40px);
+    @include title-font(18px,40px,normal);
     padding-top: 32px;
     color: $text2-color;
   }
@@ -12,6 +12,10 @@
     min-width: 100%;
     padding-top: 32px;
     color: $text3-color;
+
+    select, input, textarea{
+      border: 2px solid $black-color;
+    }
 
     .tit{
       .title-x{
@@ -52,7 +56,7 @@
     }
 
     .enquiry-btn{
-      padding: 24px 0;
+      padding: 40px 0;
       button{
         padding: 5px 30px;
         border-radius: 30px;

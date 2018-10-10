@@ -19,11 +19,15 @@ $brand-danger: #bf5329;
 // Typography
 $icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
 $font-family-sans-serif: "Raleway", sans-serif;
+$font-family-oswald: "Oswald", sans-serif;
+
 $font-size-base: 1rem;
 $line-height-base: 1.6;
 $text-color: #636b6f;
 $text2-color: #6b6b6b;
 $text3-color: #171717;
+
+$background-panel-color: #ededed;
 
 // Navbar
 $navbar-default-bg: #fff;
@@ -78,10 +82,16 @@ $yellow-color: #fff100;
 @mixin standard-font($font-size: 16px, $line-height: 30px) {
   font-size: $font-size;
   line-height: $line-height;
-  //font-family: $font-family;
+  font-family: $font-family-sans-serif;
 }
 @mixin title-font($font-size: 20px, $line-height: 40px, $font-weight: bold) {
   font-size: $font-size;
   line-height: $line-height;
   font-weight: $font-weight;
+}
+@mixin panel-font()
+{
+  @include title-font($line-height: 36px, $font-weight: normal);
+  color: $black-color;
+  background-color: $background-panel-color;
 }

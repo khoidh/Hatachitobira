@@ -31,10 +31,10 @@
                                 <a class="nav-link active" href="{{url('about')}}">ABOUT</a>
                             </li>
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                   マイテーマ
                                 </a>
-                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <div class="dropdown-menu" >
                                     <a class="dropdown-item" href="{{ url('search-category')}}">カテゴリから探す</a>
                                     <div class="dropdown-divider"></div>
                                     <a class="dropdown-item" href="{{ url('video')}}">社会の動画から探す</a>
@@ -68,20 +68,20 @@
                 <!--/.nav-->
             </div>
             <!--/.hd_left-->
-            <div class="hd_right">
-                <a class="btn_find" href="#">マイテーマを見つける</a>
-            </div>
             <!--/.hd_right-->
+        </div>
+        <div class="hd_right">
+            <a class="btn_find" href="#">マイテーマを見つける</a>
         </div>
         <!--/.bx_header-->
     </header>
     <main>
-        <div class="banner">
+        <div class="banner figure">
             <figure>
                 <img src="{{ asset('image/top/banner.png') }}">
                 <figcaption><img src="{{ asset('image/top/fig_banner.png') }}" alt=""></figcaption>
             </figure>
-            <a href="#">SCROLL</a>
+            <a class="scroll" href="#">SCROLL</a>
         </div>
         <div class="image-top row">
             <div class="img-size">
@@ -131,35 +131,41 @@
                     
                 </div>
                 <div class="movie-top-1">
-                    <p class="movie-top-title">Movie</p>
-                    <p class="movie-top-description">コンセプトムービー</p>
-                    <div class="corner-wrapper">
-                        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/ObwNpMXlmPU" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen="allowfullscreen"></iframe>
+                    <div class="container">
+                        <p class="movie-top-title">Movie</p>
+                        <p class="movie-top-description">コンセプトムービー</p>
+                        <div class="corner-wrapper">
+                            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/ObwNpMXlmPU" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen="allowfullscreen"></iframe>
+                        </div>
                     </div>
                 </div>
                 <div class="movie-top-2 row">
-                    <div class="col-md-2 col-sm-12 col-xs-12row">
-                        <p class="text-vertical">見つける理由</p>
-                        <p class="text-vertical last">マイテーマを</p>
-                    </div>
-                    <div class="col-md-9 col-sm-12 col-xs-12 row">
-                        <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
-                            <p><img class="movie-image" src="{{ asset('image/top/movie-image-1.png') }}"></p>
-                            <p class="movie_image_description">説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります</p>
+                    <div class="container">
+                        <div class="col-md-2 col-sm-12 col-xs-12row">
+                            <p class="text-vertical">見つける理由</p>
+                            <p class="text-vertical last">マイテーマを</p>
                         </div>
-                        <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
-                            <p><img class="movie-image" src="{{ asset('image/top/movie-image-2.png') }}"></p>
-                            <p class="movie_image_description">説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります</p>
-                        </div>
-                        <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
-                            <p><img class="movie-image" src="{{ asset('image/top/movie-image-3.png') }}"></p>
-                            <p class="movie_image_description">説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります</p>
+                        <div class="col-md-9 col-sm-12 col-xs-12 row">
+                            <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
+                                <p><img class="movie-image" src="{{ asset('image/top/movie-image-1.png') }}"></p>
+                                <p class="text-tittle">01</p>
+                                <p class="movie_image_description">説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります</p>
+                            </div>
+                            <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
+                                <p><img class="movie-image" src="{{ asset('image/top/movie-image-2.png') }}"></p>
+                                <p class="text-tittle">02</p>
+                                <p class="movie_image_description">説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります</p>
+                            </div>
+                            <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
+                                <p><img class="movie-image" src="{{ asset('image/top/movie-image-3.png') }}"></p>
+                                <p class="text-tittle">03</p>
+                                <p class="movie_image_description">説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります</p>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="movie-top-3">
                     <div class="container">
-                        
                         <div class="content-tile-movie">
                             <p class="text-vertical-1 last"><span>マイテーマ</span>の</p>
                             <p class="text-vertical-1">見つけ方</p>
@@ -243,7 +249,7 @@
                             </div>
                         </div>
                     </div>
-                    <a href="#">
+                    <a href="{{ url('video') }}">
                         <span class="more-detail ">MORE</span>
                         <img src="{{ asset('image/top/arrow-1.png') }}">
                     </a>
@@ -252,7 +258,7 @@
                     <div class="cb-path"></div>
                     <p class="movie-top-text">イベントに参加する</p>
                     <p class="movie-top-descroption">イベントからマイテーマを見つけよう</p>
-                    <a href="#">
+                    <a href="{{ url('event') }}">
                         <span class="more-detail ">MORE</span>
                         <img src="{{ asset('image/top/arrow-1.png') }}" >
                     </a>
@@ -303,7 +309,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <a href="#">
+                            <a href="{{ url('column') }}">
                                 <span class="more-detail ">MORE</span>
                                 <img src="{{ asset('image/top/arrow-1.png') }}" >
                             </a>
@@ -322,6 +328,7 @@
     <script type="text/javascript" charset="utf-8" async defer>
         if (window.innerWidth > 993) {
             window.onscroll = function() { myFunction() };
+
         }
         // Get the header
         var header = document.getElementById("myHeader");
@@ -331,7 +338,6 @@
 
         // Add the sticky class to the header when you reach its scroll position. Remove "sticky" when you leave the scroll position
         function myFunction() {
-
             if (window.pageYOffset > sticky) {
                 header.classList.add("fixed");
                 $('.navbar.navbar-expand-lg.navbar-light').removeClass('flex-column');
@@ -348,6 +354,21 @@
             header.classList.add("fixed");
             $('.navbar.navbar-expand-lg.navbar-light').removeClass('flex-column');
             $('.navbar-nav.mr-auto').removeClass('flex-column');
+            $('.bx_header .navbar-nav.mr-auto').append('<li class="nav-item"><a class="nav-link link-append" href="{{url("my-page")}}">マイテーマを見つける</a></li>');
+            $('.bx_header .navbar-nav.mr-auto').css('align-items','flex-start');
+            $('.bx_header .navbar-nav.mr-auto').css('font-weight','bold');
+            $('.bx_header .nav-item').addClass('aaaafixed');
+            $('.banner.figure').append('<a class="link-my-page" href="{{url("my-page")}}">マイテーマを見つける</a>');
+
+
+            $('.dropdown').on('show.bs.dropdown', function() {
+                $(this).find('.dropdown-menu').first().stop(true, true).slideDown();
+              });
+
+              // Add slideUp animation to Bootstrap dropdown when collapsing.
+              $('.dropdown').on('hide.bs.dropdown', function() {
+                $(this).find('.dropdown-menu').first().stop(true, true).slideUp();
+              });
         }
     </script>
 </body>
