@@ -2,59 +2,60 @@
 
 @section('css-add')
     @parent
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 @endsection
 @section('title-e', 'Event')
 @section('title-j', 'イベント')
 @section('content')
-    <div class="event row">
-        <div class="tit col-md-12">
-            <div class="underline">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
-            <br>
-            <p class="title">{{$event->title}}</p>
-            <div class="heart">
-                <i class="heart-icon fa fa-heart-o">
-                    <span class="heart-create-at">&nbsp&nbsp{{date('Y-m-d', strtotime($event->created_at))}}</span>
-                </i>
+    <div class="container event">
+        <div class="row">
+            <div class="tit col-sm-12">
+                <div class="underline">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+                <br>
+                <p class="title">{{$event->title}}</p>
+                <div class="heart">
+                    <i class="heart-icon fa fa-heart-o">
+                        <span class="heart-create-at">&nbsp&nbsp{{date('Y-m-d', strtotime($event->created_at))}}</span>
+                    </i>
+                </div>
+                <hr class="shape-8"/>
             </div>
-            <hr class="shape-8"/>
+
+            <div class="txt col-sm-12 col-sm-12 col-xs-12">
+                <div class="txt_content">
+                    {!! $event->content !!}
+                </div>
+                <div class="txt-form">
+                    <table class="table">
+                        <tbody>
+                        <tr>
+                            <td class="table-td_1" scope="row"><b>日程</b></td>
+                            <td class="table-td_2">{{$event->started_at}} 〜 {{$event->closed_at}}</td>
+                        </tr>
+                        <tr>
+                            <td class="table-td_1" scope="row"><b>場所</b></td>
+                            <td class="table-td_2">{{$event->address}}</td>
+                        </tr>
+                        <tr>
+                            <td class="table-td_1" scope="row"><b>概要</b></td>
+                            <td class="table-td_2">{{$event->overview}}</td>
+                        </tr>
+                        <tr>
+                            <td class="table-td_1" scope="row"><b>参加費</b></td>
+                            <td class="table-td_2">{{$event->entry_fee}}</td>
+                        </tr>
+                        <tr>
+                            <td class="table-td_1" scope="row"><b>定員</b></td>
+                            <td class="table-td_2">{{$event->capacity}}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
 
-        <div class="txt col-md-12 col-sm-12 col-xs-12">
-            <div class="txt_content">
-                {!! $event->content !!}
-            </div>
-            <div class="txt-form">
-                <table class="table">
-                    <tbody>
-                    <tr>
-                        <td class="table-td_1" scope="row"><b>日程</b></td>
-                        <td class="table-td_2">{{$event->started_at}} 〜 {{$event->closed_at}}</td>
-                    </tr>
-                    <tr>
-                        <td class="table-td_1" scope="row"><b>場所</b></td>
-                        <td class="table-td_2">{{$event->address}}</td>
-                    </tr>
-                    <tr>
-                        <td class="table-td_1" scope="row"><b>概要</b></td>
-                        <td class="table-td_2">{{$event->overview}}</td>
-                    </tr>
-                    <tr>
-                        <td class="table-td_1" scope="row"><b>参加費</b></td>
-                        <td class="table-td_2">{{$event->entry_fee}}</td>
-                    </tr>
-                    <tr>
-                        <td class="table-td_1" scope="row"><b>定員</b></td>
-                        <td class="table-td_2">{{$event->capacity}}</td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div class="txt-btn row">
-                <div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3">
-                    <button type="button" class="btn btn-primary btn-lg btn-block">送信</button>
-                </div>
+        <div class="row justify-content-center txt-btn">
+            <div class="col-sm-6">
+                <button type="button" class="btn btn-primary btn-lg btn-block">送信</button>
             </div>
         </div>
     </div>
@@ -90,12 +91,12 @@
                         {{--<div class="absolute bg-primary">--}}
                             {{--<p class="title">イベント</p>--}}
                         {{--</div>--}}
-                        {{--<div class="col-md-6 col-sm-6 col-xs-12">--}}
+                        {{--<div class="col-sm-6 col-sm-6 col-xs-12">--}}
                             {{--@php $image='image/event/'.$event->image; @endphp--}}
                             {{--<img width="100%"--}}
                                  {{--src="{{file_exists($image)?asset($image): asset('image/event/event_default.jpg')}}">--}}
                         {{--</div>--}}
-                        {{--<div class="col-md-6 col-sm-6 col-xs-12 content-header-right">--}}
+                        {{--<div class="col-sm-6 col-sm-6 col-xs-12 content-header-right">--}}
                             {{--<div class="item">--}}
                                 {{--<div class="wrapper">--}}
                                     {{--<div class="content">--}}
@@ -145,7 +146,7 @@
                     {{--</div>--}}
 
                     {{--<div class="row" style="border: 1px solid #f5f6f6; border-radius: 2px;  padding: 15px; margin-bottom: 15px; line-height: 1.5;">--}}
-                        {{--<div class="col-md-12">--}}
+                        {{--<div class="col-sm-12">--}}
                             {{--<ul style="list-style-type:square">--}}
                                 {{--<li>日程  ： {{$event->started_at}} 〜 {{$event->closed_at}}</li>--}}
                                 {{--<li>場所  ： {{$event->address}}</li>--}}
