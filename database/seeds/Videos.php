@@ -23,6 +23,7 @@ class Videos extends Seeder
                 'description'   => '部活の先輩後輩のキス【ファーストキス】。',
                 'image'         => 'video01.jpg',
                 'sort'          => 1,
+                'type'          => 1,
             ]);
         }
         for($i=6;$i<=10;$i++) {
@@ -33,6 +34,7 @@ class Videos extends Seeder
                 'description'   => 'ハタチのトビラ#3 （株）Huber. 〜インバウンド事業に取り組む社会人の1日にとは〜',
                 'image'         => 'video02.jpg',
                 'sort'          => 1,
+                'type'          => 0,
             ]);
         }
         for ($i = 11; $i <= 15; $i++) {
@@ -43,6 +45,7 @@ class Videos extends Seeder
                 'description'   => 'ハタチのトビラ#6 NPO法人グリーンズ〜持続可能な社会をつくるために活動するNPO職員の1日とは〜',
                 'image'         => 'video03.jpg',
                 'sort'          => 1,
+                'type'          => 1,
             ]);
         }
     }
