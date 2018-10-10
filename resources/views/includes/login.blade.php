@@ -84,7 +84,6 @@
     });
 
      $(document).on('click','.show-modal-register',function(e){
-        console.log('aaaa');
         e.preventDefault();
         $html = '';
         $html +='<div class="form-group code-top">';
@@ -94,8 +93,9 @@
             $html +='<img src="{{ asset("image/picture1.png") }}">';
         $html +='</div>';
         $html +='<div class="form-group">';
+                $html +='<span id="first-name-err" style="color:red;font-size:12px" ></span>';
             $html +='<div class="col-md-10 col-md-offset-1" style="text-align: left;">';
-                $html +='<input class="input-checkbox" type="checkbox">';
+                $html +='<input class="input-checkbox"  type="checkbox" id="input-check-required">';
                 $html +='<label class="lblcheckbox"><a class="link-redirect" href="/">利用規約</a> と <a class="link-redirect" href="/private-polisy">プライバシーポリシー</a> に同意する </label>';
             $html +='</div>';
         $html +='</div>';
@@ -210,38 +210,52 @@
                 password_confirmation: repassword
             },
             success : function (result){
-                console.log(result)
-                if(result.status){
-                    // window.location.reload();
-                    $html = '<div class ="form-register-last">'
-                    $html += '<div class="form-group">';
-                    $html +='<h3>会員登録が完了しました!</h3>';
-                    $html +=' </div>';
-                    $html += '<div class="form-group">';
-                    $html +='<label for="name" class="control-label">マイテーマを探すために、</label>';
-                    $html +=' </div>';
-                    $html += '<div class="form-group">';
-                    $html +='<label for="name" class="control-label">気になる動画の収集や、個人の活動の記録を</label>';
-                    $html +=' </div>';
-                    $html += '<div class="form-group">';
-                    $html +='<label for="name" class="control-label">管理していきましょう。</label>';
-                    $html +=' </div>';
-                    $html += '<div class="form-group" style="margin-bottom: 28px; margin-top: 30px;">';
-                    $html +='<img class="image-register" src="{{ asset("image/register_1.png") }}">';
-                    $html +=' </div>';
-                    $html += '<div class="form-group">';
-                    $html += '<div class="col-md-12">'
-                    $html +='<a  class="btn btn-warning" href="{{route("mypage.index")}}">MY PAGEへ</a>';
-                    $html +=' </div>';
-                    $html +=' </div>';
-                    $html +=' </div>';
-                    $('#modal_register').find('.panel-body').addClass('form-horizontal');
-                    $('#modal_register').find('.panel-body').html($html);
-                }else{
-                    $('.error-register').text(result.message);
-                }
+                $html = '<div class ="form-register-last">'
+                $html += '<div class="form-group">';
+                $html +='<h3>会員登録が完了しました!</h3>';
+                $html +=' </div>';
+                $html += '<div class="form-group">';
+                $html +='<label for="name" class="control-label">マイテーマを探すために、</label>';
+                $html +=' </div>';
+                $html += '<div class="form-group">';
+                $html +='<label for="name" class="control-label">気になる動画の収集や、個人の活動の記録を</label>';
+                $html +=' </div>';
+                $html += '<div class="form-group">';
+                $html +='<label for="name" class="control-label">管理していきましょう。</label>';
+                $html +=' </div>';
+                $html += '<div class="form-group" style="margin-bottom: 28px; margin-top: 30px;">';
+                $html +='<img class="image-register" src="{{ asset("image/register_1.png") }}">';
+                $html +=' </div>';
+                $html += '<div class="form-group">';
+                $html += '<div class="col-md-12">'
+                $html +='<a  class="btn btn-warning" href="{{route("mypage.index")}}">MY PAGEへ</a>';
+                $html +=' </div>';
+                $html +=' </div>';
+                $html +=' </div>';
+                $('#modal_register').find('.panel-body').addClass('form-horizontal');
+                $('#modal_register').find('.panel-body').html($html);
+            },
+            error: function (request, status, error) {
+                json = $.parseJSON(request.responseText);
+                var texxt = '';
+                $.each(json.errors, function(key, value){
+                    texxt = texxt + '<p>'+value+'</p>';
+                });
+                console.log(texxt);
+                $('.error-register').html(texxt);
+                // $("#result").html('');
             }
         });
+    });
+
+    $(document).on('click','.btn.btn-primary.btn-register',function(e){
+        e.preventDefault();
+        if($('#input-check-required').is(':checked')) {
+            window.location = $(this).attr('href');
+        }
+        else {
+            $('#first-name-err').text('This input is required');
+        }
     });
 </script>
 

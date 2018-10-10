@@ -70,31 +70,25 @@ class RegisterController extends Controller
         $data = $request->all();
         $result = array();
         $users = User::where('email',$data['email'])->first();
+        $validator = $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users',
+            'password' => 'required|string|min:6|confirmed',
+        ]);
 
-        if ($data['name'] =='' || $data['email'] =='' || $data['password'] =='' || $data['password_confirmation'] =='') {
-            $result['status'] = false;
-            $result['message'] = 'Please enter full information';
-        }elseif ($data['password'] != $data['password_confirmation']) {
-            $result['status'] = false;
-            $result['message'] = 'Password not same';
-        }elseif ($users) {
-            $result['status'] = false;
-            $result['message'] = 'Email is exist';
-        }else { 
-            $user = User::create([
-                'name' => $data['name'],
-                'email' => $data['email'],
-                'password' => bcrypt($data['password']),
-                'verifyToken' => Str::random(40),
-            ]);
+        $user = User::create([
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'password' => bcrypt($data['password']),
+            'verifyToken' => Str::random(40),
+        ]);
 
-            $thisUser = User::findOrFail($user->id);
-            Auth::login($thisUser, true);
-            $this->sendEmail($thisUser);
-            $result['status'] = true;
-        }
-
-        return json_encode($result);
+        $thisUser = User::findOrFail($user->id);
+        Auth::login($thisUser, true);
+        $this->sendEmail($thisUser);
+        return response()->json([
+            'success' => 'true '
+        ]);
     }
 
     public function sendEmail($thisUser)
