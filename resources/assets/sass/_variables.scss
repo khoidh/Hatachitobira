@@ -89,3 +89,9 @@ $yellow-color: #fff100;
   line-height: $line-height;
   font-weight: $font-weight;
 }
+@mixin panel-font()
+{
+  @include title-font($line-height: 36px, $font-weight: normal);
+  color: $black-color;
+  background-color: $background-panel-color;
+}

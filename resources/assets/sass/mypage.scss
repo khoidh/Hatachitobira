@@ -11,6 +11,16 @@
   display: inline;
 }
 
+// Đường gạch ngang =============================
+%shape-8{
+  width: 100%;
+  size: 30px;
+  padding-top: 1px;
+  margin: 8px 0 16px;
+  background-color: $black-color;
+  height: 2px solid;
+}
+
 // My page ======================================
 .my-page {
   @include standard-font();
@@ -70,12 +80,7 @@
     }
 
     .shape-8{
-      width: 100%;
-      size: 30px;
-      padding-top: 1px;
-      margin: 8px 0 16px;
-      background-color: $black-color;
-      height: 2px solid;
+      @extend %shape-8;
     }
 
     .log {
@@ -127,7 +132,7 @@
         font-family: Oswald, sans-serif;
         font-size: 100px;
         color: $white-color;
-        Z-index: 0;
+        //Z-index: 0;
       }
     }
 
@@ -158,12 +163,7 @@
     }
 
     .shape-8{
-      width: 100%;
-      size: 30px;
-      //padding-top: 1px;
-      margcontent-lastin: 8px 0 16px;
-      background-color: $black-color;
-      height: 2px solid;
+      @extend %shape-8;
       margin: 0 0 40px;
     }
 
