@@ -505,7 +505,7 @@ header.fixed.headder .logo.navbar-brand{
     margin-top: 15px;
 }
 
-header.fixed.headder .logo.navbar-brand img{
+header.fixed .logo.navbar-brand img{
 	max-width: 190px;
     max-height: 40px;
 }
@@ -715,7 +715,7 @@ header.fixed.headder .logo.navbar-brand img{
 
     .top .movie-top-1:after {
         height: 73%;
-        top: 44px;
+        top: -60px;
     }
 
     .top .text-vertical,
@@ -780,8 +780,8 @@ header.fixed.headder .logo.navbar-brand img{
     }
 
     .top .movie-top-3:after {
-        height: 92%;
-        top: 0;
+        height: 84%;
+        top: -48px;
     }
 
     .top .container.movie-top-4 {
@@ -807,7 +807,7 @@ header.fixed.headder .logo.navbar-brand img{
 
     .top .content-last:after {
         height: 93%;
-        top: 134px;
+        top: 30px;
     }
 
     .top .button-link {
@@ -864,7 +864,30 @@ header.fixed.headder .logo.navbar-brand img{
 @media (max-width: 991px) {
 	.top .container {
 	    padding: 0;
+        position: relative;
+        top: -105px;
 	}
+
+    .owl-stage {
+        display: flex;
+        width: 100% !important;
+    }
+
+    .owl-item.active {
+        width: 20%;
+    }
+
+    .image-top.row .img-size {
+        width: 100%;
+    }
+
+    .image-top.row  {
+        overflow: hidden;
+    }
+    .owl-nav.disabled,
+    .owl-dots {
+        display: none;
+    }
 }
 
 @media (min-width: 376px) and (max-width: 768px) {
