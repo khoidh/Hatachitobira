@@ -11,34 +11,30 @@
     <title>Hatachi Tobira</title>
     {{--<title>{{ config('app.name') }}</title>--}}
 
-    <!-- Styles -->
     @section('css-add')
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
         <link href="{{ asset('css/top.css') }}" rel="stylesheet">
         <script src="{{ asset('js/app.js') }}"></script>
     @show
-
-{{--    @yield('css')--}}
 </head>
 <body>
     <div id="app" style="background: #FFFFFF">
 
         <!-- @yield('slide') -->
-        <div class="content home">
+        <div class="content home" style="top: 90px">
             <div class="container-fluid">
             @include('includes.header')
                 {{--Main--}}
                 <div class="main row">
                     <div class="title-lx">
                         <div class="container">
-                            <div class="relative row" style="  position: relative;">
+                            <div class="relative row">
                                 <div class="info col-md-12">
-                                    <span>@yield('title-e','Title')</span>
-                                    <div class="absolute"
-                                         style="font-size: 20px; position: absolute;color: #111; bottom: -5px; font-weight: bold;">
+                                    <span class="title-e">@yield('title-e','Title')</span>
+                                    <div class="absolute">
                                         <p style="margin-bottom: 0">@yield('title-black')</p>
-                                        <p style="margin-bottom: 0"><span style="background: #000000; letter-spacing:10px;color: white;"> @yield('title-j','タートル')</span>@yield('title-blackspan')</p>
-                                       
+                                        <p style="margin-bottom: 0"><span class="title-j"> @yield('title-j','タートル')</span>@yield('title-blackspan')</p>
+
                                     </div>
                                 </div>
                             </div>
@@ -46,7 +42,6 @@
                     </div>
                 </div>
             </div>
-           
             
              @yield('content')
             @include('includes.footer') 
@@ -56,8 +51,6 @@
 
     <!-- Scripts -->
     @section('javascript-add')
-
-        
     @show
 
 </body>

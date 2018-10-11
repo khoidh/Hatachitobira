@@ -11,6 +11,7 @@
 
 @import "enquiry";
 @import "video";
+@import "mypage";
 @import "requiment";
 
 // Bootstrap
@@ -19,5 +20,9 @@
 // fontawesome
 @import "node_modules/font-awesome/scss/font-awesome.scss";
 
+
 // @import '~/owl.carousel';
 @import '~/owl.carousel/dist/assets/owl.carousel.css';
+
+@import url('https://fonts.googleapis.com/css?family=Oswald');
+
