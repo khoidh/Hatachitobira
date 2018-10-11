@@ -98,6 +98,7 @@ main{
 
 .dropdown-menu.show {
     border:none;
+    text-align: center;
 }
 
 .link-my-page {

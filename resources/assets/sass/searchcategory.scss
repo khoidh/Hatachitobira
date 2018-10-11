@@ -42,3 +42,22 @@
     position: relative;
     z-index: 2;
 }
+
+.carousel-control-prev, .carousel-control-next {
+    top: 0 !important;
+}
+
+.video-search .carousel-control-prev,.video-search .carousel-control-next {
+    top: -20px !important;
+}
+
+.column-search.event,
+.video-search.video,
+.event-search.event {
+    width: 100%,
+}
+
+.data-not-found {
+    padding:  30px;
+    color: #d2d2d2;
+}
