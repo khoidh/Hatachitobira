@@ -494,14 +494,17 @@ header.fixed.headder .navbar.navbar-expand-lg.navbar-light {
 
 header.fixed.headder .navbar.navbar-expand-lg.navbar-light p{
 	margin-bottom: 0;
-	font-weight: bold;
-	font-size: 16px;
+    font-weight: bold;
+    font-size: 16px;
+    position: relative;
+    top: 0px;
+    left: 20px;
 }
 
 header.fixed.headder .logo.navbar-brand{
-	margin-bottom: 0;
+	margin-bottom: 5px;
     padding: 0px;
-    margin-top: 15px;
+    margin-top: 5px;
 }
 
 header.fixed .logo.navbar-brand img{
