@@ -13,9 +13,9 @@
                 <div class="col-md-4 col-xs-6 col-sm-6 footter-mobile">
                     <ul>
                         <li><a href="#">マイテーマを</a></li>
-                        <li><a href="#">- &nbsp;動画から探す</a></li>
-                        <li><a href="#">- &nbsp; イベントで見つける</a></li>
-                        <li><a href="#">- &nbsp; 記事で知る</a></li>
+                        <li><a href="{{url('video')}}">- &nbsp;動画から探す</a></li>
+                        <li><a href="{{url('event')}}">- &nbsp; イベントで見つける</a></li>
+                        <li><a href="{{url('column')}}">- &nbsp; 記事で知る</a></li>
                     </ul>
                 </div>
                 <div class="col-md-8 col-xs-6 col-sm-6 footter-mobile">
@@ -29,10 +29,10 @@
                         </div>
                         <div class="col-md-6">
                             <ul>
-                                <li><a href="#">プライバシーポリシー</a></li>
-                                <li><a href="#">利用規約</a></li>
+                                <li><a href="{{url('private-polisy')}}">プライバシーポリシー</a></li>
+                                <li><a href="{{url('private-polisy')}}">利用規約</a></li>
                                 @if(Auth::User())
-                                <li><a href="#">My Page</a></li>
+                                <li><a href="{{url('my-page')}}">My Page</a></li>
                                 @endif
                             </ul>
                         </div>
@@ -52,8 +52,8 @@
     <div class="border-footer"></div>
     <div class="row footer-bootom">
         <div class="text-bootom">
-            <a class="a-link" href="#">会員登録</a>
-            <a class="a-link" href="#">ログイン</a>
+            <a class="a-link" data-toggle="modal" data-target="#modal_register">会員登録</a>
+            <a class="a-link" data-toggle="modal" data-target="#modal_login">ログイン</a>
             <a href="#">企業の方</a>
         </div>
     </div>
