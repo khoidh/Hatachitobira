@@ -21,7 +21,7 @@
     <div id="app" style="background: #FFFFFF">
 
         <!-- @yield('slide') -->
-        <div class="content home" style="top: 90px">
+        <div class="content home" style="top: 55px">
             <div class="container-fluid">
             @include('includes.header')
                 {{--Main--}}
