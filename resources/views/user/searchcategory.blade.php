@@ -2,153 +2,194 @@
 
 @section('title-e', 'Category Search')
 @section('title-j', 'カテゴリー検索')
-@section('content-top')
-    <div class="row-category">
-        <div class="select-search">
-            <select class="select-box search" name="select-category">
-                @foreach($categories as $categorie )
-                <option value="{{$categorie->id}}">{{$categorie->name}}</option>
-                @endforeach
-            </select>
-        </div>
-    </div>  
-@endsection
+
 @section('content')
-<div class="row searchcategory">
-        <div class="row column-search event">
-            <h3 class="title-event">コラム</h3>
-            <div class="article-list col-md-12">
-                @foreach($columns as $column)
-                <div class="article">
-                    @php
-                        $time_now = Carbon\Carbon::now();
-                        $time_from = Carbon\Carbon::parse($column->time_from);
-                        $time_to = Carbon\Carbon::parse($column->time_to);
-                        $check=$time_now->between($time_from,$time_to);
-                        if($check)
-                        $column_state="申し込み受付中";
-                        else
-                        $column_state="受付終了";
-                    @endphp
-                    <div class="article-status"
-                         style="background-image: url('{{asset('image/event/event-icon.png')}}');background-size: 100%;">
-                        <p>{{$column_state}}</p>
-                    </div>
-                    <div class="article-content row">
-                        <div class="content-left col-md-4">
-                            <a href="{{route('event.show', $column->id)}}" style="text-decoration:none;">
-                                
-                                @php $image='image/event/'.$column->image; @endphp
-                                <img src="{{file_exists($image)?asset($image): asset('image/event/event_default.jpg')}}">
-                            </a>
+<div class="row-category">
+    <div class="select-search">
+        <select class="select-box search" name="select-category">
+            @foreach($categories as $categorie )
+            <option value="{{$categorie->id}}">{{$categorie->name}}</option>
+            @endforeach
+        </select>
+    </div>
+</div>  
+<div class="container">
+    <div class="row searchcategory">
+            <div class="row column-search event">
+                <h3 class="title-event">コラム</h3>
+                <div class="article-list col-md-12">
+                    <div id="carouselExample" class="carousel slide" data-ride="carousel" data-interval="false" data-wrap="false">
+                        <div class="carousel-inner row mx-auto" role="listbox">
+                            @forelse($columns as $key => $column)
+                            <div class="article carousel-item {{ $key == 0 ? 'active' : ''}}">
+                                @php
+                                    $time_now = Carbon\Carbon::now();
+                                    $time_from = Carbon\Carbon::parse($column->time_from);
+                                    $time_to = Carbon\Carbon::parse($column->time_to);
+                                    $check=$time_now->between($time_from,$time_to);
+                                    if($check)
+                                    $column_state="申し込み受付中";
+                                    else
+                                    $column_state="受付終了";
+                                @endphp
+                                <div class="article-status"
+                                     style="background-image: url('{{asset('image/event/event-icon.png')}}');background-size: 100%;">
+                                    <p>{{$column_state}}</p>
+                                </div>
+                                <div class="article-content row">
+                                    <div class="content-left col-md-4">
+                                        <a href="{{route('event.show', $column->id)}}" style="text-decoration:none;">
+                                            
+                                            @php $image='image/event/'.$column->image; @endphp
+                                            <img src="{{file_exists($image)?asset($image): asset('image/event/event_default.jpg')}}">
+                                        </a>
+                                    </div>
+                                    <div class="content-right col-md-8">
+                                        <div class="icon-favorite">
+                                            <i class="fa fa-heart-o" style="font-size:24px; color: #D4D4D4;"></i>
+                                        </div>
+                                        <div class="title">{{$column->title}}</div>
+                                        <div class="category" style="color: #636B6F; font-weight: bold">
+                                            <p>{{$column->category_name}}</p>
+                                        </div>
+                                        <div class="date" style="text-align: right">
+                                            <p>{{date('Y-m-d', strtotime($column->created_at))}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            @empty
+                            <h4 class="data-not-found">Data not found</h4>
+                            @endforelse
                         </div>
-                        <div class="content-right col-md-8">
-                            <div class="icon-favorite">
-                                <i class="fa fa-heart-o" style="font-size:24px; color: #D4D4D4;"></i>
-                            </div>
-                            <div class="title">{{$column->title}}</div>
-                            <div class="category" style="color: #636B6F; font-weight: bold">
-                                <p>{{$column->category_name}}</p>
-                            </div>
-                            <div class="date" style="text-align: right">
-                                <p>{{date('Y-m-d', strtotime($column->created_at))}}</p>
-                            </div>
-                        </div>
+                        @if(count($columns) > 1)
+                         <a class="carousel-control-prev" href="#carouselExample" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next text-faded" href="#carouselExample" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                        @endif
                     </div>
                 </div>
-                @endforeach
-                <div class="paging text-center">{{ $columns->links() }}</div>
             </div>
-        </div>
-        <div class="row event-search event">
-            <h3 class="title-event">イベント</h3>
+            <div class="row event-search event">
+                <h3 class="title-event">イベント</h3>
+                  
                 <div class="article-list col-md-12">
-                    @foreach($events as $event)
-                   <div class="article">
-                        @php
-                            $time_now = Carbon\Carbon::now();
-                            $time_from = Carbon\Carbon::parse($event->time_from);
-                            $time_to = Carbon\Carbon::parse($event->time_to);
-                            $check=$time_now->between($time_from,$time_to);
-                            if($check)
-                            $event_state="申し込み受付中";
-                            else
-                            $event_state="受付終了";
-                        @endphp
-                        <div class="article-status"
-                             style="background-image: url('{{asset('image/event/event-icon.png')}}'); background-size: 100%;">
-                            <p>{{$event_state}}</p>
-                        </div>
-                        <div class="article-content row">
-                            <div class="content-left col-md-4">
-                                <a href="{{route('event.show', $event->id)}}" style="text-decoration:none;">
-                                    {{--                                        <img src="{{asset('image/event/event_default.jpg')}}" alt="" class="image">--}}
-                                    @php $image='image/event/'.$event->image; @endphp
-                                    <img src="{{file_exists($image)?asset($image): asset('image/event/event_default.jpg')}}">
-                                </a>
+                    <div id="carouselExampleevent" class="carousel slide" data-ride="carousel" data-interval="false" data-wrap="false">
+                        <div class="carousel-inner row mx-auto" role="listbox">
+                            @forelse($events as $key => $event)
+                            <div class="article carousel-item {{ $key == 0 ? 'active' : ''}}">
+                                @php
+                                    $time_now = Carbon\Carbon::now();
+                                    $time_from = Carbon\Carbon::parse($event->time_from);
+                                    $time_to = Carbon\Carbon::parse($event->time_to);
+                                    $check=$time_now->between($time_from,$time_to);
+                                    if($check)
+                                    $column_state="申し込み受付中";
+                                    else
+                                    $column_state="受付終了";
+                                @endphp
+                                <div class="article-status"
+                                     style="background-image: url('{{asset('image/event/event-icon.png')}}');background-size: 100%;">
+                                    <p>{{$column_state}}</p>
+                                </div>
+                                <div class="article-content row">
+                                    <div class="content-left col-md-4">
+                                        <a href="{{route('event.show', $event->id)}}" style="text-decoration:none;">
+                                            
+                                            @php $image='image/event/'.$event->image; @endphp
+                                            <img src="{{file_exists($image)?asset($image): asset('image/event/event_default.jpg')}}">
+                                        </a>
+                                    </div>
+                                    <div class="content-right col-md-8">
+                                        <div class="icon-favorite">
+                                            <i class="fa fa-heart-o" style="font-size:24px; color: #D4D4D4;"></i>
+                                        </div>
+                                        <div class="title">{{$event->title}}</div>
+                                        <div class="category" style="color: #636B6F; font-weight: bold">
+                                            <p>{{$event->category_name}}</p>
+                                        </div>
+                                        <div class="date" style="text-align: right">
+                                            <p>{{date('Y-m-d', strtotime($event->created_at))}}</p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="content-right col-md-8">
-                                <div class="icon-favorite">
-                                    <i class="fa fa-heart-o" style="font-size:24px; color: #D4D4D4;"></i>
-                                </div>
-                                <div class="title">{{$event->title}}</div>
-                                <div class="category" style="color: #636B6F; font-weight: bold">
-                                    <p>{{$event->category_name}}</p>
-                                </div>
-                                <div class="date" style="text-align: right">
-                                    <p>{{date('Y-m-d', strtotime($event->created_at))}}</p>
-                                </div>
-                            </div>
+                            @empty
+                            <h4 class="data-not-found">Data not found</h4>
+                            @endforelse
                         </div>
+                        @if(count($events) > 1)
+                        <a class="carousel-control-prev" href="#carouselExampleevent" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next text-faded" href="#carouselExampleevent" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                        @endif
                     </div>
-                    @endforeach
-                    <hr width="100%" size="30px" color="#DCDCDC" style="    padding-top: 1px;margin: 32px 0 8px;"/>
-                <div class="paging text-center">{{ $events->links() }}</div>
+                </div>
             </div>
-        </div>
-        <div class="row video-search video">
-            <h3 class="title-event">動画</h3>
-             <div class="row video-list">
-                @foreach($results as $result)
-                    @if(isset($result->items[0]))
-                    <div class="col-lg-4 col-sm-4 col-md-4 video-detail">
-                        <div class="wrapper">
-                            <div class="thump">
-                                <div class="browse-details" data-id='{{$result->id}}' data-user='{{Auth::user() ? Auth::user()->id : "" }}' data-src='{{$result->items[0]->player->embedHtml}}'>
-                                    <img src="{{ asset('image/video/btn-play.png')}}" alt="" >
-                                    <div class="favorite" data-id='{{$result->id}}' data-user='{{Auth::user() ? Auth::user()->id : "" }}'><i class="fa fa-heart-o {{$result->favorite == 1 ? 'liked' : ''}}"></i></div>
-                                 </div>
-                                <a href="#">
-                                    <img class="img-icon" src="{{  $result->items[0]->snippet->thumbnails->medium->url}}" alt="">
-                                </a>
-                            </div>
-                            <div class="description">
-                                <p>
-                                    <?php 
-                                        $title = $result->items[0]->snippet->title;
-                                        substr($title, 0,20);
-                                        echo $title. '...';
-                                    ?>
-                                </p>
-                                <span>{{$result->items[0]->statistics->viewCount}} Views /</span>
-                                <span>7 month ago /</span>
-                                <span>{{$result->category}}</span>
-                             </div>
-                         </div>
+            <div class="row video-search video">
+                <h3 class="title-event">動画</h3>
+                 <div class="row video-list col-md-12">
+                    <div id="carouselExampleevent123" class="carousel slide" data-ride="carousel" data-interval="false" data-wrap="false">
+                        <div class="carousel-inner row mx-auto" role="listbox">
+                            @forelse($results as $key => $result)
+                                @if(isset($result->items[0]))
+                                    <div class="col-lg-4 col-sm-4 col-md-4 video-detail {{count($results) > 2 ? 'carousel-item' : ''}}  {{ $key == 0 || $key == 1 ||$key == 2  ? 'active' : ''}}">
+                                        <div class="wrapper">
+                                            <div class="thump">
+                                                <div class="browse-details" data-id='{{$result->id}}' data-user='{{Auth::user() ? Auth::user()->id : "" }}' data-src='{{$result->items[0]->player->embedHtml}}'>
+                                                    <img src="{{ asset('image/video/btn-play.png')}}" alt="" >
+                                                    <div class="favorite" data-id='{{$result->id}}' data-user='{{Auth::user() ? Auth::user()->id : "" }}'><i class="fa fa-heart-o {{$result->favorite == 1 ? 'liked' : ''}}"></i></div>
+                                                 </div>
+                                                <a href="#">
+                                                    <img class="img-icon" src="{{  $result->items[0]->snippet->thumbnails->medium->url}}" alt="">
+                                                </a>
+                                            </div>
+                                            <div class="description">
+                                                <p>
+                                                    <?php 
+                                                        $title = $result->items[0]->snippet->title;
+                                                        substr($title, 0,20);
+                                                        echo $title. '...';
+                                                    ?>
+                                                </p>
+                                                <span>{{$result->items[0]->statistics->viewCount}} Views /</span>
+                                                <span>7 month ago /</span>
+                                                <span>{{$result->category}}</span>
+                                             </div>
+                                         </div>
+                                    </div>
+                                @endif
+                            @empty
+                            <h4 class="data-not-found">No data found</h4>
+                            @endforelse
+                        </div>
+                        @if(count($results) > 2)
+                        <a class="carousel-control-prev" href="#carouselExampleevent123" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next text-faded" href="#carouselExampleevent123" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                        @endif
                     </div>
-                    @endif
-                @endforeach
-                <div class="col-md-12 col-lg-12 col-sm-12 col-xm-12 paging text-center clearfix">
-                    {{ $results->links() }}
                  </div>
-             </div>
-              <div class="pagination video-pagination">
-                  {{ $results->links() }}
-              </div>
-        </div>
+            </div>
+    </div>
 </div>
 
- <div id="modal_video" class="modal fade modal_register" role="dialog">
+<div id="modal_video" class="modal fade modal_register" role="dialog">
     <div class="modal-dialog" style="margin-top:150px">
         <div class="modal-content" style="width: 515px;border-radius: 13px;">
             <div class="modal-body" style="text-align:center">
