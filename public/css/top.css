@@ -225,7 +225,7 @@ footer li {
 
 footer a:hover,
 footer a {
-    color: #fff;
+    color: #fff !important;
 }
 
 footer .link-hatachi {
