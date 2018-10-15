@@ -1,14 +1,3 @@
-@mixin only-for-mobile {
-  @media (max-width: 575.98px) {
-    @content;
-  }
-}
-@mixin only-for-pc {
-  @media (min-width: 576px) {
-    @content;
-  }
-}
-
 .enquiry {
   @include standard-font(16px,40px);
   font-family: Raleway, sans-serif;
