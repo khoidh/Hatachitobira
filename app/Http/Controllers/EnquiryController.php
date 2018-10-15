@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use Illuminate\Http\Request;
 use App\Models\Enquiry;
 use Mail;
@@ -26,20 +27,22 @@ class EnquiryController extends Controller
      */
     public function index()
     {
-        return view('enquiry');
+        $categories = Category::get();
+        return view('enquiry',['categories' => $categories]);
     }
 
     public function saveEnquiry(Request $request) {
         $data = $request->all();
-        $thisdata = Enquiry::create($data);
-        $thisUser = Enquiry::findOrFail($thisdata->id);
-        Mail::send('email.enquiryAdmin',compact('thisUser'),
-            function($mail) use($thisUser)
-            {
-                $mail->to($thisUser->email)->subject('Hatachi Toabira');
-            }
-        );
-        $this->sendEmailUser($thisUser);
+
+//        $thisdata = Enquiry::create($data);
+//        $thisUser = Enquiry::findOrFail($thisdata->id);
+//        Mail::send('email.enquiryAdmin',compact('thisUser'),
+//            function($mail) use($thisUser)
+//            {
+//                $mail->to($thisUser->email)->subject('Hatachi Toabira');
+//            }
+//        );
+//        $this->sendEmailUser($thisUser);
         return view('thank_enquiry');
     }
 

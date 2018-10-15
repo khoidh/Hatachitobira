@@ -93,8 +93,8 @@ Route::get('/wyswyg', function () {
     return view('admin.editor.editor');
 });
 
-Route::get('enquiry','EnquiryController@index');
-Route::post('enquiry','EnquiryController@saveEnquiry');
+Route::get('enquiry','EnquiryController@index')->name('contact');
+Route::post('enquiry','EnquiryController@saveEnquiry')->name('enquiry-confirm');
 
 //Route::get('about','AboutController@index');
 

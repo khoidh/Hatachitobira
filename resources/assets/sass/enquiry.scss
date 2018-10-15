@@ -1,9 +1,20 @@
+@mixin only-for-mobile {
+  @media (max-width: 575.98px) {
+    @content;
+  }
+}
+@mixin only-for-pc {
+  @media (min-width: 576px) {
+    @content;
+  }
+}
+
 .enquiry {
-  @include standard-font();
+  @include standard-font(16px,40px);
   font-family: Raleway, sans-serif;
 
   .enquiry-title{
-    @include title-font(18px,40px,normal);
+    @include title-font(16px,36px,normal);
     padding-top: 32px;
     color: $text2-color;
   }
@@ -13,8 +24,34 @@
     padding-top: 32px;
     color: $text3-color;
 
-    select, input, textarea{
-      border: 2px solid $black-color;
+    .input-data{
+      line-height: 2.6;
+
+      select, input, textarea{
+        border: 2px solid $black-color;
+        color: $black-color;
+        font-size: 18px;
+      }
+
+      select, input{
+        height: 53px;
+      }
+
+      @include only-for-mobile(){/* note: @content begins here */
+        .col-sm-6{
+          margin-bottom:  5%;
+        }
+      }/* @content ends */
+
+      @include only-for-pc(){/* note: @content begins here */
+        .form-group{
+          margin-bottom: 2.5%;
+        }
+
+        .category_id{
+          margin-bottom:  3%;
+        }
+      }/* @content ends */
     }
 
     .tit{
@@ -34,10 +71,10 @@
       }
 
       .content-text{
-        padding: 32px;
+        padding: 25px 32px;
         margin-bottom: 14px;
         color: $text2-color;
-        border: 2px solid #a9a9a9;
+        border: 2px solid #eeeeee;
         border-radius: 8px;
 
         ul {
@@ -51,6 +88,26 @@
           color: $black-color;
           font-size: 20px;
           padding: 5px 0;
+
+          input[type=checkbox]
+          {
+            /* Double-sized Checkboxes */
+            -ms-transform: scale(2); /* IE */
+            -moz-transform: scale(2); /* FF */
+            -webkit-transform: scale(2); /* Safari and Chrome */
+            -o-transform: scale(2); /* Opera */
+            padding: 10px;
+          }
+
+          /* Might want to wrap a span around your checkbox text */
+          .checkboxtext
+          {
+            /* Checkbox text */
+            font-size: 110%;
+            display: inline;
+          }
+
+
         }
       }
     }
