@@ -143,7 +143,7 @@
                         <div class="carousel-inner row mx-auto" role="listbox">
                             @forelse($results as $key => $result)
                                 @if(isset($result->items[0]))
-                                    <div class="col-lg-4 col-sm-4 col-md-4 video-detail {{count($results) > 2 ? 'carousel-item' : ''}}  {{ $key == 0 || $key == 1 ||$key == 2  ? 'active' : ''}}">
+                                    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 video-detail {{count($results) > 2 ? 'carousel-item' : ''}}  {{ $key == 0 || $key == 1 ||$key == 2  ? 'active' : ''}}">
                                         <div class="wrapper">
                                             <div class="thump">
                                                 <div class="browse-details" data-id='{{$result->id}}' data-user='{{Auth::user() ? Auth::user()->id : "" }}' data-src='{{$result->items[0]->player->embedHtml}}'>
@@ -203,6 +203,11 @@
 
 <script type="text/javascript" async defer>
     $(document).ready(function(){
+
+        if (window.innerWidth < 427) {
+            $('.video-detail.carousel-item').not(':first').removeClass('active');
+        }
+
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')

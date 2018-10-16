@@ -1,17 +1,24 @@
+#myHeader.fixed .navbar-brand p {
+    position: absolute;
+    left: 200px;
+    top: 12px;
+    font-size: 16px;
+}
+
 .nav-item .nav-link {
     cursor: pointer;
 }
 
 .top .movie-top-title {
-	font-size: 32px;
-	margin-bottom: 0;
-	font-family: "Myriad Pro";
+    font-size: 32px;
+    margin-bottom: 0;
+    font-family: "Myriad Pro";
 }
 
 .top .movie-top-description {
-	margin-top: 10px;
-	font-size: 16px;
-	font-family: "Kozuka Gothic Pr6N";
+    margin-top: 10px;
+    font-size: 16px;
+    font-family: "Kozuka Gothic Pr6N";
 }
 
 .container .cb-path {
@@ -35,46 +42,47 @@
 }
 
 .top .movie-top-1 {
-	// padding: 0 20%;
-	position: relative;
+    // padding: 0 20%;
+    position: relative;
     transform: translateZ(0);
 }
 
 .top .movie-top-1:after {
-	content: "";
-	background-color: $yellow-color;
+    content: "";
+    background-color: $yellow-color;
     width: 100%;
     height: 80%;
     position: absolute;
-	top: 26px;
-	left: 0;
-	z-index: -1;
+    top: 26px;
+    left: 0;
+    z-index: -1;
 }
 
-.top .corner-wrapper{
+.top .corner-wrapper {
     display: block;
     overflow: hidden;
     width: 100%;
     height: 490px;
     border-radius: 24px;
     transform: translateZ(0px);
-    border: 1px solid #fff;	
+    border: 1px solid #fff;
 }
 
 .top .movie-top-2 {
     padding: 90px 0px 160px 0;
 }
 
-.top .movie-top-2 .col-md-9{
+.top .movie-top-2 .col-md-10 {
     margin-top: 60px;
-    margin-left: -59px;
+    position: relative;
+    left: 60px;
 }
 
-.top .movie-top-2 .col-md-9 .col-lg-4.col-md-12{
+.top .movie-top-2 .col-md-9 .col-lg-4.col-md-12 {
     text-align: center;
 }
 
-.top .movie-top-2 .col-md-9 .text-tittle {
+.top .movie-top-2 .col-md-10 .text-tittle {
     position: absolute;
     color: #fff100;
     font-size: 60px;
@@ -82,7 +90,7 @@
     transform: translateZ(0);
 }
 
-.top .movie-top-2 .col-md-9 .text-tittle:after {
+.top .movie-top-2 .col-md-10 .text-tittle:after {
     content: "";
     background-color: $yellow-color;
     width: 100%;
@@ -98,61 +106,74 @@
     position: relative;
 }
 
-.top .movie-top-3 .col-md-10{
-	margin-top: 185px;
+.top .movie-top-3 .col-md-10 {
+    margin-top: 185px;
     margin-left: -72px;
 }
 
 
 .top .text-vertical,
-.top .text-vertical-1
- {
-	width: 40px;
+.top .text-vertical-1 {
+    width: 40px;
     padding: 0 5px;
     text-align: center;
     font-size: 36px;
     line-height: 1;
     float: left;
     font-family: "Kozuka Gothic Pr6N";
+    font-weight: bold;
 }
 
-.top .text-vertical{
-	width: 50px;
+.top .text-vertical {
+    width: 50px;
 }
 
 .top .text-vertical-1 {
-	float: right;
+    float: right;
     margin-right: 15px;
     font-size: 42px;
 }
 
-.top .text-vertical-1.last span{
-	background: $black-color;
+.top .text-vertical-1.last span {
+    background: $black-color;
     color: $white-color;
 }
 
 .top .text-vertical.last {
-	font-size: 42px;
-	background-color: $yellow-color;
-    height: 48%;
+    font-size: 42px;
+    position: relative;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+}
+
+.top .text-vertical.last:after {
+    content: "";
+    width: 100%;
+    height: 82%;
+    background-color: #fff100;
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 .movie-image {
-	margin-bottom: 12px;
-	width: 100%;
+    margin-bottom: 12px;
+    width: 100%;
     max-height: 173px;
     max-width: 173px;
 }
 
 .top .movie_image_description {
-	font-size: 16px;
-	line-height: 2;
-	font-family: "Kozuka Gothic Pr6N";
-	width: 96%;
+    font-size: 16px;
+    line-height: 2;
+    font-family: "Kozuka Gothic Pr6N";
+    width: 96%;
+    text-align: left;
 }
 
 .cb-path-black {
-	width: 46px;
+    width: 46px;
     height: 4px;
     background-color: #000;
     margin-top: 132px;
@@ -160,105 +181,106 @@
 }
 
 .top .content-title {
-	position: relative;
+    position: relative;
     top: -110px;
 }
 
 .top .text-title-3 {
-	font-size: 24px;
-	font-weight: bold;
+    font-size: 24px;
+    font-weight: bold;
     margin-top: -31px;
     font-family: "Kozuka Gothic Pr6N";
 }
 
 .top .img-cat {
-	margin: 0 25px 30px 0;
+    margin: 0 25px 30px 0;
 }
 
 .top .movie-top-text,
 .top .more-detail {
-	font-size: 24px;
-	font-weight: bold;
-	color: #000;
-	font-family: "Kozuka Gothic Pr6N";
+    font-size: 24px;
+    font-weight: bold;
+    color: #000;
+    font-family: "Kozuka Gothic Pr6N";
 }
+
 .top .more-detail {
-	font-family: "Myriad Pro";
+    font-family: "Myriad Pro";
 }
 
 .top .movie-top-descroption {
-	color: #6b6b6b;
-	font-family: "Kozuka Gothic Pr6N";
+    color: #6b6b6b;
+    font-family: "Kozuka Gothic Pr6N";
 }
 
 .top a:hover {
-	color: #000;
-	text-decoration: none;
+    color: #000;
+    text-decoration: none;
 }
 
 .top a .more-detail {
-	margin-top: 30px
+    margin-top: 30px
 }
 
-.corner-wrapper.movie-1{
+.corner-wrapper.movie-1 {
     display: block;
     overflow: hidden;
     width: 100%;
     height: 270px;
     border-radius: 24px;
     transform: translateZ(0px);
-    border: 3px solid #eee;	
+    border: 3px solid #eee;
 }
 
-.corner-wrapper.movie-2{
+.corner-wrapper.movie-2 {
 
     width: 100%;
     height: 131px;
 }
 
 .top .video-detail {
-	margin: 22px 0 16px -12px;
+    margin: 22px 0 16px -12px;
     padding: 0;
 }
 
 .top .container.movie-top-4.content-2 {
-	margin-top: 90px
+    margin-top: 90px
 }
 
 .top .video-detail.row .col-md-4 {
-	padding-left: 0;
+    padding-left: 0;
 }
 
 .top .video-detail.row .col-md-4:first {
-	margin-bottom: 10px
+    margin-bottom: 10px
 }
 
 .flex-column .navbar-brand {
-	margin-right: -9rem !important;
+    margin-right: -9rem !important;
 }
 
 .logo.navbar-brand a {
-	color: #000;
-	text-decoration: none;
+    color: #000;
+    text-decoration: none;
 }
 
-.logo.navbar-brand a p{
-	margin-bottom: 0
+.logo.navbar-brand a p {
+    margin-bottom: 0
 }
 
 .top .container.movie-top-4 .cb-path,
-.top .content-last .cb-path{
-	margin-left: 0
+.top .content-last .cb-path {
+    margin-left: 0
 }
 
-.top .content-last{
-	position: relative;
+.top .content-last {
+    position: relative;
     -webkit-transform: translateZ(0);
     transform: translateZ(0);
 }
 
 .top .content-last:after {
-	content: "";
+    content: "";
     background-color: #fff100;
     width: 100%;
     height: 100%;
@@ -268,33 +290,34 @@
     z-index: -1;
 }
 
-.top .container.content-1 .title{
+.top .container.content-1 .title {
     padding-right: 0;
     top: -40px;
 }
 
-.top .container.content-1 .content-1-title{
-	width: 50px;
-    padding: 0 5px;
+.top .container.content-1 .content-1-title {
+    width: 65px;
+    padding: 2px 10px;
     text-align: center;
-    font-size: 42px;
+    font-size: 40px;
     line-height: 1;
     float: right;
     font-weight: bold;
     font-family: "Kozuka Gothic Pr6N";
 }
 
-.top .container.content-1 > .row{
-	margin-right: 0px;
+.top .container.content-1>.row {
+    margin-right: 0px;
     margin-left: 0px;
 }
 
 .top .container.content-1 {
-	background-image: url(/image/top/back-gr-1.png);
+    background-image: url(/image/top/back-gr-1.png), url(/image/top/back-gr-3.png);
     background-repeat: no-repeat;
-    background-position: center;
-    background-position-y: 58%;
-    background-size: 75%;
+    background-position: left, right;
+    background-position-y: 50%, 58%;
+    background-size: 39%, 20%;
+    background-position-x: 20px, 100%;
 }
 
 .top .content-last .more-detail {
@@ -303,7 +326,7 @@
 
 // .top .container {
 //     padding-left: 10%;
-// 	padding-right: 10%;
+//  padding-right: 10%;
 // }
 
 .top .movie-top-3 .content-row {
@@ -312,111 +335,134 @@
 }
 
 .top .movie-top-2 {
-	background-image: url(/image/top/back-gr-2.png);
+    background-image: url(/image/top/back-gr-2.png);
     background-repeat: no-repeat;
     background-position: left;
     background-position-y: 227px;
-    background-size: 49%;
+    background-size: 39%;
     background-position-x: 99px;
 }
 
+.top .movie-top-2 .container,
+.top .movie-top-2 .container .col-xs-12row {
+    padding: 0;
+}
+
+.top .movie-top-2 .container .col-md-10,
+.top .movie-top-2 .container .col-md-10 .col-lg-4:last-child {
+    padding-right: 0
+}
+
+
+
 .top .container.movie-top-4 {
-	margin-top: 174px;
+    margin-top: 174px;
 }
 
 .top .movie-top-3.row .col-md-10,
-.top .movie-top-3.row .col-md-10 .col-md-12{
-	padding-right: 0
+.top .movie-top-3.row .col-md-10 .col-md-12 {
+    padding-right: 0
 }
 
-.top .movie-top-3.row .col-md-2{
-	right: -60px
+.top .movie-top-3 .content-row .col-md-12 {
+    padding-left: 0;
+}
+
+.top .movie-top-3.row .col-md-2 {
+    right: -60px
 }
 
 .top .content-last .wrapper {
-	display: flex;
+    display: flex;
     background-color: #fff;
     padding: 22px;
     border-radius: 18px;
     margin-top: -12px;
 }
 
-.top .content-last .text-category.last{
-	background: #d3d3d3;
+.top .content-last .text-category.last {
+    background: #d3d3d3;
 }
-.top .content-last .text-category{
-	background: #000000;
-    padding: 8px;
+
+.top .content-last .text-category {
+    background: #000000;
+    padding: 5px;
     border-radius: 0 0 8px 8px;
     margin-left: 20px;
     color: #fff;
-    width: 96px;
-    height: 24px;
+    min-width: 100px;
+    height: 26px;
     font-size: 12px;
+    z-index: 9;
+    position: relative;
+    max-width: 135px;
+    text-align: center;
 }
 
-.top .content-last .text-category:after{
-	content: "";
-    top: -24px;
+.top .content-last .text-category:after {
+    content: "";
+    top: -23px;
     position: relative;
-    left: 17px;
+    left: 36px;
     width: 0;
     height: 0;
     border-bottom: 17px solid #c6c6c6;
     border-right: 9px solid transparent;
 }
 
-.top .content-last .text-category.last:after{
-	content: "";
+.top .content-last .text-category.last:after {
+    content: "";
     border-bottom: 17px solid #ececec;
     border-right: 9px solid transparent;
+    left: 54px;
 }
 
-.top .content-last .icon img{
-	border-radius: 14px;
+.top .content-last .icon img {
+    border-radius: 14px;
 }
 
-.top .content-last .icon-favorior{
-	text-align: right;
+.top .content-last .icon-favorior {
+    text-align: right;
     color: #c3c2c2;
 }
 
-.top .content-last .text-title{
-	font-family: "Kozuka Gothic Pr6N";
-	font-size: 16px;
+.top .content-last .text-title {
+    font-family: "Kozuka Gothic Pr6N";
+    font-size: 16px;
 }
 
-.top .content-last .content-text{
-	margin-top: 28px;
+.top .content-last .content-text {
+    margin-top: 28px;
 }
 
-.top .content-last .second{
-	margin-top: 15px;
+.top .content-last .second {
+    margin-top: 15px;
     margin-bottom: 15px;
 }
 
-.top .content-last .content{
-	margin-left: 25px;
+.top .content-last .content {
+    margin-left: 25px;
+    width: 100%;
 }
 
 
-.top .content-last .text-date{
-	text-align: right;
+.top .content-last .text-date {
+    text-align: right;
 }
 
 .top .button-link {
-	text-align: center;
+    text-align: center;
     margin-top: 110px;
     font-family: "Kozuka Gothic Pr6N";
     padding-bottom: 60px;
 }
 
-.top .button-link button{
-	padding: 26px 115px;
-	border-radius: 45px;
-	font-size: 24px;
-	font-family: "Kozuka Gothic Pr6N";
-	box-shadow: 5px 5px 12px 0px #fff100;
+.top .button-link button {
+    padding: 26px 115px;
+    border-radius: 45px;
+    font-size: 24px;
+    font-family: "Kozuka Gothic Pr6N";
+    box-shadow: 5px 5px 12px 0px #fff100;
     -moz-box-shadow: 5px 5px 12px 0px #fff100;
     -webkit-box-shadow: 0px 4px 0px 0px #fff100;
 }
@@ -426,8 +472,7 @@
     width: 80%;
 }
 
-footer
-{
+footer {
     padding: 45px 54px 30px 55px;
     background-color: $black-color;
     position: absolute;
@@ -439,14 +484,14 @@ footer
 }
 
 footer .border-footer {
-	border-top: 1px solid #656464;
+    border-top: 1px solid #656464;
     margin-top: 15px;
     padding: 10px;
 }
 
 footer .text-bootom {
-	width: 100%;
-	text-align: center;
+    width: 100%;
+    text-align: center;
 }
 
 footer .icon-link.first {
@@ -456,12 +501,13 @@ footer .icon-link.first {
 footer .icon-link {
     margin-right: 20px;
 }
+
 footer .text-bootom a {
-	padding-left: 14px;
+    padding-left: 14px;
 }
 
 footer .text-bootom .a-link:after {
-	content: "";
+    content: "";
     top: 0;
     left: 0;
     border-right: 1px solid #656464;
@@ -469,12 +515,12 @@ footer .text-bootom .a-link:after {
 }
 
 .logo-footer p {
-	margin-bottom: 0
+    margin-bottom: 0
 }
 
 .headder .nav.justify-content-end,
 .headder .navbar-expand-lg {
-	width: 100%;
+    width: 100%;
 }
 
 .headder .nav li {
@@ -484,16 +530,16 @@ footer .text-bootom .a-link:after {
 }
 
 header.fixed.headder .bx_header {
-	padding: 0 0 0 25px;
+    padding: 0 0 0 25px;
 }
 
 header.fixed.headder .navbar.navbar-expand-lg.navbar-light {
-	padding: 0px;
+    padding: 0px;
     margin-bottom: 0;
 }
 
-header.fixed.headder .navbar.navbar-expand-lg.navbar-light p{
-	margin-bottom: 0;
+header.fixed.headder .navbar.navbar-expand-lg.navbar-light p {
+    margin-bottom: 0;
     font-weight: bold;
     font-size: 16px;
     position: relative;
@@ -501,23 +547,23 @@ header.fixed.headder .navbar.navbar-expand-lg.navbar-light p{
     left: 20px;
 }
 
-header.fixed.headder .logo.navbar-brand{
-	margin-bottom: 7px;
+header.fixed.headder .logo.navbar-brand {
+    margin-bottom: 7px;
     padding: 0px;
     margin-top: 7px;
 }
 
-header.fixed .logo.navbar-brand img{
-	max-width: 190px;
+header.fixed .logo.navbar-brand img {
+    max-width: 190px;
     max-height: 40px;
 }
 
 .fixed.headder .nav {
-	margin-top: 15px
+    margin-top: 15px
 }
 
 #app .content {
-	position: relative;
+    position: relative;
     top: 130px;
 }
 
@@ -526,7 +572,7 @@ header.fixed .logo.navbar-brand img{
     padding: 10px;
 }
 
-.image-top.row .img-detail{
+.image-top.row .img-detail {
     width: 100%;
     border-radius: 15px;
 }
@@ -557,34 +603,38 @@ header.fixed .logo.navbar-brand img{
     top: 90px;
     background-color: #000 !important;
     margin-top: 132px;
-    
+
 }
 
 .top .content-last .icon-favorior a {
     color: #c3c2c2;
 }
 
-@media (min-width: 1590px)  {
-	// .top .container {
-	//     padding-left: 7%;
-	//     padding-right: 6%;
-	// }
+.top .category-aa {
+    display: none;
 }
 
-@media (max-width: 376px) {
-    .headder .nav.justify-content-end{
+@media (min-width: 1590px) {
+    // .top .container {
+    //     padding-left: 7%;
+    //     padding-right: 6%;
+    // }
+}
+
+@media (max-width: 427px) {
+    .headder .nav.justify-content-end {
         display: block;
         position: relative;
         top: 19px;
     }
 
-    .headder .navbar.navbar-expand-lg.navbar-light p{
+    .headder .navbar.navbar-expand-lg.navbar-light p {
         font-size: 12px !important;
         position: relative;
         margin-left: -19px;
     }
-    
-    #myHeader.fixed .bx_header{
+
+    #myHeader.fixed .bx_header {
         padding: 10px;
     }
 
@@ -592,17 +642,40 @@ header.fixed .logo.navbar-brand img{
     #myHeader.fixed .hd_left {
         width: 100%;
     }
+
     #myHeader.fixed .logo.navbar-brand {
-        width: 50%;
+        width: 45%;
+        margin-bottom: 0;
+    }
+
+    #myHeader.fixed .logo.navbar-brand img {
+        width: 100%
+    }
+
+    #myHeader.fixed .navbar-brand p {
+        display: none;
     }
 
     #myHeader.fixed .hd_right {
         display: none;
     }
-    
+
     .bx_header .hd_left {
         padding-left: 0;
     }
+
+    .top .container.content-1 {
+        background-position: bottom, top;
+        background-size: 80%, 51%;
+        background-position-y: 60%, 7%;
+        background-position-x: 23px, 45%;
+    }
+
+    .navbar-toggler:not(:disabled):not(.disabled) {
+        position: relative;
+        right: 15px;
+    }
+
     footer {
         padding: 30px 55px 30px 45px;
         font-size: 12px;
@@ -611,10 +684,10 @@ header.fixed .logo.navbar-brand img{
     footer .icon-link {
         margin-right: 13px;
     }
-    
+
     footer .footter-mobile {
         width: 50%;
-    } 
+    }
 
     footer .link-assosial {
         position: relative;
@@ -626,7 +699,7 @@ header.fixed .logo.navbar-brand img{
     footer .link-assosial.logined {
         bottom: -20px;
     }
-    
+
     footer .link-assosial:after {
         content: "";
         background-color: #656464;
@@ -642,22 +715,22 @@ header.fixed .logo.navbar-brand img{
         position: relative;
         top: -30px;
     }
-    
+
     footer .row.footer-bootom {
         position: relative;
         top: -51px;
     }
 
-    footer .text-bootom .a-link:after{
+    footer .text-bootom .a-link:after {
         padding: 0 8px;
     }
-    
+
     footer .text-bootom a {
         padding-left: 10px;
         font-size: 12px;
     }
-    
-    footer .li-first img{
+
+    footer .li-first img {
         width: 100%
     }
 
@@ -665,9 +738,24 @@ header.fixed .logo.navbar-brand img{
         padding: 30px 30px 0 30px;
     }
 
+    .top .text-title-3 {
+        position: relative;
+        left: 15px;
+    }
+
     .top .content-title {
         left: 20px;
-        top: 0;
+        top: 20px;
+    }
+
+    .container .cb-path {
+        left: 15px;
+        position: relative;
+        top: 30px;
+    }
+
+    .top .movie-top-2 .col-md-10 {
+        left: 0
     }
 
     .top .container.content-1 .content-1-title {
@@ -689,29 +777,29 @@ header.fixed .logo.navbar-brand img{
     .top .container .cb-path {
         // margin-left: 20px;
     }
-    
+
     .top .container .cb-path.last {
         position: relative;
-        top: -100px;
+        top: -55px;
         margin-top: 0;
         margin-bottom: 0;
     }
 
     .top .text-my-theme {
-            width: 100%;
+        width: 100%;
         padding: 20px;
         position: relative;
-        top: -90px;
+        top: -52px;
     }
 
     .top .corner-wrapper {
         height: 270px;
-    } 
+    }
 
     .top .movie-top-1,
     .top .movie-top-2 {
         padding: 20px;
-        top: -100px;
+        top: -50px;
         position: relative;
     }
 
@@ -726,9 +814,20 @@ header.fixed .logo.navbar-brand img{
         text-align: left;
         font-size: 24px;
     }
+    .top .movie-top-2 .text-vertical {
+        top: 44px;
+        position: relative;
+    } 
 
     .top .text-vertical.last {
-        font-size: 30px
+        font-size: 30px;
+        top: -30px;
+    }
+    
+    .top .category-aa {
+        display: block;
+        margin-bottom: 2px;
+        color: #a5a5a5;
     }
 
     .top .movie-top-3 {
@@ -753,14 +852,19 @@ header.fixed .logo.navbar-brand img{
     }
 
     .top .movie-image {
-        max-width: 205px;
-        left: 19%;
+        max-width: 190px;
+        left: 23%;
         max-height: 205px;
         position: relative;
     }
 
-    .top .movie-top-3 .content-row .row{
+    .top .movie-top-3 .content-row .row {
         margin-left: 0;
+    }
+
+    .top .text-vertical.last:after {
+        width: 42%;
+        height: 90%;
     }
 
     .top .movie-top-3 .content-row {
@@ -773,12 +877,13 @@ header.fixed .logo.navbar-brand img{
         width: 33%;
     }
 
-    .top .movie-top-3 .img-cat-sp img{
+    .top .movie-top-3 .img-cat-sp img {
         width: 100%
     }
 
     .top .movie-top-3 .cb-path.cb-path-black {
-        margin-left: -7px !important
+        margin-left: -15px !important;
+        top: 100px
     }
 
     .top .movie-top-3:after {
@@ -790,7 +895,18 @@ header.fixed .logo.navbar-brand img{
         margin-top: -100px;
         padding: 20px;
     }
-    
+
+    .top .container.movie-top-4 .cb-path,
+    .top .content-last .cb-path{
+        top: 0;
+        left: 0
+    }
+
+    .top .content-last .icon-favorior {
+        position: relative;
+        top: 18px
+    }
+
     .top .content-last {
         padding: 20px;
     }
@@ -798,7 +914,7 @@ header.fixed .logo.navbar-brand img{
     .top .content-last .wrapper {
         display: inline-block;
     }
-    
+
     .top .content-last .text-category {
         position: relative;
     }
@@ -826,7 +942,7 @@ header.fixed .logo.navbar-brand img{
     .top .content-last .icon img {
         width: 100%;
     }
-    
+
     .top .video-detail .col-md-8 {
         padding-left: 0;
         padding-right: 0;
@@ -861,14 +977,47 @@ header.fixed .logo.navbar-brand img{
         height: 100%;
     }
 
+    .banner a.scroll {
+        display: none;
+    }
+
+    .banner figure figcaption {
+        position: relative;
+        width: 100%;
+        right: 0
+    }
+
+    .banner figure figcaption .description {
+        transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        top: 53px;
+        left: 15px;
+    }
+
+    .banner figure figcaption .title {
+        width: 100%;
+        position: relative;
+        top: -70px;
+        font-size: 24px;
+    }
+
+    .banner figure figcaption .title:last-child {
+        top: -180px;
+    }
+
+    .image-top {
+        margin: 10px 10px 0px 10px !important
+    }
 }
 
 @media (max-width: 991px) {
-	.top .container {
-	    padding: 0;
+    .top .container {
+        padding: 0;
         position: relative;
         top: -105px;
-	}
+    }
 
     .owl-stage {
         display: flex;
@@ -883,9 +1032,10 @@ header.fixed .logo.navbar-brand img{
         width: 100%;
     }
 
-    .image-top.row  {
+    .image-top.row {
         overflow: hidden;
     }
+
     .owl-nav.disabled,
     .owl-dots {
         display: none;
@@ -919,13 +1069,13 @@ header.fixed .logo.navbar-brand img{
 }
 
 
-#modal_register .code-top .col-md-5{
+#modal_register .code-top .col-md-5 {
     z-index: 10;
     background-color: transparent;
     margin: 7px 0 0px 45px;
 }
 
-#modal_register .code-top img{
+#modal_register .code-top img {
     position: relative;
     left: -166px;
     width: 325px;
@@ -939,14 +1089,14 @@ header.fixed .logo.navbar-brand img{
     text-align: left;
 }
 
-#modal_login .btn-register ,
+#modal_login .btn-register,
 #modal_register .btn-register {
     border-radius: 20px;
     width: 100%;
 }
 
-#modal_login .btn-register.btn-register-btn-1 ,
-#modal_login .btn-register.btn-register-btn ,
+#modal_login .btn-register.btn-register-btn-1,
+#modal_login .btn-register.btn-register-btn,
 #modal_register .btn-register.btn-register-btn {
     background-color: #fff100;
     color: #000;
@@ -973,10 +1123,11 @@ header.fixed .logo.navbar-brand img{
     margin-top: 30px;
 }
 
-#modal_login .form-group.row{
+#modal_login .form-group.row {
     margin: 0;
 }
-#modal_login .form-group ,
+
+#modal_login .form-group,
 #modal_register .form-group {
     display: flex;
 }
@@ -993,6 +1144,7 @@ header.fixed .logo.navbar-brand img{
     margin-bottom: 30px;
     font-weight: bold;
 }
+
 #modal_register .form-register-last .col-md-12 .btn-warning {
     background-color: #fff100;
     color: #111;
@@ -1055,6 +1207,7 @@ header.fixed .logo.navbar-brand img{
 #modal_register .image-register {
     width: 170px;
 }
+
 #modal_register .btn.btn-warning {
     width: 210px;
 }
@@ -1067,9 +1220,4 @@ header.fixed .logo.navbar-brand img{
 .navbar-nav.mr-auto {
     width: 100%;
     justify-content: flex-end;
-}
-
-footer {
-    position: relative;
-    bottom: -140px;
 }
