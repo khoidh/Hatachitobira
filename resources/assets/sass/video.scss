@@ -141,11 +141,12 @@
         width: calc(100% - 80px);
         border: none;
     }
-}
-
+    
     #modal_video .modal-content {
         width: 98% !important;;
     }
+}
+
 @media (max-width: 376px) {
 
     #modal_video .modal-content iframe {

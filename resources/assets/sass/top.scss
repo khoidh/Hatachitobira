@@ -469,7 +469,7 @@ footer .text-bootom .a-link:after {
 }
 
 .logo-footer p {
-	margin-bottom: 0
+	margin-bottom: 0;
 }
 
 .headder .nav.justify-content-end,
@@ -564,11 +564,16 @@ header.fixed .logo.navbar-brand img{
     color: #c3c2c2;
 }
 
-@media (min-width: 1590px)  {
-	// .top .container {
-	//     padding-left: 7%;
-	//     padding-right: 6%;
-	// }
+
+footer .footter-mobile .a-first{
+    cursor: context-menu;
+}
+
+@media (min-width: 992px)  {
+	.navbar-expand-lg .navbar-nav .dropdown-menu {
+        position: absolute;
+        left: -32px;
+    }
 }
 
 @media (max-width: 376px) {
