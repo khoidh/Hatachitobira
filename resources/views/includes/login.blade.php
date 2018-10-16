@@ -8,7 +8,7 @@
                     <span class="error-login" style="color:red;font-size:16px;"></span>
                     <form class="form-horizontal" id="form-login">
                         {{ csrf_field() }}
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+                        <div class="form-group">
                             <label for="email" class="col-md-4 control-label">E-Mail Address</label>
 
                             <div class="col-md-8">
@@ -16,7 +16,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+                        <div class="form-group">
                             <label for="password" class="col-md-4 control-label">Password</label>
 
                             <div class="col-md-8">
@@ -96,7 +96,7 @@
                 $html +='<span id="first-name-err" style="color:red;font-size:12px" ></span>';
             $html +='<div class="col-md-10 col-md-offset-1" style="text-align: left;">';
                 $html +='<input class="input-checkbox"  type="checkbox" id="input-check-required">';
-                $html +='<label class="lblcheckbox"><a class="link-redirect" href="/">利用規約</a> と <a class="link-redirect" href="/private-polisy">プライバシーポリシー</a> に同意する </label>';
+                $html +='<label class="lblcheckbox"><a class="link-redirect" href="/private-polisy">利用規約</a> と <a class="link-redirect" href="/private-polisy">プライバシーポリシー</a> に同意する </label>';
             $html +='</div>';
         $html +='</div>';
         $html +='<div class="form-group">';

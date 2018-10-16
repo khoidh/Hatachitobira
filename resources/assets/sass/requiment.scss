@@ -138,6 +138,7 @@
     top: -30% !important;
     bottom: unset !important;
     opacity: 1 !important;
+    width: 23px !important;
 }
 
 .carousel-control-next {
@@ -149,7 +150,7 @@
 .carousel-control-prev {
     text-align: left !important;
     left: auto !important;
-    right: -30px;
+    right: 40px !important;
 }
 
 @media (min-width: 768px) {

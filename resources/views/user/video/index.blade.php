@@ -56,7 +56,9 @@
                 @endif
             @endforeach
             <div class="col-md-12 col-lg-12 col-sm-12 col-xm-12 paging text-center clearfix">
-                {{ $results->links() }}
+                <ul class="pagination" role="navigation">
+                    @include('includes.pagination', ['paginator' => $results])
+                </ul>
             </div>
         </div>
         
@@ -125,7 +127,7 @@
                 var user = $(this).data('user');
                 var _this = $(this);
                 if (user == '') {
-                    $('#modal_login').modal('show');
+                    $('#modal_register').modal('show');
                 }else {
                     $.ajax({
                         url : '{{route("video.favorite")}}',

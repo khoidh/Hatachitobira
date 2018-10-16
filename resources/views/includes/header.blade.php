@@ -18,7 +18,7 @@
                             </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                  マイテーマ
+                                  マイテーマを探す
                                 </a>
                                 <div class="dropdown-menu" >
                                     <a class="dropdown-item" href="{{ url('search-category')}}">カテゴリから探す</a>
@@ -46,6 +46,17 @@
                             @if(Auth::User())
                             <li class="nav-item">
                                 <a class="nav-link" href="{{url('my-page')}}">マイページ</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('logout') }}"
+                                   onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                    Logout
+                                </a>
+
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    {{ csrf_field() }}
+                                </form>
                             </li>
                             @endif
                         </ul>

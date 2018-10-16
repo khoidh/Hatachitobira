@@ -7,16 +7,22 @@
 @import "event";
 @import "column";
 @import "private";
-@import "searchcategory";
 
 @import "enquiry";
 @import "video";
 @import "mypage";
 @import "requiment";
+@import "searchcategory";
 
 // Bootstrap
 @import "~bootstrap/scss/bootstrap.scss";
 
 // fontawesome
 @import "node_modules/font-awesome/scss/font-awesome.scss";
+
+
+// @import '~/owl.carousel';
+@import '~/owl.carousel/dist/assets/owl.carousel.css';
+
 @import url('https://fonts.googleapis.com/css?family=Oswald');
+

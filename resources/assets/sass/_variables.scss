@@ -95,3 +95,23 @@ $yellow-color: #fff100;
   color: $black-color;
   background-color: $background-panel-color;
 }
+
+// $container-max-widths: (
+//   sm: 540px,
+//   md: 720px,
+//   lg: 960px,
+//   xl: 1440px
+// ) !default;
+
+
+/* ========================== Set style by sp/pc ============================*/
+@mixin only-for-mobile {
+  @media (max-width: 575.98px) {
+    @content;
+  }
+}
+@mixin only-for-pc {
+  @media (min-width: 576px) {
+    @content;
+  }
+}

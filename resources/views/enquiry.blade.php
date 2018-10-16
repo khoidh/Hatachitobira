@@ -12,94 +12,95 @@
             </div>
 
             <div class="enquiry-form col-sm-12">
-                {{--<div class="panel panel-default">--}}
-                {{--<div class="panel-body">--}}
-                <form class="form-horizontal">
+
+                {{--<form class="form-horizontal" action="{{route('enquiry-confirm')}}" method="POST">--}}
+                <form class="form-horizontal" action="<?php echo e(route('enquiry-confirm')); ?>" method="POST">
                     {{ csrf_field() }}
-
-                    {{-- ==================== 問い合わせ内容 ======================= --}}
-                    <div class="form-group form-group-lg row">
-                        <label class="col-sm-3 col-form-label" for="category_id">問い合わせ内容</label>
-                        <div class="col-sm-9" >
-                            <div class="row">
-                                <div class="col-sm-6" style="padding-bottom: 15px;">
-                                    <select name="category_id" class="form-control category_id" required="true" autofocus>
-                                        <option selected>カテゴリ</option>
-                                        {{--@foreach($categories as $category)--}}
-                                        {{--<option value="{{$category->id}}">{{$category->name}}</option>--}}
-                                        {{--@endforeach--}}
-                                    </select>
-                                </div>
-                                <div class="col-sm-12">
-                                    <textarea class="form-control" rows="4" name="content" placeholder="お問い合わせ内容がはいります" required="true"></textarea>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    {{-- ==================== 名前(姓名) ======================= --}}
-                    <div class="form-group form-group-lg row">
-                        <label class="col-sm-3 col-form-label" for="name">名前(姓名)</label>
-                        <div class="col-sm-9">
-                            <div class="row">
-                                <div class="col-sm-6" style="padding-bottom: 15px">
-                                    <input  type="text" class="form-control" name="first_name" value=""  placeholder="姓" required tabindex=1>
-                                </div>
-                                <div class="col-sm-6">
-                                    <input  type="text" class="form-control" name="last_name" value=""  placeholder="名" required tabindex=1>
+                    <div class="input-data">
+                        {{-- ==================== 問い合わせ内容 ======================= --}}
+                        <div class="form-group form-group-lg row">
+                            <label class="col-sm-3 col-form-label" for="category_id">問い合わせ内容</label>
+                            <div class="col-sm-9" >
+                                <div class="row">
+                                    <div class="col-sm-6 category_id">
+                                        <select name="category_id" class="form-control" required="true" autofocus tabindex=1>
+                                            <option selected>カテゴリ</option>
+                                            @foreach($categories as $category)
+                                            <option value="{{$category->id}}">{{$category->name}}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                    <div class="col-sm-12">
+                                        <textarea class="form-control" rows="4" name="content" placeholder="お問い合わせ内容がはいります" required="true" tabindex=1></textarea>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
 
-                    {{-- ==================== ふりがな(姓名) ======================= --}}
-                    <div class="form-group form-group-lg row">
-                        <label class="col-sm-3  col-form-label" for="name">ふりがな(姓名)</label>
-                        <div class="col-sm-9 ">
-                            <div class="row">
-                                <div class="col-sm-6" style="padding-bottom: 15px">
-                                    <input  type="text" class="form-control" name="first_name" value=""  placeholder="せい" required tabindex=1>
-                                </div>
-                                <div class="col-sm-6">
-                                    <input  type="text" class="form-control" name="last_name" value=""  placeholder="めい" required tabindex=2>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    {{-- ==================== 企業名 ======================= --}}
-                    <div class="form-group form-group-lg row">
-                        <label class="col-sm-3 col-form-label" for="name">企業名</label>
-                        <div class="col-sm-9">
-                            <input  type="text" class="form-control" name="first_name" value=""  required tabindex=3>
-                        </div>
-                    </div>
-
-                    {{-- ==================== メールアドレス ======================= --}}
-                    <div class="form-group form-group-lg row">
-                        <label class="col-sm-3 col-form-label" for="name">メールアドレス</label>
-                        <div class="col-sm-9">
-                            <input  type="text" class="form-control" name="first_name" value=""  required tabindex=4>
-                        </div>
-                    </div>
-
-                    {{-- ==================== 郵便番号 ======================= --}}
-                    <div class="form-group form-group-lg row">
-                        <label class="col-sm-3 col-form-label" for="name">郵便番号</label>
-                        <div class="col-sm-9">
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <input  type="text" class="form-control" name="first_name" value="" required tabindex=5>
+                        {{-- ==================== 名前(姓名) ======================= --}}
+                        <div class="form-group form-group-lg row">
+                            <label class="col-sm-3 col-form-label" for="name">名前(姓名)</label>
+                            <div class="col-sm-9">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <input  type="text" class="form-control" name="first_name" value=""  placeholder="姓" required tabindex=1>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input  type="text" class="form-control" name="last_name" value=""  placeholder="名" required tabindex=1>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
 
-                    {{-- ==================== 住所 ======================= --}}
-                    <div class="form-group form-group-lg row">
-                        <label class="col-sm-3 col-form-label" for="name">住所</label>
-                        <div class="col-sm-9" style="padding-bottom: 15px">
-                            <textarea class="form-control" rows="4" name="content" placeholder="お問い合わせ内容がはいります" required="true" tabindex=6></textarea>
+                        {{-- ==================== ふりがな(姓名) ======================= --}}
+                        <div class="form-group form-group-lg row">
+                            <label class="col-sm-3  col-form-label" for="name">ふりがな(姓名)</label>
+                            <div class="col-sm-9 ">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <input  type="text" class="form-control" name="first_name_cn" value=""  placeholder="せい" required tabindex=1>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input  type="text" class="form-control" name="last_name_cn" value=""  placeholder="めい" required tabindex=2>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {{-- ==================== 企業名 ======================= --}}
+                        <div class="form-group form-group-lg row">
+                            <label class="col-sm-3 col-form-label" for="name">企業名</label>
+                            <div class="col-sm-9">
+                                <input  type="text" class="form-control" name="company" value=""  required tabindex=3>
+                            </div>
+                        </div>
+
+                        {{-- ==================== メールアドレス ======================= --}}
+                        <div class="form-group form-group-lg row">
+                            <label class="col-sm-3 col-form-label" for="name">メールアドレス</label>
+                            <div class="col-sm-9">
+                                <input  type="text" class="form-control" name="email" value=""  required tabindex=4>
+                            </div>
+                        </div>
+
+                        {{-- ==================== 郵便番号 ======================= --}}
+                        <div class="form-group form-group-lg row">
+                            <label class="col-sm-3 col-form-label" for="name">郵便番号</label>
+                            <div class="col-sm-9">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <input  type="text" class="form-control" name="postal_code" value="" required tabindex=5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {{-- ==================== 住所 ======================= --}}
+                        <div class="form-group form-group-lg row">
+                            <label class="col-sm-3 col-form-label" for="name">住所</label>
+                            <div class="col-sm-9">
+                                <textarea class="form-control" rows="4" name="address" placeholder="お問い合わせ内容がはいります" required="true" tabindex=6></textarea>
+                            </div>
                         </div>
                     </div>
 
@@ -117,9 +118,13 @@
                                     <li>いただいた個人情報は、事前の同意なしに公開されることはありません。</li>
                                     <li>このフォームで送信される情報はSSLにより暗号化されます。</li>
                                 </ul>
-                                <p>※ 詳しくは<u>プライバシーポリシー</u>をご覧ください。</p>
+                                <p>&nbsp&nbsp&nbsp&nbsp<span style="font-size: large">※</span>&nbsp詳しくは
+                                    <a href="{{url('private-polisy')}}"><u>プライバシーポリシー</u></a>をご覧ください。</p>
                                 <div class="agreement">
-                                    <input type="checkbox" name="checkbox" required tabindex=8> プライバシーポリシーに同意する
+                                    <input type="checkbox" name="checkbox" required tabindex=8 />
+                                    <span class="checkboxtext">
+                                        &nbsp&nbspプライバシーポリシーに同意する
+                                    </span>
                                 </div>
                             </div>
                         </div>
@@ -127,11 +132,11 @@
 
                     <div class="row justify-content-center form-group enquiry-btn">
                         <div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3">
-                            <button type="button" class="btn btn-primary btn-lg btn-block">送信</button>
+                            <button type="submit" class="btn btn-primary btn-lg btn-block">送信</button>
                         </div>
                     </div>
-
                 </form>
+
             </div>
         </div>
     </div>
