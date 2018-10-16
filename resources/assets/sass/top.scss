@@ -577,6 +577,16 @@ footer .footter-mobile .a-first{
 }
 
 @media (max-width: 376px) {
+    header.fixed.headder .navbar.navbar-expand-lg.navbar-light p{
+        left: -8px;
+    }
+
+    .navbar-expand-lg .navbar-nav .dropdown-menu {
+        position: relative;
+        text-align: left;
+        left: -25px;
+    }
+
     .headder .nav.justify-content-end{
         display: block;
         position: relative;
