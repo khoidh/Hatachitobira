@@ -2,6 +2,18 @@
 
 @section('css-add')
     @parent
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <style type="text/css">
+        .my-active span{
+            /*background-color: #5cb85c !important;*/
+            /*color: white !important;*/
+            /*border-color: #5cb85c !important;*/
+            background-color: yellow !important;
+            color: black !important;
+            border-color: yellow !important;
+        }
+    </style>
 @endsection
 @section('title-e', 'Column')
 @section('title-j', 'コラム')
@@ -12,19 +24,29 @@
                 @foreach($columns as $column)
                     <div class="article">
                         @php
-                            $column_state="インタビュー";
+                            $column_state="";
+                            if($column->type == 1)
+                                $column_state = "コラム";
+                            else
+                                $column_state = "インタビュー";
                         @endphp
-                        {{-- Làm mờ ảnh --}}
-                        {{--                        <div class="article-status" style="background-image: url('{{asset('image/column/column-icon.png')}}'); opacity: 0.5; filter: alpha(opacity=50);">--}}
-                        <div class="article-status"
-                             style="background-image: url('{{asset('image/column/column-icon.png')}}');">
-                            <p>{{$column_state}}</p>
+                        <div class="article-status">
+                            <hr class="shape-8"/>
+                            <img
+                                @if($column->type == 0)
+                                    src="{{asset('image/column/column-icon.png')}}" alt="column-icon.png"
+                                @else
+                                    src="{{asset('image/column/column-visible-icon.png')}}" alt="column-visible-icon.png"
+                                @endif
+                            >
+                            <span style="@if($column->type ==1) left: 25px; @endif">{{$column_state}}</span>
                         </div>
+
                         <div class="article-content row">
                             <div class="content-left col-md-4">
                                 <a href="{{route('column.show', $column->id)}}" style="text-decoration:none;">
                                     @php $image='image/column/'.$column->image; @endphp
-                                    <img src="{{file_exists($image)?asset($image): asset('image/column/column_default.jpg')}}">
+                                    <img class="image" src="{{file_exists($image)?asset($image): asset('image/column/column_default.jpg')}}" alt="{{$image}}">
                                 </a>
                             </div>
                             <div class="content-right col-md-8">
@@ -57,24 +79,29 @@
                                     {{--@endif--}}
                                     {{--==================== /end favorite ====================--}}
                                 </div>
-                                <div class="title">{{$column->title}}</div>
-                                <div class="category" style="color: #636B6F; font-weight: bold">
-                                    <p>{{$column->category_name}}</p>
-                                </div>
-                                <div class="date" style="text-align: right">
+                                <span class="title">{{$column->title}}</span>
+                                <span class="category">&nbsp;&nbsp;{{$column->category_name}}</span>
+                                {{--<span class="category">#カテゴリ </span>--}}
+                                <div class="date" >
                                     <p>{{date('Y-m-d', strtotime($column->created_at))}}</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 @endforeach
-                <hr width="100%" size="30px" color="#DCDCDC" style="    padding-top: 1px;
-    margin: 32px 0 8px;"/>
-                <div class="paging text-center">{{ $columns->links() }}</div>
+                    <hr class="shape-8"/>
+                {{--<hr width="100%" size="30px" color="#DCDCDC" style="    padding-top: 1px;--}}
+    {{--margin: 32px 0 8px;"/>--}}
+                {{--<div class="paging text-center">{{ $columns->links() }}</div>--}}
             </div>
         </div>
 
+        <div class="pagination-link">
+            {{ $columns->links('vendor.pagination.custom') }}
+        </div>
     </div>
+
+
     {{--<div class="row">--}}
         {{--<h3>コラム</h3>--}}
         {{--<div class="container">--}}

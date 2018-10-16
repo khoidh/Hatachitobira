@@ -102,3 +102,16 @@ $yellow-color: #fff100;
 //   lg: 960px,
 //   xl: 1440px
 // ) !default;
+
+
+/* ========================== Set style by sp/pc ============================*/
+@mixin only-for-mobile {
+  @media (max-width: 575.98px) {
+    @content;
+  }
+}
+@mixin only-for-pc {
+  @media (min-width: 576px) {
+    @content;
+  }
+}
