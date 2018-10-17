@@ -52,9 +52,9 @@
     <div class="border-footer"></div>
     <div class="row footer-bootom">
         <div class="text-bootom">
-            <a class="a-link" data-toggle="modal" data-target="#modal_register">会員登録</a>
+            <a class="a-link show-modal-register" data-toggle="modal" data-target="#modal_register">会員登録</a>
             <a class="a-link" data-toggle="modal" data-target="#modal_login">ログイン</a>
-            <a href="#">企業の方</a>
+            <a  href="{{url('recruitment-staff')}}">企業の方</a>
         </div>
     </div>
     @endif
