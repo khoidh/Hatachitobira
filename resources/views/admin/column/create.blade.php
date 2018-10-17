@@ -112,7 +112,7 @@
                 </div>
 
                 <div class="form-group row">
-                    <label for="inputEmail3" class="col-sm-2 col-form-label">Content</label>
+                    <label for="inputEmail3"  class="col-sm-2 col-form-label">Content</label>
                     <div class="col-sm-10">
                         <textarea class="form-control" name="content" placeholder="Content" id="ckeditor-text" required="true"></textarea>
                     </div>
@@ -138,7 +138,14 @@
                 <div class="form-group row">
                     <label for="inputPassword3" class="col-sm-2 col-form-label">Sort</label>
                     <div class="col-sm-10">
-                        <input type="number" name="sort" required="true">
+                        <input type="number" class="form-control" name="sort" required="true">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="inputPassword3" class="col-sm-2 col-form-label">Type</label>
+                    <div class="col-sm-10">
+                        <input type="number" class="form-control" name="type" required="true">
                     </div>
                 </div>
 

@@ -481,6 +481,11 @@ footer {
     font-size: 13px;
     font-family: "Kozuka Gothic Pr6N";
     line-height: 2;
+    margin-top: 50px;
+}
+
+.dropdown-toggle::after {
+    margin-left: 11.255em !important;
 }
 
 footer .border-footer {

@@ -66,7 +66,13 @@
         <div class="form-group row">
             <label for="sort" class="col-sm-2 col-form-label">Sort</label>
             <div class="col-sm-10">
-                <input type="number" name="sort" id="sort" value="{{$video->sort}}" required="true">
+                <input type="number" name="sort" class="form-control" id="sort" value="{{$video->sort}}" required="true">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="sort" class="col-sm-2 col-form-label">Type</label>
+            <div class="col-sm-10">
+                <input type="text" name="sort" class="form-control" id="sort" value="{{$video->type}}" required="true">
             </div>
         </div>
         <div class="form-group row">
