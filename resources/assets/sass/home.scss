@@ -1,14 +1,3 @@
-@mixin only-for-mobile {
-  @media (max-width: 575.98px) {
-    @content;
-  }
-}
-@mixin only-for-pc {
-  @media (min-width: 576px) {
-    @content;
-  }
-}
-
 .home{
   .main{
     min-height: 175px;

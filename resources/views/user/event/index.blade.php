@@ -2,6 +2,18 @@
 
 @section('css-add')
     @parent
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <style type="text/css">
+        .my-active span{
+            /*background-color: #5cb85c !important;*/
+            /*color: white !important;*/
+            /*border-color: #5cb85c !important;*/
+            background-color: yellow !important;
+            color: black !important;
+            border-color: yellow !important;
+        }
+    </style>
 @endsection
 @section('title-e', 'Event')
 @section('title-j', 'イベント')
@@ -56,9 +68,16 @@
                             else
                             $event_state="受付終了";
                         @endphp
-                        <div class="article-status"
-                             style="background-image: url('{{asset('image/event/event-icon.png')}}');">
-                            <p>{{$event_state}}</p>
+                        <div class="article-status">
+                            <hr class="shape-8"/>
+                            <img
+                                @if($check)
+                                    src="{{asset('image/event/event-icon.png')}}" alt="event-icon.png"
+                                @else
+                                    src="{{asset('image/event/event-visible-icon.png')}}" alt="event-visible-icon.png"
+                                @endif
+                            >
+                            <span style="@if(!$check) left: 20px; @endif">{{$event_state}}</span>
                         </div>
                         <div class="article-content row">
                             <div class="content-left col-md-4">
@@ -109,12 +128,16 @@
                         </div>
                     </div>
                 @endforeach
-                <hr width="100%" size="30px" color="#DCDCDC" style="    padding-top: 1px;
-    margin: 32px 0 8px;"/>
-                <div class="paging text-center">{{ $events->links() }}</div>
+                    <hr class="shape-8"/>
+                {{--<hr width="100%" size="30px" color="#DCDCDC" style="    padding-top: 1px;--}}
+    {{--margin: 32px 0 8px;"/>--}}
+                {{--<div class="paging text-center">{{ $events->links() }}</div>--}}
             </div>
         </div>
 
+        <div class="pagination-link">
+            {{ $events->links('vendor.pagination.custom') }}
+        </div>
         {{--</div>--}}
         {{--<div class="row">--}}
         {{--@foreach($events as $event)--}}

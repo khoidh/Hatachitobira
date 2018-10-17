@@ -44,12 +44,35 @@
       }
       .article-status{
         line-height: 200%;
-        padding-left: 3px;
         font-size: small;
         font-weight: bold;
-        //background
-        background-repeat:no-repeat;
-        background-position: left top;
+        color: $white-color;
+
+        position: relative;
+        display: inline-block;
+        width: 100%;
+
+        .shape-8{
+          @extend %shape-8;
+          margin: 8px 0 16px !important;
+          height: 1px !important;
+          background-color: #DCDCDC !important;
+        }
+
+        img{
+          position: absolute;
+          max-height: 24px;
+          max-width: 101px;
+          top: 0;
+        }
+
+        span{
+          position: absolute;
+          max-height: 24px;
+          max-width: 101px;
+          top: 0;
+          left: 5px;
+        }
       }
       .article-content{
         padding-top: 8px;
@@ -74,9 +97,21 @@
       }
     }
 
+    .shape-8{
+      @extend %shape-8;
+      margin: 32px 0 8px !important;
+      height: 1px !important;
+      background-color: #DCDCDC !important;
+    }
+
     .paging{
       padding: 16px 0;
     }
+  }
+
+  .pagination-link{
+    padding: 32px 0;
+    font-size: 20px;
   }
 
   //=========== event detail ===========
