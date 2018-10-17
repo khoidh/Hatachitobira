@@ -216,28 +216,28 @@
                         </div>
                         <div class="row">
                             <div class="col-md-3 img-cat-sp">
-                                <img class="img-cat" src="{{ asset('image/top/img-cate-1.png') }}" alt="">
+                                <a href="{{ url('search-category?search=1') }}"><img class="img-cat" src="{{ asset('image/top/img-cate-1.png') }}" alt=""></a>
                             </div>
                             <div class="col-md-3 img-cat-sp">
-                                <img class="img-cat" src="{{ asset('image/top/img-cate-2.png') }}" alt="">
+                                <a href="{{ url('search-category?search=2') }}"><img class="img-cat" src="{{ asset('image/top/img-cate-2.png') }}" alt=""></a>
                             </div>
                             <div class="col-md-3 img-cat-sp">
-                                <img class="img-cat" src="{{ asset('image/top/img-cate-3.png') }}" alt="">
+                                <a href="{{ url('search-category?search=3') }}"><img class="img-cat" src="{{ asset('image/top/img-cate-3.png') }}" alt=""></a>
                             </div>
                             <div class="col-md-3 img-cat-sp">
-                                <img class="img-cat" src="{{ asset('image/top/img-cate-4.png') }}" alt="">
+                                <a href="{{ url('search-category?search=4') }}"><img class="img-cat" src="{{ asset('image/top/img-cate-4.png') }}" alt=""></a>
                             </div>
                             <div class="col-md-3 img-cat-sp">
-                                <img class="img-cat" src="{{ asset('image/top/img-cate-5.png') }}" alt="">
+                                <a href="{{ url('search-category?search=5') }}"><img class="img-cat" src="{{ asset('image/top/img-cate-5.png') }}" alt=""></a>
                             </div>
                             <div class="col-md-3 img-cat-sp">
-                                <img class="img-cat" src="{{ asset('image/top/img-cate-6.png') }}" alt="">
+                                <a href="{{ url('search-category?search=6') }}"><img class="img-cat" src="{{ asset('image/top/img-cate-6.png') }}" alt=""></a>
                             </div>
                             <div class="col-md-3 img-cat-sp">
-                                <img class="img-cat" src="{{ asset('image/top/img-cate-7.png') }}" alt="">
+                                <a href="{{ url('search-category?search=7') }}"><img class="img-cat" src="{{ asset('image/top/img-cate-7.png') }}" alt=""></a>
                             </div>
                             <div class="col-md-3 img-cat-sp">
-                                <img class="img-cat" src="{{ asset('image/top/img-cate-8.png') }}" alt="">
+                                <a href="{{ url('search-category?search=8') }}"><img class="img-cat" src="{{ asset('image/top/img-cate-8.png') }}" alt=""></a>
                             </div>
                         </div>
                     </div>
