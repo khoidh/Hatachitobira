@@ -47,125 +47,32 @@
 
             <div class="col-sm-12 col-xs-12 panel-info">
                 <div class="row">
-                    {{--01--}}
-                    <div class="col-sm-4 col-xs-4 panel-info-wrapper">
-                        <div class="panel-info-content">
-                            <div class="number">
-                                <span>01</span>
+                    @php ($index=1)
+                    @for ($i = 1; $i < 10; $i++)
+                        @if($i!=5)
+                            <div class="col-sm-4 col-xs-4 panel-info-wrapper">
+                                <div class="panel-info-content">
+                                    <div class="number">
+                                        <span>0{{$index++}}</span>
+                                    </div>
+                                    <div class="mypage-text">
+                                        <span>テキストがはいりますテキストがはいりますテキストがはいりますテキストがはいります</span>
+                                    </div>
+                                    <div class="favorite edit">
+                                        <i class="fa fa-pencil" data-toggle="modal" data-target="#show-detail-mypage">
+                                            Edit</i>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="mypage-text">
-                                <span>テキストがはいりますテキストがはいりますテキストがはいりますテキストがはいります</span>
+                        @else
+                            {{--05--}}
+                            <div class="col-sm-4 col-xs-4 panel-info-wrapper">
+                                <div class="event-image" style="background-image: url('{{asset('image/mypage/mypage-01.png')}}'); ">
+                                </div>
                             </div>
-                            <div class="favorite edit">
-                                <i class="fa fa-pencil" data-toggle="modal" data-target="#show-detail-mypage"> Edit</i>
-                            </div>
-                        </div>
-                    </div>
-                    {{--02--}}
-                    <div class="col-sm-4 col-xs-4 panel-info-wrapper">
-                        <div class="panel-info-content">
-                            <div class="mypage-text">
-                                <span>テキストがはいりますテキストがはいりますテキストがはいりますテキストがはいります</span>
-                            </div>
-                            <div class="number">
-                                <span>02</span>
-                            </div>
-                            <div class="favorite edit">
-                                <i class="fa fa-pencil" data-toggle="modal" data-target="#show-detail-mypage"> Edit</i>
-                            </div>
-                        </div>
-                    </div>
-                    {{--03--}}
-                    <div class="col-sm-4 col-xs-4 panel-info-wrapper">
-                        <div class="panel-info-content">
-                            <div class="mypage-text">
-                                <span>テキストがはいりますテキストがはいりますテキストがはいりますテキストがはいります</span>
-                            </div>
-                            <div class="number">
-                                <span>03</span>
-                            </div>
-                            <div class="favorite edit">
-                                <i class="fa fa-pencil" data-toggle="modal" data-target="#show-detail-mypage"> Edit</i>
-                            </div>
-                        </div>
-                    </div>
-                    {{--04--}}
-                    <div class="col-sm-4 col-xs-4 panel-info-wrapper">
-                        <div class="panel-info-content">
-                            <div class="mypage-text">
-                                <span>テキストがはいりますテキストがはいりますテキストがはいりますテキストがはいります</span>
-                            </div>
-                            <div class="number">
-                                <span>04</span>
-                            </div>
-                            <div class="favorite edit">
-                                <i class="fa fa-pencil" data-toggle="modal" data-target="#show-detail-mypage"> Edit</i>
-                            </div>
-                        </div>
-                    </div>
-                    {{--05--}}
-                    <div class="col-sm-4 col-xs-4 panel-info-wrapper">
-                        {{--<div class="panel-info-content">--}}
-                            <div class="event-image" style="background-image: url('{{asset('image/mypage/mypage-1.png')}}'); ">
-                            </div>
-                        {{--</div>--}}
-                    </div>
-                    {{--06--}}
-                    <div class="col-sm-4 col-xs-4 panel-info-wrapper">
-                        <div class="panel-info-content">
-                            <div class="mypage-text">
-                                <span>テキストがはいりますテキストがはいりますテキストがはいりますテキストがはいります</span>
-                            </div>
-                            <div class="number">
-                                <span>05</span>
-                            </div>
-                            <div class="favorite edit">
-                                <i class="fa fa-pencil" data-toggle="modal" data-target="#show-detail-mypage"> Edit</i>
-                            </div>
-                        </div>
-                    </div>
-                    {{--07--}}
-                    <div class="col-sm-4 col-xs-4 panel-info-wrapper">
-                        <div class="panel-info-content">
-                            <div class="mypage-text">
-                                <span>テキストがはいりますテキストがはいりますテキストがはいりますテキストがはいります</span>
-                            </div>
-                            <div class="number">
-                                <span>06</span>
-                            </div>
-                            <div class="favorite edit">
-                                <i class="fa fa-pencil" data-toggle="modal" data-target="#show-detail-mypage"> Edit</i>
-                            </div>
-                        </div>
-                    </div>
-                    {{--08--}}
-                    <div class="col-sm-4 col-xs-4 panel-info-wrapper">
-                        <div class="panel-info-content">
-                            <div class="mypage-text">
-                                <span>テキストがはいりますテキストがはいりますテキストがはいりますテキストがはいります</span>
-                            </div>
-                            <div class="number">
-                                <span>07</span>
-                            </div>
-                            <div class="favorite edit">
-                                <i class="fa fa-pencil" data-toggle="modal" data-target="#show-detail-mypage"> Edit</i>
-                            </div>
-                        </div>
-                    </div>
-                    {{--09--}}
-                    <div class="col-sm-4 col-xs-4 panel-info-wrapper">
-                        <div class="panel-info-content">
-                            <div class="mypage-text">
-                                <span>テキストがはいりますテキストがはいりますテキストがはいりますテキストがはいります</span>
-                            </div>
-                            <div class="number">
-                                <span>08</span>
-                            </div>
-                            <div class="favorite edit">
-                                <i class="fa fa-pencil" data-toggle="modal" data-target="#show-detail-mypage"> Edit</i>
-                            </div>
-                        </div>
-                    </div>
+                            {{--@php ($i--);--}}
+                        @endif
+                    @endfor
                 </div>
             </div>
 
@@ -202,9 +109,9 @@
                 <div class="category row">
                     <strong class="col-sm-10 category-input">
                         <select name="category_id" class="cb-category" required="true" autofocus>
-                            <option selected>あなたのカテゴリ</option>
+                            <option selected disabled>あなたのカテゴリ</option>
                             {{--@foreach($categories as $category)--}}
-                            {{--<option value="{{$category->id}}">{{$category->name}}</option>--}}
+                                {{--<option value="{{$category->id}}">{{$category->name}}</option>--}}
                             {{--@endforeach--}}
                         </select>
                     </strong>
@@ -213,10 +120,23 @@
 
                 <div class="content-text">
                     <div class="col-sm-12 item">
-                        <div class="row wrapper" style="background-image: url('{{asset('image/mypage/mypage-2.png')}}'); ">
-                            <span class="wrapper-title" >インタビュー</span>
-                            <div class="col-sm-4 icon">
-                                <img src="{{asset("image/top/img-event-1.png")}}" alt="">
+                        <div class="row wrapper">
+                            <div class="wrapper-status">
+                                <img
+                                        src="{{asset('image/mypage/mypage-icon.png')}}" alt="column-icon.png"
+                                        {{--@if($column->type == 0)--}}
+                                        {{--src="{{asset('image/column/column-icon.png')}}" alt="column-icon.png"--}}
+                                        {{--@else--}}
+                                        {{--src="{{asset('image/column/column-visible-icon.png')}}" alt="column-visible-icon.png"--}}
+                                        {{--@endif--}}
+                                >
+{{--                                <span style="@if($column->type ==1) left: 25px; @endif">{{$column_state}}</span>--}}
+                                {{--<span style="@if($column->type ==1) left: 25px; @endif">{{$column_state}}</span>--}}
+                                <span>インタビュー</span>
+                            </div>
+
+                            <div class="col-sm-4 wrapper-icon">
+                                <img src="{{asset("image/top/img-event-1.png")}}" alt="img-event-1.png">
                             </div>
                             <div class="col-sm-8 wrapper-content">
                                 <p class="clearfix icon-favorior"><a href="#"><i class="fa fa-heart-o" style="font-size: 24px;"></i></a></p>
@@ -228,9 +148,15 @@
                     </div>
                 </div>
 
-                <div class="btn-category-list col-sm-12">
+                {{--<div class="btn-category-list col-sm-12">--}}
+                    {{--<div class="col-sm-6 col-sm-offset-3">--}}
+                        {{--<button type="submit" class="btn btn-primary btn-lg btn-block">一覧を見る</button>--}}
+                    {{--</div>--}}
+                {{--</div>--}}
+
+                <div class="row justify-content-center form-group btn-category-list">
                     <div class="col-sm-6 col-sm-offset-3">
-                        <button type="button" class="btn btn-primary btn-lg btn-block">一覧を見る</button>
+                        <button type="submit" class="btn btn-primary btn-lg btn-block">一覧を見る</button>
                     </div>
                 </div>
             </div>
@@ -240,23 +166,28 @@
 
     <div class="container my-page">
         <div class="group-2">
-            <div class="item video">
-                <div class="underline video-title">お気に入り動画(3)</div>
+            <div class="item video1">
+                <span class="underline video-title">お気に入り動画(3)</span>
+                <span class="button-next-back" style="text-align: right">
+                    <i class="fa fa-arrow-circle-o-left"></i>
+                    <i class="fa fa-arrow-circle-o-right"></i>
+                </span>
+
                 <div class="row video-content">
                     <div class="col-sm-4">
-                        <img src="{{asset('image/video/video-01.png')}}" alt="">
+                        <img src="{{asset('image/mypage/mypage-02.png')}}" alt="video-01.png">
                         <p class="title">タイトルが入りますタイトルが入りますタイトルが入りますタイトルが入ります</p>
                         <p class="attached">892view/7month/#カテゴリ</p>
                     </div>
                     <div class="col-sm-4">
-                        <img src="{{asset('image/video/video-01.png')}}" alt="">
+                        <img src="{{asset('image/mypage/mypage-02.png')}}" alt="video-01.png">
                         <p class="title">タイトルが入りますタイトルが入りますタイトルが入りますタイトルが入ります</p>
                         <p class="attached">892view/7month/#カテゴリ</p>
                     </div>
                     <div class="col-sm-4">
-                        <img src="{{asset('image/video/video-01.png')}}" alt="">
+                        <img src="{{asset('image/mypage/mypage-02.png')}}" alt="video-01.png">
                         <p class="title">タイトルが入りますタイトルが入りますタイトルが入りますタイトルが入ります</p>
-                        <p class="attached">892view/7month/#カテゴリ</p>
+                        <span class="attached">892view/7month/#カテゴリ</span>
                     </div>
                 </div>
             </div>
@@ -271,33 +202,78 @@
             </div>
 
             <div class="item column">
-                <div class="underline column-title">お気に入り記事(1)</div>
+                <div class="underline column-title">お気に入り記事({{count($columns)}})</div>
+                <span class="button-next-back" style="text-align: right">
+                    <i class="fa fa-arrow-circle-o-left"></i>
+                    <i class="fa fa-arrow-circle-o-right"></i>
+                </span>
                 <div class="article">
                     @php
+                        $column= $columns[0]; //temp
+
                         $column_state="インタビュー";
+                        if($column->type == 1)
+                            $column_state = "コラム";
+                        else
+                            $column_state = "インタビュー";
                     @endphp
-                    <div class="article-status"
-                         style="background-image: url('{{asset('image/column/column-icon.png')}}');">
-                        <p>{{$column_state}}</p>
+                    <div class="article-status">
+                        <hr class="shape-8"/>
+                        <img
+                                @if($column->type == 0)
+                                src="{{asset('image/mypage/mypage-icon.png')}}" alt="column-icon.png"
+                                @else
+                                src="{{asset('image/mypage/mypage-visible-icon.png')}}" alt="column-visible-icon.png"
+                                @endif
+                        >
+                        <span style="@if($column->type ==1) left: 25px; @endif">{{$column_state}}</span>
                     </div>
+
                     <div class="article-content row">
                         <div class="content-left col-md-4">
-                            {{--<a href="{{route('column.show', $column->id)}}" style="text-decoration:none;">--}}
-                                {{--@php $image='image/column/'.$column->image; @endphp--}}
-                                {{--<img src="{{file_exists($image)?asset($image): asset('image/column/column_default.jpg')}}">--}}
-                                <img src="{{asset('image/column/column02.jpg')}}">
-                            {{--</a>--}}
-
+                            <a href="{{route('column.show', $column->id)}}" style="text-decoration:none;">
+                                @php $image='image/column/'.$column->image; @endphp
+                                <img class="image" src="{{file_exists($image)?asset($image): asset('image/column/column_default.jpg')}}" alt="{{$image}}">
+                            </a>
                         </div>
                         <div class="content-right col-md-8">
                             <div class="icon-favorite">
+                                {{--==================== favorite ====================--}}
                                 <i class="fa fa-heart-o" style="font-size:24px; color: #D4D4D4;"></i>
+                                {{--@if(Auth::user())--}}
+                                {{--{{ csrf_field() }}--}}
+                                {{--<div type="submit" class="favorite">--}}
+                                {{--<input type="hidden" class="favorite" value="0">--}}
+                                {{--<input type="hidden" class="user_id"--}}
+                                {{--value="{{Auth::user()->id}}">--}}
+                                {{--<input type="hidden" class="column_id" value="{{$column->id}}">--}}
+                                {{--<div class="col-md-12 text-right">--}}
+                                {{--@if(in_array($column->id,$favorites_id))--}}
+                                {{--<i class="fa fa-heart-o"--}}
+                                {{--style="font-size:24px; color: red;"></i>--}}
+                                {{--@else--}}
+                                {{--<i class="fa fa-heart-o"--}}
+                                {{--style="font-size:24px; color: blue;"></i>--}}
+                                {{--@endif--}}
+                                {{--</div>--}}
+                                {{--</div>--}}
+                                {{--@else--}}
+                                {{--<div type="submit">--}}
+                                {{--<i class="fa fa-heart-o" style="font-size:24px;"--}}
+                                {{--data-toggle="modal"--}}
+                                {{--data-target="#modal_login"> </i>--}}
+                                {{--</div>--}}
+                                {{--@endif--}}
+                                {{--==================== /end favorite ====================--}}
                             </div>
-                            <span class="title">タイトルが入りますタイトルが入りますタイトルが入りますタイトルが入りますタイトルが入ります</span>
-                            <span class="category">#カテゴリ </span>
-                            <div class="date">2018.3.20</div>
+                            <span class="title">{{$column->title}}</span>
+                            <span class="category">&nbsp;&nbsp;{{$column->category_name}}</span>
+                            <div class="date" >
+                                <p>{{date('Y-m-d', strtotime($column->created_at))}}</p>
+                            </div>
                         </div>
                     </div>
+                </div>
                 </div>
             </div>
         </div>

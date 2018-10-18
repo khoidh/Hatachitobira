@@ -20,5 +20,6 @@ public/media/
 /storage/medialibrary
 /log
 
-public/
 package-lock.json
+public/mix-manifest.json
+public/fonts/

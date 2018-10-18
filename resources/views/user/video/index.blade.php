@@ -127,32 +127,6 @@
                 var user = $(this).data('user');
                 var _this = $(this);
                 if (user == '') {
-                    $html = '';
-                    $html +='<div class="form-group code-top">';
-                        $html +='<div class="col-md-5">';
-                        $html +='<p class="title-register">イベント参加・個人ページの利用は会員限定です。さあ、マイテーマを探そ。</p>';
-                        $html +='</div>';
-                        $html +='<img src="{{ asset("image/picture1.png") }}">';
-                    $html +='</div>';
-                    $html +='<div class="form-group">';
-                            $html +='<span id="first-name-err" style="color:red;font-size:12px" ></span>';
-                        $html +='<div class="col-md-10 col-md-offset-1" style="text-align: left;">';
-                            $html +='<input class="input-checkbox"  type="checkbox" id="input-check-required">';
-                            $html +='<label class="lblcheckbox"><a class="link-redirect" href="/private-polisy">利用規約</a> と <a class="link-redirect" href="/private-polisy">プライバシーポリシー</a> に同意する </label>';
-                        $html +='</div>';
-                    $html +='</div>';
-                    $html +='<div class="form-group">';
-                        $html +='<div class="col-md-12">';
-                            $html +='<a href="{{ url("/auth/facebook") }}" class="btn btn-primary btn-register"> Facebookで登録</a>';
-                        $html +='</div>';
-                    $html +='</div>';
-                    $html +='<div class="form-group">';
-                        $html +='<div class="col-md-12">';
-                            $html +='<a href="#" class="btn btn-success btn-register btn-register-btn"> メールアドレスで登録</a>';
-                        $html +='</div>';
-                    $html +='</div>';
-
-                    $('#modal_register').find('.panel-body').html($html);
                     $('#modal_register').modal('show');
                 }else {
                     $.ajax({
@@ -164,14 +138,8 @@
                             user_id: user
                         },
                         success : function (result){
-                            console.log(result);
-                            if (result == 'ok') {
-                                _this.find('.fa.fa-heart-o').addClass('liked');
-                                _this.find('.fa.fa-heart-o').css('color','pink');
-                            }else {
-                                _this.find('.fa.fa-heart-o').removeClass('liked');
-                                _this.find('.fa.fa-heart-o').css('color','#fff');
-                            }
+                            _this.find('.fa.fa-heart-o').addClass('like');
+                            _this.find('.fa.fa-heart-o').css('color','pink');
                         }
                     })
                 }
