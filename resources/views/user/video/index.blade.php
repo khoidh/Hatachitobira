@@ -163,8 +163,14 @@
                             user_id: user
                         },
                         success : function (result){
-                            _this.find('.fa.fa-heart-o').addClass('like');
-                            _this.find('.fa.fa-heart-o').css('color','pink');
+                            console.log(result);
+                            if (result == 'ok') {
+                                _this.find('.fa.fa-heart-o').addClass('liked');
+                                _this.find('.fa.fa-heart-o').css('color','pink');
+                            }else {
+                                _this.find('.fa.fa-heart-o').removeClass('liked');
+                                _this.find('.fa.fa-heart-o').css('color','#fff');
+                            }
                         }
                     })
                 }

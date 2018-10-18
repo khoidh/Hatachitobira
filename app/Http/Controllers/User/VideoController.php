@@ -219,6 +219,10 @@ class VideoController extends Controller
             return json_encode('ok');
         }
         else {
+            $favorite = Favorite::where('user_id',$request->user_id)
+            ->where('favoritable_id',$request->video_id)
+            ->where('favoritable_type',(new Video())->getTable())
+            ->delete();
             return json_encode('notok');
         }
     }
