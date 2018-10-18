@@ -35,8 +35,8 @@ class Categories extends Seeder
             'id'            => 3,
             'name'          => 'テクノロジー',
             'description'   => 'リクルート事業開発のプロが講師！起業アイデアの磨き方＆アイデアを行動に変えるステップとは？',
-            'slug'          => 'モノづくり',
-            'icon'          => 'モノづくり',   
+            'slug'          => 'テクノロジー',
+            'icon'          => 'テクノロジー',   
         ]); 
         DB::table('categories')->insert([
             'id'            => 4,
@@ -49,8 +49,8 @@ class Categories extends Seeder
             'id'            => 5,
             'name'          => '教育',
             'description'   => 'リクルート事業開発のプロが講師！起業アイデアの磨き方＆アイデアを行動に変えるステップとは？',
-            'slug'          => 'モノづくり',
-            'icon'          => 'モノづくり',   
+            'slug'          => '教育',
+            'icon'          => '教育',   
         ]);
         DB::table('categories')->insert([
             'id'            => 6,
