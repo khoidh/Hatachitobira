@@ -29,7 +29,6 @@ class VideoController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-        Video::create($data);
 
         //Upload file image
         if($request->hasFile('image')){
@@ -38,8 +37,9 @@ class VideoController extends Controller
             $fileName = time().'_'.$file->getClientOriginalName();
             $destinationPath = public_path('image/video');
             $file->move($destinationPath, $fileName);
+            $data['image'] = $fileName;
         }
-
+        Video::create($data);
         return redirect()->route('videos.index');
     }
 

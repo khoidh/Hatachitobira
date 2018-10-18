@@ -202,30 +202,41 @@
 			</div>
 		</div>
 	</div>
+	
 	<div class="requiment-convertion">
 		<div class="container">
 			<div class="cb-path"></div>
 			<p class="movie-top-text">利用者の声</p>
-			<div class="row">
-				<div class="col-md-6">
-					<img class="image" src="{{asset('image/requiment/convertion-1.png')}}" alt="">
-				</div>
-				<div class="col-md-6 convertion">
-					<p class="title-convertion">サービスを利用してみた手応えはいかがでしたか？</p>
-					<p class="detail-convertion">言葉だけでは伝えきれない社員1人ひとりの個性的な魅力や提供するサービスを立体的に可視化できたと感じています。</br>
+			
+			<div class="section-body">
+			    <div id="uservoice_list">
+			        <ul>
+			            <li>
+			                <a href="#" target="_blank">
+								<img src="{{asset('image/requiment/convertion-1.png')}}" alt="">
+								<div class="list-content">
+									<div class="inner">
+										<h3>サービスを利用してみた手応えはいかがでしたか？</h3>
+										<p>言葉だけでは伝えきれない社員1人ひとりの個性的な魅力や提供するサービスを立体的に可視化できたと感じています。</br>
 あとは、ジョブシャドウイング参加学生が、弊社へ長期インターンとして参画してくれたことも嬉しかったですね。</p>
-				</div>
-			</div>
-
-			<div class="row row-2">
-				<div class="col-md-6 convertion convertion-2">
-					<p class="title-convertion">サービスを利用してみた手応えはいかがでしたか？</p>
-					<p class="detail-convertion">言葉だけでは伝えきれない社員1人ひとりの個性的な魅力や提供するサービスを立体的に可視化できたと感じています。</br>
+									</div>
+								</div>
+							</a>
+			            </li>
+			            <li>
+			                <a href="https://originalpoint.co.jp/recruit/013/" target="_blank">
+								<img src="http://lp.hatachinotobira.com/wp-content/themes/hatachinotobira/images/uservoice-image-2.jpg" alt="VOICE2">
+								<div class="list-content">
+								    <div class="inner">
+								        <h3>サービスを利用してみた手応えはいかがでしたか？</h3>
+								        <p>言葉だけでは伝えきれない社員1人ひとりの個性的な魅力や提供するサービスを立体的に可視化できたと感じています。</br>
 あとは、ジョブシャドウイング参加学生が、弊社へ長期インターンとして参画してくれたことも嬉しかったですね。</p>
-				</div>
-				<div class="col-md-6">
-					<img class="image image-2" src="{{asset('image/requiment/convertion-2.png')}}" alt="">
-				</div>
+								    </div>
+								</div>
+							</a>
+			            </li>
+			        </ul>
+			    </div>
 			</div>
 		</div>
 	</div>

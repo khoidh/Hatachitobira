@@ -53,12 +53,8 @@
             <td>{{$video->url}}</td>
             <td>{!!str_limit($video->description, $limit = 50, $end = '...')!!}</td>
 
-            {{--<td>{{$video->image}}</td>--}}
-            @php $image= 'image/video/'.$video->image @endphp
-            <td><img width="100px" height="100px"
-                     src="{{ file_exists($image)?asset($image):asset('image/video/video_default.jpg')}}" ></td>
+            <td><img width="100px" height="100px" src="{{ file_exists('image/video/'.$video->image) ? asset('image/video/'.$video->image) : asset('image/video/video_default.jpg') }}" ></td>
 
-{{--            <td>{{$video->sort}}</td>--}}
             <td>
                 <a href="{{route('videos.show',$video->id)}}"><i title="Detail" class="fa fa-info-circle fa-2x" aria-hidden="true"></i></a>
                 <a href="{{route('videos.edit',$video->id)}}"><i title="Edit" class="fa fa-edit fa-2x" aria-hidden="true"></i></a>

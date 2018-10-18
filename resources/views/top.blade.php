@@ -67,7 +67,7 @@
                                 <a class="nav-link" href="{{ route('logout') }}"
                                    onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                    Logout
+                                    ログアウト
                                 </a>
 
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -368,32 +368,36 @@
 
     <!-- <script src="{{asset('carosel/js/owl.carousel.js')}}"></script> -->
     <script type="text/javascript" charset="utf-8" async defer>
+        var header = document.getElementById("myHeader");
+            var sticky = header.offsetTop;
         if (window.innerWidth > 993) {
             window.onscroll = function() { myFunction() };
 
-        }
-        // Get the header
-        var header = document.getElementById("myHeader");
+            // Get the header
 
-        // Get the offset position of the navbar
-        var sticky = header.offsetTop;
+            // Get the offset position of the navbar
 
-        // Add the sticky class to the header when you reach its scroll position. Remove "sticky" when you leave the scroll position
-        function myFunction() {
-            if (window.pageYOffset > sticky) {
-                header.classList.add("fixed");
-                $('.navbar.navbar-expand-lg.navbar-light').removeClass('flex-column');
-                $('.navbar-nav.mr-auto').removeClass('flex-column');
-            } else {
-                header.classList.remove("fixed");
-                $('.navbar.navbar-expand-lg.navbar-light').addClass('flex-column');
-                $('.navbar-nav.mr-auto').addClass('flex-column');
+            // Add the sticky class to the header when you reach its scroll position. Remove "sticky" when you leave the scroll position
+            function myFunction() {
+                if (window.pageYOffset > sticky) {
+                    header.classList.add("fixed");
+                    $('.navbar.navbar-expand-lg.navbar-light').removeClass('flex-column');
+                    $('.navbar-nav.mr-auto').removeClass('flex-column');
+                } else {
+                    header.classList.remove("fixed");
+                    $('.navbar.navbar-expand-lg.navbar-light').addClass('flex-column');
+                    $('.navbar-nav.mr-auto').addClass('flex-column');
+                }
+
             }
-
         }
 
         if (window.innerWidth < 993) {
             header.classList.add("fixed");
+            window.onscroll = function() {
+                if (window.pageYOffset > sticky) {
+                $("body").css('padding-top','100px');}
+            };
             $('.navbar.navbar-expand-lg.navbar-light').removeClass('flex-column');
             $('.navbar-nav.mr-auto').removeClass('flex-column');
             $('.bx_header .navbar-nav.mr-auto').append('<li class="nav-item"><a class="nav-link link-append" href="{{url("my-page")}}">マイテーマを見つける</a></li>');
@@ -414,21 +418,21 @@
 
             $('.image-top.row').addClass('owl-carousel owl-theme');
             
-                $('.owl-carousel').owlCarousel({
-        margin: 10,
-        loop: false,
-        responsive: {
-          0: {
-            items: 2
-          },
-          600: {
-            items: 2
-          },
-          1000: {
-            items: 3
-          }
-        }
-      });
+            $('.owl-carousel').owlCarousel({
+                margin: 10,
+                loop: false,
+                responsive: {
+                  0: {
+                    items: 2
+                  },
+                  600: {
+                    items: 2
+                  },
+                  1000: {
+                    items: 3
+                  }
+                }
+              });
            
         }
     </script>
