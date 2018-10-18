@@ -64,32 +64,32 @@
 		        <div class="carousel-inner row mx-auto" role="listbox">
 		            <div class="carousel-item active">
 		            	<div class="row">
-		            		<div class="col-md-2 col-sm-2 col-xs-2 ol-2">
+		            		<div class="col-md-2 col-sm-2 col-xm-2">
                                 <a href="#">
                                     <img src="{{asset('image/requiment/slide-1.png')}}" style="max-width:100%;">
                                 </a>
                             </div>
-                            <div class="col-md-2 col-sm-2 col-xs-2 ol-2">
+                            <div class="col-md-2 col-sm-2 col-xm-2">
                                 <a href="#">
                                     <img src="{{asset('image/requiment/slide-2.png')}}" style="max-width:100%;">
                                 </a>
                             </div>
-                            <div class="col-md-2 col-sm-2 col-xs-2 ol-2">
+                            <div class="col-md-2 col-sm-2 col-xm-2">
                                 <a href="#">
                                     <img src="{{asset('image/requiment/slide-3.png')}}" style="max-width:100%;">
                                 </a>
                             </div>
-                            <div class="col-md-2 col-sm-2 col-xs-2 ol-2">
+                            <div class="col-md-2 col-sm-2 col-xm-2">
                                 <a href="#">
                                     <img src="{{asset('image/requiment/slide-4.png')}}" style="max-width:100%;">
                                 </a>
                             </div>
-                            <div class="col-md-2 col-sm-2 col-xs-2 ol-2">
+                            <div class="col-md-2 col-sm-2 col-xm-2">
                                 <a href="#">
                                     <img src="{{asset('image/requiment/slide-5.png')}}" style="max-width:100%;">
                                 </a>
                             </div>
-                            <div class="col-md-2 col-sm-2 col-xs-2 ol-2">
+                            <div class="col-md-2 col-sm-2 col-xm-2">
                                 <a href="#">
                                     <img src="{{asset('image/requiment/slide-6.png')}}" style="max-width:100%;">
                                 </a>

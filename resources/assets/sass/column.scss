@@ -72,6 +72,7 @@
           }
           .title {
             font-size: 20px;
+            text-align: justify;
           }
 
           .category, .date {
@@ -144,7 +145,7 @@
     }
   }
   .txt-btn{
-    padding: 40px 0 55px;
+    padding: 40px 0;
     button{
       padding: 5px 30px;
       border-radius: 30px;
@@ -154,10 +155,7 @@
       background: $black-color;
       color: $white-color;
       font-weight: bold;
-      font-size: 20pt;
-      @include only-for-pc(){
-        font-size: 24pt !important;
-      }
+      font-size: 24pt;
       line-height: 40pt;
       cursor: pointer;
       //Đổ bóng phía dưới

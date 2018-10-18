@@ -1,18 +1,18 @@
 <footer>
     <div class="row">
-        <div class="col-sm-12 col-md-2 col-xs-12 logo-footer">
+        <div class="col-sm-12 col-md-7 col-xs-12 logo-footer">
             <ul>
                 <li class="li-first"><a href="/">
-                    <span>マイテーマ、探そ。</span>
+                    <p>マイテーマ、探そ。</p>
                     <img src="{{ asset('image/top/logo-fotter.png') }}" alt="">
                 </a></li>
             </ul>
         </div>
-        <div class="col-sm-12 offset-md-5 col-md-5 col-xs-12">
+        <div class="col-sm-12 col-md-5 col-xs-12">
             <div class="row">
                 <div class="col-md-4 col-xs-6 col-sm-6 footter-mobile">
                     <ul>
-                        <li><a class="a-first">マイテーマを</a></li>
+                        <li><a href="#">マイテーマを</a></li>
                         <li><a href="{{url('video')}}">- &nbsp;動画から探す</a></li>
                         <li><a href="{{url('event')}}">- &nbsp; イベントで見つける</a></li>
                         <li><a href="{{url('column')}}">- &nbsp; 記事で知る</a></li>
