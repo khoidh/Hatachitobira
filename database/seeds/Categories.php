@@ -56,8 +56,8 @@ class Categories extends Seeder
             'id'            => 6,
             'name'          => '暮らし',
             'description'   => 'リクルート事業開発のプロが講師！起業アイデアの磨き方＆アイデアを行動に変えるステップとは？',
-            'slug'          => 'モノづくり',
-            'icon'          => 'モノづくり',   
+            'slug'          => 'モノづくり モノづくり',
+            'icon'          => 'モノづくり モノづくり',   
         ]);
         DB::table('categories')->insert([
             'id'            => 7,

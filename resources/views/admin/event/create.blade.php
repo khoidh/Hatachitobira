@@ -157,7 +157,7 @@
             <div class="col-sm-6">
                 <label for="inputPassword3" class="col-sm-12 col-form-label">Start at </label>
                 <div class="col-sm-12">
-                    <input type="datetime-local" class="form-control" name="time_from" required="true">
+                    <input type="date" class="form-control" name="time_from" required="true">
                 </div>
             </div>
 
@@ -165,7 +165,7 @@
             <div class="col-sm-6">
                 <label for="inputPassword3" class="col-sm-12 col-form-label">End at </label>
                 <div class="col-sm-12">
-                    <input type="datetime-local" class="form-control" name="time_to" required="true">
+                    <input type="date" class="form-control" name="time_to" required="true">
                 </div>
             </div>
         </div>
@@ -181,14 +181,14 @@
             <div class="col-sm-6" >
                 <label for="inputPassword3" class="col-sm-12 col-form-label">Start hour </label>
                 <div class="col-sm-12">
-                    <input type="datetime-local" class="form-control" name="started_at" required="true">
+                    <input type="date" class="form-control" name="started_at" required="true">
                 </div>
             </div>
             {{--End At--}}
             <div class="col-sm-6">
                 <label for="inputPassword3" class="col-sm-12 col-form-label">Close hour </label>
                 <div class="col-sm-12">
-                    <input type="datetime-local" class="form-control" name="closed_at" required="true">
+                    <input type="date" class="form-control" name="closed_at" required="true">
                 </div>
             </div>
         </div>
