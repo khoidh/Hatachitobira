@@ -4,15 +4,20 @@
 @section('title-j', 'カテゴリー検索')
 
 @section('content')
+<?php 
+    $search = isset($_GET['search']) && $_GET['search'] != '' ? $_GET['search'] : 0;
+ ?>
 <div class="row-category">
     <div class="select-search">
         <select class="select-box search" name="select-category">
+            <option value="0">Category</option>
             @foreach($categories as $categorie )
-            <option value="{{$categorie->id}}">{{$categorie->name}}</option>
+            <option value="{{$categorie->id}}" {{$categorie->id== $search ? 'selected' : '' }}>{{$categorie->name}}</option>
             @endforeach
         </select>
     </div>
 </div>  
+
 <div class="container">
     <div class="row searchcategory">
             <div class="row column-search event">
@@ -32,9 +37,8 @@
                                     else
                                     $column_state="受付終了";
                                 @endphp
-                                <div class="article-status"
-                                     style="background-image: url('{{asset('image/event/event-icon.png')}}');background-size: 100%;">
-                                    <p>{{$column_state}}</p>
+                                <div class="text-category">
+                                    {{$column_state}}
                                 </div>
                                 <div class="article-content row">
                                     <div class="content-left col-md-4">
@@ -46,7 +50,7 @@
                                     </div>
                                     <div class="content-right col-md-8">
                                         <div class="icon-favorite">
-                                            <i class="fa fa-heart-o" style="font-size:24px; color: #D4D4D4;"></i>
+                                            <i class="fa fa-heart-o {{ $column->favorite == 1 ? 'liked' : ''}}" data-id='{{$column->id}}' data-user='{{Auth::user() ? Auth::user()->id : "" }}' style="font-size:24px;"></i>
                                         </div>
                                         <div class="title">{{$column->title}}</div>
                                         <div class="category" style="color: #636B6F; font-weight: bold">
@@ -93,23 +97,21 @@
                                     else
                                     $column_state="受付終了";
                                 @endphp
-                                <div class="article-status"
-                                     style="background-image: url('{{asset('image/event/event-icon.png')}}');background-size: 100%;">
+                                <div class="text-category last">
                                     <p>{{$column_state}}</p>
                                 </div>
                                 <div class="article-content row">
                                     <div class="content-left col-md-4">
                                         <a href="{{route('event.show', $event->id)}}" style="text-decoration:none;">
-                                            
                                             @php $image='image/event/'.$event->image; @endphp
                                             <img src="{{file_exists($image)?asset($image): asset('image/event/event_default.jpg')}}">
                                         </a>
                                     </div>
                                     <div class="content-right col-md-8">
                                         <div class="icon-favorite">
-                                            <i class="fa fa-heart-o" style="font-size:24px; color: #D4D4D4;"></i>
+                                            <i class="fa fa-heart-o {{ $event->favorite == 1 ? 'liked' : ''}}"  data-id='{{$event->id}}' data-user='{{Auth::user() ? Auth::user()->id : "" }}' style="font-size:24px;"></i>
                                         </div>
-                                        <div class="title">{{$event->title}}</div>
+                                        <div class="title">{{$event->title}} <p>{{$event->category_name}}</p></div>
                                         <div class="category" style="color: #636B6F; font-weight: bold">
                                             <p>{{$event->category_name}}</p>
                                         </div>
@@ -261,7 +263,32 @@
             var user = $(this).data('user');
             var _this = $(this);
             if (user == '') {
-                $('#modal_login').modal('show');
+                $html = '';
+                    $html +='<div class="form-group code-top">';
+                        $html +='<div class="col-md-5">';
+                        $html +='<p class="title-register">イベント参加・個人ページの利用は会員限定です。さあ、マイテーマを探そ。</p>';
+                        $html +='</div>';
+                        $html +='<img src="{{ asset("image/picture1.png") }}">';
+                    $html +='</div>';
+                    $html +='<div class="form-group">';
+                            $html +='<span id="first-name-err" style="color:red;font-size:12px" ></span>';
+                        $html +='<div class="col-md-10 col-md-offset-1" style="text-align: left;">';
+                            $html +='<input class="input-checkbox"  type="checkbox" id="input-check-required">';
+                            $html +='<label class="lblcheckbox"><a class="link-redirect" href="/private-polisy">利用規約</a> と <a class="link-redirect" href="/private-polisy">プライバシーポリシー</a> に同意する </label>';
+                        $html +='</div>';
+                    $html +='</div>';
+                    $html +='<div class="form-group">';
+                        $html +='<div class="col-md-12">';
+                            $html +='<a href="{{ url("/auth/facebook") }}" class="btn btn-primary btn-register"> Facebookで登録</a>';
+                        $html +='</div>';
+                    $html +='</div>';
+                    $html +='<div class="form-group">';
+                        $html +='<div class="col-md-12">';
+                            $html +='<a href="#" class="btn btn-success btn-register btn-register-btn"> メールアドレスで登録</a>';
+                        $html +='</div>';
+                    $html +='</div>';
+                    $('#modal_register').find('.panel-body').html($html);
+                    $('#modal_register').modal('show');
             }else {
                 $.ajax({
                     url : '{{route("video.favorite")}}',
@@ -277,6 +304,118 @@
                     }   
                })
             }
+
+        })
+
+        $(document).on('click','.row.event-search .fa.fa-heart-o',function(e){
+            e.stopPropagation();
+            var idevent = $(this).data('id');
+            var user = $(this).data('user');
+            var _this = $(this);
+            if (user == '') {
+                $html = '';
+                    $html +='<div class="form-group code-top">';
+                        $html +='<div class="col-md-5">';
+                        $html +='<p class="title-register">イベント参加・個人ページの利用は会員限定です。さあ、マイテーマを探そ。</p>';
+                        $html +='</div>';
+                        $html +='<img src="{{ asset("image/picture1.png") }}">';
+                    $html +='</div>';
+                    $html +='<div class="form-group">';
+                            $html +='<span id="first-name-err" style="color:red;font-size:12px" ></span>';
+                        $html +='<div class="col-md-10 col-md-offset-1" style="text-align: left;">';
+                            $html +='<input class="input-checkbox"  type="checkbox" id="input-check-required">';
+                            $html +='<label class="lblcheckbox"><a class="link-redirect" href="/private-polisy">利用規約</a> と <a class="link-redirect" href="/private-polisy">プライバシーポリシー</a> に同意する </label>';
+                        $html +='</div>';
+                    $html +='</div>';
+                    $html +='<div class="form-group">';
+                        $html +='<div class="col-md-12">';
+                            $html +='<a href="{{ url("/auth/facebook") }}" class="btn btn-primary btn-register"> Facebookで登録</a>';
+                        $html +='</div>';
+                    $html +='</div>';
+                    $html +='<div class="form-group">';
+                        $html +='<div class="col-md-12">';
+                            $html +='<a href="#" class="btn btn-success btn-register btn-register-btn"> メールアドレスで登録</a>';
+                        $html +='</div>';
+                    $html +='</div>';
+                    $('#modal_register').find('.panel-body').html($html);
+                    $('#modal_register').modal('show');
+            }else {
+                $.ajax({
+                    url : '{{route("event.favorite")}}',
+                    type: 'post',
+                    dataType: 'json',
+                    data: {
+                        video_id : idevent,
+                        user_id: user
+                    },
+                    success : function (result){
+                        if (result == 'ok') {
+                            _this.addClass('liked');
+                            _this.css('color','pink');
+                        }else {
+                            _this.removeClass('liked');
+                            _this.css('color','#636B6F');
+                        }
+                    }   
+               })
+            }
+
+        })
+
+
+        $(document).on('click','.row.column-search .fa.fa-heart-o',function(e){
+            e.stopPropagation();
+            var idevent = $(this).data('id');
+            var user = $(this).data('user');
+            var _this = $(this);
+            if (user == '') {
+                $html = '';
+                    $html +='<div class="form-group code-top">';
+                        $html +='<div class="col-md-5">';
+                        $html +='<p class="title-register">イベント参加・個人ページの利用は会員限定です。さあ、マイテーマを探そ。</p>';
+                        $html +='</div>';
+                        $html +='<img src="{{ asset("image/picture1.png") }}">';
+                    $html +='</div>';
+                    $html +='<div class="form-group">';
+                            $html +='<span id="first-name-err" style="color:red;font-size:12px" ></span>';
+                        $html +='<div class="col-md-10 col-md-offset-1" style="text-align: left;">';
+                            $html +='<input class="input-checkbox"  type="checkbox" id="input-check-required">';
+                            $html +='<label class="lblcheckbox"><a class="link-redirect" href="/private-polisy">利用規約</a> と <a class="link-redirect" href="/private-polisy">プライバシーポリシー</a> に同意する </label>';
+                        $html +='</div>';
+                    $html +='</div>';
+                    $html +='<div class="form-group">';
+                        $html +='<div class="col-md-12">';
+                            $html +='<a href="{{ url("/auth/facebook") }}" class="btn btn-primary btn-register"> Facebookで登録</a>';
+                        $html +='</div>';
+                    $html +='</div>';
+                    $html +='<div class="form-group">';
+                        $html +='<div class="col-md-12">';
+                            $html +='<a href="#" class="btn btn-success btn-register btn-register-btn"> メールアドレスで登録</a>';
+                        $html +='</div>';
+                    $html +='</div>';
+                    $('#modal_register').find('.panel-body').html($html);
+                    $('#modal_register').modal('show');
+            }else {
+                $.ajax({
+                    url : '{{route("column.favorite")}}',
+                    type: 'post',
+                    dataType: 'json',
+                    data: {
+                        column_id : idevent,
+                        user_id: user
+                    },
+                    success : function (result){
+                        if (result == 'ok') {
+                            _this.addClass('liked');
+                            _this.css('color','pink');
+                        }else {
+                            _this.removeClass('liked');
+                            _this.css('color','#636B6F');
+                        }
+                    }   
+               })
+            }
+
         })
     })
 </script>

@@ -84,26 +84,59 @@ class MypageController extends Controller
 
         $categories = Category::all();
 
-        if (isset($_GET['search'])) {
-            $categories_id = $_GET['search'];
-        } else {
-            $categories_id = $categories[0]->id;
-        }
-
         $events = Event::select()
             ->select('events.*', 'categories.name as category_name')
-            ->join('categories', 'categories.id', '=', 'events.category_id')
-            ->where('events.category_id', '=', $categories_id)->paginate(5);
+            ->join('categories', 'categories.id', '=', 'events.category_id');
 
         $columns = Column::select()
             ->select('columns.*', 'categories.name as category_name')
-            ->join('categories', 'categories.id', '=', 'columns.category_id')
-            ->where('columns.category_id', '=', $categories_id)->paginate(5);
+            ->join('categories', 'categories.id', '=', 'columns.category_id');
+            
 
         $videos = Video::select()
             ->select('videos.*', 'categories.name as category_name')
-            ->join('categories', 'categories.id', '=', 'videos.category_id')
-            ->where('videos.category_id', '=', $categories_id)->get();
+            ->join('categories', 'categories.id', '=', 'videos.category_id');
+            
+
+        if (isset($_GET['search'])) {
+            $categories_id = $_GET['search'];
+            $events = $events->where('events.category_id', '=', $categories_id);
+            $columns = $columns->where('columns.category_id', '=', $categories_id);
+            $videos = $videos->where('videos.category_id', '=', $categories_id);
+        } 
+        $events = $events->get();
+        $columns = $columns->get();
+        $videos = $videos->get();
+        
+        foreach ($events as $key => $event) {
+            $like_e = 0;
+            if (Auth::user()) {
+                $user_id = Auth::user()->id;
+                $favorite_e = Favorite::where('user_id', $user_id)
+                    ->where('favoritable_id', $event->id)
+                    ->where('favoritable_type', 'events')->get();
+                if (count($favorite_e) > 0) {
+                    $like_e = 1;
+                }
+            }
+            $event->favorite = $like_e;
+        }
+
+        foreach ($columns as $key => $column) {
+            $like_e = 0;
+            if (Auth::user()) {
+                $user_id = Auth::user()->id;
+                $favorite_c = Favorite::where('user_id', $user_id)
+                    ->where('favoritable_id', $column->id)
+                    ->where('favoritable_type', 'columns')->get();
+                if (count($favorite_c) > 0) {
+                    $like_e = 1;
+                }
+            }
+
+            $column->favorite = $like_e;
+        }
+        
 
         $results = array();
         foreach ($videos as $video) {
@@ -132,13 +165,13 @@ class MypageController extends Controller
 
         /*Pagination */
 
-        $currentPage = LengthAwarePaginator::resolveCurrentPage();
-        $itemCollection = collect($results);
-        $perPage = 6;
-        $currentPageItems = $itemCollection->slice(($currentPage * $perPage) - $perPage, $perPage)->all();
-        $paginatedItems = new LengthAwarePaginator($currentPageItems, count($itemCollection), $perPage);
-        $paginatedItems->setPath('search-category');
-        $results = $paginatedItems;
+        // $currentPage = LengthAwarePaginator::resolveCurrentPage();
+        // $itemCollection = collect($results);
+        // $perPage = 1000;
+        // $currentPageItems = $itemCollection->slice(($currentPage * $perPage) - $perPage, $perPage)->all();
+        // $paginatedItems = new LengthAwarePaginator($currentPageItems, count($itemCollection), $perPage);
+        // $paginatedItems->setPath('search-category');
+        // $results = $paginatedItems;
 
         return view('user.searchcategory', compact('categories', 'events', 'columns', 'results'));
     }
