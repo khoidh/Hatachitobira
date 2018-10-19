@@ -58,6 +58,7 @@
                             <li class="nav-item">
                                 <a class="nav-link" data-toggle="modal" data-target="#modal_login">ログイン</a>
                             </li>
+                            <li class="nav-item"><a class="nav-link link-append show-modal-register" style="display: none;margin: 0px;" href="{{url('my-page')}}">マイテーマを見つける</a></li>
                             @endif
                             @if(Auth::User())
                             <li class="nav-item">
@@ -74,6 +75,7 @@
                                     {{ csrf_field() }}
                                 </form>
                             </li>
+                            <li class="nav-item"><a class="nav-link link-append" style="display: none;margin: 0px;" href="{{url('my-page')}}">マイテーマを見つける</a></li>
                             @endif
                         </ul>
                     </div>
@@ -84,7 +86,7 @@
             <!--/.hd_right-->
         </div>
         <div class="hd_right">
-            <a class="btn_find" href="#">マイテーマを見つける</a>
+            <a class="btn_find {{Auth::Guest() ? 'show-modal-register' : ''}}" href="{{url('my-page')}}">マイテーマを見つける</a>
         </div>
         <!--/.bx_header-->
     </header>
@@ -139,10 +141,6 @@
             <div class="img-size">
                 <img src="{{ asset('image/top/image-slide-5.png') }}" class="img-detail">
             </div>
-            <!-- <img src="{{ asset('image/top/image-slide-2.png') }}" class="img-detail">
-            <img src="{{ asset('image/top/image-slide-3.png') }}" class="img-detail">
-            <img src="{{ asset('image/top/image-slide-4.png') }}" class="img-detail">
-            <img src="{{ asset('image/top/image-slide-5.png') }}" class="img-detail last"> -->
         </div>
         <div class="content top">
             <div class="container content-1">
@@ -173,8 +171,29 @@
                 <div class="container">
                     <p class="movie-top-title">Movie</p>
                     <p class="movie-top-description">コンセプトムービー</p>
-                    <div class="corner-wrapper">
-                        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/ObwNpMXlmPU" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen="allowfullscreen"></iframe>
+                    <div class="corner-wrapper video">
+                        <div class="video-list">
+                            <?php $counter = 0; ?>
+                            @foreach($results as $result)
+                                @if(isset($result->items[0]) && $counter == 0)
+                                <?php $counter++; ?>
+                                <div class="video-detail">
+                                    <div class="wrapper">
+                                        <div class="thump">
+                                            <div class="browse-details" data-id='{{$result->id}}' data-src='{{$result->items[0]->player->embedHtml}}'>
+                                                <img src="{{ asset('image/video/btn-play.png')}}" alt="" >
+                                            </div>
+                                            <a href="#">
+                                                <img class="img-icon" src="{{  $result->items[0]->snippet->thumbnails->medium->url}}" alt="">
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                @endif
+                            @endforeach
+                        </div>
+
+                        <!-- <iframe width="100%" height="100%" src="https://www.youtube.com/embed/ObwNpMXlmPU" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen="allowfullscreen"></iframe> -->
                     </div>
                 </div>
             </div>
@@ -250,17 +269,75 @@
                 <p class="movie-top-descroption">多様な仕事現場の働く1日に学生が密着した映像から、マイテーマの種をみつけよう</p>
                 <div class="col-md-10 video-detail row">
                     <div class="col-md-8">
-                        <div class="corner-wrapper movie-1">
-                            <iframe width="100%" height="270" left="0" src="https://www.youtube.com/embed/ObwNpMXlmPU" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen="allowfullscreen"></iframe>
+                        <div class="corner-wrapper video movie-1">
+                            <div class="video-list">
+                                <?php $counter = 0; ?>
+                                @foreach($results as $result)
+                                    @if(isset($result->items[0]) && $counter == 0)
+                                    <?php $counter++; ?>
+                                    <div class="video-detail">
+                                        <div class="wrapper">
+                                            <div class="thump">
+                                                <div class="browse-details" data-id='{{$result->id}}' data-src='{{$result->items[0]->player->embedHtml}}'>
+                                                    <img src="{{ asset('image/video/btn-play.png')}}" alt="" >
+                                                </div>
+                                                <a href="#">
+                                                    <img class="img-icon" src="{{  $result->items[0]->snippet->thumbnails->medium->url}}" alt="">
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    @endif
+                                @endforeach
+                            </div>
                         </div>
                     </div>
                     <div class="col-md-4 video-movie">
-                        <div class="corner-wrapper movie-2">
-                            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/ObwNpMXlmPU" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen="allowfullscreen"></iframe>
+                        <div class="corner-wrapper video movie-2">
+                            <div class="video-list">
+                                <?php $counter = 0; ?>
+                                @foreach($results as $result)
+                                    @if(isset($result->items[0]) && $counter == 0)
+                                    <?php $counter++; ?>
+                                    <div class="video-detail">
+                                        <div class="wrapper">
+                                            <div class="thump">
+                                                <div class="browse-details" data-id='{{$result->id}}' data-src='{{$result->items[0]->player->embedHtml}}'>
+                                                    <img src="{{ asset('image/video/btn-play.png')}}" alt="" >
+                                                </div>
+                                                <a href="#">
+                                                    <img class="img-icon" src="{{  $result->items[0]->snippet->thumbnails->medium->url}}" alt="">
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    @endif
+                                @endforeach
+                            </div>
                         </div>
-                        <div class="corner-wrapper movie-2">
-                            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/ObwNpMXlmPU" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen="allowfullscreen"></iframe>
+                        <div class="corner-wrapper video movie-2">
+                            <div class="video-list">
+                                <?php $counter = 0; ?>
+                                @foreach($results as $result)
+                                    @if(isset($result->items[0]) && $counter == 0)
+                                    <?php $counter++; ?>
+                                    <div class="video-detail">
+                                        <div class="wrapper">
+                                            <div class="thump">
+                                                <div class="browse-details" data-id='{{$result->id}}' data-src='{{$result->items[0]->player->embedHtml}}'>
+                                                    <img src="{{ asset('image/video/btn-play.png')}}" alt="" >
+                                                </div>
+                                                <a href="#">
+                                                    <img class="img-icon" src="{{  $result->items[0]->snippet->thumbnails->medium->url}}" alt="">
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    @endif
+                                @endforeach
+                            </div>
                         </div>
+                        
                     </div>
                 </div>
                 <a href="#">
@@ -275,17 +352,75 @@
                 <p class="movie-top-descroption">多様なロールモデルのマイテーマに沿った生き方から、マイテーマの種をみつけよう</p>
                 <div class="col-md-10 video-detail row">
                     <div class="col-md-8">
-                        <div class="corner-wrapper movie-1">
-                            <iframe width="100%" height="270" left="0" src="https://www.youtube.com/embed/ObwNpMXlmPU" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen="allowfullscreen"></iframe>
+                        <div class="corner-wrapper video movie-1">
+                            <div class="video-list">
+                                <?php $counter = 0; ?>
+                                @foreach($results as $result)
+                                    @if(isset($result->items[0]) && $counter == 0)
+                                    <?php $counter++; ?>
+                                    <div class="video-detail">
+                                        <div class="wrapper">
+                                            <div class="thump">
+                                                <div class="browse-details" data-id='{{$result->id}}' data-src='{{$result->items[0]->player->embedHtml}}'>
+                                                    <img src="{{ asset('image/video/btn-play.png')}}" alt="" >
+                                                </div>
+                                                <a href="#">
+                                                    <img class="img-icon" src="{{  $result->items[0]->snippet->thumbnails->medium->url}}" alt="">
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    @endif
+                                @endforeach
+                            </div>
                         </div>
                     </div>
                     <div class="col-md-4 video-movie">
-                        <div class="corner-wrapper movie-2">
-                            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/ObwNpMXlmPU" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen="allowfullscreen"></iframe>
+                        <div class="corner-wrapper video movie-2">
+                            <div class="video-list">
+                                <?php $counter = 0; ?>
+                                @foreach($results as $result)
+                                    @if(isset($result->items[0]) && $counter == 0)
+                                    <?php $counter++; ?>
+                                    <div class="video-detail">
+                                        <div class="wrapper">
+                                            <div class="thump">
+                                                <div class="browse-details" data-id='{{$result->id}}' data-src='{{$result->items[0]->player->embedHtml}}'>
+                                                    <img src="{{ asset('image/video/btn-play.png')}}" alt="" >
+                                                </div>
+                                                <a href="#">
+                                                    <img class="img-icon" src="{{  $result->items[0]->snippet->thumbnails->medium->url}}" alt="">
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    @endif
+                                @endforeach
+                            </div>
                         </div>
-                        <div class="corner-wrapper movie-2">
-                            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/ObwNpMXlmPU" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen="allowfullscreen"></iframe>
+                        <div class="corner-wrapper video movie-2">
+                            <div class="video-list">
+                                <?php $counter = 0; ?>
+                                @foreach($results as $result)
+                                    @if(isset($result->items[0]) && $counter == 0)
+                                    <?php $counter++; ?>
+                                    <div class="video-detail">
+                                        <div class="wrapper">
+                                            <div class="thump">
+                                                <div class="browse-details" data-id='{{$result->id}}' data-src='{{$result->items[0]->player->embedHtml}}'>
+                                                    <img src="{{ asset('image/video/btn-play.png')}}" alt="" >
+                                                </div>
+                                                <a href="#">
+                                                    <img class="img-icon" src="{{  $result->items[0]->snippet->thumbnails->medium->url}}" alt="">
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    @endif
+                                @endforeach
+                            </div>
                         </div>
+                        
                     </div>
                 </div>
                 <a href="{{ url('video') }}">
@@ -296,7 +431,50 @@
             <div class="container movie-top-4 content-2">
                 <div class="cb-path"></div>
                 <p class="movie-top-text">イベントに参加する</p>
-                <p class="movie-top-descroption">多様なロールモデルや同世代に出会い、普段のコミュニティでは話にくい"ちょっと真面目な対話"を通じて、マイテーマを考えてみよう</p>
+                <div class="event">
+                    <div class="article-list col-md-12">
+                            @forelse($events as $key => $event)
+                            <div class="article ">
+                                @php
+                                    $time_now = Carbon\Carbon::now();
+                                    $time_from = Carbon\Carbon::parse($event->time_from);
+                                    $time_to = Carbon\Carbon::parse($event->time_to);
+                                    $check=$time_now->between($time_from,$time_to);
+                                    if($check)
+                                    $column_state="申し込み受付中";
+                                    else
+                                    $column_state="受付終了";
+                                @endphp
+                                <div class="text-category last">
+                                    <p>{{$column_state}}</p>
+                                </div>
+                                <div class="article-content row">
+                                    <div class="content-left col-md-4">
+                                        <a href="{{route('event.show', $event->id)}}" style="text-decoration:none;">
+                                            @php $image='image/event/'.$event->image; @endphp
+                                            <img src="{{file_exists($image)?asset($image): asset('image/event/event_default.jpg')}}">
+                                        </a>
+                                    </div>
+                                    <div class="content-right col-md-8">
+                                        <div class="icon-favorite">
+                                            <i class="fa fa-heart-o {{ $event->favorite == 1 ? 'liked' : ''}}"  data-id='{{$event->id}}' data-user='{{Auth::user() ? Auth::user()->id : "" }}' style="font-size:24px;"></i>
+                                        </div>
+                                        <div class="title">{{$event->title}} <p>{{$event->category_name}}</p></div>
+                                        <div class="category" style="color: #636B6F; font-weight: bold">
+                                            <p>{{$event->category_name}}</p>
+                                        </div>
+                                        <div class="date" style="text-align: right">
+                                            <p>{{date('Y-m-d', strtotime($event->created_at))}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            @empty
+                            <p class="movie-top-descroption">多様なロールモデルや同世代に出会い、普段のコミュニティでは話にくい"ちょっと真面目な対話"を通じて、マイテーマを考えてみよう</p>
+                            @endforelse
+
+                    </div>
+                </div>
                 <a href="{{ url('event') }}">
                     <span class="more-detail ">MORE</span>
                     <img src="{{ asset('image/top/arrow-1.png') }}" >
@@ -317,10 +495,9 @@
                                         @php $image='image/column/'.$column->image; @endphp
                                         <img class="image" src="{{file_exists($image)?asset($image): asset('image/column/column_default.jpg')}}" alt="{{$image}}">
                                     </a>
-                                    <!-- <img src="{{ asset('image/top/img-event-1.png') }}" alt=""> -->
                                 </div>
                                 <div class="content">
-                                    <p class="clearfix icon-favorior"><a href="#"><i class="fa fa-heart-o" style="font-size: 24px;"></i></a></p>
+                                    <p class="clearfix icon-favorior"><i class="fa fa-heart-o {{ $column->favorite == 1 ? 'liked' : ''}}" data-id='{{$column->id}}' data-user='{{Auth::user() ? Auth::user()->id : "" }}' style="font-size:24px;"></i></p>
                                     <p class="text-title">{{$column->title}}</p>
                                     <p class="category-aa">&nbsp;&nbsp;{{$column->category_name}}</p>
                                     <p class="text-date">{{date('Y-m-d', strtotime($column->created_at))}}</p>
@@ -343,6 +520,17 @@
                 <button type="button" class="btn btn-dark">マイテーマを見つける</button>
             </div>
         </div>
+        <div id="modal_video" class="modal fade modal_register" role="dialog">
+            <div class="modal-dialog" style="margin-top:150px">
+                <div class="modal-content" style="width: 515px;border-radius: 13px;">
+                    <div class="modal-body" style="text-align:center">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <div class="panel-body">
+                        </div>
+                    </div>
+                </div>
+            </div>   
+        </div>
         @include('includes.footer')
         @include('includes.login') 
     </main>
@@ -364,10 +552,13 @@
                     header.classList.add("fixed");
                     $('.navbar.navbar-expand-lg.navbar-light').removeClass('flex-column');
                     $('.navbar-nav.mr-auto').removeClass('flex-column');
+                    $('.nav-link.link-append').css('display','block');
                 } else {
                     header.classList.remove("fixed");
+                    $('.bx_header .navbar-nav.mr-auto .link-a').remove();
                     $('.navbar.navbar-expand-lg.navbar-light').addClass('flex-column');
                     $('.navbar-nav.mr-auto').addClass('flex-column');
+                    $('.nav-link.link-append').css('display','none');
                 }
 
             }
@@ -385,7 +576,7 @@
             $('.bx_header .navbar-nav.mr-auto').css('align-items','flex-start');
             $('.bx_header .navbar-nav.mr-auto').css('font-weight','bold');
             $('.bx_header .nav-item').addClass('aaaafixed');
-            $('.banner.figure').append('<a class="link-my-page" href="{{url("my-page")}}">マイテーマを見つける</a>');
+            $('.banner.figure').append('<a class="link-my-page {{Auth::Guest() ? "show-modal-register" : ""}}" href="{{url("my-page")}}">マイテーマを見つける</a>');
 
 
             $('.dropdown').on('show.bs.dropdown', function() {
@@ -416,6 +607,124 @@
               });
            
         }
+        $(document).ready(function() {
+            $(document).on('click','.video .video-list .browse-details', function(e){
+                e.preventDefault();
+                var idvideo = $(this).data('id');
+                var src = $(this).data('src');
+                $('#modal_video .panel-body').html(src);
+                $('#modal_video').modal('show');
+            });
+
+            $(document).on('click','.content-last .icon-favorior .fa-heart-o', function(e) {
+                e.stopPropagation();
+                var idevent = $(this).data('id');
+                var user = $(this).data('user');
+                var _this = $(this);
+                if (user == '') {
+                    $html = '';
+                        $html +='<div class="form-group code-top">';
+                            $html +='<div class="col-md-5">';
+                            $html +='<p class="title-register">動画やイベント、あなたの興味のあるものを貯めて、マイテーマを作っていこう！</p>';
+                            $html +='</div>';
+                            $html +='<img src="{{ asset("image/picture1.png") }}">';
+                        $html +='</div>';
+                        $html +='<div class="form-group">';
+                                $html +='<span id="first-name-err" style="color:red;font-size:12px" ></span>';
+                            $html +='<div class="col-md-10 col-md-offset-1" style="text-align: left;">';
+                                $html +='<input class="input-checkbox"  type="checkbox" id="input-check-required">';
+                                $html +='<label class="lblcheckbox"><a class="link-redirect" href="/private-polisy">利用規約</a> と <a class="link-redirect" href="/private-polisy">プライバシーポリシー</a> に同意する </label>';
+                            $html +='</div>';
+                        $html +='</div>';
+                        $html +='<div class="form-group">';
+                            $html +='<div class="col-md-12">';
+                                $html +='<a href="{{ url("/auth/facebook") }}" class="btn btn-primary btn-register"> Facebookで登録</a>';
+                            $html +='</div>';
+                        $html +='</div>';
+                        $html +='<div class="form-group">';
+                            $html +='<div class="col-md-12">';
+                                $html +='<a href="#" class="btn btn-success btn-register btn-register-btn"> メールアドレスで登録</a>';
+                            $html +='</div>';
+                        $html +='</div>';
+                        $('#modal_register').find('.panel-body').html($html);
+                        $('#modal_register').modal('show');
+                }else {
+                    $.ajax({
+                        url : '{{route("column.favorite")}}',
+                        type: 'post',
+                        dataType: 'json',
+                        data: {
+                            column_id : idevent,
+                            user_id: user
+                        },
+                        success : function (result){
+                            if (result == 'ok') {
+                                _this.addClass('liked');
+                                _this.css('color','pink');
+                            }else {
+                                _this.removeClass('liked');
+                                _this.css('color','#c3c2c2');
+                            }
+                        }   
+                   })
+                }
+            })
+
+            $(document).on('click','.movie-top-4 .event .fa.fa-heart-o',function(e){
+                e.stopPropagation();
+                var idevent = $(this).data('id');
+                var user = $(this).data('user');
+                var _this = $(this);
+                if (user == '') {
+                    $html = '';
+                        $html +='<div class="form-group code-top">';
+                            $html +='<div class="col-md-5">';
+                            $html +='<p class="title-register">動画やイベント、あなたの興味のあるものを貯めて、マイテーマを作っていこう！</p>';
+                            $html +='</div>';
+                            $html +='<img src="{{ asset("image/picture1.png") }}">';
+                        $html +='</div>';
+                        $html +='<div class="form-group">';
+                                $html +='<span id="first-name-err" style="color:red;font-size:12px" ></span>';
+                            $html +='<div class="col-md-10 col-md-offset-1" style="text-align: left;">';
+                                $html +='<input class="input-checkbox"  type="checkbox" id="input-check-required">';
+                                $html +='<label class="lblcheckbox"><a class="link-redirect" href="/private-polisy">利用規約</a> と <a class="link-redirect" href="/private-polisy">プライバシーポリシー</a> に同意する </label>';
+                            $html +='</div>';
+                        $html +='</div>';
+                        $html +='<div class="form-group">';
+                            $html +='<div class="col-md-12">';
+                                $html +='<a href="{{ url("/auth/facebook") }}" class="btn btn-primary btn-register"> Facebookで登録</a>';
+                            $html +='</div>';
+                        $html +='</div>';
+                        $html +='<div class="form-group">';
+                            $html +='<div class="col-md-12">';
+                                $html +='<a href="#" class="btn btn-success btn-register btn-register-btn"> メールアドレスで登録</a>';
+                            $html +='</div>';
+                        $html +='</div>';
+                        $('#modal_register').find('.panel-body').html($html);
+                        $('#modal_register').modal('show');
+                }else {
+                    $.ajax({
+                        url : '{{route("event.favorite")}}',
+                        type: 'post',
+                        dataType: 'json',
+                        data: {
+                            video_id : idevent,
+                            user_id: user
+                        },
+                        success : function (result){
+                            if (result == 'ok') {
+                                _this.addClass('liked');
+                                _this.css('color','pink');
+                            }else {
+                                _this.removeClass('liked');
+                                _this.css('color','#d2cfcf');
+                            }
+                        }   
+                   })
+                }
+
+            })
+        })
     </script>
 </body>
 </html>

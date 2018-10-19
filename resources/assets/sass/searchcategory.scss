@@ -79,15 +79,15 @@
     text-align: center;
 }
 
-.article-list .text-category:before {
+.article-list .article:before {
     content: "";
-    width: 5004%;
+    width: 87%;
     height: 1px;
     background: #d4d2d2;
-    top: 15px;
+    top: 48px;
     left: 135px;
     position: absolute;
-    z-index: -2;
+    z-index: -1;
 }
 
 .article-list .text-category:after {
@@ -124,6 +124,10 @@
 
 .article-content .category {
     display: none;
+}
+
+.top .article-list .text-category {
+    margin-left: 0
 }
 
 @media (max-width: 426px) {
