@@ -134,6 +134,27 @@
     font-size: 42px;
 }
 
+.top .text-vertical.last span {
+    display: block;
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+    top: 0px;
+    position: relative;
+    left: -1px;
+    width: 44px;
+}
+
+.top .text-vertical-1.last span.vertical {
+    display: block;
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+    top: 0px;
+    position: relative;
+    left: -1px;
+    width: 44px;
+}
 .top .text-vertical-1.last span {
     background: $black-color;
     color: $white-color;
@@ -159,6 +180,7 @@
 
 .movie-image {
     margin-bottom: 12px;
+    margin-left: 25px;
     width: 100%;
     max-height: 173px;
     max-width: 173px;
@@ -170,6 +192,7 @@
     font-family: "Kozuka Gothic Pr6N";
     width: 96%;
     text-align: left;
+    font-weight: bold;
 }
 
 .cb-path-black {
@@ -419,6 +442,7 @@
 
 .top .content-last .icon img {
     border-radius: 14px;
+    max-height: 230px;
 }
 
 .top .content-last .icon-favorior {

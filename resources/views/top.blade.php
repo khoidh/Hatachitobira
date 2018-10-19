@@ -155,14 +155,14 @@
                     <div class="cb-path"></div>
                     
                     <div class="text-my-theme ">
-                        <p class="text-detail">ハタチのトビラとは？の説明が入ります。ハタチのトビラとは？の説明が入ります。ハタチのトビラとは？の説明が入ります。ハタチのトビラとは？の説明が入ります。ハタチのトビラとは？の説明が入ります。ハタチのトビラとは？の説明が入ります。ハタチのトビラとは？の説明が入ります。ハタチのトビラとは？の説明が入ります。ハタチのトビラとは？の説明が入ります。</p>
+                        <p class="text-detail">学校と社会をつなぐ"ハタチのトビラ"は、将来の選択肢に触れ、マイテーマを探すきっかけを提供します</p>
                     </div>
                     
                     <div class="cb-path last"></div>
                     
                     <div class="text-my-theme">
                         <p class="text_detail_title">WHAT IS マイテーマ</p>
-                        <p class="text-detail">説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります説明が入ります</p>
+                        <p class="text-detail">マイテーマとは、自分の興味と意志からつくられる「私が、探求したいこと」です。誰にでも見出せるマイテーマは、変化していくものでありながら、今と未来をより充実させるための行動指針となっていきます。</p>
                     </div>
                     
                     <div class="cb-path"></div>
@@ -206,7 +206,7 @@
             <div class="movie-top-3">
                 <div class="container">
                     <div class="content-tile-movie">
-                        <p class="text-vertical-1 last"><span>マイテーマ</span>の</p>
+                        <p class="text-vertical-1 last"><span>マイテ</span><span class="vertical">ー</span><span>マ</span>の</p>
                         <p class="text-vertical-1">探し方</p>
                     </div>
                     <div class="cb-path cb-path-black"></div>
@@ -308,49 +308,30 @@
                     <p class="movie-top-text">ハタチのトビラコラム</p>
                     <p class="movie-top-descroption">マイテーマをみつけるノウハウ、イベントレポート、アラハタ世代の活躍を発信していきます</p>
                     <div class="content-text">
-                        <div class="item">
-                            <div class="text-category">インタビュー</div>
+                        @forelse($columns as $key => $column)
+                        <div class="item {{$key > 0 ? 'second' : ''}}">
+                            <div class="text-category {{ $column->type == 1 ? 'last' : ''}}">{{ $column->type == 1 ?'コラム' :'インタビュー'}}</div>
                             <div class="wrapper">
                                 <div class="icon">
-                                    <img src="{{ asset('image/top/img-event-1.png') }}" alt="">
+                                    <a href="{{route('column.show', $column->id)}}" style="text-decoration:none;">
+                                        @php $image='image/column/'.$column->image; @endphp
+                                        <img class="image" src="{{file_exists($image)?asset($image): asset('image/column/column_default.jpg')}}" alt="{{$image}}">
+                                    </a>
+                                    <!-- <img src="{{ asset('image/top/img-event-1.png') }}" alt=""> -->
                                 </div>
                                 <div class="content">
                                     <p class="clearfix icon-favorior"><a href="#"><i class="fa fa-heart-o" style="font-size: 24px;"></i></a></p>
-                                    <p class="text-title">タイトルが入りますタイトルが入りますタイトルが入りますタイトルが入りますタイトルが入ります</p>
-                                    <p class="category-aa">#カテゴリ</p>
-                                    <p class="text-date">2018.3.20</p>
+                                    <p class="text-title">{{$column->title}}</p>
+                                    <p class="category-aa">&nbsp;&nbsp;{{$column->category_name}}</p>
+                                    <p class="text-date">{{date('Y-m-d', strtotime($column->created_at))}}</p>
                                 </div>
                             </div>
                         </div>
-
-                        <div class="item second">
-                            <div class="text-category last">コラム</div>
-                            <div class="wrapper">
-                                <div class="icon">
-                                    <img src="{{ asset('image/top/img-event-1.png') }}" alt="">
-                                </div>
-                                <div class="content">
-                                    <p class="clearfix icon-favorior"><a href="#"><i class="fa fa-heart-o" style="font-size: 24px;"></i></a></p>
-                                    <p class="text-title">タイトルが入りますタイトルが入りますタイトルが入りますタイトルが入りますタイトルが入ります</p>
-                                    <p class="category-aa">#カテゴリ</p>
-                                    <p class="text-date">2018.3.20</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item second">
-                            <div class="text-category">インタビュー</div>
-                            <div class="wrapper">
-                                <div class="icon">
-                                    <img src="{{ asset('image/top/img-event-1.png') }}" alt="">
-                                </div>
-                                <div class="content">
-                                    <p class="clearfix icon-favorior"><a href="#"><i class="fa fa-heart-o" style="font-size: 24px;"></i></a></p>
-                                    <p class="text-title">タイトルが入りますタイトルが入りますタイトルが入りますタイトルが入りますタイトルが入ります</p>
-                                    <p class="category-aa">#カテゴリ</p>
-                                    <p class="text-date">2018.3.20</p>
-                                </div>
-                            </div>
-                        </div>
+                        
+                        @empty
+                            <h4 class="data-not-found">Data not found</h4>
+                        @endforelse
+                        
                         <a href="{{ url('column') }}">
                             <span class="more-detail ">MORE</span>
                             <img src="{{ asset('image/top/arrow-1.png') }}" >
