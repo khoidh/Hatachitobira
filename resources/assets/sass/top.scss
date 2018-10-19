@@ -481,12 +481,9 @@ footer {
     font-size: 13px;
     font-family: "Kozuka Gothic Pr6N";
     line-height: 2;
-    margin-top: 50px;
+    margin-top: 100px;
 }
 
-.dropdown-toggle::after {
-    margin-left: 11.255em !important;
-}
 
 footer .border-footer {
     border-top: 1px solid #656464;
@@ -509,6 +506,8 @@ footer .icon-link {
 
 footer .text-bootom a {
     padding-left: 14px;
+    cursor: pointer;
+    text-decoration: none;
 }
 
 footer .text-bootom .a-link:after {
@@ -655,6 +654,11 @@ footer .footter-mobile .a-first{
         display: block;
         position: relative;
         top: 19px;
+    }
+
+
+    .dropdown-toggle::after {
+        margin-left: 11.255em !important;
     }
     
     footer .text-bootom {
