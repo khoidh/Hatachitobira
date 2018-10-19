@@ -63,9 +63,10 @@
     overflow: hidden;
     width: 100%;
     height: 490px;
-    border-radius: 24px;
+    border-radius: 15px;
     transform: translateZ(0px);
     border: 1px solid #fff;
+    top: 0;
 }
 
 .top .movie-top-2 {
@@ -134,6 +135,27 @@
     font-size: 42px;
 }
 
+.top .text-vertical.last span {
+    display: block;
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+    top: 0px;
+    position: relative;
+    left: -1px;
+    width: 44px;
+}
+
+.top .text-vertical-1.last span.vertical {
+    display: block;
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+    top: 0px;
+    position: relative;
+    left: -1px;
+    width: 44px;
+}
 .top .text-vertical-1.last span {
     background: $black-color;
     color: $white-color;
@@ -159,6 +181,7 @@
 
 .movie-image {
     margin-bottom: 12px;
+    margin-left: 25px;
     width: 100%;
     max-height: 173px;
     max-width: 173px;
@@ -170,6 +193,7 @@
     font-family: "Kozuka Gothic Pr6N";
     width: 96%;
     text-align: left;
+    font-weight: bold;
 }
 
 .cb-path-black {
@@ -227,7 +251,7 @@
     overflow: hidden;
     width: 100%;
     height: 270px;
-    border-radius: 24px;
+    border-radius: 15px;
     transform: translateZ(0px);
     border: 3px solid #eee;
 }
@@ -419,11 +443,13 @@
 
 .top .content-last .icon img {
     border-radius: 14px;
+    max-height: 230px;
 }
 
 .top .content-last .icon-favorior {
     text-align: right;
     color: #c3c2c2;
+    cursor: pointer;
 }
 
 .top .content-last .text-title {
@@ -650,6 +676,15 @@ footer .footter-mobile .a-first{
 }
 
 @media (max-width: 427px) {
+    .top .text-vertical-1.last span.vertical,
+    .top .text-vertical.last span {
+        display: unset;
+    }
+
+    .article-list .article:before {
+        width: 55% !important;
+    }
+
     .headder .nav.justify-content-end {
         display: block;
         position: relative;
@@ -1005,7 +1040,6 @@ footer .footter-mobile .a-first{
         top: 60px;
         left: 21px;
         font-weight: bold;
-        text-align: left;
         font-size: 13px;
         width: 102px;
     }
@@ -1124,7 +1158,6 @@ footer .footter-mobile .a-first{
     top: 60px;
     left: 40px;
     font-weight: bold;
-    text-align: left;
 }
 
 #modal_login .btn-register,

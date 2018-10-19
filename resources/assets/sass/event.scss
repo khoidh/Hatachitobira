@@ -35,9 +35,13 @@
   }
   .article-list{
     width:100%;
+    padding: 0;
     .article{
       width: 100%;
       padding-top: 32px;
+      position: relative;
+      -webkit-transform: translateZ(0);
+      transform: translateZ(0);
       img{
         width: 100%;
         height: auto;

@@ -36,10 +36,16 @@
 .video .thump .img-icon {
     width: 100%;
     border-radius: 13px;
+    height: 100%;
 }
 
 .video .thump {
     position: relative;
+    height: 100%
+}
+
+.top .video .video-detail .wrapper {
+    height: 100%
 }
 
 .video .browse-details {
@@ -122,6 +128,12 @@
 .video .pagination .page-item.active .page-link {
     background-color: #fff100;
     border: #fff100;
+}
+
+.top .video .video-detail,
+.top .video .video-list {
+    margin-top: 0;
+    height: 100%;
 }
 
 @media screen and (max-width: 600px) {
