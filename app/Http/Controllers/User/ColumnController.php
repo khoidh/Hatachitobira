@@ -82,8 +82,16 @@ class ColumnController extends Controller
             $favorite->favoritable_id = $request->column_id;
             $favorite->favoritable_type = (new Column())->getTable();
             $favorite->save();
+            return json_encode('ok');
         }
-        return "気に入っ成功";
+        else {
+             $favorite = Favorite::where('user_id', $request->user_id)
+            ->where('favoritable_id', $request->column_id)
+            ->where('favoritable_type', (new Column())->getTable())
+            ->delete();
+            return json_encode('notok');
+        }
+        
     }
 
 }

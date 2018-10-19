@@ -151,7 +151,6 @@
                             $html +='<a href="#" class="btn btn-success btn-register btn-register-btn"> メールアドレスで登録</a>';
                         $html +='</div>';
                     $html +='</div>';
-
                     $('#modal_register').find('.panel-body').html($html);
                     $('#modal_register').modal('show');
                 }else {

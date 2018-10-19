@@ -9,18 +9,15 @@
                     <form class="form-horizontal" id="form-login">
                         {{ csrf_field() }}
                         <div class="form-group">
-                            <label for="email" class="col-md-4 control-label">E-Mail Address</label>
-
-                            <div class="col-md-8">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
+                            <div class="col-md-12">
+                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus placeholder="Email Address">
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label for="password" class="col-md-4 control-label">Password</label>
 
-                            <div class="col-md-8">
-                                <input id="password" type="password" class="form-control" name="password" required>
+                            <div class="col-md-12">
+                                <input id="password" type="password" class="form-control" name="password" required placeholder="Password">
                             </div>
                         </div>
 
@@ -151,27 +148,23 @@
         $html = '<h4 style="border-bottom: 1px solid #ddd;padding-bottom: 11px;"> Register </h4>';
         $html += '<span class="error-register" style="color:red;font-size:16px;"></span>';
         $html += '<div class="form-group">';
-        $html +='<label for="name" class="col-md-4 control-label">Name</label>';
-        $html +='<div class="col-md-7">';
-        $html +='<input id="name" type="text" class="form-control" name="name" value="" required autofocus>';
+        $html +='<div class="col-md-12">';
+        $html +='<input id="name" type="text" class="form-control" name="name" value="" required autofocus placeholder="Name">';
         $html +='</div>';
         $html +=' </div>';
         $html +='<div class="form-group">';
-        $html +='<label for="email" class="col-md-4 control-label">E-Mail Address</label>';
-        $html +='<div class="col-md-7">';
-        $html +='<input id="email" type="email" class="form-control" name="email" value="" required>';
+        $html +='<div class="col-md-12">';
+        $html +='<input id="email" type="email" class="form-control" name="email" value="" required placeholder="Email Address">';
         $html +='</div>';
         $html +='</div>';
         $html +='<div class="form-group">';
-        $html +='<label for="password" class="col-md-4 control-label">Password</label>';
-        $html +='<div class="col-md-7">';
-        $html +='<input id="password" type="password" class="form-control" name="password" required>';
+        $html +='<div class="col-md-12">';
+        $html +='<input id="password" type="password" class="form-control" name="password" required placeholder="Password">';
         $html +='</div>';
         $html +='</div>';
         $html +='<div class="form-group">';
-        $html +='<label for="password-confirm" class="col-md-4 control-label">Confirm Password</label>';
-        $html +='<div class="col-md-7">';
-        $html +='<input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>';
+        $html +='<div class="col-md-12">';
+        $html +='<input id="password-confirm" type="password" class="form-control" name="password_confirmation" required placeholder="Password Confirm">';
         $html +='</div>';
         $html +='</div>';
         $html +='<div class="form-group">';

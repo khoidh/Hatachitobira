@@ -116,18 +116,24 @@ class EventController extends Controller
     public function favorite(Request $request)
     {
         $favorite = Favorite::where('user_id',$request->user_id)
-            ->where('favoritable_id',$request->event_id)
+            ->where('favoritable_id',$request->video_id)
             ->where('favoritable_type',(new Event())->getTable())
             ->exists();
         if(!$favorite)
         {
             $favorite = new Favorite();
             $favorite->user_id = $request->user_id;
-            $favorite->favoritable_id = $request->event_id;
+            $favorite->favoritable_id = $request->video_id;
             $favorite->favoritable_type = (new Event())->getTable();
             $favorite->save();
+            return json_encode("ok");
+        }else {
+            $favorite = Favorite::where('user_id',$request->user_id)
+            ->where('favoritable_id',$request->video_id)
+            ->where('favoritable_type',(new Event())->getTable())
+            ->delete();
+            return json_encode("notok");
         }
-        return "気に入っ成功";
     }
 
 }
