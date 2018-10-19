@@ -24,7 +24,7 @@
                             <ul>
                                 <li><a href="{{url('about')}}">ABOUT</a></li>
                                 <li><a href="{{url('/enquiry')}}">お問い合わせ</a></li>
-                                <li><a href="{{route('company-entrance')}}">運営会社</a></li>
+                                <li><a href="{{route('recruitment-staff')}}">運営会社</a></li>
                             </ul>
                         </div>
                         <div class="col-md-6">

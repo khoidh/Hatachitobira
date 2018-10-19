@@ -37,7 +37,7 @@
                                 <a class="nav-link show-modal-register" data-toggle="modal" data-target="#modal_register">新規登録</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{url('company-entrance')}}">企業採用担当の方</a>
+                                <a class="nav-link" href="{{url('recruitment-staff')}}">企業採用担当の方</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" data-toggle="modal" data-target="#modal_login">ログイン</a>
