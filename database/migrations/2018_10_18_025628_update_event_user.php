@@ -28,11 +28,6 @@ class UpdateEventUser extends Migration
      */
     public function down()
     {
-        Schema::table('events', function (Blueprint $table) {
-            // $table->dropColumn('time_from');     
-            // $table->dropColumn('started_at');
-            // $table->dropColumn('closed_at');
-            // $table->dropColumn('time_to');
-        });
+        
     }
 }
