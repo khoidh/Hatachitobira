@@ -1,52 +1,43 @@
 .home{
   .main{
     min-height: 175px;
-    margin-bottom: 60px;
+    margin-bottom: 30px;
     .title-lx{
       font-family: Oswald, sans-serif;
-      background: #fff100;
+      background: $yellow-color;
       color: #fffa9d;
       display: block;
-      font-size: 120px;
+      font-size: 120px !important;
       min-height: 175px;
       width: 100%;
       .container .relative{
         position: relative;
-        .info{
+        .info {
           margin-top: 50px;
           line-height: 95%;
 
           .title-e{
             margin-left: -5px;
-
           }
-          @include only-for-pc(){/* note: @content begins here */
-            .title-e{
-              margin-left: -5px;
-            }
-          }/* @content ends */
-
           .absolute{
             font-family: $font-family-sans-serif !important;
             font-size: 20px;
             position: absolute;
-            color: #111;
+            color: $black-color;
+
             bottom: -27px;
             font-weight: bold;
-            //color: white;
-            //bottom: -60px;
-            p{
-              //background: #000000;
+            p {
               font-size: 35px;
-              letter-spacing:10px;
+              letter-spacing: 10px;
               line-height: 120%;
             }
 
-            .title-j{
+            .title-j {
               display: inline-block;
-              background: #000000;
-              letter-spacing:10px;
-              color: white;
+              background: $black-color;
+              letter-spacing: 10px;
+              color: $white-color;
               line-height: 30px;
             }
           }
@@ -55,12 +46,6 @@
           }/* @content ends */
         }
       }
-    }
-  }
-  @include only-for-pc() { /* note: @content begins here */
-    .main {
-      min-height: 175px;
-      margin-bottom: 30px;
     }
   }
 }

@@ -1,10 +1,7 @@
 // Column ========================
 .column {
   @include standard-font();
-  font-family: Raleway,sans-serif;
-  padding-top: 10px;
 
-  //======== column list =========
   .article-list{
     width:100%;
     .article{
@@ -138,12 +135,14 @@
       @extend %shape-8;
     }
   }
+
   .txt{
     .txt_content{
       color: $text2-color;
       text-align: justify;
     }
   }
+
   .txt-btn{
     padding: 40px 0;
     button{
@@ -155,7 +154,11 @@
       background: $black-color;
       color: $white-color;
       font-weight: bold;
-      font-size: 24pt;
+
+      font-size: 20pt;
+      @include only-for-pc(){
+        font-size: 24pt;
+      }
       line-height: 40pt;
       cursor: pointer;
       //Đổ bóng phía dưới

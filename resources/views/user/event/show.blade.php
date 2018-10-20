@@ -4,7 +4,10 @@
     @parent
 @endsection
 @section('title-e', 'Event')
-@section('title-j', 'イベント')
+@section('title-j', 'イベントに参加する')
+@section('main')
+    @parent
+@endsection
 @section('content')
     <div class="container event">
         <div class="row">

@@ -1,14 +1,10 @@
 @extends('layouts.app')
 
 @section('css-add')
-    @parent
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
+    @parent
     <style type="text/css">
         .my-active span{
-            /*background-color: #5cb85c !important;*/
-            /*color: white !important;*/
-            /*border-color: #5cb85c !important;*/
             background-color: yellow !important;
             color: black !important;
             border-color: yellow !important;
@@ -81,7 +77,6 @@
                                 </div>
                                 <span class="title">{{$column->title}}</span>
                                 <span class="category">&nbsp;&nbsp;{{$column->category_name}}</span>
-                                {{--<span class="category">#カテゴリ </span>--}}
                                 <div class="date" >
                                     <p>{{date('Y-m-d', strtotime($column->created_at))}}</p>
                                 </div>
