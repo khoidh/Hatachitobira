@@ -2,12 +2,31 @@
 
 @section('title-e', 'Category Search')
 @section('title-j', 'カテゴリー検索')
+@section('main')
+    <div class="container-fluid searchcategory">
+        <div class="main row">
+            <div class="title-lx">
+                <div class="container">
+                    <div class="relative row">
+                        <div class="info col-md-12">
+                            <span class="title-e">@yield('title-e','Title')</span>
+                            <div class="absolute">
+                                <p style="margin-bottom: 0">@yield('title-black')</p>
+                                <p style="margin-bottom: 0"><span class="title-j"> @yield('title-j','タートル')</span>@yield('title-blackspan')</p>
 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+@endsection
 @section('content')
 <?php 
     $search = isset($_GET['search']) && $_GET['search'] != '' ? $_GET['search'] : 0;
  ?>
-<div class="row-category">
+<div class="row-category searchcategory">
     <div class="select-search">
         <select class="select-box search" name="select-category">
             <option value="0">Category</option>

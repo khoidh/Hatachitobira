@@ -42,10 +42,11 @@
     </style>
 @endsection
 @section('content')
-    {{--<div class="container enquiry">--}}
+    <div class="container about">
         <div class="row">
-            <h3>ABOUT「ハタチのトビラ」</h3>
             <div class="container">
+                <h3>ABOUT「ハタチのトビラ」</h3>
+
                 <section id="about_us">
                     <div class="inside">
                         <div class="section-title show">
@@ -85,7 +86,6 @@
                     </div>
                 </section>
             </div>
-
         </div>
-    {{--</div>--}}
+    </div>
 @endsection

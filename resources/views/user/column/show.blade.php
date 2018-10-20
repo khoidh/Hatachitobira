@@ -24,11 +24,6 @@
                 <div class="txt_content">
                     {!! $column->content !!}
                 </div>
-                {{--<div class="txt-btn row">--}}
-                    {{--<div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3">--}}
-                        {{--<button type="button" class="btn btn-primary btn-lg btn-block">マイテーマを見つける</button>--}}
-                    {{--</div>--}}
-                {{--</div>--}}
             </div>
         </div>
         <div class="row justify-content-center txt-btn">

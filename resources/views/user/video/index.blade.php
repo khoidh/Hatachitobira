@@ -1,9 +1,29 @@
 @extends('layouts.app')
-@section('title-e', 'My Theme')
+@section('title-e', 'My theme')
 @section('title-black', '動画から将来の選択肢を知って')
 @section('title-blackspan', 'の種をみつけよう')
-@section('title-j')
-マイテーマ
+@section('title-j','マイテーマ')
+@section('main')
+    <div class="container-fluid video">
+        <div class="main row">
+            <div class="title-lx">
+                <div class="container">
+                    <div class="relative row">
+                        <div class="info col-md-12">
+                            <div class="title-e">@yield('title-e','Title')</div>
+                            <div class="absolute">
+                                <p style="margin-bottom: 0"><b>@yield('title-black')</b></p>
+                                <p style="margin-bottom: 0"><span
+                                            class="title-j"> @yield('title-j','タートル')</span><b>@yield('title-blackspan')</b>
+                                </p>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection
 @section('content')
     <div class="container video">
