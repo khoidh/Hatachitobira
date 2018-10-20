@@ -483,7 +483,7 @@
     padding-bottom: 60px;
 }
 
-.top .button-link button {
+.top .button-link .btn.btn-dark {
     padding: 26px 115px;
     border-radius: 45px;
     font-size: 24px;
@@ -491,6 +491,8 @@
     box-shadow: 5px 5px 12px 0px #fff100;
     -moz-box-shadow: 5px 5px 12px 0px #fff100;
     -webkit-box-shadow: 0px 4px 0px 0px #fff100;
+    cursor: pointer;
+    text-decoration: none;
 }
 
 .dropdown-divider {
@@ -1005,7 +1007,7 @@ footer .footter-mobile .a-first{
         margin-top: 50px;
     }
 
-    .top .button-link button {
+    .top .button-link .btn.btn-dark {
         padding: 10px;
         margin-bottom: 40px;
         font-size: 16px;

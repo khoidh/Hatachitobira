@@ -517,7 +517,11 @@
                 </div>
             </div>
             <div class="container button-link">
-                <button type="button" class="btn btn-dark">マイテーマを見つける</button>
+                @if(Auth::Guest())
+                <a type="button" class="btn btn-dark show-modal-register">マイテーマを見つける</a>
+                @else
+                <a type="button" href="{{url('my-page')" class="btn btn-dark ">マイテーマを見つける</a>
+                @endif
             </div>
         </div>
         <div id="modal_video" class="modal fade modal_register" role="dialog">
