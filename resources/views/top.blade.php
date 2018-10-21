@@ -520,7 +520,7 @@
                 @if(Auth::Guest())
                 <a type="button" class="btn btn-dark show-modal-register">マイテーマを見つける</a>
                 @else
-                <a type="button" href="{{url('my-page')" class="btn btn-dark ">マイテーマを見つける</a>
+                <a type="button" href="{{url('my-page')}}" class="btn btn-dark ">マイテーマを見つける</a>
                 @endif
             </div>
         </div>
