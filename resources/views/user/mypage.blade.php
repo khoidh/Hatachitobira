@@ -208,7 +208,7 @@
                     <i class="fa fa-arrow-circle-o-right"></i>
                 </span>
                 <div class="article">
-                    @php
+                    <?php
                         $column= $columns[0]; //temp
 
                         $column_state="インタビュー";
@@ -216,7 +216,7 @@
                             $column_state = "コラム";
                         else
                             $column_state = "インタビュー";
-                    @endphp
+                    ?>
                     <div class="article-status">
                         <hr class="shape-8"/>
                         <img
@@ -232,7 +232,7 @@
                     <div class="article-content row">
                         <div class="content-left col-md-4">
                             <a href="{{route('column.show', $column->id)}}" style="text-decoration:none;">
-                                @php $image='image/column/'.$column->image; @endphp
+                                <?php $image='image/column/'.$column->image; ?>
                                 <img class="image" src="{{file_exists($image)?asset($image): asset('image/column/column_default.jpg')}}" alt="{{$image}}">
                             </a>
                         </div>
