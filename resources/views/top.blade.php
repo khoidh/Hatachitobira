@@ -53,7 +53,7 @@
                                 <a class="nav-link show-modal-register" data-toggle="modal" data-target="#modal_register">新規登録</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{url('company-entrance')}}">企業採用担当の方</a>
+                                <a class="nav-link" href="{{url('recruitment-staff')}}">企業採用担当の方</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" data-toggle="modal" data-target="#modal_login">ログイン</a>
@@ -75,7 +75,6 @@
                                     {{ csrf_field() }}
                                 </form>
                             </li>
-                            <li class="nav-item"><a class="nav-link link-append" style="display: none;margin: 0px;" href="{{url('my-page')}}">マイテーマを見つける</a></li>
                             @endif
                         </ul>
                     </div>
@@ -174,7 +173,7 @@
                     <div class="corner-wrapper video">
                         <div class="video-list">
                             <?php $counter = 0; ?>
-                            @foreach($results as $result)
+                            @foreach($results_1 as $result)
                                 @if(isset($result->items[0]) && $counter == 0)
                                 <?php $counter++; ?>
                                 <div class="video-detail">
@@ -272,7 +271,7 @@
                         <div class="corner-wrapper video movie-1">
                             <div class="video-list">
                                 <?php $counter = 0; ?>
-                                @foreach($results as $result)
+                                @foreach($results_1 as $result)
                                     @if(isset($result->items[0]) && $counter == 0)
                                     <?php $counter++; ?>
                                     <div class="video-detail">
@@ -296,7 +295,7 @@
                         <div class="corner-wrapper video movie-2">
                             <div class="video-list">
                                 <?php $counter = 0; ?>
-                                @foreach($results as $result)
+                                @foreach($results_1 as $result)
                                     @if(isset($result->items[0]) && $counter == 0)
                                     <?php $counter++; ?>
                                     <div class="video-detail">
@@ -318,7 +317,7 @@
                         <div class="corner-wrapper video movie-2">
                             <div class="video-list">
                                 <?php $counter = 0; ?>
-                                @foreach($results as $result)
+                                @foreach($results_1 as $result)
                                     @if(isset($result->items[0]) && $counter == 0)
                                     <?php $counter++; ?>
                                     <div class="video-detail">
@@ -340,7 +339,7 @@
                         
                     </div>
                 </div>
-                <a href="#">
+                <a href="{{url('video')}}">
                     <span class="more-detail ">MORE</span>
                     <img src="{{ asset('image/top/arrow-1.png') }}" >
                 </a>
@@ -355,7 +354,7 @@
                         <div class="corner-wrapper video movie-1">
                             <div class="video-list">
                                 <?php $counter = 0; ?>
-                                @foreach($results as $result)
+                                @foreach($results_2 as $result)
                                     @if(isset($result->items[0]) && $counter == 0)
                                     <?php $counter++; ?>
                                     <div class="video-detail">
@@ -379,7 +378,7 @@
                         <div class="corner-wrapper video movie-2">
                             <div class="video-list">
                                 <?php $counter = 0; ?>
-                                @foreach($results as $result)
+                                @foreach($results_2 as $result)
                                     @if(isset($result->items[0]) && $counter == 0)
                                     <?php $counter++; ?>
                                     <div class="video-detail">
@@ -401,7 +400,7 @@
                         <div class="corner-wrapper video movie-2">
                             <div class="video-list">
                                 <?php $counter = 0; ?>
-                                @foreach($results as $result)
+                                @foreach($results_2 as $result)
                                     @if(isset($result->items[0]) && $counter == 0)
                                     <?php $counter++; ?>
                                     <div class="video-detail">
@@ -432,48 +431,8 @@
                 <div class="cb-path"></div>
                 <p class="movie-top-text">イベントに参加する</p>
                 <div class="event">
-                    <div class="article-list col-md-12">
-                            @forelse($events as $key => $event)
-                            <div class="article ">
-                                @php
-                                    $time_now = Carbon\Carbon::now();
-                                    $time_from = Carbon\Carbon::parse($event->time_from);
-                                    $time_to = Carbon\Carbon::parse($event->time_to);
-                                    $check=$time_now->between($time_from,$time_to);
-                                    if($check)
-                                    $column_state="申し込み受付中";
-                                    else
-                                    $column_state="受付終了";
-                                @endphp
-                                <div class="text-category last">
-                                    <p>{{$column_state}}</p>
-                                </div>
-                                <div class="article-content row">
-                                    <div class="content-left col-md-4">
-                                        <a href="{{route('event.show', $event->id)}}" style="text-decoration:none;">
-                                            @php $image='image/event/'.$event->image; @endphp
-                                            <img src="{{file_exists($image)?asset($image): asset('image/event/event_default.jpg')}}">
-                                        </a>
-                                    </div>
-                                    <div class="content-right col-md-8">
-                                        <div class="icon-favorite">
-                                            <i class="fa fa-heart-o {{ $event->favorite == 1 ? 'liked' : ''}}"  data-id='{{$event->id}}' data-user='{{Auth::user() ? Auth::user()->id : "" }}' style="font-size:24px;"></i>
-                                        </div>
-                                        <div class="title">{{$event->title}} <p>{{$event->category_name}}</p></div>
-                                        <div class="category" style="color: #636B6F; font-weight: bold">
-                                            <p>{{$event->category_name}}</p>
-                                        </div>
-                                        <div class="date" style="text-align: right">
-                                            <p>{{date('Y-m-d', strtotime($event->created_at))}}</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            @empty
-                            <p class="movie-top-descroption">多様なロールモデルや同世代に出会い、普段のコミュニティでは話にくい"ちょっと真面目な対話"を通じて、マイテーマを考えてみよう</p>
-                            @endforelse
-
-                    </div>
+                    <p class="movie-top-descroption">多様なロールモデルや同世代に出会い、普段のコミュニティでは話にくい"ちょっと真面目な対話"を通じて、マイテーマを考えてみよう</p>
+                            
                 </div>
                 <a href="{{ url('event') }}">
                     <span class="more-detail ">MORE</span>
@@ -517,11 +476,7 @@
                 </div>
             </div>
             <div class="container button-link">
-                @if(Auth::Guest())
-                <a type="button" class="btn btn-dark show-modal-register">マイテーマを見つける</a>
-                @else
-                <a type="button" href="{{url('my-page')}}" class="btn btn-dark ">マイテーマを見つける</a>
-                @endif
+                <a class="link-my-page {{Auth::Guest() ? "show-modal-register" : ""}}" href="{{url("my-page")}}">マイテーマを見つける</a>
             </div>
         </div>
         <div id="modal_video" class="modal fade modal_register" role="dialog">

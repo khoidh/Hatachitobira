@@ -7,6 +7,7 @@ use App\Video;
 use App\Category;
 use App\Column;
 use App\Favorite;
+use DateTime;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -98,15 +99,16 @@ class MypageController extends Controller
             ->join('categories', 'categories.id', '=', 'videos.category_id');
             
 
-        if (isset($_GET['search'])) {
+        if (isset($_GET['search']) && $_GET['search'] != 0) {
             $categories_id = $_GET['search'];
             $events = $events->where('events.category_id', '=', $categories_id);
             $columns = $columns->where('columns.category_id', '=', $categories_id);
             $videos = $videos->where('videos.category_id', '=', $categories_id);
         } 
-        $events = $events->get();
-        $columns = $columns->get();
-        $videos = $videos->get();
+
+        $events = $events->orderBy('id','desc')->get();
+        $columns = $columns->orderBy('id','desc')->get();
+        $videos = $videos->orderBy('id','desc')->get();
         
         foreach ($events as $key => $event) {
             $like_e = 0;
@@ -136,7 +138,6 @@ class MypageController extends Controller
 
             $column->favorite = $like_e;
         }
-        
 
         $results = array();
         foreach ($videos as $video) {
@@ -145,6 +146,7 @@ class MypageController extends Controller
             $id = $youtube['v'];
             $api_url = $BASE_URL . $id . $BASE_PART . $api_key . '';
             $result = json_decode(file_get_contents($api_url));
+            
             $result->id = $video->id;
             $result->category = $video->category_name;
 
@@ -159,10 +161,14 @@ class MypageController extends Controller
                 }
             }
             $result->favorite = $like;
-
-            array_push($results, $result);
+            if (isset($result->items[0])) {
+                $date1 = new DateTime();
+                $date2 = new DateTime($result->items[0]->snippet->publishedAt);
+                $interval = $date2->diff($date1);
+                $result->date_diff = $interval->m;
+                array_push($results, $result);
+            }
         }
-
         /*Pagination */
 
         // $currentPage = LengthAwarePaginator::resolveCurrentPage();
