@@ -24,10 +24,9 @@
                                 <div class="row">
                                     <div class="col-sm-6 category_id">
                                         <select name="category_id" class="form-control" required="true" autofocus tabindex=1>
-                                            <option selected>カテゴリ</option>
-                                            @foreach($categories as $category)
-                                            <option value="{{$category->id}}">{{$category->name}}</option>
-                                            @endforeach
+                                            <option selected disabled>カテゴリ</option>
+                                            <option value="1">企業</option>
+                                            <option value="0">その他</option>
                                         </select>
                                     </div>
                                     <div class="col-sm-12">
