@@ -207,7 +207,8 @@
                 password_confirmation: repassword
             },
             success : function (result){
-                if(result=='true'){
+                console.log(result.success)
+                if(result.success=='true'){
                     $html = '<div class ="form-register-last">'
                     $html += '<div class="form-group">';
                     $html +='<h3>会員登録が完了しました!</h3>';
@@ -237,7 +238,6 @@
                     $.each(result, function(key, value){
                         texxt = texxt + '<p>'+value+'</p>';
                     });
-                    console.log(texxt);
                     $('.error-register').html(texxt);
                 }
             }

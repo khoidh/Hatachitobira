@@ -21,7 +21,7 @@ class MypageController extends Controller
 //        $user_id = Auth::user()->id;
 
         /* Get category list */
-        $categories = Category::all();
+        $categories = Category::where('display',1)->get();
 
         /* Get video faverite list */
         $videos = Video::select()->paginate(6);
@@ -83,7 +83,7 @@ class MypageController extends Controller
         $BASE_URL = 'https://www.googleapis.com/youtube/v3/videos?id=';
         $BASE_PART = '&part=id,contentDetails,snippet,statistics,player&key=';
 
-        $categories = Category::all();
+        $categories = Category::where('display',1)->get();
 
         $events = Event::select()
             ->select('events.*', 'categories.name as category_name')
