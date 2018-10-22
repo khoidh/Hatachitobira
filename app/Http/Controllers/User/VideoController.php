@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 Use App\Video;
 Use App\Category;
+Use DateTime;
 use Illuminate\Pagination\LengthAwarePaginator;
 use App\Favorite;
 use Illuminate\Support\Facades\Auth;
@@ -27,10 +28,11 @@ class VideoController extends Controller
         $BASE_PART = '&part=id,contentDetails,snippet,statistics,player&key=';
         $BASE_URL = 'https://www.googleapis.com/youtube/v3/videos?id=';
         
-        $categories = Category::all();
+        $categories = Category::where('display',1)->get();
         $videos = Video::select()
             ->select('videos.*','categories.name as category_name')
-            ->join('categories','categories.id','=','videos.category_id');
+            ->join('categories','categories.id','=','videos.category_id')
+            ->orderBy('id','desc');
 
         /*Filter*/
         if($request->isMethod('post'))
@@ -72,7 +74,13 @@ class VideoController extends Controller
                 }
             }
             $result->favorite = $like;
-            array_push($results,$result);
+            if (isset($result->items[0])) {
+                $date1 = new DateTime();
+                $date2 = new DateTime($result->items[0]->snippet->publishedAt);
+                $interval = $date2->diff($date1);
+                $result->date_diff = $interval->m;
+                array_push($results,$result);
+            }
         }
        
         /*Pagination */
@@ -98,11 +106,17 @@ class VideoController extends Controller
         $BASE_PART = '&part=id,contentDetails,snippet,statistics,player&key=';
         $BASE_URL = 'https://www.googleapis.com/youtube/v3/videos?id=';
         
-        $categories = Category::all();
+        $categories = Category::where('display',1)->get();
         $videos = Video::select()
             ->select('videos.*','categories.name as category_name')
-            ->join('categories','categories.id','=','videos.category_id')
-            ->where('category_id',$data['category'])->get();
+            ->join('categories','categories.id','=','videos.category_id');
+
+        if (isset($data['category']) && $data['category'] != 0) {
+            $videos =$videos->where('category_id',$data['category']);
+        }
+
+        $videos =$videos->orderBy('id','desc')->get();
+
         /*End filter*/
         $results = array();
         foreach ($videos as $video)
@@ -125,7 +139,13 @@ class VideoController extends Controller
                 }
             }
             $result->favorite = $like;
-            array_push($results,$result);
+            if (isset($result->items[0])) {
+                $date1 = new DateTime();
+                $date2 = new DateTime($result->items[0]->snippet->publishedAt);
+                $interval = $date2->diff($date1);
+                $result->date_diff = $interval->m;
+                array_push($results,$result);
+            }
         }
 
         /*Pagination */
@@ -186,7 +206,13 @@ class VideoController extends Controller
                 }
             }
             $result->favorite = $like;
-            array_push($results,$result);
+            if (isset($result->items[0])) {
+                $date1 = new DateTime();
+                $date2 = new DateTime($result->items[0]->snippet->publishedAt);
+                $interval = $date2->diff($date1);
+                $result->date_diff = $interval->m;
+                array_push($results,$result);
+            }
         }
        
         /*Pagination */

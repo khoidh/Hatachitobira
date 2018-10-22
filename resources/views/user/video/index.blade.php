@@ -68,7 +68,7 @@
                                 ?>
                             </p>
                             <span>{{$result->items[0]->statistics->viewCount}} Views /</span>
-                            <span>7 month ago /</span>
+                            <span>{{ $result->date_diff }} month ago /</span>
                             <span>{{$result->category}}</span>
                         </div>
                     </div>
@@ -118,8 +118,6 @@
                 e.preventDefault();
                 var text = $(this).val();
                 var id = $('#category_id').val();
-                console.log(text);
-                console.log(id);
                 $.ajax({
                     url : '{{url("video-search-text?category_id=")}}'+ id +'&page=1&description='+text
                 }).done(function(data){
@@ -132,8 +130,6 @@
                 var text = $('.search-container input').val();
                 var id = $('#category_id').val();
                 var page = $(this).attr('href').split('page=')[1];
-                console.log(text);
-                console.log(id);
                 $.ajax({
                     url : '{{url("video-search-text?category_id=")}}'+ id +'&page='+page+'&description='+text
                 }).done(function(data){

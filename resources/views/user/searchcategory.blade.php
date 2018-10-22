@@ -29,7 +29,7 @@
 <div class="row-category searchcategory">
     <div class="select-search">
         <select class="select-box search" name="select-category">
-            <option value="0" disabled>Category</option>
+            <option value="0">Category</option>
             @foreach($categories as $categorie )
             <option value="{{$categorie->id}}" {{$categorie->id== $search ? 'selected' : '' }}>{{$categorie->name}}</option>
             @endforeach
@@ -69,10 +69,10 @@
                                 </div>
                                 <div class="article-content row">
                                     <div class="content-left col-md-4">
-                                        <a href="{{route('event.show', $column->id)}}" style="text-decoration:none;">
+                                        <a href="{{route('column.show', $column->id)}}" style="text-decoration:none;">
                                             
-                                            @php $image='image/event/'.$column->image; @endphp
-                                            <img src="{{file_exists($image)?asset($image): asset('image/event/event_default.jpg')}}">
+                                            @php $image='image/column/'.$column->image; @endphp
+                                            <img src="{{file_exists($image)?asset($image): asset('image/column/event_default.jpg')}}">
                                         </a>
                                     </div>
                                     <div class="content-right col-md-8">

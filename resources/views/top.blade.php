@@ -230,7 +230,7 @@
                     <div class="cb-path cb-path-black"></div>
                     <div class="content-row">
                         <div class="col-md-12">
-                            <p class="text-title-3">私の興味からヒントを得る</p>
+                            <p class="text-title-3">自分の興味から探す</p>
                         </div>
                         <div class="row">
                             <div class="col-md-3 img-cat-sp">
@@ -296,7 +296,7 @@
                             <div class="video-list">
                                 <?php $counter = 0; ?>
                                 @foreach($results_1 as $result)
-                                    @if(isset($result->items[0]) && $counter == 0)
+                                    @if(isset($result->items[0]) && $counter == 1)
                                     <?php $counter++; ?>
                                     <div class="video-detail">
                                         <div class="wrapper">
@@ -318,7 +318,7 @@
                             <div class="video-list">
                                 <?php $counter = 0; ?>
                                 @foreach($results_1 as $result)
-                                    @if(isset($result->items[0]) && $counter == 0)
+                                    @if(isset($result->items[0]) && $counter == 2)
                                     <?php $counter++; ?>
                                     <div class="video-detail">
                                         <div class="wrapper">
@@ -379,7 +379,7 @@
                             <div class="video-list">
                                 <?php $counter = 0; ?>
                                 @foreach($results_2 as $result)
-                                    @if(isset($result->items[0]) && $counter == 0)
+                                    @if(isset($result->items[0]) && $counter == 1)
                                     <?php $counter++; ?>
                                     <div class="video-detail">
                                         <div class="wrapper">
@@ -401,7 +401,7 @@
                             <div class="video-list">
                                 <?php $counter = 0; ?>
                                 @foreach($results_2 as $result)
-                                    @if(isset($result->items[0]) && $counter == 0)
+                                    @if(isset($result->items[0]) && $counter == 2)
                                     <?php $counter++; ?>
                                     <div class="video-detail">
                                         <div class="wrapper">
