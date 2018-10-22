@@ -70,25 +70,28 @@ class RegisterController extends Controller
         $data = $request->all();
         $result = array();
         $users = User::where('email',$data['email'])->first();
-        $validator = $request->validate([
+        $validation = Validator::make( $request->all(), [
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
         ]);
+        if ( $validation->fails() ) {
+            return $validation->messages();
+        }else {
+            $user = User::create([
+                'name' => $data['name'],
+                'email' => $data['email'],
+                'password' => bcrypt($data['password']),
+                'verifyToken' => Str::random(40),
+            ]);
 
-        $user = User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => bcrypt($data['password']),
-            'verifyToken' => Str::random(40),
-        ]);
-
-        $thisUser = User::findOrFail($user->id);
-        Auth::login($thisUser, true);
-        $this->sendEmail($thisUser);
-        return response()->json([
-            'success' => 'true '
-        ]);
+            $thisUser = User::findOrFail($user->id);
+            Auth::login($thisUser, true);
+            $this->sendEmail($thisUser);
+            return response()->json([
+                'success' => 'true '
+            ]);
+        }
     }
 
     public function sendEmail($thisUser)

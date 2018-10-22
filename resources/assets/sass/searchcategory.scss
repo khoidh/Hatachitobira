@@ -4,6 +4,9 @@
   .main{
     min-height: 175px;
     margin-bottom: 30px;
+    @include only-for-mobile(){
+        min-height: 75px;
+      }
     .title-lx{
       font-family: Oswald, sans-serif;
       background: #fff100;
@@ -12,12 +15,20 @@
       font-size: 120px !important;
       min-height: 175px;
       width: 100%;
+      z-index: 111;
+      height: 100%;
+      @include only-for-mobile(){
+        min-height: 75px;
+      }
       .container .relative{
         position: relative;
         .info {
           margin-top: 50px;
           line-height: 95%;
-
+            @include only-for-mobile(){
+                margin-top: 0;
+                line-height: 1.5;
+              }
           .title-e{
             margin-left: -5px;
           }
@@ -89,27 +100,59 @@
   width: 100%;
 }
 
+
 .row-category {
   width: 100%;
   text-align: center;
-  //position: relative;
-  //top: -30px;
+  position: relative;
+  top: -30px;
   background-color: #f3f3f3;
   padding: 46px;
   z-index: 0;
 }
 
-.absolute-2 {
-  position: relative;
-  z-index: 2;
+ .carousel.multi-item-carousel .carousel-inner .carousel-item-right.active,
+ .carousel.multi-item-carousel .carousel-inner .carousel-item-next {
+  transform: translateX(100%);
+}
+
+ .carousel.multi-item-carousel .carousel-inner .carousel-item-left.active, 
+ .carousel.multi-item-carousel .carousel-inner .carousel-item-prev {
+  transform: translateX(-100%)
+}
+  
+ .carousel.multi-item-carousel .carousel-inner .carousel-item-right,
+ .carousel.multi-item-carousel .carousel-inner .carousel-item-left{ 
+  transform: translateX(0);
+}
+
+
+.carousel.multi-item-carousel .carousel-inner .carousel-item.active,
+.carousel.multi-item-carousel .carousel-inner .carousel-item-next,
+.carousel.multi-item-carousel .carousel-inner .carousel-item-prev {
+  display: flex;
+}
+
+.carousel.multi-item-carousel .video-detail.carousel-item .wrapper{
+    width: 33.33%;
+    margin-right: 5px;
+}
+
+.carousel.multi-item-carousel .video-detail.carousel-item .wrapper .thump {
+    height: 200px;
 }
 
 .carousel-control-prev, .carousel-control-next {
-  top: 0 !important;
+  top: -22px !important;
 }
 
 .video-search .carousel-control-prev, .video-search .carousel-control-next {
   top: -20px !important;
+}
+
+
+.searchcategory .video .description p {
+    min-height: 49px;
 }
 
 .column-search.event,
@@ -139,15 +182,61 @@
   text-align: center;
 }
 
-.article-list .article:before {
-  content: "";
-  width: 87%;
-  height: 1px;
-  background: #d4d2d2;
-  top: 48px;
-  left: 135px;
-  position: absolute;
-  z-index: -1;
+
+.searchcategory{
+    .article-status{
+        span {
+            position: absolute;
+            max-height: 22px;
+            max-width: 101px;
+            color: #fff;
+            font-size: 13px;
+            top: -5px
+        }
+        hr {
+            margin: 8px 0 16px !important;
+            height: 0px !important;
+            background-color: #DCDCDC !important;
+            width: 100%;
+            size: 30px;
+            padding-top: 1px;
+        }
+        img {
+                position: absolute;
+            max-height: 24px;
+            max-width: 101px;
+            top: 0;
+        }
+
+        img.events {
+            top: -8px;
+        }
+
+        span.events {
+            top: -12px
+        }
+    }
+    .article-content {
+        margin-top: 30px !important;
+        .content-left {
+            img {
+                border-radius: 14px;
+                max-height: 230px;
+                max-width: 330px;
+                width: 100%;
+                height: 100%;
+            }
+        }
+        .content-right {
+            @include only-for-mobile(){
+              margin-top: 20px;
+            }
+            .icon-favorite,.date {
+                text-align: right;
+            }
+
+        }
+    }
 }
 
 .article-list .text-category:after {
@@ -191,12 +280,14 @@
 }
 
 @media (max-width: 426px) {
-
+    .carousel.multi-item-carousel .video-detail.carousel-item .wrapper{
+        width: 100%
+    }
   .article-content .category {
     display: block;
   }
 
-  .article-content .title p {
+  .article-content .title span {
     display: none;
   }
 
@@ -205,7 +296,7 @@
     width: 100%;
   }
 
-  > .title-e {
+  .title-e {
     font-size: 55px;
   }
 
@@ -219,8 +310,9 @@
   //    line-height: 0.2;
   //}
   //
+  
   .row-category {
-    //top: -134px;
+    // top: -134px;
     background-color: #fff;
     padding: 45px 15px;
   }
