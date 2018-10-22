@@ -41,14 +41,14 @@ class EnquiryController extends Controller
 
         $data = $request->all();
         $thisdata = Enquiry::create($data);
-        $thisUser = Enquiry::findOrFail($thisdata->id);
-        Mail::send('email.enquiryAdmin',compact('thisUser'),
-            function($mail) use($thisUser)
-            {
-                $mail->to($thisUser->email)->subject('Hatachi Toabira');
-            }
-        );
-        $this->sendEmailUser($thisUser);
+//        $thisUser = Enquiry::findOrFail($thisdata->id);
+//        Mail::send('email.enquiryAdmin',compact('thisUser'),
+//            function($mail) use($thisUser)
+//            {
+//                $mail->to($thisUser->email)->subject('Hatachi Toabira');
+//            }
+//        );
+//        $this->sendEmailUser($thisUser);
         return view('thank_enquiry');
     }
 
