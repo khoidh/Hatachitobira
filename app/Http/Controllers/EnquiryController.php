@@ -27,22 +27,28 @@ class EnquiryController extends Controller
      */
     public function index()
     {
-        $categories = Category::get();
-        return view('enquiry',['categories' => $categories]);
+        return view('enquiry');
     }
 
     public function saveEnquiry(Request $request) {
-        $data = $request->all();
+//        $this->validate($request, [
+//            'first_name' => 'bail|required|max:255',
+//            'first_name_cn' => 'required|max:255',
+//        ], [
+//            'first_name.required' => 'Name is required',
+//            'first_name_cn.required' => 'ten phai nhap'
+//        ]);
 
-//        $thisdata = Enquiry::create($data);
-//        $thisUser = Enquiry::findOrFail($thisdata->id);
-//        Mail::send('email.enquiryAdmin',compact('thisUser'),
-//            function($mail) use($thisUser)
-//            {
-//                $mail->to($thisUser->email)->subject('Hatachi Toabira');
-//            }
-//        );
-//        $this->sendEmailUser($thisUser);
+        $data = $request->all();
+        $thisdata = Enquiry::create($data);
+        $thisUser = Enquiry::findOrFail($thisdata->id);
+        Mail::send('email.enquiryAdmin',compact('thisUser'),
+            function($mail) use($thisUser)
+            {
+                $mail->to($thisUser->email)->subject('Hatachi Toabira');
+            }
+        );
+        $this->sendEmailUser($thisUser);
         return view('thank_enquiry');
     }
 

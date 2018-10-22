@@ -1,6 +1,6 @@
+/*================ Enquiry style (contact) ===============*/
 .enquiry {
   @include standard-font(16px,40px);
-  font-family: Raleway, sans-serif;
 
   .enquiry-title{
     @include title-font(16px,36px,normal);
@@ -122,9 +122,33 @@
       }
     }
   }
-  //@media (min-width: 768px) and (max-width: 1028px) {
-  //  .text-label {
-  //    margin-right: 42px;
-  //  }
-  //}
+}
+
+/*================ Thank_enquiry style (contact sankyu) ===============*/
+.enquiry{
+  .panel-default{
+    margin: 30px 0 0;
+  }
+
+  p{
+    letter-spacing: 3px;
+  }
+
+  .title-x{
+    font-size: 30px;
+    padding-bottom: 10px;
+  }
+
+  .title{
+    color: $text-color;
+  }
+
+  .image{
+    padding-top: 20px;
+
+    img{
+      width: 100% !important;
+      height: 100% !important;
+    }
+  }
 }

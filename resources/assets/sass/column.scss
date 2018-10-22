@@ -1,4 +1,4 @@
-// Column ========================
+//========== Column ===================
 .column {
   @include standard-font();
 
@@ -107,7 +107,9 @@
     padding: 32px 0;
     font-size: 20px;
   }
-  //=========== column detail ===========
+}
+//=========== column detail ===========
+.column {
   .tit{
     @include title-font();
     padding-bottom: 24px;
@@ -140,6 +142,10 @@
     .txt_content{
       color: $text2-color;
       text-align: justify;
+      img {
+        width: 100% !important;
+        height: 100% !important;
+      }
     }
   }
 

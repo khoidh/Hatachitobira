@@ -7,6 +7,13 @@
 @section('title-j', 'イベントに参加する')
 @section('main')
     @parent
+    <style>
+        @media (max-width: 575.98px) {
+            #app .home .main .title-lx .relative .info .absolute .title-j{
+                letter-spacing: 0px;
+            }
+        }
+    </style>
 @endsection
 @section('content')
     <div class="container event">
