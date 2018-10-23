@@ -88,7 +88,7 @@
                             <div class="content-right col-md-8">
                                 <div class="icon-favorite">
                                     {{--==================== favorite ====================--}}
-                                    <i class="fa fa-heart-o" style="font-size:24px; color: #D4D4D4;"></i>
+                                    <i class="fa fa-heart-o" style="font-size:24px; color: #D4D4D4;" data-id="{{$event->id}}" data-user='{{Auth::user() ? Auth::user()->id : ""}}'></i>
                                     {{--@if(Auth::user())--}}
                                         {{--{{ csrf_field() }}--}}
                                         {{--<div type="button" class="favorite">--}}
@@ -231,29 +231,66 @@
 @endsection
 
 @section('javascript-add')
-    {{--@parent--}}
     <script>
-        $(function () {
-            $('.favorite').click(function() {
-                var user_id= $(this).find('.user_id').val();
-                var event_id= $(this).find('.event_id').val();
-                var favorite= $(this).find('.fa-heart-o');
+        $(document).ready(function(){
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
+                }
+            });
+            $(document).on('click','.icon-favorite .fa-heart-o', function(e) {
+                e.stopPropagation();
+                var user_id = $(this).data('user');
+                var event_id = $(this).data('id');
+                var _this = $(this);
                 if(user_id) {
-                    alert($favorites_id)
                     $.ajax({
-                        type: "POST",
-                        url: '{{route('event.favorite')}}', // This is what I have updated
-                        data: {user_id: user_id, event_id: event_id},
-                        //=========
-                        headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')}
-                    }).done(function (msg) {
-                        alert(msg);
-                        favorite.css('color', 'red');
-                        favorite.css('disabled',true);
-                    });
+                        url : '{{route("event.favorite")}}',
+                        type: 'post',
+                        dataType: 'json',
+                        data: {
+                            video_id : event_id,
+                            user_id: user_id
+                        },
+                        success : function (result){
+                            if (result == 'ok') {
+                                _this.addClass('liked');
+                                _this.css('color','pink');
+                            }else {
+                                _this.removeClass('liked');
+                                _this.css('color','#636B6F');
+                            }
+                        }   
+                   })
                 }
                 else {
-                    // Chưa login
+                    $html = '';
+                    $html +='<div class="form-group code-top">';
+                        $html +='<div class="col-md-5">';
+                        $html +='<p class="title-register">動画やイベント、あなたの興味のあるものを貯めて、マイテーマを作っていこう！</p>';
+                        $html +='<input type="hidden" name="type" id="type_regiter" value="1">';
+                        $html +='</div>';
+                        $html +='<img src="{{ asset("image/picture1.png") }}">';
+                    $html +='</div>';
+                    $html +='<div class="form-group">';
+                            $html +='<span id="first-name-err" style="color:red;font-size:12px" ></span>';
+                        $html +='<div class="col-md-10 col-md-offset-1" style="text-align: left;">';
+                            $html +='<input class="input-checkbox"  type="checkbox" id="input-check-required">';
+                            $html +='<label class="lblcheckbox"><a class="link-redirect" href="/private-polisy">利用規約</a> と <a class="link-redirect" href="/private-polisy">プライバシーポリシー</a> に同意する </label>';
+                        $html +='</div>';
+                    $html +='</div>';
+                    $html +='<div class="form-group">';
+                        $html +='<div class="col-md-12">';
+                            $html +='<a href="{{ url("/auth/facebook") }}" class="btn btn-primary btn-register"> Facebookで登録</a>';
+                        $html +='</div>';
+                    $html +='</div>';
+                    $html +='<div class="form-group">';
+                        $html +='<div class="col-md-12">';
+                            $html +='<a href="#" class="btn btn-success btn-register btn-register-btn"> メールアドレスで登録</a>';
+                        $html +='</div>';
+                    $html +='</div>';
+                    $('#modal_register').find('.panel-body').html($html);
+                    $('#modal_register').modal('show');
                 }
             });
         })
