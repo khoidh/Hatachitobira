@@ -46,7 +46,7 @@
             </div>
         </div>
         <div class="row video-list">
-            @foreach($results as $result)
+            @forelse($results as $result)
                 @if(isset($result->items[0]))
                 <div class="col-lg-4 col-sm-4 col-md-4 video-detail">
                     <div class="wrapper">
@@ -74,7 +74,9 @@
                     </div>
                 </div>
                 @endif
-            @endforeach
+            @empty
+                <h4 class="data-not-found">Data not found</h4>
+            @endforelse
             <div class="col-md-12 col-lg-12 col-sm-12 col-xm-12 paging text-center clearfix">
                 <ul class="pagination" role="navigation">
                     @include('includes.pagination', ['paginator' => $results])
@@ -106,9 +108,10 @@
 
             $(document).on('change','#category_id',function(e){
                 e.preventDefault();
+                var text = $('.search-container input').val();
                 var id = $(this).val();
                 $.ajax({
-                    url : '{{url("video-search-category?category=")}}'+ id
+                    url : '{{url("video-search-text?category_id=")}}'+ id +'&page=1&description='+text
                 }).done(function(data){
                     $('.row.video-list').html(data);
                 });
@@ -116,7 +119,7 @@
 
             $(document).on('click','#searchvideo',function(e){
                 e.preventDefault();
-                var text = $(this).val();
+                var text = $('.search-container input').val();
                 var id = $('#category_id').val();
                 $.ajax({
                     url : '{{url("video-search-text?category_id=")}}'+ id +'&page=1&description='+text
