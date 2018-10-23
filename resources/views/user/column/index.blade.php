@@ -1,15 +1,15 @@
 @extends('layouts.app')
 
 @section('css-add')
-    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    {{--<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">--}}
     @parent
-    <style type="text/css">
-        .my-active span{
-            background-color: yellow !important;
-            color: black !important;
-            border-color: yellow !important;
-        }
-    </style>
+    {{--<style type="text/css">--}}
+        {{--.my-active span {--}}
+            {{--background-color: yellow !important;--}}
+            {{--color: black !important;--}}
+            {{--border-color: yellow !important;--}}
+        {{--}--}}
+    {{--</style>--}}
 @endsection
 @section('title-e', 'Column')
 @section('title-j', 'コラム')
@@ -48,7 +48,7 @@
                             <div class="content-right col-md-8">
                                 <div class="icon-favorite">
                                     {{--==================== favorite ====================--}}
-                                    <i class="fa fa-heart-o" style="font-size:24px; color: #D4D4D4;" data-id="{{$column->id}}" data-user='{{Auth::user() ? Auth::user()->id : ""}}'></i>
+                                    <i class="fa fa-heart-o" style="font-size:24px; color: #D4D4D4;"></i>
                                     {{--@if(Auth::user())--}}
                                     {{--{{ csrf_field() }}--}}
                                     {{--<div type="submit" class="favorite">--}}
@@ -85,111 +85,24 @@
                     </div>
                 @endforeach
                     <hr class="shape-8"/>
+                    <div class="col-md-12 col-lg-12 col-sm-12 col-xm-12 paging text-center clearfix">
+                        <ul class="pagination" role="navigation">
+                            @include('includes.pagination', ['paginator' => $columns,'count'=>5])
+                        </ul>
+                    </div>
                 {{--<hr width="100%" size="30px" color="#DCDCDC" style="    padding-top: 1px;--}}
     {{--margin: 32px 0 8px;"/>--}}
                 {{--<div class="paging text-center">{{ $columns->links() }}</div>--}}
             </div>
         </div>
 
-        <div class="pagination-link">
-            {{ $columns->links('vendor.pagination.custom') }}
-        </div>
-    </div>
-
-
-    {{--<div class="row">--}}
-        {{--<h3>コラム</h3>--}}
-        {{--<div class="container">--}}
-            {{--<div class="column">--}}
-                {{--<div class="row">--}}
-                    {{--@foreach($columns as $column)--}}
-                        {{--<div class="item">--}}
-                            {{--<div class="wrapper">--}}
-                                {{--<div class="row myStyle">--}}
-                                    {{--Left--}}
-                                    {{--<div class="col-md-2 col-sm-4 col-xs-12">--}}
-                                        {{--<div class="content">--}}
-                                            {{--<div class="icon">--}}
-                                                {{--<a href="{{route('column.show', $column->id)}}">--}}
-                                                    {{--@php $image='image/column/'.$column->image; @endphp--}}
-                                                    {{--<img src="{{file_exists($image)?asset($image): asset('image/column/column_default.jpg')}}">--}}
-                                                {{--</a>--}}
-
-                                                {{--==================== favorite ====================--}}
-                                                {{--@if(Auth::user())--}}
-                                                    {{--{{ csrf_field() }}--}}
-                                                    {{--<div type="submit" class="favorite">--}}
-                                                        {{--<input type="hidden" class="favorite" value="0">--}}
-                                                        {{--<input type="hidden" class="user_id"--}}
-                                                               {{--value="{{Auth::user()->id}}">--}}
-                                                        {{--<input type="hidden" class="column_id" value="{{$column->id}}">--}}
-                                                        {{--<div class="col-md-12 text-right">--}}
-                                                            {{--@if(in_array($column->id,$favorites_id))--}}
-                                                                {{--<i class="fa fa-heart-o"--}}
-                                                                   {{--style="font-size:24px; color: red;"></i>--}}
-                                                            {{--@else--}}
-                                                                {{--<i class="fa fa-heart-o"--}}
-                                                                   {{--style="font-size:24px; color: blue;"></i>--}}
-                                                            {{--@endif--}}
-                                                        {{--</div>--}}
-                                                    {{--</div>--}}
-                                                {{--@else--}}
-                                                    {{--<div type="submit">--}}
-                                                        {{--<i class="fa fa-heart-o" style="font-size:24px;"--}}
-                                                           {{--data-toggle="modal"--}}
-                                                           {{--data-target="#modal_login"> </i>--}}
-                                                    {{--</div>--}}
-                                                {{--@endif--}}
-                                                {{--==================== /end favorite ====================--}}
-
-                                            {{--</div>--}}
-                                        {{--</div>--}}
-
-                                    {{--</div>--}}
-
-                                    {{--Right--}}
-                                    {{--<div class="col-md-10 col-sm-8 col-xs-12">--}}
-                                        {{--<div class="content">--}}
-                                            {{--<a href="{{route('column.show', $column->id)}}"--}}
-                                               {{--style="text-decoration:none;">--}}
-                                                {{--<div class="row">--}}
-                                                    {{--Right--}}
-                                                    {{--<div class="col-md-3 col-md-push-9">--}}
-                                                        {{--<div class="row">--}}
-                                                            {{--<div class="col-md-3 col-sm-6 col-xs-12"></div>--}}
-                                                            {{--<div class="col-md-9 col-sm-6 col-xs-12">--}}
-                                                                {{--<div class="status"><h4>インタビュー</h4></div>--}}
-                                                            {{--</div>--}}
-                                                        {{--</div>--}}
-                                                    {{--</div>--}}
-                                                    {{--Left--}}
-                                                    {{--<div class="col-md-9 col-md-pull-3">--}}
-                                                        {{--<div class="title"><h4>{{$column->title}}</h4></div>--}}
-                                                    {{--</div>--}}
-                                                {{--</div>--}}
-
-                                                {{--<div class="category" style="color: #636B6F; font-weight: bold">--}}
-                                                    {{--<p>{{$column->category_name}}</p></div>--}}
-                                                {{--<div class="date col-md-12" style="text-align: right">--}}
-                                                    {{--<p>{{date('Y-m-d', strtotime($column->created_at))}}</p>--}}
-                                                {{--</div>--}}
-
-                                            {{--</a>--}}
-                                        {{--</div>--}}
-                                    {{--</div>--}}
-                                {{--</div>--}}
-
-                            {{--</div>--}}
-                        {{--</div>--}}
-                    {{--@endforeach--}}
-                    {{--<div class="text-center">{{ $columns->links() }}</div>--}}
-                {{--</div>--}}
-            {{--</div>--}}
+        {{--<div class="pagination-link">--}}
+            {{--{{ $columns->links('vendor.pagination.custom') }}--}}
         {{--</div>--}}
-    {{--</div>--}}
+    </div>
 @endsection
 
-@section('javascript-add')=
+@section('javascript-add')
     <script>
         $(document).ready(function(){
             $.ajaxSetup({
@@ -202,8 +115,8 @@
                 var user_id = $(this).data('user');
                 var column_id = $(this).data('id');
                 var _this = $(this);
-                if (user_id == '') {
-                    
+                if (user_id != '') {
+
                     $html = '';
                     $html +='<div class="form-group code-top">';
                         $html +='<div class="col-md-5">';
@@ -249,9 +162,25 @@
                                 _this.removeClass('liked');
                                 _this.css('color','#c3c2c2');
                             }
-                        }   
+                        }
                     })
                 }
+            });
+            $(document).on('click', '.pagination .page-link', function (e) {
+
+                e.preventDefault();
+                var page = $(this).attr('href').split('page=')[1];
+                $.ajax({
+                    type: "GET",
+                    url: '?page=' + page,
+                    data:{page:page},
+                    success:function(data){
+                        // console.log(data);
+                        $('body').html(data);
+                        // $('body,html').animate({scrollTop: 0}, 'slow');
+                        $('body,html').animate({scrollTop: 0});
+                    }
+                })
             });
         })
     </script>

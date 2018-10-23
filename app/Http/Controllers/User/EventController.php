@@ -25,6 +25,7 @@ class EventController extends Controller
         $events = Event::select()
             ->select('events.*','categories.name as category_name')
             ->join('categories','categories.id','=','events.category_id')
+            ->orderBy('created_at', 'desc')
             ->paginate(3);
         if(Auth::user())
         {
