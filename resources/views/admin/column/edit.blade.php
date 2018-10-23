@@ -147,6 +147,17 @@
                 </div>
             </div>
 
+
+                <div class="form-group row">
+                    <label for="inputPassword3" class="col-sm-2 col-form-label">Type</label>
+                    <div class="col-sm-10">
+                        <select type="number" name="type" class="form-control"  value="{{$column->type}}" tabindex=1>
+                            <option value='0' {{($column->type==0) ? 'selected' : ''}}>インタビュー</option>
+                            <option value='1' {{($column->type==1) ? 'selected' : ''}}>コラム</option>
+                        </select>
+                    </div>
+                </div>
+
             <div class="form-group row">
                 <div class="col-sm-10">
                     <input type="hidden" name="_method" value="patch">
