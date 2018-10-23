@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('css-add')
-    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    {{--<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">--}}
     @parent
     <style type="text/css">
         @media (max-width: 575.98px) {
@@ -10,11 +10,11 @@
             }
         }
 
-        .my-active span{
-            background-color: yellow !important;
-            color: black !important;
-            border-color: yellow !important;
-        }
+        /*.my-active span{*/
+            /*background-color: yellow !important;*/
+            /*color: black !important;*/
+            /*border-color: yellow !important;*/
+        /*}*/
     </style>
 @endsection
 @section('title-e', 'Event')
@@ -59,8 +59,8 @@
                     <div class="article">
                         @php
                             $time_now = Carbon\Carbon::now();
-                            $time_from = Carbon\Carbon::parse($event->time_from);
-                            $time_to = Carbon\Carbon::parse($event->time_to);
+                            $time_from = Carbon\Carbon::parse($event->started_at);
+                            $time_to = Carbon\Carbon::parse($event->closed_at);
                             $check=$time_now->between($time_from,$time_to);
                             if($check)
                             $event_state="申し込み受付中";
@@ -88,7 +88,7 @@
                             <div class="content-right col-md-8">
                                 <div class="icon-favorite">
                                     {{--==================== favorite ====================--}}
-                                    <i class="fa fa-heart-o" style="font-size:24px; color: #D4D4D4;" data-id="{{$event->id}}" data-user='{{Auth::user() ? Auth::user()->id : ""}}'></i>
+                                    <i class="fa fa-heart-o" style="font-size:24px; color: #D4D4D4;"></i>
                                     {{--@if(Auth::user())--}}
                                         {{--{{ csrf_field() }}--}}
                                         {{--<div type="button" class="favorite">--}}
@@ -119,18 +119,24 @@
                                 <span class="title">{{$event->title}}</span>
                                 <span class="category">&nbsp;&nbsp;{{$event->category_name}}</span>
                                 <div class="date" >
-                                    <p>{{date('Y-m-d', strtotime($event->created_at))}}</p>
+                                    <p>{{date('Y-m-d', strtotime($event->started_at))}}</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 @endforeach
                     <hr class="shape-8"/>
+                    <div class="col-md-12 col-lg-12 col-sm-12 col-xm-12 paging text-center clearfix">
+                        <ul class="pagination" role="navigation">
+                            @include('includes.pagination', ['paginator' => $events])
+                        </ul>
+                    </div>
+
             </div>
         </div>
 
         <div class="pagination-link">
-            {{ $events->links('vendor.pagination.custom') }}
+{{--            {{ $events->links('vendor.pagination.custom') }}--}}
         </div>
         {{--</div>--}}
         {{--<div class="row">--}}
@@ -260,7 +266,7 @@
                                 _this.removeClass('liked');
                                 _this.css('color','#636B6F');
                             }
-                        }   
+                        }
                    })
                 }
                 else {
@@ -292,6 +298,22 @@
                     $('#modal_register').find('.panel-body').html($html);
                     $('#modal_register').modal('show');
                 }
+            });
+            $(document).on('click', '.pagination .page-link', function (e) {
+
+                e.preventDefault();
+                var page = $(this).attr('href').split('page=')[1];
+                $.ajax({
+                    type: "GET",
+                    url: '?page=' + page,
+                    data:{page:page},
+                    success:function(data){
+                        // console.log(data);
+                        $('body').html(data);
+                        // $('body,html').animate({scrollTop: 0}, 'slow');
+                        $('body,html').animate({scrollTop: 0});
+                    }
+                })
             });
         })
     </script>

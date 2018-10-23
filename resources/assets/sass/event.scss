@@ -133,9 +133,34 @@
     }
   }
 
-  .pagination-link{
-    padding: 32px 0;
-    font-size: 20px;
+  //.pagination-link{
+  //  padding: 32px 0;
+  //  font-size: 20px;
+  //}
+
+  .pagination {
+    justify-content: center;
+    -webkit-box-align: center;
+  }
+
+  .pagination .page-item .page-link {
+    background-color: #d2d2d2;
+    color: #323233;
+    border: #d2d2d2;
+    border-radius: 15px;
+    margin: 4px;
+    padding: 5px 11px;
+  }
+  .pagination .page-item:first-child .page-link,
+  .pagination .page-item:last-child .page-link {
+    background-color: transparent;
+    border: none;
+    font-weight: bold;
+  }
+
+  .pagination .page-item.active .page-link {
+    background-color: #fff100;
+    border: #fff100;
   }
 }
 
