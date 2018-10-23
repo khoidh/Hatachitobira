@@ -316,6 +316,7 @@
                     $html +='<div class="form-group code-top">';
                         $html +='<div class="col-md-5">';
                         $html +='<p class="title-register">動画やイベント、あなたの興味のあるものを貯めて、マイテーマを作っていこう！</p>';
+                        $html +='<input type="hidden" name="type" id="type_regiter" value="1">';
                         $html +='</div>';
                         $html +='<img src="{{ asset("image/picture1.png") }}">';
                     $html +='</div>';
@@ -366,6 +367,7 @@
                     $html +='<div class="form-group code-top">';
                         $html +='<div class="col-md-5">';
                         $html +='<p class="title-register">動画やイベント、あなたの興味のあるものを貯めて、マイテーマを作っていこう！</p>';
+                        $html +='<input type="hidden" name="type" id="type_regiter" value="1">';
                         $html +='</div>';
                         $html +='<img src="{{ asset("image/picture1.png") }}">';
                     $html +='</div>';
@@ -422,6 +424,7 @@
                     $html +='<div class="form-group code-top">';
                         $html +='<div class="col-md-5">';
                         $html +='<p class="title-register">動画やイベント、あなたの興味のあるものを貯めて、マイテーマを作っていこう！</p>';
+                        $html +='<input type="hidden" name="type" id="type_regiter" value="1">';
                         $html +='</div>';
                         $html +='<img src="{{ asset("image/picture1.png") }}">';
                     $html +='</div>';

@@ -1049,7 +1049,14 @@ footer .footter-mobile .a-first{
         font-size: 13px;
         width: 102px;
     }
-
+    
+    #modal_register p.title-register-mypage {
+        position: relative;
+        left: 16px !important;
+        font-weight: bold;
+        font-size: 13px;
+        width: 118px;
+    }
     #modal_register .code-top img {
         width: 310px;
         height: 100%;
@@ -1166,6 +1173,13 @@ footer .footter-mobile .a-first{
     font-weight: bold;
 }
 
+#modal_register p.title-register-mypage {
+    position: relative;
+    top: 33px;
+    left: 40px;
+    font-weight: bold;
+}
+
 #modal_login .btn-register,
 #modal_register .btn-register {
     border-radius: 20px;
@@ -1249,9 +1263,9 @@ footer .footter-mobile .a-first{
 
 #modal_register .form-register-last .control-label {
     margin-bottom: 0;
-    color: #fff;
-    background-color: #000;
-    line-height: 1.5
+    color: #000;
+    line-height: 1.5;
+    font-weight: bold;
 }
 
 #modal_register .input-checkbox {

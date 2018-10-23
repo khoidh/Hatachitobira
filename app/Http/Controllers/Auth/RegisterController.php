@@ -90,7 +90,8 @@ class RegisterController extends Controller
                 $this->sendEmail($thisUser);
                 Auth::login($thisUser, true);
                 return response()->json([
-                    'success' => 'true'
+                    'success' => 'true',
+                    'type_regis' => $data['type_register']
                 ]);
             }else{
                 return response()->json([
