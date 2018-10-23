@@ -324,6 +324,10 @@
 }
 
 @media (max-width: 426px) {
+    .container {
+        margin-top: -85px;
+    }
+
     .carousel.multi-item-carousel .video-detail.carousel-item .wrapper {
         width: 100%
     }
