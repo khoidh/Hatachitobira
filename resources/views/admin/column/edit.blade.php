@@ -91,7 +91,7 @@
             <div class="form-group row">
                 <label class="col-sm-2 col-form-label" for="inputState">Category</label>
                 <div class="col-sm-10">
-                    <select name="category_id" val`ue="<?php echo $column->id ?>" class="form-control" required="true">
+                    <select name="category_id" value="<?php echo $column->id ?>" class="form-control" required="true">
                         @foreach($categories as $category)
                             <option value="{{ $category->id }}" {{($category->id == $column->category_id) ? 'selected' : ''}} >{{$category->name}}</option>
                         @endforeach
