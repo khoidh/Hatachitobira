@@ -94,10 +94,11 @@ class HomeController extends Controller
             $result_1 = json_decode(file_get_contents($api_url));
             $result_1->id = $video->id;
             $result_1->category = $video->category_name;
-            if (isset($result->items[0])) {
+            if (isset($result_1->items[0])) {
                 array_push($results_2,$result_1);
             }
         }
+
         return view('top',compact('columns','events','results_1','results_2'));
     }
 }
