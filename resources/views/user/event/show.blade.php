@@ -65,7 +65,23 @@
 
         <div class="row justify-content-center txt-btn">
             <div class="col-sm-6">
-                <button type="button" class="btn btn-primary btn-lg btn-block">送信</button>
+                @if(Auth::User())
+                    @if($user_event_register == 0)
+                    <form class="form-horizontal" action="{{route('event.update')}}" method="POST">
+                        {{ csrf_field() }}
+                        <input type="hidden" name="event_id" value="{{$event->id}}">
+                        <button type="submit" class="btn btn-primary btn-lg btn-block">送信</button>
+                    </form>
+                    @else
+                    <form class="form-horizontal" action="{{ route('event.delete') }}" method="POST">
+                        {{ csrf_field() }}
+                        <input type="hidden" name="event_id" value="{{$event->id}}">
+                        <button type="submit" class="btn btn-primary btn-lg btn-block">キャンセル</button>
+                    </form>
+                    @endif
+                @else
+                    <button type="button" class="btn btn-primary btn-lg btn-block show-modal-register-mypage">送信</button>
+                @endif
             </div>
         </div>
     </div>
@@ -297,7 +313,40 @@
             {{--</div>--}}
         {{--</div><!-- END #main_col -->--}}
     {{--</div>--}}
-
+<script type="text/javascript">
+    $(document).ready(function() {
+        $(document).on('click','.show-modal-register-mypage',function(e){
+            e.preventDefault();
+            $html = '';
+            $html +='<div class="form-group code-top">';
+                $html +='<div class="col-md-5">';
+                $html +='<p class="title-register-mypage">お気に入りorイベント申し込みは社員限定機能です。動画やイベント、あなたの興味のあるものを貯めて、マイテーマを形作っていこう！</p>';
+                $html +='<input type="hidden" name="type" id="type_regiter" value="1">';
+                $html +='</div>';
+                $html +='<img src="{{ asset("image/picture1.png") }}">';
+            $html +='</div>';
+            $html +='<div class="form-group">';
+                    $html +='<span id="first-name-err" style="color:red;font-size:12px" ></span>';
+                $html +='<div class="col-md-10 col-md-offset-1" style="text-align: left;">';
+                    $html +='<input class="input-checkbox"  type="checkbox" id="input-check-required">';
+                    $html +='<label class="lblcheckbox"><a class="link-redirect" href="/private-polisy">利用規約</a> と <a class="link-redirect" href="/private-polisy">プライバシーポリシー</a> に同意する </label>';
+                $html +='</div>';
+            $html +='</div>';
+            $html +='<div class="form-group">';
+                $html +='<div class="col-md-12">';
+                    $html +='<a href="{{ url("/auth/facebook") }}" class="btn btn-primary btn-register"> Facebookで登録</a>';
+                $html +='</div>';
+            $html +='</div>';
+            $html +='<div class="form-group">';
+                $html +='<div class="col-md-12">';
+                    $html +='<a href="#" class="btn btn-success btn-register btn-register-btn"> メールアドレスで登録</a>';
+                $html +='</div>';
+            $html +='</div>';
+            $('#modal_register').find('.panel-body').html($html);
+            $('#modal_register').modal('show');
+        })
+    })
+</script>
 @endsection
 
 @section('javascript-add')
