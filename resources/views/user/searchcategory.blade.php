@@ -47,39 +47,35 @@
                             @forelse($columns as $key => $column)
                             <div class="article carousel-item {{ $key == 0 ? 'active' : ''}}">
                                 @php
-                                    $time_now = Carbon\Carbon::now();
-                                    $time_from = Carbon\Carbon::parse($column->time_from);
-                                    $time_to = Carbon\Carbon::parse($column->time_to);
-                                    $check=$time_now->between($time_from,$time_to);
-                                    if($check)
-                                    $column_state="申し込み受付中";
+                                    $column_state="";
+                                    if($column->type == 1)
+                                        $column_state = "コラム";
                                     else
-                                    $column_state="受付終了";
+                                        $column_state = "インタビュー";
                                 @endphp
                                 <div class="article-status">
                                     <hr class="shape-8"/>
                                     <img
-                                        @if($check)
-                                            src="{{asset('image/event/event-icon.png')}}" alt="event-icon.png"
+                                        @if($column->type == 0)
+                                            src="{{asset('image/column/column-icon.png')}}" alt="column-icon.png"
                                         @else
-                                            src="{{asset('image/event/event-visible-icon.png')}}" alt="event-visible-icon.png"
+                                            src="{{asset('image/column/column-visible-icon.png')}}" alt="column-visible-icon.png"
                                         @endif
                                     >
-                                    <span style="@if(!$check) left: 20px; @endif">{{$column_state}}</span>
+                                    <span style="@if($column->type ==1) left: 25px; @endif">{{$column_state}}</span>
                                 </div>
                                 <div class="article-content row">
                                     <div class="content-left col-md-4">
                                         <a href="{{route('column.show', $column->id)}}" style="text-decoration:none;">
-                                            
                                             @php $image='image/column/'.$column->image; @endphp
-                                            <img src="{{file_exists($image)?asset($image): asset('image/column/event_default.jpg')}}">
+                                            <img src="{{file_exists($image)?asset($image): asset('image/column/event_default.jpg')}}" alt="{{$column->title}}">
                                         </a>
                                     </div>
                                     <div class="content-right col-md-8">
                                         <div class="icon-favorite">
                                             <i class="fa fa-heart-o {{ $column->favorite == 1 ? 'liked' : ''}}" data-id='{{$column->id}}' data-user='{{Auth::user() ? Auth::user()->id : "" }}' style="font-size:24px;"></i>
                                         </div>
-                                        <div class="title">{{$column->title}} &nbsp;&nbsp; <span style="color: #636B6F;">{{$column->category_name}}</span></div>
+                                        <div class="title"><a href="{{route('column.show', $column->id)}}">{{$column->title}}</a> &nbsp;&nbsp; <span style="color: #636B6F;">{{$column->category_name}}</span></div>
                                         <div class="category" style="color: #636B6F;">
                                             <p>{{$column->category_name}}</p>
                                         </div>
@@ -117,7 +113,7 @@
                                     $time_now = Carbon\Carbon::now();
                                     $time_from = Carbon\Carbon::parse($event->time_from);
                                     $time_to = Carbon\Carbon::parse($event->time_to);
-                                    $check=$time_now->between($time_from,$time_to);
+                                    $check= strtotime($time_now) >= strtotime($time_from) && strtotime($time_now) <= strtotime($time_to) ? 1 : 0;
                                     if($check)
                                     $event_state="申し込み受付中";
                                     else
@@ -138,19 +134,19 @@
                                     <div class="content-left col-md-4">
                                         <a href="{{route('event.show', $event->id)}}" style="text-decoration:none;">
                                             @php $image='image/event/'.$event->image; @endphp
-                                            <img src="{{file_exists($image)?asset($image): asset('image/event/event_default.jpg')}}">
+                                            <img src="{{file_exists($image)?asset($image): asset('image/event/event_default.jpg')}}" alt="{{$event->title}}">
                                         </a>
                                     </div>
                                     <div class="content-right col-md-8">
                                         <div class="icon-favorite">
                                             <i class="fa fa-heart-o {{ $event->favorite == 1 ? 'liked' : ''}}"  data-id='{{$event->id}}' data-user='{{Auth::user() ? Auth::user()->id : "" }}' style="font-size:24px;"></i>
                                         </div>
-                                        <div class="title">{{$column->title}} &nbsp;&nbsp; <span style="color: #636B6F;">{{$column->category_name}}</span></div>
+                                        <div class="title"><a href="{{route('event.show', $event->id)}}">{{$event->title}}</a> &nbsp;&nbsp; <span style="color: #636B6F;">{{$event->category_name}}</span></div>
                                         <div class="category" style="color: #636B6F;">
-                                            <p>{{$column->category_name}}</p>
+                                            <p>{{$event->category_name}}</p>
                                         </div>
                                         <div class="date" >
-                                            <p>{{date('Y-m-d', strtotime($event->created_at))}}</p>
+                                            <p>{{date('Y-m-d', strtotime($event->started_at))}}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -316,6 +312,7 @@
                     $html +='<div class="form-group code-top">';
                         $html +='<div class="col-md-5">';
                         $html +='<p class="title-register">動画やイベント、あなたの興味のあるものを貯めて、マイテーマを作っていこう！</p>';
+                        $html +='<input type="hidden" name="type" id="type_regiter" value="1">';
                         $html +='</div>';
                         $html +='<img src="{{ asset("image/picture1.png") }}">';
                     $html +='</div>';
@@ -366,6 +363,7 @@
                     $html +='<div class="form-group code-top">';
                         $html +='<div class="col-md-5">';
                         $html +='<p class="title-register">動画やイベント、あなたの興味のあるものを貯めて、マイテーマを作っていこう！</p>';
+                        $html +='<input type="hidden" name="type" id="type_regiter" value="1">';
                         $html +='</div>';
                         $html +='<img src="{{ asset("image/picture1.png") }}">';
                     $html +='</div>';
@@ -422,6 +420,7 @@
                     $html +='<div class="form-group code-top">';
                         $html +='<div class="col-md-5">';
                         $html +='<p class="title-register">動画やイベント、あなたの興味のあるものを貯めて、マイテーマを作っていこう！</p>';
+                        $html +='<input type="hidden" name="type" id="type_regiter" value="1">';
                         $html +='</div>';
                         $html +='<img src="{{ asset("image/picture1.png") }}">';
                     $html +='</div>';

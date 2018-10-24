@@ -24,7 +24,7 @@
                 <p class="title">{{$event->title}}</p>
                 <div class="heart">
                     <i class="heart-icon fa fa-heart-o">
-                        <span class="heart-create-at">&nbsp&nbsp{{date('Y-m-d', strtotime($event->created_at))}}</span>
+                        <span class="heart-create-at">&nbsp&nbsp{{date('Y-m-d', strtotime($event->started_at))}}</span>
                     </i>
                 </div>
                 <hr class="shape-8"/>

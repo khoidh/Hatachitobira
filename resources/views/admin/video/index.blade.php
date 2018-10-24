@@ -41,6 +41,7 @@
         <th class="description">Description</th>
         <th class="image">Image</th>
         {{--<th class="sort">Sort</th>--}}
+        <th class="type" >Type</th>
         <th class="function"></th>
 
     </tr>
@@ -55,6 +56,10 @@
 
             <td><img width="100px" height="100px" src="{{ file_exists('image/video/'.$video->image) ? asset('image/video/'.$video->image) : asset('image/video/video_default.jpg') }}" ></td>
 
+            @php
+                $type=($video->type==0)?'ジョブシャドウ':'ロールプレイ';
+            @endphp
+            <td>{{$type}}</td>
             <td>
                 <a href="{{route('videos.show',$video->id)}}"><i title="Detail" class="fa fa-info-circle fa-2x" aria-hidden="true"></i></a>
                 <a href="{{route('videos.edit',$video->id)}}"><i title="Edit" class="fa fa-edit fa-2x" aria-hidden="true"></i></a>

@@ -136,16 +136,20 @@
                 </div>
 
                 <div class="form-group row">
-                    <label for="inputPassword3" class="col-sm-2 col-form-label">Sort</label>
+                    <label for="sort" class="col-sm-2 col-form-label">Sort</label>
                     <div class="col-sm-10">
                         <input type="number" class="form-control" name="sort" required="true">
                     </div>
                 </div>
 
                 <div class="form-group row">
-                    <label for="inputPassword3" class="col-sm-2 col-form-label">Type</label>
+                    <label for="type" class="col-sm-2 col-form-label">Type</label>
                     <div class="col-sm-10">
-                        <input type="number" class="form-control" name="type" required="true">
+                        <select type="number" name="type" id="type" class="form-control" tabindex=1>
+                            <option value='0' selected>インタビュー</option>
+                            <option value='1'>コラム</option>
+                        </select>
+                        {{--<input type="number" class="form-control" name="type" required="true">--}}
                     </div>
                 </div>
 

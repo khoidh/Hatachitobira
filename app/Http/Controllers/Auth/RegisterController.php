@@ -53,9 +53,9 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => 'required|string|max:255',
+            'name' => 'required|string|max:50',
             'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:6|confirmed',
+            'password' => 'required|string|min:6|max:20|confirmed',
         ]);
     }
 
@@ -90,7 +90,8 @@ class RegisterController extends Controller
                 $this->sendEmail($thisUser);
                 Auth::login($thisUser, true);
                 return response()->json([
-                    'success' => 'true'
+                    'success' => 'true',
+                    'type_regis' => $data['type_register']
                 ]);
             }else{
                 return response()->json([

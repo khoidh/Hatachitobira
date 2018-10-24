@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('css-add')
-    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    {{--<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">--}}
     @parent
     <style type="text/css">
         @media (max-width: 575.98px) {
@@ -10,11 +10,11 @@
             }
         }
 
-        .my-active span{
-            background-color: yellow !important;
-            color: black !important;
-            border-color: yellow !important;
-        }
+        /*.my-active span{*/
+            /*background-color: yellow !important;*/
+            /*color: black !important;*/
+            /*border-color: yellow !important;*/
+        /*}*/
     </style>
 @endsection
 @section('title-e', 'Event')
@@ -59,8 +59,8 @@
                     <div class="article">
                         @php
                             $time_now = Carbon\Carbon::now();
-                            $time_from = Carbon\Carbon::parse($event->time_from);
-                            $time_to = Carbon\Carbon::parse($event->time_to);
+                            $time_from = Carbon\Carbon::parse($event->started_at);
+                            $time_to = Carbon\Carbon::parse($event->closed_at);
                             $check=$time_now->between($time_from,$time_to);
                             if($check)
                             $event_state="申し込み受付中";
@@ -119,18 +119,24 @@
                                 <span class="title">{{$event->title}}</span>
                                 <span class="category">&nbsp;&nbsp;{{$event->category_name}}</span>
                                 <div class="date" >
-                                    <p>{{date('Y-m-d', strtotime($event->created_at))}}</p>
+                                    <p>{{date('Y-m-d', strtotime($event->started_at))}}</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 @endforeach
                     <hr class="shape-8"/>
+                    <div class="col-md-12 col-lg-12 col-sm-12 col-xm-12 paging text-center clearfix">
+                        <ul class="pagination" role="navigation">
+                            @include('includes.pagination', ['paginator' => $events])
+                        </ul>
+                    </div>
+
             </div>
         </div>
 
         <div class="pagination-link">
-            {{ $events->links('vendor.pagination.custom') }}
+{{--            {{ $events->links('vendor.pagination.custom') }}--}}
         </div>
         {{--</div>--}}
         {{--<div class="row">--}}
@@ -231,30 +237,83 @@
 @endsection
 
 @section('javascript-add')
-    {{--@parent--}}
     <script>
-        $(function () {
-            $('.favorite').click(function() {
-                var user_id= $(this).find('.user_id').val();
-                var event_id= $(this).find('.event_id').val();
-                var favorite= $(this).find('.fa-heart-o');
+        $(document).ready(function(){
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
+                }
+            });
+            $(document).on('click','.icon-favorite .fa-heart-o', function(e) {
+                e.stopPropagation();
+                var user_id = $(this).data('user');
+                var event_id = $(this).data('id');
+                var _this = $(this);
                 if(user_id) {
-                    alert($favorites_id)
                     $.ajax({
-                        type: "POST",
-                        url: '{{route('event.favorite')}}', // This is what I have updated
-                        data: {user_id: user_id, event_id: event_id},
-                        //=========
-                        headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')}
-                    }).done(function (msg) {
-                        alert(msg);
-                        favorite.css('color', 'red');
-                        favorite.css('disabled',true);
-                    });
+                        url : '{{route("event.favorite")}}',
+                        type: 'post',
+                        dataType: 'json',
+                        data: {
+                            video_id : event_id,
+                            user_id: user_id
+                        },
+                        success : function (result){
+                            if (result == 'ok') {
+                                _this.addClass('liked');
+                                _this.css('color','pink');
+                            }else {
+                                _this.removeClass('liked');
+                                _this.css('color','#636B6F');
+                            }
+                        }
+                   })
                 }
                 else {
-                    // Chưa login
+                    $html = '';
+                    $html +='<div class="form-group code-top">';
+                        $html +='<div class="col-md-5">';
+                        $html +='<p class="title-register">動画やイベント、あなたの興味のあるものを貯めて、マイテーマを作っていこう！</p>';
+                        $html +='<input type="hidden" name="type" id="type_regiter" value="1">';
+                        $html +='</div>';
+                        $html +='<img src="{{ asset("image/picture1.png") }}">';
+                    $html +='</div>';
+                    $html +='<div class="form-group">';
+                            $html +='<span id="first-name-err" style="color:red;font-size:12px" ></span>';
+                        $html +='<div class="col-md-10 col-md-offset-1" style="text-align: left;">';
+                            $html +='<input class="input-checkbox"  type="checkbox" id="input-check-required">';
+                            $html +='<label class="lblcheckbox"><a class="link-redirect" href="/private-polisy">利用規約</a> と <a class="link-redirect" href="/private-polisy">プライバシーポリシー</a> に同意する </label>';
+                        $html +='</div>';
+                    $html +='</div>';
+                    $html +='<div class="form-group">';
+                        $html +='<div class="col-md-12">';
+                            $html +='<a href="{{ url("/auth/facebook") }}" class="btn btn-primary btn-register"> Facebookで登録</a>';
+                        $html +='</div>';
+                    $html +='</div>';
+                    $html +='<div class="form-group">';
+                        $html +='<div class="col-md-12">';
+                            $html +='<a href="#" class="btn btn-success btn-register btn-register-btn"> メールアドレスで登録</a>';
+                        $html +='</div>';
+                    $html +='</div>';
+                    $('#modal_register').find('.panel-body').html($html);
+                    $('#modal_register').modal('show');
                 }
+            });
+            $(document).on('click', '.pagination .page-link', function (e) {
+
+                e.preventDefault();
+                var page = $(this).attr('href').split('page=')[1];
+                $.ajax({
+                    type: "GET",
+                    url: '?page=' + page,
+                    data:{page:page},
+                    success:function(data){
+                        // console.log(data);
+                        $('body').html(data);
+                        // $('body,html').animate({scrollTop: 0}, 'slow');
+                        $('body,html').animate({scrollTop: 0});
+                    }
+                })
             });
         })
     </script>

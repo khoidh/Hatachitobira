@@ -557,4 +557,48 @@
         {{--</div>--}}
     {{--</div>--}}
 {{--</div>--}}
+<script type="text/javascript" charset="utf-8" async defer>
+    $(document).ready(function(){
+        function GetURLParameter(sParam) {
+            var sPageURL = window.location.search.substring(1);
+            var sURLVariables = sPageURL.split('&');
+            for (var i = 0; i < sURLVariables.length; i++){
+                var sParameterName = sURLVariables[i].split('=');
+                if (sParameterName[0] == sParam)
+                {
+                    return sParameterName[1];
+                }
+            }
+        }
+
+        tech = GetURLParameter('redirect-link');
+        if (tech == 'true') {
+            $html = '<div class ="form-register-last">'
+            $html += '<div class="form-group">';
+            $html +='<h3>会員登録が完了しました!</h3>';
+            $html +=' </div>';
+            $html += '<div class="form-group">';
+            $html +='<label for="name" class="control-label">マイテーマを探すために、</label>';
+            $html +=' </div>';
+            $html += '<div class="form-group">';
+            $html +='<label for="name" class="control-label">気になる動画の収集や、個人の活動の記録を</label>';
+            $html +=' </div>';
+            $html += '<div class="form-group">';
+            $html +='<label for="name" class="control-label">管理していきましょう。</label>';
+            $html +=' </div>';
+            $html += '<div class="form-group" style="margin-bottom: 28px; margin-top: 30px;">';
+            $html +='<img class="image-register" src="{{ asset("image/register_1.png") }}">';
+            $html +=' </div>';
+            $html += '<div class="form-group">';
+            $html += '<div class="col-md-12">'
+            $html +='<a  class="btn btn-warning" href="{{route("mypage.index")}}">MY PAGEへ</a>';
+            $html +=' </div>';
+            $html +=' </div>';
+            $html +=' </div>';
+            $('#modal_register').find('.panel-body').addClass('form-horizontal');
+            $('#modal_register').find('.panel-body').html($html);
+            $('#modal_register').modal('show');
+        }
+    });
+</script>
 @endsection

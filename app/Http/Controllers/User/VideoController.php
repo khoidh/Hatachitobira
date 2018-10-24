@@ -34,22 +34,7 @@ class VideoController extends Controller
             ->join('categories','categories.id','=','videos.category_id')
             ->orderBy('id','desc');
 
-        /*Filter*/
-        if($request->isMethod('post'))
-        {
-            if($request->category_id)
-            {
-                $category_id = $request->category_id;
-                $videos = $videos->where('category_id',$category_id);
-            }
-            
-            if($request->description)
-            {
-                $description = $request->description;
-                $videos = $videos->where('description','LIKE',"%$description%");
-            }
-
-        }
+        
         /*End filter*/
         $videos = $videos->get();
         $results = array();
@@ -79,6 +64,7 @@ class VideoController extends Controller
                 $date2 = new DateTime($result->items[0]->snippet->publishedAt);
                 $interval = $date2->diff($date1);
                 $result->date_diff = $interval->m;
+                
                 array_push($results,$result);
             }
         }
@@ -170,23 +156,17 @@ class VideoController extends Controller
             ->join('categories','categories.id','=','videos.category_id');
 
         
-            if($request->category_id !='')
-            {
-                $category_id = $request->category_id;
-                $videos = $videos->where('category_id',$category_id);
-            }
-            
-            if($request->description != '')
-            {
-                $description = $request->description;
-                $videos = $videos->where('description','LIKE',"%$description%");
-            }
-
+        if($request->category_id !='')
+        {
+            $category_id = $request->category_id;
+            $videos = $videos->where('category_id',$category_id);
+        }
+        
         
         /*End filter*/
-        $videos = $videos->get();
+        $videos = $videos->orderBy('id','desc')->get();
         $results = array();
-        foreach ($videos as $video)
+        foreach ($videos as $key => $video)
         {
             $url = $video->url;
             parse_str(parse_url($url, PHP_URL_QUERY), $youtube);
@@ -211,7 +191,18 @@ class VideoController extends Controller
                 $date2 = new DateTime($result->items[0]->snippet->publishedAt);
                 $interval = $date2->diff($date1);
                 $result->date_diff = $interval->m;
-                array_push($results,$result);
+
+                if($request->description != '')
+                {
+                    $description = $request->description;
+                    
+                    // $videos = $videos->where('videos.description','like',"%$description%");
+                    if (stristr($result->items[0]->snippet->title,$description)) {
+                        array_push($results,$result);
+                    }
+                }else {
+                    array_push($results,$result);
+                }
             }
         }
        
