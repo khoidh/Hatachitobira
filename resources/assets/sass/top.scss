@@ -7,6 +7,7 @@
 
 .nav-item .nav-link {
     cursor: pointer;
+    font-size: 16px;
 }
 
 .top .movie-top-title {
@@ -443,7 +444,8 @@
 
 .top .content-last .icon img {
     border-radius: 14px;
-    max-height: 230px;
+    width: 330px;
+    height: 230px;
 }
 
 .top .content-last .icon-favorior {
@@ -452,10 +454,13 @@
     cursor: pointer;
 }
 
+.top .content-last .text-title a,
 .top .content-last .text-title {
     font-family: "Kozuka Gothic Pr6N";
     font-size: 16px;
+    color: #111;
 }
+
 
 .top .content-last .content-text {
     margin-top: 28px;
@@ -483,16 +488,12 @@
     padding-bottom: 60px;
 }
 
-.top .button-link .btn.btn-dark {
-    padding: 26px 115px;
-    border-radius: 45px;
-    font-size: 24px;
-    font-family: "Kozuka Gothic Pr6N";
-    box-shadow: 5px 5px 12px 0px #fff100;
-    -moz-box-shadow: 5px 5px 12px 0px #fff100;
-    -webkit-box-shadow: 0px 4px 0px 0px #fff100;
-    cursor: pointer;
-    text-decoration: none;
+.top .button-link .link-my-page{
+    top: 0;
+    border-radius: 25px;
+}
+.top .button-link .link-my-page:hover{
+    color: #fff;
 }
 
 .dropdown-divider {
@@ -678,6 +679,11 @@ footer .footter-mobile .a-first{
 }
 
 @media (max-width: 427px) {
+
+    main {
+        padding-top: 0
+    }
+
     .top .text-vertical-1.last span.vertical,
     .top .text-vertical.last span {
         display: unset;
@@ -748,12 +754,13 @@ footer .footter-mobile .a-first{
 
     .navbar-toggler:not(:disabled):not(.disabled) {
         position: relative;
-        right: 15px;
+        right: 15px !important;
     }
 
     footer {
-        padding: 30px 55px 30px 45px;
+        padding: 30px;
         font-size: 12px;
+        margin-top: 0;
     }
 
     footer .icon-link {
@@ -1045,7 +1052,14 @@ footer .footter-mobile .a-first{
         font-size: 13px;
         width: 102px;
     }
-
+    
+    #modal_register p.title-register-mypage {
+        position: relative;
+        left: 16px !important;
+        font-weight: bold;
+        font-size: 13px;
+        width: 118px;
+    }
     #modal_register .code-top img {
         width: 310px;
         height: 100%;
@@ -1066,19 +1080,20 @@ footer .footter-mobile .a-first{
         -webkit-transform: rotate(0deg);
         -ms-transform: rotate(0deg);
         -moz-transform: rotate(0deg);
-        top: 53px;
-        left: 15px;
+        top: 34px;
+        left: 40px;
     }
 
     .banner figure figcaption .title {
         width: 100%;
         position: relative;
         top: -70px;
-        font-size: 24px;
+        font-size: 20px;
+        left: 30px;
     }
 
     .banner figure figcaption .title:last-child {
-        top: -180px;
+        top: -150px;
     }
 
     .image-top {
@@ -1158,6 +1173,13 @@ footer .footter-mobile .a-first{
 #modal_register p.title-register {
     position: relative;
     top: 60px;
+    left: 40px;
+    font-weight: bold;
+}
+
+#modal_register p.title-register-mypage {
+    position: relative;
+    top: 33px;
     left: 40px;
     font-weight: bold;
 }
@@ -1245,9 +1267,9 @@ footer .footter-mobile .a-first{
 
 #modal_register .form-register-last .control-label {
     margin-bottom: 0;
-    color: #fff;
-    background-color: #000;
-    line-height: 1.5
+    color: #000;
+    line-height: 1.5;
+    font-weight: bold;
 }
 
 #modal_register .input-checkbox {
@@ -1275,6 +1297,10 @@ footer .footter-mobile .a-first{
 
 .nav.navbar-nav.navbar-right li a {
     cursor: pointer;
+}
+
+.nav.navbar-nav li a {
+    font-size: 16px;
 }
 
 #modal_register .image-register {

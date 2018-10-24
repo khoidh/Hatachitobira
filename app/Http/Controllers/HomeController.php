@@ -45,20 +45,31 @@ class HomeController extends Controller
         $events = Event::select()
             ->select('events.*','categories.name as category_name')
             ->join('categories','categories.id','=','events.category_id')
+            ->orderBy('id','desc')
             ->take(3)->get();
 
         $columns = Column::select()
             ->select('columns.*', 'categories.name as category_name')
             ->join('categories', 'categories.id', '=', 'columns.category_id')
+            ->orderBy('id','desc')
             ->take(3)->get();
 
-        $videos = Video::select()
+        $videos_1 = Video::select()
             ->select('videos.*','categories.name as category_name')
             ->join('categories','categories.id','=','videos.category_id')
-            ->take(3)->get();
+            ->where('type',0)
+            ->orderBy('id','desc')->get();
 
-        $results = array();
-        foreach ($videos as $video)
+        $videos_2 = Video::select()
+            ->select('videos.*','categories.name as category_name')
+            ->join('categories','categories.id','=','videos.category_id')
+            ->orderBy('id','desc')
+            ->where('type',1)
+            ->get();
+
+        $results_1 = array();
+        $results_2 = array();
+        foreach ($videos_1 as $video)
         {
 
             $url = $video->url;
@@ -68,9 +79,26 @@ class HomeController extends Controller
             $result = json_decode(file_get_contents($api_url));
             $result->id = $video->id;
             $result->category = $video->category_name;
-            array_push($results,$result);
+            if (isset($result->items[0])) {
+                array_push($results_1,$result);
+            }
         }
 
-        return view('top',compact('columns','events','results'));
+        foreach ($videos_2 as $video)
+        {
+
+            $url = $video->url;
+            parse_str(parse_url($url, PHP_URL_QUERY), $youtube);
+            $id =  $youtube['v'];
+            $api_url = $BASE_URL . $id . $BASE_PART . $api_key . '';
+            $result_1 = json_decode(file_get_contents($api_url));
+            $result_1->id = $video->id;
+            $result_1->category = $video->category_name;
+            if (isset($result_1->items[0])) {
+                array_push($results_2,$result_1);
+            }
+        }
+
+        return view('top',compact('columns','events','results_1','results_2'));
     }
 }

@@ -41,6 +41,7 @@
                 <th class="image">Image</th>
                 <th class="category" >Category</th>
                 {{--<th class="sort" >Sort</th>--}}
+                <th class="type" >Type</th>
                 <th class="function"></th>
             </tr>
             </thead>
@@ -56,7 +57,13 @@
                              src="{{ file_exists($image)?asset($image):asset('image/column/column_default.jpg')}}" ></td>
 
                     <td>{{$column->category_name}}</td>
-{{--                    <td>{{$column->sort}}</td>--}}
+                    {{--<td>{{$column->sort}}</td>--}}
+
+                    @php
+                        $type=($column->type==0)?'インタビュー':'コラム';
+                    @endphp
+                    <td>{{$type}}</td>
+
                     <td>
                         <a href="{{route('columns.show',$column->id)}}"><i title="Detail" class="fa fa-info-circle fa-2x" aria-hidden="true"></i></a>
                         <a href="{{route('columns.edit',$column->id)}}"><i title="Edit" class="fa fa-edit fa-2x" aria-hidden="true"></i></a>

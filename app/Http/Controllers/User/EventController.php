@@ -5,7 +5,7 @@ namespace App\Http\Controllers\User;
 use App\Event;
 use App\User_event;
 use App\Favorite;
-
+use Mail;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -25,6 +25,7 @@ class EventController extends Controller
         $events = Event::select()
             ->select('events.*','categories.name as category_name')
             ->join('categories','categories.id','=','events.category_id')
+            ->orderBy('created_at', 'desc')
             ->paginate(3);
         if(Auth::user())
         {
@@ -70,6 +71,7 @@ class EventController extends Controller
             'events_latest'    => $events_latest,
         ];
         //////////////// have logged //////////////////////
+        $data['user_event_register'] = 0;
         if(Auth::user())
         {
             $user_id            = Auth::user()->id;
@@ -79,6 +81,11 @@ class EventController extends Controller
 
             $data['favorites_id'] = $favorites_id;
 
+            $data_register = User_event::where('event_id',$id)->where('user_id',$user_id)->first();
+            if ($data_register) {
+                $data['user_event_register'] = 1;
+            }
+
         }
         return view('user.event.show',$data);
     }
@@ -86,31 +93,33 @@ class EventController extends Controller
     //practical when registering for the event
     public function update(Request $request)
     {
-        if($request->register)
-        {
-            $userEvent = new User_event();
-            $userEvent->user_id = $request->user_id;
-            $userEvent->event_id = $request->event_id;
-            $userEvent->save();
-            return redirect()->route('event.index');
-        }
-        if($request->favorite)
-        {
-            $favorite = Favorite::where('user_id',$request->user_id)
-                    ->where('favoritable_id',$request->event_id)
-                    ->where('favoritable_type',(new Event())->getTable())
-                    ->exists();
-            if(!$favorite)
-            {
-                $favorite = new Favorite();
-                $favorite->user_id = $request->user_id;
-                $favorite->favoritable_id = $request->event_id;
-                $favorite->favoritable_type = (new Event())->getTable();
-                $favorite->save();
-            }
-            return redirect()->route('event.index');
+        $userEvent = new User_event();
+        $userEvent->user_id = Auth::User()->id;
+        $userEvent->event_id = $request->event_id;
+        $userEvent->save();
+        
 
-        }
+        $thisUser = User_event::select()
+            ->select('events.*','users.*')
+            ->join('events','events.id','=','user_events.event_id')
+            ->join('users','users.id','=','user_events.user_id')
+            ->where('user_events.id',$userEvent->id)
+            ->first();
+        
+        Mail::send('email.eventusers',compact('thisUser'),
+           function($mail) use($thisUser)
+           {
+               $mail->to($thisUser->email)->subject('Hatachi Tobira');
+           }
+        );
+
+        return redirect()->route('event.index');
+           
+    }
+
+    public function delete(Request $request){
+        User_event::where('event_id',$request->event_id)->where('user_id',Auth::User()->id)->delete();
+        return redirect()->route('event.show', $request->event_id);
     }
 
     public function favorite(Request $request)
