@@ -80,6 +80,7 @@ Route::get('video-search-text','User\VideoController@videoSearchText');
 Route::group(['middleware' => 'auth:user'],function ()
 {
     Route::post('event','User\EventController@update')->name('event.update');
+    Route::post('eventdelte','User\EventController@delete')->name('event.delete');
     Route::post('video','User\VideoController@favorite')->name('video.favorite');
     Route::post('columnFavorite', 'User\ColumnController@favorite')->name('column.favorite');
     Route::post('eventFavorite', 'User\EventController@favorite')->name('event.favorite');
