@@ -96,6 +96,15 @@
             </div>
         </div>   
     </div>
+    <div id="modal_loading" class="modal fade modal_register" role="dialog">
+        <div class="modal-dialog" style="margin-top:150px">
+            <div class="modal-content" style="opacity: 0.45; -moz-opacity: 0.45;filter: alpha(opacity=45);background: none;border: none;">
+                <div class="modal-body" style="text-align:center">
+                    <img src="{{asset('image/video/loading.gif')}}" alt="Be patient..." />
+                </div>
+            </div>
+        </div>   
+    </div>
     <script type="text/javascript"  async defer>
         $(document).ready(function() {
             $(document).on('click','.video .video-list .browse-details', function(e){
@@ -111,9 +120,16 @@
                 var text = $('.search-container input').val();
                 var id = $(this).val();
                 $.ajax({
-                    url : '{{url("video-search-text?category_id=")}}'+ id +'&page=1&description='+text
-                }).done(function(data){
-                    $('.row.video-list').html(data);
+                    url : '{{url("video-search-text?category_id=")}}'+ id +'&page=1&description='+text,
+                    success: function (data) {
+                        $('.row.video-list').html(data);
+                    },
+                    beforeSend: function () {
+                        $('#modal_loading').modal('show');
+                    },
+                    complete: function () {
+                       $('#modal_loading').modal('hide');
+                    }
                 });
             })
 
@@ -122,9 +138,17 @@
                 var text = $('.search-container input').val();
                 var id = $('#category_id').val();
                 $.ajax({
-                    url : '{{url("video-search-text?category_id=")}}'+ id +'&page=1&description='+text
-                }).done(function(data){
-                    $('.row.video-list').html(data);
+                    url : '{{url("video-search-text?category_id=")}}'+ id +'&page=1&description='+text,
+                    success: function (data) {
+                        $('.row.video-list').html(data);
+                    },
+                    beforeSend: function () {
+                        $('#modal_loading').modal('show');
+                    },
+                    complete: function () {
+                       $('#modal_loading').modal('hide');
+                    }
+                
                 });
             });
 
@@ -134,9 +158,17 @@
                 var id = $('#category_id').val();
                 var page = $(this).attr('href').split('page=')[1];
                 $.ajax({
-                    url : '{{url("video-search-text?category_id=")}}'+ id +'&page='+page+'&description='+text
-                }).done(function(data){
-                    $('.row.video-list').html(data);
+                    url : '{{url("video-search-text?category_id=")}}'+ id +'&page='+page+'&description='+text,
+
+                    success: function (data) {
+                        $('.row.video-list').html(data);
+                    },
+                    beforeSend: function () {
+                        $('#modal_loading').modal('show');
+                    },
+                    complete: function () {
+                       $('#modal_loading').modal('hide');
+                    }
                 });
             });
 

@@ -74,7 +74,7 @@ class VideoController extends Controller
         $currentPage = LengthAwarePaginator::resolveCurrentPage();
         $itemCollection = collect($results);
         /*Sau này sẽ sửa perPage = 9*/
-        $perPage = 6;
+        $perPage = 9;
         $currentPageItems = $itemCollection->slice(($currentPage * $perPage) - $perPage, $perPage)->all();
         $paginatedItems= new LengthAwarePaginator($currentPageItems , count($itemCollection), $perPage);
         $paginatedItems->setPath('video');
@@ -138,7 +138,7 @@ class VideoController extends Controller
 
         $currentPage = LengthAwarePaginator::resolveCurrentPage();
         $itemCollection = collect($results);
-        $perPage = 6;
+        $perPage = 9;
         $currentPageItems = $itemCollection->slice(($currentPage * $perPage) - $perPage, $perPage)->all();
         $paginatedItems= new LengthAwarePaginator($currentPageItems , count($itemCollection), $perPage);
         $paginatedItems->setPath('video');
@@ -211,7 +211,7 @@ class VideoController extends Controller
         $currentPage = $request->page;
         $itemCollection = collect($results);
         /*Sau này sẽ sửa perPage = 9*/
-        $perPage = 6;
+        $perPage = 9;
         $currentPageItems = $itemCollection->slice(($currentPage * $perPage) - $perPage, $perPage)->all();
         $paginatedItems= new LengthAwarePaginator($currentPageItems , count($itemCollection), $perPage);
         $paginatedItems->setPath('video');

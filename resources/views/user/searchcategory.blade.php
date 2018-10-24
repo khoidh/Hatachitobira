@@ -47,32 +47,28 @@
                             @forelse($columns as $key => $column)
                             <div class="article carousel-item {{ $key == 0 ? 'active' : ''}}">
                                 @php
-                                    $time_now = Carbon\Carbon::now();
-                                    $time_from = Carbon\Carbon::parse($column->time_from);
-                                    $time_to = Carbon\Carbon::parse($column->time_to);
-                                    $check=$time_now->between($time_from,$time_to);
-                                    if($check)
-                                    $column_state="申し込み受付中";
+                                    $column_state="";
+                                    if($column->type == 1)
+                                        $column_state = "コラム";
                                     else
-                                    $column_state="受付終了";
+                                        $column_state = "インタビュー";
                                 @endphp
                                 <div class="article-status">
                                     <hr class="shape-8"/>
                                     <img
-                                        @if($check)
-                                            src="{{asset('image/event/event-icon.png')}}" alt="event-icon.png"
+                                        @if($column->type == 0)
+                                            src="{{asset('image/column/column-icon.png')}}" alt="column-icon.png"
                                         @else
-                                            src="{{asset('image/event/event-visible-icon.png')}}" alt="event-visible-icon.png"
+                                            src="{{asset('image/column/column-visible-icon.png')}}" alt="column-visible-icon.png"
                                         @endif
                                     >
-                                    <span style="@if(!$check) left: 20px; @endif">{{$column_state}}</span>
+                                    <span style="@if($column->type ==1) left: 25px; @endif">{{$column_state}}</span>
                                 </div>
                                 <div class="article-content row">
                                     <div class="content-left col-md-4">
                                         <a href="{{route('column.show', $column->id)}}" style="text-decoration:none;">
-                                            
                                             @php $image='image/column/'.$column->image; @endphp
-                                            <img src="{{file_exists($image)?asset($image): asset('image/column/event_default.jpg')}}">
+                                            <img src="{{file_exists($image)?asset($image): asset('image/column/event_default.jpg')}}" alt="{{$column->title}}">
                                         </a>
                                     </div>
                                     <div class="content-right col-md-8">
@@ -117,7 +113,7 @@
                                     $time_now = Carbon\Carbon::now();
                                     $time_from = Carbon\Carbon::parse($event->time_from);
                                     $time_to = Carbon\Carbon::parse($event->time_to);
-                                    $check=$time_now->between($time_from,$time_to);
+                                    $check= strtotime($time_now) >= strtotime($time_from) && strtotime($time_now) <= strtotime($time_to) ? 1 : 0;
                                     if($check)
                                     $event_state="申し込み受付中";
                                     else
@@ -138,7 +134,7 @@
                                     <div class="content-left col-md-4">
                                         <a href="{{route('event.show', $event->id)}}" style="text-decoration:none;">
                                             @php $image='image/event/'.$event->image; @endphp
-                                            <img src="{{file_exists($image)?asset($image): asset('image/event/event_default.jpg')}}">
+                                            <img src="{{file_exists($image)?asset($image): asset('image/event/event_default.jpg')}}" alt="{{$event->title}}">
                                         </a>
                                     </div>
                                     <div class="content-right col-md-8">
