@@ -75,8 +75,10 @@
                                     {{--@endif--}}
                                     {{--==================== /end favorite ====================--}}
                                 </div>
-                                <span class="title">{{$column->title}}</span>
-                                <span class="category">&nbsp;&nbsp;{{$column->category_name}}</span>
+                                <a href="{{route('column.show', $column->id)}}" style="text-decoration:none;">
+                                    <span class="title">{{$column->title}}</span>
+                                    <span class="category">&nbsp;&nbsp;{{$column->category_name}}</span>
+                                </a>
                                 <div class="date" >
                                     <p>{{date('Y-m-d', strtotime($column->created_at))}}</p>
                                 </div>
@@ -84,19 +86,16 @@
                         </div>
                     </div>
                 @endforeach
-                    <hr class="shape-8"/>
-                    <div class="col-md-12 col-lg-12 col-sm-12 col-xm-12 paging text-center clearfix">
-                        <ul class="pagination" role="navigation">
-                            @include('includes.pagination', ['paginator' => $columns,'count'=>5])
-                        </ul>
-                    </div>
-                {{--<hr width="100%" size="30px" color="#DCDCDC" style="    padding-top: 1px;--}}
-    {{--margin: 32px 0 8px;"/>--}}
-                {{--<div class="paging text-center">{{ $columns->links() }}</div>--}}
+                <hr class="shape-8"/>
+                <div class="col-md-12 col-lg-12 col-sm-12 col-xm-12 paging text-center clearfix">
+                    <ul class="pagination pagination-lg" role="navigation">
+                        @include('includes.pagination', ['paginator' => $columns])
+                    </ul>
+                </div>
             </div>
         </div>
 
-        {{--<div class="pagination-link">--}}
+        {{--<div class="pagination" role="navigation">--}}
             {{--{{ $columns->links('vendor.pagination.custom') }}--}}
         {{--</div>--}}
     </div>
@@ -166,22 +165,22 @@
                     })
                 }
             });
-            $(document).on('click', '.pagination .page-link', function (e) {
-
-                e.preventDefault();
-                var page = $(this).attr('href').split('page=')[1];
-                $.ajax({
-                    type: "GET",
-                    url: '?page=' + page,
-                    data:{page:page},
-                    success:function(data){
-                        // console.log(data);
-                        $('body').html(data);
-                        // $('body,html').animate({scrollTop: 0}, 'slow');
-                        $('body,html').animate({scrollTop: 0});
-                    }
-                })
-            });
+            // $(document).on('click', '.pagination .page-link', function (e) {
+            //
+            //     e.preventDefault();
+            //     var page = $(this).attr('href').split('page=')[1];
+            //     $.ajax({
+            //         type: "GET",
+            //         url: '?page=' + page,
+            //         // data:{page:page},
+            //         success:function(data){
+            //             // console.log(data);
+            //             $('body').html(data);
+            //             // $('body,html').animate({scrollTop: 0}, 'slow');
+            //             // $('body,html').animate({scrollTop: 0});
+            //         }
+            //     })
+            // });
         })
     </script>
 @endsection
