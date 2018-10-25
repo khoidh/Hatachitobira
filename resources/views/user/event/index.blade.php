@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('css-add')
-    {{--<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">--}}
     @parent
     <style type="text/css">
         @media (max-width: 575.98px) {
@@ -116,8 +115,10 @@
                                     {{--@endif--}}
                                     {{--==================== /end favorite ====================--}}
                                 </div>
-                                <span class="title">{{$event->title}}</span>
-                                <span class="category">&nbsp;&nbsp;{{$event->category_name}}</span>
+                                <a href="{{route('event.show', $event->id)}}" style="text-decoration:none;">
+                                    <span class="title">{{$event->title}}</span>
+                                    <span class="category">&nbsp;&nbsp;{{$event->category_name}}</span>
+                                </a>
                                 <div class="date" >
                                     <p>{{date('Y-m-d', strtotime($event->started_at))}}</p>
                                 </div>
@@ -125,113 +126,18 @@
                         </div>
                     </div>
                 @endforeach
-                    <hr class="shape-8"/>
-                    <div class="col-md-12 col-lg-12 col-sm-12 col-xm-12 paging text-center clearfix">
-                        <ul class="pagination" role="navigation">
-                            @include('includes.pagination', ['paginator' => $events])
-                        </ul>
-                    </div>
+                <hr class="shape-8"/>
+                <div class="col-md-12 col-lg-12 col-sm-12 col-xm-12 paging text-center clearfix">
+                    <ul class="pagination pagination-lg" role="navigation">
+                        @include('includes.pagination', ['paginator' => $events])
+                    </ul>
+                </div>
 
             </div>
         </div>
 
-        <div class="pagination-link">
-{{--            {{ $events->links('vendor.pagination.custom') }}--}}
-        </div>
-        {{--</div>--}}
-        {{--<div class="row">--}}
-        {{--@foreach($events as $event)--}}
-        {{--<div class="item">--}}
-        {{--<div class="wrapper">--}}
-        {{--<div class="row myStyle">--}}
-        {{--Left--}}
-        {{--<div class="col-md-2 col-sm-4 col-xs-12">--}}
-        {{--<div class="content">--}}
-        {{--<div class="icon">--}}
-        {{--<a href="{{route('event.show', $event->id)}}">--}}
-        {{--@php $image='image/event/'.$event->image; @endphp--}}
-        {{--<img src="{{file_exists($image)?asset($image): asset('image/event/event_default.jpg')}}">--}}
-        {{--</a>--}}
-
-        {{--==================== favorite ====================--}}
-        {{--@if(Auth::user())--}}
-        {{--{{ csrf_field() }}--}}
-        {{--<div type="submit" class="favorite">--}}
-        {{--<input type="hidden" class="favorite" value="0">--}}
-        {{--<input type="hidden" class="user_id"--}}
-        {{--value="{{Auth::user()->id}}">--}}
-        {{--<input type="hidden" class="event_id" value="{{$event->id}}">--}}
-        {{--<div class="col-md-12 text-right">--}}
-        {{--@if(in_array($event->id,$favorites_id))--}}
-        {{--<i class="fa fa-heart-o"--}}
-        {{--style="font-size:24px; color: red;"></i>--}}
-        {{--@else--}}
-        {{--<i class="fa fa-heart-o"--}}
-        {{--style="font-size:24px; color: blue;"></i>--}}
-        {{--@endif--}}
-        {{--</div>--}}
-        {{--</div>--}}
-        {{--@else--}}
-        {{--<div type="submit">--}}
-        {{--<i class="fa fa-heart-o" style="font-size:24px;"--}}
-        {{--data-toggle="modal"--}}
-        {{--data-target="#modal_login"> </i>--}}
-        {{--</div>--}}
-        {{--@endif--}}
-        {{--==================== /end favorite ====================--}}
-
-        {{--</div>--}}
-        {{--</div>--}}
-
-        {{--</div>--}}
-
-        {{--Right--}}
-        {{--<div class="col-md-10 col-sm-8 col-xs-12">--}}
-        {{--<div class="content">--}}
-        {{--<a href="{{route('event.show', $event->id)}}"--}}
-        {{--style="text-decoration:none;">--}}
-        {{--<div class="row">--}}
-        {{--Right--}}
-        {{--<div class="col-md-3 col-md-push-9">--}}
-        {{--<div class="row">--}}
-        {{--<div class="col-md-1 col-sm-5 col-xs-12"></div>--}}
-        {{--<div class="col-md-11 col-sm-7 col-xs-12">--}}
-        {{--@php--}}
-        {{--$time_now = Carbon\Carbon::now();--}}
-        {{--$time_from = Carbon\Carbon::parse($event->time_from);--}}
-        {{--$time_to = Carbon\Carbon::parse($event->time_to);--}}
-        {{--$check=$time_now->between($time_from,$time_to);--}}
-        {{--if($check)--}}
-        {{--$event_state="申し込み受付中";--}}
-        {{--else--}}
-        {{--$event_state="受付終了";--}}
-        {{--@endphp--}}
-
-        {{--<div class="status"><h4>{{$event_state}}</h4></div>--}}
-        {{--</div>--}}
-        {{--</div>--}}
-        {{--</div>--}}
-        {{--Left--}}
-        {{--<div class="col-md-9 col-md-pull-3">--}}
-        {{--<div class="title"><h4>{{$event->title}}</h4></div>--}}
-        {{--</div>--}}
-        {{--</div>--}}
-
-        {{--<div class="category" style="color: #636B6F; font-weight: bold">--}}
-        {{--<p>{{$event->category_name}}</p></div>--}}
-        {{--<div class="date col-md-12" style="text-align: right">--}}
-        {{--<p>{{date('Y-m-d', strtotime($event->created_at))}}</p>--}}
-        {{--</div>--}}
-
-        {{--</a>--}}
-        {{--</div>--}}
-        {{--</div>--}}
-        {{--</div>--}}
-
-        {{--</div>--}}
-        {{--</div>--}}
-        {{--@endforeach--}}
-        {{--<div class="text-center">{{ $events->links() }}</div>--}}
+        {{--<div class="pagination-link">--}}
+            {{--{{ $events->links('vendor.pagination.custom') }}--}}
         {{--</div>--}}
     </div>
 @endsection
@@ -299,22 +205,22 @@
                     $('#modal_register').modal('show');
                 }
             });
-            $(document).on('click', '.pagination .page-link', function (e) {
-
-                e.preventDefault();
-                var page = $(this).attr('href').split('page=')[1];
-                $.ajax({
-                    type: "GET",
-                    url: '?page=' + page,
-                    data:{page:page},
-                    success:function(data){
-                        // console.log(data);
-                        $('body').html(data);
-                        // $('body,html').animate({scrollTop: 0}, 'slow');
-                        $('body,html').animate({scrollTop: 0});
-                    }
-                })
-            });
+            // $(document).on('click', '.pagination .page-link', function (e) {
+            //
+            //     e.preventDefault();
+            //     var page = $(this).attr('href').split('page=')[1];
+            //     $.ajax({
+            //         type: "GET",
+            //         url: '?page=' + page,
+            //         data:{page:page},
+            //         success:function(data){
+            //             // console.log(data);
+            //             $('body').html(data);
+            //             // $('body,html').animate({scrollTop: 0}, 'slow');
+            //             $('body,html').animate({scrollTop: 0});
+            //         }
+            //     })
+            // });
         })
     </script>
 @endsection
