@@ -323,54 +323,56 @@
     margin-left: 0
 }
 
-@media (max-width: 426px) {
-    .container {
-        margin-top: -85px;
+.video ,.searchcategory{
+    @media (max-width: 426px) {
+        .container {
+            margin-top: -85px;
+        }
+
+        .carousel.multi-item-carousel .video-detail.carousel-item .wrapper {
+            width: 100%
+        }
+
+        .article-content .category {
+            display: block;
+        }
+
+        .article-content .title span {
+            display: none;
+        }
+
+        .select-box.search {
+            padding: 10px 65px 15px 25px;
+            width: 100%;
+        }
+
+        .title-e {
+            font-size: 55px;
+        }
+
+        //.home .main .title-lx {
+        //    height: 100px;
+        //    min-height: 100px;
+        //}
+        //
+        //.home .main .title-lx .container .relative .info {
+        //    margin-top: 0;
+        //    line-height: 0.2;
+        //}
+        //
+
+        .row-category {
+            // top: -134px;
+            background-color: #fff;
+            padding: 45px 15px;
+        }
+
+        .row.searchcategory {
+            //top: -110px;
+            position: relative;
+        }
+
     }
-
-    .carousel.multi-item-carousel .video-detail.carousel-item .wrapper {
-        width: 100%
-    }
-
-    .article-content .category {
-        display: block;
-    }
-
-    .article-content .title span {
-        display: none;
-    }
-
-    .select-box.search {
-        padding: 10px 65px 15px 25px;
-        width: 100%;
-    }
-
-    .title-e {
-        font-size: 55px;
-    }
-
-    //.home .main .title-lx {
-    //    height: 100px;
-    //    min-height: 100px;
-    //}
-    //
-    //.home .main .title-lx .container .relative .info {
-    //    margin-top: 0;
-    //    line-height: 0.2;
-    //}
-    //
-
-    .row-category {
-        // top: -134px;
-        background-color: #fff;
-        padding: 45px 15px;
-    }
-
-    .row.searchcategory {
-        //top: -110px;
-        position: relative;
-    }
-
 }
 
 .row.searchcategory .row {
