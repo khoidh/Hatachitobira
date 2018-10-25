@@ -71,6 +71,10 @@
           .icon-favorite {
             text-align: right;
             padding-bottom: 24px;
+            font-size:24px;
+            >i{
+              color: rgb(99, 107, 111);
+            }
           }
           .title {
             font-size: 20px;
@@ -164,14 +168,17 @@
       transition: background .15s cubic-bezier(.33,.66,.66,1);
       display: inline;
     }
-    .heart{
+    .icon-favorite{
       text-align: right;
+
       .heart-icon{
+        cursor: pointer;
         font-size: 24px;
-        color: $heart-color;
-        .heart-create-at{
-          color: $text2-color;
-        }
+        color: rgb(99, 107, 111);
+      }
+      .heart-create-at{
+        font-size: 18px;
+        color: $text2-color;
       }
     }
     .shape-8{

@@ -48,31 +48,15 @@
                             <div class="content-right col-md-8">
                                 <div class="icon-favorite">
                                     {{--==================== favorite ====================--}}
-                                    <i class="fa fa-heart-o" style="font-size:24px; color: #D4D4D4;"></i>
-                                    {{--@if(Auth::user())--}}
-                                    {{--{{ csrf_field() }}--}}
-                                    {{--<div type="submit" class="favorite">--}}
-                                    {{--<input type="hidden" class="favorite" value="0">--}}
-                                    {{--<input type="hidden" class="user_id"--}}
-                                    {{--value="{{Auth::user()->id}}">--}}
-                                    {{--<input type="hidden" class="column_id" value="{{$column->id}}">--}}
-                                    {{--<div class="col-md-12 text-right">--}}
-                                    {{--@if(in_array($column->id,$favorites_id))--}}
-                                    {{--<i class="fa fa-heart-o"--}}
-                                    {{--style="font-size:24px; color: red;"></i>--}}
-                                    {{--@else--}}
-                                    {{--<i class="fa fa-heart-o"--}}
-                                    {{--style="font-size:24px; color: blue;"></i>--}}
-                                    {{--@endif--}}
-                                    {{--</div>--}}
-                                    {{--</div>--}}
-                                    {{--@else--}}
-                                    {{--<div type="submit">--}}
-                                    {{--<i class="fa fa-heart-o" style="font-size:24px;"--}}
-                                    {{--data-toggle="modal"--}}
-                                    {{--data-target="#modal_login"> </i>--}}
-                                    {{--</div>--}}
-                                    {{--@endif--}}
+                                    <i class="fa fa-heart-o" style="
+                                    @if(Auth::user() and in_array($column->id,$favorites_id))
+                                            color: pink !important;
+                                    @else
+                                            color: rgb(99, 107, 111) !important;
+                                    @endif "
+                                       data-id="{{$column->id}}"
+                                       data-user='{{Auth::user() ? Auth::user()->id : ""}}'>
+                                    </i>
                                     {{--==================== /end favorite ====================--}}
                                 </div>
                                 <a href="{{route('column.show', $column->id)}}" style="text-decoration:none;">
@@ -114,7 +98,7 @@
                 var user_id = $(this).data('user');
                 var column_id = $(this).data('id');
                 var _this = $(this);
-                if (user_id != '') {
+                if (user_id == '') {
 
                     $html = '';
                     $html +='<div class="form-group code-top">';

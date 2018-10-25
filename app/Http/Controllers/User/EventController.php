@@ -46,29 +46,29 @@ class EventController extends Controller
 
         $event = Event::find($id);
         // get previous $event id
-        $previous = Event::select('id', 'title')->where('id', '<', $event->id)->orderBy('id', 'desc')->first();
-        if (empty($previous)) {
-            $previous = $event;
-        }
+//        $previous = Event::select('id', 'title')->where('id', '<', $event->id)->orderBy('id', 'desc')->first();
+//        if (empty($previous)) {
+//            $previous = $event;
+//        }
 
         // get next $event id
-        $next = Event::select('id', 'title')->where('id', '>', $event->id)->orderBy('id', 'asc')->first();
-        if (empty($next)) {
-            $next = $event;
-        }
+//        $next = Event::select('id', 'title')->where('id', '>', $event->id)->orderBy('id', 'asc')->first();
+//        if (empty($next)) {
+//            $next = $event;
+//        }
 
         // get 6 random records
-        $events_random = Event::inRandomOrder()->select('id', 'title')->take(6)->get();
+//        $events_random = Event::inRandomOrder()->select('id', 'title')->take(6)->get();
 
         // get 6 nearest records
-        $events_latest = Event::select('id', 'title')->orderBy('updated_at', 'desc')->take(6)->get();
+//        $events_latest = Event::select('id', 'title')->orderBy('updated_at', 'desc')->take(6)->get();
 
         $data=[
             'event'            => $event,
-            'previous'         => $previous,
-            'next'             => $next,
-            'events_random'    => $events_random,
-            'events_latest'    => $events_latest,
+//            'previous'         => $previous,
+//            'next'             => $next,
+//            'events_random'    => $events_random,
+//            'events_latest'    => $events_latest,
         ];
         //////////////// have logged //////////////////////
         $data['user_event_register'] = 0;
