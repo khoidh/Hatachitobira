@@ -53,7 +53,7 @@
         line-height: 200%;
         font-size: small;
         font-weight: bold;
-        color: $white-color;
+        color: $black-color;
 
         position: relative;
         display: inline-block;
@@ -69,7 +69,7 @@
         img {
           position: absolute;
           max-height: 24px;
-          max-width: 101px;
+          max-width: 111px;
           top: 0;
         }
 
@@ -103,6 +103,10 @@
           .icon-favorite {
             text-align: right;
             padding-bottom: 24px;
+            font-size:24px;
+            >i{
+              color: rgb(99, 107, 111);
+            }
           }
 
           .title {
@@ -197,14 +201,17 @@
       transition: background .15s cubic-bezier(.33,.66,.66,1);
       display: inline;
     }
-    .heart{
+    .icon-favorite{
       text-align: right;
+
       .heart-icon{
-        //font-size: 24px;
-        color: #D4D4D4;
-        .heart-create-at{
-          color: $text2-color;
-        }
+        cursor: pointer;
+        font-size: 24px;
+        color: rgb(99, 107, 111);
+      }
+      .heart-create-at{
+        font-size: 18px;
+        color: $text2-color;
       }
     }
     .shape-8{

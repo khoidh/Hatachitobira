@@ -75,7 +75,7 @@
                                     src="{{asset('image/event/event-visible-icon.png')}}" alt="event-visible-icon.png"
                                 @endif
                             >
-                            <span style="@if(!$check) left: 20px; @endif">{{$event_state}}</span>
+                            <span style="@if(!$check) left: 20px; color: white !important; @endif">{{$event_state}}</span>
                         </div>
                         <div class="article-content row">
                             <div class="content-left col-md-4">
@@ -87,32 +87,15 @@
                             <div class="content-right col-md-8">
                                 <div class="icon-favorite">
                                     {{--==================== favorite ====================--}}
-                                    <i class="fa fa-heart-o" style="font-size:24px; color: #D4D4D4;"></i>
-                                    {{--@if(Auth::user())--}}
-                                        {{--{{ csrf_field() }}--}}
-                                        {{--<div type="button" class="favorite">--}}
-                                            {{--<input type="hidden" class="favorite" value="0">--}}
-                                            {{--<input type="hidden" class="user_id"--}}
-                                                   {{--value="{{Auth::user()->id}}">--}}
-                                            {{--<input type="hidden" class="event_id" value="{{$event->id}}">--}}
-                                            {{--<span class="col-md-12 text-right">--}}
-                                                {{--<i class="fa fa-heart-o"--}}
-                                                   {{--style="font-size:24px;--}}
-                                                   {{--@if(in_array($event->id,$favorites_id))--}}
-                                                           {{--color: pink;--}}
-                                                   {{--@else--}}
-                                                           {{--color: rgb(99, 107, 111);--}}
-                                                   {{--@endif--}}
-                                                           {{--"></i>--}}
-                                            {{--</span>--}}
-                                        {{--</div>--}}
-                                    {{--@else--}}
-                                        {{--<div type="button">--}}
-                                            {{--<i class="fa fa-heart-o" style="font-size:24px;"--}}
-                                               {{--data-toggle="modal"--}}
-                                               {{--data-target="#modal_login"> </i>--}}
-                                        {{--</div>--}}
-                                    {{--@endif--}}
+                                    <i class="fa fa-heart-o" style="
+                                        @if(Auth::user() and in_array($event->id,$favorites_id))
+                                                color: pink !important;
+                                        @else
+                                                color: rgb(99, 107, 111) !important;
+                                        @endif "
+                                           data-id="{{$event->id}}"
+                                           data-user='{{Auth::user() ? Auth::user()->id : ""}}'>
+                                    </i>
                                     {{--==================== /end favorite ====================--}}
                                 </div>
                                 <a href="{{route('event.show', $event->id)}}" style="text-decoration:none;">
@@ -143,7 +126,7 @@
 @endsection
 
 @section('javascript-add')
-    <script>
+    <script type="text/javascript"  async defer>
         $(document).ready(function(){
             $.ajaxSetup({
                 headers: {
@@ -205,22 +188,6 @@
                     $('#modal_register').modal('show');
                 }
             });
-            // $(document).on('click', '.pagination .page-link', function (e) {
-            //
-            //     e.preventDefault();
-            //     var page = $(this).attr('href').split('page=')[1];
-            //     $.ajax({
-            //         type: "GET",
-            //         url: '?page=' + page,
-            //         data:{page:page},
-            //         success:function(data){
-            //             // console.log(data);
-            //             $('body').html(data);
-            //             // $('body,html').animate({scrollTop: 0}, 'slow');
-            //             $('body,html').animate({scrollTop: 0});
-            //         }
-            //     })
-            // });
         })
     </script>
 @endsection
