@@ -86,6 +86,13 @@ Route::group(['middleware' => 'auth:user'],function ()
     Route::post('eventFavorite', 'User\EventController@favorite')->name('event.favorite');
 
     Route::get('my-page','User\MypageController@index')->name('mypage.index');
+    Route::post('change-lable','User\MypageController@changeLable')->name('mypage.change-lable');
+    Route::post('change-content','User\MypageController@changeContent')->name('mypage.change-content');
+    Route::post('change-content-child','User\MypageController@changeContentChild')->name('mypage.change-content-child');
+    Route::post('show-modal','User\MypageController@showModal')->name('mypage.show-modal');
+    Route::post('show-modal-image','User\MypageController@showModalImage')->name('mypage.show-modal-image');
+    Route::post('show-month','User\MypageController@showMonth')->name('mypage.show-month');
+    Route::post('change-avatar','User\MypageController@changeAvatar')->name('mypage.change-avatar');
 });
 
 Route::get('/wyswyg', function () {
