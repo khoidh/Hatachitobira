@@ -184,7 +184,7 @@ class MypageController extends Controller
 
         $mytheme = Mytheme::where('user_id',$user_id)->where('month',$data['month'])->where('year',$data['year'])->orderBy('category_id','asc')->get();
         $mythemes = array();
-        for ($i=0; $i < 9 ; $i++) { 
+        for ($i=0; $i <= 9 ; $i++) { 
             $key = $i>=4 ? $i+1 : $i;
             $mythemes[$key] = "";
             foreach ($mytheme as $k => $v) {

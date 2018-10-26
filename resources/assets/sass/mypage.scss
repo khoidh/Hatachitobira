@@ -391,9 +391,13 @@
 
             .video-content {
                 padding-top: 32px;
+                img {
+                    width: 100%
+                }
 
                 .img {
                     border-radius: 15px;
+
                 }
 
                 .title {

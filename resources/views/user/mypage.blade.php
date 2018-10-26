@@ -28,7 +28,7 @@
                     </div>
                     <div class="col-sm-10 memo-input">
                         <input type="text" name="" class="input-memo" data-month="{{isset($mytheme_first->month) ? $mytheme_first->month : $data_date['month']}}" 
-                                            data-year="{{isset($mytheme_first->year) ? $mytheme_first->year : $data_date['year']}}"  placeholder="先月の行動を振り返り記録しよう" value="{{$mytheme_first->memo}}">
+                                            data-year="{{isset($mytheme_first->year) ? $mytheme_first->year : $data_date['year']}}"  placeholder="先月の行動を振り返り記録しよう" value="{{$mytheme_first? $mytheme_first->memo : ''}}">
                     </div>
                 </div>
                 <hr class="shape-8"/>
@@ -38,7 +38,7 @@
                     </div>
                     <div class="col-sm-10 log-input">
                         <input type="text" name="" class="input-lat-log" data-month="{{isset($mytheme_first->month) ? $mytheme_first->month : $data_date['month']}}" 
-                                            data-year="{{isset($mytheme_first->year) ? $mytheme_first->year : $data_date['year']}}" placeholder="先月の自分を#で記録しよう　#バイト三昧　#初ボランティア" value="{{$mytheme_first->last_log}}">
+                                            data-year="{{isset($mytheme_first->year) ? $mytheme_first->year : $data_date['year']}}" placeholder="先月の自分を#で記録しよう　#バイト三昧　#初ボランティア" value="{{$mytheme_first ? $mytheme_first->last_log : ''}}">
                     </div>
                 </div>
             </div>
@@ -102,7 +102,7 @@
                     </div>
                     <div class="col-sm-9 my-theme-input">
                         <input type="text" name="my-therme-month" class="input-my-theme" data-month="{{isset($mytheme_first->month) ? $mytheme_first->month : $data_date['month']}}" 
-                                            data-year="{{isset($mytheme_first->year) ? $mytheme_first->year : $data_date['year']}}" placeholder="例:「人に喜んでもらう接客とは？」「自分の理想のチームをつくるには？」" value="{{$mytheme_first->this_mytheme}}">
+                                            data-year="{{isset($mytheme_first->year) ? $mytheme_first->year : $data_date['year']}}" placeholder="例:「人に喜んでもらう接客とは？」「自分の理想のチームをつくるには？」" value="{{$mytheme_first ? $mytheme_first->this_mytheme : ''}}">
                     </div>
                 </div>
                 <hr class="shape-8"/>
@@ -112,7 +112,7 @@
                     </div>
                     <div class="col-sm-9 action-input">
                         <input type="text" name="action-of-month" class="input-action" data-month="{{isset($mytheme_first->month) ? $mytheme_first->month : $data_date['month']}}" 
-                                            data-year="{{isset($mytheme_first->year) ? $mytheme_first->year : $data_date['year']}}" placeholder="考えたいこと、行動したいことを3つ決めよう" value="{{$mytheme_first->this_action}}">
+                                            data-year="{{isset($mytheme_first->year) ? $mytheme_first->year : $data_date['year']}}" placeholder="考えたいこと、行動したいことを3つ決めよう" value="{{$mytheme_first ? $mytheme_first->this_action : ''}}">
                     </div>
                 </div>
                 <hr class="shape-8"/>
