@@ -1,5 +1,5 @@
 <div id="modal_login" class="modal fade modal_register" role="dialog">
-    <div class="modal-dialog" style="margin-top:150px">
+    <div class="modal-dialog" style="margin-top:30px">
         <div class="modal-content">
             <div class="modal-body" style="text-align:center">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -59,7 +59,7 @@
 </div>
 
 <div id="modal_register" class="modal fade modal_register" role="dialog">
-    <div class="modal-dialog" style="margin-top:150px">
+    <div class="modal-dialog" style="margin-top:30px">
         <div class="modal-content">
             <div class="modal-body" style="text-align:center">
                 <button type="button" id="dismiss-register" class="close" data-dismiss="modal">&times;</button>

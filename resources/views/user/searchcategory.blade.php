@@ -90,7 +90,7 @@
                             @endforelse
                         </div>
                         @if(count($columns) > 1)
-                         <a class="carousel-control-prev" href="#carouselExample" role="button" data-slide="prev">
+                         <a class="carousel-control-prev" style="display: none;" href="#carouselExample" role="button" data-slide="prev">
                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                             <span class="sr-only">Previous</span>
                         </a>
@@ -128,7 +128,7 @@
                                             src="{{asset('image/event/event-visible-icon.png')}}" alt="event-visible-icon.png"
                                         @endif
                                     >
-                                    <span class="events" style="@if(!$check) left: 20px; @endif">{{$event_state}}</span>
+                                    <span class="events" style="@if(!$check) left: 20px;@else color: #111111 @endif">{{$event_state}}</span>
                                 </div>
                                 <div class="article-content row">
                                     <div class="content-left col-md-4">
@@ -157,7 +157,7 @@
                         </div>
                         @if(count($events) > 1)
 
-                        <a class="carousel-control-prev" href="#carouselExampleevent" role="button" data-slide="prev">
+                        <a class="carousel-control-prev" style="display: none;" href="#carouselExampleevent" role="button" data-slide="prev">
                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                             <span class="sr-only">Previous</span>
                         </a>
@@ -175,7 +175,7 @@
                     <div id="carouselExampleevent123" class="carousel slide multi-item-carousel" data-ride="carousel" data-interval="false" data-wrap="false">
                         <div class="carousel-inner row mx-auto" role="listbox">
                             @forelse($results as $key => $result)
-                                    <div class=" item col-xs-12 col-sm-12 col-md-12 col-lg-12 video-detail {{count($results) > 2 ? 'carousel-item' : ''}}  {{ $key == 0  ? 'active' : ''}}">
+                                    <div class=" item col-xs-12 col-sm-12 col-md-12 col-lg-12 video-detail carousel-item {{ $key == 0  ? 'active' : ''}}">
                                         <div class="wrapper">
                                             <div class="thump">
                                                 <div class="browse-details" data-id='{{$result->id}}' data-user='{{Auth::user() ? Auth::user()->id : "" }}' data-src='{{$result->items[0]->player->embedHtml}}'>
@@ -205,7 +205,7 @@
                             @endforelse
                         </div>
                         @if(count($results) > 3)
-                        <a class="carousel-control-prev" href="#carouselExampleevent123" role="button" data-slide="prev">
+                        <a class="carousel-control-prev" style="display: none;" href="#carouselExampleevent123" role="button" data-slide="prev">
                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                             <span class="sr-only">Previous</span>
                         </a>
@@ -234,8 +234,53 @@
 
 <script type="text/javascript" async defer>
     $(document).ready(function(){
+        $(document).on('click','#carouselExample .carousel-control-next',function(){
+            if ($('#carouselExample .carousel-inner .carousel-item.active').is(':nth-last-child(2)')) {
+                $('#carouselExample .carousel-control-next').attr('style','display: none !important');
+            }else if ($('#carouselExample .carousel-inner .carousel-item.active').is(':nth-child(1)')){
+                $('#carouselExample .carousel-control-prev').css('display','block');
+            }
+        })
 
-        
+        $(document).on('click','#carouselExampleevent .carousel-control-next',function(){
+            if ($('#carouselExampleevent .carousel-inner .carousel-item.active').is(':nth-last-child(2)') ) {
+                $('#carouselExampleevent .carousel-control-next').attr('style','display: none !important');
+            }else if ($('#carouselExampleevent .carousel-inner .carousel-item.active').is(':nth-child(1)')){
+                $('#carouselExampleevent .carousel-control-prev').css('display','block');
+            }
+        })
+
+        $(document).on('click','#carouselExampleevent123 .carousel-control-next',function(){
+            if ($('#carouselExampleevent123 .carousel-inner .carousel-item.active').is(':nth-last-child(2)') ) {
+                $('#carouselExampleevent123 .carousel-control-next').attr('style','display: none !important');
+            }else if ($('#carouselExampleevent123 .carousel-inner .carousel-item.active').is(':nth-child(1)')){
+                $('#carouselExampleevent123 .carousel-control-prev').css('display','block');
+            }
+        })
+
+        $(document).on('click','#carouselExample .carousel-control-prev',function(){
+            if ($('#carouselExample .carousel-inner .carousel-item.active').is(':nth-last-child(1)')) {
+                $('#carouselExample .carousel-control-next').attr('style','display: block !important');
+            }else if ($('#carouselExample .carousel-inner .carousel-item.active').is(':nth-child(2)')){
+                $('#carouselExample .carousel-control-prev').attr('style','display: none !important');
+            }
+        })
+
+        $(document).on('click','#carouselExampleevent .carousel-control-prev',function(){
+            if ($('#carouselExampleevent .carousel-inner .carousel-item.active').is(':nth-last-child(1)') ) {
+                $('#carouselExampleevent .carousel-control-next').attr('style','display: block !important');
+            }else if ($('#carouselExampleevent .carousel-inner .carousel-item.active').is(':nth-child(2)')){
+                $('#carouselExampleevent .carousel-control-prev').attr('style','display: none !important');
+            }
+        })
+
+        $(document).on('click','#carouselExampleevent123 .carousel-control-prev',function(){
+            if ($('#carouselExampleevent123 .carousel-inner .carousel-item.active').is(':nth-last-child(1)') ) {
+                $('#carouselExampleevent123 .carousel-control-next').attr('style','display: block !important');
+            }else if ($('#carouselExampleevent123 .carousel-inner .carousel-item.active').is(':nth-child(2)')){
+                $('#carouselExampleevent123 .carousel-control-prev').attr('style','display: none !important');
+            }
+        })
 
         if (window.innerWidth > 427) {
             $('.carousel.multi-item-carousel .carousel-item').each(function(){

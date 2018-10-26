@@ -11,13 +11,17 @@
                     <a class="page-link" href="{{ $paginator->url($i) }}">{{ $i }}</a>
                 </li>
             @endfor
-        @else
-            @for ($i = $paginator->currentPage() - 2; $i <= $paginator->currentPage() + 3; $i++)
-                @if($i <= $paginator->lastPage())
+        @elseif ($paginator->currentPage() + 6 >= $paginator->lastPage())
+            @for ($i = $paginator->lastPage() - 6; $i <= $paginator->lastPage(); $i++)
                 <li class="page-item {{ ($paginator->currentPage() == $i) ? ' active' : '' }}">
                     <a class="page-link" href="{{ $paginator->url($i) }}">{{ $i }}</a>
                 </li>
-                @endif
+            @endfor
+        @else
+            @for ($i = $paginator->currentPage() - 2; $i <= $paginator->currentPage() + 3; $i++)
+                <li class="page-item {{ ($paginator->currentPage() == $i) ? ' active' : '' }}">
+                    <a class="page-link" href="{{ $paginator->url($i) }}">{{ $i }}</a>
+                </li>
             @endfor
         @endif
     @else
