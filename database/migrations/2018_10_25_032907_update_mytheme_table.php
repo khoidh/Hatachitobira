@@ -15,6 +15,11 @@ class UpdateMythemeTable extends Migration
     {
         Schema::table('my_themes', function (Blueprint $table) {
             $table->integer("category_id")->after('id')->comment = "カテゴリ";
+            $table->string('memo',256)->nullable()->change();
+            $table->string('last_log',256)->nullable()->change();
+            $table->text('keywords',256)->nullable()->change();
+            $table->string('this_mytheme',256)->nullable()->change();
+            $table->string('this_action',256)->nullable()->change();
             $table->string("content_lable",255)->nullable()->after('this_action');
             $table->string("content_1",255)->nullable()->after('content_lable');
             $table->string("content_2",255)->nullable()->after('content_1');
