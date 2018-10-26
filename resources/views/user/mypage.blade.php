@@ -7,22 +7,20 @@
 @section('title-j', 'マイページ')
 @section('content')
     <div class="container my-page">
-        <div class="row">
+        <div class="row my-page-top">
             <div class="col-sm-12 how-to-use">
                 <a class="a-user" href="#">
                     <i class="fa fa-question-circle-o"></i>
                     <span class="a-user-text" >&nbsp;このパーツの使い方はこちら</span>
                 </a>
             </div>
-
             <div class="col-sm-12 select-month">
                 <h1>
-                    <i class="fa fa-chevron-circle-left icon-back" aria-hidden="true"> </i>
+                    <i class="fa fa-chevron-circle-left icon-back" data-month="{{$data_date['month'] == 1 ? '12' : $data_date['month'] - 1}}" data-year = "{{$data_date['month'] == 1 ? $data_date['year'] - 1 : $data_date['year']}}" aria-hidden="true"> </i>
                     <b>&nbsp;{{$data_date['year']}}年{{$data_date['month']}}月&nbsp;</b>
-                    <i class="fa fa-chevron-circle-right icon-next" aria-hidden="true"> </i>
+                    <i class="fa fa-chevron-circle-right icon-next" aria-hidden="true" data-month="{{$data_date['month'] == 12 ? '1' : $data_date['month'] + 1}}" data-year = "{{$data_date['month'] == 12 ? $data_date['year'] + 1 :  $data_date['year']}}"> </i>
                 </h1>
             </div>
-
             <div class="col-sm-12 info-1">
                 <div class="row memo">
                     <div class="col-sm-2 memo-text">
@@ -33,9 +31,7 @@
                                             data-year="{{isset($mytheme_first->year) ? $mytheme_first->year : $data_date['year']}}"  placeholder="先月の行動を振り返り記録しよう" value="{{$mytheme_first->memo}}">
                     </div>
                 </div>
-
                 <hr class="shape-8"/>
-
                 <div class="row log">
                     <div class="col-sm-2 log-text">
                         <div class="underline">&nbsp;先月のログ&nbsp;</div>
@@ -46,53 +42,59 @@
                     </div>
                 </div>
             </div>
-
             <div class="col-sm-12 col-xs-12 panel-info">
                 <div class="row">
-                    
                     @php ($index=1)
                     @for ($i = 0; $i < 9; $i++)
+                        <?php $key = $i>4 ? $i : $i+1 ?>
                         @if($i!=4)
                         <div class="col-sm-4 col-xs-4 panel-info-wrapper">
-                                <div class="panel-info-content">
-                                    <div class="number">
-                                        <span>0{{$index++}}</span>
-                                    </div>
-                                    <div class="mypage-text">
-                                        <?php $key = $i>4 ? $i : $i+1 ?>
-                                        <span>
-                                            <textarea name="value-lable" class="edit-input-lable" 
-                                                data-month="{{isset($mythemes[$i]->month) ? $mythemes[$i]->month : $data_date['month']}}" 
-                                                data-year="{{isset($mythemes[$i]->year) ? $mythemes[$i]->year : $data_date['year']}}" 
-                                                data-category = "{{isset($mythemes[$i]->category_id) ? $mythemes[$i]->category_id : $key}}" 
-                                                data-id = "{{isset($mythemes[$i]->id) ? $mythemes[$i]->id : ''}}"
-                                                placeholder="Click here to edit">{{isset($mythemes[$i]->content_lable) ? $mythemes[$i]->content_lable : ''}}</textarea>
-                                        </span>
-                                    </div>
-                                    <div class="favorite edit">
-                                        <i class="fa fa-pencil"
+                            <div class="panel-info-content">
+                                <div class="number">
+                                    <span>0{{$index++}}</span>
+                                </div>
+                                <div class="mypage-text">
+                                    <span>
+                                        <textarea name="value-lable" class="edit-input-lable" 
                                             data-month="{{isset($mythemes[$i]->month) ? $mythemes[$i]->month : $data_date['month']}}" 
                                             data-year="{{isset($mythemes[$i]->year) ? $mythemes[$i]->year : $data_date['year']}}" 
                                             data-category = "{{isset($mythemes[$i]->category_id) ? $mythemes[$i]->category_id : $key}}" 
                                             data-id = "{{isset($mythemes[$i]->id) ? $mythemes[$i]->id : ''}}"
-                                        >
-                                            Edit</i>
-                                    </div>
+                                            placeholder="Click here to edit">{{isset($mythemes[$i]->content_lable) ? $mythemes[$i]->content_lable : ''}}</textarea>
+                                    </span>
+                                </div>
+                                <div class="favorite edit label">
+                                    <i class="fa fa-pencil"
+                                        data-month="{{isset($mythemes[$i]->month) ? $mythemes[$i]->month : $data_date['month']}}" 
+                                        data-year="{{isset($mythemes[$i]->year) ? $mythemes[$i]->year : $data_date['year']}}" 
+                                        data-category = "{{isset($mythemes[$i]->category_id) ? $mythemes[$i]->category_id : $key}}" 
+                                        data-id = "{{isset($mythemes[$i]->id) ? $mythemes[$i]->id : ''}}"
+                                    >
+                                        Edit</i>
                                 </div>
                             </div>
+                        </div>
                         @else
                             {{--05--}}
                             <div class="col-sm-4 col-xs-4 panel-info-wrapper">
-                                <div class="event-image" style="background-image: url('{{asset('image/mypage/mypage-01.png')}}'); ">
+                                <div class="event-image">
+                                    <img src="{{isset($mythemes['9']->content_lable) ? asset('image/mypage/'.$mythemes['9']->content_lable) :asset('image/mypage/mypage-01.png')}}" alt="">
+                                    <div class="description"> {{isset($mythemes['9']->content_1) ? $mythemes['9']->content_1 : 'HATACHI TOBIRA'}}</div>
+                                    <div class="favorite edit image">
+                                        <i class="fa fa-pencil"
+                                            data-month="{{isset($mythemes['9']->month) ? $mythemes['9']->month : $data_date['month']}}" 
+                                            data-year="{{isset($mythemes['9']->year) ? $mythemes['9']->year : $data_date['year']}}" 
+                                            data-category = "{{isset($mythemes['9']->category_id) ? $mythemes['9']->category_id : '9'}}" 
+                                            data-id = "{{isset($mythemes['9']->id) ? $mythemes['9']->id : ''}}"
+                                        >Edit</i>
+                                    </div>
                                 </div>
                             </div>
                             {{--@php ($i--);--}}
                         @endif
                     @endfor
-                    
                 </div>
             </div>
-
             <div class="col-sm-12 info-2">
                 <div class="row my-theme">
                     <div class="col-sm-3 my-theme-text">
@@ -103,9 +105,7 @@
                                             data-year="{{isset($mytheme_first->year) ? $mytheme_first->year : $data_date['year']}}" placeholder="例:「人に喜んでもらう接客とは？」「自分の理想のチームをつくるには？」" value="{{$mytheme_first->this_mytheme}}">
                     </div>
                 </div>
-
                 <hr class="shape-8"/>
-
                 <div class="row action">
                     <div class="col-sm-3 action-text">
                         <div class="underline">&nbsp;今月のアクション &nbsp;</div>
@@ -117,7 +117,6 @@
                 </div>
                 <hr class="shape-8"/>
             </div>
-
         </div>
     </div>
 
@@ -404,7 +403,7 @@
             })
         })
 
-        $(document).on('click','.favorite.edit .fa-pencil',function(e){
+        $(document).on('click','.favorite.edit.label .fa-pencil',function(e){
             e.preventDefault();
             var _this = $(this);
             var year = _this.data('year');
@@ -429,6 +428,32 @@
             })
         })
 
+        $(document).on('click','.favorite.edit.image .fa-pencil',function(e){
+            e.preventDefault();
+            var _this = $(this);
+            var year = _this.data('year');
+            var month = _this.data('month');
+            var id = _this.data('id');
+            var category = $(this).data('category');
+            $.ajax({
+                url : '{{route("mypage.show-modal-image")}}',
+                type: 'post',
+                dataType: 'html',
+                data: {
+                    year : year,
+                    month : month,
+                    category_id : category,
+                    id : id
+                },
+                success : function (result){
+                    $('#show-detail-mypage').find('.panel-body').html(result);
+                    $('#show-detail-mypage').modal('show');
+                    // _this.parents('.panel-info-content').find('.edit-input-lable').addClass('editing');
+                }   
+            })
+        })
+
+
         $(document).on('click','#dissmiss_modal_show',function(e){
             e.preventDefault();
             var text = $('#show-detail-mypage').find('.edit-input-lable').val();
@@ -437,6 +462,69 @@
             $('#show-detail-mypage').modal('hide');
         })
 
+        $(document).on('click','.fa.fa-chevron-circle-left.icon-back, .fa.fa-chevron-circle-right',function(e) {
+            e.preventDefault();
+            var _this = $(this);
+            var month = _this.data('month');
+            var year = _this.data('year');
+            $.ajax({
+                url : '{{route("mypage.show-month")}}',
+                type: 'post',
+                dataType: 'html',
+                data: {
+                    year : year,
+                    month : month
+                },
+                success : function (result){
+                    $('.row.my-page-top').html(result);
+                }   
+            })
+        })
+
+        $(document).on('change','.file-image',function(e){
+            var formData = new FormData($('#form_information')[0]);
+            var tmppath = URL.createObjectURL(e.target.files[0]);
+            $('#tmppath').val(tmppath);
+            $.ajax({
+                type: 'post',
+                url: '{{route("mypage.change-avatar")}}',
+                dataType: "json",
+                data: formData,
+                async: false,
+                success: function (key) {
+                    $('#dissmiss_modal_show').addClass('editing');
+                },
+                processData: false,
+                cache: false,
+                contentType: false,
+            });
+        })
+        $(document).on('focusout','.image-description',function(e){
+            var formData = new FormData($('#form_information')[0]);
+            $.ajax({
+                type: 'post',
+                url: '{{route("mypage.change-avatar")}}',
+                dataType: "json",
+                data: formData,
+                async: false,
+                success: function (key) {
+                    $('#dissmiss_modal_show').addClass('editing');
+                },
+                processData: false,
+                cache: false,
+                contentType: false,
+            });
+        })
+
+        $(document).on('click','#dissmiss_modal_show.editing',function(e){
+            e.preventDefault();
+            var text = $('#show-detail-mypage').find('.image-description').val();
+            var src = $('#tmppath').val();
+            $('.description').text(text);
+            $('.event-image').find('img').attr('src',src);
+            $('#dissmiss_modal_show').removeClass('editing');
+            $('#show-detail-mypage').modal('hide');
+        })
     });
 </script>
 @endsection

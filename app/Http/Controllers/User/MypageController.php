@@ -46,11 +46,11 @@ class MypageController extends Controller
 
         $mytheme = Mytheme::where('user_id',$user_id)->where('month',$data_date['month'])->where('year',$data_date['year'])->orderBy('category_id','asc')->get();
         $mythemes = array();
-        for ($i=0; $i < 9 ; $i++) { 
+        for ($i=0; $i <= 9 ; $i++) { 
             $key = $i>=4 ? $i+1 : $i;
             $mythemes[$key] = "";
             foreach ($mytheme as $k => $v) {
-                if (isset($k) && $key == $v->category_id) {
+                if (isset($k) && $i+1 == $v->category_id) {
                     $mythemes[$key] = $v;
                 }
             }
@@ -64,12 +64,9 @@ class MypageController extends Controller
             'data_date'     => $data_date,
             'mythemes'      => $mythemes,
             'mytheme_first' => $mytheme_first,
-
         ];
-
         return view('user.mypage', $array);
     }
-
 
     public function changeLable(Request $request){
         $data = $request->all();
@@ -130,6 +127,81 @@ class MypageController extends Controller
 
         $result = Mytheme::where('user_id',$user_id)->where('month',$data['month'])->where('year',$data['year'])->where('category_id',$data['category_id'])->first();
         return view('user.mypage_modal',compact('result','data'));
+    }
+
+    public function showModalImage(Request $request) {
+        $data = $request->all();
+        $user_id = Auth::User()->id;
+        $data['user_id'] = $user_id;
+
+        $result = Mytheme::where('user_id',$user_id)->where('month',$data['month'])->where('year',$data['year'])->where('category_id',$data['category_id'])->first();
+        $result_1 = Mytheme::where('user_id',$user_id)->where('month',$data['month'])->where('year',$data['year'])->first();
+        return view('user.mypage_modal_image',compact('result','data','result_1'));
+    }
+
+
+    public function changeAvatar(Request $request) {
+        $data = $request->all();
+        $user_id = Auth::User()->id;
+        $data['user_id'] = $user_id;
+        //Upload file image
+        $fileName = '';
+        if($request->hasFile('file-image')){
+            $file = $request->file('file-image');
+            $fileName = time().'_'.$file->getClientOriginalName();
+            $destinationPath = public_path('image/mypage');
+            $file->move($destinationPath, $fileName);
+        }
+        $data['content_lable'] = $fileName;
+        $data['content_1'] = $data['description'];
+
+        unset($data['file-image']);
+        unset($data['description']);
+        unset($data['tmppath']);
+
+        $result = Mytheme::where('user_id',$user_id)->where('month',$data['month'])->where('year',$data['year'])->where('category_id',$data['category_id'])->first();
+        if ($result) {
+            Mytheme::where('user_id',$user_id)->where('month',$data['month'])->where('year',$data['year'])->where('category_id',$data['category_id'])->update($data);
+            $results =  Mytheme::where('user_id',$user_id)->where('month',$data['month'])->where('year',$data['year'])->where('category_id',$data['category_id'])->first();
+        }
+        else {
+            $results= Mytheme::create($data);
+        }
+        return json_encode($results);
+    }
+
+    public function showMonth(Request $request) {
+        $data = $request->all();
+        $user_id = Auth::User()->id;
+        $data['user_id'] = $user_id;
+
+        $date_now = new DateTime();
+        $data_date['month'] = date_format($date_now, "m");
+        $data_date['year'] = date_format($date_now, "Y");
+        $user_id = Auth::User()->id;
+
+        $mytheme_first = Mytheme::where('user_id',$user_id)->where('month',$data['month'])->where('year',$data['year'])->first();
+
+        $mytheme = Mytheme::where('user_id',$user_id)->where('month',$data['month'])->where('year',$data['year'])->orderBy('category_id','asc')->get();
+        $mythemes = array();
+        for ($i=0; $i < 9 ; $i++) { 
+            $key = $i>=4 ? $i+1 : $i;
+            $mythemes[$key] = "";
+            foreach ($mytheme as $k => $v) {
+                if (isset($k) && $i+1 == $v->category_id) {
+                    $mythemes[$key] = $v;
+                }
+            }
+        }
+
+        $array=[
+            'data_date'     => $data_date,
+            'mythemes'      => $mythemes,
+            'mytheme_first' => $mytheme_first,
+            'data_search'   => $data       
+        ];
+
+        return view('user.mypage_month', $array);
     }
 
     /** Function get info by category_id
