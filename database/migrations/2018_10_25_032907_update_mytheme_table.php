@@ -16,7 +16,7 @@ class UpdateMythemeTable extends Migration
         Schema::create('my_themes', function (Blueprint $table) {
              $table->increments('id');
             $table->integer('user_id')->unsigned();
-            $table->integer("category_id")->after('id')->comment = "カテゴリ";
+            $table->integer("category_id")->after('id')->comment("カテゴリ");
             $table->string('memo',256)->nullable();
             $table->string('last_log',256)->nullable();
             $table->text('keywords',256)->nullable();
