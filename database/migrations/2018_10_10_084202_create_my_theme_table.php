@@ -13,14 +13,14 @@ class CreateMyThemeTable extends Migration
      */
     public function up()
     {
-        Schema::create('my_themes', function (Blueprint $table) {
+        Schema::create('my_theme', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned();
-            $table->string('memo',256)->nullable()->comment= "memo";
-            $table->string('last_log',256)->nullable()->comment= "先月のログ";
-            $table->text('keywords',256)->nullable()->comment= "キーワード リスト";
-            $table->string('this_mytheme',256)->nullable()->comment= "今月のマイテーマ";
-            $table->string('this_action',256)->nullable()->comment= "今月のアクション";
+            $table->string('memo',256)->comment= "memo";
+            $table->string('last_log',256)->comment= "先月のログ";
+            $table->text('keywords',256)->comment= "キーワード リスト";
+            $table->string('this_mytheme',256)->comment= "今月のマイテーマ";
+            $table->string('this_action',256)->comment= "今月のアクション";
             $table->timestamps();
         });
 
@@ -33,6 +33,6 @@ class CreateMyThemeTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('my_themes');
+        Schema::dropIfExists('my_theme');
     }
 }
