@@ -1,18 +1,18 @@
 <footer>
     <div class="row">
-        <div class="col-sm-12 col-md-7 col-xs-12 logo-footer">
+        <div class="col-sm-12 col-md-2 col-xs-12 logo-footer">
             <ul>
                 <li class="li-first"><a href="/">
-                    <p>マイテーマ、探そ。</p>
+                    <span>マイテーマ、探そ。</span>
                     <img src="{{ asset('image/top/logo-fotter.png') }}" alt="">
                 </a></li>
             </ul>
         </div>
-        <div class="col-sm-12 col-md-5 col-xs-12">
+        <div class="col-sm-12 offset-md-5 col-md-5 col-xs-12">
             <div class="row">
                 <div class="col-md-4 col-xs-6 col-sm-6 footter-mobile">
                     <ul>
-                        <li><a href="#">マイテーマを</a></li>
+                        <li><a class="a-first">マイテーマを</a></li>
                         <li><a href="{{url('video')}}">- &nbsp;動画から探す</a></li>
                         <li><a href="{{url('event')}}">- &nbsp; イベントで見つける</a></li>
                         <li><a href="{{url('column')}}">- &nbsp; 記事で知る</a></li>
@@ -24,7 +24,7 @@
                             <ul>
                                 <li><a href="{{url('about')}}">ABOUT</a></li>
                                 <li><a href="{{url('/enquiry')}}">お問い合わせ</a></li>
-                                <li><a href="{{route('company-entrance')}}">運営会社</a></li>
+                                <li><a href="{{route('recruitment-staff')}}">運営会社</a></li>
                             </ul>
                         </div>
                         <div class="col-md-6">
@@ -52,9 +52,9 @@
     <div class="border-footer"></div>
     <div class="row footer-bootom">
         <div class="text-bootom">
-            <a class="a-link" data-toggle="modal" data-target="#modal_register">会員登録</a>
+            <a class="a-link show-modal-register" data-toggle="modal" data-target="#modal_register">会員登録</a>
             <a class="a-link" data-toggle="modal" data-target="#modal_login">ログイン</a>
-            <a href="#">企業の方</a>
+            <a  href="{{url('recruitment-staff')}}">企業の方</a>
         </div>
     </div>
     @endif

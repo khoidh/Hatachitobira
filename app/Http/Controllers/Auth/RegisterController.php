@@ -53,9 +53,9 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => 'required|string|max:255',
+            'name' => 'required|string|max:50',
             'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:6|confirmed',
+            'password' => 'required|string|min:6|max:20|confirmed',
         ]);
     }
 
@@ -70,25 +70,35 @@ class RegisterController extends Controller
         $data = $request->all();
         $result = array();
         $users = User::where('email',$data['email'])->first();
-        $validator = $request->validate([
+        $validation = Validator::make( $request->all(), [
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
         ]);
-
-        $user = User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => bcrypt($data['password']),
-            'verifyToken' => Str::random(40),
-        ]);
-
-        $thisUser = User::findOrFail($user->id);
-        Auth::login($thisUser, true);
-        $this->sendEmail($thisUser);
-        return response()->json([
-            'success' => 'true '
-        ]);
+        if ( $validation->fails() ) {
+            return $validation->messages();
+        }else {
+            $user_data = [
+                'name' => $data['name'],
+                'email' => $data['email'],
+                'password' => bcrypt($data['password']),
+                'verifyToken' => Str::random(40),
+            ];
+            if(filter_var($user_data['email'], FILTER_VALIDATE_EMAIL)) {
+                $user = User::create($user_data);
+                $thisUser = User::findOrFail($user->id);
+                $this->sendEmail($thisUser);
+                Auth::login($thisUser, true);
+                return response()->json([
+                    'success' => 'true',
+                    'type_regis' => $data['type_register']
+                ]);
+            }else{
+                return response()->json([
+                    'email' => 'The email not correct'
+                ]);
+            }
+        }
     }
 
     public function sendEmail($thisUser)

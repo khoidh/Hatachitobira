@@ -7,6 +7,7 @@ use App\Video;
 use App\Category;
 use App\Column;
 use App\Favorite;
+use DateTime;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -17,103 +18,198 @@ class MypageController extends Controller
 
     public function index()
     {
-        return view('user.mypage');
+//        $user_id = Auth::user()->id;
+
+        /* Get category list */
+        $categories = Category::where('display',1)->get();
+
+        /* Get video faverite list */
+        $videos = Video::select()->paginate(6);
+
+        /* Get event list have joined */
+        $events = Event::select()
+            ->select('events.*','categories.name as category_name')
+            ->join('categories','categories.id','=','events.category_id')
+            ->paginate(3);
+
+        /* Get column faverite list */
+        $columns = Column::select()
+            ->select('columns.*', 'categories.name as category_name')
+            ->join('categories', 'categories.id', '=', 'columns.category_id')
+            ->paginate(6);
+
+        $array=[
+            'categories'    => $categories,
+            'videos'        => $videos,
+            'events'        => $events,
+            'columns'       => $columns
+        ];
+//        echo '<pre>'; print_r($array['videos']);echo '</pre>';
+//        die;
+
+        return view('user.mypage', $array);
     }
 
-    public function searchCategory() {
-    	$api_key = 'AIzaSyCHOj6MNDK2YFRLQhK5yKP2KEBIRKHlHuU';
+    /** Function get info by category_id
+     * @param $id       Category_id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    function get_info_by_category($id)
+    {
+//        /* Get video faverite list */
+//        $favoritable_type = (new Column())->getTable();    //Get table name "Columns"
+//        $favorites_id = Favorite::where([
+//            ['user_id', $user_id],
+//            ['favoritable_type', $favoritable_type]
+//        ])->pluck('favoritable_id')->toArray();
+//
+//
+//
+//        /* Get event list have joined */
+//
+//        /* Get column faverite list */
+//
+//        $array=[
+//            'columns' => $columns,
+//            'favorites_id' => $favorites_id
+//        ];
+        $array = ['value',$id];
+        return $array;
+    }
+
+    public function searchCategory()
+    {
+        $api_key = 'AIzaSyCHOj6MNDK2YFRLQhK5yKP2KEBIRKHlHuU';
         $BASE_URL = 'https://www.googleapis.com/youtube/v3/videos?id=';
         $BASE_PART = '&part=id,contentDetails,snippet,statistics,player&key=';
 
-    	$categories = Category::all();
+        $categories = Category::where('display',1)->get();
 
-    	if (isset($_GET['search'])) {
-    		$categories_id = $_GET['search'];
-    	}else {
-	    	$categories_id = $categories[0]->id;
-    	}
+        $events = Event::select()
+            ->select('events.*', 'categories.name as category_name')
+            ->join('categories', 'categories.id', '=', 'events.category_id');
 
-    	$events = Event::select()
-            ->select('events.*','categories.name as category_name')
-            ->join('categories','categories.id','=','events.category_id')
-    		->where('events.category_id','=',$categories_id)->paginate(5);
+        $columns = Column::select()
+            ->select('columns.*', 'categories.name as category_name')
+            ->join('categories', 'categories.id', '=', 'columns.category_id');
+            
+
+        $videos = Video::select()
+            ->select('videos.*', 'categories.name as category_name')
+            ->join('categories', 'categories.id', '=', 'videos.category_id');
+            
+
+        if (isset($_GET['search']) && $_GET['search'] != 0) {
+            $categories_id = $_GET['search'];
+            $events = $events->where('events.category_id', '=', $categories_id);
+            $columns = $columns->where('columns.category_id', '=', $categories_id);
+            $videos = $videos->where('videos.category_id', '=', $categories_id);
+        } 
+
+        $events = $events->orderBy('id','desc')->get();
+        $columns = $columns->orderBy('id','desc')->get();
+        $videos = $videos->orderBy('id','desc')->get();
         
-    	$columns = Column::select()
-            ->select('columns.*','categories.name as category_name')
-            ->join('categories','categories.id','=','columns.category_id')
-            ->where('columns.category_id','=',$categories_id)->paginate(5);
+        foreach ($events as $key => $event) {
+            $like_e = 0;
+            if (Auth::user()) {
+                $user_id = Auth::user()->id;
+                $favorite_e = Favorite::where('user_id', $user_id)
+                    ->where('favoritable_id', $event->id)
+                    ->where('favoritable_type', 'events')->get();
+                if (count($favorite_e) > 0) {
+                    $like_e = 1;
+                }
+            }
+            $event->favorite = $like_e;
+        }
 
-    	$videos = Video::select()
-            ->select('videos.*','categories.name as category_name')
-            ->join('categories','categories.id','=','videos.category_id')
-            ->where('videos.category_id','=',$categories_id)->get();
-    	
+        foreach ($columns as $key => $column) {
+            $like_e = 0;
+            if (Auth::user()) {
+                $user_id = Auth::user()->id;
+                $favorite_c = Favorite::where('user_id', $user_id)
+                    ->where('favoritable_id', $column->id)
+                    ->where('favoritable_type', 'columns')->get();
+                if (count($favorite_c) > 0) {
+                    $like_e = 1;
+                }
+            }
+
+            $column->favorite = $like_e;
+        }
+
         $results = array();
-        foreach ($videos as $video)
-        {
+        foreach ($videos as $video) {
             $url = $video->url;
             parse_str(parse_url($url, PHP_URL_QUERY), $youtube);
-            $id =  $youtube['v'];
+            $id = $youtube['v'];
             $api_url = $BASE_URL . $id . $BASE_PART . $api_key . '';
             $result = json_decode(file_get_contents($api_url));
+            
             $result->id = $video->id;
             $result->category = $video->category_name;
 
             $like = 0;
             if (Auth::user()) {
                 $user_id = Auth::user()->id;
-                $favorite = Favorite::where('user_id',$user_id)
-                ->where('favoritable_id',$video->id)
-                ->where('favoritable_type','videos')->get();
-                if (count($favorite)>0) {
-                    $like =1;
+                $favorite = Favorite::where('user_id', $user_id)
+                    ->where('favoritable_id', $video->id)
+                    ->where('favoritable_type', 'videos')->get();
+                if (count($favorite) > 0) {
+                    $like = 1;
                 }
             }
             $result->favorite = $like;
-
-            array_push($results,$result);
+            if (isset($result->items[0])) {
+                $date1 = new DateTime();
+                $date2 = new DateTime($result->items[0]->snippet->publishedAt);
+                $interval = $date2->diff($date1);
+                $result->date_diff = $interval->m;
+                array_push($results, $result);
+            }
         }
-
         /*Pagination */
 
-        $currentPage = LengthAwarePaginator::resolveCurrentPage();
-        $itemCollection = collect($results);
-        $perPage = 6;
-        $currentPageItems = $itemCollection->slice(($currentPage * $perPage) - $perPage, $perPage)->all();
-        $paginatedItems= new LengthAwarePaginator($currentPageItems , count($itemCollection), $perPage);
-        $paginatedItems->setPath('search-category');
-        $results = $paginatedItems;
-        
-    	return view('user.searchcategory',compact('categories','events','columns','results'));
+        // $currentPage = LengthAwarePaginator::resolveCurrentPage();
+        // $itemCollection = collect($results);
+        // $perPage = 1000;
+        // $currentPageItems = $itemCollection->slice(($currentPage * $perPage) - $perPage, $perPage)->all();
+        // $paginatedItems = new LengthAwarePaginator($currentPageItems, count($itemCollection), $perPage);
+        // $paginatedItems->setPath('search-category');
+        // $results = $paginatedItems;
+
+        return view('user.searchcategory', compact('categories', 'events', 'columns', 'results'));
     }
 
-    public function paginateColumn(Request $request){
+    public function paginateColumn(Request $request)
+    {
         $input = $request->all();
         $columns = Column::select()
-            ->select('columns.*','categories.name as category_name')
-            ->join('categories','categories.id','=','columns.category_id')
-            ->where('columns.category_id','=',$input['category'])->paginate(5);
+            ->select('columns.*', 'categories.name as category_name')
+            ->join('categories', 'categories.id', '=', 'columns.category_id')
+            ->where('columns.category_id', '=', $input['category'])->paginate(5);
 
-        return view('user.searchcategory.column',compact('columns'));
+        return view('user.searchcategory.column', compact('columns'));
     }
 
-    public function paginateVideo(Request $request){
+    public function paginateVideo(Request $request)
+    {
         $api_key = 'AIzaSyCHOj6MNDK2YFRLQhK5yKP2KEBIRKHlHuU';
         $BASE_URL = 'https://www.googleapis.com/youtube/v3/videos?id=';
         $BASE_PART = '&part=id,contentDetails,snippet,statistics,player&key=';
 
         $input = $request->all();
         $videos = Video::select()
-            ->select('videos.*','categories.name as category_name')
-            ->join('categories','categories.id','=','videos.category_id')
-            ->where('videos.category_id','=',$input['category'])->paginate(6);
+            ->select('videos.*', 'categories.name as category_name')
+            ->join('categories', 'categories.id', '=', 'videos.category_id')
+            ->where('videos.category_id', '=', $input['category'])->paginate(6);
 
         $results = array();
-        foreach ($videos as $video)
-        {
+        foreach ($videos as $video) {
             $url = $video->url;
             parse_str(parse_url($url, PHP_URL_QUERY), $youtube);
-            $id =  $youtube['v'];
+            $id = $youtube['v'];
             $api_url = $BASE_URL . $id . $BASE_PART . $api_key . '';
             $result = json_decode(file_get_contents($api_url));
             $result->id = $video->id;
@@ -121,34 +217,35 @@ class MypageController extends Controller
             $like = 0;
             if (Auth::user()) {
                 $user_id = Auth::user()->id;
-                $favorite = Favorite::where('user_id',$user_id)
-                ->where('favoritable_id',$video->id)
-                ->where('favoritable_type','videos')->get();
-                if (count($favorite)>0) {
-                    $like =1;
+                $favorite = Favorite::where('user_id', $user_id)
+                    ->where('favoritable_id', $video->id)
+                    ->where('favoritable_type', 'videos')->get();
+                if (count($favorite) > 0) {
+                    $like = 1;
                 }
             }
             $result->favorite = $like;
-            array_push($results,$result);
+            array_push($results, $result);
         }
 
         $currentPage = LengthAwarePaginator::resolveCurrentPage();
         $itemCollection = collect($results);
         $perPage = 6;
         $currentPageItems = $itemCollection->slice(($currentPage * $perPage) - $perPage, $perPage)->all();
-        $paginatedItems= new LengthAwarePaginator($currentPageItems , count($itemCollection), $perPage);
+        $paginatedItems = new LengthAwarePaginator($currentPageItems, count($itemCollection), $perPage);
         $paginatedItems->setPath('search-category');
         $results = $paginatedItems;
 
-        return view('user.searchcategory.video',compact('results'));
+        return view('user.searchcategory.video', compact('results'));
     }
 
-    public function paginateEvent(Request $request){
+    public function paginateEvent(Request $request)
+    {
         $input = $request->all();
         $events = Event::select()
-            ->select('events.*','categories.name as category_name')
-            ->join('categories','categories.id','=','events.category_id')
-            ->where('events.category_id','=',$input['category'])->paginate(5);
-        return view('user.searchcategory.event',compact('events'));
-    }       
+            ->select('events.*', 'categories.name as category_name')
+            ->join('categories', 'categories.id', '=', 'events.category_id')
+            ->where('events.category_id', '=', $input['category'])->paginate(5);
+        return view('user.searchcategory.event', compact('events'));
+    }
 }

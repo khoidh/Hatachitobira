@@ -21,23 +21,20 @@
                                   マイテーマを探す
                                 </a>
                                 <div class="dropdown-menu" >
-                                    <a class="dropdown-item" href="{{ url('search-category')}}">カテゴリから探す</a>
+                                     <a class="dropdown-item" href="{{ url('search-category')}}">マイテーマの種をみつける</a>
                                     <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="{{ url('video')}}">社会の動画から探す</a>
+                                    <a class="dropdown-item" href="{{ url('video')}}">将来の選択肢を動画でみる</a>
                                     <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="{{ url('video')}}">ロールモデル動画から探す</a>
+                                    <a class="dropdown-item" href="{{ url('event')}}">イベントに参加する</a>
                                     <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="{{ url('event')}}">イベントに参加</a>
-                                    <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="{{ url('column')}}">記事から知る</a>
-                                </div>
+                                    <a class="dropdown-item" href="{{ url('column')}}">ハタチのトビラコラム</a>
                             </li>
                             @if(Auth::Guest())
                             <li class="nav-item">
                                 <a class="nav-link show-modal-register" data-toggle="modal" data-target="#modal_register">新規登録</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{url('company-entrance')}}">企業採用担当の方</a>
+                                <a class="nav-link" href="{{url('recruitment-staff')}}">企業採用担当の方</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" data-toggle="modal" data-target="#modal_login">ログイン</a>
@@ -51,7 +48,7 @@
                                 <a class="nav-link" href="{{ route('logout') }}"
                                    onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                    Logout
+                                    ログアウト
                                 </a>
 
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

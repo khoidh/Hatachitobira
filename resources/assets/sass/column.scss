@@ -1,10 +1,7 @@
-// Column ========================
+//========== Column ===================
 .column {
   @include standard-font();
-  font-family: Raleway,sans-serif;
-  padding-top: 10px;
 
-  //======== column list =========
   .article-list{
     width:100%;
     .article{
@@ -72,6 +69,7 @@
           }
           .title {
             font-size: 20px;
+            text-align: justify;
           }
 
           .category, .date {
@@ -105,11 +103,39 @@
     }
   }
 
-  .pagination-link{
-    padding: 32px 0;
-    font-size: 20px;
+  //.pagination-link{
+  //  padding: 32px 0;
+  //  font-size: 20px;
+  //}
+
+  .pagination {
+    justify-content: center;
+    -webkit-box-align: center;
   }
-  //=========== column detail ===========
+
+  .pagination .page-item .page-link {
+    background-color: #d2d2d2;
+    color: #323233;
+    border: #d2d2d2;
+    border-radius: 15px;
+    margin: 4px;
+    padding: 5px 11px;
+  }
+  .pagination .page-item:first-child .page-link,
+  .pagination .page-item:last-child .page-link {
+    background-color: transparent;
+    border: none;
+    font-weight: bold;
+  }
+
+  .pagination .page-item.active .page-link {
+    background-color: #fff100;
+    border: #fff100;
+  }
+}
+
+//=========== column detail ===========
+.column {
   .tit{
     @include title-font();
     padding-bottom: 24px;
@@ -137,12 +163,18 @@
       @extend %shape-8;
     }
   }
+
   .txt{
     .txt_content{
       color: $text2-color;
       text-align: justify;
+      img {
+        width: 100% !important;
+        height: 100% !important;
+      }
     }
   }
+
   .txt-btn{
     padding: 40px 0;
     button{
@@ -154,7 +186,11 @@
       background: $black-color;
       color: $white-color;
       font-weight: bold;
-      font-size: 24pt;
+
+      font-size: 20pt;
+      @include only-for-pc(){
+        font-size: 24pt;
+      }
       line-height: 40pt;
       cursor: pointer;
       //Đổ bóng phía dưới

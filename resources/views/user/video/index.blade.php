@@ -1,9 +1,29 @@
 @extends('layouts.app')
-@section('title-e', 'My Theme')
+@section('title-e', 'My theme')
 @section('title-black', '動画から将来の選択肢を知って')
 @section('title-blackspan', 'の種をみつけよう')
-@section('title-j')
-マイテーマ
+@section('title-j','マイテーマ')
+@section('main')
+    <div class="container-fluid video">
+        <div class="main row">
+            <div class="title-lx">
+                <div class="container">
+                    <div class="relative row">
+                        <div class="info col-md-12">
+                            <div class="title-e">@yield('title-e','Title')</div>
+                            <div class="absolute">
+                                <p style="margin-bottom: 0"><b>@yield('title-black')</b></p>
+                                <p style="margin-bottom: 0"><span
+                                            class="title-j"> @yield('title-j','タートル')</span><b>@yield('title-blackspan')</b>
+                                </p>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection
 @section('content')
     <div class="container video">
@@ -26,7 +46,7 @@
             </div>
         </div>
         <div class="row video-list">
-            @foreach($results as $result)
+            @forelse($results as $result)
                 @if(isset($result->items[0]))
                 <div class="col-lg-4 col-sm-4 col-md-4 video-detail">
                     <div class="wrapper">
@@ -48,13 +68,15 @@
                                 ?>
                             </p>
                             <span>{{$result->items[0]->statistics->viewCount}} Views /</span>
-                            <span>7 month ago /</span>
+                            <span>{{ $result->date_diff }} month ago /</span>
                             <span>{{$result->category}}</span>
                         </div>
                     </div>
                 </div>
                 @endif
-            @endforeach
+            @empty
+                <h4 class="data-not-found">Data not found</h4>
+            @endforelse
             <div class="col-md-12 col-lg-12 col-sm-12 col-xm-12 paging text-center clearfix">
                 <ul class="pagination" role="navigation">
                     @include('includes.pagination', ['paginator' => $results])
@@ -74,6 +96,15 @@
             </div>
         </div>   
     </div>
+    <div id="modal_loading" class="modal fade modal_register" role="dialog">
+        <div class="modal-dialog" style="margin-top:150px">
+            <div class="modal-content" style="opacity: 0.45; -moz-opacity: 0.45;filter: alpha(opacity=45);background: none;border: none;">
+                <div class="modal-body" style="text-align:center">
+                    <img src="{{asset('image/video/loading.gif')}}" alt="Be patient..." />
+                </div>
+            </div>
+        </div>   
+    </div>
     <script type="text/javascript"  async defer>
         $(document).ready(function() {
             $(document).on('click','.video .video-list .browse-details', function(e){
@@ -86,24 +117,38 @@
 
             $(document).on('change','#category_id',function(e){
                 e.preventDefault();
+                var text = $('.search-container input').val();
                 var id = $(this).val();
                 $.ajax({
-                    url : '{{url("video-search-category?category=")}}'+ id
-                }).done(function(data){
-                    $('.row.video-list').html(data);
+                    url : '{{url("video-search-text?category_id=")}}'+ id +'&page=1&description='+text,
+                    success: function (data) {
+                        $('.row.video-list').html(data);
+                    },
+                    beforeSend: function () {
+                        $('#modal_loading').modal('show');
+                    },
+                    complete: function () {
+                       $('#modal_loading').modal('hide');
+                    }
                 });
             })
 
             $(document).on('click','#searchvideo',function(e){
                 e.preventDefault();
-                var text = $(this).val();
+                var text = $('.search-container input').val();
                 var id = $('#category_id').val();
-                console.log(text);
-                console.log(id);
                 $.ajax({
-                    url : '{{url("video-search-text?category_id=")}}'+ id +'&page=1&description='+text
-                }).done(function(data){
-                    $('.row.video-list').html(data);
+                    url : '{{url("video-search-text?category_id=")}}'+ id +'&page=1&description='+text,
+                    success: function (data) {
+                        $('.row.video-list').html(data);
+                    },
+                    beforeSend: function () {
+                        $('#modal_loading').modal('show');
+                    },
+                    complete: function () {
+                       $('#modal_loading').modal('hide');
+                    }
+                
                 });
             });
 
@@ -112,12 +157,18 @@
                 var text = $('.search-container input').val();
                 var id = $('#category_id').val();
                 var page = $(this).attr('href').split('page=')[1];
-                console.log(text);
-                console.log(id);
                 $.ajax({
-                    url : '{{url("video-search-text?category_id=")}}'+ id +'&page='+page+'&description='+text
-                }).done(function(data){
-                    $('.row.video-list').html(data);
+                    url : '{{url("video-search-text?category_id=")}}'+ id +'&page='+page+'&description='+text,
+
+                    success: function (data) {
+                        $('.row.video-list').html(data);
+                    },
+                    beforeSend: function () {
+                        $('#modal_loading').modal('show');
+                    },
+                    complete: function () {
+                       $('#modal_loading').modal('hide');
+                    }
                 });
             });
 
@@ -127,6 +178,32 @@
                 var user = $(this).data('user');
                 var _this = $(this);
                 if (user == '') {
+                    $html = '';
+                    $html +='<div class="form-group code-top">';
+                        $html +='<div class="col-md-5">';
+                        $html +='<p class="title-register">動画やイベント、あなたの興味のあるものを貯めて、マイテーマを作っていこう！</p>';
+                        $html +='<input type="hidden" name="type" id="type_regiter" value="1">';
+                        $html +='</div>';
+                        $html +='<img src="{{ asset("image/picture1.png") }}">';
+                    $html +='</div>';
+                    $html +='<div class="form-group">';
+                            $html +='<span id="first-name-err" style="color:red;font-size:12px" ></span>';
+                        $html +='<div class="col-md-10 col-md-offset-1" style="text-align: left;">';
+                            $html +='<input class="input-checkbox"  type="checkbox" id="input-check-required">';
+                            $html +='<label class="lblcheckbox"><a class="link-redirect" href="/private-polisy">利用規約</a> と <a class="link-redirect" href="/private-polisy">プライバシーポリシー</a> に同意する </label>';
+                        $html +='</div>';
+                    $html +='</div>';
+                    $html +='<div class="form-group">';
+                        $html +='<div class="col-md-12">';
+                            $html +='<a href="{{ url("/auth/facebook") }}" class="btn btn-primary btn-register"> Facebookで登録</a>';
+                        $html +='</div>';
+                    $html +='</div>';
+                    $html +='<div class="form-group">';
+                        $html +='<div class="col-md-12">';
+                            $html +='<a href="#" class="btn btn-success btn-register btn-register-btn"> メールアドレスで登録</a>';
+                        $html +='</div>';
+                    $html +='</div>';
+                    $('#modal_register').find('.panel-body').html($html);
                     $('#modal_register').modal('show');
                 }else {
                     $.ajax({
@@ -138,8 +215,14 @@
                             user_id: user
                         },
                         success : function (result){
-                            _this.find('.fa.fa-heart-o').addClass('like');
-                            _this.find('.fa.fa-heart-o').css('color','pink');
+                            console.log(result);
+                            if (result == 'ok') {
+                                _this.find('.fa.fa-heart-o').addClass('liked');
+                                _this.find('.fa.fa-heart-o').css('color','pink');
+                            }else {
+                                _this.find('.fa.fa-heart-o').removeClass('liked');
+                                _this.find('.fa.fa-heart-o').css('color','#fff');
+                            }
                         }
                     })
                 }

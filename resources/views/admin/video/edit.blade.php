@@ -66,7 +66,16 @@
         <div class="form-group row">
             <label for="sort" class="col-sm-2 col-form-label">Sort</label>
             <div class="col-sm-10">
-                <input type="number" name="sort" id="sort" value="{{$video->sort}}" required="true">
+                <input type="number" name="sort" class="form-control" id="sort" value="{{$video->sort}}" required="true">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="sort" class="col-sm-2 col-form-label">Type</label>
+            <div class="col-sm-10">
+                <select type="number" name="type" class="form-control"  value="{{$video->type}}" tabindex=1>
+                    <option value='0' {{($video->type==0) ? 'selected' : ''}}>ジョブシャドウ</option>
+                    <option value='1' {{($video->type==1) ? 'selected' : ''}}>ロールプレイ</option>
+                </select>
             </div>
         </div>
         <div class="form-group row">
