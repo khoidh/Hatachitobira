@@ -57,7 +57,7 @@
                 <p class="text_detail_title">社会に触れ選択肢を知れる<br>ジョブシャドウ動画 </p>
                 <p class="text_detail">多様な仕事の1日に触れ <br>自分の興味や視野を広げよう </p>
                 <p class="more-detail">
-                    <a href="#" >
+                    <a href="{{route('video.index')}}" >
                         <span>MORE</span>
                         <img src="{{asset("image/top/arrow-1.png")}}" alt="" />
                     </a>
@@ -68,7 +68,7 @@
                 <p class="text_detail_title">ロールモデルや新たな仲間に出会う<br>イベント </p>
                 <p class="text_detail">ちょっと真面目な対話と<br>自分ならではの経験をしよう </p>
                 <p class="more-detail">
-                    <a href="#" >
+                    <a href="{{route('event.index')}}" >
                         <span>MORE</span>
                         <img src="{{asset("image/top/arrow-1.png")}}" alt="" />
                     </a>
@@ -79,10 +79,17 @@
                 <p class="text_detail_title">将来の方向性を見出すための<br>マイページ </p>
                 <p class="text_detail">月単位でマイテーマや<br>自分の行動を記録しよう</p>
                 <p class="more-detail">
-                    <a href="#" >
+                    <?php if(Auth::guest()) : ?>
+                        <a data-toggle="modal" data-target="#modal_login">
+                            <span>MORE</span>
+                            <img src="{{asset("image/top/arrow-1.png")}}" alt="" />
+                        </a>
+                    <?php else: ?>
+                        <a href="{{route('mypage.index')}}">
                         <span>MORE</span>
                         <img src="{{asset("image/top/arrow-1.png")}}" alt="" />
-                    </a>
+                        </a>
+                    <?php endif; ?>            
                 </p>
             </div>
         </div>
@@ -93,13 +100,17 @@
                 <p class="about-hatachi-detail">学校と社会をつなぐ"ハタチのトビラ"は、 <br>将来の選択肢に触れ、マイテーマを探すきっかけを提供します </p>
             </div>
             <div class="col-md-4 about-hatachi-col">
-                <a href="#" class="btn-link">動画をみる</a>
+                <a href="{{route('video.index')}}" class="btn-link">動画をみる</a>
             </div>
             <div class="col-md-4 about-hatachi-col">
-                <a href="#" class="btn-link">イベントに参加する</a>
+                <a href="{{route('event.index')}}" class="btn-link">イベントに参加する</a>
             </div>
             <div class="col-md-4 about-hatachi-col">
-                <a href="#" class="btn-link">マイテーマを探す</a>
+                <?php if(Auth::guest()) : ?>
+                <a class="btn-link" data-toggle="modal" data-target="#modal_login">マイテーマを探す</a>
+                <?php else: ?>
+                <a href="{{route('mypage.index')}}" class="btn-link">マイテーマを探す</a>
+                <?php endif; ?>            
             </div>
         </div>
     </div>
@@ -154,7 +165,7 @@
                 <p class="text_detail_title">社会に触れ選択肢を知れ<br>るジョブシャドウ動画 </p>
                 <p class="text_detail">多様な仕事の1日に触れ <br>自分の興味や視野を広げよう </p>
                 <p class="more-detail">
-                    <a href="#" >
+                    <a href="{{route('video.index')}}" >
                         <span>MORE</span>
                         <img src="{{asset("image/top/arrow-1.png")}}" alt="" />
                     </a>
@@ -165,7 +176,7 @@
                 <p class="text_detail_title">ロールモデルや新たな仲<br>間に出会うイベント </p>
                 <p class="text_detail">ちょっと真面目な対話と自分<br>ならではの経験をしよう </p>
                 <p class="more-detail">
-                    <a href="#" >
+                    <a href="{{route('event.index')}}" >
                         <span>MORE</span>
                         <img src="{{asset("image/top/arrow-1.png")}}" alt="" />
                     </a>
@@ -176,10 +187,17 @@
                 <p class="text_detail_title">将来の方向性を見出すた<br>めのマイページ </p>
                 <p class="text_detail">月単位でマイテーマや自分の<br>行動を記録しよう</p>
                 <p class="more-detail">
-                    <a href="#" >
+                    <?php if(Auth::guest()) : ?>
+                        <a data-toggle="modal" data-target="#modal_login">
+                            <span>MORE</span>
+                            <img src="{{asset("image/top/arrow-1.png")}}" alt="" />
+                        </a>
+                    <?php else: ?>
+                        <a href="{{route('mypage.index')}}">
                         <span>MORE</span>
                         <img src="{{asset("image/top/arrow-1.png")}}" alt="" />
-                    </a>
+                        </a>
+                    <?php endif; ?>   
                 </p>
             </div>
         </div>
@@ -196,14 +214,11 @@
                 <a href="{{route('event.index')}}" class="btn-link">イベントに参加する</a>
             </div>
             <div class="col-md-4 about-hatachi-col">
-                                                <!-- <a class="nav-link" data-toggle="modal" data-target="#modal_login">ログイン</a> -->
                 <?php if(Auth::guest()) : ?>
                 <a class="btn-link" data-toggle="modal" data-target="#modal_login">マイテーマを探す</a>
                 <?php else: ?>
                 <a href="{{route('mypage.index')}}" class="btn-link">マイテーマを探す</a>
                 <?php endif; ?>
-                <!-- <a class="btn-link {{Auth::Guest() ? 'show-modal-register-mypage' : ''}} " href="{{route('mypage.index')}}">マイテーマを見つける</a> -->
-
             </div>
         </div>
     </div>
