@@ -11,6 +11,10 @@
             font-size: 120px !important;
             min-height: 175px;
             width: 100%;
+            @include only-for-mobile(){
+                height: 100px;
+                min-height: unset;
+            }
             .container .relative {
                 position: relative;
                 .info {
@@ -19,6 +23,10 @@
 
                     .title-e {
                         margin-left: -5px;
+                        @include only-for-mobile(){
+                            position: relative;
+                            top: 70px;
+                        }
                     }
                     .absolute {
                         font-family: $font-family-sans-serif !important;
@@ -27,10 +35,17 @@
                         color: $black-color;
                         bottom: -70px;
                         font-weight: bold;
+                        @include only-for-mobile(){
+                            bottom: -110px
+                        }
                         p {
                             font-size: 35px;
                             letter-spacing: 10px;
                             line-height: 120%;
+
+                            @include only-for-mobile(){
+                                font-size: 20px;
+                            }
                         }
 
                         .title-j {
@@ -161,30 +176,68 @@
     font-size: 12px;
 }
 
-.video .pagination {
-    justify-content: center;
-    -webkit-box-align: center;
-}
+.video .paging {
+    //for sp
+    padding: 32px 0 !important;
+    //for pc
+    @include only-for-pc(){
+        padding: 32px 0 0 !important;
+    }
 
-.video .pagination .page-item .page-link {
-    background-color: #d2d2d2; 
-    color: #323233;
-    border: #d2d2d2;
-    border-radius: 15px;
-    margin: 4px;
-    padding: 5px 11px;
+    .pagination {
+        justify-content: center;
+        -webkit-box-align: center;
+    }
+    .pagination .page-item .page-link {
+        background-color: #d2d2d2;
+        color: #323233;
+        border: #d2d2d2;
+        //for sp
+        border-radius: 19px;
+        margin: 4px;
+        padding: 2px 11px;
+        //for pc
+        @include only-for-pc(){
+            border-radius: 35px;
+            margin: 10px;
+            padding: 8px 17px;
+        }
+    }
+    .pagination .page-item:first-child .page-link,
+    .pagination .page-item:last-child .page-link {
+        background-color: transparent;
+        border: none;
+        font-weight: bold;
+    }
+    .pagination .page-item.active .page-link {
+        background-color: #fff100;
+        border: #fff100;
+    }
 }
-.video .pagination .page-item:first-child .page-link,
-.video .pagination .page-item:last-child .page-link {
-    background-color: transparent; 
-    border: none;
-    font-weight: bold;
-}
-
-.video .pagination .page-item.active .page-link {
-    background-color: #fff100;
-    border: #fff100;
-}
+//.video .pagination {
+//    justify-content: center;
+//    -webkit-box-align: center;
+//}
+//
+//.video .pagination .page-item .page-link {
+//    background-color: #d2d2d2;
+//    color: #323233;
+//    border: #d2d2d2;
+//    border-radius: 15px;
+//    margin: 4px;
+//    padding: 5px 11px;
+//}
+//.video .pagination .page-item:first-child .page-link,
+//.video .pagination .page-item:last-child .page-link {
+//    background-color: transparent;
+//    border: none;
+//    font-weight: bold;
+//}
+//
+//.video .pagination .page-item.active .page-link {
+//    background-color: #fff100;
+//    border: #fff100;
+//}
 
 .top .video .video-detail,
 .top .video .video-list {
@@ -213,15 +266,22 @@
     #modal_video .modal-content {
         width: 98% !important;;
     }
+
+    .video .pagination {
+        padding: 30px 0;
+    }
 }
 
-@media (max-width: 376px) {
+@media (max-width: 426px) {
 
     #modal_video .modal-content iframe {
         width: 100% !important;
         height: 100% !important;
     }
-
+    
+    .container.video {
+        margin-top: unset;
+    }
     //.home > .main > .title-lx > .container > .relative > .info .absolute p {
     //    font-size: 24px;
     //}
@@ -230,9 +290,9 @@
     //    bottom: -175px;
     //}
 
-    .video {
-        top: 0px;
-    }
+}
+.video {
+    top: 0px;
 }
 
 .home .main .title-lx {

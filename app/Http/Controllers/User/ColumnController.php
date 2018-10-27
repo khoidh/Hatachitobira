@@ -15,7 +15,10 @@ class ColumnController extends Controller
         $columns = Column::select()
             ->select('columns.*', 'categories.name as category_name')
             ->join('categories', 'categories.id', '=', 'columns.category_id')
+            ->where('categories.display', 1)
+            ->orderBy('created_at', 'desc')
             ->paginate(6);
+
         if (Auth::user()) {
             $user_id = Auth::user()->id;
             $favoritable_type = (new Column())->getTable();    //Get table name "Columns"

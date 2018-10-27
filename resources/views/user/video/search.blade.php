@@ -20,7 +20,7 @@
                     ?>
                 </p>
                 <span>{{$result->items[0]->statistics->viewCount}} Views /</span>
-                <span>7 month ago /</span>
+                <span>{{ $result->date_diff }} month ago /</span>
                 <span>{{$result->category}}</span>
             </div>
         </div>

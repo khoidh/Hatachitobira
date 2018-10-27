@@ -1,4 +1,4 @@
-// Column ========================
+//========== Column ===================
 .column {
   @include standard-font();
 
@@ -43,10 +43,15 @@
           left: 5px;
         }
       }
+
       .article-content{
         padding-top: 8px;
         @include title-font();
-        img {
+        a{
+          color: $black-color;
+        }
+
+        .content-left img {
           border-radius: 15px;
           -moz-border-radius: 15px; /*Firefox*/
           -webkit-border-radius: 15px;  /*Chrome và Safary*/
@@ -66,6 +71,10 @@
           .icon-favorite {
             text-align: right;
             padding-bottom: 24px;
+            font-size:24px;
+            >i{
+              color: rgb(99, 107, 111);
+            }
           }
           .title {
             font-size: 20px;
@@ -98,16 +107,54 @@
       background-color: #DCDCDC !important;
     }
 
-    .paging{
-      padding: 24px 0;
+    .paging {
+      //for sp
+      padding: 32px 0 !important;
+      //for pc
+      @include only-for-pc(){
+        padding: 32px 0 0 !important;
+      }
+
+      .pagination {
+        justify-content: center;
+        -webkit-box-align: center;
+      }
+      .pagination .page-item .page-link {
+        background-color: #d2d2d2;
+        color: #323233;
+        border: #d2d2d2;
+        //for sp
+        border-radius: 19px;
+        margin: 4px;
+        padding: 2px 11px;
+        //for pc
+        @include only-for-pc(){
+          border-radius: 35px;
+          margin: 10px;
+          padding: 8px 17px;
+        }
+      }
+      .pagination .page-item:first-child .page-link,
+      .pagination .page-item:last-child .page-link {
+        background-color: transparent;
+        border: none;
+        font-weight: bold;
+      }
+      .pagination .page-item.active .page-link {
+        background-color: #fff100;
+        border: #fff100;
+      }
     }
   }
 
-  .pagination-link{
-    padding: 32px 0;
-    font-size: 20px;
-  }
-  //=========== column detail ===========
+  //.pagination-link{
+  //  padding: 32px 0;
+  //  font-size: 20px;
+  //}
+}
+
+//=========== column detail ===========
+.column {
   .tit{
     @include title-font();
     padding-bottom: 24px;
@@ -121,14 +168,17 @@
       transition: background .15s cubic-bezier(.33,.66,.66,1);
       display: inline;
     }
-    .heart{
+    .icon-favorite{
       text-align: right;
+
       .heart-icon{
+        cursor: pointer;
         font-size: 24px;
-        color: $heart-color;
-        .heart-create-at{
-          color: $text2-color;
-        }
+        color: rgb(99, 107, 111);
+      }
+      .heart-create-at{
+        font-size: 18px;
+        color: $text2-color;
       }
     }
     .shape-8{
@@ -140,6 +190,10 @@
     .txt_content{
       color: $text2-color;
       text-align: justify;
+      img {
+        width: 100% !important;
+        height: 100% !important;
+      }
     }
   }
 

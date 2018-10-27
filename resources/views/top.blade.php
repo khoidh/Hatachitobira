@@ -11,7 +11,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <script src="{{ asset('js/app.js') }}"></script>
 </head>
-<body>
+<body style="overflow-x: hidden;">
     <header id="myHeader">
         <div class="bx_header">
             <div class="hd_left">
@@ -53,12 +53,12 @@
                                 <a class="nav-link show-modal-register" data-toggle="modal" data-target="#modal_register">新規登録</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{url('company-entrance')}}">企業採用担当の方</a>
+                                <a class="nav-link" href="{{url('recruitment-staff')}}">企業採用担当の方</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" data-toggle="modal" data-target="#modal_login">ログイン</a>
                             </li>
-                            <li class="nav-item"><a class="nav-link link-append show-modal-register" style="display: none;margin: 0px;" href="{{url('my-page')}}">マイテーマを見つける</a></li>
+                            <li class="nav-item"><a class="nav-link link-append show-modal-register-mypage" style="display: none;margin: 0px;" href="{{url('my-page')}}">マイテーマを見つける</a></li>
                             @endif
                             @if(Auth::User())
                             <li class="nav-item">
@@ -75,7 +75,6 @@
                                     {{ csrf_field() }}
                                 </form>
                             </li>
-                            <li class="nav-item"><a class="nav-link link-append" style="display: none;margin: 0px;" href="{{url('my-page')}}">マイテーマを見つける</a></li>
                             @endif
                         </ul>
                     </div>
@@ -86,7 +85,7 @@
             <!--/.hd_right-->
         </div>
         <div class="hd_right">
-            <a class="btn_find {{Auth::Guest() ? 'show-modal-register' : ''}}" href="{{url('my-page')}}">マイテーマを見つける</a>
+            <a class="btn_find {{Auth::Guest() ? 'show-modal-register-mypage' : ''}}" href="{{url('my-page')}}">マイテーマを見つける</a>
         </div>
         <!--/.bx_header-->
     </header>
@@ -95,7 +94,7 @@
             <div id="carouseltop" class="carousel slide" data-ride="carousel" data-interval="false">
                 <div class="carousel-inner row mx-auto" role="listbox">
                     <figure class="carousel-item active">
-                        <img src="{{ asset('image/top/banner.png') }}">
+                        <img src="{{ asset('image/top/banner.png') }}" alt="楽しもう、背伸びしない自分を">
                         <figcaption>
                             <!-- <img src="{{ asset('image/top/fig_banner.png') }}" alt=""> -->
                             <p class="description">What students want to know,Is it transmitted to real?</p>
@@ -104,7 +103,7 @@
                         </figcaption>
                     </figure>
                     <figure class="carousel-item">
-                        <img src="{{ asset('image/top/banner-1.png') }}">
+                        <img src="{{ asset('image/top/banner-1.png') }}" alt="楽しもう、背伸びしない自分を。">
                         <figcaption>
                             <!-- <img src="{{ asset('image/top/fig_banner.png') }}" alt=""> -->
                             <p class="description">What students want to know,Is it transmitted to real?</p>
@@ -113,7 +112,7 @@
                         </figcaption>
                     </figure>
                     <figure class="carousel-item">
-                        <img src="{{ asset('image/top/banner-2.png') }}">
+                        <img src="{{ asset('image/top/banner-2.png') }}" alt="楽しもう、背伸びしない自分を。">
                         <figcaption>
                             <!-- <img src="{{ asset('image/top/fig_banner.png') }}" alt=""> -->
                             <p class="description">What students want to know,Is it transmitted to real?</p>
@@ -127,19 +126,19 @@
         </div>
         <div class="image-top row">
             <div class="img-size">
-                <img src="{{ asset('image/top/image-slide-1.png') }}" class="img-detail">
+                <img src="{{ asset('image/top/image-slide-1.png') }}" class="img-detail" alt="Image slide">
             </div>
             <div class="img-size">
-                <img src="{{ asset('image/top/image-slide-2.png') }}" class="img-detail">
+                <img src="{{ asset('image/top/image-slide-2.png') }}" class="img-detail" alt="Image slide">
             </div>
             <div class="img-size">
-                <img src="{{ asset('image/top/image-slide-3.png') }}" class="img-detail">
+                <img src="{{ asset('image/top/image-slide-3.png') }}" class="img-detail" alt="Image slide">
             </div>
             <div class="img-size">
-                <img src="{{ asset('image/top/image-slide-4.png') }}" class="img-detail">
+                <img src="{{ asset('image/top/image-slide-4.png') }}" class="img-detail" alt="Image slide">
             </div>
             <div class="img-size">
-                <img src="{{ asset('image/top/image-slide-5.png') }}" class="img-detail">
+                <img src="{{ asset('image/top/image-slide-5.png') }}" class="img-detail" alt="Image slide">
             </div>
         </div>
         <div class="content top">
@@ -173,10 +172,8 @@
                     <p class="movie-top-description">コンセプトムービー</p>
                     <div class="corner-wrapper video">
                         <div class="video-list">
-                            <?php $counter = 0; ?>
-                            @foreach($results as $result)
-                                @if(isset($result->items[0]) && $counter == 0)
-                                <?php $counter++; ?>
+                            @foreach($results_1 as $key => $result)
+                                @if($key == 0)
                                 <div class="video-detail">
                                     <div class="wrapper">
                                         <div class="thump">
@@ -184,7 +181,7 @@
                                                 <img src="{{ asset('image/video/btn-play.png')}}" alt="" >
                                             </div>
                                             <a href="#">
-                                                <img class="img-icon" src="{{  $result->items[0]->snippet->thumbnails->medium->url}}" alt="">
+                                                <img class="img-icon" src="{{  $result->items[0]->snippet->thumbnails->medium->url}}" alt="{{$result->items[0]->snippet->title}}">
                                             </a>
                                         </div>
                                     </div>
@@ -197,7 +194,7 @@
                     </div>
                 </div>
             </div>
-            <div class="movie-top-2 row">
+            <div class="movie-top-2">
                 <div class="container">
                     <div class="col-md-2 col-sm-12 col-xs-12row">
                         <p class="text-vertical">探す3つの理由</p>
@@ -205,17 +202,17 @@
                     </div>
                     <div class="col-md-10 col-sm-12 col-xs-12 row">
                         <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
-                            <p><img class="movie-image" src="{{ asset('image/top/movie-image-1.png') }}"></p>
+                            <p><img class="movie-image" src="{{ asset('image/top/movie-image-1.png') }}" alt="大学生活をはじめ、今をより充実させるための行動が定まる"></p>
                             <p class="text-tittle">01</p>
                             <p class="movie_image_description">大学生活をはじめ、今をより充実させるための行動が定まる</p>
                         </div>
                         <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
-                            <p><img class="movie-image" src="{{ asset('image/top/movie-image-2.png') }}"></p>
+                            <p><img class="movie-image" src="{{ asset('image/top/movie-image-2.png') }}" alt="マイテーマを探す経験が、個性を際立たせる"></p>
                             <p class="text-tittle">02</p>
                             <p class="movie_image_description">マイテーマを探す経験が、個性を際立たせる</p>
                         </div>
                         <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
-                            <p><img class="movie-image" src="{{ asset('image/top/movie-image-3.png') }}"></p>
+                            <p><img class="movie-image" src="{{ asset('image/top/movie-image-3.png') }}" alt="人生100年時代でのキャリア選択や就活の指針に"></p>
                             <p class="text-tittle">03</p>
                             <p class="movie_image_description">人生100年時代でのキャリア選択や就活の指針に</p>
                         </div>
@@ -231,32 +228,32 @@
                     <div class="cb-path cb-path-black"></div>
                     <div class="content-row">
                         <div class="col-md-12">
-                            <p class="text-title-3">私の興味からヒントを得る</p>
+                            <p class="text-title-3">自分の興味から探す</p>
                         </div>
                         <div class="row">
                             <div class="col-md-3 img-cat-sp">
-                                <a href="{{ url('search-category?search=1') }}"><img class="img-cat" src="{{ asset('image/top/img-cate-1.png') }}" alt=""></a>
+                                <a href="{{ url('search-category?search=1') }}"><img class="img-cat" src="{{ asset('image/top/img-cate-1.png') }}" alt="エンタメ"></a>
                             </div>
                             <div class="col-md-3 img-cat-sp">
-                                <a href="{{ url('search-category?search=2') }}"><img class="img-cat" src="{{ asset('image/top/img-cate-2.png') }}" alt=""></a>
+                                <a href="{{ url('search-category?search=2') }}"><img class="img-cat" src="{{ asset('image/top/img-cate-2.png') }}" alt="サービス"></a>
                             </div>
                             <div class="col-md-3 img-cat-sp">
-                                <a href="{{ url('search-category?search=3') }}"><img class="img-cat" src="{{ asset('image/top/img-cate-3.png') }}" alt=""></a>
+                                <a href="{{ url('search-category?search=3') }}"><img class="img-cat" src="{{ asset('image/top/img-cate-3.png') }}" alt="テクノロジー"></a>
                             </div>
                             <div class="col-md-3 img-cat-sp">
-                                <a href="{{ url('search-category?search=4') }}"><img class="img-cat" src="{{ asset('image/top/img-cate-4.png') }}" alt=""></a>
+                                <a href="{{ url('search-category?search=4') }}"><img class="img-cat" src="{{ asset('image/top/img-cate-4.png') }}" alt="モノづくり"></a>
                             </div>
                             <div class="col-md-3 img-cat-sp">
-                                <a href="{{ url('search-category?search=5') }}"><img class="img-cat" src="{{ asset('image/top/img-cate-5.png') }}" alt=""></a>
+                                <a href="{{ url('search-category?search=5') }}"><img class="img-cat" src="{{ asset('image/top/img-cate-5.png') }}" alt="教育"></a>
                             </div>
                             <div class="col-md-3 img-cat-sp">
-                                <a href="{{ url('search-category?search=6') }}"><img class="img-cat" src="{{ asset('image/top/img-cate-6.png') }}" alt=""></a>
+                                <a href="{{ url('search-category?search=6') }}"><img class="img-cat" src="{{ asset('image/top/img-cate-6.png') }}" alt="暮らし"></a>
                             </div>
                             <div class="col-md-3 img-cat-sp">
-                                <a href="{{ url('search-category?search=7') }}"><img class="img-cat" src="{{ asset('image/top/img-cate-7.png') }}" alt=""></a>
+                                <a href="{{ url('search-category?search=7') }}"><img class="img-cat" src="{{ asset('image/top/img-cate-7.png') }}" alt="企業提供講座"></a>
                             </div>
                             <div class="col-md-3 img-cat-sp">
-                                <a href="{{ url('search-category?search=8') }}"><img class="img-cat" src="{{ asset('image/top/img-cate-8.png') }}" alt=""></a>
+                                <a href="{{ url('search-category?search=8') }}"><img class="img-cat" src="{{ asset('image/top/img-cate-8.png') }}" alt="食"></a>
                             </div>
                         </div>
                     </div>
@@ -271,10 +268,8 @@
                     <div class="col-md-8">
                         <div class="corner-wrapper video movie-1">
                             <div class="video-list">
-                                <?php $counter = 0; ?>
-                                @foreach($results as $result)
-                                    @if(isset($result->items[0]) && $counter == 0)
-                                    <?php $counter++; ?>
+                                @foreach($results_1 as $key => $result)
+                                    @if($key == 0)
                                     <div class="video-detail">
                                         <div class="wrapper">
                                             <div class="thump">
@@ -282,7 +277,7 @@
                                                     <img src="{{ asset('image/video/btn-play.png')}}" alt="" >
                                                 </div>
                                                 <a href="#">
-                                                    <img class="img-icon" src="{{  $result->items[0]->snippet->thumbnails->medium->url}}" alt="">
+                                                    <img class="img-icon" src="{{  $result->items[0]->snippet->thumbnails->medium->url}}" alt="{{$result->items[0]->snippet->title}}">
                                                 </a>
                                             </div>
                                         </div>
@@ -295,10 +290,8 @@
                     <div class="col-md-4 video-movie">
                         <div class="corner-wrapper video movie-2">
                             <div class="video-list">
-                                <?php $counter = 0; ?>
-                                @foreach($results as $result)
-                                    @if(isset($result->items[0]) && $counter == 0)
-                                    <?php $counter++; ?>
+                                @foreach($results_1 as $key => $result)
+                                    @if($key == 1)
                                     <div class="video-detail">
                                         <div class="wrapper">
                                             <div class="thump">
@@ -306,7 +299,7 @@
                                                     <img src="{{ asset('image/video/btn-play.png')}}" alt="" >
                                                 </div>
                                                 <a href="#">
-                                                    <img class="img-icon" src="{{  $result->items[0]->snippet->thumbnails->medium->url}}" alt="">
+                                                    <img class="img-icon" src="{{  $result->items[0]->snippet->thumbnails->medium->url}}" alt="{{$result->items[0]->snippet->title}}">
                                                 </a>
                                             </div>
                                         </div>
@@ -317,10 +310,8 @@
                         </div>
                         <div class="corner-wrapper video movie-2">
                             <div class="video-list">
-                                <?php $counter = 0; ?>
-                                @foreach($results as $result)
-                                    @if(isset($result->items[0]) && $counter == 0)
-                                    <?php $counter++; ?>
+                                @foreach($results_1 as $key => $result)
+                                    @if($key == 2)
                                     <div class="video-detail">
                                         <div class="wrapper">
                                             <div class="thump">
@@ -328,7 +319,7 @@
                                                     <img src="{{ asset('image/video/btn-play.png')}}" alt="" >
                                                 </div>
                                                 <a href="#">
-                                                    <img class="img-icon" src="{{  $result->items[0]->snippet->thumbnails->medium->url}}" alt="">
+                                                    <img class="img-icon" src="{{  $result->items[0]->snippet->thumbnails->medium->url}}" alt="{{$result->items[0]->snippet->title}}">
                                                 </a>
                                             </div>
                                         </div>
@@ -340,7 +331,7 @@
                         
                     </div>
                 </div>
-                <a href="#">
+                <a href="{{url('video')}}">
                     <span class="more-detail ">MORE</span>
                     <img src="{{ asset('image/top/arrow-1.png') }}" >
                 </a>
@@ -354,10 +345,8 @@
                     <div class="col-md-8">
                         <div class="corner-wrapper video movie-1">
                             <div class="video-list">
-                                <?php $counter = 0; ?>
-                                @foreach($results as $result)
-                                    @if(isset($result->items[0]) && $counter == 0)
-                                    <?php $counter++; ?>
+                                @foreach($results_2 as $key => $result)
+                                    @if($key == 0)
                                     <div class="video-detail">
                                         <div class="wrapper">
                                             <div class="thump">
@@ -365,7 +354,7 @@
                                                     <img src="{{ asset('image/video/btn-play.png')}}" alt="" >
                                                 </div>
                                                 <a href="#">
-                                                    <img class="img-icon" src="{{  $result->items[0]->snippet->thumbnails->medium->url}}" alt="">
+                                                    <img class="img-icon" src="{{  $result->items[0]->snippet->thumbnails->medium->url}}" alt="{{$result->items[0]->snippet->title}}">
                                                 </a>
                                             </div>
                                         </div>
@@ -378,10 +367,8 @@
                     <div class="col-md-4 video-movie">
                         <div class="corner-wrapper video movie-2">
                             <div class="video-list">
-                                <?php $counter = 0; ?>
-                                @foreach($results as $result)
-                                    @if(isset($result->items[0]) && $counter == 0)
-                                    <?php $counter++; ?>
+                                @foreach($results_2 as $key => $result)
+                                    @if($key == 1)
                                     <div class="video-detail">
                                         <div class="wrapper">
                                             <div class="thump">
@@ -389,7 +376,7 @@
                                                     <img src="{{ asset('image/video/btn-play.png')}}" alt="" >
                                                 </div>
                                                 <a href="#">
-                                                    <img class="img-icon" src="{{  $result->items[0]->snippet->thumbnails->medium->url}}" alt="">
+                                                    <img class="img-icon" src="{{  $result->items[0]->snippet->thumbnails->medium->url}}" alt="{{$result->items[0]->snippet->title}}">
                                                 </a>
                                             </div>
                                         </div>
@@ -400,10 +387,8 @@
                         </div>
                         <div class="corner-wrapper video movie-2">
                             <div class="video-list">
-                                <?php $counter = 0; ?>
-                                @foreach($results as $result)
-                                    @if(isset($result->items[0]) && $counter == 0)
-                                    <?php $counter++; ?>
+                                @foreach($results_2 as $key => $result)
+                                    @if($key == 2)
                                     <div class="video-detail">
                                         <div class="wrapper">
                                             <div class="thump">
@@ -411,7 +396,7 @@
                                                     <img src="{{ asset('image/video/btn-play.png')}}" alt="" >
                                                 </div>
                                                 <a href="#">
-                                                    <img class="img-icon" src="{{  $result->items[0]->snippet->thumbnails->medium->url}}" alt="">
+                                                    <img class="img-icon" src="{{  $result->items[0]->snippet->thumbnails->medium->url}}" alt="{{$result->items[0]->snippet->title}}">
                                                 </a>
                                             </div>
                                         </div>
@@ -432,48 +417,8 @@
                 <div class="cb-path"></div>
                 <p class="movie-top-text">イベントに参加する</p>
                 <div class="event">
-                    <div class="article-list col-md-12">
-                            @forelse($events as $key => $event)
-                            <div class="article ">
-                                @php
-                                    $time_now = Carbon\Carbon::now();
-                                    $time_from = Carbon\Carbon::parse($event->time_from);
-                                    $time_to = Carbon\Carbon::parse($event->time_to);
-                                    $check=$time_now->between($time_from,$time_to);
-                                    if($check)
-                                    $column_state="申し込み受付中";
-                                    else
-                                    $column_state="受付終了";
-                                @endphp
-                                <div class="text-category last">
-                                    <p>{{$column_state}}</p>
-                                </div>
-                                <div class="article-content row">
-                                    <div class="content-left col-md-4">
-                                        <a href="{{route('event.show', $event->id)}}" style="text-decoration:none;">
-                                            @php $image='image/event/'.$event->image; @endphp
-                                            <img src="{{file_exists($image)?asset($image): asset('image/event/event_default.jpg')}}">
-                                        </a>
-                                    </div>
-                                    <div class="content-right col-md-8">
-                                        <div class="icon-favorite">
-                                            <i class="fa fa-heart-o {{ $event->favorite == 1 ? 'liked' : ''}}"  data-id='{{$event->id}}' data-user='{{Auth::user() ? Auth::user()->id : "" }}' style="font-size:24px;"></i>
-                                        </div>
-                                        <div class="title">{{$event->title}} <p>{{$event->category_name}}</p></div>
-                                        <div class="category" style="color: #636B6F; font-weight: bold">
-                                            <p>{{$event->category_name}}</p>
-                                        </div>
-                                        <div class="date" style="text-align: right">
-                                            <p>{{date('Y-m-d', strtotime($event->created_at))}}</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            @empty
-                            <p class="movie-top-descroption">多様なロールモデルや同世代に出会い、普段のコミュニティでは話にくい"ちょっと真面目な対話"を通じて、マイテーマを考えてみよう</p>
-                            @endforelse
-
-                    </div>
+                    <p class="movie-top-descroption">多様なロールモデルや同世代に出会い、普段のコミュニティでは話にくい"ちょっと真面目な対話"を通じて、マイテーマを考えてみよう</p>
+                            
                 </div>
                 <a href="{{ url('event') }}">
                     <span class="more-detail ">MORE</span>
@@ -493,12 +438,12 @@
                                 <div class="icon">
                                     <a href="{{route('column.show', $column->id)}}" style="text-decoration:none;">
                                         @php $image='image/column/'.$column->image; @endphp
-                                        <img class="image" src="{{file_exists($image)?asset($image): asset('image/column/column_default.jpg')}}" alt="{{$image}}">
+                                        <img class="image" src="{{file_exists($image)?asset($image): asset('image/column/column_default.jpg')}}" alt="{{$column->title}}">
                                     </a>
                                 </div>
                                 <div class="content">
                                     <p class="clearfix icon-favorior"><i class="fa fa-heart-o {{ $column->favorite == 1 ? 'liked' : ''}}" data-id='{{$column->id}}' data-user='{{Auth::user() ? Auth::user()->id : "" }}' style="font-size:24px;"></i></p>
-                                    <p class="text-title">{{$column->title}}</p>
+                                    <p class="text-title"><a href="{{route('column.show', $column->id)}}">{{$column->title}}</a></p>
                                     <p class="category-aa">&nbsp;&nbsp;{{$column->category_name}}</p>
                                     <p class="text-date">{{date('Y-m-d', strtotime($column->created_at))}}</p>
                                 </div>
@@ -517,11 +462,7 @@
                 </div>
             </div>
             <div class="container button-link">
-                @if(Auth::Guest())
-                <a type="button" class="btn btn-dark show-modal-register">マイテーマを見つける</a>
-                @else
-                <a type="button" href="{{url('my-page')}}" class="btn btn-dark ">マイテーマを見つける</a>
-                @endif
+                <a class="link-my-page {{Auth::Guest() ? "show-modal-register-mypage" : ""}}" href="{{url("my-page")}}">マイテーマを見つける</a>
             </div>
         </div>
         <div id="modal_video" class="modal fade modal_register" role="dialog">
@@ -580,7 +521,7 @@
             $('.bx_header .navbar-nav.mr-auto').css('align-items','flex-start');
             $('.bx_header .navbar-nav.mr-auto').css('font-weight','bold');
             $('.bx_header .nav-item').addClass('aaaafixed');
-            $('.banner.figure').append('<a class="link-my-page {{Auth::Guest() ? "show-modal-register" : ""}}" href="{{url("my-page")}}">マイテーマを見つける</a>');
+            $('.banner.figure').append('<a class="link-my-page {{Auth::Guest() ? "show-modal-register-mypage" : ""}}" href="{{url("my-page")}}">マイテーマを見つける</a>');
 
 
             $('.dropdown').on('show.bs.dropdown', function() {
@@ -602,10 +543,10 @@
                     items: 2
                   },
                   600: {
-                    items: 2
+                    items: 3
                   },
                   1000: {
-                    items: 3
+                    items: 5
                   }
                 }
               });
@@ -620,6 +561,8 @@
                 $('#modal_video').modal('show');
             });
 
+
+
             $(document).on('click','.content-last .icon-favorior .fa-heart-o', function(e) {
                 e.stopPropagation();
                 var idevent = $(this).data('id');
@@ -627,31 +570,32 @@
                 var _this = $(this);
                 if (user == '') {
                     $html = '';
-                        $html +='<div class="form-group code-top">';
-                            $html +='<div class="col-md-5">';
-                            $html +='<p class="title-register">動画やイベント、あなたの興味のあるものを貯めて、マイテーマを作っていこう！</p>';
-                            $html +='</div>';
-                            $html +='<img src="{{ asset("image/picture1.png") }}">';
+                    $html +='<div class="form-group code-top">';
+                        $html +='<div class="col-md-5">';
+                        $html +='<p class="title-register">動画やイベント、あなたの興味のあるものを貯めて、マイテーマを作っていこう！</p>';
+                        $html +='<input type="hidden" name="type" id="type_regiter" value="1">';
                         $html +='</div>';
-                        $html +='<div class="form-group">';
-                                $html +='<span id="first-name-err" style="color:red;font-size:12px" ></span>';
-                            $html +='<div class="col-md-10 col-md-offset-1" style="text-align: left;">';
-                                $html +='<input class="input-checkbox"  type="checkbox" id="input-check-required">';
-                                $html +='<label class="lblcheckbox"><a class="link-redirect" href="/private-polisy">利用規約</a> と <a class="link-redirect" href="/private-polisy">プライバシーポリシー</a> に同意する </label>';
-                            $html +='</div>';
+                        $html +='<img src="{{ asset("image/picture1.png") }}">';
+                    $html +='</div>';
+                    $html +='<div class="form-group">';
+                            $html +='<span id="first-name-err" style="color:red;font-size:12px" ></span>';
+                        $html +='<div class="col-md-10 col-md-offset-1" style="text-align: left;">';
+                            $html +='<input class="input-checkbox"  type="checkbox" id="input-check-required">';
+                            $html +='<label class="lblcheckbox"><a class="link-redirect" href="/private-polisy">利用規約</a> と <a class="link-redirect" href="/private-polisy">プライバシーポリシー</a> に同意する </label>';
                         $html +='</div>';
-                        $html +='<div class="form-group">';
-                            $html +='<div class="col-md-12">';
-                                $html +='<a href="{{ url("/auth/facebook") }}" class="btn btn-primary btn-register"> Facebookで登録</a>';
-                            $html +='</div>';
+                    $html +='</div>';
+                    $html +='<div class="form-group">';
+                        $html +='<div class="col-md-12">';
+                            $html +='<a href="{{ url("/auth/facebook") }}" class="btn btn-primary btn-register"> Facebookで登録</a>';
                         $html +='</div>';
-                        $html +='<div class="form-group">';
-                            $html +='<div class="col-md-12">';
-                                $html +='<a href="#" class="btn btn-success btn-register btn-register-btn"> メールアドレスで登録</a>';
-                            $html +='</div>';
+                    $html +='</div>';
+                    $html +='<div class="form-group">';
+                        $html +='<div class="col-md-12">';
+                            $html +='<a href="#" class="btn btn-success btn-register btn-register-btn"> メールアドレスで登録</a>';
                         $html +='</div>';
-                        $('#modal_register').find('.panel-body').html($html);
-                        $('#modal_register').modal('show');
+                    $html +='</div>';
+                    $('#modal_register').find('.panel-body').html($html);
+                    $('#modal_register').modal('show');
                 }else {
                     $.ajax({
                         url : '{{route("column.favorite")}}',
@@ -674,58 +618,36 @@
                 }
             })
 
-            $(document).on('click','.movie-top-4 .event .fa.fa-heart-o',function(e){
-                e.stopPropagation();
-                var idevent = $(this).data('id');
-                var user = $(this).data('user');
-                var _this = $(this);
-                if (user == '') {
-                    $html = '';
-                        $html +='<div class="form-group code-top">';
-                            $html +='<div class="col-md-5">';
-                            $html +='<p class="title-register">動画やイベント、あなたの興味のあるものを貯めて、マイテーマを作っていこう！</p>';
-                            $html +='</div>';
-                            $html +='<img src="{{ asset("image/picture1.png") }}">';
-                        $html +='</div>';
-                        $html +='<div class="form-group">';
-                                $html +='<span id="first-name-err" style="color:red;font-size:12px" ></span>';
-                            $html +='<div class="col-md-10 col-md-offset-1" style="text-align: left;">';
-                                $html +='<input class="input-checkbox"  type="checkbox" id="input-check-required">';
-                                $html +='<label class="lblcheckbox"><a class="link-redirect" href="/private-polisy">利用規約</a> と <a class="link-redirect" href="/private-polisy">プライバシーポリシー</a> に同意する </label>';
-                            $html +='</div>';
-                        $html +='</div>';
-                        $html +='<div class="form-group">';
-                            $html +='<div class="col-md-12">';
-                                $html +='<a href="{{ url("/auth/facebook") }}" class="btn btn-primary btn-register"> Facebookで登録</a>';
-                            $html +='</div>';
-                        $html +='</div>';
-                        $html +='<div class="form-group">';
-                            $html +='<div class="col-md-12">';
-                                $html +='<a href="#" class="btn btn-success btn-register btn-register-btn"> メールアドレスで登録</a>';
-                            $html +='</div>';
-                        $html +='</div>';
-                        $('#modal_register').find('.panel-body').html($html);
-                        $('#modal_register').modal('show');
-                }else {
-                    $.ajax({
-                        url : '{{route("event.favorite")}}',
-                        type: 'post',
-                        dataType: 'json',
-                        data: {
-                            video_id : idevent,
-                            user_id: user
-                        },
-                        success : function (result){
-                            if (result == 'ok') {
-                                _this.addClass('liked');
-                                _this.css('color','pink');
-                            }else {
-                                _this.removeClass('liked');
-                                _this.css('color','#d2cfcf');
-                            }
-                        }   
-                   })
-                }
+            $(document).on('click','.show-modal-register-mypage',function(e){
+                e.preventDefault();
+                $html = '';
+                $html +='<div class="form-group code-top">';
+                    $html +='<div class="col-md-5">';
+                    $html +='<p class="title-register-mypage">お気に入りorイベント申し込みは社員限定機能です。動画やイベント、あなたの興味のあるものを貯めて、マイテーマを形作っていこう！</p>';
+                    $html +='<input type="hidden" name="type" id="type_regiter" value="1">';
+                    $html +='</div>';
+                    $html +='<img src="{{ asset("image/picture1.png") }}">';
+                $html +='</div>';
+                $html +='<div class="form-group">';
+                        $html +='<span id="first-name-err" style="color:red;font-size:12px" ></span>';
+                    $html +='<div class="col-md-10 col-md-offset-1" style="text-align: left;">';
+                        $html +='<input class="input-checkbox"  type="checkbox" id="input-check-required">';
+                        $html +='<label class="lblcheckbox"><a class="link-redirect" href="/private-polisy">利用規約</a> と <a class="link-redirect" href="/private-polisy">プライバシーポリシー</a> に同意する </label>';
+                    $html +='</div>';
+                $html +='</div>';
+                $html +='<div class="form-group">';
+                    $html +='<div class="col-md-12">';
+                        $html +='<a href="{{ url("/auth/facebook") }}" class="btn btn-primary btn-register"> Facebookで登録</a>';
+                    $html +='</div>';
+                $html +='</div>';
+                $html +='<div class="form-group">';
+                    $html +='<div class="col-md-12">';
+                        $html +='<a href="#" class="btn btn-success btn-register btn-register-btn"> メールアドレスで登録</a>';
+                    $html +='</div>';
+                $html +='</div>';
+                $('#modal_register').find('.panel-body').html($html);
+                $('#modal_register').modal('show');
+                
 
             })
         })

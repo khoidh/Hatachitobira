@@ -143,36 +143,7 @@
                     
                 </ul>
             </li>
-            <li class="navigation-header">
-                <span data-i18n="nav.category.admin">Administration</span><i class="la la-ellipsis-h ft-minus" data-toggle="tooltip" data-placement="right" data-original-title="Layouts"></i>
-            </li>
-            {{--=========================================== Admin Management ==========================================--}}
-            <li class="nav-item has-sub"><a href="#"><i class="la la-users"></i><span class="menu-title" data-i18n="nav.admins.main">Admin Management</span></a>
-                <ul class="menu-content" style="">
-                    <li class=""><a class="menu-item" href="#" data-i18n="nav.dash.allAdmin">All Admin</a>
-                    </li>
-                    <li class=""><a class="menu-item" href="#" data-i18n="nav.dash.addAdmin">Add New</a>
-                    </li>
-                </ul>
-            </li>
-            {{--=========================================== Users Management ==========================================--}}
-            <li class="nav-item has-sub"><a href="#"><i class="la la-user"></i><span class="menu-title" data-i18n="nav.users.main">Users Management</span></a>
-                <ul class="menu-content">
-                    <li><a class="menu-item" href="#" data-i18n="nav.users.nav_light">All Users</a>
-                    </li>
-                    <li><a class="menu-item" href="#" data-i18n="nav.users.nav_dark">Add New</a>
-                    </li>
-                </ul>
-            </li>
-
-            <li class="navigation-header">
-                <span data-i18n="nav.category.general">General</span><i class="la la-ellipsis-h ft-minus" data-toggle="tooltip" data-placement="right" data-original-title="General"></i>
-            </li>
-            {{--=========================================== General ===================================================--}}
-            <li class="nav-item"><a href="#"><i class="la la-wrench"></i><span class="menu-title" data-i18n="">Tools</span></a>
-            </li>
-            <li class="nav-item"><a href="#"><i class="la la-cog"></i><span class="menu-title" data-i18n="">Settings</span></a>
-            </li>
+            
 
         </ul>
         <div class="ps-scrollbar-x-rail" style="left: 0px; bottom: -3097px;"><div class="ps-scrollbar-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps-scrollbar-y-rail" style="top: 3100px; height: 269px; right: 3px;"><div class="ps-scrollbar-y" tabindex="0" style="top: 229px; height: 19px;"></div></div></div>

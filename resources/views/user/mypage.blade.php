@@ -7,67 +7,87 @@
 @section('title-j', 'マイページ')
 @section('content')
     <div class="container my-page">
-        <div class="row">
+        <div class="row my-page-top">
             <div class="col-sm-12 how-to-use">
                 <a class="a-user" href="#">
                     <i class="fa fa-question-circle-o"></i>
                     <span class="a-user-text" >&nbsp;このパーツの使い方はこちら</span>
                 </a>
             </div>
-
             <div class="col-sm-12 select-month">
                 <h1>
-                    <i class="fa fa-chevron-circle-left icon-back" aria-hidden="true"> </i>
-                    <b>&nbsp;2018年9月&nbsp;</b>
-                    <i class="fa fa-chevron-circle-right icon-next" aria-hidden="true"> </i>
+                    <i class="fa fa-chevron-circle-left icon-back" data-month="{{$data_date['month'] == 1 ? '12' : $data_date['month'] - 1}}" data-year = "{{$data_date['month'] == 1 ? $data_date['year'] - 1 : $data_date['year']}}" aria-hidden="true"> </i>
+                    <b>&nbsp;{{$data_date['year']}}年{{$data_date['month']}}月&nbsp;</b>
+                    <i class="fa fa-chevron-circle-right icon-next" aria-hidden="true" data-month="{{$data_date['month'] == 12 ? '1' : $data_date['month'] + 1}}" data-year = "{{$data_date['month'] == 12 ? $data_date['year'] + 1 :  $data_date['year']}}"> </i>
                 </h1>
             </div>
-
             <div class="col-sm-12 info-1">
                 <div class="row memo">
                     <div class="col-sm-2 memo-text">
                         <div class="underline">&nbsp;MEMO&nbsp;</div>
                     </div>
                     <div class="col-sm-10 memo-input">
-                        <input type="text" name="" placeholder="先月の行動を振り返り記録しよう">
+                        <input type="text" name="" class="input-memo" data-month="{{isset($mytheme_first->month) ? $mytheme_first->month : $data_date['month']}}" 
+                                            data-year="{{isset($mytheme_first->year) ? $mytheme_first->year : $data_date['year']}}"  placeholder="先月の行動を振り返り記録しよう" value="{{$mytheme_first? $mytheme_first->memo : ''}}">
                     </div>
                 </div>
-
                 <hr class="shape-8"/>
-
                 <div class="row log">
                     <div class="col-sm-2 log-text">
                         <div class="underline">&nbsp;先月のログ&nbsp;</div>
                     </div>
                     <div class="col-sm-10 log-input">
-                        <input type="text" name="" placeholder="先月の自分を#で記録しよう　#バイト三昧　#初ボランティア">
+                        <input type="text" name="" class="input-lat-log" data-month="{{isset($mytheme_first->month) ? $mytheme_first->month : $data_date['month']}}" 
+                                            data-year="{{isset($mytheme_first->year) ? $mytheme_first->year : $data_date['year']}}" placeholder="先月の自分を#で記録しよう　#バイト三昧　#初ボランティア" value="{{$mytheme_first ? $mytheme_first->last_log : ''}}">
                     </div>
                 </div>
             </div>
-
             <div class="col-sm-12 col-xs-12 panel-info">
                 <div class="row">
                     @php ($index=1)
-                    @for ($i = 1; $i < 10; $i++)
-                        @if($i!=5)
-                            <div class="col-sm-4 col-xs-4 panel-info-wrapper">
-                                <div class="panel-info-content">
-                                    <div class="number">
-                                        <span>0{{$index++}}</span>
-                                    </div>
-                                    <div class="mypage-text">
-                                        <span>テキストがはいりますテキストがはいりますテキストがはいりますテキストがはいります</span>
-                                    </div>
-                                    <div class="favorite edit">
-                                        <i class="fa fa-pencil" data-toggle="modal" data-target="#show-detail-mypage">
-                                            Edit</i>
-                                    </div>
+                    @for ($i = 0; $i < 9; $i++)
+                        <?php $key = $i>4 ? $i : $i+1 ?>
+                        @if($i!=4)
+                        <div class="col-sm-4 col-xs-4 panel-info-wrapper">
+                            <div class="panel-info-content">
+                                <div class="number">
+                                    <span>0{{$index++}}</span>
+                                </div>
+                                <div class="mypage-text">
+                                    <span>
+                                        <textarea name="value-lable" class="edit-input-lable" 
+                                            data-month="{{isset($mythemes[$i]->month) ? $mythemes[$i]->month : $data_date['month']}}" 
+                                            data-year="{{isset($mythemes[$i]->year) ? $mythemes[$i]->year : $data_date['year']}}" 
+                                            data-category = "{{isset($mythemes[$i]->category_id) ? $mythemes[$i]->category_id : $key}}" 
+                                            data-id = "{{isset($mythemes[$i]->id) ? $mythemes[$i]->id : ''}}"
+                                            placeholder="Click here to edit">{{isset($mythemes[$i]->content_lable) ? $mythemes[$i]->content_lable : ''}}</textarea>
+                                    </span>
+                                </div>
+                                <div class="favorite edit label">
+                                    <i class="fa fa-pencil"
+                                        data-month="{{isset($mythemes[$i]->month) ? $mythemes[$i]->month : $data_date['month']}}" 
+                                        data-year="{{isset($mythemes[$i]->year) ? $mythemes[$i]->year : $data_date['year']}}" 
+                                        data-category = "{{isset($mythemes[$i]->category_id) ? $mythemes[$i]->category_id : $key}}" 
+                                        data-id = "{{isset($mythemes[$i]->id) ? $mythemes[$i]->id : ''}}"
+                                    >
+                                        Edit</i>
                                 </div>
                             </div>
+                        </div>
                         @else
                             {{--05--}}
                             <div class="col-sm-4 col-xs-4 panel-info-wrapper">
-                                <div class="event-image" style="background-image: url('{{asset('image/mypage/mypage-01.png')}}'); ">
+                                <div class="event-image">
+                                    <img src="{{isset($mythemes['9']->content_lable) ? asset('image/mypage/'.$mythemes['9']->content_lable) :asset('image/mypage/mypage-01.png')}}" alt="">
+                                    <div class="description"> {{isset($mythemes['9']->content_1) ? $mythemes['9']->content_1 : 'HATACHI TOBIRA'}}</div>
+                                    <div class="favorite edit image">
+                                        <i class="fa fa-pencil"
+                                            data-month="{{isset($mythemes['9']->month) ? $mythemes['9']->month : $data_date['month']}}" 
+                                            data-year="{{isset($mythemes['9']->year) ? $mythemes['9']->year : $data_date['year']}}" 
+                                            data-category = "{{isset($mythemes['9']->category_id) ? $mythemes['9']->category_id : '9'}}" 
+                                            data-id = "{{isset($mythemes['9']->id) ? $mythemes['9']->id : ''}}"
+                                        >Edit</i>
+                                    </div>
                                 </div>
                             </div>
                             {{--@php ($i--);--}}
@@ -75,31 +95,28 @@
                     @endfor
                 </div>
             </div>
-
             <div class="col-sm-12 info-2">
                 <div class="row my-theme">
                     <div class="col-sm-3 my-theme-text">
                         <div class="underline">&nbsp;今月のマイテーマ&nbsp;</div>
                     </div>
                     <div class="col-sm-9 my-theme-input">
-                        <input type="text" name="" placeholder="例:「人に喜んでもらう接客とは？」「自分の理想のチームをつくるには？」">
+                        <input type="text" name="my-therme-month" class="input-my-theme" data-month="{{isset($mytheme_first->month) ? $mytheme_first->month : $data_date['month']}}" 
+                                            data-year="{{isset($mytheme_first->year) ? $mytheme_first->year : $data_date['year']}}" placeholder="例:「人に喜んでもらう接客とは？」「自分の理想のチームをつくるには？」" value="{{$mytheme_first ? $mytheme_first->this_mytheme : ''}}">
                     </div>
                 </div>
-
                 <hr class="shape-8"/>
-
                 <div class="row action">
                     <div class="col-sm-3 action-text">
-                        <div class="underline">&nbsp;今月のアクションt&nbsp;</div>
+                        <div class="underline">&nbsp;今月のアクション &nbsp;</div>
                     </div>
                     <div class="col-sm-9 action-input">
-                        <input type="text" name="" placeholder="考えたいこと、行動したいことを3つ決めよう">
+                        <input type="text" name="action-of-month" class="input-action" data-month="{{isset($mytheme_first->month) ? $mytheme_first->month : $data_date['month']}}" 
+                                            data-year="{{isset($mytheme_first->year) ? $mytheme_first->year : $data_date['year']}}" placeholder="考えたいこと、行動したいことを3つ決めよう" value="{{$mytheme_first ? $mytheme_first->this_action : ''}}">
                     </div>
                 </div>
-
                 <hr class="shape-8"/>
             </div>
-
         </div>
     </div>
 
@@ -240,30 +257,7 @@
                             <div class="icon-favorite">
                                 {{--==================== favorite ====================--}}
                                 <i class="fa fa-heart-o" style="font-size:24px; color: #D4D4D4;"></i>
-                                {{--@if(Auth::user())--}}
-                                {{--{{ csrf_field() }}--}}
-                                {{--<div type="submit" class="favorite">--}}
-                                {{--<input type="hidden" class="favorite" value="0">--}}
-                                {{--<input type="hidden" class="user_id"--}}
-                                {{--value="{{Auth::user()->id}}">--}}
-                                {{--<input type="hidden" class="column_id" value="{{$column->id}}">--}}
-                                {{--<div class="col-md-12 text-right">--}}
-                                {{--@if(in_array($column->id,$favorites_id))--}}
-                                {{--<i class="fa fa-heart-o"--}}
-                                {{--style="font-size:24px; color: red;"></i>--}}
-                                {{--@else--}}
-                                {{--<i class="fa fa-heart-o"--}}
-                                {{--style="font-size:24px; color: blue;"></i>--}}
-                                {{--@endif--}}
-                                {{--</div>--}}
-                                {{--</div>--}}
-                                {{--@else--}}
-                                {{--<div type="submit">--}}
-                                {{--<i class="fa fa-heart-o" style="font-size:24px;"--}}
-                                {{--data-toggle="modal"--}}
-                                {{--data-target="#modal_login"> </i>--}}
-                                {{--</div>--}}
-                                {{--@endif--}}
+                                
                                 {{--==================== /end favorite ====================--}}
                             </div>
                             <span class="title">{{$column->title}}</span>
@@ -279,282 +273,258 @@
         </div>
 
     </div>
+<div id="show-detail-mypage" class="modal fade modal_register" role="dialog">
+    <div class="modal-dialog" style="margin-top:150px">
+        <div class="modal-content">
+            <div class="modal-body" style="text-align:center">
+                <button type="button" class="close" id="dissmiss_modal_show">&times;</button>
+                <div class="panel-body">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" charset="utf-8" async defer>
+    $(document).ready(function(){
+        function GetURLParameter(sParam) {
+            var sPageURL = window.location.search.substring(1);
+            var sURLVariables = sPageURL.split('&');
+            for (var i = 0; i < sURLVariables.length; i++){
+                var sParameterName = sURLVariables[i].split('=');
+                if (sParameterName[0] == sParam)
+                {
+                    return sParameterName[1];
+                }
+            }
+        }
 
-{{--<div class="my-page container">--}}
-    	{{--<div class="event-information">--}}
-            {{--<div class="event-information-wrapper col-lg-4 col-sm-4 col-xs-12">--}}
-                {{--<div class="event-information-content">--}}
-                    {{--<div class="number">--}}
-                        {{--<span>1</span>--}}
-                    {{--</div>--}}
-                    {{--<div class="mypage-text">--}}
-                        {{--<span>テキストがはいりますテキストがはいりますテキストがはいりますテキストがはいります</span>--}}
-                        {{--<div class="favorite edit">--}}
-                            {{--<i class="fa fa-pencil" data-toggle="modal" data-target="#show-detail-mypage"> Edit</i>--}}
-                        {{--</div>--}}
-                    {{--</div>--}}
-                {{--</div>--}}
-            {{--</div>--}}
-            {{--<div class="event-information-wrapper col-lg-4 col-sm-4 col-xs-12">--}}
-                {{--<div class="event-information-content">--}}
-                    {{--<div class="number">--}}
-                        {{--<span>2</span>--}}
-                    {{--</div>--}}
-                    {{--<div class="mypage-text">--}}
-                        {{--<span></span>--}}
-                        {{--<div class="favorite edit">--}}
-                            {{--<i class="fa fa-pencil" data-toggle="modal" data-target="#show-detail-mypage"> Edit</i>--}}
-                        {{--</div>--}}
-                    {{--</div>--}}
-                {{--</div>--}}
-            {{--</div>--}}
-            {{--<div class="event-information-wrapper col-lg-4 col-sm-4 col-xs-12">--}}
-                {{--<div class="event-information-content">--}}
-                    {{--<div class="number">--}}
-                        {{--<span>3</span>--}}
-                    {{--</div>--}}
-                    {{--<div class="mypage-text">--}}
-                        {{--<span></span>--}}
-                        {{--<div class="favorite edit">--}}
-                            {{--<i class="fa fa-pencil" data-toggle="modal" data-target="#show-detail-mypage"> Edit</i>--}}
-                        {{--</div>--}}
-                    {{--</div>--}}
-                {{--</div>--}}
-            {{--</div>--}}
-            {{--<div class="event-information-wrapper col-lg-4 col-sm-4 col-xs-12">--}}
-                {{--<div class="event-information-content">--}}
-                    {{--<div class="number">--}}
-                        {{--<span>4</span>--}}
-                    {{--</div>--}}
-                    {{--<div class="mypage-text">--}}
-                        {{--<span></span>--}}
-                        {{--<div class="favorite edit">--}}
-                            {{--<i class="fa fa-pencil" data-toggle="modal" data-target="#show-detail-mypage"> Edit</i>--}}
-                        {{--</div>--}}
-                    {{--</div>--}}
-                {{--</div>--}}
-            {{--</div>--}}
-    		{{--<div class="event-information-wrapper col-lg-4 col-sm-4 col-xs-12">--}}
-    			{{--<div class="event-information-content">--}}
-    				{{--<div class="event-image">--}}
-	    				{{--<img src="{{ asset('image/column/column02.jpg')}}">--}}
-                    {{--</div>--}}
-    			{{--</div>--}}
-    		{{--</div>--}}
-            {{--<div class="event-information-wrapper col-lg-4 col-sm-4 col-xs-12">--}}
-                {{--<div class="event-information-content">--}}
-                    {{--<div class="number">--}}
-                        {{--<span>5</span>--}}
-                    {{--</div>--}}
-                    {{--<div class="mypage-text">--}}
-                        {{--<span></span>--}}
-                        {{--<div class="favorite edit">--}}
-                            {{--<i class="fa fa-pencil" data-toggle="modal" data-target="#show-detail-mypage"> Edit</i>--}}
-                        {{--</div>--}}
-                    {{--</div>--}}
-                {{--</div>--}}
-            {{--</div>--}}
-            {{--<div class="event-information-wrapper col-lg-4 col-sm-4 col-xs-12">--}}
-                {{--<div class="event-information-content">--}}
-                    {{--<div class="number">--}}
-                        {{--<span>6</span>--}}
-                    {{--</div>--}}
-                    {{--<div class="mypage-text">--}}
-                        {{--<span></span>--}}
-                        {{--<div class="favorite edit">--}}
-                            {{--<i class="fa fa-pencil" data-toggle="modal" data-target="#show-detail-mypage"> Edit</i>--}}
-                        {{--</div>--}}
-                    {{--</div>--}}
-                {{--</div>--}}
-            {{--</div>--}}
-            {{--<div class="event-information-wrapper col-lg-4 col-sm-4 col-xs-12">--}}
-                {{--<div class="event-information-content">--}}
-                    {{--<div class="number">--}}
-                        {{--<span>7</span>--}}
-                    {{--</div>--}}
-                    {{--<div class="mypage-text">--}}
-                        {{--<span></span>--}}
-                        {{--<div class="favorite edit">--}}
-                            {{--<i class="fa fa-pencil" data-toggle="modal" data-target="#show-detail-mypage"> Edit</i>--}}
-                        {{--</div>--}}
-                    {{--</div>--}}
-                {{--</div>--}}
-            {{--</div>--}}
-            {{--<div class="event-information-wrapper col-lg-4 col-sm-4 col-xs-12">--}}
-                {{--<div class="event-information-content">--}}
-                    {{--<div class="number">--}}
-                        {{--<span>8</span>--}}
-                    {{--</div>--}}
-                    {{--<div class="mypage-text">--}}
-                        {{--<span></span>--}}
-                        {{--<div class="favorite edit">--}}
-                            {{--<i class="fa fa-pencil" data-toggle="modal" data-target="#show-detail-mypage"> Edit</i>--}}
-                        {{--</div>--}}
-                    {{--</div>--}}
-                {{--</div>--}}
-            {{--</div>--}}
-            {{--<div class="col-md-8">メモ：</div>--}}
-            {{--<div class="col-md-12">--}}
-                {{--<input type="text" name="" style="width: 100%">--}}
-            {{--</div>--}}
-        {{--</div>--}}
+        tech = GetURLParameter('redirect-link');
+        if (tech == 'true') {
+            $html = '<div class ="form-register-last">'
+            $html += '<div class="form-group">';
+            $html +='<h3>会員登録が完了しました!</h3>';
+            $html +=' </div>';
+            $html += '<div class="form-group">';
+            $html +='<label for="name" class="control-label">マイテーマを探すために、</label>';
+            $html +=' </div>';
+            $html += '<div class="form-group">';
+            $html +='<label for="name" class="control-label">気になる動画の収集や、個人の活動の記録を</label>';
+            $html +=' </div>';
+            $html += '<div class="form-group">';
+            $html +='<label for="name" class="control-label">管理していきましょう。</label>';
+            $html +=' </div>';
+            $html += '<div class="form-group" style="margin-bottom: 28px; margin-top: 30px;">';
+            $html +='<img class="image-register" src="{{ asset("image/register_1.png") }}">';
+            $html +=' </div>';
+            $html += '<div class="form-group">';
+            $html += '<div class="col-md-12">'
+            $html +='<a  class="btn btn-warning" href="{{route("mypage.index")}}">MY PAGEへ</a>';
+            $html +=' </div>';
+            $html +=' </div>';
+            $html +=' </div>';
+            $('#modal_register').find('.panel-body').addClass('form-horizontal');
+            $('#modal_register').find('.panel-body').html($html);
+            $('#modal_register').modal('show');
+        }
 
-    	{{--<div class="event-information e-vent-border">--}}
-    		{{--<div class="select-item col-md-3">--}}
-    			{{--<select class="">--}}
-    				{{--<option value="0">あなたのカテゴリ</option>--}}
-    				{{--<option value="1">あなたのカテゴリ</option>--}}
-    				{{--<option value="2">あなたのカテゴリ</option>--}}
-    				{{--<option value="3">あなたのカテゴリ</option>--}}
-    			{{--</select>--}}
+        $(document).on('focusout','.edit-input-lable',function(e){
+            var year = $(this).data('year');
+            var month = $(this).data('month');
+            var category = $(this).data('category');
+            var id = $(this).data('id');
+            var text = $(this).val();
+            var _this = $(this);
+            $.ajax({
+                url : '{{route("mypage.change-lable")}}',
+                type: 'post',
+                dataType: 'json',
+                data: {
+                    year : year,
+                    month : month,
+                    category_id : category,
+                    id : id,
+                    content_lable: text
+                },
+                success : function (result){
+                    _this.attr('data-category',result.category_id);
+                    _this.attr('data-id',result.id);
+                    _this.parents('.panel-info-content').find('.favorite.edit').find('.fa-pencil').attr('data-category',result.category_id);
+                    _this.parents('.panel-info-content').find('.favorite.edit').find('.fa-pencil').attr('data-id',result.id);
+                }   
+            })
+        })
 
-    		{{--</div>--}}
-    		{{--<div class="select-item-label col-md-3" ><p>の新着</p></div>--}}
-    	{{--</div>--}}
-    	{{--<div class="event-information">--}}
-    		{{--<div class="item">--}}
-                {{--<div class="wrapper">--}}
-                    {{--<div class="icon">--}}
-                        {{--<img src="{{asset('image/mypage/image_mypage.png')}}" >--}}
-                        {{--<div class="favorite">--}}
-                        	{{--<i class="fa fa-heart-o" style="font-size:24px;"></i>--}}
-                        {{--</div>--}}
-                    {{--</div>--}}
-                    {{--<div class="content clearfix" >--}}
-                        {{--<div class="status clearfix"><h4 class="text-status">インタビュー</h4></div>--}}
-                        {{--<div class="title clearfix "><h4 class="text-title">タイトルタイトルタイトルタイトルタイトル</h4></div>--}}
-                        {{--<div class="category clearfix"><p class="text-category">#カテゴリ</p></div>--}}
-                        {{--<div class="date clearfix"><p class="text-date">2018.3.20</p></div>--}}
-                    {{--</div>--}}
-                {{--</div>--}}
-            {{--</div>--}}
+        $(document).on('focusout','.input-memo,.input-lat-log,.input-my-theme,.input-action',function(e){
+            var _this = $(this);
+            var year = _this.data('year');
+            var month = _this.data('month');
+            var text_memo = $('.input-memo').val();
+            var text_last_log = $('.input-lat-log').val();
+            var text_my_theme = $('.input-my-theme').val();
+            var text_action= $('.input-action').val();
+            $.ajax({
+                url : '{{route("mypage.change-content")}}',
+                type: 'post',
+                dataType: 'json',
+                data: {
+                    year : year,
+                    month : month,
+                    memo : text_memo,
+                    last_log : text_last_log,
+                    this_mytheme: text_my_theme,
+                    this_action: text_action
+                }  
+            })
+        })
+        $(document).on('focusout','.edit-input-content',function(e){
+            var year = $(this).data('year');
+            var month = $(this).data('month');
+            var category = $(this).data('category');
+            var content = $(this).data('content');
+            var id = $(this).data('id');
+            var text = $(this).val();
+            var _this = $(this);
+            $.ajax({
+                url : '{{route("mypage.change-content-child")}}',
+                type: 'post',
+                dataType: 'json',
+                data: {
+                    year : year,
+                    month : month,
+                    category_id : category,
+                    id : id,
+                    content_data: text,
+                    content: content
+                },
+                success : function (result){
+                    _this.parents('.detail-infor').find('.edit-input-content').attr('data-id',result.id);
+                }   
+            })
+        })
 
-    	{{--</div>--}}
-    	{{--<div class="event-information">--}}
-    		{{--<div class="event-show-detail">--}}
-            	{{--<button class="btn btn-default">一覧を見る</button>--}}
-            {{--</div>--}}
-    	{{--</div>--}}
-    	{{--<div class="event-information">--}}
-    		{{--<div class="panel-body">--}}
-    			{{--<div class="clearfix">--}}
-	    			{{--<a class="text-link" href="#">お気に入り動画(3)</a>--}}
-    			{{--</div>--}}
-    			{{--<div class="content-video">--}}
-    				{{--<div class="event-information-wrapper col-lg-4 col-sm-4 col-xs-12">--}}
-    					{{--<div class="wrapper">--}}
-	                        {{--<div class="thump">--}}
-	                            {{--<img class="img-video" src="https://i.ytimg.com/vi/ObwNpMXlmPU/mqdefault.jpg" alt="">--}}
-	                        {{--</div>--}}
-	                        {{--<div class="description">--}}
-	                            {{--<p>部活の先輩後輩のキス【ファーストキス】</p>--}}
-	                            {{--<span>58531 Views</span>--}}
-	                            {{--<span>7 month ago</span>--}}
-	                        {{--</div>--}}
-	                    {{--</div>--}}
-    				{{--</div>--}}
-    				{{--<div class="event-information-wrapper col-lg-4 col-sm-4 col-xs-12">--}}
-    					{{--<div class="wrapper">--}}
-	                        {{--<div class="thump">--}}
-	                            {{--<img class="img-video" src="https://i.ytimg.com/vi/ObwNpMXlmPU/mqdefault.jpg" alt="">--}}
-	                        {{--</div>--}}
-	                        {{--<div class="description">--}}
-	                            {{--<p>部活の先輩後輩のキス【ファーストキス】</p>--}}
-	                            {{--<span>58531 Views</span>--}}
-	                            {{--<span>7 month ago</span>--}}
-	                        {{--</div>--}}
-	                    {{--</div>--}}
-    				{{--</div>--}}
-    				{{--<div class="event-information-wrapper col-lg-4 col-sm-4 col-xs-12">--}}
-    					{{--<div class="wrapper">--}}
-	                        {{--<div class="thump">--}}
-	                            {{--<img  class="img-video" src="https://i.ytimg.com/vi/ObwNpMXlmPU/mqdefault.jpg" alt="">--}}
-	                        {{--</div>--}}
-	                        {{--<div class="description">--}}
-	                            {{--<p>部活の先輩後輩のキス【ファーストキス】</p>--}}
-	                            {{--<span>58531 Views</span>--}}
-	                            {{--<span>7 month ago</span>--}}
-	                        {{--</div>--}}
-	                    {{--</div>--}}
-    				{{--</div>--}}
-    			{{--</div>--}}
-    		{{--</div>--}}
-    	{{--</div>--}}
+        $(document).on('click','.favorite.edit.label .fa-pencil',function(e){
+            e.preventDefault();
+            var _this = $(this);
+            var year = _this.data('year');
+            var month = _this.data('month');
+            var id = _this.data('id');
+            var category = $(this).data('category');
+            $.ajax({
+                url : '{{route("mypage.show-modal")}}',
+                type: 'post',
+                dataType: 'html',
+                data: {
+                    year : year,
+                    month : month,
+                    category_id : category,
+                    id : id
+                },
+                success : function (result){
+                    $('#show-detail-mypage').find('.panel-body').html(result);
+                    $('#show-detail-mypage').modal('show');
+                    _this.parents('.panel-info-content').find('.edit-input-lable').addClass('editing');
+                }   
+            })
+        })
 
-    	{{--<div class="event-information">--}}
-    		{{--<div class="panel-body">--}}
-    			{{--<div class="clearfix">--}}
-	    			{{--<a class="text-link" href="#">イベントを探す(0)</a>--}}
-    			{{--</div>--}}
-    			{{--<div class="content-column">--}}
-    				{{--<p>社会人から話を聞いて、マイテーマ探しをしてみよう</p>--}}
-    				{{--<div class="event-show-detail">--}}
-    					{{--<button class="btn btn-default">一覧を見る</button>--}}
-    				{{--</div>--}}
-    			{{--</div>--}}
-    		{{--</div>--}}
-    	{{--</div>--}}
-    	{{--<div class="event-information">--}}
-    		{{--<div class="panel-body">--}}
-                {{--<h4 class="text-link">参加したイベント(1)</h4>--}}
-    			{{--<div class="content-text">--}}
-    				{{--<div class="item">--}}
-		                {{--<div class="wrapper">--}}
-		                    {{--<div class="icon">--}}
-		                        {{--<img src="{{asset('image/mypage/image_mypage.png')}}" >--}}
-		                    {{--</div>--}}
-		                    {{--<div class="content clearfix" >--}}
-		                        {{--<div class="status clearfix"><h4 class="text-status">インタビュー</h4></div>--}}
-		                        {{--<div class="title clearfix "><h4 class="text-title">タイトルタイトルタイトルタイトルタイトル</h4></div>--}}
-		                        {{--<div class="date clearfix"><p class="text-date">2018.3.20</p></div>--}}
-		                    {{--</div>--}}
-		                {{--</div>--}}
-		            {{--</div>--}}
-    			{{--</div>--}}
-    		{{--</div>--}}
-    	{{--</div>--}}
-    {{--</div>--}}
-{{--</div>--}}
-{{--<div id="show-detail-mypage" class="modal fade modal_register" role="dialog">--}}
-    {{--<div class="modal-dialog" style="margin-top:150px">--}}
-        {{--<div class="modal-content">--}}
-            {{--<div class="modal-body" style="text-align:center">--}}
-                {{--<button type="button" class="close" data-dismiss="modal">&times;</button>--}}
-                {{--<div class="panel-body">--}}
-                    {{--<div class="event-information-wrapper col-md-4 col-md-offset-4 clearfix">--}}
-                        {{--<div class="event-information-content">--}}
-                            {{--<div class="number">--}}
-                                {{--<span class="mypage-number">1</span>--}}
-                            {{--</div>--}}
-                            {{--<div class="mypage-text">--}}
-                                {{--<span>テキストテキストテ--}}
-                                        {{--キストテキストテキ--}}
-                                        {{--ストテキストテキスト--}}
-                                        {{--テキスト</span>--}}
+        $(document).on('click','.favorite.edit.image .fa-pencil',function(e){
+            e.preventDefault();
+            var _this = $(this);
+            var year = _this.data('year');
+            var month = _this.data('month');
+            var id = _this.data('id');
+            var category = $(this).data('category');
+            $.ajax({
+                url : '{{route("mypage.show-modal-image")}}',
+                type: 'post',
+                dataType: 'html',
+                data: {
+                    year : year,
+                    month : month,
+                    category_id : category,
+                    id : id
+                },
+                success : function (result){
+                    $('#show-detail-mypage').find('.panel-body').html(result);
+                    $('#show-detail-mypage').modal('show');
+                    // _this.parents('.panel-info-content').find('.edit-input-lable').addClass('editing');
+                }   
+            })
+        })
 
-                            {{--</div>--}}
-                        {{--</div>--}}
-                        {{--<div class="title-detail">--}}
-                            {{--<span class="mypage-number">1</span> の要素を深掘り--}}
-                        {{--</div>--}}
-                    {{--</div>--}}
-                    {{--<div class="col-md-12 detail-infor">--}}
-                        {{--<div class="event-information-content col-md-5 col-md-offset-1">--}}
-                            {{--テキストテキストテ キストテキスト--}}
-                        {{--</div>--}}
-                         {{--<div class="event-information-content col-md-5 col-md-offset-1">--}}
-                            {{--テキストテキストテ キストテキスト--}}
-                        {{--</div>--}}
-                         {{--<div class="event-information-content col-md-5 col-md-offset-1">--}}
-                            {{--テキストテキストテ キストテキスト--}}
-                        {{--</div>--}}
-                         {{--<div class="event-information-content col-md-5 col-md-offset-1">--}}
-                            {{--テキストテキストテ キストテキスト--}}
-                        {{--</div>--}}
-                    {{--</div>--}}
-                {{--</div>--}}
-            {{--</div>--}}
-        {{--</div>--}}
-    {{--</div>--}}
-{{--</div>--}}
+
+        $(document).on('click','#dissmiss_modal_show',function(e){
+            e.preventDefault();
+            var text = $('#show-detail-mypage').find('.edit-input-lable').val();
+            $('.edit-input-lable.editing').val(text);
+            $('.edit-input-lable.editing').removeClass('editing');
+            $('#show-detail-mypage').modal('hide');
+        })
+
+        $(document).on('click','.fa.fa-chevron-circle-left.icon-back, .fa.fa-chevron-circle-right',function(e) {
+            e.preventDefault();
+            var _this = $(this);
+            var month = _this.data('month');
+            var year = _this.data('year');
+            $.ajax({
+                url : '{{route("mypage.show-month")}}',
+                type: 'post',
+                dataType: 'html',
+                data: {
+                    year : year,
+                    month : month
+                },
+                success : function (result){
+                    $('.row.my-page-top').html(result);
+                }   
+            })
+        })
+
+        $(document).on('change','.file-image',function(e){
+            var formData = new FormData($('#form_information')[0]);
+            var tmppath = URL.createObjectURL(e.target.files[0]);
+            $('#tmppath').val(tmppath);
+            $.ajax({
+                type: 'post',
+                url: '{{route("mypage.change-avatar")}}',
+                dataType: "json",
+                data: formData,
+                async: false,
+                success: function (key) {
+                    $('#dissmiss_modal_show').addClass('editing');
+                },
+                processData: false,
+                cache: false,
+                contentType: false,
+            });
+        })
+        $(document).on('focusout','.image-description',function(e){
+            var formData = new FormData($('#form_information')[0]);
+            $.ajax({
+                type: 'post',
+                url: '{{route("mypage.change-avatar")}}',
+                dataType: "json",
+                data: formData,
+                async: false,
+                success: function (key) {
+                    $('#dissmiss_modal_show').addClass('editing');
+                },
+                processData: false,
+                cache: false,
+                contentType: false,
+            });
+        })
+
+        $(document).on('click','#dissmiss_modal_show.editing',function(e){
+            e.preventDefault();
+            var text = $('#show-detail-mypage').find('.image-description').val();
+            var src = $('#tmppath').val();
+            $('.description').text(text);
+            $('.event-image').find('img').attr('src',src);
+            $('#dissmiss_modal_show').removeClass('editing');
+            $('#show-detail-mypage').modal('hide');
+        })
+    });
+</script>
 @endsection

@@ -7,6 +7,9 @@ use App\Video;
 use App\Category;
 use App\Column;
 use App\Favorite;
+use App\Mytheme;
+use DateTime;
+use Date;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -17,10 +20,9 @@ class MypageController extends Controller
 
     public function index()
     {
-//        $user_id = Auth::user()->id;
 
         /* Get category list */
-        $categories = Category::all();
+        $categories = Category::where('display',1)->get();
 
         /* Get video faverite list */
         $videos = Video::select()->paginate(6);
@@ -36,17 +38,170 @@ class MypageController extends Controller
             ->select('columns.*', 'categories.name as category_name')
             ->join('categories', 'categories.id', '=', 'columns.category_id')
             ->paginate(6);
+        $date_now = new DateTime();
+        $data_date['month'] = date_format($date_now, "m");
+        $data_date['year'] = date_format($date_now, "Y");
+        $user_id = Auth::User()->id;
+        $mytheme_first = Mytheme::where('user_id',$user_id)->where('month',$data_date['month'])->where('year',$data_date['year'])->first();
+
+        $mytheme = Mytheme::where('user_id',$user_id)->where('month',$data_date['month'])->where('year',$data_date['year'])->orderBy('category_id','asc')->get();
+        $mythemes = array();
+        for ($i=0; $i <= 9 ; $i++) { 
+            $key = $i>=4 ? $i+1 : $i;
+            $mythemes[$key] = "";
+            foreach ($mytheme as $k => $v) {
+                if (isset($k) && $i+1 == $v->category_id) {
+                    $mythemes[$key] = $v;
+                }
+            }
+        }
 
         $array=[
             'categories'    => $categories,
             'videos'        => $videos,
             'events'        => $events,
-            'columns'       => $columns
+            'columns'       => $columns,
+            'data_date'     => $data_date,
+            'mythemes'      => $mythemes,
+            'mytheme_first' => $mytheme_first,
         ];
-//        echo '<pre>'; print_r($array['videos']);echo '</pre>';
-//        die;
-
         return view('user.mypage', $array);
+    }
+
+    public function changeLable(Request $request){
+        $data = $request->all();
+        $user_id = Auth::User()->id;
+        $data['user_id'] = $user_id;
+
+        $result = Mytheme::where('user_id',$user_id)->where('month',$data['month'])->where('year',$data['year'])->where('category_id',$data['category_id'])->first();
+        if ($result) {
+            $result->update($data);
+            $results = Mytheme::find($result->id);
+        }
+        else {
+            $results= Mytheme::create($data);
+        }
+        
+        return json_encode($results);
+    }
+
+    public function changeContent(Request $request) {
+        $data = $request->all();
+        $user_id = Auth::User()->id;
+        $data['user_id'] = $user_id;
+
+        $result = Mytheme::where('user_id',$user_id)->where('month',$data['month'])->where('year',$data['year'])->get();
+        if ($result) {
+             Mytheme::where('user_id',$user_id)->where('month',$data['month'])->where('year',$data['year'])->update($data);
+            $results = Mytheme::where('user_id',$user_id)->where('month',$data['month'])->where('year',$data['year'])->first();
+        }
+        else {
+            $results= Mytheme::create($data);
+        }
+        return json_encode($results);
+    }
+
+    public function changeContentChild(Request $request){
+        $data = $request->all();
+        $user_id = Auth::User()->id;
+        $data['user_id'] = $user_id;
+        $content = 'content_'.$data['content'];
+        $data[$content] = $data['content_data'];
+        unset($data['content_data']);
+        unset($data['content']);
+        $result = Mytheme::where('user_id',$user_id)->where('month',$data['month'])->where('year',$data['year'])->where('category_id',$data['category_id'])->first();
+        if ($result) {
+            Mytheme::where('user_id',$user_id)->where('month',$data['month'])->where('year',$data['year'])->where('category_id',$data['category_id'])->update($data);
+            $results =  Mytheme::where('user_id',$user_id)->where('month',$data['month'])->where('year',$data['year'])->where('category_id',$data['category_id'])->first();
+        }
+        else {
+            $results= Mytheme::create($data);
+        }
+        return json_encode($results);
+    }
+
+    public function showModal(Request $request) {
+        $data = $request->all();
+        $user_id = Auth::User()->id;
+        $data['user_id'] = $user_id;
+
+        $result = Mytheme::where('user_id',$user_id)->where('month',$data['month'])->where('year',$data['year'])->where('category_id',$data['category_id'])->first();
+        return view('user.mypage_modal',compact('result','data'));
+    }
+
+    public function showModalImage(Request $request) {
+        $data = $request->all();
+        $user_id = Auth::User()->id;
+        $data['user_id'] = $user_id;
+
+        $result = Mytheme::where('user_id',$user_id)->where('month',$data['month'])->where('year',$data['year'])->where('category_id',$data['category_id'])->first();
+        $result_1 = Mytheme::where('user_id',$user_id)->where('month',$data['month'])->where('year',$data['year'])->first();
+        return view('user.mypage_modal_image',compact('result','data','result_1'));
+    }
+
+
+    public function changeAvatar(Request $request) {
+        $data = $request->all();
+        $user_id = Auth::User()->id;
+        $data['user_id'] = $user_id;
+        //Upload file image
+        $fileName = '';
+        if($request->hasFile('file-image')){
+            $file = $request->file('file-image');
+            $fileName = time().'_'.$file->getClientOriginalName();
+            $destinationPath = public_path('image/mypage');
+            $file->move($destinationPath, $fileName);
+        }
+        $data['content_lable'] = $fileName;
+        $data['content_1'] = $data['description'];
+
+        unset($data['file-image']);
+        unset($data['description']);
+        unset($data['tmppath']);
+
+        $result = Mytheme::where('user_id',$user_id)->where('month',$data['month'])->where('year',$data['year'])->where('category_id',$data['category_id'])->first();
+        if ($result) {
+            Mytheme::where('user_id',$user_id)->where('month',$data['month'])->where('year',$data['year'])->where('category_id',$data['category_id'])->update($data);
+            $results =  Mytheme::where('user_id',$user_id)->where('month',$data['month'])->where('year',$data['year'])->where('category_id',$data['category_id'])->first();
+        }
+        else {
+            $results= Mytheme::create($data);
+        }
+        return json_encode($results);
+    }
+
+    public function showMonth(Request $request) {
+        $data = $request->all();
+        $user_id = Auth::User()->id;
+        $data['user_id'] = $user_id;
+
+        $date_now = new DateTime();
+        $data_date['month'] = date_format($date_now, "m");
+        $data_date['year'] = date_format($date_now, "Y");
+        $user_id = Auth::User()->id;
+
+        $mytheme_first = Mytheme::where('user_id',$user_id)->where('month',$data['month'])->where('year',$data['year'])->first();
+
+        $mytheme = Mytheme::where('user_id',$user_id)->where('month',$data['month'])->where('year',$data['year'])->orderBy('category_id','asc')->get();
+        $mythemes = array();
+        for ($i=0; $i <= 9 ; $i++) { 
+            $key = $i>=4 ? $i+1 : $i;
+            $mythemes[$key] = "";
+            foreach ($mytheme as $k => $v) {
+                if (isset($k) && $i+1 == $v->category_id) {
+                    $mythemes[$key] = $v;
+                }
+            }
+        }
+
+        $array=[
+            'data_date'     => $data_date,
+            'mythemes'      => $mythemes,
+            'mytheme_first' => $mytheme_first,
+            'data_search'   => $data       
+        ];
+
+        return view('user.mypage_month', $array);
     }
 
     /** Function get info by category_id
@@ -82,7 +237,7 @@ class MypageController extends Controller
         $BASE_URL = 'https://www.googleapis.com/youtube/v3/videos?id=';
         $BASE_PART = '&part=id,contentDetails,snippet,statistics,player&key=';
 
-        $categories = Category::all();
+        $categories = Category::where('display',1)->get();
 
         $events = Event::select()
             ->select('events.*', 'categories.name as category_name')
@@ -98,15 +253,16 @@ class MypageController extends Controller
             ->join('categories', 'categories.id', '=', 'videos.category_id');
             
 
-        if (isset($_GET['search'])) {
+        if (isset($_GET['search']) && $_GET['search'] != 0) {
             $categories_id = $_GET['search'];
             $events = $events->where('events.category_id', '=', $categories_id);
             $columns = $columns->where('columns.category_id', '=', $categories_id);
             $videos = $videos->where('videos.category_id', '=', $categories_id);
         } 
-        $events = $events->get();
-        $columns = $columns->get();
-        $videos = $videos->get();
+
+        $events = $events->orderBy('id','desc')->get();
+        $columns = $columns->orderBy('id','desc')->get();
+        $videos = $videos->orderBy('id','desc')->get();
         
         foreach ($events as $key => $event) {
             $like_e = 0;
@@ -136,7 +292,6 @@ class MypageController extends Controller
 
             $column->favorite = $like_e;
         }
-        
 
         $results = array();
         foreach ($videos as $video) {
@@ -145,6 +300,7 @@ class MypageController extends Controller
             $id = $youtube['v'];
             $api_url = $BASE_URL . $id . $BASE_PART . $api_key . '';
             $result = json_decode(file_get_contents($api_url));
+            
             $result->id = $video->id;
             $result->category = $video->category_name;
 
@@ -159,10 +315,14 @@ class MypageController extends Controller
                 }
             }
             $result->favorite = $like;
-
-            array_push($results, $result);
+            if (isset($result->items[0])) {
+                $date1 = new DateTime();
+                $date2 = new DateTime($result->items[0]->snippet->publishedAt);
+                $interval = $date2->diff($date1);
+                $result->date_diff = $interval->m;
+                array_push($results, $result);
+            }
         }
-
         /*Pagination */
 
         // $currentPage = LengthAwarePaginator::resolveCurrentPage();
