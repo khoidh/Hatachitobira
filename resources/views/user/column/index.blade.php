@@ -48,35 +48,21 @@
                             <div class="content-right col-md-8">
                                 <div class="icon-favorite">
                                     {{--==================== favorite ====================--}}
-                                    <i class="fa fa-heart-o" style="font-size:24px; color: #D4D4D4;"></i>
-                                    {{--@if(Auth::user())--}}
-                                    {{--{{ csrf_field() }}--}}
-                                    {{--<div type="submit" class="favorite">--}}
-                                    {{--<input type="hidden" class="favorite" value="0">--}}
-                                    {{--<input type="hidden" class="user_id"--}}
-                                    {{--value="{{Auth::user()->id}}">--}}
-                                    {{--<input type="hidden" class="column_id" value="{{$column->id}}">--}}
-                                    {{--<div class="col-md-12 text-right">--}}
-                                    {{--@if(in_array($column->id,$favorites_id))--}}
-                                    {{--<i class="fa fa-heart-o"--}}
-                                    {{--style="font-size:24px; color: red;"></i>--}}
-                                    {{--@else--}}
-                                    {{--<i class="fa fa-heart-o"--}}
-                                    {{--style="font-size:24px; color: blue;"></i>--}}
-                                    {{--@endif--}}
-                                    {{--</div>--}}
-                                    {{--</div>--}}
-                                    {{--@else--}}
-                                    {{--<div type="submit">--}}
-                                    {{--<i class="fa fa-heart-o" style="font-size:24px;"--}}
-                                    {{--data-toggle="modal"--}}
-                                    {{--data-target="#modal_login"> </i>--}}
-                                    {{--</div>--}}
-                                    {{--@endif--}}
+                                    <i class="fa fa-heart-o" style="
+                                    @if(Auth::user() and in_array($column->id,$favorites_id))
+                                            color: pink !important;
+                                    @else
+                                            color: rgb(99, 107, 111) !important;
+                                    @endif "
+                                       data-id="{{$column->id}}"
+                                       data-user='{{Auth::user() ? Auth::user()->id : ""}}'>
+                                    </i>
                                     {{--==================== /end favorite ====================--}}
                                 </div>
-                                <span class="title">{{$column->title}}</span>
-                                <span class="category">&nbsp;&nbsp;{{$column->category_name}}</span>
+                                <a href="{{route('column.show', $column->id)}}" style="text-decoration:none;">
+                                    <span class="title">{{$column->title}}</span>
+                                    <span class="category">&nbsp;&nbsp;{{$column->category_name}}</span>
+                                </a>
                                 <div class="date" >
                                     <p>{{date('Y-m-d', strtotime($column->created_at))}}</p>
                                 </div>
@@ -84,19 +70,16 @@
                         </div>
                     </div>
                 @endforeach
-                    <hr class="shape-8"/>
-                    <div class="col-md-12 col-lg-12 col-sm-12 col-xm-12 paging text-center clearfix">
-                        <ul class="pagination" role="navigation">
-                            @include('includes.pagination', ['paginator' => $columns,'count'=>5])
-                        </ul>
-                    </div>
-                {{--<hr width="100%" size="30px" color="#DCDCDC" style="    padding-top: 1px;--}}
-    {{--margin: 32px 0 8px;"/>--}}
-                {{--<div class="paging text-center">{{ $columns->links() }}</div>--}}
+                <hr class="shape-8"/>
+                <div class="col-md-12 col-lg-12 col-sm-12 col-xm-12 paging text-center clearfix">
+                    <ul class="pagination pagination-lg" role="navigation">
+                        @include('includes.pagination', ['paginator' => $columns])
+                    </ul>
+                </div>
             </div>
         </div>
 
-        {{--<div class="pagination-link">--}}
+        {{--<div class="pagination" role="navigation">--}}
             {{--{{ $columns->links('vendor.pagination.custom') }}--}}
         {{--</div>--}}
     </div>
@@ -115,7 +98,7 @@
                 var user_id = $(this).data('user');
                 var column_id = $(this).data('id');
                 var _this = $(this);
-                if (user_id != '') {
+                if (user_id == '') {
 
                     $html = '';
                     $html +='<div class="form-group code-top">';
@@ -166,22 +149,22 @@
                     })
                 }
             });
-            $(document).on('click', '.pagination .page-link', function (e) {
-
-                e.preventDefault();
-                var page = $(this).attr('href').split('page=')[1];
-                $.ajax({
-                    type: "GET",
-                    url: '?page=' + page,
-                    data:{page:page},
-                    success:function(data){
-                        // console.log(data);
-                        $('body').html(data);
-                        // $('body,html').animate({scrollTop: 0}, 'slow');
-                        $('body,html').animate({scrollTop: 0});
-                    }
-                })
-            });
+            // $(document).on('click', '.pagination .page-link', function (e) {
+            //
+            //     e.preventDefault();
+            //     var page = $(this).attr('href').split('page=')[1];
+            //     $.ajax({
+            //         type: "GET",
+            //         url: '?page=' + page,
+            //         // data:{page:page},
+            //         success:function(data){
+            //             // console.log(data);
+            //             $('body').html(data);
+            //             // $('body,html').animate({scrollTop: 0}, 'slow');
+            //             // $('body,html').animate({scrollTop: 0});
+            //         }
+            //     })
+            // });
         })
     </script>
 @endsection

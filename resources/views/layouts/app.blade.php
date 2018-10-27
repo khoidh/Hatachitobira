@@ -7,7 +7,7 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    
+
     <title>Hatachi Tobira</title>
     {{--<title>{{ config('app.name') }}</title>--}}
     <!-- Google Tag Manager -->
@@ -18,6 +18,7 @@
         <link href="{{ asset('css/top.css') }}" rel="stylesheet">
         <script src="{{ asset('js/app.js') }}"></script>
     @show
+    @yield('css')
 </head>
 <body>
     <!-- Google Tag Manager (noscript) -->
@@ -56,8 +57,8 @@
             @show
 
             @yield('content')
-            @include('includes.footer') 
-            @include('includes.login') 
+            @include('includes.footer')
+            @include('includes.login')
         </div>
     </div>
 

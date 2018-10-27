@@ -1,11 +1,15 @@
 @extends('layouts.app')
+@section('css')
+    <link href="{{ asset('css/p404.css') }}" rel="stylesheet">
+@endsection
 @section('title-e', '404 file not found')
 @section('title-j', 'お探しのページは見つかりません')
 @section('content')
-    <div class="container">
+    <div class="container p-404">
         <div class="row">
-            <h4>お探しのページは一時的にアクセスができない状況にあるか。</h4>
-            <h4>移動もしくは削除された可能性があります。</h4>
+            <div class="col-xs-12">
+                <p>お探しのページは一時的にアクセスができない状況にあるか、<br>移動もしくは削除された可能性があります。</p>
+            </div>
         </div>
     </div>
 @endsection

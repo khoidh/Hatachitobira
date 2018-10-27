@@ -78,7 +78,7 @@
                 <h4 class="data-not-found">Data not found</h4>
             @endforelse
             <div class="col-md-12 col-lg-12 col-sm-12 col-xm-12 paging text-center clearfix">
-                <ul class="pagination" role="navigation">
+                <ul class="pagination pagination-lg" role="navigation">
                     @include('includes.pagination', ['paginator' => $results])
                 </ul>
             </div>
@@ -131,6 +131,26 @@
                        $('#modal_loading').modal('hide');
                     }
                 });
+            })
+
+            $(document).on('keypress','.search-container input',function(e){
+                if(e.which == 13) {
+                    var text = $('.search-container input').val();
+                    var id = $('#category_id').val();
+                    $.ajax({
+                        url : '{{url("video-search-text?category_id=")}}'+ id +'&page=1&description='+text,
+                        success: function (data) {
+                            $('.row.video-list').html(data);
+                        },
+                        beforeSend: function () {
+                            $('#modal_loading').modal('show');
+                        },
+                        complete: function () {
+                           $('#modal_loading').modal('hide');
+                        }
+                    
+                    });
+                }
             })
 
             $(document).on('click','#searchvideo',function(e){
