@@ -87,7 +87,7 @@ class RegisterController extends Controller
             if(filter_var($user_data['email'], FILTER_VALIDATE_EMAIL)) {
                 $user = User::create($user_data);
                 $thisUser = User::findOrFail($user->id);
-                $this->sendEmail($thisUser);
+                // $this->sendEmail($thisUser);
                 Auth::login($thisUser, true);
                 return response()->json([
                     'success' => 'true',

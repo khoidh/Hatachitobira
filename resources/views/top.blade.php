@@ -18,7 +18,7 @@
                 <nav class="navbar navbar-expand-lg navbar-light flex-column">
                     <h1 class="logo navbar-brand">
                         <a href="/">
-                            <p>マイテーマ、探そ。</p>
+                            <p>ベータ版</p>
                             <img src="{{ asset('image/top/logo.png') }}" alt="">
                         </a>
                     </h1>
