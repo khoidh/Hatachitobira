@@ -3,29 +3,29 @@
         <div class="modal-content">
             <div class="modal-body" style="text-align:center">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h3 style="border-bottom: 1px solid #ddd;padding-bottom: 11px;" class="modal-title" style="text-align:center">Login</h3>
+                <h3 style="border-bottom: 1px solid #ddd;padding-bottom: 11px;" class="modal-title" style="text-align:center">{{__('ログイン')}}</h3>
                 <div class="panel-body">
                     <span class="error-login" style="color:red;font-size:16px;"></span>
                     <form class="form-horizontal" id="form-login">
                         {{ csrf_field() }}
                         <div class="form-group">
                             <div class="col-md-12">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus placeholder="Email Address">
+                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus placeholder="{{__('メールアドレス')}}">
                             </div>
                         </div>
 
                         <div class="form-group">
 
                             <div class="col-md-12">
-                                <input id="password" type="password" class="form-control" name="password" required placeholder="Password">
+                                <input id="password" type="password" class="form-control" name="password" required placeholder="{{__('パスワード')}}">
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <div class="col-md-5 col-md-offset-3">
+                            <div class="col-md-6 col-md-offset-3">
                                 <div class="checkbox">
                                     <label>
-                                        <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember Me
+                                        <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> {{__('IDとパスワードを記憶')}}
                                     </label>
                                 </div>
                             </div>
@@ -34,12 +34,12 @@
                         <div class="form-group row">
                             <div class="col-md-12">
                                 <button type="submit" class="btn btn-primary btn-register  btn-register-btn-1" id="btnlogin">
-                                    Login
+                                    {{__('ログイン')}}
                                 </button>
                             </div>
                             <div class="col-md-12">
                                 <a class="btn btn-link" href="{{ route('password.request') }}">
-                                    Forgot Your Password?
+                                    {{__('パスワードをお忘れの方')}}
                                 </a>
                             </div>
                         </div>
@@ -119,11 +119,11 @@
         var password = $(this).parents('#form-login').find("#password").val();
         var url = "{{URL::to('user-login') }}";
         if ($.trim(email) == ''){
-            $('.error-login').text("Please enter your username");
+            $('.error-login').text("{{__('メールアドレスを入力してください')}}");
             return false;
         }
         if ($.trim(password) == ''){
-            $('.error-login').text("Please enter your password");
+            $('.error-login').text("{{__('パスワードを入力してください')}}");
             return false;
         }
         $.ajax({
@@ -147,33 +147,33 @@
     $(document).on('click','.btn-register.btn-register-btn',function(e){
         var type = $('#type_regiter').val();
         e.preventDefault();
-        $html = '<h4 style="border-bottom: 1px solid #ddd;padding-bottom: 11px;"> Register </h4>';
+        $html = '<h4 style="border-bottom: 1px solid #ddd;padding-bottom: 11px;"> 新規登録 </h4>';
         $html += '<span class="error-register" style="color:red;font-size:16px;"></span>';
         $html += '<div class="form-group">';
         $html +='<div class="col-md-12">';
-        $html +='<input id="name" type="text" class="form-control" name="name" value="" required autofocus placeholder="Name">';
+        $html +='<input id="name" type="text" class="form-control" name="name" value="" required autofocus placeholder="名前">';
         $html +='<input type="hidden" name="type" id="type_regiter_1" value="'+type+'">';
         $html +='</div>';
         $html +=' </div>';
         $html +='<div class="form-group">';
         $html +='<div class="col-md-12">';
-        $html +='<input id="email" type="email" class="form-control" name="email" value="" required placeholder="Email Address">';
+        $html +='<input id="email" type="email" class="form-control" name="email" value="" required placeholder="メールアドレス">';
         $html +='</div>';
         $html +='</div>';
         $html +='<div class="form-group">';
         $html +='<div class="col-md-12">';
-        $html +='<input id="password" type="password" class="form-control" name="password" required placeholder="Password">';
+        $html +='<input id="password" type="password" class="form-control" name="password" required placeholder="パスワード">';
         $html +='</div>';
         $html +='</div>';
         $html +='<div class="form-group">';
         $html +='<div class="col-md-12">';
-        $html +='<input id="password-confirm" type="password" class="form-control" name="password_confirmation" required placeholder="Password Confirm">';
+        $html +='<input id="password-confirm" type="password" class="form-control" name="password_confirmation" required placeholder="確認用パスワード">';
         $html +='</div>';
         $html +='</div>';
         $html +='<div class="form-group">';
         $html +='<div class="col-md-12">';
         $html +='<button type="submit" class="btn btn-primary btn-submit-register btn-register btn-register-btn-1">';
-        $html +='Register';
+        $html +='新規登録';
         $html +='</button>';
         $html +='</div>';
         $html +='</div>';
