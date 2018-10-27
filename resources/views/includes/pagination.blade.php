@@ -12,7 +12,7 @@
                 </li>
             @endfor
         @elseif ($paginator->currentPage() + 6 >= $paginator->lastPage())
-            @for ($i = $paginator->lastPage() - 6; $i <= $paginator->lastPage(); $i++)
+            @for ($i = $paginator->lastPage() - 5; $i <= $paginator->lastPage(); $i++)
                 <li class="page-item {{ ($paginator->currentPage() == $i) ? ' active' : '' }}">
                     <a class="page-link" href="{{ $paginator->url($i) }}">{{ $i }}</a>
                 </li>
