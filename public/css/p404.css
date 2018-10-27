@@ -1,0 +1,60 @@
+/* Styles for 404 page */
+
+/* For mobile */
+@media only screen and (min-width : 314px) {
+  .home .main .title-lx .container .relative .info .title-e{
+    font-size: 40px !important;
+  }
+  .home .main .title-lx .container .relative .info .absolute .title-j{
+    font-size: 20px !important;
+  }
+  .home .main .title-lx .container .relative .info .absolute{
+    bottom: -30px !important;
+  }
+  .home .main {
+    min-height: 120px !important;
+    margin-bottom: 30px !important;
+  }
+  .home .main .title-lx{
+    height: 120px !important;
+    min-height: 120px !important;
+  }
+  .home .main .title-lx .container .relative .info {
+    margin-top: 60px;
+    line-height: 95%;
+  }
+
+  div.container.p-404 .row p{
+    margin: 120px 15px 230px;
+  }
+}
+
+@media only screen and (min-width : 369px) {
+  .home .main .title-lx .container .relative .info .title-e{
+    font-size: 50px !important;
+  }
+  .home .main .title-lx .container .relative .info .absolute .title-j{
+    font-size: 30px !important;
+  }
+  .home .main .title-lx .container .relative .info {
+    margin-top: 60px;
+    line-height: 95%;
+  }
+}
+
+/* For tablet */
+@media only screen and (min-width : 768px) {
+  .home .main .title-lx .container .relative .info{
+    margin-top: -40px !important;
+  }
+  div.container.p-404 .row p{
+    margin: 50px 15px 220px;
+  }
+}
+
+/* For desktop */
+@media only screen and (min-width : 992px) {
+  div.container.p-404 .row p{
+    margin: 30px 15px 200px;
+  }
+}
