@@ -190,13 +190,20 @@
                 <p class="about-hatachi-detail">学校と社会をつなぐ"ハタチのトビラ"は、 <br>将来の選択肢に触れ、マイテーマを探すきっかけを提供します </p>
             </div>
             <div class="col-md-4 about-hatachi-col">
-                <a href="#" class="btn-link">動画をみる</a>
+                <a href="{{route('video.index')}}" class="btn-link">動画をみる</a>
             </div>
             <div class="col-md-4 about-hatachi-col">
-                <a href="#" class="btn-link">イベントに参加する</a>
+                <a href="{{route('event.index')}}" class="btn-link">イベントに参加する</a>
             </div>
             <div class="col-md-4 about-hatachi-col">
-                <a href="#" class="btn-link">マイテーマを探す</a>
+                                                <!-- <a class="nav-link" data-toggle="modal" data-target="#modal_login">ログイン</a> -->
+                <?php if(Auth::guest()) : ?>
+                <a class="btn-link" data-toggle="modal" data-target="#modal_login">マイテーマを探す</a>
+                <?php else: ?>
+                <a href="{{route('mypage.index')}}" class="btn-link">マイテーマを探す</a>
+                <?php endif; ?>
+                <!-- <a class="btn-link {{Auth::Guest() ? 'show-modal-register-mypage' : ''}} " href="{{route('mypage.index')}}">マイテーマを見つける</a> -->
+
             </div>
         </div>
     </div>
