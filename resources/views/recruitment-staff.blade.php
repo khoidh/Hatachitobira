@@ -200,7 +200,7 @@
 				<p>まずはお気軽にお問い合わせください</p>
 			</div>
 			<div class="content-button">
-				<a href="#">お問い合わせはこちら</a>
+				<a href="{{route('contact')}}">お問い合わせはこちら</a>
 			</div>
 		</div>
 	</div>
