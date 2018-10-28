@@ -51,7 +51,7 @@
 	                    </div>
 	                </div>
 	            </div>
-				<a href="#">
+				<a href="{{route('video.index')}}">
 		            <span class="more-detail ">動画をすべて見る</span>
 		            <img src="{{ asset('image/top/arrow-1.png') }}" >
 		        </a>
@@ -61,7 +61,7 @@
 	<div class="requiment-slide">
 		<div class="container">
 			<div class="cb-path"></div>
-			<p class="movie-top-text">動画作成STEP</p>
+			<p class="movie-top-text">過去実績</p>
 			<div id="carouselExample" class="carousel slide" data-ride="carousel" data-interval="2000">
 		        <div class="carousel-inner row mx-auto" role="listbox">
 		            <div class="carousel-item active">
@@ -151,7 +151,7 @@
 	<div class="requiment-step">
 		<div class="container">
 			<div class="cb-path"></div>
-			<p class="movie-top-text">過去制作動画</p>
+			<p class="movie-top-text">動画作成STEP</p>
 			<div class="row col-md-12 ">
 
 				<div class="col-md-3 col-sm-12 col-xm-12">
