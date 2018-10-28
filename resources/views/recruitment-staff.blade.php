@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title-e', 'RECRUITMENT STAFF')
+@section('title-j', '企業採用担当の方へ')
 @section('content')
 <div>
 	<img style="width: 100%" src="{{ asset('image/requiment/requiment-1.png')}}" alt="">
