@@ -280,6 +280,7 @@
 
 .top .movie-top-title {
   font-size: 32px;
+  font-weight: bold;
   margin-bottom: 0;
   font-family: "Myriad Pro";
 }
@@ -3263,13 +3264,14 @@ footer .footter-mobile .a-first {
 }
 
 .requiment-staff .requiment-content .content-button a {
+  display: inline-block;
+  font-size: 25px;
   background: #111;
-  padding: 14px 50px;
-  top: 20px;
-  position: relative;
+  padding: 25px 100px;
   color: #fff;
-  border-radius: 15px;
+  border-radius: 50px;
   text-decoration: none;
+  margin-top: 15px;
 }
 
 .requiment-staff .requiment-slide {

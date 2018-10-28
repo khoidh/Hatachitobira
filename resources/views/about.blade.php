@@ -124,7 +124,7 @@
                 <div class="content-title">
                     <p class="content-1-title"><span class="char-rotate">「</span>正解がわからないから、</p>
                     <p class="content-1-title">誰かに正解を</p>
-                    <p class="content-1-title">求めたくなる時代…<span class="char-rotate">」</span></p>
+                    <p class="content-1-title">求めたくなる時代<span class="char-rotate">…」</span></p>
                 </div>
                 <div class="content-1-content">
                     <div class="text-my-theme" style="padding-top: 110px;">

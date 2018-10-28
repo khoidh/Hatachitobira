@@ -66,12 +66,12 @@ class LoginController extends Controller
                 $result['status'] = true;
             }else {
                 $result['status'] = false;
-                $result['message'] = 'Username or password wrong';
+                $result['message'] = 'メールアドレスかパスワードが間違いました。';
             }
         }
         else {
             $result['status'] = false;
-            $result['message'] = 'Username not exist';
+            $result['message'] = 'メールアドレスかパスワードが間違いました。';
         }
         return json_encode($result);
     }
