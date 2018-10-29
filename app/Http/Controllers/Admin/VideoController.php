@@ -14,6 +14,7 @@ class VideoController extends Controller
         $events = Video::select()
             ->select('videos.*','categories.name as category_name')
             ->join('categories','categories.id','=','videos.category_id')
+            ->orderBy('id','desc')
             ->paginate(10);
 
         return view('admin.video.index', ['videos' => $events]);

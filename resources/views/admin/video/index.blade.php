@@ -19,11 +19,8 @@
     </div>
     <div class="content-header-right col-md-6 col-12">
         <div class="btn-group float-md-right" role="group" aria-label="Button group with nested dropdown">
-            <button class="btn btn-info round dropdown-toggle dropdown-menu-right box-shadow-2 px-2" id="btnGroupDrop1" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="ft-settings icon-left"></i> Action </button>
-            <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                <a class="dropdown-item" href="{{route('videos.create')}}"><i class="la la-plus"></i>   Add New</a>
-                <a class="dropdown-item" href="#"><i class="la la-upload"></i>   Import</a>
-            </div>
+            <a class="btn btn-info" href="{{route('videos.create')}}"><i class="la la-plus"></i>   Add New</a>
+
         </div>
     </div>
 @endsection
@@ -71,5 +68,4 @@
 </table>
     </div>
 {{$videos->links()}}
-<a class="btn btn-info" href="{{route('videos.create')}}">Add New</a>
 @endsection
