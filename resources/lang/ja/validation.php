@@ -130,12 +130,15 @@ return [
         'day' => '日',
         'first_name' => '姓',
         'last_name' => '名',
+        'first_name_cn' => 'せい',
+        'last_name_cn' => 'めい',
         'postal_code' => '郵便番号',
         'address' => '住所',
         'content' => '本文',
         'user_name' => 'お名前',
         'question_type' => 'お問い合わせ内容',
         'phone_number' => '電話番号',
+        'company' => '企業名',
     ],
 
 ];
