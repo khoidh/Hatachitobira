@@ -20,7 +20,7 @@
                     <th>Email</th>
                     <th>Content</th>
                     <th>Created</th>
-                    <th></th>
+                    <th>Action</th>
                 </tr>
             </thead>
             <tbody>

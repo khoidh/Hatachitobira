@@ -38,7 +38,7 @@
                 <th class="category" >Category</th>
                 {{--<th class="sort" >Sort</th>--}}
                 <th class="type" >Type</th>
-                <th class="function"></th>
+                <th class="function">Action</th>
             </tr>
             </thead>
             <tbody>

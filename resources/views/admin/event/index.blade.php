@@ -39,7 +39,7 @@
         {{--<th class="sort">Sort</th>--}}
         <th class="startAt">Start At</th>
         <th class="endAt">End At</th>
-        <th class="function"></th>
+        <th class="function">Action</th>
 
     </tr>
     </thead>
