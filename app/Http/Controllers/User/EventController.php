@@ -104,27 +104,47 @@ class EventController extends Controller
     //practical when registering for the event
     public function update(Request $request)
     {
-        $userEvent = new User_event();
-        $userEvent->user_id = Auth::User()->id;
-        $userEvent->event_id = $request->event_id;
-        $userEvent->save();
-        
+        $data = User_event::where('user_id',Auth::User()->id)->where('event_id',$request->event_id)->first();
+        if ($data) {
+            $events = Event::select()
+                ->select('events.*','categories.name as category_name')
+                ->join('categories','categories.id','=','events.category_id')
+                ->where('categories.display', 1)
+                ->orderBy('created_at', 'desc')
+                ->paginate(3);
+            if(Auth::user())
+            {
+                $user_id            = Auth::user()->id;
+                $favoritable_type   = (new Event())->getTable();   //Get table name "Events"
+                $favorites_id= Favorite::where([['user_id',$user_id],
+                    ['favoritable_type',$favoritable_type]])->pluck('favoritable_id')->toArray();
+                return view('user.event.index', ['events' => $events,'favorites_id'=>$favorites_id]);
+            }
+            return view('user.event.index', ['events' => $events]);
+        }else {
+            
+            $userEvent = new User_event();
+            $userEvent->user_id = Auth::User()->id;
+            $userEvent->event_id = $request->event_id;
+            $userEvent->save();
+            
 
-        $thisUser = User_event::select()
-            ->select('events.*','users.*')
-            ->join('events','events.id','=','user_events.event_id')
-            ->join('users','users.id','=','user_events.user_id')
-            ->where('user_events.id',$userEvent->id)
-            ->first();
-        
-        Mail::send('email.eventusers',compact('thisUser'),
-           function($mail) use($thisUser)
-           {
-               $mail->to($thisUser->email)->subject('Hatachi Tobira');
-           }
-        );
+            $thisUser = User_event::select()
+                ->select('events.*','users.*')
+                ->join('events','events.id','=','user_events.event_id')
+                ->join('users','users.id','=','user_events.user_id')
+                ->where('user_events.id',$userEvent->id)
+                ->first();
+            
+            Mail::send('email.eventusers',compact('thisUser'),
+               function($mail) use($thisUser)
+               {
+                   $mail->to($thisUser->email)->subject('Hatachi Tobira');
+               }
+            );
 
-        return view('thank_enquiry');
+            return view('thank_enquiry');
+        }
            
     }
 
