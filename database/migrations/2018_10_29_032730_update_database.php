@@ -15,7 +15,6 @@ class UpdateDatabase extends Migration
     {
         Schema::dropIfExists('my_theme');
         Schema::table('videos',function(Blueprint $table){
-            $table->string('title')->nullable()->change();
             $table->string('description')->nullable()->change();
             $table->string('image')->nullable()->change();
         });
@@ -39,7 +38,6 @@ class UpdateDatabase extends Migration
             $table->timestamps();
         });
         Schema::table('videos',function(Blueprint $table){
-            $table->string('title')->nullable(false)->change();
             $table->string('description')->nullable(false)->change();
             $table->string('image')->nullable(false)->change();
         });
