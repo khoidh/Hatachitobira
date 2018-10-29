@@ -10,7 +10,7 @@ class EnquiryController extends Controller
 {
     public function index()
     {
-        $enquiryData = Enquiry::paginate(10);
+        $enquiryData = Enquiry::select()->orderBy('id','desc')->paginate(10);
         return view('admin.enquiry.list',compact('enquiryData'));
     }
 

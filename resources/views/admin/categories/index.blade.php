@@ -45,7 +45,7 @@
             <tbody>
                 @foreach($categories as $key => $category)
                 <tr class="odd gradeX" align="left">
-                    <td>{{ $key + 1 }}</td>
+                    <td>{{ $category->id }}</td>
                     <td>{{ $category->name}}</td>
                     <td>{{ $category->description}}</td>
                     <td>{{ $category->slug}}</td>

@@ -13,15 +13,7 @@
             </div>
         </div>
     </div>
-    <div class="content-header-right col-md-6 col-12">
-        <div class="btn-group float-md-right" role="group" aria-label="Button group with nested dropdown">
-            <button class="btn btn-info round dropdown-toggle dropdown-menu-right box-shadow-2 px-2" id="btnGroupDrop1" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="ft-settings icon-left"></i> Action </button>
-            <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                <a class="dropdown-item" href="#"><i class="la la-save"></i>   登録</a>
-                <a class="dropdown-item" href="#"><i class="la la-times"></i>   Cancel</a>
-            </div>
-        </div>
-    </div>
+   
 @endsection
 @section('content-title','Videos')
 @section('card-content')
@@ -31,13 +23,6 @@
         <div class="col-md-10">
 <form action="{{route('videos.store')}}"  enctype="multipart/form-data" method="POST">
     {{ csrf_field() }}
-    <div class="form-group row">
-        <label for="title" class="col-sm-2 col-form-label">Title</label>
-        <div class="col-sm-10">
-            <input type="text" class="form-control" name="title" id="title" value="" placeholder="Title" required="true">
-        </div>
-    </div>
-
     <div class="form-group row">
 
         <label class="col-sm-2 col-form-label" for="category_id">Category</label>
@@ -50,23 +35,10 @@
         </select>
         </div>
     </div>
-
      <div class="form-group row">
         <label for="url" class="col-sm-2 col-form-label">URL</label>
         <div class="col-sm-10">
             <input type="text" class="form-control" name="url" id="url" value="" placeholder="URL" required="true">
-        </div>
-    </div>
-    <div class="form-group row">
-        <label for="description" class="col-sm-2 col-form-label">Description</label>
-        <div class="col-sm-10">
-            <input type="text" class="form-control" name="description" id="description" value="" placeholder="Description" required="true">
-        </div>
-    </div>
-    <div class="form-group row">
-        <label for="image" class="col-sm-2 col-form-label">Upload Image</label>
-        <div class="col-sm-10">
-            <input type="file" name="image" id="image" required="true">
         </div>
     </div>
     <div class="form-group row">

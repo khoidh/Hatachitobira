@@ -5,12 +5,14 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Category;
+use Illuminate\Support\Facades\DB;
 
 class CategoryController extends Controller
 {
     public function index()
     {
-        $categories = Category::paginate('10');
+        $categories = Category::select()->orderBy('id','desc')->paginate('10');
+        // $categories = DB::table('categories')->orderBy('id','desc')->paginate('10');
         return view('admin.categories.index',compact('categories'));
     }
 

@@ -14,6 +14,7 @@ class VideoController extends Controller
         $events = Video::select()
             ->select('videos.*','categories.name as category_name')
             ->join('categories','categories.id','=','videos.category_id')
+            ->orderBy('id','desc')
             ->paginate(10);
 
         return view('admin.video.index', ['videos' => $events]);
@@ -31,14 +32,14 @@ class VideoController extends Controller
         $data = $request->all();
 
         //Upload file image
-        if($request->hasFile('image')){
-            //Lưu hình ảnh vào thư mục public/image/video
-            $file = $request->file('image');
-            $fileName = time().'_'.$file->getClientOriginalName();
-            $destinationPath = public_path('image/video');
-            $file->move($destinationPath, $fileName);
-            $data['image'] = $fileName;
-        }
+        // if($request->hasFile('image')){
+        //     //Lưu hình ảnh vào thư mục public/image/video
+        //     $file = $request->file('image');
+        //     $fileName = time().'_'.$file->getClientOriginalName();
+        //     $destinationPath = public_path('image/video');
+        //     $file->move($destinationPath, $fileName);
+        //     $data['image'] = $fileName;
+        // }
         Video::create($data);
         return redirect()->route('videos.index');
     }
