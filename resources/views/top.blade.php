@@ -18,7 +18,7 @@
                 <nav class="navbar navbar-expand-lg navbar-light flex-column">
                     <h1 class="logo navbar-brand">
                         <a href="/">
-                            <p>マイテーマ、探そ。</p>
+                            <p>ベータ版</p>
                             <img src="{{ asset('image/top/logo.png') }}" alt="">
                         </a>
                     </h1>
@@ -247,10 +247,10 @@
                                 <a href="{{ url('search-category?search=5') }}"><img class="img-cat" src="{{ asset('image/top/img-cate-5.png') }}" alt="教育"></a>
                             </div>
                             <div class="col-md-3 img-cat-sp">
-                                <a href="{{ url('search-category?search=6') }}"><img class="img-cat" src="{{ asset('image/top/img-cate-6.png') }}" alt="暮らし"></a>
+                                <a href="{{ url('search-category?search=7') }}"><img class="img-cat" src="{{ asset('image/top/img-cate-6.png') }}" alt="暮らし"></a>
                             </div>
                             <div class="col-md-3 img-cat-sp">
-                                <a href="{{ url('search-category?search=7') }}"><img class="img-cat" src="{{ asset('image/top/img-cate-7.png') }}" alt="企業提供講座"></a>
+                                <a href="{{ url('search-category?search=6') }}"><img class="img-cat" src="{{ asset('image/top/img-cate-7.png') }}" alt="企業提供講座"></a>
                             </div>
                             <div class="col-md-3 img-cat-sp">
                                 <a href="{{ url('search-category?search=8') }}"><img class="img-cat" src="{{ asset('image/top/img-cate-8.png') }}" alt="食"></a>

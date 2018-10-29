@@ -20,24 +20,35 @@ class MypageController extends Controller
 
     public function index()
     {
-
+        $api_key = 'AIzaSyCHOj6MNDK2YFRLQhK5yKP2KEBIRKHlHuU';
+        $BASE_URL = 'https://www.googleapis.com/youtube/v3/videos?id=';
+        $BASE_PART = '&part=id,contentDetails,snippet,statistics,player&key=';
         /* Get category list */
         $categories = Category::where('display',1)->get();
 
-        /* Get video faverite list */
-        $videos = Video::select()->paginate(6);
+        
+        $user_id = Auth::User()->id;
+        
 
-        /* Get event list have joined */
-        $events = Event::select()
-            ->select('events.*','categories.name as category_name')
-            ->join('categories','categories.id','=','events.category_id')
-            ->paginate(3);
+        $favorite_e = Favorite::where('user_id', $user_id)->where('favoritable_type', 'events')->pluck('favoritable_id')->toArray();
+        $favorite_c = Favorite::where('user_id', $user_id)->where('favoritable_type', 'columns')->pluck('favoritable_id')->toArray();
+        $favorite_v = Favorite::where('user_id', $user_id)->where('favoritable_type', 'videos')->pluck('favoritable_id')->toArray();
+
+        /* Get video faverite list */
+        $videos = Video::whereIn('id',$favorite_v)->get();
 
         /* Get column faverite list */
         $columns = Column::select()
             ->select('columns.*', 'categories.name as category_name')
             ->join('categories', 'categories.id', '=', 'columns.category_id')
-            ->paginate(6);
+            ->whereIn('columns.id',$favorite_c)->get();
+
+        /* Get event list have joined */
+        $events = Event::select()
+            ->select('events.*','categories.name as category_name')
+            ->join('categories','categories.id','=','events.category_id')
+            ->whereIn('events.id',$favorite_e)->get();
+
         $date_now = new DateTime();
         $data_date['month'] = date_format($date_now, "m");
         $data_date['year'] = date_format($date_now, "Y");
@@ -55,10 +66,39 @@ class MypageController extends Controller
                 }
             }
         }
+        $results = array();
+        foreach ($videos as $video) {
+            $url = $video->url;
+            parse_str(parse_url($url, PHP_URL_QUERY), $youtube);
+            $id = $youtube['v'];
+            $api_url = $BASE_URL . $id . $BASE_PART . $api_key . '';
+            $result = json_decode(file_get_contents($api_url));
+            
+            $result->id = $video->id;
+            $result->category = $video->category_name;
 
+            $like = 0;
+            if (Auth::user()) {
+                $user_id = Auth::user()->id;
+                $favorite = Favorite::where('user_id', $user_id)
+                    ->where('favoritable_id', $video->id)
+                    ->where('favoritable_type', 'videos')->get();
+                if (count($favorite) > 0) {
+                    $like = 1;
+                }
+            }
+            $result->favorite = $like;
+            if (isset($result->items[0])) {
+                $date1 = new DateTime();
+                $date2 = new DateTime($result->items[0]->snippet->publishedAt);
+                $interval = $date2->diff($date1);
+                $result->date_diff = $interval->m;
+                array_push($results, $result);
+            }
+        }
         $array=[
             'categories'    => $categories,
-            'videos'        => $videos,
+            'videos'        => $results,
             'events'        => $events,
             'columns'       => $columns,
             'data_date'     => $data_date,
