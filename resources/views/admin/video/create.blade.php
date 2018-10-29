@@ -24,13 +24,6 @@
 <form action="{{route('videos.store')}}"  enctype="multipart/form-data" method="POST">
     {{ csrf_field() }}
     <div class="form-group row">
-        <label for="title" class="col-sm-2 col-form-label">Title</label>
-        <div class="col-sm-10">
-            <input type="text" class="form-control" name="title" id="title" value="" placeholder="Title" required="true">
-        </div>
-    </div>
-
-    <div class="form-group row">
 
         <label class="col-sm-2 col-form-label" for="category_id">Category</label>
         <div class="col-sm-10">
@@ -42,7 +35,6 @@
         </select>
         </div>
     </div>
-
      <div class="form-group row">
         <label for="url" class="col-sm-2 col-form-label">URL</label>
         <div class="col-sm-10">
