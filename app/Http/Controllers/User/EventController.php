@@ -9,6 +9,7 @@ use Mail;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Carbon\Carbon;
 
 class EventController extends Controller
 {
@@ -88,6 +89,15 @@ class EventController extends Controller
             }
 
         }
+
+        $time_now = Carbon::now();
+        $time_from = Carbon::parse($event->started_at);
+        $time_to = Carbon::parse($event->closed_at);
+        $check=$time_now->between($time_from,$time_to);
+        if($check)
+            $data['event_state']=1;
+        else
+            $data['event_state']=0;
         return view('user.event.show',$data);
     }
 
@@ -114,7 +124,7 @@ class EventController extends Controller
            }
         );
 
-        return redirect()->route('event.index');
+        return view('thank_enquiry');
            
     }
 

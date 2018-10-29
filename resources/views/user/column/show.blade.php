@@ -55,9 +55,7 @@
                 var _this = $(this);
 
                 if(user_id) {
-
-                    /*=========== Code sử lý gọi trang mypage ===========*/
-
+                   window.location.href = "{{ url('my-page') }}";
                 }
                 else{
                     $html = '';

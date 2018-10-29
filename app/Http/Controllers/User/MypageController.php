@@ -303,7 +303,7 @@ class MypageController extends Controller
             
             $result->id = $video->id;
             $result->category = $video->category_name;
-
+            $result->data_url = $url;
             $like = 0;
             if (Auth::user()) {
                 $user_id = Auth::user()->id;
