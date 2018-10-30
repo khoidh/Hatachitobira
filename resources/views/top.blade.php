@@ -182,7 +182,7 @@
                                 <div class="video-detail">
                                     <div class="wrapper">
                                         <div class="thump">
-                                            <div class="browse-details" data-id='{{$result->id}}' data-src='{{$result->items[0]->player->embedHtml}}'>
+                                            <div class="browse-details" data-id='{{$result->id}}' data-src='{{$result->items[0]->player->embedHtml}}' data-url = "{{$result->data_url}}">
                                                 <img src="{{ asset('image/video/btn-play.png')}}" alt="" >
                                             </div>
                                             <a href="#">
@@ -280,7 +280,7 @@
                                     <div class="video-detail">
                                         <div class="wrapper">
                                             <div class="thump">
-                                                <div class="browse-details" data-id='{{$result->id}}' data-src='{{$result->items[0]->player->embedHtml}}'>
+                                                <div class="browse-details" data-id='{{$result->id}}' data-src='{{$result->items[0]->player->embedHtml}}' data-url = "{{$result->data_url}}">
                                                     <img src="{{ asset('image/video/btn-play.png')}}" alt="" >
                                                 </div>
                                                 <a href="#">
@@ -302,7 +302,7 @@
                                     <div class="video-detail">
                                         <div class="wrapper">
                                             <div class="thump">
-                                                <div class="browse-details" data-id='{{$result->id}}' data-src='{{$result->items[0]->player->embedHtml}}'>
+                                                <div class="browse-details" data-id='{{$result->id}}' data-src='{{$result->items[0]->player->embedHtml}}' data-url = "{{$result->data_url}}">
                                                     <img src="{{ asset('image/video/btn-play.png')}}" alt="" >
                                                 </div>
                                                 <a href="#">
@@ -322,7 +322,7 @@
                                     <div class="video-detail">
                                         <div class="wrapper">
                                             <div class="thump">
-                                                <div class="browse-details" data-id='{{$result->id}}' data-src='{{$result->items[0]->player->embedHtml}}'>
+                                                <div class="browse-details" data-id='{{$result->id}}' data-src='{{$result->items[0]->player->embedHtml}}' data-url = "{{$result->data_url}}">
                                                     <img src="{{ asset('image/video/btn-play.png')}}" alt="" >
                                                 </div>
                                                 <a href="#">
@@ -357,7 +357,7 @@
                                     <div class="video-detail">
                                         <div class="wrapper">
                                             <div class="thump">
-                                                <div class="browse-details" data-id='{{$result->id}}' data-src='{{$result->items[0]->player->embedHtml}}'>
+                                                <div class="browse-details" data-id='{{$result->id}}' data-src='{{$result->items[0]->player->embedHtml}}' data-url = "{{$result->data_url}}">
                                                     <img src="{{ asset('image/video/btn-play.png')}}" alt="" >
                                                 </div>
                                                 <a href="#">
@@ -379,7 +379,7 @@
                                     <div class="video-detail">
                                         <div class="wrapper">
                                             <div class="thump">
-                                                <div class="browse-details" data-id='{{$result->id}}' data-src='{{$result->items[0]->player->embedHtml}}'>
+                                                <div class="browse-details" data-id='{{$result->id}}' data-src='{{$result->items[0]->player->embedHtml}}' data-url = "{{$result->data_url}}">
                                                     <img src="{{ asset('image/video/btn-play.png')}}" alt="" >
                                                 </div>
                                                 <a href="#">
@@ -399,7 +399,7 @@
                                     <div class="video-detail">
                                         <div class="wrapper">
                                             <div class="thump">
-                                                <div class="browse-details" data-id='{{$result->id}}' data-src='{{$result->items[0]->player->embedHtml}}'>
+                                                <div class="browse-details" data-id='{{$result->id}}' data-src='{{$result->items[0]->player->embedHtml}}' data-url = "{{$result->data_url}}">
                                                     <img src="{{ asset('image/video/btn-play.png')}}" alt="" >
                                                 </div>
                                                 <a href="#">
@@ -478,6 +478,11 @@
                     <div class="modal-body" style="text-align:center">
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                         <div class="panel-body">
+                        </div>
+                        <div class="share">
+                            <span class="article">シェアする</span>
+                            <span><a class="twitter social-share" href="" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></span>
+                            <span><a class="facebook social-share" href="" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></span>
                         </div>
                     </div>
                 </div>
@@ -564,8 +569,33 @@
                 e.preventDefault();
                 var idvideo = $(this).data('id');
                 var src = $(this).data('src');
+                var url = $(this).data('url');
+                $('#modal_video .twitter').attr('href','https://twitter.com/intent/tweet?url='+url);
+                $('#modal_video .facebook').attr('href','https://www.facebook.com/sharer/sharer.php?u='+url);
                 $('#modal_video .panel-body').html(src);
                 $('#modal_video').modal('show');
+            });
+
+            var popupMeta = {
+                width: 400,
+                height: 400
+            }
+            $(document).on('click', '.social-share', function(event){
+                event.preventDefault();
+
+                var vPosition = Math.floor(($(window).width() - popupMeta.width) / 2),
+                    hPosition = Math.floor(($(window).height() - popupMeta.height) / 2);
+
+                var url = $(this).attr('href');
+                var popup = window.open(url, 'Social Share',
+                    'width='+popupMeta.width+',height='+popupMeta.height+
+                    ',left='+vPosition+',top='+hPosition+
+                    ',location=0,menubar=0,toolbar=0,status=0,scrollbars=1,resizable=1');
+
+                if (popup) {
+                    popup.focus();
+                    return false;
+                }
             });
 
 

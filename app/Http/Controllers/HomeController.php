@@ -81,6 +81,7 @@ class HomeController extends Controller
             $result = json_decode(file_get_contents($api_url));
             $result->id = $video->id;
             $result->category = $video->category_name;
+            $result->data_url = $url;
             if (isset($result->items[0])) {
                 array_push($results_1,$result);
             }
@@ -96,6 +97,7 @@ class HomeController extends Controller
             $result_1 = json_decode(file_get_contents($api_url));
             $result_1->id = $video->id;
             $result_1->category = $video->category_name;
+            $result_1->data_url = $url;
             if (isset($result_1->items[0])) {
                 array_push($results_2,$result_1);
             }

@@ -24,7 +24,6 @@
             <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
                 <a class="dropdown-item" href="{{route('videos.create')}}"><i class="la la-plus"></i>   Add New</a>
                 <a class="dropdown-item" href="{{route('videos.edit',$video->id)}}"><i class="la la-pencil-square"></i>   Edit</a>
-                <a class="dropdown-item" href="#"><i class="la la-times"></i>   Cancel</a>
             </div>
         </div>
     </div>
@@ -33,39 +32,65 @@
 @section('card-content')
 @endsection
 @section('content')
-    <div class="table-responsive">
-        <table class="table mb-0">
-        <thead>
-        <tr>
-            <th class="id">ID</th>
-            <th class="category">Category</th>
-            <th class="url">URL</th>
-            <th class="description">Description</th>
-            <th class="image">Image</th>
-            <th class="sort">Sort</th>
-            <th class="function"></th>
 
-        </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <th scope="row">{{$video->id}}</th>
-                <td>{{$video->category_name}}</td>
-                <td>{{$video->url}}</td>
-                <td>{{$video->description}}</td>
-                <td>{{$video->image}}</td>
-                <td>{{$video->sort}}</td>
-                <td><form action="{{route('videos.destroy', $video->id)}}" method="post">
+  <div class="form-group row">
+    <label for="id" class="col-sm-2 col-form-label">ID</label>
+    <div class="col-sm-10">
+      <input id="id" value="{{$video->id}}" class="form-control" disabled="" >
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="category" class="col-sm-2 col-form-label">Category</label>
+    <div class="col-sm-10">
+      <input id="category" value="{{$video->category_name}}" class="form-control" disabled="">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="Title" class="col-sm-2 col-form-label">Title</label>
+    <div class="col-sm-10">
+      <input id="Title" value="{{$video->title}}"class="form-control" disabled="">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="Thumbnails" class="col-sm-2 col-form-label">Thumbnails</label>
+    <div class="col-sm-10">
+      <img src="{{$video->thumbnails}}">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="EmbedHtml" class="col-sm-2 col-form-label">EmbedHtml</label>
+    <div class="col-sm-10">
+      <input id="EmbedHtml" value="{{$video->embedHtml}}"class="form-control" disabled="">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="ViewCount" class="col-sm-2 col-form-label">ViewCount</label>
+    <div class="col-sm-10">
+      <input id="ViewCount" value="{{$video->viewCount}}"class="form-control" disabled="">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="Sort" class="col-sm-2 col-form-label">Sort</label>
+    <div class="col-sm-10">
+      <input id="Sort" value="{{$video->sort}}"class="form-control" disabled="">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="Type" class="col-sm-2 col-form-label">Type</label>
+    <div class="col-sm-10">
+      <input id="Type" value="<?php echo ($video->type==0)?'ジョブシャドウ':'ロールプレイ' ?>"class="form-control" disabled="">
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <div class="col-sm-10">
+          <a class="btn btn-info" href="{{route('videos.index')}}">一覧に戻る</a>
+
+    </div>
+    <form action="{{route('videos.destroy', $video->id)}}" method="post">
                         {{ csrf_field() }}
                         <input type="hidden" name="_method" value="delete">
-                        <input class="btn btn-danger" type="submit" name="" value="削除する">
-                    </form></td>
-            </tr>
-
-
-        </tbody>
-    </table>
-    </div>
-    <a class="btn btn-info" href="{{route('videos.index')}}">一覧に戻る</a>
-
+                        <input class="btn btn-danger" type="submit" name="" value="削除する" onclick="return confirm('削除する、よろしいでしょうか')">
+                    </form>
+  </div>
 @endsection

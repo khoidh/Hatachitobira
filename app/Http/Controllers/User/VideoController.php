@@ -49,6 +49,7 @@ class VideoController extends Controller
             $result = json_decode(file_get_contents($api_url));
             $result->id = $video->id;
             $result->category = $video->category_name;
+            $result->data_url = $url;
             $like = 0;
             if (Auth::user()) {
                 $user_id = Auth::user()->id;
@@ -115,6 +116,7 @@ class VideoController extends Controller
             $result = json_decode(file_get_contents($api_url));
             $result->id = $video->id;
             $result->category = $video->category_name;
+            $result->data_url = $url;
             $like = 0;
             if (Auth::user()) {
                 $user_id = Auth::user()->id;
@@ -176,6 +178,7 @@ class VideoController extends Controller
             $result = json_decode(file_get_contents($api_url));
             $result->id = $video->id;
             $result->category = $video->category_name;
+            $result->data_url = $url;
             $like = 0;
             if (Auth::user()) {
                 $user_id = Auth::user()->id;
