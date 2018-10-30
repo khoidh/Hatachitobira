@@ -32,14 +32,12 @@
         <table class="table mb-0">
     <thead>
     <tr>
-        <th class="id">ID</th>
-        <th class="category">Category</th>
-        <th class="url">URL</th>
-        <!-- <th class="description">Description</th> -->
-        <!-- <th class="image">Image</th> -->
-        <th class="sort">Sort</th>
-        <th class="type" >Type</th>
-        <th class="function">Action</th>
+        <th>ID</th>
+        <th>Category</th>
+        <th>URL</th>
+        <th>Sort</th>
+        <th>Type</th>
+        <th>Action</th>
 
     </tr>
     </thead>
@@ -49,9 +47,6 @@
             <th scope="row">{{$video->id}}</th>
             <td>{{$video->category_name}}</td>
             <td>{{$video->url}}</td>
-            <!-- <td>{!!str_limit($video->description, $limit = 50, $end = '...')!!}</td> -->
-
-            <!-- <td><img width="100px" height="100px" src="{{ file_exists('image/video/'.$video->image) ? asset('image/video/'.$video->image) : asset('image/video/video_default.jpg') }}" ></td> -->
             <td>{{$video->sort}}</td>
             @php
                 $type=($video->type==0)?'ジョブシャドウ':'ロールプレイ';
