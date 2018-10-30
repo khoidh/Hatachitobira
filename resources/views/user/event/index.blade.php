@@ -81,7 +81,7 @@
                             <div class="content-left col-md-4">
                                 <a href="{{route('event.show', $event->id)}}" style="text-decoration:none;">
                                     @php $image='image/event/'.$event->image; @endphp
-                                    <img src="{{file_exists($image)?asset($image): asset('image/event/event_default.jpg')}}">
+                                    <img src="{{file_exists($image)?asset($image): asset('image/event/event_default.jpg')}}" alt="{{$event->title}}">
                                 </a>
                             </div>
                             <div class="content-right col-md-8">
