@@ -855,6 +855,7 @@ footer .footter-mobile .a-first{
         font-family: "Kozuka Gothic Pr6N";
         padding: 0;
         text-align: left;
+        writing-mode: horizontal-tb;
     }
 
     .top .content-1-content {
@@ -1096,6 +1097,7 @@ footer .footter-mobile .a-first{
         top: -70px;
         font-size: 20px;
         left: 30px;
+        writing-mode: horizontal-tb;
     }
 
     .banner figure figcaption .title:last-child {

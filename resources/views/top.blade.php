@@ -91,7 +91,7 @@
     </header>
     <main>
         <div class="banner figure">
-            <div id="carouseltop" class="carousel slide" data-ride="carousel" data-interval="false">
+            <div id="carouseltop" class="carousel slide" data-ride="carousel" data-interval="2000">
                 <div class="carousel-inner row mx-auto" role="listbox">
                     <figure class="carousel-item active">
                         <img src="{{ asset('image/top/banner.png') }}" alt="楽しもう、背伸びしない自分を">
@@ -118,14 +118,7 @@
                         </figcaption>
                     </figure>
                 </div>
-                <a class="carousel-control-prev" style="display: none;" href="#carouseltop" role="button" data-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Previous</span>
-                        </a>
-                        <a class="carousel-control-next text-faded" href="#carouseltop" role="button" data-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Next</span>
-                        </a>
+                
             </div>
             <a class="scroll" href="#">SCROLL</a>
         </div>
