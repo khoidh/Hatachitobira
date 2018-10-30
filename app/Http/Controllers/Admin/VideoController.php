@@ -38,13 +38,12 @@ class VideoController extends Controller
         $id =  $youtube['v'];
         $api_url = $BASE_URL . $id . $BASE_PART . $api_key . '';
         $result = json_decode(file_get_contents($api_url));
-
         $video->category_id = $request->category_id;
         $video->url = $request->url; 
         $video->sort = $request->sort;
         $video->type = $request->type;
         $video->title = $result->items[0]->snippet->title; 
-        $video->thumbnails = $result->items[0]->snippet->thumbnails->standard->url; 
+        $video->thumbnails = $result->items[0]->snippet->thumbnails->medium->url; 
         $video->embedHtml = $result->items[0]->player->embedHtml; 
         $video->viewCount = $result->items[0]->statistics->viewCount; 
         $video->save();
