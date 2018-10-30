@@ -591,7 +591,7 @@
 }
 
 .top .container.content-1 .content-1-title {
-  width: 65px;
+  width: 53px;
   padding: 2px 10px;
   text-align: center;
   font-size: 40px;
@@ -599,6 +599,10 @@
   float: right;
   font-weight: bold;
   font-family: "Kozuka Gothic Pr6N";
+  -webkit-writing-mode: vertical-rl;
+  -ms-writing-mode: tb-rl;
+  writing-mode: vertical-rl;
+  margin: 6px;
 }
 
 .top .container.content-1 > .row {
@@ -1000,8 +1004,9 @@ footer .footter-mobile .a-first {
   .top .container.content-1 {
     background-position: bottom, top;
     background-size: 80%, 51%;
-    background-position-y: 60%, 7%;
+    background-position-y: 59%, 15%;
     background-position-x: 23px, 45%;
+    z-index: 123;
   }
 
   .navbar-toggler:not(:disabled):not(.disabled) {
@@ -1085,7 +1090,7 @@ footer .footter-mobile .a-first {
   .container .cb-path {
     left: 15px;
     position: relative;
-    top: 30px;
+    top: -130px;
   }
 
   .top .movie-top-2 .col-md-10 {
@@ -1101,6 +1106,9 @@ footer .footter-mobile .a-first {
     font-family: "Kozuka Gothic Pr6N";
     padding: 0;
     text-align: left;
+    -webkit-writing-mode: horizontal-tb;
+        -ms-writing-mode: lr-tb;
+            writing-mode: horizontal-tb;
   }
 
   .top .content-1-content {
@@ -1341,6 +1349,9 @@ footer .footter-mobile .a-first {
     top: -70px;
     font-size: 20px;
     left: 30px;
+    -webkit-writing-mode: horizontal-tb;
+        -ms-writing-mode: lr-tb;
+            writing-mode: horizontal-tb;
   }
 
   .banner figure figcaption .title:last-child {
@@ -1363,7 +1374,6 @@ footer .footter-mobile .a-first {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    width: 100% !important;
   }
 
   .owl-item.active {
@@ -2827,6 +2837,12 @@ footer .footter-mobile .a-first {
   padding: 48px 80px 0 80px;
 }
 
+@media (max-width: 575.98px) {
+  .my-page .info-1 {
+    padding: 20px;
+  }
+}
+
 .my-page .info-1 .memo .memo-text {
   padding-bottom: 16px;
 }
@@ -2952,6 +2968,12 @@ footer .footter-mobile .a-first {
   padding: 32px 80px 0 80px;
 }
 
+@media (max-width: 575.98px) {
+  .my-page .info-2 {
+    padding: 20px;
+  }
+}
+
 .my-page .info-2 .my-theme .my-theme-text {
   padding-bottom: 10px;
 }
@@ -3000,6 +3022,12 @@ footer .footter-mobile .a-first {
 
 .my-page .main .group-1 .category {
   padding: 32px 20% 0 20%;
+}
+
+@media (max-width: 575.98px) {
+  .my-page .main .group-1 .category {
+    padding: 10px;
+  }
 }
 
 .my-page .main .group-1 .category .category-input .cb-category {
@@ -3065,6 +3093,10 @@ footer .footter-mobile .a-first {
   padding-bottom: 24px;
 }
 
+.my-page .main .group-1 .content-text .item .wrapper .wrapper-content .icon-favorior a {
+  color: pink;
+}
+
 .my-page .main .group-1 .content-text .item .wrapper .wrapper-content .text-title {
   padding-top: 24px;
   color: #111111;
@@ -3113,10 +3145,6 @@ footer .footter-mobile .a-first {
 
 .my-page .group-2 > .video1 .video-content {
   padding-top: 32px;
-}
-
-.my-page .group-2 > .video1 .video-content img {
-  width: 100%;
 }
 
 .my-page .group-2 > .video1 .video-content .img {
@@ -4314,6 +4342,424 @@ footer .footter-mobile .a-first {
 .row.searchcategory .row {
   margin: 10px 0;
 }
+
+.container.about {
+  width: 100%;
+  max-width: 100%;
+  padding: 0;
+  margin-top: -30px;
+  margin-bottom: -30px;
+  overflow-y: hidden;
+}
+
+.row.about-banner {
+  margin: 0;
+  padding: 0;
+}
+
+.container.about .about-cb-path {
+  display: inline-block;
+  width: 46px;
+  height: 4px;
+  background-color: #fff100;
+  margin: 30px auto;
+}
+
+.container.about .top .container.content-1 {
+  background: none;
+  padding: 0 100px;
+}
+
+.container.about .top .container.content-1 .char-rotate {
+  -webkit-transform: rotate(2deg);
+  transform: rotate(2deg);
+  -webkit-writing-mode: tb-rl;
+      -ms-writing-mode: tb-rl;
+          writing-mode: tb-rl;
+}
+
+.container.about .top .container.content-1 .content-1-title:first-child {
+  margin-top: -45px;
+}
+
+.container.about .top .container.content-1 .content-1-content .text-detail {
+  font-size: 20px;
+  line-height: 40px;
+  font-weight: bold;
+  padding-bottom: 24px;
+}
+
+.container.about .top .container.content-1 .content-1-content .text_detail_title {
+  font-size: 22px;
+  line-height: 40px;
+  font-weight: bold;
+  padding-bottom: 24px;
+}
+
+.container.about .top .div-bg {
+  display: inline-block;
+  width: 68%;
+  height: 80px;
+  background-color: #fff;
+  position: absolute;
+  top: 800px;
+}
+
+.about-why-born .why-born-col .text_detail_title,
+.about-what-done .what-done-col .text_detail_title {
+  font-size: 18px;
+  font-weight: bold;
+  font-family: "Kozuka Gothic Pr6N";
+  margin-bottom: 5px;
+  text-align: left;
+}
+
+.about-why-born .why-born-col .text_detail,
+.about-what-done .what-done-col .text_detail {
+  font-size: 16px;
+  font-family: "Kozuka Gothic Pr6N";
+  text-align: left;
+  min-height: 60px;
+}
+
+.about-why-born .why-born-col img {
+  width: 100px;
+  height: 100px;
+  display: inline;
+  margin-bottom: 20px;
+}
+
+.about-what-done-title,
+.about-hatachi-title {
+  font-size: 22px;
+  line-height: 40px;
+  font-weight: bold;
+  padding-bottom: 0;
+}
+
+.about-what-done .what-done-col .text_detail_title {
+  padding-left: 35px;
+  font-size: 16px;
+}
+
+.about-what-done .what-done-col .text_detail,
+.about-hatachi .text_detail {
+  padding-left: 35px;
+  font-size: 14px;
+  margin-bottom: -15px;
+}
+
+.about-what-done .what-done-col img {
+  width: 140px;
+  height: 140px;
+  display: inline;
+  margin-bottom: 10px;
+}
+
+.what-done-col .more-detail {
+  text-align: left;
+  padding-left: 35px;
+}
+
+.what-done-col .more-detail a:hover,
+.what-done-col .more-detail a:focus {
+  text-decoration: none;
+}
+
+.what-done-col .more-detail span {
+  font-size: 14px;
+  font-weight: bold;
+  color: #000;
+  font-family: "Myriad Pro";
+}
+
+.what-done-col .more-detail img {
+  width: 79px;
+  height: 13px;
+  display: inline;
+  margin-bottom: 0;
+}
+
+.about-hatachi a.btn-link {
+  font-size: 19px;
+  font-weight: bold;
+  background-color: #000;
+  color: #fff;
+  padding: 15px 20px;
+  text-align: center;
+  font-family: "Kozuka Gothic Pr6N";
+  border-radius: 30px;
+  width: 100%;
+  display: inline-block;
+  -webkit-box-shadow: 0px 2px 0px 0px #fff100;
+  box-shadow: 0px 2px 0px 0px #fff100;
+}
+
+/* Custom, iPhone Retina */
+
+@media only screen and (min-width: 320px) and (max-width: 991px) {
+  .container.about.about-desktop {
+    display: none !important;
+  }
+
+  .container.about.about-desktop {
+    display: block !important;
+  }
+
+  .home .main .title-lx .container .relative .info .title-e {
+    margin-left: -5px;
+    font-size: 55px;
+  }
+
+  header.fixed.headder .navbar.navbar-expand-lg.navbar-light p {
+    font-size: 12px !important;
+    position: relative;
+    margin-left: -19px;
+  }
+
+  .navbar-toggler:not(:disabled):not(.disabled) {
+    position: relative;
+    right: 15px !important;
+  }
+
+  .home .main .title-lx {
+    min-height: 90px;
+    height: 90px;
+  }
+
+  .home .main .title-lx .container .relative .info .absolute {
+    bottom: 0;
+    top: 95px;
+    left: 10px;
+  }
+
+  .home .main .title-lx .container .relative .info .absolute .title-j {
+    font-size: 30px;
+  }
+
+  .container.about.about-desktop {
+    margin-top: -120px;
+  }
+
+  .container.about.about-desktop .about-banner img {
+    width: 100%;
+    height: 200px;
+  }
+
+  .container.about.about-desktop .row.top {
+    margin-top: 110px !important;
+  }
+
+  .div-bg {
+    display: none;
+  }
+
+  .container.about .top .container.content-1 {
+    padding: 45px 0 0;
+  }
+
+  .container.about .top .container.content-1 .content-1-title:first-child {
+    margin-top: 0;
+  }
+
+  .container.about .top .container.content-1 .content-1-title {
+    font-size: 25px;
+  }
+
+  .container.about .top .container.content-1 .char-rotate {
+    -webkit-transform: none;
+            transform: none;
+    -webkit-writing-mode: horizontal-tb;
+        -ms-writing-mode: lr-tb;
+            writing-mode: horizontal-tb;
+    margin-left: -10px;
+  }
+
+  .container.about .top .container.content-1 .content-1-title:last-child .char-rotate {
+    margin-left: 0;
+  }
+
+  .container.about .top .container.content-1 .content-1-title:not(:first-child) {
+    padding-left: 5px;
+  }
+
+  .container.about.about-desktop .content-1-content .text-my-theme {
+    padding-top: 0 !important;
+    top: -72px;
+  }
+
+  .container.about.about-desktop .content-1-content .text-my-theme .about-cb-path {
+    margin-left: 5px;
+    margin-bottom: 20px;
+  }
+
+  .container.about.about-desktop .top .container.content-1 .content-1-content .text-detail {
+    font-weight: bold;
+    font-size: 18px;
+    padding: 0 5px 20px;
+  }
+
+  .container.about.about-desktop .top .container.content-1 .content-1-content .text-detail:last-child {
+    padding-top: 0;
+  }
+
+  .container.about.about-desktop .top .container.content-1 .content-1-content .text_detail_title {
+    padding: 0 5px;
+    font-size: 20px;
+  }
+
+  .container.about.about-desktop .about-why-born {
+    background-color: #FFF100;
+    margin-top: -155px;
+    padding: 80px 20px;
+  }
+
+  .container.about.about-desktop .about-why-born .why-born-col,
+  .container.about.about-desktop .about-what-done .what-done-col {
+    background-color: #fff;
+    border-radius: 10px;
+    text-align: center;
+    padding: 20px 30px;
+    margin: 20px;
+  }
+
+  .container.about.about-desktop .about-why-born .why-born-col img {
+    width: 160px;
+    height: 160px;
+  }
+
+  .container.about.about-desktop .about-why-born .why-born-col .text_detail_title,
+  .container.about.about-desktop .about-why-born .why-born-col .text_detail {
+    margin-left: 22%;
+  }
+
+  .container.about.about-desktop .about-what-done .what-done-col img {
+    width: 300px;
+    height: auto;
+    margin-bottom: 20px;
+  }
+
+  .container.about.about-desktop .about-what-done .what-done-col p {
+    padding-left: 0;
+    margin-left: 10%;
+  }
+
+  .container.about.about-desktop .about-what-done .what-done-col .more-detail {
+    margin-top: 20px;
+  }
+
+  .container.about.about-desktop .about-what-done .what-done-col .more-detail img {
+    width: 79px;
+    height: 13px;
+    margin-bottom: 0;
+  }
+
+  .container.about.about-desktop .about-what-done .what-done-col .text_detail_title {
+    font-size: 18px;
+  }
+
+  .container.about.about-desktop .about-what-done .what-done-col .text_detail,
+  .container.about.about-desktop .about-what-done .what-done-col .more-detail span {
+    font-size: 16px;
+  }
+
+  .container.about.about-desktop .about-hatachi {
+    margin-bottom: 60px;
+  }
+
+  .container.about.about-desktop .about-hatachi .about-hatachi-col {
+    padding: 0px 0 10px 50px;
+    text-align: center;
+    margin: 0 auto;
+    padding: 0 50px 10px;
+  }
+
+  .container.about.about-desktop .about-hatachi .about-hatachi-col a.btn-link:hover,
+  .container.about.about-desktop .about-hatachi .about-hatachi-col a.btn-link:focus {
+    text-decoration: none;
+  }
+}
+
+/* Extra Small Devices, Phones */
+
+/* @media only screen and (min-width: 480px) {
+
+} */
+
+/* Small Devices, Tablets */
+
+/* @media only screen and (min-width: 768px) {
+
+} */
+
+/* Medium Devices, Desktops */
+
+@media only screen and (min-width: 992px) {
+  .container.about.about-desktop {
+    display: none !important;
+  }
+
+  .container.about.about-desktop {
+    display: block !important;
+    overflow-x: hidden;
+  }
+
+  .home .main .title-lx {
+    font-family: Oswald, sans-serif;
+    background: #fff100;
+    color: #fffa9d;
+    display: block;
+    font-size: 120px !important;
+    min-height: 175px;
+    width: 100%;
+  }
+
+  .about-why-born {
+    padding: 60px 220px;
+    background-color: #FFF100;
+    margin-top: -60px;
+  }
+
+  .about-why-born .why-born-col,
+  .about-what-done .what-done-col,
+  .about-hatachi .about-hatachi-col {
+    background-color: #fff;
+    border-radius: 10px;
+    margin-right: 30px;
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 30%;
+            flex: 0 0 30%;
+    text-align: center;
+    padding: 20px 30px;
+  }
+
+  .about-hatachi .about-hatachi-col {
+    padding: 20px 0 20px 20px;
+    text-align: left;
+    margin-right: 5px;
+  }
+
+  .about-why-born .why-born-col:last-child,
+  .about-what-done .what-done-col:last-child,
+  .about-hatachi .about-hatachi-col:last-child {
+    margin-right: 0px;
+  }
+
+  .about-what-done {
+    padding: 60px 220px;
+  }
+
+  .about-hatachi {
+    padding: 0 220px;
+  }
+
+  .about-hatachi .about-hatachi-col a.btn-link:focus,
+  .about-hatachi .about-hatachi-col a.btn-link:hover {
+    text-decoration: none;
+  }
+}
+
+/* Large Devices, Wide Screens */
 
 /*!
  * Bootstrap v4.1.3 (https://getbootstrap.com/)
@@ -6574,6 +7020,11 @@ pre code {
 }
 
 .form-control::-webkit-input-placeholder {
+  color: #6c757d;
+  opacity: 1;
+}
+
+.form-control:-ms-input-placeholder {
   color: #6c757d;
   opacity: 1;
 }
