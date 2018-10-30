@@ -29,18 +29,25 @@ class VideoController extends Controller
 
     public function store(Request $request)
     {
-        $data = $request->all();
+        $video = new Video;
+        $api_key = 'AIzaSyCHOj6MNDK2YFRLQhK5yKP2KEBIRKHlHuU';
+        $BASE_PART = '&part=id,contentDetails,snippet,statistics,player&key=';
+        $BASE_URL = 'https://www.googleapis.com/youtube/v3/videos?id=';
+        $url = $request->url;
+        parse_str(parse_url($url, PHP_URL_QUERY), $youtube);
+        $id =  $youtube['v'];
+        $api_url = $BASE_URL . $id . $BASE_PART . $api_key . '';
+        $result = json_decode(file_get_contents($api_url));
 
-        //Upload file image
-        // if($request->hasFile('image')){
-        //     //Lưu hình ảnh vào thư mục public/image/video
-        //     $file = $request->file('image');
-        //     $fileName = time().'_'.$file->getClientOriginalName();
-        //     $destinationPath = public_path('image/video');
-        //     $file->move($destinationPath, $fileName);
-        //     $data['image'] = $fileName;
-        // }
-        Video::create($data);
+        $video->category_id = $request->category_id;
+        $video->url = $request->url; 
+        $video->sort = $request->sort;
+        $video->type = $request->type;
+        $video->title = $result->items[0]->snippet->title; 
+        $video->thumbnails = $result->items[0]->snippet->thumbnails->standard->url; 
+        $video->embedHtml = $result->items[0]->player->embedHtml; 
+        $video->viewCount = $result->items[0]->statistics->viewCount; 
+        $video->save();
         return redirect()->route('videos.index');
     }
 
@@ -65,17 +72,25 @@ class VideoController extends Controller
     public function update(Request $request, $id)
     {
         $video = Video::find($id);
-        $data = $request->all();
-        $video->update($data);
+        
+        $api_key = 'AIzaSyCHOj6MNDK2YFRLQhK5yKP2KEBIRKHlHuU';
+        $BASE_PART = '&part=id,contentDetails,snippet,statistics,player&key=';
+        $BASE_URL = 'https://www.googleapis.com/youtube/v3/videos?id=';
+        $url = $request->url;
+        parse_str(parse_url($url, PHP_URL_QUERY), $youtube);
+        $id =  $youtube['v'];
+        $api_url = $BASE_URL . $id . $BASE_PART . $api_key . '';
+        $result = json_decode(file_get_contents($api_url));
 
-        //Upload file image
-        if($request->hasFile('image')) {
-            //Lưu hình ảnh vào thư mục public/image/video
-            $file = $request->file('image');
-            $fileName = time() . '_' . $file->getClientOriginalName();
-            $destinationPath = public_path('image/video');
-            $file->move($destinationPath, $fileName);
-        }
+        $video->category_id = $request->category_id;
+        $video->url = $request->url; 
+        $video->sort = $request->sort;
+        $video->type = $request->type;
+        $video->title = $result->items[0]->snippet->title; 
+        $video->thumbnails = $result->items[0]->snippet->thumbnails->standard->url; 
+        $video->embedHtml = $result->items[0]->player->embedHtml; 
+        $video->viewCount = $result->items[0]->statistics->viewCount; 
+        $video->save();
 
         return redirect()->route('videos.show',$video->id);
     }

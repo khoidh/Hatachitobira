@@ -15,11 +15,11 @@ class UpdateVideosTable extends Migration
     {
         Schema::table('videos',function(Blueprint $table){
             $table->string('title',256)->nullable()->after('url');
-            $table->string('thumbnails',256)->nullable()->after('description');
+            $table->string('thumbnails',256)->nullable()->after('title');
             $table->string('embedHtml',256)->nullable()->after('thumbnails');
             $table->integer('viewCount')->nullable()->after('embedHtml');
             $table->dropColumn('image');
-            $table->string('description',256)->change();
+            $table->dropColumn('description');
         });
     }
 
@@ -35,8 +35,8 @@ class UpdateVideosTable extends Migration
             $table->dropColumn('thumbnails');
             $table->dropColumn('embedHtml');
             $table->dropColumn('viewCount');
+            $table->string('description',191)->nullable()->after('url');
             $table->string('image',191)->nullable()->after('description');
-            $table->string('description',191)->nullable()->change();
         });
     }
 }
