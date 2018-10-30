@@ -245,6 +245,39 @@
     height: 100%;
 }
 
+#modal_video {
+    .modal-dialog {
+        width: 90%;
+        max-width: 1000px;
+        height: auto;
+        .modal-content {
+            width: 100%;
+            max-width: 1000px;
+            height: auto;
+        }
+
+        .modal-body {
+            iframe {
+                width: 100% !important;
+                height: auto !important;
+                max-width: 1000px;
+                min-height: 450px;
+            }
+        }
+
+        .share {
+            text-align: left;
+            color: #aeaeae;
+            margin-top: 13px;
+            font-size: 15px;
+            a {
+                color: #aeaeae;
+                cursor: pointer;
+            }
+        }
+    }
+}
+
 @media screen and (max-width: 600px) {
     .video .topnav .search-container {
         float: none;

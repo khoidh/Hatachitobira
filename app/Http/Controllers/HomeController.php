@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Event;
 use App\Column;
 use App\Video;
+use App\Category;
 
 class HomeController extends Controller
 {
@@ -38,6 +39,7 @@ class HomeController extends Controller
     }
 
     public function topPage() {
+        $categories = Category::where('display',1)->get();
         $api_key = 'AIzaSyCHOj6MNDK2YFRLQhK5yKP2KEBIRKHlHuU';
         $BASE_PART = '&part=id,contentDetails,snippet,statistics,player&key=';
         $BASE_URL = 'https://www.googleapis.com/youtube/v3/videos?id=';
@@ -79,6 +81,7 @@ class HomeController extends Controller
             $result = json_decode(file_get_contents($api_url));
             $result->id = $video->id;
             $result->category = $video->category_name;
+            $result->data_url = $url;
             if (isset($result->items[0])) {
                 array_push($results_1,$result);
             }
@@ -94,11 +97,12 @@ class HomeController extends Controller
             $result_1 = json_decode(file_get_contents($api_url));
             $result_1->id = $video->id;
             $result_1->category = $video->category_name;
+            $result_1->data_url = $url;
             if (isset($result_1->items[0])) {
                 array_push($results_2,$result_1);
             }
         }
 
-        return view('top',compact('columns','events','results_1','results_2'));
+        return view('top',compact('columns','events','results_1','results_2','categories'));
     }
 }

@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Video extends Model
 {
+
     protected $table = 'videos';
     protected $fillable = ['category_id', 'url', 'description', 'image', 'sort','type'];
 
@@ -18,4 +19,8 @@ class Video extends Model
     {
         return $this->morphMany('App\Models\favorite','favoritable');
     }
+        CONST JOB_SHADOW = 'ジョブシャドウ';
+        CONST ROLE_PLAY = 'ロールプレイ';
+
 }
+

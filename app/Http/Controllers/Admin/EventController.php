@@ -17,6 +17,7 @@ class EventController extends Controller
         $events = Event::select()
             ->select('events.*','categories.name as category_name')
             ->join('categories','categories.id','=','events.category_id')
+            ->orderBy('id','desc')
             ->paginate(10);
 
         return view('admin.event.index', ['events' => $events]);

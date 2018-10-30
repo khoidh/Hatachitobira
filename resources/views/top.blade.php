@@ -96,7 +96,6 @@
                     <figure class="carousel-item active">
                         <img src="{{ asset('image/top/banner.png') }}" alt="楽しもう、背伸びしない自分を">
                         <figcaption>
-                            <!-- <img src="{{ asset('image/top/fig_banner.png') }}" alt=""> -->
                             <p class="description">What students want to know,Is it transmitted to real?</p>
                             <p class="title">楽しもう、背伸びしない自分を。</p>
                             <p class="title">やりたいことって必要なの ？</p>
@@ -105,7 +104,6 @@
                     <figure class="carousel-item">
                         <img src="{{ asset('image/top/banner-1.png') }}" alt="楽しもう、背伸びしない自分を。">
                         <figcaption>
-                            <!-- <img src="{{ asset('image/top/fig_banner.png') }}" alt=""> -->
                             <p class="description">What students want to know,Is it transmitted to real?</p>
                             <p class="title">楽しもう、背伸びしない自分を。</p>
                             <p class="title">やりたいことって必要なの ？</p>
@@ -114,13 +112,13 @@
                     <figure class="carousel-item">
                         <img src="{{ asset('image/top/banner-2.png') }}" alt="楽しもう、背伸びしない自分を。">
                         <figcaption>
-                            <!-- <img src="{{ asset('image/top/fig_banner.png') }}" alt=""> -->
                             <p class="description">What students want to know,Is it transmitted to real?</p>
                             <p class="title">楽しもう、背伸びしない自分を。</p>
                             <p class="title">やりたいことって必要なの ？</p>
                         </figcaption>
                     </figure>
                 </div>
+                
             </div>
             <a class="scroll" href="#">SCROLL</a>
         </div>
@@ -177,7 +175,7 @@
                                 <div class="video-detail">
                                     <div class="wrapper">
                                         <div class="thump">
-                                            <div class="browse-details" data-id='{{$result->id}}' data-src='{{$result->items[0]->player->embedHtml}}'>
+                                            <div class="browse-details" data-id='{{$result->id}}' data-src='{{$result->items[0]->player->embedHtml}}' data-url = "{{$result->data_url}}">
                                                 <img src="{{ asset('image/video/btn-play.png')}}" alt="" >
                                             </div>
                                             <a href="#">
@@ -231,10 +229,12 @@
                             <p class="text-title-3">自分の興味から探す</p>
                         </div>
                         <div class="row">
+                            @foreach($categories as $categorie)
                             <div class="col-md-3 img-cat-sp">
-                                <a href="{{ url('search-category?search=1') }}"><img class="img-cat" src="{{ asset('image/top/img-cate-1.png') }}" alt="エンタメ"></a>
+                                <a href="{{ url('search-category?search='.$categorie->id) }}"><img class="img-cat" src="{{ asset('image/top/img-cate-'.$categorie->id.'.png') }}" alt="{{$categorie->name}}"></a>
                             </div>
-                            <div class="col-md-3 img-cat-sp">
+                            @endforeach
+                            <!-- <div class="col-md-3 img-cat-sp">
                                 <a href="{{ url('search-category?search=2') }}"><img class="img-cat" src="{{ asset('image/top/img-cate-2.png') }}" alt="サービス"></a>
                             </div>
                             <div class="col-md-3 img-cat-sp">
@@ -247,14 +247,14 @@
                                 <a href="{{ url('search-category?search=5') }}"><img class="img-cat" src="{{ asset('image/top/img-cate-5.png') }}" alt="教育"></a>
                             </div>
                             <div class="col-md-3 img-cat-sp">
-                                <a href="{{ url('search-category?search=6') }}"><img class="img-cat" src="{{ asset('image/top/img-cate-6.png') }}" alt="暮らし"></a>
+                                <a href="{{ url('search-category?search=7') }}"><img class="img-cat" src="{{ asset('image/top/img-cate-6.png') }}" alt="暮らし"></a>
                             </div>
                             <div class="col-md-3 img-cat-sp">
-                                <a href="{{ url('search-category?search=7') }}"><img class="img-cat" src="{{ asset('image/top/img-cate-7.png') }}" alt="企業提供講座"></a>
+                                <a href="{{ url('search-category?search=6') }}"><img class="img-cat" src="{{ asset('image/top/img-cate-7.png') }}" alt="企業提供講座"></a>
                             </div>
                             <div class="col-md-3 img-cat-sp">
                                 <a href="{{ url('search-category?search=8') }}"><img class="img-cat" src="{{ asset('image/top/img-cate-8.png') }}" alt="食"></a>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                 </div>
@@ -273,7 +273,7 @@
                                     <div class="video-detail">
                                         <div class="wrapper">
                                             <div class="thump">
-                                                <div class="browse-details" data-id='{{$result->id}}' data-src='{{$result->items[0]->player->embedHtml}}'>
+                                                <div class="browse-details" data-id='{{$result->id}}' data-src='{{$result->items[0]->player->embedHtml}}' data-url = "{{$result->data_url}}">
                                                     <img src="{{ asset('image/video/btn-play.png')}}" alt="" >
                                                 </div>
                                                 <a href="#">
@@ -295,7 +295,7 @@
                                     <div class="video-detail">
                                         <div class="wrapper">
                                             <div class="thump">
-                                                <div class="browse-details" data-id='{{$result->id}}' data-src='{{$result->items[0]->player->embedHtml}}'>
+                                                <div class="browse-details" data-id='{{$result->id}}' data-src='{{$result->items[0]->player->embedHtml}}' data-url = "{{$result->data_url}}">
                                                     <img src="{{ asset('image/video/btn-play.png')}}" alt="" >
                                                 </div>
                                                 <a href="#">
@@ -315,7 +315,7 @@
                                     <div class="video-detail">
                                         <div class="wrapper">
                                             <div class="thump">
-                                                <div class="browse-details" data-id='{{$result->id}}' data-src='{{$result->items[0]->player->embedHtml}}'>
+                                                <div class="browse-details" data-id='{{$result->id}}' data-src='{{$result->items[0]->player->embedHtml}}' data-url = "{{$result->data_url}}">
                                                     <img src="{{ asset('image/video/btn-play.png')}}" alt="" >
                                                 </div>
                                                 <a href="#">
@@ -350,7 +350,7 @@
                                     <div class="video-detail">
                                         <div class="wrapper">
                                             <div class="thump">
-                                                <div class="browse-details" data-id='{{$result->id}}' data-src='{{$result->items[0]->player->embedHtml}}'>
+                                                <div class="browse-details" data-id='{{$result->id}}' data-src='{{$result->items[0]->player->embedHtml}}' data-url = "{{$result->data_url}}">
                                                     <img src="{{ asset('image/video/btn-play.png')}}" alt="" >
                                                 </div>
                                                 <a href="#">
@@ -372,7 +372,7 @@
                                     <div class="video-detail">
                                         <div class="wrapper">
                                             <div class="thump">
-                                                <div class="browse-details" data-id='{{$result->id}}' data-src='{{$result->items[0]->player->embedHtml}}'>
+                                                <div class="browse-details" data-id='{{$result->id}}' data-src='{{$result->items[0]->player->embedHtml}}' data-url = "{{$result->data_url}}">
                                                     <img src="{{ asset('image/video/btn-play.png')}}" alt="" >
                                                 </div>
                                                 <a href="#">
@@ -392,7 +392,7 @@
                                     <div class="video-detail">
                                         <div class="wrapper">
                                             <div class="thump">
-                                                <div class="browse-details" data-id='{{$result->id}}' data-src='{{$result->items[0]->player->embedHtml}}'>
+                                                <div class="browse-details" data-id='{{$result->id}}' data-src='{{$result->items[0]->player->embedHtml}}' data-url = "{{$result->data_url}}">
                                                     <img src="{{ asset('image/video/btn-play.png')}}" alt="" >
                                                 </div>
                                                 <a href="#">
@@ -466,11 +466,16 @@
             </div>
         </div>
         <div id="modal_video" class="modal fade modal_register" role="dialog">
-            <div class="modal-dialog" style="margin-top:150px">
-                <div class="modal-content" style="width: 515px;border-radius: 13px;">
+            <div class="modal-dialog" style="margin-top:50px">
+                <div class="modal-content" style="border-radius: 13px;">
                     <div class="modal-body" style="text-align:center">
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                         <div class="panel-body">
+                        </div>
+                        <div class="share">
+                            <span class="article">シェアする</span>
+                            <span><a class="twitter social-share" href="" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></span>
+                            <span><a class="facebook social-share" href="" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></span>
                         </div>
                     </div>
                 </div>
@@ -557,8 +562,33 @@
                 e.preventDefault();
                 var idvideo = $(this).data('id');
                 var src = $(this).data('src');
+                var url = $(this).data('url');
+                $('#modal_video .twitter').attr('href','https://twitter.com/intent/tweet?url='+url);
+                $('#modal_video .facebook').attr('href','https://www.facebook.com/sharer/sharer.php?u='+url);
                 $('#modal_video .panel-body').html(src);
                 $('#modal_video').modal('show');
+            });
+
+            var popupMeta = {
+                width: 400,
+                height: 400
+            }
+            $(document).on('click', '.social-share', function(event){
+                event.preventDefault();
+
+                var vPosition = Math.floor(($(window).width() - popupMeta.width) / 2),
+                    hPosition = Math.floor(($(window).height() - popupMeta.height) / 2);
+
+                var url = $(this).attr('href');
+                var popup = window.open(url, 'Social Share',
+                    'width='+popupMeta.width+',height='+popupMeta.height+
+                    ',left='+vPosition+',top='+hPosition+
+                    ',location=0,menubar=0,toolbar=0,status=0,scrollbars=1,resizable=1');
+
+                if (popup) {
+                    popup.focus();
+                    return false;
+                }
             });
 
 

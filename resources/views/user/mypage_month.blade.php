@@ -50,7 +50,7 @@
                                 data-year="{{isset($mythemes[$i]->year) ? $mythemes[$i]->year : $data_date['year']}}" 
                                 data-category = "{{isset($mythemes[$i]->category_id) ? $mythemes[$i]->category_id : $key}}" 
                                 data-id = "{{isset($mythemes[$i]->id) ? $mythemes[$i]->id : ''}}"
-                                placeholder="Click here to edit">{{isset($mythemes[$i]->content_lable) ? $mythemes[$i]->content_lable : ''}}</textarea>
+                                placeholder="Click edit to change content" disabled>{{isset($mythemes[$i]->content_lable) ? $mythemes[$i]->content_lable : ''}}</textarea>
                         </span>
                     </div>
                     <div class="favorite edit label">
