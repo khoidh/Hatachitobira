@@ -91,7 +91,7 @@
     </header>
     <main>
         <div class="banner figure">
-            <div id="carouseltop" class="carousel slide" data-ride="carousel" data-interval="2000">
+            <div id="carouseltop" class="carousel slide" data-ride="carousel" data-interval="false">
                 <div class="carousel-inner row mx-auto" role="listbox">
                     <figure class="carousel-item active">
                         <img src="{{ asset('image/top/banner.png') }}" alt="楽しもう、背伸びしない自分を">
