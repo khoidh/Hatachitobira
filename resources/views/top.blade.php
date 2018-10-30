@@ -96,7 +96,6 @@
                     <figure class="carousel-item active">
                         <img src="{{ asset('image/top/banner.png') }}" alt="楽しもう、背伸びしない自分を">
                         <figcaption>
-                            <!-- <img src="{{ asset('image/top/fig_banner.png') }}" alt=""> -->
                             <p class="description">What students want to know,Is it transmitted to real?</p>
                             <p class="title">楽しもう、背伸びしない自分を。</p>
                             <p class="title">やりたいことって必要なの ？</p>
@@ -105,7 +104,6 @@
                     <figure class="carousel-item">
                         <img src="{{ asset('image/top/banner-1.png') }}" alt="楽しもう、背伸びしない自分を。">
                         <figcaption>
-                            <!-- <img src="{{ asset('image/top/fig_banner.png') }}" alt=""> -->
                             <p class="description">What students want to know,Is it transmitted to real?</p>
                             <p class="title">楽しもう、背伸びしない自分を。</p>
                             <p class="title">やりたいことって必要なの ？</p>
@@ -114,13 +112,20 @@
                     <figure class="carousel-item">
                         <img src="{{ asset('image/top/banner-2.png') }}" alt="楽しもう、背伸びしない自分を。">
                         <figcaption>
-                            <!-- <img src="{{ asset('image/top/fig_banner.png') }}" alt=""> -->
                             <p class="description">What students want to know,Is it transmitted to real?</p>
                             <p class="title">楽しもう、背伸びしない自分を。</p>
                             <p class="title">やりたいことって必要なの ？</p>
                         </figcaption>
                     </figure>
                 </div>
+                <a class="carousel-control-prev" style="display: none;" href="#carouseltop" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next text-faded" href="#carouseltop" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
             </div>
             <a class="scroll" href="#">SCROLL</a>
         </div>
@@ -231,10 +236,12 @@
                             <p class="text-title-3">自分の興味から探す</p>
                         </div>
                         <div class="row">
+                            @foreach($categories as $categorie)
                             <div class="col-md-3 img-cat-sp">
-                                <a href="{{ url('search-category?search=1') }}"><img class="img-cat" src="{{ asset('image/top/img-cate-1.png') }}" alt="エンタメ"></a>
+                                <a href="{{ url('search-category?search='.$categorie->id) }}"><img class="img-cat" src="{{ asset('image/top/img-cate-'.$categorie->id.'.png') }}" alt="{{$categorie->name}}"></a>
                             </div>
-                            <div class="col-md-3 img-cat-sp">
+                            @endforeach
+                            <!-- <div class="col-md-3 img-cat-sp">
                                 <a href="{{ url('search-category?search=2') }}"><img class="img-cat" src="{{ asset('image/top/img-cate-2.png') }}" alt="サービス"></a>
                             </div>
                             <div class="col-md-3 img-cat-sp">
@@ -254,7 +261,7 @@
                             </div>
                             <div class="col-md-3 img-cat-sp">
                                 <a href="{{ url('search-category?search=8') }}"><img class="img-cat" src="{{ asset('image/top/img-cate-8.png') }}" alt="食"></a>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                 </div>
@@ -466,8 +473,8 @@
             </div>
         </div>
         <div id="modal_video" class="modal fade modal_register" role="dialog">
-            <div class="modal-dialog" style="margin-top:150px">
-                <div class="modal-content" style="width: 515px;border-radius: 13px;">
+            <div class="modal-dialog" style="margin-top:50px">
+                <div class="modal-content" style="border-radius: 13px;">
                     <div class="modal-body" style="text-align:center">
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                         <div class="panel-body">

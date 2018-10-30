@@ -86,7 +86,7 @@
         
     </div>
     <div id="modal_video" class="modal fade modal_register" role="dialog">
-        <div class="modal-dialog" style="margin-top:150px">
+        <div class="modal-dialog" style="margin-top:50px">
             <div class="modal-content" style="width: 515px;border-radius: 13px;">
                 <div class="modal-body" style="text-align:center">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
