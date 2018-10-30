@@ -52,7 +52,7 @@
                 <div class="form-group row">
                     <label for="sort" class="col-sm-2 col-form-label">Sort</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" name="sort" id="sort" value="" placeholder="Sort" required="true">
+                        <input type="number" class="form-control" name="sort" id="sort" value="" placeholder="Sort" required="true" min="1">
                     </div>
                 </div>
                 <div class="form-group row">
