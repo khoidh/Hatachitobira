@@ -2598,6 +2598,37 @@ footer .footter-mobile .a-first {
   height: 100%;
 }
 
+#modal_video .modal-dialog {
+  width: 90%;
+  max-width: 1000px;
+  height: auto;
+}
+
+#modal_video .modal-dialog .modal-content {
+  width: 100%;
+  max-width: 1000px;
+  height: auto;
+}
+
+#modal_video .modal-dialog .modal-body iframe {
+  width: 100% !important;
+  height: auto !important;
+  max-width: 1000px;
+  min-height: 450px;
+}
+
+#modal_video .modal-dialog .share {
+  text-align: left;
+  color: #aeaeae;
+  margin-top: 13px;
+  font-size: 15px;
+}
+
+#modal_video .modal-dialog .share a {
+  color: #aeaeae;
+  cursor: pointer;
+}
+
 @media screen and (max-width: 600px) {
   .video .topnav .search-container {
     float: none;
@@ -2678,6 +2709,90 @@ footer .footter-mobile .a-first {
   font-family: "Raleway", sans-serif;
   color: #6b6b6b;
   font-family: "Kozuka Gothic Pr6N";
+}
+
+.my-page .event-content {
+  padding: 20px 0;
+}
+
+.my-page .article-status {
+  line-height: 200%;
+  font-size: small;
+  font-weight: bold;
+  color: #111111;
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+.my-page .article-status span {
+  position: absolute;
+  max-height: 22px;
+  max-width: 101px;
+  color: #fff;
+  font-size: 13px;
+  top: -5px;
+}
+
+.my-page .article-status hr {
+  margin: 8px 0 16px !important;
+  height: 0px !important;
+  background-color: #DCDCDC !important;
+  width: 100%;
+  size: 30px;
+  padding-top: 1px;
+}
+
+.my-page .article-status img {
+  position: absolute;
+  max-height: 24px;
+  max-width: 101px;
+  top: 0;
+}
+
+.my-page .article-status img.events {
+  top: -8px;
+}
+
+.my-page .article-status span.events {
+  top: -12px;
+}
+
+.my-page .article-content {
+  margin-top: 30px !important;
+}
+
+.my-page .article-content .content-left img {
+  border-radius: 14px;
+  max-height: 230px;
+  max-width: 330px;
+  width: 100%;
+  height: 100%;
+}
+
+@media (max-width: 575.98px) {
+  .my-page .article-content .content-right {
+    margin-top: 20px;
+  }
+}
+
+.my-page .article-content .content-right .icon-favorite,
+.my-page .article-content .content-right .date {
+  text-align: right;
+}
+
+.my-page .article-content .content-right .title {
+  font-weight: bold;
+}
+
+.my-page .article-content .content-right .title a {
+  color: #111;
+  text-decoration: none;
+}
+
+.my-page .article-content .content-right .title span {
+  font-weight: normal;
+  font-size: 13px;
 }
 
 .my-page .how-to-use .a-user {
@@ -2787,6 +2902,7 @@ footer .footter-mobile .a-first {
   text-align: justify;
 }
 
+.my-page .panel-info .panel-info-wrapper .panel-info-content .mypage-text .edit-input-lable_1,
 .my-page .panel-info .panel-info-wrapper .panel-info-content .mypage-text .edit-input-lable {
   background: none;
   border: none;
@@ -3019,9 +3135,15 @@ footer .footter-mobile .a-first {
 }
 
 .my-page .group-2 > .event .event-content .more-detail {
+  top: 20px;
+  position: relative;
   font-size: 20px;
   line-height: 40px;
   font-weight: bold;
+  color: #111111;
+}
+
+.my-page .group-2 > .event .event-content .more-detail a {
   color: #111111;
 }
 
@@ -6452,11 +6574,6 @@ pre code {
 }
 
 .form-control::-webkit-input-placeholder {
-  color: #6c757d;
-  opacity: 1;
-}
-
-.form-control:-ms-input-placeholder {
   color: #6c757d;
   opacity: 1;
 }

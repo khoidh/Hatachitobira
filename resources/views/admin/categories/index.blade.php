@@ -4,13 +4,13 @@
 @endsection
 @section('content-header')
     <div class="content-header-left col-md-6 col-12 mb-2 breadcrumb-new">
-        <h3 class="content-header-title mb-0 d-inline-block" style="font-size: 30px">Categories</h3>
+        <h3 class="content-header-title mb-0 d-inline-block" style="font-size: 30px">Category</h3>
         <div class="row breadcrumbs-top d-inline-block">
             <div class="breadcrumb-wrapper col-12">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{ route('admin.home') }}">Home</a></li>
-                    <li class="breadcrumb-item"><a href="{{route('categories.index')}}">Categories</a></li>
-                    <li class="breadcrumb-item active">Categories List</li>
+                    <li class="breadcrumb-item"><a href="{{route('categories.index')}}">Category</a></li>
+                    <li class="breadcrumb-item active">Category List</li>
                 </ol>
             </div>
         </div>
@@ -29,12 +29,13 @@
         <table class="table table-striped table-bordered table-hover tbl-resoure" id="dataTables-example">
             <thead>
                 <tr align="center">
-                    <th>STT</th>
+                    <th>ID</th>
                     <th>Name</th>
-                    <th>Description</th>
                     <th>Slug</th>
+                    <th>Icon</th>
                     <th>Sort</th>
                     <th>Display</th>
+                    <th>Description</th>
                     <th>Action</th>
                 </tr>
             </thead>
@@ -43,14 +44,16 @@
                 <tr class="odd gradeX" align="left">
                     <td>{{ $category->id }}</td>
                     <td>{{ $category->name}}</td>
-                    <td>{{ $category->description}}</td>
                     <td>{{ $category->slug}}</td>
+                    <td>
+                        <img src="<?php echo asset('image/category/'.$category->icon) ?>" width="150px" height="150px">
+                    </td>
                     <td>{{ $category->sort}}</td>
                     <td>{{ $category->display == 1 ? '表示' : '非表示'}}</td>
+                    <td>{{ $category->description}}</td>
                     <td width="10%">
-                        <a class="details" href="#" style="color: #848383" data-url="{{ route('categories.show', $category->id) }}"><i title="Detail" class="fa fa-info-circle fa-2x" aria-hidden="true"></i></a>
-                        <!-- <a href="#" style="color: #848383" data-toggle="modal" data-target="#myModal_edit"><i title="Edit" class="fa fa-pencil fa-2x" aria-hidden="true"></i></i></a> -->
-                        <a class="delete" href="#" style="color: #848383" data-toggle="modal" data-target="#myModal_delete" data-url="{{ route('admin.delete-category', $category->id) }}"><i title="Delete" class="fa fa-trash fa-2x" aria-hidden="true"></i></i></i></a>
+                        <a href="{{route('categories.show',$category->id)}}"><i title="Detail" class="fa fa-info-circle fa-2x" aria-hidden="true"></i></a>
+                        <a href="{{route('categories.edit',$category->id)}}"><i title="Edit" class="fa fa-edit fa-2x" aria-hidden="true"></i></a>
                     </td>
                 </tr>
                 @endforeach
