@@ -221,7 +221,7 @@
 </div>
 
 <div id="modal_video" class="modal fade modal_register" role="dialog">
-    <div class="modal-dialog" style="margin-top:150px">
+    <div class="modal-dialog" style="margin-top:50px">
         <div class="modal-content" style="border-radius: 13px;">
             <div class="modal-body" style="text-align:center">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -312,37 +312,37 @@
         });
 
         $(document).on('click','.video .video-list .browse-details', function(e){
-                e.preventDefault();
-                var idvideo = $(this).data('id');
-                var src = $(this).data('src');
-                var url = $(this).data('url');
-                $('#modal_video .twitter').attr('href','https://twitter.com/intent/tweet?url='+url);
-                $('#modal_video .facebook').attr('href','https://www.facebook.com/sharer/sharer.php?u='+url);
-                $('#modal_video .panel-body').html(src);
-                $('#modal_video').modal('show');
-            });
+            e.preventDefault();
+            var idvideo = $(this).data('id');
+            var src = $(this).data('src');
+            var url = $(this).data('url');
+            $('#modal_video .twitter').attr('href','https://twitter.com/intent/tweet?url='+url);
+            $('#modal_video .facebook').attr('href','https://www.facebook.com/sharer/sharer.php?u='+url);
+            $('#modal_video .panel-body').html(src);
+            $('#modal_video').modal('show');
+        });
 
-            var popupMeta = {
-                width: 400,
-                height: 400
+        var popupMeta = {
+            width: 400,
+            height: 400
+        }
+        $(document).on('click', '.social-share', function(event){
+            event.preventDefault();
+
+            var vPosition = Math.floor(($(window).width() - popupMeta.width) / 2),
+                hPosition = Math.floor(($(window).height() - popupMeta.height) / 2);
+
+            var url = $(this).attr('href');
+            var popup = window.open(url, 'Social Share',
+                'width='+popupMeta.width+',height='+popupMeta.height+
+                ',left='+vPosition+',top='+hPosition+
+                ',location=0,menubar=0,toolbar=0,status=0,scrollbars=1,resizable=1');
+
+            if (popup) {
+                popup.focus();
+                return false;
             }
-            $(document).on('click', '.social-share', function(event){
-                event.preventDefault();
-
-                var vPosition = Math.floor(($(window).width() - popupMeta.width) / 2),
-                    hPosition = Math.floor(($(window).height() - popupMeta.height) / 2);
-
-                var url = $(this).attr('href');
-                var popup = window.open(url, 'Social Share',
-                    'width='+popupMeta.width+',height='+popupMeta.height+
-                    ',left='+vPosition+',top='+hPosition+
-                    ',location=0,menubar=0,toolbar=0,status=0,scrollbars=1,resizable=1');
-
-                if (popup) {
-                    popup.focus();
-                    return false;
-                }
-            });
+        });
 
         $(document).on('change','.select-box.search',function(e){
             console.log('aaaaa');
@@ -420,8 +420,13 @@
                         user_id: user
                     },
                     success : function (result){
-                        _this.find('.fa.fa-heart-o').addClass('like');
-                        _this.find('.fa.fa-heart-o').css('color','pink');
+                         if (result == 'ok') {
+                             _this.find('.fa.fa-heart-o').addClass('liked');
+                             _this.find('.fa.fa-heart-o').css('color','pink');
+                        }else {
+                             _this.find('.fa.fa-heart-o').removeClass('liked');
+                             _this.find('.fa.fa-heart-o').css('color','#fff');
+                        }
                     }   
                })
             }

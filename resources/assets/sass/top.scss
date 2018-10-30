@@ -322,7 +322,7 @@
 }
 
 .top .container.content-1 .content-1-title {
-    width: 65px;
+    width: 53px;
     padding: 2px 10px;
     text-align: center;
     font-size: 40px;
@@ -330,6 +330,10 @@
     float: right;
     font-weight: bold;
     font-family: "Kozuka Gothic Pr6N";
+    -webkit-writing-mode: vertical-rl;
+    -ms-writing-mode: tb-rl;
+    writing-mode: vertical-rl;
+    margin: 6px;
 }
 
 .top .container.content-1>.row {
@@ -749,8 +753,9 @@ footer .footter-mobile .a-first{
     .top .container.content-1 {
         background-position: bottom, top;
         background-size: 80%, 51%;
-        background-position-y: 60%, 7%;
+        background-position-y: 59%, 15%;
         background-position-x: 23px, 45%;
+        z-index: 123;
     }
 
     .navbar-toggler:not(:disabled):not(.disabled) {
@@ -834,7 +839,7 @@ footer .footter-mobile .a-first{
     .container .cb-path {
         left: 15px;
         position: relative;
-        top: 30px;
+        top: -130px;
     }
 
     .top .movie-top-2 .col-md-10 {
@@ -850,6 +855,7 @@ footer .footter-mobile .a-first{
         font-family: "Kozuka Gothic Pr6N";
         padding: 0;
         text-align: left;
+        writing-mode: horizontal-tb;
     }
 
     .top .content-1-content {
@@ -1091,6 +1097,7 @@ footer .footter-mobile .a-first{
         top: -70px;
         font-size: 20px;
         left: 30px;
+        writing-mode: horizontal-tb;
     }
 
     .banner figure figcaption .title:last-child {
@@ -1111,7 +1118,6 @@ footer .footter-mobile .a-first{
 
     .owl-stage {
         display: flex;
-        width: 100% !important;
     }
 
     .owl-item.active {

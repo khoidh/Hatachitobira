@@ -146,7 +146,9 @@
 
     .info-1 {
         padding: 48px 80px 0 80px;
-
+        @include only-for-mobile() {
+            padding: 20px;
+        }
         .memo {
             .memo-text {
                 padding-bottom: 16px;
@@ -284,7 +286,9 @@
 
     .info-2 {
         padding: 32px 80px 0 80px;
-
+        @include only-for-mobile() {
+            padding: 20px;
+        }
         .my-theme {
             .my-theme-text {
                 padding-bottom: 10px;
@@ -345,7 +349,9 @@
             .category {
                 //display: inline;
                 padding: 32px 20% 0 20%;
-
+                @include only-for-mobile() {
+                    padding: 10px;
+                }
                 //background-color: red;
                 .category-input {
                     .cb-category {
@@ -415,6 +421,9 @@
 
                             .icon-favorior {
                                 padding-bottom: 24px;
+                                a{
+                                    color: pink;
+                                }
                             }
 
                             .text-title {
@@ -476,9 +485,6 @@
 
             .video-content {
                 padding-top: 32px;
-                img {
-                    width: 100%
-                }
 
                 .img {
                     border-radius: 15px;

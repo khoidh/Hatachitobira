@@ -73,7 +73,7 @@ main {
 
 .banner figure {
     text-align: center;
-    position: relative;
+    position: inherit;
     width: 100%
 }
 
@@ -96,6 +96,11 @@ main {
     float: left;
     line-height: 1;
     padding: 3px 10px;
+    -webkit-writing-mode: vertical-rl;
+    -ms-writing-mode: tb-rl;
+    writing-mode: vertical-rl;
+    margin: 1px;
+    letter-spacing: 0px;
 }
 .banner figure figcaption .description{
     transform: rotate(90deg);
@@ -144,6 +149,28 @@ main {
     border-radius: 15px;
     -webkit-box-shadow: 0px 2px 0px 0px #fff100;
     width: 100%;
+}
+
+.carousel.multi-item-carousel .carousel-inner .carousel-item-right.active,
+.carousel.multi-item-carousel .carousel-inner .carousel-item-next {
+    transform: translateX(100%);
+}
+
+.carousel.multi-item-carousel .carousel-inner .carousel-item-left.active,
+.carousel.multi-item-carousel .carousel-inner .carousel-item-prev {
+    transform: translateX(-100%)
+}
+
+.carousel.multi-item-carousel .carousel-inner .carousel-item-right,
+.carousel.multi-item-carousel .carousel-inner .carousel-item-left {
+    transform: translateX(0);
+}
+
+
+.carousel.multi-item-carousel .carousel-inner .carousel-item.active,
+.carousel.multi-item-carousel .carousel-inner .carousel-item-next,
+.carousel.multi-item-carousel .carousel-inner .carousel-item-prev {
+    display: flex;
 }
 
 .navbar.navbar-expand-lg.navbar-light {
