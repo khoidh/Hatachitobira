@@ -18,10 +18,12 @@ class Videos extends Seeder
         for($i=1;$i<=5;$i++) {
             DB::table('videos')->insert([
                 'id'            => $i,
-                'category_id'   => rand(1,3),
-                'url'           => 'https://www.youtube.com/watch?v=ObwNpMXlmPU',
-                'description'   => '部活の先輩後輩のキス【ファーストキス】。',
-                'image'         => 'video01.jpg',
+                'category_id'   => rand(1,8),
+                'url'           => 'https://www.youtube.com/watch?v=09R8_2nJtjg',
+                'title'         => 'Maroon 5 - Sugar',
+                'thumbnails'    => 'https://i.ytimg.com/vi/09R8_2nJtjg/mqdefault.jpg',
+                'embedHtml'     => '<iframe width="480" height="270" src="//www.youtube.com/embed/09R8_2nJtjg" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>',
+                'viewCount'     => '2147483647',
                 'sort'          => 1,
                 'type'          => 1,
             ]);
@@ -29,21 +31,25 @@ class Videos extends Seeder
         for($i=6;$i<=10;$i++) {
             DB::table('videos')->insert([
                 'id'            => $i,
-                'category_id'   => rand(1,3),
-                'url'           => 'https://www.youtube.com/watch?v=xijH08HD2ns',
-                'description'   => 'ハタチのトビラ#3 （株）Huber. 〜インバウンド事業に取り組む社会人の1日にとは〜',
-                'image'         => 'video02.jpg',
+                'category_id'   => rand(1,8),
+                'url'           => 'https://www.youtube.com/watch?v=mBHRaQZAVIE',
+                'title'         => 'Điều Bí Mật - Binz ft. Its Lee (Lyric Video)',
+                'thumbnails'    => 'https://i.ytimg.com/vi/mBHRaQZAVIE/mqdefault.jpg',
+                'embedHtml'     => '<iframe width="480" height="270" src="//www.youtube.com/embed/mBHRaQZAVIE" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>',
+                'viewCount'     => '1778141',
                 'sort'          => 1,
-                'type'          => 0,
+                'type'          => 1,
             ]);
         }
         for ($i = 11; $i <= 15; $i++) {
             DB::table('videos')->insert([
                 'id'            => $i,
-                'category_id'   => rand(1,3),
-                'url'           => 'https://www.youtube.com/watch?v=Rdu0Cr1kJGo',
-                'description'   => 'ハタチのトビラ#6 NPO法人グリーンズ〜持続可能な社会をつくるために活動するNPO職員の1日とは〜',
-                'image'         => 'video03.jpg',
+                'category_id'   => rand(1,8),
+                'url'           => 'https://www.youtube.com/watch?v=W0ngwudci4M',
+                'title'         => 'Ngọn nến trước gió - LK,JustaTee,Emily,Andree [Official MV 1080p]',
+                'thumbnails'    => 'https://i.ytimg.com/vi/W0ngwudci4M/sddefault.jpg',
+                'embedHtml'     => '"<iframe width=\"480\" height=\"270\" src=\"\/\/www.youtube.com\/embed\/W0ngwudci4M\" frameborder=\"0\" allow=\"autoplay; encrypted-media\" allowfullscreen><\/iframe>"',
+                'viewCount'     => '7896208',
                 'sort'          => 1,
                 'type'          => 1,
             ]);
