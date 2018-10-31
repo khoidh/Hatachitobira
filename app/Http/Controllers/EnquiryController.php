@@ -41,7 +41,7 @@ class EnquiryController extends Controller
             'last_name_cn' => 'required|string|max:30',
             'company' => 'required|string|max:100',
             'email' => 'required|string|email|max:40|min:11',
-            'postal_code' => 'required|integer|max:20|min:6',
+            'postal_code' => 'required|integer',
             'address' => 'required|string|max:1024',
             'content' => 'required|string|max:1024',
         ]);
