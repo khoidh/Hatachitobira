@@ -1,3 +1,25 @@
+.about{
+  .top .content-1 .content-title {
+    @include only-for-mobile() {
+      left: 40px !important;
+    }
+    .content-1-title{
+      @include only-for-pc() {
+        font-size: 36px !important;
+        height: 500px !important;
+        text-align: start !important;
+      }
+    }
+  }
+  @include only-for-mobile() {
+    .about-what-done,
+    .about-hatachi {
+      margin-left: 15px !important;
+      margin-right: 15px !important;
+    }
+  }
+}
+
 .container.about{
   width: 100%;
   max-width: 100%;
@@ -7,7 +29,7 @@
   overflow-y: hidden;
 }
 
-.row.about-banner{
+.about-banner{
   margin: 0;
   padding: 0;
 }
@@ -196,7 +218,7 @@
     height: 200px;
   }
 
-  .container.about.about-desktop .row.top{
+  .container.about.about-desktop .top{
     margin-top: 110px !important;
   }
   .div-bg{

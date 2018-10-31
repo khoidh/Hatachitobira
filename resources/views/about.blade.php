@@ -17,7 +17,7 @@
                     <p class="content-1-title">誰かに正解を</p>
                     <p class="content-1-title">求めたくなる<span class="char-rotate">…」</span></p>
                 </div>
-                <div class="content-1-content">
+                <div class="col-md-12 content-1-content">
                     <div class="text-my-theme" style="padding-top: 0px;">
                         <div class="about-cb-path"></div>
                         <p class="text-detail">高校までは偏差値という便利な指標があったけど、<br>これから過ごす社会には共通の指標なんてない。 </p>
@@ -47,7 +47,7 @@
                 <img src="{{asset("image/about/about_icon_03.jpg")}}" alt="" style="width:110px;" />
             </div>
         </div>
-        <div class="row about-what-done" style="padding-top:0;">
+        <div class="row about-what-done">
             <div class="col-md-12">
                 <div class="about-cb-path"></div>
                 <p class="about-what-done-title">“ハタチのトビラ”できることとは？ </p>
@@ -107,7 +107,7 @@
             </div>
             <div class="col-md-4 about-hatachi-col">
                 <?php if(Auth::guest()) : ?>
-                <a class="btn-link" data-toggle="modal" data-target="#modal_login">マイテーマを探す</a>
+                <a class="btn-link show-modal-register" data-toggle="modal" data-target="#modal_register" style="color: white !important; cursor: pointer !important;">マイテーマを探す</a>
                 <?php else: ?>
                 <a href="{{route('mypage.index')}}" class="btn-link">マイテーマを探す</a>
                 <?php endif; ?>
