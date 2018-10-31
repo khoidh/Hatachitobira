@@ -40,7 +40,7 @@ class VideoController extends Controller
             }
             $video->favorite = $like;
             $date1 = new DateTime();
-            $date2 = new DateTime($video->created);
+            $date2 = new DateTime($video->publishedAt);
             $interval = $date2->diff($date1);
             $video->date_diff = $interval->m;
 
@@ -79,7 +79,7 @@ class VideoController extends Controller
             }
             $video->favorite = $like;
             $date1 = new DateTime();
-            $date2 = new DateTime($video->created);
+            $date2 = new DateTime($video->publishedAt);
             $interval = $date2->diff($date1);
             $video->date_diff = $interval->m;
         }
@@ -125,7 +125,7 @@ class VideoController extends Controller
             $video->favorite = $like;
             
             $date1 = new DateTime();
-            $date2 = new DateTime($video->created);
+            $date2 = new DateTime($video->publishedAt);
             $interval = $date2->diff($date1);
             $video->date_diff = $interval->m;
 
