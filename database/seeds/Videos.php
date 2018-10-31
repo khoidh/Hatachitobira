@@ -24,6 +24,7 @@ class Videos extends Seeder
                 'thumbnails'    => 'https://i.ytimg.com/vi/09R8_2nJtjg/mqdefault.jpg',
                 'embedHtml'     => '<iframe width="480" height="270" src="//www.youtube.com/embed/09R8_2nJtjg" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>',
                 'viewCount'     => '2147483647',
+                'publishedAt'   => '2009-10-07 10:51:42',
                 'sort'          => 1,
                 'type'          => 1,
             ]);
@@ -37,6 +38,7 @@ class Videos extends Seeder
                 'thumbnails'    => 'https://i.ytimg.com/vi/mBHRaQZAVIE/mqdefault.jpg',
                 'embedHtml'     => '<iframe width="480" height="270" src="//www.youtube.com/embed/mBHRaQZAVIE" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>',
                 'viewCount'     => '1778141',
+                'publishedAt'   => '2009-10-07 10:51:42',
                 'sort'          => 1,
                 'type'          => 1,
             ]);
@@ -50,6 +52,7 @@ class Videos extends Seeder
                 'thumbnails'    => 'https://i.ytimg.com/vi/W0ngwudci4M/sddefault.jpg',
                 'embedHtml'     => '<iframe width="480" height="270" src="//www.youtube.com/embed/5jqjxHAVA7I" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>',
                 'viewCount'     => '43480648',
+                'publishedAt'   => '2009-10-07 10:51:42',
                 'sort'          => 1,
                 'type'          => 1,
             ]);
