@@ -31,7 +31,6 @@
                 <tr align="center">
                     <th>ID</th>
                     <th>Name</th>
-                    <th>Slug</th>
                     <th>Icon</th>
                     <th>Sort</th>
                     <th>Display</th>
@@ -44,7 +43,6 @@
                 <tr class="odd gradeX" align="left">
                     <td>{{ $category->id }}</td>
                     <td>{{ $category->name}}</td>
-                    <td>{{ $category->slug}}</td>
                     <td>
                         <img src="<?php echo asset('image/category/'.$category->icon) ?>" width="150px" height="150px">
                     </td>
