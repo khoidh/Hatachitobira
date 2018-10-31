@@ -19,8 +19,14 @@
 @section('card-content')
 @endsection
 @section('content')
+
     <div class="row justify-content-md-center">
         <div class="col-md-10">
+            @if(session()->has('message'))
+    <div class="alert alert-danger">
+        {{ session()->get('message') }}
+    </div>
+@endif
 <form action="{{route('videos.store')}}"  enctype="multipart/form-data" method="POST">
     {{ csrf_field() }}
     <div class="form-group row">
@@ -38,13 +44,13 @@
      <div class="form-group row">
         <label for="url" class="col-sm-2 col-form-label">URL</label>
         <div class="col-sm-10">
-            <input type="text" class="form-control" name="url" id="url" value="" placeholder="URL" required="true">
+            <input type="text" class="form-control" name="url" id="url" placeholder="URL" required="true">
         </div>
     </div>
     <div class="form-group row">
         <label for="sort" class="col-sm-2 col-form-label">Sort</label>
         <div class="col-sm-10">
-            <input type="number" class="form-control" name="sort" id="sort" required="true" min="1">
+            <input type="number" class="form-control" name="sort" id="sort" required="true" min="1" max="100" >
 
         </div>
     </div>
@@ -55,7 +61,6 @@
                 <option value='0' selected>ジョブシャドウ</option>
                 <option value='1'>ロールプレイ</option>
             </select>
-            {{--<input type="number" class="form-control" name="type" id="type" required="true">--}}
         </div>
     </div>
     <div class="form-group row">
