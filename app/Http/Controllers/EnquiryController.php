@@ -40,10 +40,10 @@ class EnquiryController extends Controller
             'first_name_cn' => 'required|string|max:30',
             'last_name_cn' => 'required|string|max:30',
             'company' => 'required|string|max:100',
-            'email' => 'required|string|email|min:11|max:40',
-            'postal_code' => 'required|integer|min:6|max:20',
-            'address' => 'required|string|min:6|max:20',
-            'content' => 'required|string|max:255',
+            'email' => 'required|string|email|max:40|min:11',
+            'postal_code' => 'required|integer|max:20|min:6',
+            'address' => 'required|string|max:1024',
+            'content' => 'required|string|max:1024',
         ]);
 
         if ($validation->fails()) {

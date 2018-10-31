@@ -8,6 +8,8 @@ use App\Video;
 use App\Category;
 class VideoController extends Controller
 {
+    protected $BASE_PART = '&part=id,contentDetails,snippet,statistics,player&key=';
+    protected $BASE_URL = 'https://www.googleapis.com/youtube/v3/videos?id=';
 
     public function index()
     {
@@ -29,25 +31,38 @@ class VideoController extends Controller
 
     public function store(Request $request)
     {
+        $API_KEY = env('YOUTUBE_API_KEY','AIzaSyAvZofftH6aljZreOzV_owDdOzFdqpvo88');
         $video = new Video;
-        $api_key = 'AIzaSyCHOj6MNDK2YFRLQhK5yKP2KEBIRKHlHuU';
-        $BASE_PART = '&part=id,contentDetails,snippet,statistics,player&key=';
-        $BASE_URL = 'https://www.googleapis.com/youtube/v3/videos?id=';
         $url = $request->url;
         parse_str(parse_url($url, PHP_URL_QUERY), $youtube);
-        $id =  $youtube['v'];
-        $api_url = $BASE_URL . $id . $BASE_PART . $api_key . '';
-        $result = json_decode(file_get_contents($api_url));
-        $video->category_id = $request->category_id;
-        $video->url = $request->url; 
-        $video->sort = $request->sort;
-        $video->type = $request->type;
-        $video->title = $result->items[0]->snippet->title; 
-        $video->thumbnails = $result->items[0]->snippet->thumbnails->medium->url; 
-        $video->embedHtml = $result->items[0]->player->embedHtml; 
-        $video->viewCount = $result->items[0]->statistics->viewCount; 
-        $video->save();
-        return redirect()->route('videos.index');
+        if(!$youtube)
+        {
+            return redirect()->back()->with('message','This url not youtube link');
+        }
+        else
+        {
+            $id =  $youtube['v'];
+            $api_url = $this->BASE_URL . $id . $this->BASE_PART . $API_KEY . '';
+            $result = json_decode(file_get_contents($api_url));
+            if($result->items)
+            {
+                $video->category_id = $request->category_id;
+                $video->url = $request->url; 
+                $video->sort = (int)($request->sort);
+                $video->type = (int)($request->type);
+                $video->title = $result->items[0]->snippet->title; 
+                $video->thumbnails = $result->items[0]->snippet->thumbnails->medium->url; 
+                $video->embedHtml = $result->items[0]->player->embedHtml; 
+                $video->viewCount = (double)($result->items[0]->statistics->viewCount); 
+                $video->save();
+                return redirect()->route('videos.index');
+            }
+            else
+            {
+                return redirect()->back()->with('message','Cant not get youtube information');
+            }
+            
+        }
     }
 
     public function show($id)
@@ -70,15 +85,13 @@ class VideoController extends Controller
 
     public function update(Request $request, $id)
     {
+        $API_KEY = env('YOUTUBE_API_KEY','AIzaSyAvZofftH6aljZreOzV_owDdOzFdqpvo88');
+
         $video = Video::find($id);
-        
-        $api_key = 'AIzaSyCHOj6MNDK2YFRLQhK5yKP2KEBIRKHlHuU';
-        $BASE_PART = '&part=id,contentDetails,snippet,statistics,player&key=';
-        $BASE_URL = 'https://www.googleapis.com/youtube/v3/videos?id=';
         $url = $request->url;
         parse_str(parse_url($url, PHP_URL_QUERY), $youtube);
         $id =  $youtube['v'];
-        $api_url = $BASE_URL . $id . $BASE_PART . $api_key . '';
+        $api_url = $this->BASE_URL . $id . $this->BASE_PART . $API_KEY . '';
         $result = json_decode(file_get_contents($api_url));
 
         $video->category_id = $request->category_id;
