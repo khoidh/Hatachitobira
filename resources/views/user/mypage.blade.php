@@ -48,7 +48,7 @@
                     @for ($i = 0; $i < 9; $i++)
                         <?php $key = $i>4 ? $i : $i+1 ?>
                         @if($i!=4)
-                        <div class="col-sm-4 col-xs-4 panel-info-wrapper">
+                        <div class="col-sm-4 col-xs-4 col-4 panel-info-wrapper">
                             <div class="panel-info-content">
                                 <div class="number">
                                     <span>0{{$index++}}</span>
@@ -76,7 +76,7 @@
                         </div>
                         @else
                             {{--05--}}
-                            <div class="col-sm-4 col-xs-4 panel-info-wrapper">
+                            <div class="col-sm-4 col-xs-4 col-4 panel-info-wrapper">
                                 <div class="event-image">
                                     <img src="{{isset($mythemes['9']->content_lable) ? asset('image/mypage/'.$mythemes['9']->content_lable) :asset('image/mypage/mypage-01.png')}}" alt="">
                                     <div class="description"> {{isset($mythemes['9']->content_1) ? $mythemes['9']->content_1 : 'HATACHI TOBIRA'}}</div>
@@ -235,26 +235,16 @@
                         <div class="carousel-inner row mx-auto" role="listbox">
                             @forelse($events as $key => $event)
                             <div class="article carousel-item {{ $key == 0 ? 'active' : ''}}">
-                                @php
-                                    $time_now = Carbon\Carbon::now();
-                                    $time_from = Carbon\Carbon::parse($event->time_from);
-                                    $time_to = Carbon\Carbon::parse($event->time_to);
-                                    $check= strtotime($time_now) >= strtotime($time_from) && strtotime($time_now) <= strtotime($time_to) ? 1 : 0;
-                                    if($check)
-                                    $event_state="申し込み受付中";
-                                    else
-                                    $event_state="受付終了";
-                                @endphp
                                 <div class="article-status">
                                     <hr class="shape-8"/>
-                                    <img class="events" 
-                                        @if($check)
+                                    <img
+                                        @if($event->eventstatus == '受付中' || $event->eventstatus == '開催中')
                                             src="{{asset('image/event/event-icon.png')}}" alt="event-icon.png"
                                         @else
                                             src="{{asset('image/event/event-visible-icon.png')}}" alt="event-visible-icon.png"
                                         @endif
                                     >
-                                    <span class="events" style="@if(!$check) left: 20px;@else color: #111111 @endif">{{$event_state}}</span>
+                                    <span style="@if($event->eventstatus == '受付前' || $event->eventstatus == '受付終了'|| $event->eventstatus == '開催終了' ) left: 20px; color: white !important; @endif">{{$event->eventstatus}}</span>
                                 </div>
                                 <div class="article-content row">
                                     <div class="content-left col-md-4">

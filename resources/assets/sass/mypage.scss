@@ -212,7 +212,10 @@
                 margin-bottom: 20px;
                 border-radius: 10px;
                 height: 236px;
-
+                @include only-for-mobile() {
+                    height: 150px;
+                    font-size: 12px;
+                }
                 >.number {
                     position: absolute !important;
                     z-index: 1;
@@ -221,6 +224,11 @@
                     font-family: Oswald, sans-serif;
                     font-size: 100px;
                     color: $white-color;
+                    @include only-for-mobile() {
+                        left: 4px;
+                        bottom: 10px;
+                        font-size: 50px;
+                    }
                 }
 
                 .mypage-text {
@@ -228,7 +236,9 @@
                     z-index: 2;
                     padding: 24px 24px 16px;
                     text-align: justify;
-
+                    @include only-for-mobile() {
+                        padding: 0
+                    }
                     .edit-input-lable_1,
                     .edit-input-lable, {
                         background: none;
@@ -257,6 +267,10 @@
                     height: 236px;
                     border-radius: 10px;
                     background-size: 100% 100%;
+                    @include only-for-mobile() {
+                        height: 150px;
+                        font-size: 12px;
+                    }
                 }
 
                 .favorite.edit {
@@ -278,6 +292,11 @@
                     line-height: 1;
                     font-size: 24px;
                     color: #ffffff;
+                    @include only-for-mobile() {
+                        left: 16px;
+                        font-size: 12px;
+                        bottom: 50px;
+                    }
                 }
             }
         }

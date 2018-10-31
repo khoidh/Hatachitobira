@@ -1,7 +1,7 @@
 <form action="mypage_modal_image_submit" id="form_information" accept-charset="utf-8">
     <div class="event-information-wrapper col-md-12 clearfix">
         <div class="col-md-12 clearfix">
-            <input type="file" name="file-image" class="file-image" value="{{isset($result) ? $result->content_lable : ''}}">
+            <input type="file" name="file-image" accept="image/x-png,image/gif,image/jpeg" class="file-image" value="{{isset($result) ? $result->content_lable : ''}}">
         </div>
         <div class="col-md-12 clearfix">
             <input type="text" name="description" class="image-description" placeholder="Description" value="{{isset($result) ? $result->content_1 : ''}}">

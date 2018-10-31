@@ -685,8 +685,16 @@ footer .footter-mobile .a-first{
 
 @media (max-width: 427px) {
 
+    .banner figure>img {
+        width: 100%;
+    }
+
     main {
         padding-top: 0
+    }
+
+    .top .cb-path.path-one {
+        display: none;
     }
 
     .top .text-vertical-1.last span.vertical,
@@ -756,6 +764,7 @@ footer .footter-mobile .a-first{
         background-position-y: 59%, 15%;
         background-position-x: 23px, 45%;
         z-index: 123;
+        margin-top: 50px;
     }
 
     .navbar-toggler:not(:disabled):not(.disabled) {
@@ -861,6 +870,7 @@ footer .footter-mobile .a-first{
     .top .content-1-content {
         position: relative;
         top: 120px;
+        margin: 0 -20px;
     }
 
     .top .container .cb-path {
@@ -890,6 +900,7 @@ footer .footter-mobile .a-first{
         padding: 20px;
         top: -50px;
         position: relative;
+        margin: 0 -20px;
     }
 
     .top .movie-top-1:after {
@@ -922,6 +933,7 @@ footer .footter-mobile .a-first{
     .top .movie-top-3 {
         padding: 20px;
         top: -100px;
+        margin: 0 -20px;
     }
 
     .top .movie-top-3 .content-tile-movie {
@@ -981,14 +993,20 @@ footer .footter-mobile .a-first{
     }
 
     .top .container.movie-top-4 {
-        margin-top: -100px;
-        padding: 20px;
+        margin-top: -76px;
+        padding-left: 20px;
+        padding-bottom: 30px;
+        margin-left: -15px;
     }
 
     .top .container.movie-top-4 .cb-path,
     .top .content-last .cb-path{
         top: 0;
         left: 0
+    }
+    
+    .top .container.movie-top-4 .cb-path{
+        margin-top: 0
     }
 
     .top .content-last .icon-favorior {
@@ -998,6 +1016,7 @@ footer .footter-mobile .a-first{
 
     .top .content-last {
         padding: 20px;
+        margin: 0 -20px;
     }
 
     .top .content-last .wrapper {
@@ -1087,25 +1106,31 @@ footer .footter-mobile .a-first{
         -webkit-transform: rotate(0deg);
         -ms-transform: rotate(0deg);
         -moz-transform: rotate(0deg);
-        top: 34px;
-        left: 40px;
+        top: 14px;
+        left: 10px;
     }
 
     .banner figure figcaption .title {
         width: 100%;
         position: relative;
-        top: -70px;
+        top: -90px;
         font-size: 20px;
-        left: 30px;
+        left: 00px;
+        padding: 0;
         writing-mode: horizontal-tb;
     }
 
     .banner figure figcaption .title:last-child {
-        top: -150px;
+        top: -139px;
     }
 
     .image-top {
-        margin: 10px 10px 0px 10px !important
+        margin: 0px !important
+    }
+
+    .link-my-page {
+        left: 10px;
+        padding: 13px 75px;
     }
 }
 
@@ -1137,8 +1162,12 @@ footer .footter-mobile .a-first{
         display: none;
     }
 }
-
+.container-fluid.top {
+    padding: 0 20px !important;
+}
 @media (min-width: 376px) and (max-width: 768px) {
+
+
     .top .movie-top-2 .col-md-9 {
         margin-left: 0;
     }
