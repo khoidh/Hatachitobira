@@ -29,7 +29,7 @@
 	</div>
 	<div class="video clearfix">
 		<div class="container">
-			<div class="cb-path"></div>
+			<div class="cb-path" style="top: -73px !important;"></div>
 		</div>
 		<div class="video-requiment">
 			<div class="container">
@@ -147,7 +147,7 @@
 				<p>まずはお気軽にお問い合わせください</p>
 			</div>
 			<div class="content-button">
-				<a href="#">お問い合わせはこちら</a>
+				<a href="<?php echo e(route('contact')); ?>">お問い合わせはこちら</a>
 			</div>
 		</div>
 	</div>
@@ -421,7 +421,7 @@
 				<p>まずはお気軽にお問い合わせください</p>
 			</div>
 			<div class="content-button">
-				<a href="#">お問い合わせはこちら</a>
+				<a href="<?php echo e(route('contact')); ?>">お問い合わせはこちら</a>
 			</div>
 		</div>
 	</div>
