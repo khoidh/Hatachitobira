@@ -37,12 +37,6 @@
     </div>
   </div>
   <div class="form-group row">
-    <label for="slug" class="col-sm-2 col-form-label">Slug</label>
-    <div class="col-sm-10">
-      <input id="slug" value="{{$category->slug}}"class="form-control" disabled="">
-    </div>
-  </div>
-  <div class="form-group row">
     <label for="icon" class="col-sm-2 col-form-label">Icon</label>
     <div class="col-sm-10">
       <img src="<?php echo asset('image/category/'.$category->icon) ?>" >

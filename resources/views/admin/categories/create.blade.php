@@ -37,12 +37,6 @@
                 </div>
                 
                 <div class="form-group row">
-                    <label for="slug" class="col-sm-2 col-form-label">Slug</label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control" name="slug" id="slug" value="" placeholder="Slug" required="true">
-                    </div>
-                </div>
-                <div class="form-group row">
                     <label for="image" class="col-sm-2 col-form-label">Icon</label>
                     <div class="col-sm-10">
                         <img src="https://placehold.jp/150x150.png" id="temp_img" width="150px" height="150px">
