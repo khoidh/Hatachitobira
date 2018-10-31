@@ -738,6 +738,7 @@
 
         $(document).on('change','.file-image',function(e){
             var formData = new FormData($('#form_information')[0]);
+            console.log(formData)
             var tmppath = URL.createObjectURL(e.target.files[0]);
             $('#tmppath').val(tmppath);
             $.ajax({

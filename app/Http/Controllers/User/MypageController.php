@@ -110,15 +110,18 @@ class MypageController extends Controller
 
     public function changeContent(Request $request) {
         $data = $request->all();
+
         $user_id = Auth::User()->id;
         $data['user_id'] = $user_id;
 
-        $result = Mytheme::where('user_id',$user_id)->where('month',$data['month'])->where('year',$data['year'])->get();
+        $result = Mytheme::where('user_id',$user_id)->where('month',$data['month'])->where('year',$data['year'])->first();
         if ($result) {
+
              Mytheme::where('user_id',$user_id)->where('month',$data['month'])->where('year',$data['year'])->update($data);
             $results = Mytheme::where('user_id',$user_id)->where('month',$data['month'])->where('year',$data['year'])->first();
         }
         else {
+            $data['category_id'] = 1;
             $results= Mytheme::create($data);
         }
         return json_encode($results);
