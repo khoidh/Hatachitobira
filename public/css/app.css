@@ -937,8 +937,16 @@ footer .footter-mobile .a-first {
 }
 
 @media (max-width: 427px) {
+  .banner figure > img {
+    width: 100%;
+  }
+
   main {
     padding-top: 0;
+  }
+
+  .top .cb-path.path-one {
+    display: none;
   }
 
   .top .text-vertical-1.last span.vertical,
@@ -1007,6 +1015,7 @@ footer .footter-mobile .a-first {
     background-position-y: 59%, 15%;
     background-position-x: 23px, 45%;
     z-index: 123;
+    margin-top: 50px;
   }
 
   .navbar-toggler:not(:disabled):not(.disabled) {
@@ -1114,6 +1123,7 @@ footer .footter-mobile .a-first {
   .top .content-1-content {
     position: relative;
     top: 120px;
+    margin: 0 -20px;
   }
 
   .top .container .cb-path.last {
@@ -1139,6 +1149,7 @@ footer .footter-mobile .a-first {
     padding: 20px;
     top: -50px;
     position: relative;
+    margin: 0 -20px;
   }
 
   .top .movie-top-1:after {
@@ -1172,6 +1183,7 @@ footer .footter-mobile .a-first {
   .top .movie-top-3 {
     padding: 20px;
     top: -100px;
+    margin: 0 -20px;
   }
 
   .top .movie-top-3 .content-tile-movie {
@@ -1230,14 +1242,20 @@ footer .footter-mobile .a-first {
   }
 
   .top .container.movie-top-4 {
-    margin-top: -100px;
-    padding: 20px;
+    margin-top: -76px;
+    padding-left: 20px;
+    padding-bottom: 30px;
+    margin-left: -15px;
   }
 
   .top .container.movie-top-4 .cb-path,
   .top .content-last .cb-path {
     top: 0;
     left: 0;
+  }
+
+  .top .container.movie-top-4 .cb-path {
+    margin-top: 0;
   }
 
   .top .content-last .icon-favorior {
@@ -1247,6 +1265,7 @@ footer .footter-mobile .a-first {
 
   .top .content-last {
     padding: 20px;
+    margin: 0 -20px;
   }
 
   .top .content-last .wrapper {
@@ -1339,27 +1358,33 @@ footer .footter-mobile .a-first {
     -webkit-transform: rotate(0deg);
     -ms-transform: rotate(0deg);
     -moz-transform: rotate(0deg);
-    top: 34px;
-    left: 40px;
+    top: 14px;
+    left: 10px;
   }
 
   .banner figure figcaption .title {
     width: 100%;
     position: relative;
-    top: -70px;
+    top: -90px;
     font-size: 20px;
-    left: 30px;
+    left: 00px;
+    padding: 0;
     -webkit-writing-mode: horizontal-tb;
         -ms-writing-mode: lr-tb;
             writing-mode: horizontal-tb;
   }
 
   .banner figure figcaption .title:last-child {
-    top: -150px;
+    top: -139px;
   }
 
   .image-top {
-    margin: 10px 10px 0px 10px !important;
+    margin: 0px !important;
+  }
+
+  .link-my-page {
+    left: 10px;
+    padding: 13px 75px;
   }
 }
 
@@ -1392,6 +1417,10 @@ footer .footter-mobile .a-first {
   .owl-dots {
     display: none;
   }
+}
+
+.container-fluid.top {
+  padding: 0 20px !important;
 }
 
 @media (min-width: 376px) and (max-width: 768px) {
@@ -2550,6 +2579,7 @@ footer .footter-mobile .a-first {
 .video .description p {
   font-size: 16px;
   margin-top: 10px;
+  height: 40px;
 }
 
 .video .description span {
@@ -2901,6 +2931,13 @@ footer .footter-mobile .a-first {
   height: 236px;
 }
 
+@media (max-width: 575.98px) {
+  .my-page .panel-info .panel-info-wrapper .panel-info-content {
+    height: 150px;
+    font-size: 12px;
+  }
+}
+
 .my-page .panel-info .panel-info-wrapper .panel-info-content > .number {
   position: absolute !important;
   z-index: 1;
@@ -2911,11 +2948,25 @@ footer .footter-mobile .a-first {
   color: #FFFFFF;
 }
 
+@media (max-width: 575.98px) {
+  .my-page .panel-info .panel-info-wrapper .panel-info-content > .number {
+    left: 4px;
+    bottom: 10px;
+    font-size: 50px;
+  }
+}
+
 .my-page .panel-info .panel-info-wrapper .panel-info-content .mypage-text {
   position: relative !important;
   z-index: 2;
   padding: 24px 24px 16px;
   text-align: justify;
+}
+
+@media (max-width: 575.98px) {
+  .my-page .panel-info .panel-info-wrapper .panel-info-content .mypage-text {
+    padding: 0;
+  }
 }
 
 .my-page .panel-info .panel-info-wrapper .panel-info-content .mypage-text .edit-input-lable_1,
@@ -2945,6 +2996,13 @@ footer .footter-mobile .a-first {
   background-size: 100% 100%;
 }
 
+@media (max-width: 575.98px) {
+  .my-page .panel-info .panel-info-wrapper .event-image img {
+    height: 150px;
+    font-size: 12px;
+  }
+}
+
 .my-page .panel-info .panel-info-wrapper .event-image .favorite.edit .fa-pencil {
   position: absolute;
   right: 20px;
@@ -2962,6 +3020,14 @@ footer .footter-mobile .a-first {
   line-height: 1;
   font-size: 24px;
   color: #ffffff;
+}
+
+@media (max-width: 575.98px) {
+  .my-page .panel-info .panel-info-wrapper .event-image .description {
+    left: 16px;
+    font-size: 12px;
+    bottom: 50px;
+  }
 }
 
 .my-page .info-2 {
@@ -7020,11 +7086,6 @@ pre code {
 }
 
 .form-control::-webkit-input-placeholder {
-  color: #6c757d;
-  opacity: 1;
-}
-
-.form-control:-ms-input-placeholder {
   color: #6c757d;
   opacity: 1;
 }
