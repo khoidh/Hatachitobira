@@ -45,11 +45,11 @@ class Videos extends Seeder
             DB::table('videos')->insert([
                 'id'            => $i,
                 'category_id'   => rand(1,8),
-                'url'           => 'https://www.youtube.com/watch?v=W0ngwudci4M',
-                'title'         => 'Ngọn nến trước gió - LK,JustaTee,Emily,Andree [Official MV 1080p]',
+                'url'           => 'https://www.youtube.com/watch?v=5jqjxHAVA7I',
+                'title'         => 'Thế Giới Thứ Tư - Chi Dân (4K Official MV)',
                 'thumbnails'    => 'https://i.ytimg.com/vi/W0ngwudci4M/sddefault.jpg',
-                'embedHtml'     => '"<iframe width=\"480\" height=\"270\" src=\"\/\/www.youtube.com\/embed\/W0ngwudci4M\" frameborder=\"0\" allow=\"autoplay; encrypted-media\" allowfullscreen><\/iframe>"',
-                'viewCount'     => '7896208',
+                'embedHtml'     => '<iframe width="480" height="270" src="//www.youtube.com/embed/5jqjxHAVA7I" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>',
+                'viewCount'     => '43480648',
                 'sort'          => 1,
                 'type'          => 1,
             ]);
