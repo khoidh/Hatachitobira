@@ -173,16 +173,16 @@
                     <p class="movie-top-description">コンセプトムービー</p>
                     <div class="corner-wrapper video">
                         <div class="video-list">
-                            @foreach($results_1 as $key => $result)
+                            @foreach($videos_1 as $key => $result)
                                 @if($key == 0)
                                 <div class="video-detail">
                                     <div class="wrapper">
                                         <div class="thump">
-                                            <div class="browse-details" data-id='{{$result->id}}' data-src='{{$result->items[0]->player->embedHtml}}' data-url = "{{$result->data_url}}">
+                                            <div class="browse-details" data-id='{{$result->id}}' data-src='{{$result->embedHtml}}' data-url = "{{$result->url}}">
                                                 <img src="{{ asset('image/video/btn-play.png')}}" alt="" >
                                             </div>
                                             <a href="#">
-                                                <img class="img-icon" src="{{  $result->items[0]->snippet->thumbnails->medium->url}}" alt="{{$result->items[0]->snippet->title}}">
+                                                <img class="img-icon" src="{{  $result->thumbnails}}" alt="{{$result->title}}">
                                             </a>
                                         </div>
                                     </div>
@@ -235,7 +235,7 @@
                             @foreach($categories as $categorie)
                             <div class="col-md-3 img-cat-sp">
                                 <a href="{{ url('search-category?search='.$categorie->id) }}">
-                                    <img class="img-cat" src="{{ asset('image/category/'.$category->icon) }}" alt="{{$categorie->name}}">
+                                    <img class="img-cat" src="{{ asset('image/category/'.$categorie->icon) }}" alt="{{$categorie->name}}">
                                 </a>
                             </div>
                             @endforeach
@@ -253,16 +253,16 @@
                     <div class="col-md-8">
                         <div class="corner-wrapper video movie-1">
                             <div class="video-list">
-                                @foreach($results_1 as $key => $result)
+                                @foreach($videos_1 as $key => $result)
                                     @if($key == 0)
                                     <div class="video-detail">
                                         <div class="wrapper">
                                             <div class="thump">
-                                                <div class="browse-details" data-id='{{$result->id}}' data-src='{{$result->items[0]->player->embedHtml}}' data-url = "{{$result->data_url}}">
+                                                <div class="browse-details" data-id='{{$result->id}}' data-src='{{$result->embedHtml}}' data-url = "{{$result->url}}">
                                                     <img src="{{ asset('image/video/btn-play.png')}}" alt="" >
                                                 </div>
                                                 <a href="#">
-                                                    <img class="img-icon" src="{{  $result->items[0]->snippet->thumbnails->medium->url}}" alt="{{$result->items[0]->snippet->title}}">
+                                                    <img class="img-icon" src="{{  $result->thumbnails}}" alt="{{$result->title}}">
                                                 </a>
                                             </div>
                                         </div>
@@ -275,16 +275,16 @@
                     <div class="col-md-4 video-movie">
                         <div class="corner-wrapper video movie-2">
                             <div class="video-list">
-                                @foreach($results_1 as $key => $result)
+                                @foreach($videos_1 as $key => $result)
                                     @if($key == 1)
                                     <div class="video-detail">
                                         <div class="wrapper">
                                             <div class="thump">
-                                                <div class="browse-details" data-id='{{$result->id}}' data-src='{{$result->items[0]->player->embedHtml}}' data-url = "{{$result->data_url}}">
+                                                <div class="browse-details" data-id='{{$result->id}}' data-src='{{$result->embedHtml}}' data-url = "{{$result->url}}">
                                                     <img src="{{ asset('image/video/btn-play.png')}}" alt="" >
                                                 </div>
                                                 <a href="#">
-                                                    <img class="img-icon" src="{{  $result->items[0]->snippet->thumbnails->medium->url}}" alt="{{$result->items[0]->snippet->title}}">
+                                                    <img class="img-icon" src="{{  $result->thumbnails}}" alt="{{$result->title}}">
                                                 </a>
                                             </div>
                                         </div>
@@ -295,16 +295,16 @@
                         </div>
                         <div class="corner-wrapper video movie-2">
                             <div class="video-list">
-                                @foreach($results_1 as $key => $result)
+                                @foreach($videos_1 as $key => $result)
                                     @if($key == 2)
                                     <div class="video-detail">
                                         <div class="wrapper">
                                             <div class="thump">
-                                                <div class="browse-details" data-id='{{$result->id}}' data-src='{{$result->items[0]->player->embedHtml}}' data-url = "{{$result->data_url}}">
+                                                <div class="browse-details" data-id='{{$result->id}}' data-src='{{$result->embedHtml}}' data-url = "{{$result->url}}">
                                                     <img src="{{ asset('image/video/btn-play.png')}}" alt="" >
                                                 </div>
                                                 <a href="#">
-                                                    <img class="img-icon" src="{{  $result->items[0]->snippet->thumbnails->medium->url}}" alt="{{$result->items[0]->snippet->title}}">
+                                                    <img class="img-icon" src="{{  $result->thumbnails}}" alt="{{$result->title}}">
                                                 </a>
                                             </div>
                                         </div>
@@ -330,16 +330,16 @@
                     <div class="col-md-8">
                         <div class="corner-wrapper video movie-1">
                             <div class="video-list">
-                                @foreach($results_2 as $key => $result)
+                                @foreach($videos_2 as $key => $result)
                                     @if($key == 0)
                                     <div class="video-detail">
                                         <div class="wrapper">
                                             <div class="thump">
-                                                <div class="browse-details" data-id='{{$result->id}}' data-src='{{$result->items[0]->player->embedHtml}}' data-url = "{{$result->data_url}}">
+                                                <div class="browse-details" data-id='{{$result->id}}' data-src='{{$result->embedHtml}}' data-url = "{{$result->url}}">
                                                     <img src="{{ asset('image/video/btn-play.png')}}" alt="" >
                                                 </div>
                                                 <a href="#">
-                                                    <img class="img-icon" src="{{  $result->items[0]->snippet->thumbnails->medium->url}}" alt="{{$result->items[0]->snippet->title}}">
+                                                    <img class="img-icon" src="{{  $result->thumbnails}}" alt="{{$result->title}}">
                                                 </a>
                                             </div>
                                         </div>
@@ -352,16 +352,16 @@
                     <div class="col-md-4 video-movie">
                         <div class="corner-wrapper video movie-2">
                             <div class="video-list">
-                                @foreach($results_2 as $key => $result)
+                                @foreach($videos_2 as $key => $result)
                                     @if($key == 1)
                                     <div class="video-detail">
                                         <div class="wrapper">
                                             <div class="thump">
-                                                <div class="browse-details" data-id='{{$result->id}}' data-src='{{$result->items[0]->player->embedHtml}}' data-url = "{{$result->data_url}}">
+                                                <div class="browse-details" data-id='{{$result->id}}' data-src='{{$result->embedHtml}}' data-url = "{{$result->url}}">
                                                     <img src="{{ asset('image/video/btn-play.png')}}" alt="" >
                                                 </div>
                                                 <a href="#">
-                                                    <img class="img-icon" src="{{  $result->items[0]->snippet->thumbnails->medium->url}}" alt="{{$result->items[0]->snippet->title}}">
+                                                    <img class="img-icon" src="{{  $result->thumbnails}}" alt="{{$result->title}}">
                                                 </a>
                                             </div>
                                         </div>
@@ -372,16 +372,16 @@
                         </div>
                         <div class="corner-wrapper video movie-2">
                             <div class="video-list">
-                                @foreach($results_2 as $key => $result)
+                                @foreach($videos_2 as $key => $result)
                                     @if($key == 2)
                                     <div class="video-detail">
                                         <div class="wrapper">
                                             <div class="thump">
-                                                <div class="browse-details" data-id='{{$result->id}}' data-src='{{$result->items[0]->player->embedHtml}}' data-url = "{{$result->data_url}}">
+                                                <div class="browse-details" data-id='{{$result->id}}' data-src='{{$result->embedHtml}}' data-url = "{{$result->url}}">
                                                     <img src="{{ asset('image/video/btn-play.png')}}" alt="" >
                                                 </div>
                                                 <a href="#">
-                                                    <img class="img-icon" src="{{  $result->items[0]->snippet->thumbnails->medium->url}}" alt="{{$result->items[0]->snippet->title}}">
+                                                    <img class="img-icon" src="{{  $result->thumbnails}}" alt="{{$result->title}}">
                                                 </a>
                                             </div>
                                         </div>

@@ -20,9 +20,7 @@ class MypageController extends Controller
 
     public function index()
     {
-        $api_key = 'AIzaSyCHOj6MNDK2YFRLQhK5yKP2KEBIRKHlHuU';
-        $BASE_URL = 'https://www.googleapis.com/youtube/v3/videos?id=';
-        $BASE_PART = '&part=id,contentDetails,snippet,statistics,player&key=';
+       
         /* Get category list */
         $categories = Category::where('display',1)->get();
 
@@ -66,17 +64,8 @@ class MypageController extends Controller
                 }
             }
         }
-        $results = array();
+        
         foreach ($videos as $video) {
-            $url = $video->url;
-            parse_str(parse_url($url, PHP_URL_QUERY), $youtube);
-            $id = $youtube['v'];
-            $api_url = $BASE_URL . $id . $BASE_PART . $api_key . '';
-            $result = json_decode(file_get_contents($api_url));
-            
-            $result->id = $video->id;
-            $result->category = $video->category_name;
-
             $like = 0;
             if (Auth::user()) {
                 $user_id = Auth::user()->id;
@@ -87,18 +76,12 @@ class MypageController extends Controller
                     $like = 1;
                 }
             }
-            $result->favorite = $like;
-            if (isset($result->items[0])) {
-                $date1 = new DateTime();
-                $date2 = new DateTime($result->items[0]->snippet->publishedAt);
-                $interval = $date2->diff($date1);
-                $result->date_diff = $interval->m;
-                array_push($results, $result);
-            }
+            $video->favorite = $like;
+            
         }
         $array=[
             'categories'    => $categories,
-            'videos'        => $results,
+            'videos'        => $videos,
             'events'        => $events,
             'columns'       => $columns,
             'data_date'     => $data_date,

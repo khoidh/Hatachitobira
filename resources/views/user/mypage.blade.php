@@ -186,25 +186,25 @@
                                     <div class=" item col-xs-12 col-sm-12 col-md-12 col-lg-12 video-detail carousel-item {{ $key == 0  ? 'active' : ''}}">
                                         <div class="wrapper">
                                             <div class="thump">
-                                                <div class="browse-details" data-id='{{$result->id}}' data-user='{{Auth::user() ? Auth::user()->id : "" }}' data-src='{{$result->items[0]->player->embedHtml}}'>
+                                                <div class="browse-details" data-id='{{$result->id}}' data-user='{{Auth::user() ? Auth::user()->id : "" }}' data-src='{{$result->embedHtml}}' data-url="{{$result->url}}">
                                                     <img src="{{ asset('image/video/btn-play.png')}}" alt="" >
                                                     <div class="favorite" data-id='{{$result->id}}' data-user='{{Auth::user() ? Auth::user()->id : "" }}'><i class="fa fa-heart-o {{$result->favorite == 1 ? 'liked' : ''}}"></i></div>
                                                  </div>
                                                 <a href="#">
-                                                    <img class="img-icon" src="{{  $result->items[0]->snippet->thumbnails->medium->url}}" alt="">
+                                                    <img class="img-icon" src="{{  $result->thumbnails}}" alt="">
                                                 </a>
                                             </div>
                                             <div class="description">
                                                 <p>
                                                     <?php 
-                                                        $title = $result->items[0]->snippet->title;
+                                                        $title = $result->title;
                                                         substr($title, 0,10);
                                                         echo $title. '...';
                                                     ?>
                                                 </p>
-                                                <span>{{$result->items[0]->statistics->viewCount}} Views /</span>
-                                                <span>{{ $result->date_diff}} month ago /</span>
-                                                <span>{{$result->category}}</span>
+                                                <span>{{$result->viewCount}} Views /</span>
+                                                <span>{{$result->date_diff}} month ago /</span>
+                                                <span>{{$result->category_name}}</span>
                                              </div>
                                          </div>
                                     </div>
