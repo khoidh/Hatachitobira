@@ -42,37 +42,10 @@ class EventController extends Controller
 
     public function show($id)
     {
-//        $event = Event::find($id);
-//
-//        return view('user.event.show', ['event' => $event]);
-
         $event = Event::find($id);
-        // get previous $event id
-//        $previous = Event::select('id', 'title')->where('id', '<', $event->id)->orderBy('id', 'desc')->first();
-//        if (empty($previous)) {
-//            $previous = $event;
-//        }
-
-        // get next $event id
-//        $next = Event::select('id', 'title')->where('id', '>', $event->id)->orderBy('id', 'asc')->first();
-//        if (empty($next)) {
-//            $next = $event;
-//        }
-
-        // get 6 random records
-//        $events_random = Event::inRandomOrder()->select('id', 'title')->take(6)->get();
-
-        // get 6 nearest records
-//        $events_latest = Event::select('id', 'title')->orderBy('updated_at', 'desc')->take(6)->get();
-
         $data=[
             'event'            => $event,
-//            'previous'         => $previous,
-//            'next'             => $next,
-//            'events_random'    => $events_random,
-//            'events_latest'    => $events_latest,
         ];
-        //////////////// have logged //////////////////////
         $data['user_event_register'] = 0;
         if(Auth::user())
         {
@@ -89,15 +62,6 @@ class EventController extends Controller
             }
 
         }
-
-        $time_now = Carbon::now();
-        $time_from = Carbon::parse($event->started_at);
-        $time_to = Carbon::parse($event->closed_at);
-        $check=$time_now->between($time_from,$time_to);
-        if($check)
-            $data['event_state']=1;
-        else
-            $data['event_state']=0;
         return view('user.event.show',$data);
     }
 

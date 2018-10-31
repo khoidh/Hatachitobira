@@ -12,6 +12,7 @@
     <script src="{{ asset('js/app.js') }}"></script>
 </head>
 <body style="overflow-x: hidden;">
+    
     <header id="myHeader">
         <div class="bx_header">
             <div class="hd_left">
@@ -89,7 +90,9 @@
         </div>
         <!--/.bx_header-->
     </header>
-    <main>
+           
+        
+    <div class="container-fluid top">
         <div class="banner figure">
             <div id="carouseltop" class="carousel slide" data-ride="carousel" data-interval="false">
                 <div class="carousel-inner row mx-auto" role="listbox">
@@ -147,7 +150,7 @@
                     <p class="content-1-title">もうやめない ？</p>
                 </div>
                 <div class="content-1-content">
-                    <div class="cb-path"></div>
+                    <div class="cb-path path-one"></div>
                     
                     <div class="text-my-theme ">
                         <p class="text-detail">学校と社会をつなぐ"ハタチのトビラ"は、将来の選択肢に触れ、マイテーマを探すきっかけを提供します</p>
@@ -170,16 +173,16 @@
                     <p class="movie-top-description">コンセプトムービー</p>
                     <div class="corner-wrapper video">
                         <div class="video-list">
-                            @foreach($results_1 as $key => $result)
+                            @foreach($videos_1 as $key => $result)
                                 @if($key == 0)
                                 <div class="video-detail">
                                     <div class="wrapper">
                                         <div class="thump">
-                                            <div class="browse-details" data-id='{{$result->id}}' data-src='{{$result->items[0]->player->embedHtml}}' data-url = "{{$result->data_url}}">
+                                            <div class="browse-details" data-id='{{$result->id}}' data-src='{{$result->embedHtml}}' data-url = "{{$result->url}}">
                                                 <img src="{{ asset('image/video/btn-play.png')}}" alt="" >
                                             </div>
                                             <a href="#">
-                                                <img class="img-icon" src="{{  $result->items[0]->snippet->thumbnails->medium->url}}" alt="{{$result->items[0]->snippet->title}}">
+                                                <img class="img-icon" src="{{  $result->thumbnails}}" alt="{{$result->title}}">
                                             </a>
                                         </div>
                                     </div>
@@ -231,30 +234,12 @@
                         <div class="row">
                             @foreach($categories as $categorie)
                             <div class="col-md-3 img-cat-sp">
-                                <a href="{{ url('search-category?search='.$categorie->id) }}"><img class="img-cat" src="{{ asset('image/top/img-cate-'.$categorie->id.'.png') }}" alt="{{$categorie->name}}"></a>
+                                <a href="{{ url('search-category?search='.$categorie->id) }}">
+                                    <img class="img-cat" src="{{ asset('image/category/'.$categorie->icon) }}" alt="{{$categorie->name}}">
+                                </a>
                             </div>
                             @endforeach
-                            <!-- <div class="col-md-3 img-cat-sp">
-                                <a href="{{ url('search-category?search=2') }}"><img class="img-cat" src="{{ asset('image/top/img-cate-2.png') }}" alt="サービス"></a>
-                            </div>
-                            <div class="col-md-3 img-cat-sp">
-                                <a href="{{ url('search-category?search=3') }}"><img class="img-cat" src="{{ asset('image/top/img-cate-3.png') }}" alt="テクノロジー"></a>
-                            </div>
-                            <div class="col-md-3 img-cat-sp">
-                                <a href="{{ url('search-category?search=4') }}"><img class="img-cat" src="{{ asset('image/top/img-cate-4.png') }}" alt="モノづくり"></a>
-                            </div>
-                            <div class="col-md-3 img-cat-sp">
-                                <a href="{{ url('search-category?search=5') }}"><img class="img-cat" src="{{ asset('image/top/img-cate-5.png') }}" alt="教育"></a>
-                            </div>
-                            <div class="col-md-3 img-cat-sp">
-                                <a href="{{ url('search-category?search=7') }}"><img class="img-cat" src="{{ asset('image/top/img-cate-6.png') }}" alt="暮らし"></a>
-                            </div>
-                            <div class="col-md-3 img-cat-sp">
-                                <a href="{{ url('search-category?search=6') }}"><img class="img-cat" src="{{ asset('image/top/img-cate-7.png') }}" alt="企業提供講座"></a>
-                            </div>
-                            <div class="col-md-3 img-cat-sp">
-                                <a href="{{ url('search-category?search=8') }}"><img class="img-cat" src="{{ asset('image/top/img-cate-8.png') }}" alt="食"></a>
-                            </div> -->
+                           
                         </div>
                     </div>
                 </div>
@@ -268,16 +253,16 @@
                     <div class="col-md-8">
                         <div class="corner-wrapper video movie-1">
                             <div class="video-list">
-                                @foreach($results_1 as $key => $result)
+                                @foreach($videos_1 as $key => $result)
                                     @if($key == 0)
                                     <div class="video-detail">
                                         <div class="wrapper">
                                             <div class="thump">
-                                                <div class="browse-details" data-id='{{$result->id}}' data-src='{{$result->items[0]->player->embedHtml}}' data-url = "{{$result->data_url}}">
+                                                <div class="browse-details" data-id='{{$result->id}}' data-src='{{$result->embedHtml}}' data-url = "{{$result->url}}">
                                                     <img src="{{ asset('image/video/btn-play.png')}}" alt="" >
                                                 </div>
                                                 <a href="#">
-                                                    <img class="img-icon" src="{{  $result->items[0]->snippet->thumbnails->medium->url}}" alt="{{$result->items[0]->snippet->title}}">
+                                                    <img class="img-icon" src="{{  $result->thumbnails}}" alt="{{$result->title}}">
                                                 </a>
                                             </div>
                                         </div>
@@ -290,16 +275,16 @@
                     <div class="col-md-4 video-movie">
                         <div class="corner-wrapper video movie-2">
                             <div class="video-list">
-                                @foreach($results_1 as $key => $result)
+                                @foreach($videos_1 as $key => $result)
                                     @if($key == 1)
                                     <div class="video-detail">
                                         <div class="wrapper">
                                             <div class="thump">
-                                                <div class="browse-details" data-id='{{$result->id}}' data-src='{{$result->items[0]->player->embedHtml}}' data-url = "{{$result->data_url}}">
+                                                <div class="browse-details" data-id='{{$result->id}}' data-src='{{$result->embedHtml}}' data-url = "{{$result->url}}">
                                                     <img src="{{ asset('image/video/btn-play.png')}}" alt="" >
                                                 </div>
                                                 <a href="#">
-                                                    <img class="img-icon" src="{{  $result->items[0]->snippet->thumbnails->medium->url}}" alt="{{$result->items[0]->snippet->title}}">
+                                                    <img class="img-icon" src="{{  $result->thumbnails}}" alt="{{$result->title}}">
                                                 </a>
                                             </div>
                                         </div>
@@ -310,16 +295,16 @@
                         </div>
                         <div class="corner-wrapper video movie-2">
                             <div class="video-list">
-                                @foreach($results_1 as $key => $result)
+                                @foreach($videos_1 as $key => $result)
                                     @if($key == 2)
                                     <div class="video-detail">
                                         <div class="wrapper">
                                             <div class="thump">
-                                                <div class="browse-details" data-id='{{$result->id}}' data-src='{{$result->items[0]->player->embedHtml}}' data-url = "{{$result->data_url}}">
+                                                <div class="browse-details" data-id='{{$result->id}}' data-src='{{$result->embedHtml}}' data-url = "{{$result->url}}">
                                                     <img src="{{ asset('image/video/btn-play.png')}}" alt="" >
                                                 </div>
                                                 <a href="#">
-                                                    <img class="img-icon" src="{{  $result->items[0]->snippet->thumbnails->medium->url}}" alt="{{$result->items[0]->snippet->title}}">
+                                                    <img class="img-icon" src="{{  $result->thumbnails}}" alt="{{$result->title}}">
                                                 </a>
                                             </div>
                                         </div>
@@ -345,16 +330,16 @@
                     <div class="col-md-8">
                         <div class="corner-wrapper video movie-1">
                             <div class="video-list">
-                                @foreach($results_2 as $key => $result)
+                                @foreach($videos_2 as $key => $result)
                                     @if($key == 0)
                                     <div class="video-detail">
                                         <div class="wrapper">
                                             <div class="thump">
-                                                <div class="browse-details" data-id='{{$result->id}}' data-src='{{$result->items[0]->player->embedHtml}}' data-url = "{{$result->data_url}}">
+                                                <div class="browse-details" data-id='{{$result->id}}' data-src='{{$result->embedHtml}}' data-url = "{{$result->url}}">
                                                     <img src="{{ asset('image/video/btn-play.png')}}" alt="" >
                                                 </div>
                                                 <a href="#">
-                                                    <img class="img-icon" src="{{  $result->items[0]->snippet->thumbnails->medium->url}}" alt="{{$result->items[0]->snippet->title}}">
+                                                    <img class="img-icon" src="{{  $result->thumbnails}}" alt="{{$result->title}}">
                                                 </a>
                                             </div>
                                         </div>
@@ -367,16 +352,16 @@
                     <div class="col-md-4 video-movie">
                         <div class="corner-wrapper video movie-2">
                             <div class="video-list">
-                                @foreach($results_2 as $key => $result)
+                                @foreach($videos_2 as $key => $result)
                                     @if($key == 1)
                                     <div class="video-detail">
                                         <div class="wrapper">
                                             <div class="thump">
-                                                <div class="browse-details" data-id='{{$result->id}}' data-src='{{$result->items[0]->player->embedHtml}}' data-url = "{{$result->data_url}}">
+                                                <div class="browse-details" data-id='{{$result->id}}' data-src='{{$result->embedHtml}}' data-url = "{{$result->url}}">
                                                     <img src="{{ asset('image/video/btn-play.png')}}" alt="" >
                                                 </div>
                                                 <a href="#">
-                                                    <img class="img-icon" src="{{  $result->items[0]->snippet->thumbnails->medium->url}}" alt="{{$result->items[0]->snippet->title}}">
+                                                    <img class="img-icon" src="{{  $result->thumbnails}}" alt="{{$result->title}}">
                                                 </a>
                                             </div>
                                         </div>
@@ -387,16 +372,16 @@
                         </div>
                         <div class="corner-wrapper video movie-2">
                             <div class="video-list">
-                                @foreach($results_2 as $key => $result)
+                                @foreach($videos_2 as $key => $result)
                                     @if($key == 2)
                                     <div class="video-detail">
                                         <div class="wrapper">
                                             <div class="thump">
-                                                <div class="browse-details" data-id='{{$result->id}}' data-src='{{$result->items[0]->player->embedHtml}}' data-url = "{{$result->data_url}}">
+                                                <div class="browse-details" data-id='{{$result->id}}' data-src='{{$result->embedHtml}}' data-url = "{{$result->url}}">
                                                     <img src="{{ asset('image/video/btn-play.png')}}" alt="" >
                                                 </div>
                                                 <a href="#">
-                                                    <img class="img-icon" src="{{  $result->items[0]->snippet->thumbnails->medium->url}}" alt="{{$result->items[0]->snippet->title}}">
+                                                    <img class="img-icon" src="{{  $result->thumbnails}}" alt="{{$result->title}}">
                                                 </a>
                                             </div>
                                         </div>
@@ -483,7 +468,7 @@
         </div>
         @include('includes.footer')
         @include('includes.login') 
-    </main>
+    </div>
 
     <!-- <script src="{{asset('carosel/js/owl.carousel.js')}}"></script> -->
     <script type="text/javascript" charset="utf-8" async defer>
@@ -516,10 +501,8 @@
 
         if (window.innerWidth < 993) {
             header.classList.add("fixed");
-            window.onscroll = function() {
-                if (window.pageYOffset > sticky) {
-                $("body").css('padding-top','100px');}
-            };
+            
+            $("body").css('padding-top','100px');
             $('.navbar.navbar-expand-lg.navbar-light').removeClass('flex-column');
             $('.navbar-nav.mr-auto').removeClass('flex-column');
             $('.bx_header .navbar-nav.mr-auto').append('<li class="nav-item"><a class="nav-link link-append" href="{{url("my-page")}}">マイテーマを見つける</a></li>');
@@ -527,7 +510,6 @@
             $('.bx_header .navbar-nav.mr-auto').css('font-weight','bold');
             $('.bx_header .nav-item').addClass('aaaafixed');
             $('.banner.figure').append('<a class="link-my-page {{Auth::Guest() ? "show-modal-register-mypage" : ""}}" href="{{url("my-page")}}">マイテーマを見つける</a>');
-
 
             $('.dropdown').on('show.bs.dropdown', function() {
                 $(this).find('.dropdown-menu').first().stop(true, true).slideDown();
@@ -545,7 +527,7 @@
                 loop: false,
                 responsive: {
                   0: {
-                    items: 2
+                    items: 3
                   },
                   600: {
                     items: 3
