@@ -69,40 +69,6 @@ class HomeController extends Controller
             ->where('type',1)
             ->get();
 
-        $results_1 = array();
-        $results_2 = array();
-        foreach ($videos_1 as $video)
-        {
-
-            $url = $video->url;
-            parse_str(parse_url($url, PHP_URL_QUERY), $youtube);
-            $id =  $youtube['v'];
-            $api_url = $BASE_URL . $id . $BASE_PART . $api_key . '';
-            $result = json_decode(file_get_contents($api_url));
-            $result->id = $video->id;
-            $result->category = $video->category_name;
-            $result->data_url = $url;
-            if (isset($result->items[0])) {
-                array_push($results_1,$result);
-            }
-        }
-
-        foreach ($videos_2 as $video)
-        {
-
-            $url = $video->url;
-            parse_str(parse_url($url, PHP_URL_QUERY), $youtube);
-            $id =  $youtube['v'];
-            $api_url = $BASE_URL . $id . $BASE_PART . $api_key . '';
-            $result_1 = json_decode(file_get_contents($api_url));
-            $result_1->id = $video->id;
-            $result_1->category = $video->category_name;
-            $result_1->data_url = $url;
-            if (isset($result_1->items[0])) {
-                array_push($results_2,$result_1);
-            }
-        }
-
-        return view('top',compact('columns','events','results_1','results_2','categories'));
+        return view('top',compact('columns','events','videos_1','videos_2','categories'));
     }
 }

@@ -56,26 +56,16 @@
             <div class="event-article-list col-md-12">
                 @foreach($events as $event)
                     <div class="article">
-                        @php
-                            $time_now = Carbon\Carbon::now();
-                            $time_from = Carbon\Carbon::parse($event->started_at);
-                            $time_to = Carbon\Carbon::parse($event->closed_at);
-                            $check=$time_now->between($time_from,$time_to);
-                            if($check)
-                            $event_state="申し込み受付中";
-                            else
-                            $event_state="受付終了";
-                        @endphp
                         <div class="article-status">
                             <hr class="shape-8"/>
                             <img
-                                @if($check)
+                                @if($event->eventstatus == '受付中' || $event->eventstatus == '開催中')
                                     src="{{asset('image/event/event-icon.png')}}" alt="event-icon.png"
                                 @else
                                     src="{{asset('image/event/event-visible-icon.png')}}" alt="event-visible-icon.png"
                                 @endif
                             >
-                            <span style="@if(!$check) left: 20px; color: white !important; @endif">{{$event_state}}</span>
+                            <span style="@if($event->eventstatus == '受付前' || $event->eventstatus == '受付終了'|| $event->eventstatus == '開催終了' ) left: 20px; color: white !important; @endif">{{$event->eventstatus}}</span>
                         </div>
                         <div class="article-content row">
                             <div class="content-left col-md-4">

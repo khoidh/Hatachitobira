@@ -21,8 +21,26 @@
     height: 2px solid;
 }
 
+.container-fluid.my-page {
+    padding: 0
+}
+
+.col-sm-12.item.item-2 {
+    margin-top: 20px;
+}
+
 // My page ======================================
 .my-page {
+
+    .thump {
+        .img-icon {
+            max-height: 200px;
+        }
+    }
+    .fa.fa-heart-o.liked {
+        color: pink !important;
+    }
+
     .event-content {
         padding: 20px 0;
     }
@@ -41,7 +59,7 @@
             max-width: 101px;
             color: #fff;
             font-size: 13px;
-            top: -5px
+            top: -3px
         }
 
         hr {
@@ -158,6 +176,7 @@
                     font-family: $font-family-oswald;
                     font-size: 36px;
                     box-shadow: inset 0 -15px 0 $yellow-color;
+                    
                 }
             }
 
@@ -184,6 +203,7 @@
                     @extend %underline;
                     box-shadow: inset 0 -10px 0 $yellow-color;
                     padding-top: 20px;
+                    
                 }
             }
 
@@ -212,7 +232,10 @@
                 margin-bottom: 20px;
                 border-radius: 10px;
                 height: 236px;
-
+                @include only-for-mobile() {
+                    height: 150px;
+                    font-size: 12px;
+                }
                 >.number {
                     position: absolute !important;
                     z-index: 1;
@@ -221,6 +244,11 @@
                     font-family: Oswald, sans-serif;
                     font-size: 100px;
                     color: $white-color;
+                    @include only-for-mobile() {
+                        left: 4px;
+                        bottom: 10px;
+                        font-size: 50px;
+                    }
                 }
 
                 .mypage-text {
@@ -228,7 +256,9 @@
                     z-index: 2;
                     padding: 24px 24px 16px;
                     text-align: justify;
-
+                    @include only-for-mobile() {
+                        padding: 0
+                    }
                     .edit-input-lable_1,
                     .edit-input-lable, {
                         background: none;
@@ -257,6 +287,10 @@
                     height: 236px;
                     border-radius: 10px;
                     background-size: 100% 100%;
+                    @include only-for-mobile() {
+                        height: 150px;
+                        font-size: 12px;
+                    }
                 }
 
                 .favorite.edit {
@@ -278,6 +312,11 @@
                     line-height: 1;
                     font-size: 24px;
                     color: #ffffff;
+                    @include only-for-mobile() {
+                        left: 16px;
+                        font-size: 12px;
+                        bottom: 50px;
+                    }
                 }
             }
         }
@@ -296,6 +335,7 @@
                 .underline {
                     @extend %underline;
                     box-shadow: inset 0 -10px 0 $yellow-color;
+                    
                 }
             }
 
@@ -409,6 +449,7 @@
                             img {
                                 width: 100%;
                                 border-radius: 10px;
+                                max-height: 180px;
                             }
                         }
 
@@ -477,6 +518,9 @@
                 font-family: $font-family-oswald;
                 font-size: 36px;
                 box-shadow: inset 0 -15px 0 $yellow-color;
+                @include only-for-mobile() {
+                    font-size: 30px;
+                }
             }
         }
 
@@ -485,6 +529,22 @@
 
             .video-content {
                 padding-top: 32px;
+                @include only-for-mobile() {
+                    padding-top: 0;
+                    position: relative;
+                    top: -40px;
+                }
+                
+                .video-list {
+                    @include only-for-mobile() {
+                        padding-right: 0;
+                    }
+                    .carousel-item {
+                        @include only-for-mobile() {
+                            padding-right: 0;
+                        }
+                    }
+                }
 
                 .img {
                     border-radius: 15px;

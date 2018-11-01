@@ -62,7 +62,7 @@
   }
   .requiment-staff .video .cb-path {
     margin-top: 0;
-    top: -70px;
+    top: 10px;
     left: 20px;
   }
   .video-requiment .container{
@@ -203,7 +203,11 @@
 }
 
 @media only screen and (min-width : 369px) {
-
+  .container .cb-path {
+    left: 15px;
+    position: relative;
+    top: 15px;
+  }
 }
 
 /* For tablet */

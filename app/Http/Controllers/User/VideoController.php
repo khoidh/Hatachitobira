@@ -16,40 +16,18 @@ class VideoController extends Controller
 
     public function index(Request $request)
     {
-        /*
-             *  API Youtube information
-             *
-             */
-    //        $api_key = env('YOUTUBE_API_KEY');
-            
-            /**/
 
-        $api_key = 'AIzaSyCHOj6MNDK2YFRLQhK5yKP2KEBIRKHlHuU';
-        $BASE_PART = '&part=id,contentDetails,snippet,statistics,player&key=';
-        $BASE_URL = 'https://www.googleapis.com/youtube/v3/videos?id=';
-        
         $categories = Category::where('display',1)->get();
         $videos = Video::select()
             ->select('videos.*','categories.name as category_name')
             ->join('categories','categories.id','=','videos.category_id')
             ->where('categories.display', 1)
-            ->orderBy('id','desc');
-
+            ->orderBy('id','desc')
+            ->paginate(9);
         
-        /*End filter*/
-        $videos = $videos->get();
-        $results = array();
         foreach ($videos as $video)
         {
 
-            $url = $video->url;
-            parse_str(parse_url($url, PHP_URL_QUERY), $youtube);
-            $id =  $youtube['v'];
-            $api_url = $BASE_URL . $id . $BASE_PART . $api_key . '';
-            $result = json_decode(file_get_contents($api_url));
-            $result->id = $video->id;
-            $result->category = $video->category_name;
-            $result->data_url = $url;
             $like = 0;
             if (Auth::user()) {
                 $user_id = Auth::user()->id;
@@ -60,39 +38,19 @@ class VideoController extends Controller
                     $like =1;
                 }
             }
-            $result->favorite = $like;
-            if (isset($result->items[0])) {
-                $date1 = new DateTime();
-                $date2 = new DateTime($result->items[0]->snippet->publishedAt);
-                $interval = $date2->diff($date1);
-                $result->date_diff = $interval->m;
-                
-                array_push($results,$result);
-            }
+            $video->favorite = $like;
+            $date1 = new DateTime();
+            $date2 = new DateTime($video->publishedAt);
+            $interval = $date2->diff($date1);
+            $video->date_diff = $interval->m;
+
         }
-       
-        /*Pagination */
 
-        $currentPage = LengthAwarePaginator::resolveCurrentPage();
-        $itemCollection = collect($results);
-        /*Sau này sẽ sửa perPage = 9*/
-        $perPage = 9;
-        $currentPageItems = $itemCollection->slice(($currentPage * $perPage) - $perPage, $perPage)->all();
-        $paginatedItems= new LengthAwarePaginator($currentPageItems , count($itemCollection), $perPage);
-        $paginatedItems->setPath('video');
-        /*End pagination*/
-
-        return view('user.video.index', ['videos' => $videos, 'results' => $paginatedItems,'categories'=>$categories]);
-//        return view('user.video.index', ['videos' => $videos, 'results' => $results]);
+        return view('user.video.index', ['videos' => $videos,'categories'=>$categories]);
     }
 
     public function videoSearchCategory(Request $request) {
         $data = $request->all();
-        
-
-        $api_key = 'AIzaSyCHOj6MNDK2YFRLQhK5yKP2KEBIRKHlHuU';
-        $BASE_PART = '&part=id,contentDetails,snippet,statistics,player&key=';
-        $BASE_URL = 'https://www.googleapis.com/youtube/v3/videos?id=';
         
         $categories = Category::where('display',1)->get();
         $videos = Video::select()
@@ -103,20 +61,12 @@ class VideoController extends Controller
             $videos =$videos->where('category_id',$data['category']);
         }
 
-        $videos =$videos->orderBy('id','desc')->get();
+        $videos =$videos->orderBy('id','desc')->paginate(9);
 
         /*End filter*/
-        $results = array();
+        $videos = $videos->get();
         foreach ($videos as $video)
         {
-            $url = $video->url;
-            parse_str(parse_url($url, PHP_URL_QUERY), $youtube);
-            $id =  $youtube['v'];
-            $api_url = $BASE_URL . $id . $BASE_PART . $api_key . '';
-            $result = json_decode(file_get_contents($api_url));
-            $result->id = $video->id;
-            $result->category = $video->category_name;
-            $result->data_url = $url;
             $like = 0;
             if (Auth::user()) {
                 $user_id = Auth::user()->id;
@@ -127,32 +77,18 @@ class VideoController extends Controller
                     $like =1;
                 }
             }
-            $result->favorite = $like;
-            if (isset($result->items[0])) {
-                $date1 = new DateTime();
-                $date2 = new DateTime($result->items[0]->snippet->publishedAt);
-                $interval = $date2->diff($date1);
-                $result->date_diff = $interval->m;
-                array_push($results,$result);
-            }
+            $video->favorite = $like;
+            $date1 = new DateTime();
+            $date2 = new DateTime($video->publishedAt);
+            $interval = $date2->diff($date1);
+            $video->date_diff = $interval->m;
         }
 
-        /*Pagination */
-
-        $currentPage = LengthAwarePaginator::resolveCurrentPage();
-        $itemCollection = collect($results);
-        $perPage = 9;
-        $currentPageItems = $itemCollection->slice(($currentPage * $perPage) - $perPage, $perPage)->all();
-        $paginatedItems= new LengthAwarePaginator($currentPageItems , count($itemCollection), $perPage);
-        $paginatedItems->setPath('video');
-        /*End pagination*/
-        return view('user.video.search', ['results' => $paginatedItems]);
+        return view('user.video.search', ['videos' => $videos]);
     }
 
     public function videoSearchText(Request $request) {
-        $api_key = 'AIzaSyCHOj6MNDK2YFRLQhK5yKP2KEBIRKHlHuU';
-        $BASE_PART = '&part=id,contentDetails,snippet,statistics,player&key=';
-        $BASE_URL = 'https://www.googleapis.com/youtube/v3/videos?id=';
+       
         
         $videos = Video::select()
             ->select('videos.*','categories.name as category_name')
@@ -165,21 +101,18 @@ class VideoController extends Controller
             $videos = $videos->where('category_id',$category_id);
         }
         
+        if($request->description !='')
+        {
+            $description = $request->description;
+            $videos = $videos->where('title','like',"%$description%");
+        }
         
         /*End filter*/
-        $videos = $videos->orderBy('id','desc')->get();
-        $results = array();
+        $videos = $videos->orderBy('id','desc')->paginate(9);
+
         foreach ($videos as $key => $video)
         {
-            $url = $video->url;
-            parse_str(parse_url($url, PHP_URL_QUERY), $youtube);
-            $id =  $youtube['v'];
-            $api_url = $BASE_URL . $id . $BASE_PART . $api_key . '';
-            $result = json_decode(file_get_contents($api_url));
-            $result->id = $video->id;
-            $result->category = $video->category_name;
-            $result->data_url = $url;
-            $like = 0;
+            $like =0;
             if (Auth::user()) {
                 $user_id = Auth::user()->id;
                 $favorite = Favorite::where('user_id',$user_id)
@@ -189,38 +122,15 @@ class VideoController extends Controller
                     $like =1;
                 }
             }
-            $result->favorite = $like;
-            if (isset($result->items[0])) {
-                $date1 = new DateTime();
-                $date2 = new DateTime($result->items[0]->snippet->publishedAt);
-                $interval = $date2->diff($date1);
-                $result->date_diff = $interval->m;
+            $video->favorite = $like;
+            
+            $date1 = new DateTime();
+            $date2 = new DateTime($video->publishedAt);
+            $interval = $date2->diff($date1);
+            $video->date_diff = $interval->m;
 
-                if($request->description != '')
-                {
-                    $description = $request->description;
-                    
-                    // $videos = $videos->where('videos.description','like',"%$description%");
-                    if (stristr($result->items[0]->snippet->title,$description)) {
-                        array_push($results,$result);
-                    }
-                }else {
-                    array_push($results,$result);
-                }
-            }
         }
-       
-        /*Pagination */
-
-        $currentPage = $request->page;
-        $itemCollection = collect($results);
-        /*Sau này sẽ sửa perPage = 9*/
-        $perPage = 9;
-        $currentPageItems = $itemCollection->slice(($currentPage * $perPage) - $perPage, $perPage)->all();
-        $paginatedItems= new LengthAwarePaginator($currentPageItems , count($itemCollection), $perPage);
-        $paginatedItems->setPath('video');
-
-        return view('user.video.search', ['results' => $paginatedItems]);
+        return view('user.video.search', ['videos' => $videos]);
     }
 
     public function favorite(Request $request)

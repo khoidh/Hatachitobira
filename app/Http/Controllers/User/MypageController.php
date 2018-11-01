@@ -4,6 +4,7 @@ namespace App\Http\Controllers\User;
 
 use App\Event;
 use App\Video;
+use App\User_event;
 use App\Category;
 use App\Column;
 use App\Favorite;
@@ -20,9 +21,7 @@ class MypageController extends Controller
 
     public function index()
     {
-        $api_key = 'AIzaSyCHOj6MNDK2YFRLQhK5yKP2KEBIRKHlHuU';
-        $BASE_URL = 'https://www.googleapis.com/youtube/v3/videos?id=';
-        $BASE_PART = '&part=id,contentDetails,snippet,statistics,player&key=';
+       
         /* Get category list */
         $categories = Category::where('display',1)->get();
 
@@ -30,7 +29,7 @@ class MypageController extends Controller
         $user_id = Auth::User()->id;
         
 
-        $favorite_e = Favorite::where('user_id', $user_id)->where('favoritable_type', 'events')->pluck('favoritable_id')->toArray();
+        $favorite_e = User_event::where('user_id', $user_id)->pluck('event_id')->toArray();
         $favorite_c = Favorite::where('user_id', $user_id)->where('favoritable_type', 'columns')->pluck('favoritable_id')->toArray();
         $favorite_v = Favorite::where('user_id', $user_id)->where('favoritable_type', 'videos')->pluck('favoritable_id')->toArray();
 
@@ -66,17 +65,8 @@ class MypageController extends Controller
                 }
             }
         }
-        $results = array();
+        
         foreach ($videos as $video) {
-            $url = $video->url;
-            parse_str(parse_url($url, PHP_URL_QUERY), $youtube);
-            $id = $youtube['v'];
-            $api_url = $BASE_URL . $id . $BASE_PART . $api_key . '';
-            $result = json_decode(file_get_contents($api_url));
-            
-            $result->id = $video->id;
-            $result->category = $video->category_name;
-
             $like = 0;
             if (Auth::user()) {
                 $user_id = Auth::user()->id;
@@ -87,18 +77,12 @@ class MypageController extends Controller
                     $like = 1;
                 }
             }
-            $result->favorite = $like;
-            if (isset($result->items[0])) {
-                $date1 = new DateTime();
-                $date2 = new DateTime($result->items[0]->snippet->publishedAt);
-                $interval = $date2->diff($date1);
-                $result->date_diff = $interval->m;
-                array_push($results, $result);
-            }
+            $video->favorite = $like;
+            
         }
         $array=[
             'categories'    => $categories,
-            'videos'        => $results,
+            'videos'        => $videos,
             'events'        => $events,
             'columns'       => $columns,
             'data_date'     => $data_date,
@@ -106,6 +90,14 @@ class MypageController extends Controller
             'mytheme_first' => $mytheme_first,
         ];
         return view('user.mypage', $array);
+    }
+
+    public function contentCategoryNew(Request $request) {
+        $data = $request->all();
+        $event = Event::where('category_id',$data['category_id'])->first();
+        $videos = Video::where('category_id',$data['category_id'])->first();
+        $column = Column::where('category_id',$data['category_id'])->first();
+        return view('user.mypage_content',compact('event','videos','column'));
     }
 
     public function changeLable(Request $request){
@@ -127,15 +119,18 @@ class MypageController extends Controller
 
     public function changeContent(Request $request) {
         $data = $request->all();
+
         $user_id = Auth::User()->id;
         $data['user_id'] = $user_id;
 
-        $result = Mytheme::where('user_id',$user_id)->where('month',$data['month'])->where('year',$data['year'])->get();
+        $result = Mytheme::where('user_id',$user_id)->where('month',$data['month'])->where('year',$data['year'])->first();
         if ($result) {
+
              Mytheme::where('user_id',$user_id)->where('month',$data['month'])->where('year',$data['year'])->update($data);
             $results = Mytheme::where('user_id',$user_id)->where('month',$data['month'])->where('year',$data['year'])->first();
         }
         else {
+            $data['category_id'] = 1;
             $results= Mytheme::create($data);
         }
         return json_encode($results);
@@ -151,6 +146,7 @@ class MypageController extends Controller
         unset($data['content']);
         $result = Mytheme::where('user_id',$user_id)->where('month',$data['month'])->where('year',$data['year'])->where('category_id',$data['category_id'])->first();
         if ($result) {
+            $data['id'] = $result->id;
             Mytheme::where('user_id',$user_id)->where('month',$data['month'])->where('year',$data['year'])->where('category_id',$data['category_id'])->update($data);
             $results =  Mytheme::where('user_id',$user_id)->where('month',$data['month'])->where('year',$data['year'])->where('category_id',$data['category_id'])->first();
         }

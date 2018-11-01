@@ -46,40 +46,38 @@
             </div>
         </div>
         <div class="row video-list">
-            @forelse($results as $result)
-                @if(isset($result->items[0]))
+            @forelse($videos as $result)
                 <div class="col-lg-4 col-sm-4 col-md-4 video-detail">
                     <div class="wrapper">
                         <div class="thump">
-                            <div class="browse-details" data-id='{{$result->id}}' data-user='{{Auth::user() ? Auth::user()->id : "" }}' data-src='{{$result->items[0]->player->embedHtml}}' data-url = "{{$result->data_url}}">
+                            <div class="browse-details" data-id='{{$result->id}}' data-user='{{Auth::user() ? Auth::user()->id : "" }}' data-src='{{$result->embedHtml}}' data-url = "{{$result->url}}">
                                 <img src="{{ asset('image/video/btn-play.png')}}" alt="" >
                                 <div class="favorite" data-id='{{$result->id}}' data-user='{{Auth::user() ? Auth::user()->id : "" }}'><i class="fa fa-heart-o {{$result->favorite == 1 ? 'liked' : ''}}"></i></div>
                             </div>
                             <a href="#">
-                                <img class="img-icon" src="{{  $result->items[0]->snippet->thumbnails->medium->url}}" alt="">
+                                <img class="img-icon" src="{{  $result->thumbnails}}" alt="">
                             </a>
                         </div>
                         <div class="description">
                             <p>
                                 <?php 
-                                    $title = $result->items[0]->snippet->title;
+                                    $title = $result->title;
                                     substr($title, 0,20);
                                     echo $title. '...';
                                 ?>
                             </p>
-                            <span>{{$result->items[0]->statistics->viewCount}} Views /</span>
+                            <span>{{$result->viewCount}} Views /</span>
                             <span>{{ $result->date_diff }} month ago /</span>
-                            <span>{{$result->category}}</span>
+                            <span>{{$result->category_name}}</span>
                         </div>
                     </div>
                 </div>
-                @endif
             @empty
                 <h4 class="data-not-found">Data not found</h4>
             @endforelse
             <div class="col-md-12 col-lg-12 col-sm-12 col-xm-12 paging text-center clearfix">
                 <ul class="pagination pagination-lg" role="navigation">
-                    @include('includes.pagination', ['paginator' => $results])
+                    @include('includes.pagination', ['paginator' => $videos])
                 </ul>
             </div>
         </div>
@@ -153,12 +151,6 @@
                     url : '{{url("video-search-text?category_id=")}}'+ id +'&page=1&description='+text,
                     success: function (data) {
                         $('.row.video-list').html(data);
-                    },
-                    beforeSend: function () {
-                        $('#modal_loading').modal('show');
-                    },
-                    complete: function () {
-                       $('#modal_loading').modal('hide');
                     }
                 });
             })
@@ -171,14 +163,7 @@
                         url : '{{url("video-search-text?category_id=")}}'+ id +'&page=1&description='+text,
                         success: function (data) {
                             $('.row.video-list').html(data);
-                        },
-                        beforeSend: function () {
-                            $('#modal_loading').modal('show');
-                        },
-                        complete: function () {
-                           $('#modal_loading').modal('hide');
                         }
-                    
                     });
                 }
             })
@@ -191,12 +176,6 @@
                     url : '{{url("video-search-text?category_id=")}}'+ id +'&page=1&description='+text,
                     success: function (data) {
                         $('.row.video-list').html(data);
-                    },
-                    beforeSend: function () {
-                        $('#modal_loading').modal('show');
-                    },
-                    complete: function () {
-                       $('#modal_loading').modal('hide');
                     }
                 
                 });
@@ -209,15 +188,8 @@
                 var page = $(this).attr('href').split('page=')[1];
                 $.ajax({
                     url : '{{url("video-search-text?category_id=")}}'+ id +'&page='+page+'&description='+text,
-
                     success: function (data) {
-                        $('.row.video-list').html(data);
-                    },
-                    beforeSend: function () {
-                        $('#modal_loading').modal('show');
-                    },
-                    complete: function () {
-                       $('#modal_loading').modal('hide');
+                        $('.video-list').html(data);
                     }
                 });
             });

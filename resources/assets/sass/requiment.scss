@@ -1,10 +1,23 @@
-.top .content-1.requiment {
+.requiment-staff {
+    .top {
+        @include only-for-pc(){
+            height: 400px !important;
+        }
+    }
+}
+
+
+.content-1.requiment {
     background: none;
     padding: 0
 }
 
 .container.content-1.requiment .content-1-title {
-    font-size: 36px;
+    @include only-for-pc() {
+        font-size: 36px !important;
+        height: 500px !important;
+        text-align: start !important;
+    }
 }
 
 .requiment-staff .video .cb-path {
@@ -86,7 +99,7 @@
 
 .requiment-staff .requiment-content .content-button a {
     display: inline-block;
-    font-size: 25px;
+    font-size: 16px;
     background: #111;
     padding: 25px 100px;
     color: #fff;
@@ -616,7 +629,7 @@
     }
 
     .container.content-1.requiment .content-1-title {
-        font-size: 20px;
+        font-size: 20px !important;
     }
 
     .navbar-toggler:not(:disabled):not(.disabled) {

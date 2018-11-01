@@ -73,10 +73,10 @@
         <div class="row justify-content-center txt-btn">
             <div class="col-sm-6">
                 @if(Auth::User())
-                    @if($event_state == 0 && $user_event_register == 0)
+                    @if($event->eventstatus != '受付中' && $user_event_register == 0)
                     <button type="submit" class="btn btn-primary btn-lg btn-block" data-toggle="modal" data-target="#modal_show_infor">送信</button>
-                    @elseif($event_state == 0 && $user_event_register == 1)
-                    <button type="submit" class="btn btn-primary btn-lg btn-block" disabled>キャンセル</button> 
+                    @elseif($event->eventstatus != '受付中' && $user_event_register == 1)
+                    <button type="submit" class="btn btn-primary btn-lg btn-block" disabled>キャンセル</button>
                     @else
                         @if($user_event_register == 0)
                         <form class="form-horizontal" action="{{route('event.update')}}" method="POST">

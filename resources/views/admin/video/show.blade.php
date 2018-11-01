@@ -69,6 +69,12 @@
       <input id="ViewCount" value="{{$video->viewCount}}"class="form-control" disabled="">
     </div>
   </div>
+    <div class="form-group row">
+    <label for="PublishedAt" class="col-sm-2 col-form-label">PublishedAt</label>
+    <div class="col-sm-10">
+      <input id="PublishedAt" value="{{$video->publishedAt}}"class="form-control" disabled="">
+    </div>
+  </div>
   <div class="form-group row">
     <label for="Sort" class="col-sm-2 col-form-label">Sort</label>
     <div class="col-sm-10">
