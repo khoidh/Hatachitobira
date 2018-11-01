@@ -9,6 +9,7 @@ class Video extends Model
 
     protected $table = 'videos';
     protected $fillable = ['category_id', 'url', 'description', 'image', 'sort','type'];
+    protected $appends = ['categoryname'];
 
     public function category()
     {
@@ -21,6 +22,12 @@ class Video extends Model
     }
         CONST JOB_SHADOW = 'ジョブシャドウ';
         CONST ROLE_PLAY = 'ロールプレイ';
+
+    public function getCategorynameAttribute(){
+        $category_id = $this->attributes['category_id'];
+        $categoryname =Category::find($category_id);
+        return $categoryname->name;
+    }
 
 }
 

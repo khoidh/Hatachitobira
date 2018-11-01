@@ -4,6 +4,7 @@ namespace App\Http\Controllers\User;
 
 use App\Event;
 use App\Video;
+use App\User_event;
 use App\Category;
 use App\Column;
 use App\Favorite;
@@ -28,7 +29,7 @@ class MypageController extends Controller
         $user_id = Auth::User()->id;
         
 
-        $favorite_e = Favorite::where('user_id', $user_id)->where('favoritable_type', 'events')->pluck('favoritable_id')->toArray();
+        $favorite_e = User_event::where('user_id', $user_id)->pluck('event_id')->toArray();
         $favorite_c = Favorite::where('user_id', $user_id)->where('favoritable_type', 'columns')->pluck('favoritable_id')->toArray();
         $favorite_v = Favorite::where('user_id', $user_id)->where('favoritable_type', 'videos')->pluck('favoritable_id')->toArray();
 
@@ -91,6 +92,14 @@ class MypageController extends Controller
         return view('user.mypage', $array);
     }
 
+    public function contentCategoryNew(Request $request) {
+        $data = $request->all();
+        $event = Event::where('category_id',$data['category_id'])->first();
+        $videos = Video::where('category_id',$data['category_id'])->first();
+        $column = Column::where('category_id',$data['category_id'])->first();
+        return view('user.mypage_content',compact('event','videos','column'));
+    }
+
     public function changeLable(Request $request){
         $data = $request->all();
         $user_id = Auth::User()->id;
@@ -137,6 +146,7 @@ class MypageController extends Controller
         unset($data['content']);
         $result = Mytheme::where('user_id',$user_id)->where('month',$data['month'])->where('year',$data['year'])->where('category_id',$data['category_id'])->first();
         if ($result) {
+            $data['id'] = $result->id;
             Mytheme::where('user_id',$user_id)->where('month',$data['month'])->where('year',$data['year'])->where('category_id',$data['category_id'])->update($data);
             $results =  Mytheme::where('user_id',$user_id)->where('month',$data['month'])->where('year',$data['year'])->where('category_id',$data['category_id'])->first();
         }
