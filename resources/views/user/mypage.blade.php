@@ -124,30 +124,21 @@
             <div class="container group-1">
                 <div class="category row">
                     <strong class="col-sm-10 col-8 category-input">
-                        <select name="category_id" class="cb-category" required="true" autofocus>
+                        <select name="category_id" class="cb-category" id="category_id_value" required="true" autofocus>
                             <option selected disabled>あなたのカテゴリ</option>
-                            {{--@foreach($categories as $category)--}}
-                                {{--<option value="{{$category->id}}">{{$category->name}}</option>--}}
-                            {{--@endforeach--}}
+                            @foreach($categories as $category)
+                                <option value="{{$category->id}}">{{$category->name}}</option>
+                            @endforeach
                         </select>
                     </strong>
                     <span class="col-sm-2 col-4 category-text"><b>の新着</b></span>
                 </div>
 
-                <div class="content-text">
+                <div class="content-text" id="content-text">
                     <div class="col-sm-12 item">
                         <div class="row wrapper">
                             <div class="wrapper-status">
-                                <img
-                                        src="{{asset('image/mypage/mypage-icon.png')}}" alt="column-icon.png"
-                                        {{--@if($column->type == 0)--}}
-                                        {{--src="{{asset('image/column/column-icon.png')}}" alt="column-icon.png"--}}
-                                        {{--@else--}}
-                                        {{--src="{{asset('image/column/column-visible-icon.png')}}" alt="column-visible-icon.png"--}}
-                                        {{--@endif--}}
-                                >
-{{--                                <span style="@if($column->type ==1) left: 25px; @endif">{{$column_state}}</span>--}}
-                                {{--<span style="@if($column->type ==1) left: 25px; @endif">{{$column_state}}</span>--}}
+                                <img  src="{{asset('image/mypage/mypage-icon.png')}}" alt="column-icon.png">
                                 <span>インタビュー</span>
                             </div>
 
@@ -166,7 +157,7 @@
 
                 <div class="row justify-content-center form-group btn-category-list">
                     <div class="col-sm-6 col-sm-offset-3">
-                        <button type="submit" class="btn btn-primary btn-lg btn-block">一覧を見る</button>
+                        <button type="submit" class="btn btn-primary btn-lg btn-block" id="btn_search_category">一覧を見る</button>
                     </div>
                 </div>
             </div>
@@ -290,7 +281,7 @@
             </div>
 
             <div class="item column">
-                <div class="underline column-title">お気に入り記事({{$columns->count()}})</div>
+                <div class="underline column-title">お気に入り記事(<span class="column-count">{{$columns->count()}}</span>)</div>
                 <div class="article-list col-md-12">
                     <div id="carouselExampleevent" class="carousel slide" data-ride="carousel" data-interval="false" data-wrap="false">
                         <div class="carousel-inner row mx-auto" role="listbox">
@@ -323,7 +314,7 @@
                                     </div>
                                     <div class="content-right col-md-8">
                                         <div class="icon-favorite">
-                                            <i class="fa fa-heart-o {{ $column->favorite == 1 ? 'liked' : ''}}" data-id='{{$column->id}}' data-user='{{Auth::user() ? Auth::user()->id : "" }}' style="font-size:24px;"></i>
+                                            <i class="fa fa-heart-o {{ $column->columnliked == 1 ? 'liked' : ''}}" data-id='{{$column->id}}' data-user='{{Auth::user() ? Auth::user()->id : "" }}' style="font-size:24px;"></i>
                                         </div>
                                         <div class="title"><a href="{{route('column.show', $column->id)}}">{{$column->title}}</a> &nbsp;&nbsp; <span style="color: #636B6F;">{{$column->category_name}}</span></div>
                                         <div class="category" style="color: #636B6F;">
@@ -427,6 +418,22 @@
             $('#modal_register').modal('show');
         }
 
+        $(document).on('change','#category_id_value', function(e){
+            var category_id = $(this).val();
+            $.ajax({
+                url: "{{ url('content-category-new?category_id=') }}"+ category_id,
+                success: function (data) {
+                    console.log(data)
+                     $('#content-text').html(data);
+                }
+            })
+        })
+
+        $(document).on('click','#btn_search_category',function(e){
+            e.preventDefault();
+            var category_id = $('#category_id_value').val();
+            window.open("{{ url('search-category?search=') }}"+ category_id,'_blank');
+        })
 
         $(document).on('click','.browse-details .favorite',function(e){
             e.stopPropagation();
@@ -472,8 +479,8 @@
                     },
                     success : function (result){
                          if (result == 'ok') {
-                             _this.find('.fa.fa-heart-o').addClass('liked');
-                             _this.find('.fa.fa-heart-o').css('color','pink');
+                            _this.find('.fa.fa-heart-o').addClass('liked');
+                            _this.find('.fa.fa-heart-o').css('color','pink');
                         }else {
                              _this.find('.fa.fa-heart-o').removeClass('liked');
                              _this.find('.fa.fa-heart-o').css('color','#fff');
@@ -481,7 +488,118 @@
                     }   
                })
             }
+        })
 
+        $(document).on('click','#carouselExample .fa.fa-heart-o',function(e){
+            e.stopPropagation();
+            var idevent = $(this).data('id');
+            var user = $(this).data('user');
+            var _this = $(this);
+            if (user == '') {
+                $html = '';
+                    $html +='<div class="form-group code-top">';
+                        $html +='<div class="col-md-5">';
+                        $html +='<p class="title-register">動画やイベント、あなたの興味のあるものを貯めて、マイテーマを作っていこう！</p>';
+                        $html +='<input type="hidden" name="type" id="type_regiter" value="1">';
+                        $html +='</div>';
+                        $html +='<img src="{{ asset("image/picture1.png") }}">';
+                    $html +='</div>';
+                    $html +='<div class="form-group">';
+                            $html +='<span id="first-name-err" style="color:red;font-size:12px" ></span>';
+                        $html +='<div class="col-md-10 col-md-offset-1" style="text-align: left;">';
+                            $html +='<input class="input-checkbox"  type="checkbox" id="input-check-required">';
+                            $html +='<label class="lblcheckbox"><a class="link-redirect" href="/private-polisy">利用規約</a> と <a class="link-redirect" href="/private-polisy">プライバシーポリシー</a> に同意する </label>';
+                        $html +='</div>';
+                    $html +='</div>';
+                    $html +='<div class="form-group">';
+                        $html +='<div class="col-md-12">';
+                            $html +='<a href="{{ url("/auth/facebook") }}" class="btn btn-primary btn-register"> Facebookで登録</a>';
+                        $html +='</div>';
+                    $html +='</div>';
+                    $html +='<div class="form-group">';
+                        $html +='<div class="col-md-12">';
+                            $html +='<a href="#" class="btn btn-success btn-register btn-register-btn"> メールアドレスで登録</a>';
+                        $html +='</div>';
+                    $html +='</div>';
+                    $('#modal_register').find('.panel-body').html($html);
+                    $('#modal_register').modal('show');
+            }else {
+                $.ajax({
+                    url : '{{route("event.favorite")}}',
+                    type: 'post',
+                    dataType: 'json',
+                    data: {
+                        video_id : idevent,
+                        user_id: user
+                    },
+                    success : function (result){
+                        if (result == 'ok') {
+                            _this.addClass('liked');
+                            _this.css('color','pink');
+                        }else {
+                            _this.removeClass('liked');
+                            _this.css('color','#636B6F');
+                        }
+                    }   
+               })
+            }
+        })
+
+
+        $(document).on('click','#carouselExampleevent .fa.fa-heart-o',function(e){
+            e.stopPropagation();
+            var idevent = $(this).data('id');
+            var user = $(this).data('user');
+            var _this = $(this);
+            if (user == '') {
+                $html = '';
+                    $html +='<div class="form-group code-top">';
+                        $html +='<div class="col-md-5">';
+                        $html +='<p class="title-register">動画やイベント、あなたの興味のあるものを貯めて、マイテーマを作っていこう！</p>';
+                        $html +='<input type="hidden" name="type" id="type_regiter" value="1">';
+                        $html +='</div>';
+                        $html +='<img src="{{ asset("image/picture1.png") }}">';
+                    $html +='</div>';
+                    $html +='<div class="form-group">';
+                            $html +='<span id="first-name-err" style="color:red;font-size:12px" ></span>';
+                        $html +='<div class="col-md-10 col-md-offset-1" style="text-align: left;">';
+                            $html +='<input class="input-checkbox"  type="checkbox" id="input-check-required">';
+                            $html +='<label class="lblcheckbox"><a class="link-redirect" href="/private-polisy">利用規約</a> と <a class="link-redirect" href="/private-polisy">プライバシーポリシー</a> に同意する </label>';
+                        $html +='</div>';
+                    $html +='</div>';
+                    $html +='<div class="form-group">';
+                        $html +='<div class="col-md-12">';
+                            $html +='<a href="{{ url("/auth/facebook") }}" class="btn btn-primary btn-register"> Facebookで登録</a>';
+                        $html +='</div>';
+                    $html +='</div>';
+                    $html +='<div class="form-group">';
+                        $html +='<div class="col-md-12">';
+                            $html +='<a href="#" class="btn btn-success btn-register btn-register-btn"> メールアドレスで登録</a>';
+                        $html +='</div>';
+                    $html +='</div>';
+                    $('#modal_register').find('.panel-body').html($html);
+                    $('#modal_register').modal('show');
+            }else {
+                $.ajax({
+                    url : '{{route("column.favorite")}}',
+                    type: 'post',
+                    dataType: 'json',
+                    data: {
+                        column_id : idevent,
+                        user_id: user
+                    },
+                    success : function (result){
+                        if (result == 'ok') {
+                            _this.addClass('liked');
+                            _this.css('color','pink');
+                        }else {
+                            $('.column-count').text($('.column-count').text() - 1);
+                            _this.parents('.article.carousel-item').next().addClass('active');
+                            _this.parents('.article.carousel-item').remove();
+                        }
+                    }   
+               })
+            }
         })
 
         $(document).on('click','.video .video-list .browse-details', function(e){
@@ -499,6 +617,7 @@
             width: 400,
             height: 400
         }
+
         $(document).on('click', '.social-share', function(event){
             event.preventDefault();
 
@@ -632,6 +751,7 @@
                 }  
             })
         })
+
         $(document).on('focusout','.edit-input-content',function(e){
             var year = $(this).data('year');
             var month = $(this).data('month');
@@ -755,6 +875,7 @@
                 contentType: false,
             });
         })
+
         $(document).on('focusout','.image-description',function(e){
             var formData = new FormData($('#form_information')[0]);
             $.ajax({

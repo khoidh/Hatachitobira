@@ -11,7 +11,7 @@ class Event extends Model
     protected $table = 'events';
     protected $fillable = ['category_id', 'title','content','image', 'sort', 'time_from', 'time_to','started_at','closed_at','address','overview','capacity','entry_fee'];
 
-    protected $appends = ['eventstatus'];
+    protected $appends = ['eventstatus','categoryname'];
 
 
     public function category()
@@ -22,6 +22,12 @@ class Event extends Model
     public function favorites()
     {
         return $this->morphMany('App\Models\favorite','favoritable');
+    }
+
+    public function getCategorynameAttribute(){
+        $category_id = $this->attributes['category_id'];
+        $categoryname =Category::find($category_id);
+        return $categoryname->name;
     }
 
     public function getEventstatusAttribute(){
