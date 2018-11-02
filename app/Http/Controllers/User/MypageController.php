@@ -9,6 +9,7 @@ use App\Category;
 use App\Column;
 use App\Favorite;
 use App\Mytheme;
+use App\UserCategory;
 use DateTime;
 use Date;
 use Illuminate\Pagination\LengthAwarePaginator;
@@ -80,6 +81,17 @@ class MypageController extends Controller
             $video->favorite = $like;
             
         }
+
+        $cat_id = UserCategory::where('user_id',$user_id)->first();
+        $column_cate = array();
+        $event_cate = array();
+        $videos_cate = array();
+        if ($cat_id) {
+            $event_cate = Event::where('category_id',$cat_id->categories_id)->first();
+            $videos_cate = Video::where('category_id',$cat_id->categories_id)->first();
+            $column_cate = Column::where('category_id',$cat_id->categories_id)->first();
+        }
+
         $array=[
             'categories'    => $categories,
             'videos'        => $videos,
@@ -88,15 +100,27 @@ class MypageController extends Controller
             'data_date'     => $data_date,
             'mythemes'      => $mythemes,
             'mytheme_first' => $mytheme_first,
+            'column_cate'   => $column_cate,
+            'event_cate'    => $event_cate,
+            'videos_cate'   => $videos_cate,
+            'cat_id'        => $cat_id,
         ];
         return view('user.mypage', $array);
     }
 
     public function contentCategoryNew(Request $request) {
         $data = $request->all();
-        $event = Event::where('category_id',$data['category_id'])->first();
-        $videos = Video::where('category_id',$data['category_id'])->first();
-        $column = Column::where('category_id',$data['category_id'])->first();
+        $user_id = Auth::user()->id;
+        $cat_id = UserCategory::where('user_id',$user_id)->first();
+        if ($cat_id) {
+            $cat_id->update($data);
+        }else {
+            $data['user_id'] = $user_id ;
+            $results= UserCategory::create($data);
+        }
+        $event = Event::where('category_id',$data['categories_id'])->first();
+        $videos = Video::where('category_id',$data['categories_id'])->first();
+        $column = Column::where('category_id',$data['categories_id'])->first();
         return view('user.mypage_content',compact('event','videos','column'));
     }
 

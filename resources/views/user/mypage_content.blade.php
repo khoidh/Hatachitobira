@@ -17,8 +17,8 @@
                 <img class="image" src="{{file_exists($image)?asset($image): asset('image/column/column_default.jpg')}}" alt="{{$image}}">
             </a>
         </div>
-        <div class="col-sm-8 wrapper-content">
-            <p class="clearfix icon-favorior"><a href="#"><i class="fa fa-heart-o" style="font-size: 24px;"></i></a></p>
+        <div class="col-sm-8 wrapper-content content-column">
+            <p class="clearfix icon-favorior"><i class="fa fa-heart-o" style="font-size: 24px;" data-user = "{{Auth::User()->id}}" data-id = "{{$column->id}}"></i></p>
             <span class="text-title"><b>タイトルが入りますタイトルが入りますタイトルが入りますタイトルが入りますタイトルが入ります</b></span>
             <span class="text-category">#カテゴリ</span>
             <p class="text-date">{{date('Y-m-d', strtotime($column->created_at))}}</p>
@@ -45,8 +45,8 @@
                 <img src="{{file_exists($image)?asset($image): asset('image/event/event_default.jpg')}}" alt="{{$event->title}}">
             </a>
         </div>
-        <div class="col-sm-8 wrapper-content">
-            <p class="clearfix icon-favorior"><a href="#"><i class="fa fa-heart-o" style="font-size: 24px;"></i></a></p>
+        <div class="col-sm-8 wrapper-content content-event">
+            <p class="clearfix icon-favorior"><i class="fa fa-heart-o" style="font-size: 24px;" data-user = "{{Auth::User()->id}}" data-id = "{{$event->id}}"></i></p>
             <span class="text-title"><b><a href="{{route('event.show', $event->id)}}">{{ $event->title }}</a></b></span>
             <span class="text-category">{{ $event->categoryname }}</span>
             <p class="text-date">{{date('Y-m-d', strtotime($event->started_at))}}</p>
@@ -57,16 +57,11 @@
 @if(isset($videos) )
 <div class="col-sm-12 item item-2">
     <div class="row wrapper">
-        <div class="wrapper-status">
-            <img  src="{{asset('image/mypage/mypage-icon.png')}}" alt="column-icon.png">
-            <span></span>
-        </div>
-
         <div class="col-sm-4 wrapper-icon">
             <img src="{{ $videos->thumbnails }}" alt="img-event-1.png">
         </div>
-        <div class="col-sm-8 wrapper-content">
-            <p class="clearfix icon-favorior"><i class="fa fa-heart-o" style="font-size: 24px;"></i></p>
+        <div class="col-sm-8 wrapper-content content-video">
+            <p class="clearfix icon-favorior"><i class="fa fa-heart-o" style="font-size: 24px;" data-user = "{{Auth::User()->id}}" data-id = "{{$videos->id}}"></i></p>
             <span class="text-title"><b>{{ $videos->title }}</b></span>
             <span class="text-category">{{ $videos->categoryname }}</span>
             <p class="text-date">{{ $videos->created_at }}</p>
