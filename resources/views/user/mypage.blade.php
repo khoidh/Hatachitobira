@@ -162,7 +162,7 @@
                                 <div class="col-sm-8 wrapper-content content-column">
                                     <p class="clearfix icon-favorior"><i class="fa fa-heart-o" style="font-size: 24px;" data-user = "{{Auth::User()->id}}" data-id = "{{$column_cate->id}}"></i></p>
                                     <span class="text-title"><b>タイトルが入りますタイトルが入りますタイトルが入りますタイトルが入りますタイトルが入ります</b></span>
-                                    <span class="text-category">#カテゴリ</span>
+                                    <span class="text-category">{{$column_cate->categoryname}}</span>
                                     <p class="text-date">{{date('Y-m-d', strtotime($column_cate->created_at))}}</p>
                                 </div>
                             </div>
@@ -189,7 +189,7 @@
                                 </div>
                                 <div class="col-sm-8 wrapper-content content-event">
                                     <p class="clearfix icon-favorior"><i class="fa fa-heart-o" style="font-size: 24px;" data-user = "{{Auth::User()->id}}" data-id = "{{$event_cate->id}}"></i></p>
-                                    <span class="text-title"><b><a href="{{route('event.show', $event_cate->id)}}">{{ $event_cate->title }}</a></b></span>
+                                    <span class="text-title"><b><a style="color: #111111" href="{{route('event.show', $event_cate->id)}}">{{ $event_cate->title }}</a></b></span>
                                     <span class="text-category">{{ $event_cate->categoryname }}</span>
                                     <p class="text-date">{{date('Y-m-d', strtotime($event_cate->started_at))}}</p>
                                 </div>
@@ -259,7 +259,8 @@
                                          </div>
                                     </div>
                                 @empty
-                                <h4 class="data-not-found">No data found</h4>
+                                <span class="more-detail" style="width: 100%;top: 0;">
+                                <a href="{{url('video')}}" style="color: #111111;"><b>MORE</b><img src="{{asset('image/top/arrow-1.png')}}"></a></span>
                                 @endforelse
                             </div>
                             @if(count($videos) > 1)
@@ -383,7 +384,8 @@
                                 </div>
                             </div>
                             @empty
-                            <h4 class="data-not-found">Data not found</h4>
+                            <span class="more-detail" style="width: 100%;top: 0;">
+                                <a href="{{url('column')}}" style="color: #111111;"><b>MORE</b><img src="{{asset('image/top/arrow-1.png')}}"></a></span>
                             @endforelse
                         </div>
                         @if(count($columns) > 1)
@@ -507,7 +509,7 @@
                     $html +='</div>';
                     $html +='<div class="form-group">';
                             $html +='<span id="first-name-err" style="color:red;font-size:12px" ></span>';
-                        $html +='<div class="col-md-10 col-md-offset-1" style="text-align: left;">';
+                        $html +='<div class="col-md-10 offset-md-1" style="text-align: left;">';
                             $html +='<input class="input-checkbox"  type="checkbox" id="input-check-required">';
                             $html +='<label class="lblcheckbox"><a class="link-redirect" href="/private-polisy">利用規約</a> と <a class="link-redirect" href="/private-polisy">プライバシーポリシー</a> に同意する </label>';
                         $html +='</div>';
@@ -562,7 +564,7 @@
                     $html +='</div>';
                     $html +='<div class="form-group">';
                             $html +='<span id="first-name-err" style="color:red;font-size:12px" ></span>';
-                        $html +='<div class="col-md-10 col-md-offset-1" style="text-align: left;">';
+                        $html +='<div class="col-md-10 offset-md-1" style="text-align: left;">';
                             $html +='<input class="input-checkbox"  type="checkbox" id="input-check-required">';
                             $html +='<label class="lblcheckbox"><a class="link-redirect" href="/private-polisy">利用規約</a> と <a class="link-redirect" href="/private-polisy">プライバシーポリシー</a> に同意する </label>';
                         $html +='</div>';
@@ -618,7 +620,7 @@
                     $html +='</div>';
                     $html +='<div class="form-group">';
                             $html +='<span id="first-name-err" style="color:red;font-size:12px" ></span>';
-                        $html +='<div class="col-md-10 col-md-offset-1" style="text-align: left;">';
+                        $html +='<div class="col-md-10 offset-md-1" style="text-align: left;">';
                             $html +='<input class="input-checkbox"  type="checkbox" id="input-check-required">';
                             $html +='<label class="lblcheckbox"><a class="link-redirect" href="/private-polisy">利用規約</a> と <a class="link-redirect" href="/private-polisy">プライバシーポリシー</a> に同意する </label>';
                         $html +='</div>';

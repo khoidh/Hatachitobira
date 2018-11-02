@@ -9,7 +9,7 @@
                     src="{{asset('image/column/column-visible-icon.png')}}" alt="column-visible-icon.png"
                 @endif
             >
-            <span style="@if($column->type ==1) left: 25px; @endif">{{$column->type == 1 ? 'コラム' : 'インタビュー' }}</span>
+            <span style="@if($column->type ==1) left: 50px; @endif">{{$column->type == 1 ? 'コラム' : 'インタビュー' }}</span>
         </div>
         <div class="col-sm-4 wrapper-icon">
             <a href="{{route('column.show', $column->id)}}" style="text-decoration:none;">
@@ -20,7 +20,7 @@
         <div class="col-sm-8 wrapper-content content-column">
             <p class="clearfix icon-favorior"><i class="fa fa-heart-o" style="font-size: 24px;" data-user = "{{Auth::User()->id}}" data-id = "{{$column->id}}"></i></p>
             <span class="text-title"><b>タイトルが入りますタイトルが入りますタイトルが入りますタイトルが入りますタイトルが入ります</b></span>
-            <span class="text-category">#カテゴリ</span>
+            <span class="text-category">{{ $column->categoryname }}</span>
             <p class="text-date">{{date('Y-m-d', strtotime($column->created_at))}}</p>
         </div>
     </div>
@@ -37,7 +37,7 @@
                     src="{{asset('image/event/event-visible-icon.png')}}" alt="event-visible-icon.png"
                 @endif
             >
-            <span style="@if($event->eventstatus == '受付前' || $event->eventstatus == '受付終了'|| $event->eventstatus == '開催終了' ) left: 20px; color: white !important; @endif">{{$event->eventstatus}}</span>
+            <span style="@if($event->eventstatus == '受付前' || $event->eventstatus == '受付終了'|| $event->eventstatus == '開催終了' ) left: 48px; color: white !important; @endif">{{$event->eventstatus}}</span>
         </div>
         <div class="col-sm-4 wrapper-icon">
             <a href="{{route('event.show', $event->id)}}" style="text-decoration:none;">
