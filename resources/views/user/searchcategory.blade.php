@@ -111,14 +111,14 @@
                             <div class="article carousel-item {{ $key == 0 ? 'active' : ''}}">
                                 <div class="article-status">
                                     <hr class="shape-8"/>
-                                    <img
+                                    <img style="top: -8px;" 
                                         @if($event->eventstatus == '受付中' || $event->eventstatus == '開催中')
                                             src="{{asset('image/event/event-icon.png')}}" alt="event-icon.png"
                                         @else
                                             src="{{asset('image/event/event-visible-icon.png')}}" alt="event-visible-icon.png"
                                         @endif
                                     >
-                                    <span style="@if($event->eventstatus == '受付前' || $event->eventstatus == '受付終了'|| $event->eventstatus == '開催終了' ) left: 20px; color: white !important; @endif">{{$event->eventstatus}}</span>
+                                    <span style="@if($event->eventstatus == '受付前' || $event->eventstatus == '受付終了'|| $event->eventstatus == '開催終了' ) left: 20px;top: -12px; color: white !important;@else color: black !important; @endif">{{$event->eventstatus}}</span>
                                 </div>
                                 <div class="article-content row">
                                     <div class="content-left col-md-4">
@@ -383,7 +383,7 @@
                     $html +='</div>';
                     $html +='<div class="form-group">';
                             $html +='<span id="first-name-err" style="color:red;font-size:12px" ></span>';
-                        $html +='<div class="col-md-10 col-md-offset-1" style="text-align: left;">';
+                        $html +='<div class="col-md-10 offset-md-1" style="text-align: left;">';
                             $html +='<input class="input-checkbox"  type="checkbox" id="input-check-required">';
                             $html +='<label class="lblcheckbox"><a class="link-redirect" href="/private-polisy">利用規約</a> と <a class="link-redirect" href="/private-polisy">プライバシーポリシー</a> に同意する </label>';
                         $html +='</div>';
@@ -439,7 +439,7 @@
                     $html +='</div>';
                     $html +='<div class="form-group">';
                             $html +='<span id="first-name-err" style="color:red;font-size:12px" ></span>';
-                        $html +='<div class="col-md-10 col-md-offset-1" style="text-align: left;">';
+                        $html +='<div class="col-md-10 offset-md-1" style="text-align: left;">';
                             $html +='<input class="input-checkbox"  type="checkbox" id="input-check-required">';
                             $html +='<label class="lblcheckbox"><a class="link-redirect" href="/private-polisy">利用規約</a> と <a class="link-redirect" href="/private-polisy">プライバシーポリシー</a> に同意する </label>';
                         $html +='</div>';
@@ -496,7 +496,7 @@
                     $html +='</div>';
                     $html +='<div class="form-group">';
                             $html +='<span id="first-name-err" style="color:red;font-size:12px" ></span>';
-                        $html +='<div class="col-md-10 col-md-offset-1" style="text-align: left;">';
+                        $html +='<div class="col-md-10 offset-md-1" style="text-align: left;">';
                             $html +='<input class="input-checkbox"  type="checkbox" id="input-check-required">';
                             $html +='<label class="lblcheckbox"><a class="link-redirect" href="/private-polisy">利用規約</a> と <a class="link-redirect" href="/private-polisy">プライバシーポリシー</a> に同意する </label>';
                         $html +='</div>';

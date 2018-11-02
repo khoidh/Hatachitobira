@@ -10,6 +10,8 @@
     <link href="{{ asset('css/top.css') }}" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <script src="{{ asset('js/app.js') }}"></script>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 </head>
 <body style="overflow-x: hidden;">
     
@@ -94,9 +96,10 @@
         
     <div class="container-fluid top">
         <div class="banner figure">
-            <div id="carouseltop" class="carousel slide" data-ride="carousel" data-interval="false">
-                <div class="carousel-inner row mx-auto" role="listbox">
-                    <figure class="carousel-item active">
+            <!-- <div id="carouseltop" class="carousel slide" data-ride="carousel" data-interval="false">
+                <div class="carousel-inner row mx-auto" role="listbox"> -->
+                <div class="slide-top">
+                    <figure class="carousel-item">
                         <img src="{{ asset('image/top/banner.png') }}" alt="楽しもう、背伸びしない自分を">
                         <figcaption>
                             <p class="description">What students want to know,Is it transmitted to real?</p>
@@ -121,8 +124,9 @@
                         </figcaption>
                     </figure>
                 </div>
+                <!-- </div>
                 
-            </div>
+            </div> -->
             <a class="scroll" href="#">SCROLL</a>
         </div>
         <div class="image-top row">
@@ -146,7 +150,7 @@
             <div class="container content-1">
                 <div class="content-title">
                     <p class="content-1-title">何が起きるかわからない</p>
-                    <p class="content-1-title">5年後に悩むのは、</p>
+                    <p class="content-1-title"><span style="writing-mode: horizontal-tb;">5</span>年後に悩むのは、</p>
                     <p class="content-1-title">もうやめない ？</p>
                 </div>
                 <div class="content-1-content">
@@ -540,6 +544,12 @@
            
         }
         $(document).ready(function() {
+
+            $('.slide-top').slick({
+                autoplay: true,
+                arrows: false
+            });
+
             $(document).on('click','.video .video-list .browse-details', function(e){
                 e.preventDefault();
                 var idvideo = $(this).data('id');
@@ -591,7 +601,7 @@
                     $html +='</div>';
                     $html +='<div class="form-group">';
                             $html +='<span id="first-name-err" style="color:red;font-size:12px" ></span>';
-                        $html +='<div class="col-md-10 col-md-offset-1" style="text-align: left;">';
+                        $html +='<div class="col-md-10 offset-md-1" style="text-align: left;">';
                             $html +='<input class="input-checkbox"  type="checkbox" id="input-check-required">';
                             $html +='<label class="lblcheckbox"><a class="link-redirect" href="/private-polisy">利用規約</a> と <a class="link-redirect" href="/private-polisy">プライバシーポリシー</a> に同意する </label>';
                         $html +='</div>';
@@ -642,7 +652,7 @@
                 $html +='</div>';
                 $html +='<div class="form-group">';
                         $html +='<span id="first-name-err" style="color:red;font-size:12px" ></span>';
-                    $html +='<div class="col-md-10 col-md-offset-1" style="text-align: left;">';
+                    $html +='<div class="col-md-10 offset-md-1" style="text-align: left;">';
                         $html +='<input class="input-checkbox"  type="checkbox" id="input-check-required">';
                         $html +='<label class="lblcheckbox"><a class="link-redirect" href="/private-polisy">利用規約</a> と <a class="link-redirect" href="/private-polisy">プライバシーポリシー</a> に同意する </label>';
                     $html +='</div>';

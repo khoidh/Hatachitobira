@@ -4,7 +4,7 @@
             <ul>
                 <li class="li-first"><a href="/">
                     <span>マイテーマ、探そ。</span>
-                    <img src="{{ asset('image/top/logo-fotter.png') }}" alt="">
+                    <img style="max-width: 235px; height: 100%" src="{{ asset('image/top/logo-fotter.png') }}" alt="">
                 </a></li>
             </ul>
         </div>
