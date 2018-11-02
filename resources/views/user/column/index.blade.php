@@ -1,15 +1,7 @@
 @extends('layouts.app')
 
 @section('css-add')
-    {{--<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">--}}
     @parent
-    {{--<style type="text/css">--}}
-        {{--.my-active span {--}}
-            {{--background-color: yellow !important;--}}
-            {{--color: black !important;--}}
-            {{--border-color: yellow !important;--}}
-        {{--}--}}
-    {{--</style>--}}
 @endsection
 @section('title-e', 'Column')
 @section('title-j', 'コラム')
