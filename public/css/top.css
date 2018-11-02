@@ -78,14 +78,15 @@ main {
 }
 
 .banner figure>img {
-    width: 85%;
+    width: 86%;
     height: auto;
+    margin: 0 auto;
 }
 
 .banner figure figcaption {
     position: absolute;
     bottom: 0px;
-    right: 80px;
+    right: 50px;
     line-height: 7;
     text-align: -webkit-auto;
 }

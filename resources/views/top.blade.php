@@ -10,6 +10,8 @@
     <link href="{{ asset('css/top.css') }}" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <script src="{{ asset('js/app.js') }}"></script>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 </head>
 <body style="overflow-x: hidden;">
     
@@ -94,9 +96,10 @@
         
     <div class="container-fluid top">
         <div class="banner figure">
-            <div id="carouseltop" class="carousel slide" data-ride="carousel" data-interval="false">
-                <div class="carousel-inner row mx-auto" role="listbox">
-                    <figure class="carousel-item active">
+            <!-- <div id="carouseltop" class="carousel slide" data-ride="carousel" data-interval="false">
+                <div class="carousel-inner row mx-auto" role="listbox"> -->
+                <div class="slide-top">
+                    <figure class="carousel-item">
                         <img src="{{ asset('image/top/banner.png') }}" alt="楽しもう、背伸びしない自分を">
                         <figcaption>
                             <p class="description">What students want to know,Is it transmitted to real?</p>
@@ -121,8 +124,9 @@
                         </figcaption>
                     </figure>
                 </div>
+                <!-- </div>
                 
-            </div>
+            </div> -->
             <a class="scroll" href="#">SCROLL</a>
         </div>
         <div class="image-top row">
@@ -540,6 +544,12 @@
            
         }
         $(document).ready(function() {
+
+            $('.slide-top').slick({
+                autoplay: true,
+                arrows: false
+            });
+
             $(document).on('click','.video .video-list .browse-details', function(e){
                 e.preventDefault();
                 var idvideo = $(this).data('id');
