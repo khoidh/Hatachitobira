@@ -1478,8 +1478,15 @@ footer .footter-mobile .a-first {
 
 #modal_login .btn-register,
 #modal_register .btn-register {
-  border-radius: 20px;
-  width: 100%;
+  border-radius: 30px;
+  width: 93%;
+  background-color: #353d8d;
+  border-color: #353d8d;
+  padding: 13px;
+}
+
+#modal_register .btn-register:hover {
+  color: #fff;
 }
 
 #modal_login .btn-register.btn-register-btn-1,
@@ -1488,17 +1495,23 @@ footer .footter-mobile .a-first {
   background-color: #fff100;
   color: #000;
   border: 1px solid #fff100;
+  margin-top: -5px;
 }
 
 .modal_register .close {
-  margin-top: -28px;
+  margin-top: -31px;
   background: #fff;
-  width: 33px;
+  width: 45px;
   opacity: 1;
-  border-radius: 13px;
-  border: 1px solid #b5adad;
-  height: 33px;
-  margin-right: -26px;
+  border-radius: 21px;
+  border: 1.5px solid;
+  height: 45px;
+  margin-right: -34px;
+  font-size: 30px;
+}
+
+.modal_register .close:hover {
+  background-color: #fff;
 }
 
 #modal_register .form-group .col-md-7 {
