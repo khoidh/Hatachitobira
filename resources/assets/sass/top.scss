@@ -1,3 +1,8 @@
+body {
+    font-family: sans-serif;
+    font-weight: 400
+}
+
 #myHeader.fixed .navbar-brand p {
     position: absolute;
     left: 200px;
@@ -5,6 +10,9 @@
     font-size: 16px;
 }
 
+.top .thump .img-icon {
+    max-height: 500px !important
+}
 .nav-item .nav-link {
     cursor: pointer;
     font-size: 16px;
@@ -237,6 +245,7 @@
 .top .movie-top-descroption {
     color: #6b6b6b;
     font-family: "Kozuka Gothic Pr6N";
+    margin-right: 15px;
 }
 
 .top a:hover {
@@ -267,6 +276,9 @@
 .top .video-detail {
     margin: 22px 0 16px -12px;
     padding: 0;
+    @include only-for-mobile() {
+        margin: 0;
+    }
 }
 
 .top .container.movie-top-4.content-2 {
@@ -408,6 +420,7 @@
     padding: 22px;
     border-radius: 18px;
     margin-top: -12px;
+    margin-right: 15px;
 }
 
 .top .content-last .text-category.last {
@@ -613,6 +626,10 @@ header.fixed .logo.navbar-brand img {
 .image-top.row .img-detail {
     width: 100%;
     border-radius: 15px;
+
+    @include only-for-mobile() {
+        width: 115%;
+    }
 }
 
 .top .text-my-theme {
@@ -1167,8 +1184,12 @@ footer .footter-mobile .a-first{
     }
 }
 .container-fluid.top {
-    padding: 0 20px !important;
-    margin-top: 100px
+    padding: 0 !important;
+    margin-top: 100px;
+    @include only-for-mobile() {
+        padding: 0 20px !important;
+        margin-top: 0px;
+    }
 }
 
 @media (min-width: 376px) and (max-width: 768px) {

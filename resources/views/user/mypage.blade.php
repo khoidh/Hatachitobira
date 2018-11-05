@@ -2,10 +2,13 @@
 
 @section('css-add')
     @parent
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 @endsection
 @section('title-e', 'MY PAGE')
 @section('title-j', 'マイページ')
 @section('content')
+    
     <div class="container my-page">
         <div class="row my-page-top">
             <div class="col-sm-12 how-to-use">
@@ -230,49 +233,37 @@
                 <span class="underline video-title">お気に入り動画({{count($videos)}})</span>
                 <div class="row video-content video">
                     <div class="row video-list col-md-12">
-                        <div id="carouselExampleevent123" class="carousel slide multi-item-carousel" data-ride="carousel" data-interval="false" data-wrap="false">
-                            <div class="carousel-inner row mx-auto" role="listbox">
-                                @forelse($videos as $key => $result)
-                                    <div class=" item col-xs-12 col-sm-12 col-md-12 col-lg-12 video-detail carousel-item {{ $key == 0  ? 'active' : ''}}">
-                                        <div class="wrapper">
-                                            <div class="thump">
-                                                <div class="browse-details" data-id='{{$result->id}}' data-user='{{Auth::user() ? Auth::user()->id : "" }}' data-src='{{$result->embedHtml}}' data-url="{{$result->url}}">
-                                                    <img src="{{ asset('image/video/btn-play.png')}}" alt="" >
-                                                    <div class="favorite" data-id='{{$result->id}}' data-user='{{Auth::user() ? Auth::user()->id : "" }}'><i class="fa fa-heart-o {{$result->favorite == 1 ? 'liked' : ''}}"></i></div>
-                                                 </div>
-                                                <a href="#">
-                                                    <img class="img-icon" src="{{  $result->thumbnails}}" alt="">
-                                                </a>
-                                            </div>
-                                            <div class="description">
-                                                <p>
-                                                    <?php 
-                                                        $title = $result->title;
-                                                        substr($title, 0,10);
-                                                        echo $title. '...';
-                                                    ?>
-                                                </p>
-                                                <span>{{$result->viewCount}} Views /</span>
-                                                <span>{{$result->date_diff}} month ago /</span>
-                                                <span>{{$result->category_name}}</span>
+                        <div class="carousel-inner carosel-video-list row mx-auto">
+                            @forelse($videos as $key => $result)
+                                <div class=" item col-xs-12 col-sm-12 col-md-12 col-lg-12 video-detail carousel-item {{ $key == 0  ? 'active' : ''}}">
+                                    <div class="wrapper">
+                                        <div class="thump">
+                                            <div class="browse-details" data-id='{{$result->id}}' data-user='{{Auth::user() ? Auth::user()->id : "" }}' data-src='{{$result->embedHtml}}' data-url="{{$result->url}}">
+                                                <img src="{{ asset('image/video/btn-play.png')}}" alt="" >
+                                                <div class="favorite" data-id='{{$result->id}}' data-user='{{Auth::user() ? Auth::user()->id : "" }}'><i class="fa fa-heart-o {{$result->favorite == 1 ? 'liked' : ''}}"></i></div>
                                              </div>
+                                            <a href="#">
+                                                <img class="img-icon" src="{{  $result->thumbnails}}" alt="">
+                                            </a>
+                                        </div>
+                                        <div class="description">
+                                            <p>
+                                                <?php 
+                                                    $title = $result->title;
+                                                    substr($title, 0,10);
+                                                    echo $title. '...';
+                                                ?>
+                                            </p>
+                                            <span>{{$result->viewCount}} Views /</span>
+                                            <span>{{$result->date_diff}} month ago /</span>
+                                            <span>{{$result->category_name}}</span>
                                          </div>
-                                    </div>
-                                @empty
-                                <span class="more-detail" style="width: 100%;top: 0;">
-                                <a href="{{url('video')}}" style="color: #111111;"><b>MORE</b><img src="{{asset('image/top/arrow-1.png')}}"></a></span>
-                                @endforelse
-                            </div>
-                            @if(count($videos) > 1)
-                            <a class="carousel-control-prev" style="display: none;" href="#carouselExampleevent123" role="button" data-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="sr-only">Previous</span>
-                            </a>
-                            <a class="carousel-control-next text-faded" href="#carouselExampleevent123" role="button" data-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="sr-only">Next</span>
-                            </a>
-                            @endif
+                                     </div>
+                                </div>
+                            @empty
+                            <span class="more-detail" style="width: 100%;top: 0;">
+                            <a href="{{url('video')}}" style="color: #111111;"><b>MORE</b><img src="{{asset('image/top/arrow-1.png')}}"></a></span>
+                            @endforelse
                         </div>
                      </div>
                 </div>
@@ -295,7 +286,7 @@
                                                 src="{{asset('image/event/event-visible-icon.png')}}" alt="event-visible-icon.png"
                                             @endif
                                         >
-                                        <span style="@if($event->eventstatus == '受付前' || $event->eventstatus == '受付終了'|| $event->eventstatus == '開催終了' ) left: 20px; color: white !important; @endif">{{$event->eventstatus}}</span>
+                                        <span style="@if($event->eventstatus == '受付前' || $event->eventstatus == '受付終了'|| $event->eventstatus == '開催終了' ) left: 20px; color: white !important;@else color: black !important @endif">{{$event->eventstatus}}</span>
                                     </div>
                                     <div class="article-content row">
                                         <div class="content-left col-md-4">
@@ -435,6 +426,42 @@
 </div>
 <script type="text/javascript" charset="utf-8" async defer>
     $(document).ready(function(){
+
+        $('.carousel-inner.carosel-video-list').slick({
+            infinite: true,
+            slidesToShow: 3,
+            slidesToScroll: 3,
+            infinite: false,
+            nextArrow: '<button type="button" data-role="none" class="slick-next slick-arrow" aria-label="Next" role="button" style="display: block;">></button>',
+            prevArrow: '<button type="button" data-role="none" class="slick-prev slick-arrow" aria-label="Previous" role="button" style="display: block;"><</button>',
+            responsive: [
+            {
+              breakpoint: 1024,
+              settings: {
+                slidesToShow: 3,
+                slidesToScroll: 3,
+                infinite: true,
+                dots: true
+              }
+            },
+            {
+              breakpoint: 600,
+              settings: {
+                slidesToShow: 2,
+                slidesToScroll: 2
+              }
+            },
+            {
+              breakpoint: 480,
+              settings: {
+                slidesToShow: 1,
+                slidesToScroll: 1
+              }
+            }
+            ]
+        });
+
+
         function GetURLParameter(sParam) {
             var sPageURL = window.location.search.substring(1);
             var sURLVariables = sPageURL.split('&');
@@ -493,62 +520,34 @@
             window.open("{{ url('search-category?search=') }}"+ category_id,'_blank');
         })
 
-        $(document).on('click','.browse-details .favorite, .content-video .fa-heart-o',function(e){
+        $(document).on('click','.browse-details .favorite',function(e){
             e.stopPropagation();
             var idvideo = $(this).data('id');
             var user = $(this).data('user');
             var _this = $(this);
-            if (user == '') {
-                $html = '';
-                    $html +='<div class="form-group code-top">';
-                        $html +='<div class="col-md-5">';
-                        $html +='<p class="title-register">動画やイベント、あなたの興味のあるものを貯めて、マイテーマを作っていこう！</p>';
-                        $html +='<input type="hidden" name="type" id="type_regiter" value="1">';
-                        $html +='</div>';
-                        $html +='<img src="{{ asset("image/picture1.png") }}">';
-                    $html +='</div>';
-                    $html +='<div class="form-group">';
-                            $html +='<span id="first-name-err" style="color:red;font-size:12px" ></span>';
-                        $html +='<div class="col-md-10 offset-md-1" style="text-align: left;">';
-                            $html +='<input class="input-checkbox"  type="checkbox" id="input-check-required">';
-                            $html +='<label class="lblcheckbox"><a class="link-redirect" href="/private-polisy">利用規約</a> と <a class="link-redirect" href="/private-polisy">プライバシーポリシー</a> に同意する </label>';
-                        $html +='</div>';
-                    $html +='</div>';
-                    $html +='<div class="form-group">';
-                        $html +='<div class="col-md-12">';
-                            $html +='<a href="{{ url("/auth/facebook") }}" class="btn btn-primary btn-register"> Facebookで登録</a>';
-                        $html +='</div>';
-                    $html +='</div>';
-                    $html +='<div class="form-group">';
-                        $html +='<div class="col-md-12">';
-                            $html +='<a href="#" class="btn btn-success btn-register btn-register-btn"> メールアドレスで登録</a>';
-                        $html +='</div>';
-                    $html +='</div>';
-                    $('#modal_register').find('.panel-body').html($html);
-                    $('#modal_register').modal('show');
-            }else {
-                $.ajax({
-                    url : '{{route("video.favorite")}}',
-                    type: 'post',
-                    dataType: 'json',
-                    data: {
-                        video_id : idvideo,
-                        user_id: user
-                    },
-                    success : function (result){
-                         if (result == 'ok') {
-                            _this.find('.fa.fa-heart-o').addClass('liked');
-                            _this.find('.fa.fa-heart-o').css('color','pink');
-                        }else {
-                             _this.find('.fa.fa-heart-o').removeClass('liked');
-                             _this.find('.fa.fa-heart-o').css('color','#fff');
-                        }
-                    }   
-               })
-            }
+            
+            $.ajax({
+                url : '{{route("video.favorite")}}',
+                type: 'post',
+                dataType: 'json',
+                data: {
+                    video_id : idvideo,
+                    user_id: user
+                },
+                success : function (result){
+                     if (result == 'ok') {
+                        _this.find('.fa.fa-heart-o').addClass('liked');
+                        _this.find('.fa.fa-heart-o').css('color','pink');
+                    }else {
+                        _this.parents('.video-detail.carousel-item').next().addClass('slick-active');
+                        _this.parents('.video-detail.carousel-item').remove();
+                    }
+                }   
+            })
+            
         })
 
-        $(document).on('click','#carouselExample .fa.fa-heart-o, .content-event .fa-heart-o',function(e){
+        $(document).on('click','#carouselExample .fa.fa-heart-o',function(e){
             e.stopPropagation();
             var idevent = $(this).data('id');
             var user = $(this).data('user');
@@ -604,60 +603,32 @@
         })
 
 
-        $(document).on('click','#carouselExampleevent .fa.fa-heart-o, .content-column .fa-heart-o',function(e){
+        $(document).on('click','#carouselExampleevent .fa.fa-heart-o',function(e){
             e.stopPropagation();
             var idevent = $(this).data('id');
             var user = $(this).data('user');
             var _this = $(this);
-            if (user == '') {
-                $html = '';
-                    $html +='<div class="form-group code-top">';
-                        $html +='<div class="col-md-5">';
-                        $html +='<p class="title-register">動画やイベント、あなたの興味のあるものを貯めて、マイテーマを作っていこう！</p>';
-                        $html +='<input type="hidden" name="type" id="type_regiter" value="1">';
-                        $html +='</div>';
-                        $html +='<img src="{{ asset("image/picture1.png") }}">';
-                    $html +='</div>';
-                    $html +='<div class="form-group">';
-                            $html +='<span id="first-name-err" style="color:red;font-size:12px" ></span>';
-                        $html +='<div class="col-md-10 offset-md-1" style="text-align: left;">';
-                            $html +='<input class="input-checkbox"  type="checkbox" id="input-check-required">';
-                            $html +='<label class="lblcheckbox"><a class="link-redirect" href="/private-polisy">利用規約</a> と <a class="link-redirect" href="/private-polisy">プライバシーポリシー</a> に同意する </label>';
-                        $html +='</div>';
-                    $html +='</div>';
-                    $html +='<div class="form-group">';
-                        $html +='<div class="col-md-12">';
-                            $html +='<a href="{{ url("/auth/facebook") }}" class="btn btn-primary btn-register"> Facebookで登録</a>';
-                        $html +='</div>';
-                    $html +='</div>';
-                    $html +='<div class="form-group">';
-                        $html +='<div class="col-md-12">';
-                            $html +='<a href="#" class="btn btn-success btn-register btn-register-btn"> メールアドレスで登録</a>';
-                        $html +='</div>';
-                    $html +='</div>';
-                    $('#modal_register').find('.panel-body').html($html);
-                    $('#modal_register').modal('show');
-            }else {
-                $.ajax({
-                    url : '{{route("column.favorite")}}',
-                    type: 'post',
-                    dataType: 'json',
-                    data: {
-                        column_id : idevent,
-                        user_id: user
-                    },
-                    success : function (result){
-                        if (result == 'ok') {
-                            _this.addClass('liked');
-                            _this.css('color','pink');
-                        }else {
-                            $('.column-count').text($('.column-count').text() - 1);
-                            _this.parents('.article.carousel-item').next().addClass('active');
-                            _this.parents('.article.carousel-item').remove();
-                        }
-                    }   
-               })
-            }
+            
+            $.ajax({
+                url : '{{route("column.favorite")}}',
+                type: 'post',
+                dataType: 'json',
+                data: {
+                    column_id : idevent,
+                    user_id: user
+                },
+                success : function (result){
+                    if (result == 'ok') {
+                        _this.addClass('liked');
+                        _this.css('color','pink');
+                    }else {
+                        $('.column-count').text($('.column-count').text() - 1);
+                        _this.parents('.article.carousel-item').next().addClass('active');
+                        _this.parents('.article.carousel-item').remove();
+                    }
+                }   
+           })
+            
         })
 
         $(document).on('click','.content-video .fa-heart-o',function(e){
@@ -775,7 +746,8 @@
         $(document).on('click','#carouselExample .carousel-control-next',function(){
             if ($('#carouselExample .carousel-inner .carousel-item.active').is(':nth-last-child(2)')) {
                 $('#carouselExample .carousel-control-next').attr('style','display: none !important');
-            }else if ($('#carouselExample .carousel-inner .carousel-item.active').is(':nth-child(1)')){
+            }
+            if ($('#carouselExample .carousel-inner .carousel-item.active').is(':nth-child(1)')){
                 $('#carouselExample .carousel-control-prev').css('display','block');
             }
         })
@@ -783,23 +755,18 @@
         $(document).on('click','#carouselExampleevent .carousel-control-next',function(){
             if ($('#carouselExampleevent .carousel-inner .carousel-item.active').is(':nth-last-child(2)') ) {
                 $('#carouselExampleevent .carousel-control-next').attr('style','display: none !important');
-            }else if ($('#carouselExampleevent .carousel-inner .carousel-item.active').is(':nth-child(1)')){
+            }
+            if ($('#carouselExampleevent .carousel-inner .carousel-item.active').is(':nth-child(1)')){
                 $('#carouselExampleevent .carousel-control-prev').css('display','block');
             }
         })
 
-        $(document).on('click','#carouselExampleevent123 .carousel-control-next',function(){
-            if ($('#carouselExampleevent123 .carousel-inner .carousel-item.active').is(':nth-last-child(2)') ) {
-                $('#carouselExampleevent123 .carousel-control-next').attr('style','display: none !important');
-            }else if ($('#carouselExampleevent123 .carousel-inner .carousel-item.active').is(':nth-child(1)')){
-                $('#carouselExampleevent123 .carousel-control-prev').css('display','block');
-            }
-        })
-
+       
         $(document).on('click','#carouselExample .carousel-control-prev',function(){
             if ($('#carouselExample .carousel-inner .carousel-item.active').is(':nth-last-child(1)')) {
                 $('#carouselExample .carousel-control-next').attr('style','display: block !important');
-            }else if ($('#carouselExample .carousel-inner .carousel-item.active').is(':nth-child(2)')){
+            }
+            if ($('#carouselExample .carousel-inner .carousel-item.active').is(':nth-child(2)')){
                 $('#carouselExample .carousel-control-prev').attr('style','display: none !important');
             }
         })
@@ -807,36 +774,13 @@
         $(document).on('click','#carouselExampleevent .carousel-control-prev',function(){
             if ($('#carouselExampleevent .carousel-inner .carousel-item.active').is(':nth-last-child(1)') ) {
                 $('#carouselExampleevent .carousel-control-next').attr('style','display: block !important');
-            }else if ($('#carouselExampleevent .carousel-inner .carousel-item.active').is(':nth-child(2)')){
+            }
+            if ($('#carouselExampleevent .carousel-inner .carousel-item.active').is(':nth-child(2)')){
                 $('#carouselExampleevent .carousel-control-prev').attr('style','display: none !important');
             }
         })
 
-        $(document).on('click','#carouselExampleevent123 .carousel-control-prev',function(){
-            if ($('#carouselExampleevent123 .carousel-inner .carousel-item.active').is(':nth-last-child(1)') ) {
-                $('#carouselExampleevent123 .carousel-control-next').attr('style','display: block !important');
-            }else if ($('#carouselExampleevent123 .carousel-inner .carousel-item.active').is(':nth-child(2)')){
-                $('#carouselExampleevent123 .carousel-control-prev').attr('style','display: none !important');
-            }
-        })
-
-        if (window.innerWidth > 427) {
-            $('.carousel.multi-item-carousel .carousel-item').each(function(){
-                var next = $(this).next();
-                if (!next.length) {
-                next = $(this).siblings(':first');
-                }
-                next.children(':first-child').clone().appendTo($(this));
-
-                for (var i=0;i<1;i++) {
-                    next=next.next();
-                    if (!next.length) {
-                        next = $(this).siblings(':first');
-                    }
-                    next.children(':first-child').clone().appendTo($(this));
-                  }
-            });
-        }
+        
 
         $(document).on('focusout','.edit-input-lable',function(e){
             var year = $(this).data('year');

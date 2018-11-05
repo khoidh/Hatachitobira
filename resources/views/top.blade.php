@@ -177,22 +177,20 @@
                     <p class="movie-top-description">コンセプトムービー</p>
                     <div class="corner-wrapper video">
                         <div class="video-list">
-                            @foreach($videos_1 as $key => $result)
-                                @if($key == 0)
-                                <div class="video-detail">
-                                    <div class="wrapper">
-                                        <div class="thump">
-                                            <div class="browse-details" data-id='{{$result->id}}' data-src='{{$result->embedHtml}}' data-url = "{{$result->url}}">
-                                                <img src="{{ asset('image/video/btn-play.png')}}" alt="" >
-                                            </div>
-                                            <a href="#">
-                                                <img class="img-icon" src="{{  $result->thumbnails}}" alt="{{$result->title}}">
-                                            </a>
+                            @if($videos->count() > 0)
+                            <div class="video-detail">
+                                <div class="wrapper">
+                                    <div class="thump">
+                                        <div class="browse-details" data-id='{{$videos->id}}' data-src='{{$videos->embedHtml}}' data-url = "{{$videos->url}}">
+                                            <img src="{{ asset('image/video/btn-play.png')}}" alt="" >
                                         </div>
+                                        <a href="#">
+                                            <img class="img-icon" src="{{  $videos->thumbnails}}" alt="{{$videos->title}}">
+                                        </a>
                                     </div>
                                 </div>
-                                @endif
-                            @endforeach
+                            </div>
+                            @endif
                         </div>
 
                         <!-- <iframe width="100%" height="100%" src="https://www.youtube.com/embed/ObwNpMXlmPU" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen="allowfullscreen"></iframe> -->
@@ -405,7 +403,7 @@
             <div class="container movie-top-4 content-2">
                 <div class="cb-path"></div>
                 <p class="movie-top-text">イベントに参加する</p>
-                <div class="event">
+                <div class="event col-md-10">
                     <p class="movie-top-descroption">多様なロールモデルや同世代に出会い、普段のコミュニティでは話にくい"ちょっと真面目な対話"を通じて、マイテーマを考えてみよう</p>
                             
                 </div>
@@ -419,7 +417,7 @@
                     <div class="cb-path"></div>
                     <p class="movie-top-text">ハタチのトビラコラム</p>
                     <p class="movie-top-descroption">マイテーマをみつけるノウハウ、イベントレポート、アラハタ世代の活躍を発信していきます</p>
-                    <div class="content-text">
+                    <div class="content-text col-md-10">
                         @forelse($columns as $key => $column)
                         <div class="item {{$key > 0 ? 'second' : ''}}">
                             <div class="text-category {{ $column->type == 1 ? 'last' : ''}}">{{ $column->type == 1 ?'コラム' :'インタビュー'}}</div>
