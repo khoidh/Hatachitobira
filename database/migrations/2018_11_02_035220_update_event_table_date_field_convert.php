@@ -29,7 +29,10 @@ class UpdateEventTableDateFieldConvert extends Migration
     public function down()
     {
         Schema::table('events', function (Blueprint $table) {
-            //
+            $table->date('started_at')->change();
+            $table->date('closed_at')->change();
+            $table->date('time_to')->change();
+            $table->date('time_from')->change();
         });
     }
 }
