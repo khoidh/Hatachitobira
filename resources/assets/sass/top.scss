@@ -663,6 +663,10 @@ footer .footter-mobile .a-first{
     display: none;
 }
 
+.top span.title-background {
+    background-color: #fff100;
+}
+
 @media (max-width: 376px) {
     header.fixed.headder .navbar.navbar-expand-lg.navbar-light p{
         left: -8px;

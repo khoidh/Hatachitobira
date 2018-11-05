@@ -111,16 +111,16 @@
                         <img src="{{ asset('image/top/banner-1.png') }}" alt="楽しもう、背伸びしない自分を。">
                         <figcaption>
                             <p class="description">What students want to know,Is it transmitted to real?</p>
-                            <p class="title">楽しもう、背伸びしない自分を。</p>
-                            <p class="title">やりたいことって必要なの ？</p>
+                            <p class="title">これからの就活。</p>
+                            <p class="title"><span class="title-background">マイテーマ</span>を軸にする、</p>
                         </figcaption>
                     </figure>
                     <figure class="carousel-item">
                         <img src="{{ asset('image/top/banner-2.png') }}" alt="楽しもう、背伸びしない自分を。">
                         <figcaption>
                             <p class="description">What students want to know,Is it transmitted to real?</p>
-                            <p class="title">楽しもう、背伸びしない自分を。</p>
-                            <p class="title">やりたいことって必要なの ？</p>
+                            <p class="title"><span class="title-background">マイテーマ</span>って何だろう。</p>
+                            <p class="title">オトナって何だろう。</p>
                         </figcaption>
                     </figure>
                 </div>
