@@ -13,8 +13,12 @@
       .container .relative{
         position: relative;
         .info {
-          margin-top: 50px;
           line-height: 95%;
+
+          margin-top: -30px;
+          @include only-for-pc(){
+            margin-top: 50px !important;
+          }
 
           .title-e{
             margin-left: -5px;
