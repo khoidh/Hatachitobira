@@ -127,7 +127,11 @@
                         <select name="category_id" class="cb-category" id="category_id_value" required="true" autofocus>
                             <option selected disabled>あなたのカテゴリ</option>
                             @foreach($categories as $category)
+                                @if(isset($cat_id))
+                                <option value="{{$category->id}}" {{$category->id == $cat_id->categories_id ? 'selected' : ''}} >{{$category->name}}</option>
+                                @else
                                 <option value="{{$category->id}}">{{$category->name}}</option>
+                                @endif
                             @endforeach
                         </select>
                     </strong>
@@ -135,24 +139,79 @@
                 </div>
 
                 <div class="content-text" id="content-text">
-                    <div class="col-sm-12 item">
-                        <div class="row wrapper">
-                            <div class="wrapper-status">
-                                <img  src="{{asset('image/mypage/mypage-icon.png')}}" alt="column-icon.png">
-                                <span>インタビュー</span>
-                            </div>
-
-                            <div class="col-sm-4 wrapper-icon">
-                                <img src="{{asset("image/top/img-event-1.png")}}" alt="img-event-1.png">
-                            </div>
-                            <div class="col-sm-8 wrapper-content">
-                                <p class="clearfix icon-favorior"><a href="#"><i class="fa fa-heart-o" style="font-size: 24px;"></i></a></p>
-                                <span class="text-title"><b>タイトルが入りますタイトルが入りますタイトルが入りますタイトルが入りますタイトルが入ります</b></span>
-                                <span class="text-category">#カテゴリ</span>
-                                <p class="text-date">2018.3.20</p>
+                    @if(isset($cat_id))
+                        @if(isset($column_cate))
+                        <div class="col-sm-12 item">
+                            <div class="row wrapper">
+                                <div class="wrapper-status">
+                                    <img
+                                        @if($column_cate->type == 0)
+                                            src="{{asset('image/column/column-icon.png')}}" alt="column-icon.png"
+                                        @else
+                                            src="{{asset('image/column/column-visible-icon.png')}}" alt="column-visible-icon.png"
+                                        @endif
+                                    >
+                                    <span style="@if($column_cate->type ==1) left: 50px;top: -14px; @endif">{{$column_cate->type == 1 ? 'コラム' : 'インタビュー' }}</span>
+                                </div>
+                                <div class="col-sm-4 wrapper-icon">
+                                    <a href="{{route('column.show', $column_cate->id)}}" style="text-decoration:none;">
+                                        @php $image='image/column/'.$column_cate->image; @endphp
+                                        <img class="image" src="{{file_exists($image)?asset($image): asset('image/column/column_default.jpg')}}" alt="{{$image}}">
+                                    </a>
+                                </div>
+                                <div class="col-sm-8 wrapper-content content-column">
+                                    <p class="clearfix icon-favorior"><i class="fa fa-heart-o" style="font-size: 24px;" data-user = "{{Auth::User()->id}}" data-id = "{{$column_cate->id}}"></i></p>
+                                    <span class="text-title"><b>タイトルが入りますタイトルが入りますタイトルが入りますタイトルが入りますタイトルが入ります</b></span>
+                                    <span class="text-category">{{$column_cate->categoryname}}</span>
+                                    <p class="text-date">{{date('Y-m-d', strtotime($column_cate->created_at))}}</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                        @endif
+                        @if(isset($event_cate))
+                        <div class="col-sm-12 item item-2">
+                            <div class="row wrapper">
+                                <div class="wrapper-status">
+                                    <img
+                                        @if($event_cate->eventstatus == '受付中' || $event_cate->eventstatus == '開催中')
+                                            src="{{asset('image/event/event-icon.png')}}" alt="event-icon.png"
+                                        @else
+                                            src="{{asset('image/event/event-visible-icon.png')}}" alt="event-visible-icon.png"
+                                        @endif
+                                    >
+                                    <span style="@if($event_cate->eventstatus == '受付前' || $event_cate->eventstatus == '受付終了'|| $event_cate->eventstatus == '開催終了' ) left: 48px; top: -15px; color: white !important; @endif">{{$event_cate->eventstatus}}</span>
+                                </div>
+                                <div class="col-sm-4 wrapper-icon">
+                                    <a href="{{route('event.show', $event_cate->id)}}" style="text-decoration:none;">
+                                        @php $image='image/event/'.$event_cate->image; @endphp
+                                        <img src="{{file_exists($image)?asset($image): asset('image/event/event_default.jpg')}}" alt="{{$event_cate->title}}">
+                                    </a>
+                                </div>
+                                <div class="col-sm-8 wrapper-content content-event">
+                                    <p class="clearfix icon-favorior"><i class="fa fa-heart-o" style="font-size: 24px;" data-user = "{{Auth::User()->id}}" data-id = "{{$event_cate->id}}"></i></p>
+                                    <span class="text-title"><b><a style="color: #111111" href="{{route('event.show', $event_cate->id)}}">{{ $event_cate->title }}</a></b></span>
+                                    <span class="text-category">{{ $event_cate->categoryname }}</span>
+                                    <p class="text-date">{{date('Y-m-d', strtotime($event_cate->started_at))}}</p>
+                                </div>
+                            </div>
+                        </div>
+                        @endif
+                        @if(isset($videos_cate))
+                        <div class="col-sm-12 item item-2">
+                            <div class="row wrapper">
+                                <div class="col-sm-4 wrapper-icon">
+                                    <img src="{{ $videos_cate->thumbnails }}" alt="img-event-1.png">
+                                </div>
+                                <div class="col-sm-8 wrapper-content content-video">
+                                    <p class="clearfix icon-favorior"><i class="fa fa-heart-o" style="font-size: 24px;" data-user = "{{Auth::User()->id}}" data-id = "{{$videos_cate->id}}"></i></p>
+                                    <span class="text-title"><b>{{ $videos_cate->title }}</b></span>
+                                    <span class="text-category">{{ $videos_cate->categoryname }}</span>
+                                    <p class="text-date">{{ $videos_cate->created_at }}</p>
+                                </div>
+                            </div>
+                        </div>
+                        @endif
+                    @endif
                 </div>
 
                 <div class="row justify-content-center form-group btn-category-list">
@@ -200,10 +259,11 @@
                                          </div>
                                     </div>
                                 @empty
-                                <h4 class="data-not-found">No data found</h4>
+                                <span class="more-detail" style="width: 100%;top: 0;">
+                                <a href="{{url('video')}}" style="color: #111111;"><b>MORE</b><img src="{{asset('image/top/arrow-1.png')}}"></a></span>
                                 @endforelse
                             </div>
-                            @if(count($videos) > 3)
+                            @if(count($videos) > 1)
                             <a class="carousel-control-prev" style="display: none;" href="#carouselExampleevent123" role="button" data-slide="prev">
                                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                 <span class="sr-only">Previous</span>
@@ -222,61 +282,61 @@
                 <div class="underline event-title">参加したイベント({{$events->count()}})</div>
                 <div class="event-content">
                     <div class="article-list col-md-12">
-                    <div id="carouselExample" class="carousel slide" data-ride="carousel" data-interval="false" data-wrap="false">
-                        <div class="carousel-inner row mx-auto" role="listbox">
-                            @forelse($events as $key => $event)
-                            <div class="article carousel-item {{ $key == 0 ? 'active' : ''}}">
-                                <div class="article-status">
-                                    <hr class="shape-8"/>
-                                    <img
-                                        @if($event->eventstatus == '受付中' || $event->eventstatus == '開催中')
-                                            src="{{asset('image/event/event-icon.png')}}" alt="event-icon.png"
-                                        @else
-                                            src="{{asset('image/event/event-visible-icon.png')}}" alt="event-visible-icon.png"
-                                        @endif
-                                    >
-                                    <span style="@if($event->eventstatus == '受付前' || $event->eventstatus == '受付終了'|| $event->eventstatus == '開催終了' ) left: 20px; color: white !important; @endif">{{$event->eventstatus}}</span>
-                                </div>
-                                <div class="article-content row">
-                                    <div class="content-left col-md-4">
-                                        <a href="{{route('event.show', $event->id)}}" style="text-decoration:none;">
-                                            @php $image='image/event/'.$event->image; @endphp
-                                            <img src="{{file_exists($image)?asset($image): asset('image/event/event_default.jpg')}}" alt="{{$event->title}}">
-                                        </a>
+                        <div id="carouselExample" class="carousel slide" data-ride="carousel" data-interval="false" data-wrap="false">
+                            <div class="carousel-inner row mx-auto" role="listbox">
+                                @forelse($events as $key => $event)
+                                <div class="article carousel-item {{ $key == 0 ? 'active' : ''}}">
+                                    <div class="article-status">
+                                        <hr class="shape-8"/>
+                                        <img
+                                            @if($event->eventstatus == '受付中' || $event->eventstatus == '開催中')
+                                                src="{{asset('image/event/event-icon.png')}}" alt="event-icon.png"
+                                            @else
+                                                src="{{asset('image/event/event-visible-icon.png')}}" alt="event-visible-icon.png"
+                                            @endif
+                                        >
+                                        <span style="@if($event->eventstatus == '受付前' || $event->eventstatus == '受付終了'|| $event->eventstatus == '開催終了' ) left: 20px; color: white !important; @endif">{{$event->eventstatus}}</span>
                                     </div>
-                                    <div class="content-right col-md-8">
-                                        <div class="icon-favorite">
-                                            <i class="fa fa-heart-o {{ $event->favorite == 1 ? 'liked' : ''}}"  data-id='{{$event->id}}' data-user='{{Auth::user() ? Auth::user()->id : "" }}' style="font-size:24px;"></i>
+                                    <div class="article-content row">
+                                        <div class="content-left col-md-4">
+                                            <a href="{{route('event.show', $event->id)}}" style="text-decoration:none;">
+                                                @php $image='image/event/'.$event->image; @endphp
+                                                <img src="{{file_exists($image)?asset($image): asset('image/event/event_default.jpg')}}" alt="{{$event->title}}">
+                                            </a>
                                         </div>
-                                        <div class="title"><a href="{{route('event.show', $event->id)}}">{{$event->title}}</a> &nbsp;&nbsp; <span style="color: #636B6F;">{{$event->category_name}}</span></div>
-                                        <div class="category" style="color: #636B6F;">
-                                            <p>{{$event->category_name}}</p>
-                                        </div>
-                                        <div class="date" >
-                                            <p>{{date('Y-m-d', strtotime($event->started_at))}}</p>
+                                        <div class="content-right col-md-8">
+                                            <div class="icon-favorite">
+                                                <i class="fa fa-heart-o {{ $event->favorite == 1 ? 'liked' : ''}}"  data-id='{{$event->id}}' data-user='{{Auth::user() ? Auth::user()->id : "" }}' style="font-size:24px;"></i>
+                                            </div>
+                                            <div class="title"><a href="{{route('event.show', $event->id)}}">{{$event->title}}</a> &nbsp;&nbsp; <span style="color: #636B6F;">{{$event->category_name}}</span></div>
+                                            <div class="category" style="color: #636B6F;">
+                                                <p>{{$event->category_name}}</p>
+                                            </div>
+                                            <div class="date" >
+                                                <p>{{date('Y-m-d', strtotime($event->started_at))}}</p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
+                                @empty
+                                <p>社会人から話を聞いて、マイテーマ探しをしてみよう</p>
+                                <span class="more-detail" style="width: 100%;top: 0;">
+                                <a href="{{url('event')}}"><b>イベントを探す</b><img src="{{asset('image/top/arrow-1.png')}}"></a></span>
+                                @endforelse
                             </div>
-                            @empty
-                            <p>社会人から話を聞いて、マイテーマ探しをしてみよう</p>
-                    
-                            @endforelse
+                            @if(count($events) > 1)
+                             <a class="carousel-control-prev" style="display: none;" href="#carouselExample" role="button" data-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="carousel-control-next text-faded" href="#carouselExample" role="button" data-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                            @endif
                         </div>
-                        @if(count($columns) > 1)
-                         <a class="carousel-control-prev" style="display: none;" href="#carouselExample" role="button" data-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Previous</span>
-                        </a>
-                        <a class="carousel-control-next text-faded" href="#carouselExample" role="button" data-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Next</span>
-                        </a>
-                        @endif
                     </div>
-                </div>
-                    <span class="more-detail">
-                    <a href="{{url('event')}}"><b>イベントを探す</b><img src="{{asset('image/top/arrow-1.png')}}"></a></span>
+                    
                 </div>
             </div>
 
@@ -317,9 +377,6 @@
                                             <i class="fa fa-heart-o {{ $column->columnliked == 1 ? 'liked' : ''}}" data-id='{{$column->id}}' data-user='{{Auth::user() ? Auth::user()->id : "" }}' style="font-size:24px;"></i>
                                         </div>
                                         <div class="title"><a href="{{route('column.show', $column->id)}}">{{$column->title}}</a> &nbsp;&nbsp; <span style="color: #636B6F;">{{$column->category_name}}</span></div>
-                                        <div class="category" style="color: #636B6F;">
-                                            <p>{{$column->category_name}}</p>
-                                        </div>
                                         <div class="date" style="text-align: right">
                                             <p>{{date('Y-m-d', strtotime($column->created_at))}}</p>
                                         </div>
@@ -327,7 +384,8 @@
                                 </div>
                             </div>
                             @empty
-                            <h4 class="data-not-found">Data not found</h4>
+                            <span class="more-detail" style="width: 100%;top: 0;">
+                                <a href="{{url('column')}}" style="color: #111111;"><b>MORE</b><img src="{{asset('image/top/arrow-1.png')}}"></a></span>
                             @endforelse
                         </div>
                         @if(count($columns) > 1)
@@ -421,7 +479,7 @@
         $(document).on('change','#category_id_value', function(e){
             var category_id = $(this).val();
             $.ajax({
-                url: "{{ url('content-category-new?category_id=') }}"+ category_id,
+                url: "{{ url('content-category-new?categories_id=') }}"+ category_id,
                 success: function (data) {
                     console.log(data)
                      $('#content-text').html(data);
@@ -435,7 +493,7 @@
             window.open("{{ url('search-category?search=') }}"+ category_id,'_blank');
         })
 
-        $(document).on('click','.browse-details .favorite',function(e){
+        $(document).on('click','.browse-details .favorite, .content-video .fa-heart-o',function(e){
             e.stopPropagation();
             var idvideo = $(this).data('id');
             var user = $(this).data('user');
@@ -451,7 +509,7 @@
                     $html +='</div>';
                     $html +='<div class="form-group">';
                             $html +='<span id="first-name-err" style="color:red;font-size:12px" ></span>';
-                        $html +='<div class="col-md-10 col-md-offset-1" style="text-align: left;">';
+                        $html +='<div class="col-md-10 offset-md-1" style="text-align: left;">';
                             $html +='<input class="input-checkbox"  type="checkbox" id="input-check-required">';
                             $html +='<label class="lblcheckbox"><a class="link-redirect" href="/private-polisy">利用規約</a> と <a class="link-redirect" href="/private-polisy">プライバシーポリシー</a> に同意する </label>';
                         $html +='</div>';
@@ -490,7 +548,7 @@
             }
         })
 
-        $(document).on('click','#carouselExample .fa.fa-heart-o',function(e){
+        $(document).on('click','#carouselExample .fa.fa-heart-o, .content-event .fa-heart-o',function(e){
             e.stopPropagation();
             var idevent = $(this).data('id');
             var user = $(this).data('user');
@@ -506,7 +564,7 @@
                     $html +='</div>';
                     $html +='<div class="form-group">';
                             $html +='<span id="first-name-err" style="color:red;font-size:12px" ></span>';
-                        $html +='<div class="col-md-10 col-md-offset-1" style="text-align: left;">';
+                        $html +='<div class="col-md-10 offset-md-1" style="text-align: left;">';
                             $html +='<input class="input-checkbox"  type="checkbox" id="input-check-required">';
                             $html +='<label class="lblcheckbox"><a class="link-redirect" href="/private-polisy">利用規約</a> と <a class="link-redirect" href="/private-polisy">プライバシーポリシー</a> に同意する </label>';
                         $html +='</div>';
@@ -546,7 +604,7 @@
         })
 
 
-        $(document).on('click','#carouselExampleevent .fa.fa-heart-o',function(e){
+        $(document).on('click','#carouselExampleevent .fa.fa-heart-o, .content-column .fa-heart-o',function(e){
             e.stopPropagation();
             var idevent = $(this).data('id');
             var user = $(this).data('user');
@@ -562,7 +620,7 @@
                     $html +='</div>';
                     $html +='<div class="form-group">';
                             $html +='<span id="first-name-err" style="color:red;font-size:12px" ></span>';
-                        $html +='<div class="col-md-10 col-md-offset-1" style="text-align: left;">';
+                        $html +='<div class="col-md-10 offset-md-1" style="text-align: left;">';
                             $html +='<input class="input-checkbox"  type="checkbox" id="input-check-required">';
                             $html +='<label class="lblcheckbox"><a class="link-redirect" href="/private-polisy">利用規約</a> と <a class="link-redirect" href="/private-polisy">プライバシーポリシー</a> に同意する </label>';
                         $html +='</div>';
@@ -600,6 +658,84 @@
                     }   
                })
             }
+        })
+
+        $(document).on('click','.content-video .fa-heart-o',function(e){
+            e.stopPropagation();
+            var idvideo = $(this).data('id');
+            var user = $(this).data('user');
+            var _this = $(this);
+            
+            $.ajax({
+                url : '{{route("video.favorite")}}',
+                type: 'post',
+                dataType: 'json',
+                data: {
+                    video_id : idvideo,
+                    user_id: user
+                },
+                success : function (result){
+                    if (result == 'ok') {
+                        _this.addClass('liked');
+                        _this.css('color','pink');
+                    }else {
+                         _this.removeClass('liked');
+                         _this.css('color','636B6F');
+                    }
+                }   
+           })
+        })
+
+        $(document).on('click','.content-event .fa-heart-o',function(e){
+            e.stopPropagation();
+            var idevent = $(this).data('id');
+            var user = $(this).data('user');
+            var _this = $(this);
+            
+            $.ajax({
+                url : '{{route("event.favorite")}}',
+                type: 'post',
+                dataType: 'json',
+                data: {
+                    video_id : idevent,
+                    user_id: user
+                },
+                success : function (result){
+                    if (result == 'ok') {
+                        _this.addClass('liked');
+                        _this.css('color','pink');
+                    }else {
+                        _this.removeClass('liked');
+                        _this.css('color','#636B6F');
+                    }
+                }   
+           })
+        })
+
+        $(document).on('click','.content-column .fa-heart-o',function(e){
+            e.stopPropagation();
+            var idevent = $(this).data('id');
+            var user = $(this).data('user');
+            var _this = $(this);
+            
+                $.ajax({
+                    url : '{{route("column.favorite")}}',
+                    type: 'post',
+                    dataType: 'json',
+                    data: {
+                        column_id : idevent,
+                        user_id: user
+                    },
+                    success : function (result){
+                        if (result == 'ok') {
+                            _this.addClass('liked');
+                            _this.css('color','pink');
+                        }else {
+                            _this.removeClass('liked');
+                            _this.css('color','#636B6F');
+                        }
+                    }   
+               })
         })
 
         $(document).on('click','.video .video-list .browse-details', function(e){

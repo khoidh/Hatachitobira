@@ -60,7 +60,7 @@
 
 <div id="modal_register" class="modal fade modal_register" role="dialog">
     <div class="modal-dialog" style="margin-top:30px">
-        <div class="modal-content">
+        <div class="modal-content" style="width: 482px;">
             <div class="modal-body" style="text-align:center">
                 <button type="button" id="dismiss-register" class="close" data-dismiss="modal">&times;</button>
                 <div class="panel-body">
@@ -92,7 +92,7 @@
         $html +='</div>';
         $html +='<div class="form-group">';
                 $html +='<span id="first-name-err" style="color:red;font-size:12px" ></span>';
-            $html +='<div class="col-md-10 col-md-offset-1" style="text-align: left;">';
+            $html +='<div class="col-md-10 offset-md-1" style="text-align: left;">';
                 $html +='<input class="input-checkbox"  type="checkbox" id="input-check-required">';
                 $html +='<label class="lblcheckbox"><a class="link-redirect" href="/private-polisy">利用規約</a> と <a class="link-redirect" href="/private-polisy">プライバシーポリシー</a> に同意する </label>';
             $html +='</div>';
