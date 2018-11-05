@@ -142,45 +142,76 @@
     </div>
 
     {{--Thời gian đăng ký--}}
-    <dif class="form-group row">
-        <label for="inputPassword3" class="col-sm-2 col-form-label">登録時間</label>
-        <div class="col-sm-10 row">
-            {{--Start At--}}
-            <div class="col-sm-6">
-                <label for="inputPassword3" class="col-sm-12 col-form-label">Start at </label>
-                <div class="col-sm-12">
-                    <input type="date" class="form-control" name="time_from" required="true">
+    <div class="form-group row">
+        <label for="time_from" class="col-sm-2 col-form-label">登録時間</label>
+        <div class="col-sm-10" style="padding: 0">
+            <div class="row">
+                {{--time_from--}}
+                <div class="col-sm-6">
+                    <label for="time_from" class="col-sm-12 col-form-label">Start at </label>
+                    <div class="col-sm-12">
+                        <div class="row">
+                            <div class="col-sm-7">
+                                <input type="date" class="form-control" name="time_from_date" maxlength="8" required >
+                            </div>
+                            <div class="col-sm-5" style="padding-left: 0; padding-right: 0">
+                                <input type="time" class="form-control" name="time_from_time" required >
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-
-            {{--End At--}}
-            <div class="col-sm-6">
-                <label for="inputPassword3" class="col-sm-12 col-form-label">End at </label>
-                <div class="col-sm-12">
-                    <input type="date" class="form-control" name="time_to" required="true">
+                {{--time_to--}}
+                <div class="col-sm-6">
+                    <label for="time_to" class="col-sm-12 col-form-label">End at </label>
+                    <div class="col-sm-12">
+                        <div class="row">
+                            <div class="col-sm-7">
+                                <input type="date" class="form-control" name="time_to_date" maxlength="8" minlength="8" required="true">
+                            </div>
+                            <div class="col-sm-5" style="padding-left: 0; padding-right: 0">
+                                <input type="time" class="form-control" name="time_to_time" required >
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
 
-    </dif>
+    </div>
     {{--End thời gian đăng ký--}}
 
     {{--Thời gian diễn ra event--}}
     <div class="form-group row">
-        <lable  for="inputPassword3" class="col-sm-2 col-form-lable">日程</lable>
-        <div class="col-sm-10 row">
-            {{--Start At--}}
-            <div class="col-sm-6" >
-                <label for="inputPassword3" class="col-sm-12 col-form-label">Start hour </label>
-                <div class="col-sm-12">
-                    <input type="date" class="form-control" name="started_at" required="true">
+        <lable  for="started_at" class="col-sm-2 col-form-lable">日程</lable>
+        <div class="col-sm-10" style="padding: 0">
+            <div class="row">
+                {{--Start hour--}}
+                <div class="col-sm-6">
+                    <label for="started_at" class="col-sm-12 col-form-label">Start at </label>
+                    <div class="col-sm-12">
+                        <div class="row">
+                            <div class="col-sm-7">
+                                <input type="date" class="form-control" name="started_at_date" maxlength="10" minlength="10" required >
+                            </div>
+                            <div class="col-sm-5" style="padding-left: 0; padding-right: 0">
+                                <input type="time" class="form-control" name="started_at_time" required >
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            {{--End At--}}
-            <div class="col-sm-6">
-                <label for="inputPassword3" class="col-sm-12 col-form-label">Close hour </label>
-                <div class="col-sm-12">
-                    <input type="date" class="form-control" name="closed_at" required="true">
+                {{--Close hour--}}
+                <div class="col-sm-6">
+                    <label for="closed_at" class="col-sm-12 col-form-label">Start at </label>
+                    <div class="col-sm-12">
+                        <div class="row">
+                            <div class="col-sm-7">
+                                <input type="date" class="form-control" name="closed_at_date" maxlength="10" minlength="10" required >
+                            </div>
+                            <div class="col-sm-5" style="padding-left: 0; padding-right: 0">
+                                <input type="time" class="form-control" name="closed_at_time" required >
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
