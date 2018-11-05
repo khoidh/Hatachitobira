@@ -86,6 +86,10 @@
             top: -12px
         }
     }
+    
+    .slick-track {
+        margin-left: 0 !important;
+    }
 
     .article-content {
         margin-top: 30px !important;
@@ -161,7 +165,15 @@
             cursor: auto;
         }
     }
-
+    .favorite.edit.label {
+        i {
+            @include only-for-mobile() {
+                text-indent: 96%;
+                white-space: nowrap;
+                overflow: hidden;
+            }
+        }
+    }
     .info-1 {
         padding: 48px 80px 0 80px;
         @include only-for-mobile() {
@@ -536,6 +548,7 @@
                 }
                 
                 .video-list {
+                    margin-top: 0;
                     @include only-for-mobile() {
                         padding-right: 0;
                     }
@@ -544,6 +557,37 @@
                             padding-right: 0;
                         }
                     }
+                    .slick-track {
+                        margin-top: 30px;
+                    }
+
+                    .slick-prev.slick-arrow ,
+                    .slick-next.slick-arrow{
+                        font-size: 14px;
+                        line-height: 1;
+                        position: absolute;
+                        top: 6%;
+                        display: block;
+                        width: 24px;
+                        height: 25px;
+                        padding: 0px;
+                        right: 48px;
+                        -webkit-transform: translate(0, -50%);
+                        transform: translate(0, -50%);
+                        cursor: pointer;
+                        border: 2px solid;
+                        background: transparent;
+                        color: #111;
+                        border-radius: 50%;
+                        z-index: 999;
+                        font-weight: 1000;
+                    }
+
+                    .slick-next.slick-arrow{
+                        right: 20px;
+                        display: block !important
+                    }
+
                 }
 
                 .img {

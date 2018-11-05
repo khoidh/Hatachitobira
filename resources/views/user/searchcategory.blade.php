@@ -118,7 +118,7 @@
                                             src="{{asset('image/event/event-visible-icon.png')}}" alt="event-visible-icon.png"
                                         @endif
                                     >
-                                    <span style="@if($event->eventstatus == '受付前' || $event->eventstatus == '受付終了'|| $event->eventstatus == '開催終了' ) left: 20px;top: -12px; color: white !important;@else color: black !important; @endif">{{$event->eventstatus}}</span>
+                                    <span style="@if($event->eventstatus == '受付前' || $event->eventstatus == '受付終了'|| $event->eventstatus == '開催終了' ) left: 20px;top: -12px; color: white !important;@else top: -11px;left: 12px; color: black !important; @endif">{{$event->eventstatus}}</span>
                                 </div>
                                 <div class="article-content row">
                                     <div class="content-left col-md-4">
