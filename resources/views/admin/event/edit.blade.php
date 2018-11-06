@@ -54,8 +54,6 @@
             left: 25px;
         }
     </style>
-
-
 @endsection
 @section('javascrip')
     <script src= "{{asset("vendor/unisharp/laravel-ckeditor/ckeditor.js")}}"></script>
