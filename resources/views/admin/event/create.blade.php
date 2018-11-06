@@ -276,6 +276,7 @@
     <div class="form-group has-icon row">
         <lable class="col-sm-2 col-form-lable">定員</lable>
         <div class="col-sm-10">
+            <span class="fa fa-users form-control-feedback" ></span>
             <input type="number" class="form-control" name="capacity" placeholder="定員"
                    min="0" max="1000000"
                    onkeypress="return (event.charCode == 8 || event.charCode == 0 || event.charCode == 13) ? null : event.charCode >= 48 && event.charCode <= 57"
