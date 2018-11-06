@@ -11,6 +11,105 @@
     display: inline;
 }
 
+
+.mypage {
+
+    /* ========== Style title màu vàng     =========== */
+    .main {
+        min-height: 175px;
+        margin-bottom: 30px;
+
+        @include only-for-mobile() {
+            min-height: 75px;
+        }
+
+        .title-lx {
+            font-family: Oswald, sans-serif;
+            background: #fff100;
+            color: #fffa9d;
+            display: block;
+            font-size: 120px !important;
+            min-height: 175px;
+            width: 100%;
+            z-index: 111;
+            height: 100%;
+
+            @include only-for-mobile() {
+                height: 120px;
+                min-height: unset;
+            }
+
+            .container .relative {
+                position: relative;
+
+                .info {
+                    margin-top: 50px;
+                    line-height: 95%;
+
+                    @include only-for-mobile() {
+                        margin-top: 85px;
+                        line-height: 1.5;
+                    }
+
+                    .title-e {
+                        margin-left: -5px;
+                        @include only-for-mobile() {
+                            position: relative;
+                            top: -140px;
+                            font-size: 85px;
+                        }
+                    }
+
+                    .absolute {
+                        font-family: $font-family-sans-serif !important;
+                        font-size: 20px;
+                        position: absolute;
+                        color: #111;
+
+                        bottom: -27px;
+                        font-weight: bold;
+                        
+                        @include only-for-mobile() {
+                            bottom: 123px;
+
+                        }
+
+                        p {
+                            font-size: 35px;
+                            letter-spacing: 10px;
+                            line-height: 120%;
+                        }
+
+                        .title-j {
+                            display: inline-block;
+                            background: #000000;
+                            /* ========== sp =========== */
+                            letter-spacing: 0px;
+
+                            /* ========== pc =========== */
+                            @include only-for-pc() {
+                                letter-spacing: 10px;
+                            }
+
+                            color: white;
+                            line-height: 30px;
+                        }
+                    }
+
+                    @include only-for-pc() {
+                        /* note: @content begins here */
+                    }
+
+                    /* @content ends */
+                }
+            }
+        }
+    }
+
+    /* ========== End style title màu vàng =========== */
+
+}
+
 // Đường gạch ngang =============================
 %shape-8 {
     width: 100%;
@@ -31,7 +130,9 @@
 
 // My page ======================================
 .my-page {
-
+    .article-list.col-md-12 {
+        padding-left: 0 !important
+    }
     .thump {
         .img-icon {
             max-height: 200px;
@@ -92,7 +193,6 @@
     }
 
     .article-content {
-        margin-top: 30px !important;
 
         .content-left {
             img {
@@ -127,7 +227,7 @@
             }
         }
     }
-   
+    
 
     @include standard-font();
     color: $text2-color;
@@ -165,12 +265,13 @@
             cursor: auto;
         }
     }
-    .favorite.edit.label {
+    .favorite.edit {
         i {
-            @include only-for-mobile() {
-                text-indent: 96%;
-                white-space: nowrap;
-                overflow: hidden;
+            span {
+
+                @include only-for-mobile() {
+                    display: none;
+                }
             }
         }
     }
@@ -576,8 +677,8 @@
                         transform: translate(0, -50%);
                         cursor: pointer;
                         border: 2px solid;
-                        background: transparent;
-                        color: #111;
+                        background: #111;
+                        color: #fff;
                         border-radius: 50%;
                         z-index: 999;
                         font-weight: 1000;
@@ -665,7 +766,6 @@
                 }
 
                 .article-content {
-                    padding-top: 8px;
                     @include title-font();
 
                     img {

@@ -7,6 +7,26 @@
 @endsection
 @section('title-e', 'MY PAGE')
 @section('title-j', 'マイページ')
+@section('main')
+    <div class="container-fluid mypage">
+        <div class="main row">
+            <div class="title-lx">
+                <div class="container">
+                    <div class="relative row">
+                        <div class="info col-md-12">
+                            <span class="title-e">@yield('title-e','MY PAGE')</span>
+                            <div class="absolute">
+                                <p style="margin-bottom: 0">@yield('title-black')</p>
+                                <p style="margin-bottom: 0"><span class="title-j"> @yield('title-j','タートル')</span>@yield('title-blackspan')</p>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+@endsection
 @section('content')
     
     <div class="container my-page">
@@ -73,7 +93,7 @@
                                         data-category = "{{isset($mythemes[$i]->category_id) ? $mythemes[$i]->category_id : $key}}" 
                                         data-id = "{{isset($mythemes[$i]->id) ? $mythemes[$i]->id : ''}}"
                                     >
-                                        Edit</i>
+                                        <span>Edit</span></i>
                                 </div>
                             </div>
                         </div>
@@ -89,7 +109,7 @@
                                             data-year="{{isset($mythemes['9']->year) ? $mythemes['9']->year : $data_date['year']}}" 
                                             data-category = "{{isset($mythemes['9']->category_id) ? $mythemes['9']->category_id : '9'}}" 
                                             data-id = "{{isset($mythemes['9']->id) ? $mythemes['9']->id : ''}}"
-                                        >Edit</i>
+                                        ><span>Edit</span></i>
                                     </div>
                                 </div>
                             </div>
@@ -164,7 +184,7 @@
                                 </div>
                                 <div class="col-sm-8 wrapper-content content-column">
                                     <p class="clearfix icon-favorior"><i class="fa fa-heart-o" style="font-size: 24px;" data-user = "{{Auth::User()->id}}" data-id = "{{$column_cate->id}}"></i></p>
-                                    <span class="text-title"><b>タイトルが入りますタイトルが入りますタイトルが入りますタイトルが入りますタイトルが入ります</b></span>
+                                    <span class="text-title"><b><a style="color: #111" href="{{route('column.show', $column_cate->id)}}">{{$column_cate->title}}</a></b></span>
                                     <span class="text-category">{{$column_cate->categoryname}}</span>
                                     <p class="text-date">{{date('Y-m-d', strtotime($column_cate->created_at))}}</p>
                                 </div>
@@ -200,7 +220,7 @@
                         </div>
                         @endif
                         @if(isset($videos_cate))
-                        <div class="col-sm-12 item item-2">
+                        <div class="col-sm-12 item item-2 video-category" data-src='{{$videos_cate->embedHtml}}' data-url="{{$videos_cate->url}}" style="cursor: pointer;">
                             <div class="row wrapper">
                                 <div class="col-sm-4 wrapper-icon">
                                     <img src="{{ $videos_cate->thumbnails }}" alt="img-event-1.png">
@@ -360,7 +380,7 @@
                                     <div class="content-left col-md-4">
                                         <a href="{{route('column.show', $column->id)}}" style="text-decoration:none;">
                                             @php $image='image/column/'.$column->image; @endphp
-                                            <img src="{{file_exists($image)?asset($image): asset('image/column/event_default.jpg')}}" alt="{{$column->title}}">
+                                            <img src="{{file_exists($image)?asset($image): asset('image/column/column_default.jpg')}}" alt="{{$column->title}}">
                                         </a>
                                     </div>
                                     <div class="content-right col-md-8">
@@ -709,9 +729,8 @@
                })
         })
 
-        $(document).on('click','.video .video-list .browse-details', function(e){
+        $(document).on('click','.video .video-list .browse-details,.video-category', function(e){
             e.preventDefault();
-            var idvideo = $(this).data('id');
             var src = $(this).data('src');
             var url = $(this).data('url');
             $('#modal_video .twitter').attr('href','https://twitter.com/intent/tweet?url='+url);

@@ -242,10 +242,26 @@ body {
     font-family: "Myriad Pro";
 }
 
+.top .content-last .content-text.col-md-10,
+.top .event.col-md-10 {
+    @include only-for-mobile() {
+        padding: 0;
+    }
+}
+
+.top .content-last .content-text.col-md-10 {
+    @include only-for-mobile() {
+        margin-left: 12px;
+    }
+}
+
 .top .movie-top-descroption {
     color: #6b6b6b;
     font-family: "Kozuka Gothic Pr6N";
     margin-right: 15px;
+    @include only-for-mobile() {
+        margin-right: 0;
+    }
 }
 
 .top a:hover {
@@ -421,6 +437,9 @@ body {
     border-radius: 18px;
     margin-top: -12px;
     margin-right: 15px;
+    @include only-for-mobile() {
+        margin-right: 0px;
+    }
 }
 
 .top .content-last .text-category.last {
@@ -482,6 +501,7 @@ body {
 
 .top .content-last .content-text {
     margin-top: 28px;
+    padding-left: 0
 }
 
 .top .content-last .second {
@@ -508,7 +528,7 @@ body {
 
 .top .button-link .link-my-page{
     top: 0;
-    border-radius: 25px;
+    border-radius: 30px;
 }
 .top .button-link .link-my-page:hover{
     color: #fff;
@@ -1151,7 +1171,7 @@ footer .footter-mobile .a-first{
 
     .link-my-page {
         left: 10px;
-        padding: 13px 75px;
+        padding: 25px 20%;
     }
 }
 
@@ -1207,7 +1227,7 @@ footer .footter-mobile .a-first{
 
     .top .movie-top-3 {
         position: relative;
-        top: 100px;
+        top: -105px;
     }
 
     .top .movie-top-1,
@@ -1272,11 +1292,13 @@ footer .footter-mobile .a-first{
     background: #fff;
     width: 45px;
     opacity: 1;
-    border-radius: 21px;
+    border-radius: 50%;
     border: 1.5px solid;
     height: 45px;
     margin-right: -34px;
     font-size: 30px;
+    text-align: center;
+    line-height: 44px;
 }
 
 .modal_register .close:hover {

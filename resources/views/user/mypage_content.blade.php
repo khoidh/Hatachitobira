@@ -19,7 +19,7 @@
         </div>
         <div class="col-sm-8 wrapper-content content-column">
             <p class="clearfix icon-favorior"><i class="fa fa-heart-o" style="font-size: 24px;" data-user = "{{Auth::User()->id}}" data-id = "{{$column->id}}"></i></p>
-            <span class="text-title"><b>タイトルが入りますタイトルが入りますタイトルが入りますタイトルが入りますタイトルが入ります</b></span>
+            <span class="text-title"><b><a style="color: #111" href="{{route('column.show', $column->id)}}">{{$column->title}}</a></b></span>
             <span class="text-category">{{ $column->categoryname }}</span>
             <p class="text-date">{{date('Y-m-d', strtotime($column->created_at))}}</p>
         </div>
@@ -47,7 +47,7 @@
         </div>
         <div class="col-sm-8 wrapper-content content-event">
             <p class="clearfix icon-favorior"><i class="fa fa-heart-o" style="font-size: 24px;" data-user = "{{Auth::User()->id}}" data-id = "{{$event->id}}"></i></p>
-            <span class="text-title"><b><a href="{{route('event.show', $event->id)}}">{{ $event->title }}</a></b></span>
+            <span class="text-title"><b><a style="color: #111" href="{{route('event.show', $event->id)}}">{{ $event->title }}</a></b></span>
             <span class="text-category">{{ $event->categoryname }}</span>
             <p class="text-date">{{date('Y-m-d', strtotime($event->started_at))}}</p>
         </div>
@@ -55,7 +55,7 @@
 </div>
 @endif
 @if(isset($videos) )
-<div class="col-sm-12 item item-2">
+<div class="col-sm-12 item item-2 video-category" data-src='{{$videos->embedHtml}}' data-url="{{$videos->url}}" style="cursor: pointer;">
     <div class="row wrapper">
         <div class="col-sm-4 wrapper-icon">
             <img src="{{ $videos->thumbnails }}" alt="img-event-1.png">

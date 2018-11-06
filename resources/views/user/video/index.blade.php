@@ -203,7 +203,7 @@
                     $html = '';
                     $html +='<div class="form-group code-top">';
                         $html +='<div class="col-md-5">';
-                        $html +='<p class="title-register">動画やイベント、あなたの興味のあるものを貯めて、マイテーマを作っていこう！</p>';
+                        $html +='<p class="title-register">イベント参加・個人ページの利用は会員限定です。さあ、マイテーマを探そ</p>';
                         $html +='<input type="hidden" name="type" id="type_regiter" value="1">';
                         $html +='</div>';
                         $html +='<img src="{{ asset("image/picture1.png") }}">';
