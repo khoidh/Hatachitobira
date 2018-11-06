@@ -61,7 +61,7 @@
                     $html = '';
                     $html +='<div class="form-group code-top">';
                     $html +='<div class="col-md-5">';
-                    $html +='<p class="title-register-mypage">お気に入りorイベント申し込みは社員限定機能です。動画やイベント、あなたの興味のあるものを貯めて、マイテーマを形作っていこう！</p>';
+                    $html +='<p class="title-register">動画やイベント、あなたの興味のあるものを貯めて、マイテーマを作っていこう！</p>';
                     $html +='<input type="hidden" name="type" id="type_regiter" value="1">';
                     $html +='</div>';
                     $html +='<img src="{{ asset("image/picture1.png") }}">';
@@ -117,7 +117,7 @@
                     $html = '';
                     $html +='<div class="form-group code-top">';
                     $html +='<div class="col-md-5">';
-                    $html +='<p class="title-register">動画やイベント、あなたの興味のあるものを貯めて、マイテーマを作っていこう！</p>';
+                    $html +='<p class="title-register">イベント参加・個人ページの利用は会員限定です。さあ、マイテーマを探そ</p>';
                     $html +='<input type="hidden" name="type" id="type_regiter" value="1">';
                     $html +='</div>';
                     $html +='<img src="{{ asset("image/picture1.png") }}">';
