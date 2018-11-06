@@ -37,6 +37,7 @@ class EventController extends Controller
         $this->validate($request,[
          'title'=>'required',
          'category_id' => 'required',
+         'content' => 'required',
          'image' => 'required',
          'sort' => 'required',
          'time_from_date'    => 'required|date',
@@ -77,12 +78,13 @@ class EventController extends Controller
 
         //Upload file image
         if($request->hasFile('image')){
-
             //Lưu hình ảnh vào thư mục public/image/event
             $file = $request->file('image');
             $fileName = time().'_'.$file->getClientOriginalName();
             $destinationPath = public_path('image/event');
             $file->move($destinationPath, $fileName);
+
+            $data["image"]= $fileName;
         }
 
         return redirect()->route('events.index');
@@ -111,6 +113,23 @@ class EventController extends Controller
     {
         $event = Event::find($id);
         $data = $request->all();
+
+        $this->validate($request,[
+            'title'=>'required',
+            'category_id' => 'required',
+            'content' => 'required',
+//            'image' => 'required',
+            'sort' => 'required',
+//            'time_from_date'    => 'required|date',
+//            'time_from_time'    => 'required|date_format:H:i',
+//            'time_to_date'    => 'required|date',
+//            'time_to_time'    => 'required|date_format:H:i',
+//            'started_at_date'    => 'required|date',
+//            'started_at_time'    => 'required|date_format:H:i',
+//            'closed_at_date'    => 'required|date',
+//            'closed_at_time'    => 'required|date_format:H:i',
+//         'time_to'      => 'required|date|after_or_equal:time_from',
+        ]);
 
         // Gộp ngày tháng và thời gian làm 1
         if (isset($data['time_from_date']) and isset($data['time_from_time'])) {

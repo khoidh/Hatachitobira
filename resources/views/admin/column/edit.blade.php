@@ -83,6 +83,15 @@
 @section('card-content')
 @endsection
 @section('content')
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
     <div class="row justify-content-md-center">
         <div class="col-md-10">
             <form action="{{route('columns.update',$column->id)}}"  enctype="multipart/form-data" method="POST">
@@ -125,12 +134,13 @@
                 </script>
             </div>
 
+            {{--Image--}}
             <div class="form-group row">
                 <label for="inputPassword3" class="col-sm-2 col-form-label">Upload Image</label>
                 <div class="col-sm-10">
                     <div class="upload-actions">
                         <label class="btn btn-default btn-upload" for="file"><i class="fa fa-upload"></i> Choose file</label>
-                        <input type="file" id="file"  name="image">
+                        <input type="file" id="file" accept="image/*" name="image">
                     </div>
                     <div>
                         @php $image='image/column/'.$column->image; @endphp
@@ -143,22 +153,24 @@
             <div class="form-group row">
                 <label for="inputPassword3" class="col-sm-2 col-form-label">Sort</label>
                 <div class="col-sm-10">
-                    <input type="number" class="form-control" name="sort" value="{{$column->sort}}" required="true">
+                    <input type="number" class="form-control" name="sort" value="{{$column->sort}}"
+                           min="1" max="2147483647"
+                           onkeypress="return (event.charCode == 8 || event.charCode == 0 || event.charCode == 13) ? null : event.charCode >= 48 && event.charCode <= 57"
+                           required="true">
                 </div>
             </div>
-
 
                 <div class="form-group row">
                     <label for="inputPassword3" class="col-sm-2 col-form-label">Type</label>
                     <div class="col-sm-10">
-                        <select type="number" name="type" class="form-control"  value="{{$column->type}}" tabindex=1>
+                        <select type="number" name="type" class="form-control" value="{{$column->type}}" tabindex=1>
                             <option value='0' {{($column->type==0) ? 'selected' : ''}}>インタビュー</option>
                             <option value='1' {{($column->type==1) ? 'selected' : ''}}>コラム</option>
                         </select>
                     </div>
                 </div>
 
-            <div class="form-group row">
+                <div class="form-group row">
                 <div class="col-sm-10">
                     <input type="hidden" name="_method" value="patch">
                     <button type="submit" class="btn btn-primary">更新</button>
@@ -167,5 +179,4 @@
         </form>
         </div>
     </div>
-
 @endsection

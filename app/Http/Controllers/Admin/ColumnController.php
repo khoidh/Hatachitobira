@@ -4,10 +4,11 @@ namespace App\Http\Controllers\Admin;
 
 use App\Category;
 use App\Column;
-use App\Http\Controllers\Controller;
-use Validator;
 use Illuminate\Http\Request;
-//use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Http\Requests;
+
+use Illuminate\Foundation\Validation\ValidatesRequests;
 
 class ColumnController extends Controller
 {
@@ -35,21 +36,19 @@ class ColumnController extends Controller
     {
         $data = $request->all();
 
+        $this->validate($request,[
+            'title'=>'required',
+            'category_id' => 'required',
+            'description' =>  'required',
+            'content' => 'required',
+            'image' => 'required',
+            'sort' => 'required',
+        ]);
+
+        Column::create($data);
+
         //Upload file image
         if($request->hasFile('image')){
-            //Hàm kiểm tra dữ liệu
-//            $this->validate($request,
-//                [
-//                    //Kiểm tra đúng file đuôi .jpg,.jpeg,.png.gif và dung lượng không quá 2M
-//                    'image' => 'mimes:jpg,jpeg,png,gif|max:2048',
-//                ],
-//                [
-//                    //Tùy chỉnh hiển thị thông báo không thõa điều kiện
-//                    'image.mimes' => 'Chỉ chấp nhận ảnh với đuôi .jpg .jpeg .png .gif',
-//                    'image.max' => 'Ảnh giới hạn dung lượng không quá 2M',
-//                ]
-//            );
-
             //Lưu hình ảnh vào thư mục public/image/column
             $file = $request->file('image');
             $fileName = time().'_'.$file->getClientOriginalName();
@@ -59,7 +58,6 @@ class ColumnController extends Controller
             $data["image"]= $fileName;
         }
 
-        Column::create($data);
         return redirect()->route('columns.index');
     }
 

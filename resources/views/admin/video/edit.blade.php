@@ -47,7 +47,10 @@
         <div class="form-group row">
             <label for="sort" class="col-sm-2 col-form-label">Sort</label>
             <div class="col-sm-10">
-                <input type="number" name="sort" class="form-control" id="sort" value="{{$video->sort}}" required="true" min="1">
+                <input type="number" name="sort" class="form-control" id="sort" value="{{$video->sort}}"
+                       min="1" max="2147483647"
+                       onkeypress="return (event.charCode == 8 || event.charCode == 0 || event.charCode == 13) ? null : event.charCode >= 48 && event.charCode <= 57"
+                       required="true">
             </div>
         </div>
         <div class="form-group row">
