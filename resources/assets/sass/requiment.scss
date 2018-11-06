@@ -1,3 +1,102 @@
+.recruiment {
+
+    /* ========== Style title màu vàng     =========== */
+    .main {
+        min-height: 175px;
+        margin-bottom: 30px;
+
+        @include only-for-mobile() {
+            min-height: 75px;
+        }
+
+        .title-lx {
+            font-family: Oswald, sans-serif;
+            background: #fff100;
+            color: #fffa9d;
+            display: block;
+            font-size: 120px !important;
+            min-height: 175px;
+            width: 100%;
+            z-index: 111;
+            height: 100%;
+
+            @include only-for-mobile() {
+                height: 120px;
+                min-height: unset;
+            }
+
+            .container .relative {
+                position: relative;
+
+                .info {
+                    margin-top: 50px;
+                    line-height: 95%;
+
+                    @include only-for-mobile() {
+                        margin-top: 85px;
+                        line-height: 1.5;
+                    }
+
+                    .title-e {
+                        margin-left: -5px;
+                        @include only-for-mobile() {
+                            position: relative;
+                            top: -140px;
+                            font-size: 50px;
+                        }
+                    }
+
+                    .absolute {
+                        font-family: $font-family-sans-serif !important;
+                        font-size: 20px;
+                        position: absolute;
+                        color: #111;
+
+                        bottom: -27px;
+                        font-weight: bold;
+                        
+                        @include only-for-mobile() {
+                            bottom: 123px;
+
+                        }
+
+                        p {
+                            font-size: 35px;
+                            letter-spacing: 10px;
+                            line-height: 120%;
+                        }
+
+                        .title-j {
+                            display: inline-block;
+                            background: #000000;
+                            /* ========== sp =========== */
+                            letter-spacing: 0px;
+
+                            /* ========== pc =========== */
+                            @include only-for-pc() {
+                                letter-spacing: 10px;
+                            }
+
+                            color: white;
+                            line-height: 30px;
+                        }
+                    }
+
+                    @include only-for-pc() {
+                        /* note: @content begins here */
+                    }
+
+                    /* @content ends */
+                }
+            }
+        }
+    }
+
+    /* ========== End style title màu vàng =========== */
+
+}
+
+
 .requiment-staff {
     .top {
         @include only-for-pc(){
@@ -17,6 +116,7 @@
         font-size: 36px !important;
         height: 500px !important;
         text-align: start !important;
+        background-color: rgba(236, 236, 236, 0.5);
     }
 }
 
