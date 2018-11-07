@@ -118,7 +118,7 @@
                     <div class="col-sm-10">
                         <div class="upload-actions">
                             <label class="btn btn-default btn-upload" for="file" required="true"><i class="fa fa-upload"></i> Choose file</label>
-                            <input type="file" id="file"  name="image">
+                            <input type="file" id="file" accept="image/*" name="image">
                         </div>
                         <div>
                             <img class="file-Select">
@@ -130,7 +130,10 @@
                 <div class="form-group row">
                     <label for="sort" class="col-sm-2 col-form-label">Sort</label>
                     <div class="col-sm-10">
-                        <input type="number" class="form-control" name="sort" required="true">
+                        <input type="number" class="form-control" name="sort"
+                               min="1" max="2147483647"
+                               onkeypress="return (event.charCode == 8 || event.charCode == 0 || event.charCode == 13) ? null : event.charCode >= 48 && event.charCode <= 57"
+                               required="true">
                     </div>
                 </div>
 

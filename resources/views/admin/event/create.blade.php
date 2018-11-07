@@ -30,6 +30,29 @@
             margin: .2em;
             height: 30px;
         }
+
+        .has-icon .form-control {
+            padding-left: 2.375rem;
+        }
+
+        .has-icon .form-control-feedback {
+            position: absolute;
+            z-index: 2;
+            display: block;
+            width: 2.375rem;
+            /*height: 2.375rem;*/
+            line-height: 2.375rem;
+            text-align: center;
+            pointer-events: none;
+            color: #aaa;
+
+            /*color: #4d4d4d;*/
+            height: 100%;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            left: 25px;
+        }
     </style>
 @endsection
 @section('javascrip')
@@ -125,7 +148,7 @@
         <div class="col-sm-10">
             <div class="upload-actions">
                 <label class="btn btn-default btn-upload" for="file" ><i class="fa fa-upload"></i> Choose file</label>
-                <input type="file" id="file" name="image">
+                <input type="file" id="file" accept="image/*" name="image">
             </div>
             <div>
                 <img class="file-Select">
@@ -137,7 +160,10 @@
      <div class="form-group row">
         <label for="inputPassword3" class="col-sm-2 col-form-label">Sort</label>
         <div class="col-sm-10">
-            <input type="number" class="form-control" name="sort" value="{{ old('sort') }}" required="true">
+            <input type="number" class="form-control" name="sort" value="{{ old('sort') }}"
+                   min="1" max="2147483647"
+                   onkeypress="return (event.charCode == 8 || event.charCode == 0 || event.charCode == 13) ? null : event.charCode >= 48 && event.charCode <= 57"
+                   required="true">
         </div>
     </div>
 
@@ -235,18 +261,26 @@
     </div>
 
     {{--Phí tham gia--}}
-    <div class="form-group row">
+    <div class="form-group has-icon row">
         <lable class="col-sm-2 col-form-lable">参加費</lable>
         <div class="col-sm-10">
-            <input type="number" class="form-control" name="entry_fee" placeholder="参加費" required="true">
+            <span class="fa fa-jpy form-control-feedback" ></span>
+            <input type="number" class="form-control" name="entry_fee" placeholder="参加費"
+                   min="0" max="1000000000"
+                   onkeypress="return (event.charCode == 8 || event.charCode == 0 || event.charCode == 13) ? null : event.charCode >= 48 && event.charCode <= 57"
+                   required="true">
         </div>
     </div>
 
     {{--Sức chứa--}}
-    <div class="form-group row">
+    <div class="form-group has-icon row">
         <lable class="col-sm-2 col-form-lable">定員</lable>
         <div class="col-sm-10">
-            <input type="number" class="form-control" name="capacity" placeholder="定員" required="true">
+            <span class="fa fa-users form-control-feedback" ></span>
+            <input type="number" class="form-control" name="capacity" placeholder="定員"
+                   min="0" max="1000000"
+                   onkeypress="return (event.charCode == 8 || event.charCode == 0 || event.charCode == 13) ? null : event.charCode >= 48 && event.charCode <= 57"
+                   required="true">
         </div>
     </div>
 

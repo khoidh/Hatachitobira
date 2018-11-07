@@ -21,7 +21,7 @@
 }
 
 .container.about .top{
-  margin-top: 50px;
+  margin-top: -40px;
   //width:99%;
 }
 
@@ -61,7 +61,7 @@
   height: 80px;
   background-color: #fff;
   position: absolute;
-  top: 800px;
+  //top: 800px;
 }
 
 .about-why-born .why-born-col .text_detail_title,
@@ -154,7 +154,7 @@
   box-shadow: 0px 2px 0px 0px #fff100;
 }
 
-/* Custom, iPhone Retina, Tablets */
+/* Custom, iPhone Retina */
 @media only screen and (max-width: 575.98px) {
   .container.about{
     margin-top: -120px;
@@ -162,7 +162,7 @@
 
   .container.about .about-banner img {
     width: 100%;
-    height: 200px;
+    //height: 200px;
   }
 
   .container.about .about-what-done,
@@ -181,7 +181,7 @@
   }
 
   .container.about .top .content-1 .about-content-title .content-1-title {
-    font-size: 36px !important;
+    font-size: 30px !important;
     //height: 500px !important;
     text-align: start !important;
 
@@ -190,8 +190,8 @@
     //margin: 0 0px !important;
   }
 
-  .div-bg{
-    display: none;
+  .container.about .top .div-bg{
+    display: none !important;
   }
   .container.about .top .container.content-1{
     padding: 45px 0 0;
@@ -201,7 +201,7 @@
     margin-top: 0;
   }
   .container.about .top .container.content-1 .content-1-title{
-    //font-size: 25px;
+    //font-size: 30px;
   }
   .container.about .top .container.content-1 .char-rotate{
     transform: none;
@@ -309,7 +309,7 @@
 
   .container.about .about-banner img {
     width: 100%;
-    height: 300px;
+    //height: 300px;
   }
 
   .container.about .top .content-1 .about-content-title .content-1-title {
@@ -331,10 +331,11 @@
   }
 
   .container.about .top {
-    margin-top: 110px !important;
+    margin-top: 25px !important;
   }
-  .div-bg {
-    display: none;
+  .container.about .top .div-bg{
+    //display: none;
+    top: 420px;
   }
   .container.about .top .container.content-1 {
     padding: 45px 0 0;
@@ -343,9 +344,9 @@
   .container.about .top .container.content-1 .content-1-title:first-child {
     margin-top: 0;
   }
-  .container.about .top .container.content-1 .content-1-title {
-    font-size: 25px;
-  }
+  //.container.about .top .container.content-1 .content-1-title {
+  //  font-size: 25px;
+  //}
   .container.about .top .container.content-1 .char-rotate {
     transform: none;
     writing-mode: horizontal-tb;
@@ -358,13 +359,17 @@
     padding-left: 5px;
   }
   .container.about .about-content-1-content .text-my-theme {
-    padding-top: 0 !important;
+    //padding-top: 0 !important;
     top: -72px;
   }
 
   .container.about .about-content-1-content .text-my-theme .about-cb-path {
     margin-left: 5px;
     margin-bottom: 20px;
+  }
+
+  .container.about .about-cb-path.path-1 {
+    display: none;
   }
 
   .container.about .top .container.content-1 .about-content-1-content .text-detail {
@@ -453,9 +458,13 @@
     margin-top: -150px !important;
   }
 
+  .container.about .about-cb-path.path-1 {
+    display: none;
+  }
+
   .about-why-born{
-    padding: 60px 220px;
     background-color: #FFF100;
+    padding: 60px 220px;
     margin-top: -60px;
   }
 

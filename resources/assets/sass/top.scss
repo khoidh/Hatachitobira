@@ -1,3 +1,8 @@
+body {
+    font-family: sans-serif;
+    font-weight: 400
+}
+
 #myHeader.fixed .navbar-brand p {
     position: absolute;
     left: 200px;
@@ -5,6 +10,9 @@
     font-size: 16px;
 }
 
+.top .thump .img-icon {
+    max-height: 500px !important
+}
 .nav-item .nav-link {
     cursor: pointer;
     font-size: 16px;
@@ -234,9 +242,26 @@
     font-family: "Myriad Pro";
 }
 
+.top .content-last .content-text.col-md-10,
+.top .event.col-md-10 {
+    @include only-for-mobile() {
+        padding: 0;
+    }
+}
+
+.top .content-last .content-text.col-md-10 {
+    @include only-for-mobile() {
+        margin-left: 12px;
+    }
+}
+
 .top .movie-top-descroption {
     color: #6b6b6b;
     font-family: "Kozuka Gothic Pr6N";
+    margin-right: 15px;
+    @include only-for-mobile() {
+        margin-right: 0;
+    }
 }
 
 .top a:hover {
@@ -267,6 +292,9 @@
 .top .video-detail {
     margin: 22px 0 16px -12px;
     padding: 0;
+    @include only-for-mobile() {
+        margin: 0;
+    }
 }
 
 .top .container.movie-top-4.content-2 {
@@ -408,6 +436,10 @@
     padding: 22px;
     border-radius: 18px;
     margin-top: -12px;
+    margin-right: 15px;
+    @include only-for-mobile() {
+        margin-right: 0px;
+    }
 }
 
 .top .content-last .text-category.last {
@@ -469,6 +501,7 @@
 
 .top .content-last .content-text {
     margin-top: 28px;
+    padding-left: 0
 }
 
 .top .content-last .second {
@@ -495,7 +528,7 @@
 
 .top .button-link .link-my-page{
     top: 0;
-    border-radius: 25px;
+    border-radius: 30px;
 }
 .top .button-link .link-my-page:hover{
     color: #fff;
@@ -613,6 +646,10 @@ header.fixed .logo.navbar-brand img {
 .image-top.row .img-detail {
     width: 100%;
     border-radius: 15px;
+
+    @include only-for-mobile() {
+        width: 115%;
+    }
 }
 
 .top .text-my-theme {
@@ -1134,7 +1171,7 @@ footer .footter-mobile .a-first{
 
     .link-my-page {
         left: 10px;
-        padding: 13px 75px;
+        padding: 25px 20%;
     }
 }
 
@@ -1167,8 +1204,12 @@ footer .footter-mobile .a-first{
     }
 }
 .container-fluid.top {
-    padding: 0 20px !important;
-    margin-top: 100px
+    padding: 0 !important;
+    margin-top: 100px;
+    @include only-for-mobile() {
+        padding: 0 20px !important;
+        margin-top: 0px;
+    }
 }
 
 @media (min-width: 376px) and (max-width: 768px) {
@@ -1186,7 +1227,7 @@ footer .footter-mobile .a-first{
 
     .top .movie-top-3 {
         position: relative;
-        top: 100px;
+        top: -105px;
     }
 
     .top .movie-top-1,
@@ -1251,11 +1292,13 @@ footer .footter-mobile .a-first{
     background: #fff;
     width: 45px;
     opacity: 1;
-    border-radius: 21px;
+    border-radius: 50%;
     border: 1.5px solid;
     height: 45px;
     margin-right: -34px;
     font-size: 30px;
+    text-align: center;
+    line-height: 44px;
 }
 
 .modal_register .close:hover {

@@ -30,9 +30,30 @@
             margin: .2em;
             height: 30px;
         }
+
+        .has-icon .form-control {
+            padding-left: 2.375rem;
+        }
+
+        .has-icon .form-control-feedback {
+            position: absolute;
+            z-index: 2;
+            display: block;
+            width: 2.375rem;
+            /*height: 2.375rem;*/
+            line-height: 2.375rem;
+            text-align: center;
+            pointer-events: none;
+            color: #aaa;
+
+            /*color: #4d4d4d;*/
+            height: 100%;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            left: 25px;
+        }
     </style>
-
-
 @endsection
 @section('javascrip')
     <script src= "{{asset("vendor/unisharp/laravel-ckeditor/ckeditor.js")}}"></script>
@@ -96,23 +117,22 @@
         <div class="col-md-10">
     <form action="{{route('events.update',$event->id)}}" enctype="multipart/form-data" method="POST">
         {{ csrf_field() }}
-        <div class="form-group row">
-            <label for="inputEmail3" class="col-sm-2 col-form-label">Title</label>
-            <div class="col-sm-10">
-                <input type="text" class="form-control" name="title" value="{{$event->title}}" placeholder="Title" required="true">
-            </div>
-        </div>
 
         <div class="form-group row">
-
             <label class="col-sm-2 col-form-label" for="inputState">Category</label>
             <div class="col-sm-10">
-
                 <select name="category_id" value="<?php echo $event->id ?>" class="form-control">
                     @foreach($categories as $category)
                         <option value="{{ $category->id }}" {{($category->id == $event->category_id) ? 'selected' : ''}} >{{$category->name}}</option>
                     @endforeach
                 </select>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="inputEmail3" class="col-sm-2 col-form-label">Title</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" name="title" value="{{$event->title}}" placeholder="Title" required="true">
             </div>
         </div>
 
@@ -132,10 +152,9 @@
         <div class="form-group row">
             <label for="inputPassword3" class="col-sm-2 col-form-label">Upload Image</label>
             <div class="col-sm-10">
-                {{--<input type="file" name="image" value="{{$event->image}}" required="true">--}}
                 <div class="upload-actions">
                     <label class="btn btn-default btn-upload" for="file"><i class="fa fa-upload"></i> Choose file</label>
-                    <input type="file" id="file"  name="image">
+                    <input type="file" id="file" accept="image/*" name="image">
                 </div>
                 <div>
                     @php $image='image/event/'.$event->image; @endphp
@@ -149,7 +168,10 @@
         <div class="form-group row">
             <label for="inputPassword3" class="col-sm-2 col-form-label">Sort</label>
             <div class="col-sm-10">
-                <input type="number" class="form-control" name="sort" value="{{$event->sort}}" required="true">
+                <input type="number" class="form-control" name="sort" value="{{$event->sort}}"
+                       min="1" max="2147483647"
+                       onkeypress="return (event.charCode == 8 || event.charCode == 0 || event.charCode == 13) ? null : event.charCode >= 48 && event.charCode <= 57"
+                       required="true">
             </div>
         </div>
 
@@ -248,21 +270,28 @@
         </div>
 
         {{--Phí tham gia--}}
-        <div class="form-group row">
+        <div class="form-group has-icon row">
             <lable class="col-sm-2 col-form-lable">参加費</lable>
             <div class="col-sm-10">
-                <input type="number" class="form-control" name="entry_fee" value="{{$event->entry_fee}}" placeholder="参加費" required="true">
+                <span class="fa fa-jpy form-control-feedback" ></span>
+                <input type="number" class="form-control" name="entry_fee" value="{{$event->entry_fee}}" placeholder="参加費"
+                       min="0" max="1000000000"
+                       onkeypress="return (event.charCode == 8 || event.charCode == 0 || event.charCode == 13) ? null : event.charCode >= 48 && event.charCode <= 57"
+                       required="true">
             </div>
         </div>
 
         {{--Sức chứa--}}
-        <div class="form-group row">
+        <div class="form-group has-icon row">
             <lable class="col-sm-2 col-form-lable">定員</lable>
             <div class="col-sm-10">
-                <input type="number" class="form-control" name="capacity" value="{{$event->capacity}}" placeholder="定員" required="true">
+                <span class="fa fa-users form-control-feedback" ></span>
+                <input type="number" class="form-control" name="capacity" value="{{$event->capacity}}" placeholder="定員"
+                       min="0" max="1000000"
+                       onkeypress="return (event.charCode == 8 || event.charCode == 0 || event.charCode == 13) ? null : event.charCode >= 48 && event.charCode <= 57"
+                       required="true">
             </div>
         </div>
-
 
         <div class="form-group row">
             <div class="col-sm-10">

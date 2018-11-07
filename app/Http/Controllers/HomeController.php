@@ -62,6 +62,11 @@ class HomeController extends Controller
             ->where('type',0)
             ->orderBy('id','desc')->get();
 
+        $videos = Video::select()
+            ->select('videos.*','categories.name as category_name')
+            ->join('categories','categories.id','=','videos.category_id')
+            ->orderBy('id','desc')->first();
+
         $videos_2 = Video::select()
             ->select('videos.*','categories.name as category_name')
             ->join('categories','categories.id','=','videos.category_id')
@@ -69,6 +74,6 @@ class HomeController extends Controller
             ->where('type',1)
             ->get();
 
-        return view('top',compact('columns','events','videos_1','videos_2','categories'));
+        return view('top',compact('columns','events','videos_1','videos_2','categories','videos'));
     }
 }

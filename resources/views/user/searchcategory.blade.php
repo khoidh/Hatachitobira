@@ -118,7 +118,7 @@
                                             src="{{asset('image/event/event-visible-icon.png')}}" alt="event-visible-icon.png"
                                         @endif
                                     >
-                                    <span style="@if($event->eventstatus == '受付前' || $event->eventstatus == '受付終了'|| $event->eventstatus == '開催終了' ) left: 20px;top: -12px; color: white !important;@else color: black !important; @endif">{{$event->eventstatus}}</span>
+                                    <span style="@if($event->eventstatus == '受付前' || $event->eventstatus == '受付終了'|| $event->eventstatus == '開催終了' ) left: 20px;top: -12px; color: white !important;@else top: -11px;left: 12px; color: black !important; @endif">{{$event->eventstatus}}</span>
                                 </div>
                                 <div class="article-content row">
                                     <div class="content-left col-md-4">
@@ -376,7 +376,7 @@
                 $html = '';
                     $html +='<div class="form-group code-top">';
                         $html +='<div class="col-md-5">';
-                        $html +='<p class="title-register">動画やイベント、あなたの興味のあるものを貯めて、マイテーマを作っていこう！</p>';
+                        $html +='<p class="title-register">イベント参加・個人ページの利用は会員限定です。さあ、マイテーマを探そ</p>';
                         $html +='<input type="hidden" name="type" id="type_regiter" value="1">';
                         $html +='</div>';
                         $html +='<img src="{{ asset("image/picture1.png") }}">';
@@ -432,7 +432,7 @@
                 $html = '';
                     $html +='<div class="form-group code-top">';
                         $html +='<div class="col-md-5">';
-                        $html +='<p class="title-register">動画やイベント、あなたの興味のあるものを貯めて、マイテーマを作っていこう！</p>';
+                        $html +='<p class="title-register">イベント参加・個人ページの利用は会員限定です。さあ、マイテーマを探そ</p>';
                         $html +='<input type="hidden" name="type" id="type_regiter" value="1">';
                         $html +='</div>';
                         $html +='<img src="{{ asset("image/picture1.png") }}">';
@@ -489,7 +489,7 @@
                 $html = '';
                     $html +='<div class="form-group code-top">';
                         $html +='<div class="col-md-5">';
-                        $html +='<p class="title-register">動画やイベント、あなたの興味のあるものを貯めて、マイテーマを作っていこう！</p>';
+                        $html +='<p class="title-register">イベント参加・個人ページの利用は会員限定です。さあ、マイテーマを探そ</p>';
                         $html +='<input type="hidden" name="type" id="type_regiter" value="1">';
                         $html +='</div>';
                         $html +='<img src="{{ asset("image/picture1.png") }}">';
