@@ -131,7 +131,7 @@
 // My page ======================================
 .my-page {
     .article-list.col-md-12 {
-        padding-left: 0 !important
+        padding: 0 !important
     }
     .thump {
         .img-icon {
@@ -335,8 +335,15 @@
 
     .panel-info {
         padding-top: 32px;
-
+        .row{
+            @include only-for-mobile() {
+                padding: 0 20px;
+            }
+        }
         .panel-info-wrapper {
+            @include only-for-mobile() {
+                padding: 0
+            }
 
             .panel-info-content {
                 position: relative;
@@ -348,6 +355,8 @@
                 @include only-for-mobile() {
                     height: 150px;
                     font-size: 12px;
+                    margin-bottom: 0;
+                    border-radius: 0px;
                 }
                 >.number {
                     position: absolute !important;
@@ -391,6 +400,12 @@
                     bottom: 0;
                     font-size: 14px;
                     z-index: 111;
+                }
+            }
+            
+            .panel-info-content.chan {
+                @include only-for-mobile() {
+                    background-color: #ddd;
                 }
             }
 

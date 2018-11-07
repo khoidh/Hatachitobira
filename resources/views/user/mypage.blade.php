@@ -72,7 +72,7 @@
                         <?php $key = $i>4 ? $i : $i+1 ?>
                         @if($i!=4)
                         <div class="col-sm-4 col-xs-4 col-4 panel-info-wrapper">
-                            <div class="panel-info-content">
+                            <div class="panel-info-content  {{$i%2 == 1 ? 'chan' : ''}}">
                                 <div class="number">
                                     <span>0{{$index++}}</span>
                                 </div>
