@@ -184,9 +184,7 @@
                                                         echo $title. '...';
                                                     ?>
                                                 </p>
-                                                <span>{{$result->items[0]->statistics->viewCount}} Views /</span>
-                                                <span>{{ $result->date_diff}} month ago /</span>
-                                                <span>{{$result->category}}</span>
+                                                <span>{{$result->items[0]->statistics->viewCount}} Views/{{ $result->date_diff}} month ago/{{$result->category}}</span>
                                              </div>
                                          </div>
                                     </div>
