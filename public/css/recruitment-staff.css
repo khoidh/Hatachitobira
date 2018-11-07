@@ -5,7 +5,7 @@
 }
 
 /* For mobile */
-@media only screen and (min-width : 314px) {
+@media (max-width: 578px) and (min-width : 314px) {
 
     .top .requiment .text-my-theme {
         padding: 35px
@@ -261,7 +261,7 @@
 
 @media only screen and (min-width : 369px) {
     .container .cb-path {
-        left: 15px;
+        
         position: relative;
         top: 15px;
     }
@@ -394,7 +394,7 @@
     }
 
     .video {
-        margin-top: -90px;
+        margin-top: 90px;
     }
 
     .video .container,
@@ -509,7 +509,7 @@
 
     .requiment-staff .requiment-content {
         position: relative;
-        margin-top: 60px;
+        margin-top: 105px;
         background-color: #fff100;
         text-align: center;
         font-weight: bold;

@@ -171,11 +171,18 @@
 .video .description p{
     font-size: 16px;
     margin-top: 10px;
-    height: 40px;
+}
+
+.video .description {
+    position: relative;
+    padding-bottom: 10px;
 }
 
 .video .description span{
     font-size: 12px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
 }
 
 .video .paging {

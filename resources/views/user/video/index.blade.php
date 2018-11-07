@@ -66,9 +66,7 @@
                                     echo $title. '...';
                                 ?>
                             </p>
-                            <span>{{$result->viewCount}} Views /</span>
-                            <span>{{ $result->date_diff }} month ago /</span>
-                            <span>{{$result->category_name}}</span>
+                            <span>{{$result->viewCount}} Views /{{ $result->date_diff }} month ago /{{$result->category_name}}</span>
                         </div>
                     </div>
                 </div>
