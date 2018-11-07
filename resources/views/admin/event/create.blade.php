@@ -142,9 +142,6 @@
 
     <div class="form-group row">
         <label for="inputPassword3" class="col-sm-2 col-form-label">Upload Image</label>
-        {{--<div class="col-sm-10">--}}
-            {{--<input type="file" name="image" value="{{ old('image') }}" required="true">--}}
-        {{--</div>--}}
         <div class="col-sm-10">
             <div class="upload-actions">
                 <label class="btn btn-default btn-upload" for="file" ><i class="fa fa-upload"></i> Choose file</label>
@@ -160,7 +157,8 @@
      <div class="form-group row">
         <label for="inputPassword3" class="col-sm-2 col-form-label">Sort</label>
         <div class="col-sm-10">
-            <input type="number" class="form-control" name="sort" value="{{ old('sort') }}"
+            <input type="number" class="form-control" name="sort"
+                   value="{{ old('sort') }}"
                    min="1" max="2147483647"
                    onkeypress="return (event.charCode == 8 || event.charCode == 0 || event.charCode == 13) ? null : event.charCode >= 48 && event.charCode <= 57"
                    required="true">
@@ -178,10 +176,13 @@
                     <div class="col-sm-12">
                         <div class="row">
                             <div class="col-sm-7">
-                                <input type="date" class="form-control" name="time_from_date" maxlength="8" required >
+                                <input type="date" class="form-control" name="time_from_date"
+                                       value="{{old('time_from_date')}}"
+                                       required >
                             </div>
                             <div class="col-sm-5" style="padding-left: 0; padding-right: 0">
-                                <input type="time" class="form-control" name="time_from_time" required >
+                                <input type="time" class="form-control" name="time_from_time"
+                                       value="{{old('time_from_time')}}" required >
                             </div>
                         </div>
                     </div>
@@ -192,10 +193,13 @@
                     <div class="col-sm-12">
                         <div class="row">
                             <div class="col-sm-7">
-                                <input type="date" class="form-control" name="time_to_date" maxlength="8" minlength="8" required="true">
+                                <input type="date" class="form-control" name="time_to_date"
+                                       value="{{old('time_to_date')}}"
+                                       required>
                             </div>
                             <div class="col-sm-5" style="padding-left: 0; padding-right: 0">
-                                <input type="time" class="form-control" name="time_to_time" required >
+                                <input type="time" class="form-control" name="time_to_time"
+                                       value="{{old('time_to_time')}}" required >
                             </div>
                         </div>
                     </div>
@@ -217,10 +221,13 @@
                     <div class="col-sm-12">
                         <div class="row">
                             <div class="col-sm-7">
-                                <input type="date" class="form-control" name="started_at_date" maxlength="10" minlength="10" required >
+                                <input type="date" class="form-control" name="started_at_date"
+                                       value="{{old('started_at_date')}}"
+                                       required >
                             </div>
                             <div class="col-sm-5" style="padding-left: 0; padding-right: 0">
-                                <input type="time" class="form-control" name="started_at_time" required >
+                                <input type="time" class="form-control" name="started_at_time"
+                                       value="{{old('started_at_time')}}" required >
                             </div>
                         </div>
                     </div>
@@ -231,10 +238,13 @@
                     <div class="col-sm-12">
                         <div class="row">
                             <div class="col-sm-7">
-                                <input type="date" class="form-control" name="closed_at_date" maxlength="10" minlength="10" required >
+                                <input type="date" class="form-control" name="closed_at_date"
+                                       value="{{old('closed_at_date')}}"
+                                       required >
                             </div>
                             <div class="col-sm-5" style="padding-left: 0; padding-right: 0">
-                                <input type="time" class="form-control" name="closed_at_time" required >
+                                <input type="time" class="form-control" name="closed_at_time"
+                                       value="{{old('closed_at_time')}}" required >
                             </div>
                         </div>
                     </div>
@@ -248,7 +258,8 @@
     <div class="form-group row">
         <lable class="col-sm-2 col-form-lable">場所</lable>
         <div class="col-sm-10">
-            <input type="text" class="form-control" name="address" placeholder="場所" require="true" maxlength="256">
+            <input type="text" class="form-control" name="address" placeholder="場所"
+                   value="{{old('address')}}" require="true" maxlength="256">
         </div>
     </div>
 
@@ -256,7 +267,8 @@
     <div class="form-group row">
         <lable class="col-sm-2 col-form-lable">概要</lable>
         <div class="col-sm-10">
-            <input type="text" class="form-control" name="overview" placeholder="概要" required="true">
+            <input type="text" class="form-control" name="overview" placeholder="概要"
+                   value="{{old('overview')}}" required="true">
         </div>
     </div>
 
@@ -266,6 +278,7 @@
         <div class="col-sm-10">
             <span class="fa fa-jpy form-control-feedback" ></span>
             <input type="number" class="form-control" name="entry_fee" placeholder="参加費"
+                   value="{{old('entry_fee')}}"
                    min="0" max="1000000000"
                    onkeypress="return (event.charCode == 8 || event.charCode == 0 || event.charCode == 13) ? null : event.charCode >= 48 && event.charCode <= 57"
                    required="true">
@@ -278,6 +291,7 @@
         <div class="col-sm-10">
             <span class="fa fa-users form-control-feedback" ></span>
             <input type="number" class="form-control" name="capacity" placeholder="定員"
+                   value="{{old('capacity')}}"
                    min="0" max="1000000"
                    onkeypress="return (event.charCode == 8 || event.charCode == 0 || event.charCode == 13) ? null : event.charCode >= 48 && event.charCode <= 57"
                    required="true">

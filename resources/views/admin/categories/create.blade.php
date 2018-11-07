@@ -25,7 +25,8 @@
                 <div class="form-group row">
                     <label for="name" class="col-sm-2 col-form-label"  >Name</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="name" name="name" value="" placeholder="Name" required="true" autofocus="">
+                        <input type="text" class="form-control" id="name" name="name" value="" placeholder="Name" required="true" autofocus=""
+                               value="{{old('name')}}">
                     </div>
                 </div>
 
@@ -47,6 +48,7 @@
                     <label for="sort" class="col-sm-2 col-form-label">Sort</label>
                     <div class="col-sm-10">
                         <input type="number" class="form-control" name="sort" id="sort" value="" placeholder="Sort"
+                               value="{{old('sort')}}"
                                min="1" max="2147483647"
                                onkeypress="return (event.charCode == 8 || event.charCode == 0 || event.charCode == 13) ? null : event.charCode >= 48 && event.charCode <= 57"
                                required="true">
