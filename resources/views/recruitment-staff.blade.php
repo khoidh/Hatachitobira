@@ -4,8 +4,27 @@
 @endsection
 @section('title-e', 'RECRUITMENT STAFF')
 @section('title-j', '企業採用担当の方へ ')
-@section('content')
+@section('main')
+    <div class="container-fluid recruiment">
+        <div class="main row">
+            <div class="title-lx">
+                <div class="container">
+                    <div class="relative row">
+                        <div class="info col-md-12">
+                            <span class="title-e">@yield('title-e','RECRUITMENT STAFF')</span>
+                            <div class="absolute">
+                                <p style="margin-bottom: 0">@yield('title-black')</p>
+                                <p style="margin-bottom: 0"><span class="title-j"> @yield('title-j','タートル')</span>@yield('title-blackspan')</p>
 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+@endsection
+@section('content')
 <div class="requiment-staff requiment-staff-mobile">
 	<div class="requiment-staff-bg">
 		<img style="width: 100%" src="{{ asset('image/requiment/requiment-1.png')}}" alt="">
