@@ -93,24 +93,37 @@ class VideoController extends Controller
         $video = Video::find($id);
         $url = $request->url;
         parse_str(parse_url($url, PHP_URL_QUERY), $youtube);
-        $id =  $youtube['v'];
-        $api_url = $this->BASE_URL . $id . $this->BASE_PART . $API_KEY . '';
-        $result = json_decode(file_get_contents($api_url));
-
-        $video->category_id = $request->category_id;
-        $video->url = $request->url; 
-        $video->sort = $request->sort;
-        $video->type = $request->type;
-        $video->title = $result->items[0]->snippet->title; 
-        $video->thumbnails = $result->items[0]->snippet->thumbnails->standard->url; 
-        $video->embedHtml = $result->items[0]->player->embedHtml; 
-        $video->viewCount = $result->items[0]->statistics->viewCount; 
-        $publishedAt = strtotime($result->items[0]->snippet->publishedAt);
-        $video->publishedAt = date('Y-m-d H:i:s',$publishedAt);
-
-        $video->save();
-
-        return redirect()->route('videos.show',$video->id);
+        if(!$youtube)
+        {
+            return redirect()->back()->with('message','This url not youtube link');
+        }
+        else
+        {
+            $id =  $youtube['v'];
+            $api_url = $this->BASE_URL . $id . $this->BASE_PART . $API_KEY . '';
+            $result = json_decode(file_get_contents($api_url));
+            if($result->items)
+            {
+                $video->category_id = $request->category_id;
+                $video->url = $request->url; 
+                $video->sort = (int)($request->sort);
+                $video->type = (int)($request->type);
+                $video->title = $result->items[0]->snippet->title; 
+                $video->thumbnails = $result->items[0]->snippet->thumbnails->medium->url; 
+                $video->embedHtml = $result->items[0]->player->embedHtml; 
+                $video->viewCount = (double)($result->items[0]->statistics->viewCount); 
+                $publishedAt = strtotime($result->items[0]->snippet->publishedAt);
+                $video->publishedAt = date('Y-m-d H:i:s',$publishedAt);
+                
+                $video->save();
+                return redirect()->route('videos.index');
+            }
+            else
+            {
+                return redirect()->back()->with('message','Cant not get youtube information');
+            }
+            
+        }
     }
 
     public function destroy($id)

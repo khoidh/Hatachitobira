@@ -763,6 +763,8 @@ body {
   border-radius: 14px;
   width: 330px;
   height: 230px;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .top .content-last .icon-favorior {
@@ -806,7 +808,9 @@ body {
 
 .top .button-link .link-my-page {
   top: 0;
-  border-radius: 30px;
+  border-radius: 50px;
+  font-size: 21px;
+  font-weight: bold;
 }
 
 .top .button-link .link-my-page:hover {
@@ -1247,6 +1251,8 @@ footer .footter-mobile .a-first {
 
   .top .movie-top-3 .content-tile-movie {
     margin-top: 0;
+    position: relative;
+    left: 10px;
   }
 
   .top .movie-top-2 .col-md-9 {
@@ -1280,10 +1286,11 @@ footer .footter-mobile .a-first {
     top: 50px;
     position: relative;
     margin-left: -24px;
+    left: 7px;
   }
 
   .top .movie-top-3 .img-cat-sp {
-    width: 33%;
+    width: 32%;
   }
 
   .top .movie-top-3 .img-cat-sp img {
@@ -1443,7 +1450,8 @@ footer .footter-mobile .a-first {
 
   .link-my-page {
     left: 10px;
-    padding: 25px 20%;
+    padding: 17px 21%;
+    border-radius: 50px;
   }
 }
 
@@ -1696,6 +1704,12 @@ footer .footter-mobile .a-first {
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
+}
+
+@media (max-width: 575.98px) {
+  .content.top {
+    margin-bottom: -118px;
+  }
 }
 
 .event {
@@ -2662,11 +2676,18 @@ footer .footter-mobile .a-first {
 .video .description p {
   font-size: 16px;
   margin-top: 10px;
-  height: 40px;
+}
+
+.video .description {
+  position: relative;
+  padding-bottom: 10px;
 }
 
 .video .description span {
   font-size: 12px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
 }
 
 .video .paging {
@@ -2950,7 +2971,7 @@ footer .footter-mobile .a-first {
 }
 
 .my-page .article-list.col-md-12 {
-  padding-left: 0 !important;
+  padding: 0 !important;
 }
 
 .my-page .thump .img-icon {
@@ -3134,6 +3155,18 @@ footer .footter-mobile .a-first {
   padding-top: 32px;
 }
 
+@media (max-width: 575.98px) {
+  .my-page .panel-info .row {
+    padding: 0 20px;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .my-page .panel-info .panel-info-wrapper {
+    padding: 0;
+  }
+}
+
 .my-page .panel-info .panel-info-wrapper .panel-info-content {
   position: relative;
   font-size: 20px;
@@ -3151,6 +3184,8 @@ footer .footter-mobile .a-first {
   .my-page .panel-info .panel-info-wrapper .panel-info-content {
     height: 150px;
     font-size: 12px;
+    margin-bottom: 0;
+    border-radius: 0px;
   }
 }
 
@@ -3203,6 +3238,12 @@ footer .footter-mobile .a-first {
   bottom: 0;
   font-size: 14px;
   z-index: 111;
+}
+
+@media (max-width: 575.98px) {
+  .my-page .panel-info .panel-info-wrapper .panel-info-content.chan {
+    background-color: #ddd;
+  }
 }
 
 .my-page .panel-info .panel-info-wrapper .event-image img {
@@ -3359,9 +3400,43 @@ footer .footter-mobile .a-first {
 .my-page .main .group-1 .content-text .item .wrapper .wrapper-icon {
   width: 100%;
   height: 100%;
+  position: relative;
 }
 
-.my-page .main .group-1 .content-text .item .wrapper .wrapper-icon img {
+.my-page .main .group-1 .content-text .item .wrapper .wrapper-icon .browse-details {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  cursor: pointer;
+}
+
+.my-page .main .group-1 .content-text .item .wrapper .wrapper-icon .browse-details img {
+  z-index: 9;
+  position: relative;
+}
+
+.my-page .main .group-1 .content-text .item .wrapper .wrapper-icon .browse-details:after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 15px;
+  max-width: 326px;
+  left: 0px;
+}
+
+.my-page .main .group-1 .content-text .item .wrapper .wrapper-icon .thumbnails {
   width: 100%;
   border-radius: 10px;
   max-height: 180px;
@@ -3730,7 +3805,7 @@ footer .footter-mobile .a-first {
   .recruiment .main .title-lx .container .relative .info .title-e {
     position: relative;
     top: -140px;
-    font-size: 50px;
+    font-size: 46px;
   }
 }
 

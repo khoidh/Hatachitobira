@@ -14,7 +14,7 @@
         <div class="col-sm-4 wrapper-icon">
             <a href="{{route('column.show', $column->id)}}" style="text-decoration:none;">
                 @php $image='image/column/'.$column->image; @endphp
-                <img class="image" src="{{file_exists($image)?asset($image): asset('image/column/column_default.jpg')}}" alt="{{$image}}">
+                <img class="image thumbnails" src="{{file_exists($image)?asset($image): asset('image/column/column_default.jpg')}}" alt="{{$image}}">
             </a>
         </div>
         <div class="col-sm-8 wrapper-content content-column">
@@ -42,7 +42,7 @@
         <div class="col-sm-4 wrapper-icon">
             <a href="{{route('event.show', $event->id)}}" style="text-decoration:none;">
                 @php $image='image/event/'.$event->image; @endphp
-                <img src="{{file_exists($image)?asset($image): asset('image/event/event_default.jpg')}}" alt="{{$event->title}}">
+                <img class="thumbnails" src="{{file_exists($image)?asset($image): asset('image/event/event_default.jpg')}}" alt="{{$event->title}}">
             </a>
         </div>
         <div class="col-sm-8 wrapper-content content-event">
@@ -58,7 +58,10 @@
 <div class="col-sm-12 item item-2 video-category" data-src='{{$videos->embedHtml}}' data-url="{{$videos->url}}" style="cursor: pointer;">
     <div class="row wrapper">
         <div class="col-sm-4 wrapper-icon">
-            <img src="{{ $videos->thumbnails }}" alt="img-event-1.png">
+            <div class="browse-details">
+                <img src="{{ asset('image/video/btn-play.png')}}" alt="" >
+             </div>
+            <img class="thumbnails" src="{{ $videos_cate->thumbnails }}" alt="img-event-1.png">
         </div>
         <div class="col-sm-8 wrapper-content content-video">
             <p class="clearfix icon-favorior"><i class="fa fa-heart-o" style="font-size: 24px;" data-user = "{{Auth::User()->id}}" data-id = "{{$videos->id}}"></i></p>

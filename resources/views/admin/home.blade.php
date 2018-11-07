@@ -75,21 +75,10 @@
                     {{--</li>--}}
                 </ul>
                 <ul class="nav navbar-nav float-right">
-                    <li class="dropdown dropdown-user nav-item">
-                        <a class="dropdown-toggle nav-link dropdown-user-link" href="#" data-toggle="dropdown">
-                <span class="mr-1">Hello,
-                  <span class="user-name text-bold-700">John Doe</span>
-                </span>
-                            <span class="avatar avatar-online">
-                  <img src="https://pixinvent.com/modern-admin-clean-bootstrap-4-dashboard-html-template/app-assets/images/portrait/small/avatar-s-19.png" alt="avatar"><i></i></span>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="#"><i class="ft-power"></i> Logout</a> </div>
-                    </li>
-                    <li class="dropdown dropdown-language nav-item"><a class="dropdown-toggle nav-link" id="dropdown-flag" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="flag-icon flag-icon-gb"></i><span class="selected-language"></span></a>
-                        <div class="dropdown-menu" aria-labelledby="dropdown-flag"><a class="dropdown-item" href="#"><i class="flag-icon flag-icon-jp"></i> Japan</a>
-                            <a class="dropdown-item" href="#"><i class="flag-icon flag-icon-gb"></i> English</a>
-                        </div>
-                    </li>
+                    <form method="POST" action="{{route('admin.logout')}}">
+                        @csrf()
+                        <button type="submit" class="btn btn-primary">Logout</button>
+                    </form>
                 </ul>
             </div>
         </div>
@@ -226,7 +215,7 @@
 <!-- END MODERN JS-->
 <!-- BEGIN PAGE LEVEL JS-->
 <script src="https://pixinvent.com/modern-admin-clean-bootstrap-4-dashboard-html-template/app-assets/js/scripts/extensions/drag-drop.min.js" type="text/javascript"></script>
-<script src="{{ asset('js/admin.js') }}"></script>
+<!-- <script src="{{ asset('js/admin.js') }}"></script> -->
 <!-- END PAGE LEVEL JS-->
 @show
 @yield('customjavascript')

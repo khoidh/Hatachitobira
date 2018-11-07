@@ -92,14 +92,16 @@
                 <div class="form-group row">
                     <label for="inputEmail3" class="col-sm-2 col-form-label">Title</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" name="title" value="" placeholder="Title" required="true" maxlength="256">
+                        <input type="text" class="form-control" name="title" placeholder="Title" required="true" maxlength="256"
+                               value="{{old('title')}}">
                     </div>
                 </div>
 
                 <div class="form-group row">
                     <label for="inputEmail3" class="col-sm-2 col-form-label">Description</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" name="description" value="" placeholder="Description" required="true" maxlength="256">
+                        <input type="text" class="form-control" name="description" placeholder="Description" required="true" maxlength="256"
+                               value="{{old('description')}}">
                     </div>
                 </div>
 
@@ -131,6 +133,7 @@
                     <label for="sort" class="col-sm-2 col-form-label">Sort</label>
                     <div class="col-sm-10">
                         <input type="number" class="form-control" name="sort"
+                               value="{{old('sort')}}"
                                min="1" max="2147483647"
                                onkeypress="return (event.charCode == 8 || event.charCode == 0 || event.charCode == 13) ? null : event.charCode >= 48 && event.charCode <= 57"
                                required="true">
@@ -144,7 +147,6 @@
                             <option value='0' selected>インタビュー</option>
                             <option value='1'>コラム</option>
                         </select>
-                        {{--<input type="number" class="form-control" name="type" required="true">--}}
                     </div>
                 </div>
 
