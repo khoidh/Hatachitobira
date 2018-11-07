@@ -63,7 +63,7 @@
         <div class="row about-banner" style="display: inline-block">
             <img src="{{asset("image/about/about_banner_lg.jpg")}}" alt="" style="width: 100%" />
         </div>
-        <div class="row top">
+        <div class="row top" style="margin-left: 0; margin-right: 0">
             <div class="div-bg"></div>
             <div class="container content-1">
                 <div class="about-content-title">
@@ -84,7 +84,7 @@
                 </div>
             </div>
         </div>
-        <div class="row about-why-born" >
+        <div class="row about-why-born" style="margin-left: 0; margin-right: 0">
             <div class="col-md-4 col-sm-4 col-xs-12 why-born-col">
                 <p class="text_detail_title">自由が故に、<br>後悔する大学生活</p>
                 <p class="text_detail">約65%が後悔する現実</p>
