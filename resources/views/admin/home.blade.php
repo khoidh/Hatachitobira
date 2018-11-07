@@ -215,7 +215,7 @@
 <!-- END MODERN JS-->
 <!-- BEGIN PAGE LEVEL JS-->
 <script src="https://pixinvent.com/modern-admin-clean-bootstrap-4-dashboard-html-template/app-assets/js/scripts/extensions/drag-drop.min.js" type="text/javascript"></script>
-<script src="{{ asset('js/admin.js') }}"></script>
+<!-- <script src="{{ asset('js/admin.js') }}"></script> -->
 <!-- END PAGE LEVEL JS-->
 @show
 @yield('customjavascript')
