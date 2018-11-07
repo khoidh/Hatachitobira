@@ -35,6 +35,8 @@
         <th>ID</th>
         <th>Category</th>
         <th>URL</th>
+        <th>Title</th>
+        <th>Thumpnail</th>
         <th>Sort</th>
         <th>Type</th>
         <th>Action</th>
@@ -47,6 +49,11 @@
             <th scope="row">{{$video->id}}</th>
             <td>{{$video->category_name}}</td>
             <td>{{$video->url}}</td>
+            <td>{{$video->title}}</td>
+            <td>
+                <img src="{{$video->thumbnails}}" style="width: 150px; height: 150px">
+                
+            </td>
             <td>{{$video->sort}}</td>
             @php
                 $type=($video->type==0)?'ジョブシャドウ':'ロールプレイ';
