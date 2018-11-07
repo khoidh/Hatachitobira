@@ -44,13 +44,15 @@
      <div class="form-group row">
         <label for="url" class="col-sm-2 col-form-label">URL</label>
         <div class="col-sm-10">
-            <input type="text" class="form-control" name="url" id="url" placeholder="URL" required="true">
+            <input type="text" class="form-control" name="url" id="url" placeholder="URL" required="true"
+                   value="{{old('url')}}">
         </div>
     </div>
     <div class="form-group row">
         <label for="sort" class="col-sm-2 col-form-label">Sort</label>
         <div class="col-sm-10">
             <input type="number" class="form-control" name="sort" id="sort"
+                   value="{{old('sort')}}"
                    min="1" max="2147483647"
                    onkeypress="return (event.charCode == 8 || event.charCode == 0 || event.charCode == 13) ? null : event.charCode >= 48 && event.charCode <= 57"
                    required="true" >

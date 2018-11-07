@@ -187,7 +187,8 @@
                         <div class="col-sm-12">
                             <div class="row">
                                 <div class="col-sm-7">
-                                    <input type="date" class="form-control" name="time_from_date" value="<?php echo date('Y-m-d', strtotime($event->time_from));?>" required >
+                                    <input type="date" class="form-control" name="time_from_date"
+                                           value="<?php echo date('Y-m-d', strtotime($event->time_from));?>" required >
                                 </div>
                                 <div class="col-sm-5" style="padding-left: 0; padding-right: 0">
                                     <input type="time" class="form-control" name="time_from_time" value="<?php echo date('H:i:s', strtotime($event->time_from)); ?>" required >
@@ -201,7 +202,8 @@
                         <div class="col-sm-12">
                             <div class="row">
                                 <div class="col-sm-7">
-                                    <input type="date" class="form-control" name="time_to_date" value="<?php echo date('Y-m-d', strtotime($event->time_to));?>" required="true">
+                                    <input type="date" class="form-control" name="time_to_date"
+                                           value="<?php echo date('Y-m-d', strtotime($event->time_to));?>" required="true">
                                 </div>
                                 <div class="col-sm-5" style="padding-left: 0; padding-right: 0">
                                     <input type="time" class="form-control" name="time_to_time" value="<?php echo date('H:i:s', strtotime($event->time_to));?>" required >
@@ -226,7 +228,8 @@
                         <div class="col-sm-12">
                             <div class="row">
                                 <div class="col-sm-7">
-                                    <input type="date" class="form-control" name="started_at_date" value="<?php echo date('Y-m-d', strtotime($event->started_at));?>" required >
+                                    <input type="date" class="form-control" name="started_at_date"
+                                           value="<?php echo date('Y-m-d', strtotime($event->started_at));?>" required >
                                 </div>
                                 <div class="col-sm-5" style="padding-left: 0; padding-right: 0">
                                     <input type="time" class="form-control" name="started_at_time" value="<?php echo date('H:i:s', strtotime($event->started_at)); ?>" required >
@@ -240,7 +243,8 @@
                         <div class="col-sm-12">
                             <div class="row">
                                 <div class="col-sm-7">
-                                    <input type="date" class="form-control" name="closed_at_date" value="<?php echo date('Y-m-d', strtotime($event->closed_at));?>" required >
+                                    <input type="date" class="form-control" name="closed_at_date"
+                                           value="<?php echo date('Y-m-d', strtotime($event->closed_at));?>" required >
                                 </div>
                                 <div class="col-sm-5" style="padding-left: 0; padding-right: 0">
                                     <input type="time" class="form-control" name="closed_at_time" value="<?php echo date('H:i:s', strtotime($event->closed_at)); ?>" required >

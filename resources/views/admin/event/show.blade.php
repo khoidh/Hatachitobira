@@ -66,7 +66,7 @@
                 <td><form action="{{route('events.destroy', $event->id)}}" method="post">
                         {{ csrf_field() }}
                         <input type="hidden" name="_method" value="delete">
-                        <input class="btn btn-danger" type="submit" name="" value="削除する">
+                        <input class="btn btn-danger" type="submit" name="" value="削除する" onclick="return confirm('削除する、よろしいでしょうか')">
                     </form></td>
             </tr>
 
