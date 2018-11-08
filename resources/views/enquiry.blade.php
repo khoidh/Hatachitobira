@@ -20,7 +20,7 @@
                         </ul>
                     </div>
                 @endif
-
+                <?php echo getenv('MAIL_HOST').'envvvvvvvv' ?>
                 {{--<form class="form-horizontal" action="{{route('enquiry-confirm')}}" method="POST">--}}
                 <form class="form-horizontal" action="<?php echo e(route('enquiry-confirm')); ?>" method="POST">
                     {{ csrf_field() }}
