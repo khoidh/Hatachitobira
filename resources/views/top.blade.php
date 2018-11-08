@@ -523,23 +523,33 @@
                 $(this).find('.dropdown-menu').first().stop(true, true).slideUp();
             });
 
-            $('.image-top.row').addClass('owl-carousel owl-theme');
-            
-            $('.owl-carousel').owlCarousel({
-                margin: 10,
-                loop: false,
-                responsive: {
-                  0: {
-                    items: 3
-                  },
-                  600: {
-                    items: 3
-                  },
-                  1000: {
-                    items: 5
-                  }
-                }
-              });
+            $('.image-top.row').slick({
+                autoplay: false,
+                arrows: false,
+                centerMode: true,
+                  centerPadding: '10px',
+                  slidesToShow: 3,
+                  responsive: [
+                    {
+                      breakpoint: 768,
+                      settings: {
+                        arrows: false,
+                        centerMode: true,
+                        centerPadding: '10px',
+                        slidesToShow: 3
+                      }
+                    },
+                    {
+                      breakpoint: 480,
+                      settings: {
+                        arrows: false,
+                        centerMode: true,
+                        centerPadding: '80px',
+                        slidesToShow: 1
+                      }
+                    }
+                ]
+            });
            
         }
         $(document).ready(function() {

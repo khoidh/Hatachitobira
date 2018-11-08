@@ -649,10 +649,6 @@ header.fixed .logo.navbar-brand img {
 .image-top.row .img-detail {
     width: 100%;
     border-radius: 15px;
-
-    @include only-for-mobile() {
-        width: 115%;
-    }
 }
 
 .top .text-my-theme {
@@ -909,6 +905,7 @@ footer .footter-mobile .a-first{
         padding: 0;
         text-align: left;
         writing-mode: horizontal-tb;
+        background-color: rgba(255, 255, 255, 0.5);
     }
 
     .top .content-1-content {
@@ -1198,7 +1195,8 @@ footer .footter-mobile .a-first{
     }
 
     .image-top.row .img-size {
-        width: 100%;
+        max-width: 170px !important;
+        padding: 5px;
     }
 
     .image-top.row {
