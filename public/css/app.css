@@ -811,6 +811,8 @@ body {
   border-radius: 50px;
   font-size: 21px;
   font-weight: bold;
+  left: 0px;
+  padding: 17px 15%;
 }
 
 .top .button-link .link-my-page:hover {
@@ -1708,7 +1710,7 @@ footer .footter-mobile .a-first {
 
 @media (max-width: 575.98px) {
   .content.top {
-    margin-bottom: -118px;
+    margin-bottom: -70px;
   }
 }
 
@@ -1963,9 +1965,11 @@ footer .footter-mobile .a-first {
   text-align: justify;
 }
 
-.event .txt .txt_content img {
-  width: 100% !important;
-  height: 100% !important;
+@media (max-width: 575.98px) {
+  .event .txt .txt_content img {
+    max-width: 100% !important;
+    height: 100% !important;
+  }
 }
 
 .event .txt .txt-form {
@@ -2217,9 +2221,11 @@ footer .footter-mobile .a-first {
   text-align: justify;
 }
 
-.column .txt .txt_content img {
-  width: 100% !important;
-  height: 100% !important;
+@media (max-width: 575.98px) {
+  .column .txt .txt_content img {
+    max-width: 100% !important;
+    height: 100% !important;
+  }
 }
 
 .column .txt-btn {
