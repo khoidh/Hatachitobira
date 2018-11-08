@@ -14,7 +14,7 @@ class UpdateCategoriesTables extends Migration
     public function up()
     {
         Schema::table('categories', function (Blueprint $table) {
-            $table->string("slug",256)->comment('slugURLに使うため');
+            $table->string("slug",256)->after('name')->comment('slugURLに使うため');
         });
     }
 
