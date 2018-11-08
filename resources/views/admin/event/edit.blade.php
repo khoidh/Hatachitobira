@@ -197,7 +197,8 @@
                         </div>
                     </div>
                     {{--time_to--}}
-                    <div class="col-sm-6">
+                    <div class="col-sm-6" style="padding-left: 0;
+    padding-right: 30px;">
                         <label for="time_to" class="col-sm-12 col-form-label">End at </label>
                         <div class="col-sm-12">
                             <div class="row">
@@ -238,7 +239,8 @@
                         </div>
                     </div>
                     {{--Close hour--}}
-                    <div class="col-sm-6">
+                    <div class="col-sm-6" style="padding-left: 0;
+    padding-right: 30px;">
                         <label for="closed_at" class="col-sm-12 col-form-label">Start at </label>
                         <div class="col-sm-12">
                             <div class="row">

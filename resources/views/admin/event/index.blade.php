@@ -37,8 +37,8 @@
         <th class="image">Image</th>
         <th class="category">Category</th>
         {{--<th class="sort">Sort</th>--}}
-        <th class="startAt">Start At</th>
-        <th class="endAt">End At</th>
+        <th class="startAt">登録時間</th>
+        <th class="endAt">日程</th>
         <th class="function">Action</th>
 
     </tr>
@@ -56,8 +56,8 @@
 
             <td>{{$event->category_name}}</td>
             {{--<td>{{$event->sort}}</td>--}}
-            <td>{{$event->time_from}}</td>
-            <td>{{$event->time_to}}</td>
+            <td>{{$event->time_from}}~{{$event->time_to}}</td>
+            <td>{{$event->started_at}}~{{$event->closed_at}}</td>
             <td>
                 <a href="{{route('events.show',$event->id)}}"><i title="Detail" class="fa fa-info-circle fa-2x" aria-hidden="true"></i></a>
                 <a href="{{route('events.edit',$event->id)}}"><i title="Edit" class="fa fa-edit fa-2x" aria-hidden="true"></i></a>

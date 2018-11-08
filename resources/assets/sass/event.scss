@@ -227,9 +227,11 @@
     .txt_content{
       color: $text2-color;
       text-align: justify;
-      img {
-        width: 100% !important;
-        height: 100% !important;
+      @include only-for-mobile(){
+        img {
+          max-width: 100% !important;
+          height: 100% !important;
+        }
       }
     }
     .txt-form{

@@ -61,7 +61,7 @@
             <div class="browse-details">
                 <img src="{{ asset('image/video/btn-play.png')}}" alt="" >
              </div>
-            <img class="thumbnails" src="{{ $videos_cate->thumbnails }}" alt="img-event-1.png">
+            <img class="thumbnails" src="{{ $videos->thumbnails }}" alt="img-event-1.png">
         </div>
         <div class="col-sm-8 wrapper-content content-video">
             <p class="clearfix icon-favorior"><i class="fa fa-heart-o" style="font-size: 24px;" data-user = "{{Auth::User()->id}}" data-id = "{{$videos->id}}"></i></p>
