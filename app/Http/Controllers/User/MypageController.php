@@ -383,17 +383,101 @@ class MypageController extends Controller
                 array_push($results, $result);
             }
         }
-        /*Pagination */
-
-        // $currentPage = LengthAwarePaginator::resolveCurrentPage();
-        // $itemCollection = collect($results);
-        // $perPage = 1000;
-        // $currentPageItems = $itemCollection->slice(($currentPage * $perPage) - $perPage, $perPage)->all();
-        // $paginatedItems = new LengthAwarePaginator($currentPageItems, count($itemCollection), $perPage);
-        // $paginatedItems->setPath('search-category');
-        // $results = $paginatedItems;
-
+        
         return view('user.searchcategory', compact('categories', 'events', 'columns', 'results'));
+    }
+
+    public function searchCategorySlug($id,$slug){
+        {
+            $data_id = $id;
+            $api_key = 'AIzaSyCHOj6MNDK2YFRLQhK5yKP2KEBIRKHlHuU';
+            $BASE_URL = 'https://www.googleapis.com/youtube/v3/videos?id=';
+            $BASE_PART = '&part=id,contentDetails,snippet,statistics,player&key=';
+    
+            $categories = Category::where('display',1)->get();
+    
+            $events = Event::select()
+                ->select('events.*', 'categories.name as category_name')
+                ->join('categories', 'categories.id', '=', 'events.category_id')
+                ->where('events.category_id', '=', $id);
+    
+            $columns = Column::select()
+                ->select('columns.*', 'categories.name as category_name')
+                ->join('categories', 'categories.id', '=', 'columns.category_id')
+                ->where('columns.category_id', '=', $id);
+                
+    
+            $videos = Video::select()
+                ->select('videos.*', 'categories.name as category_name')
+                ->join('categories', 'categories.id', '=', 'videos.category_id')
+                ->where('videos.category_id', '=', $id);
+
+            $events = $events->orderBy('id','desc')->get();
+            $columns = $columns->orderBy('id','desc')->get();
+            $videos = $videos->orderBy('id','desc')->get();
+            
+            foreach ($events as $key => $event) {
+                $like_e = 0;
+                if (Auth::user()) {
+                    $user_id = Auth::user()->id;
+                    $favorite_e = Favorite::where('user_id', $user_id)
+                        ->where('favoritable_id', $event->id)
+                        ->where('favoritable_type', 'events')->get();
+                    if (count($favorite_e) > 0) {
+                        $like_e = 1;
+                    }
+                }
+                $event->favorite = $like_e;
+            }
+    
+            foreach ($columns as $key => $column) {
+                $like_e = 0;
+                if (Auth::user()) {
+                    $user_id = Auth::user()->id;
+                    $favorite_c = Favorite::where('user_id', $user_id)
+                        ->where('favoritable_id', $column->id)
+                        ->where('favoritable_type', 'columns')->get();
+                    if (count($favorite_c) > 0) {
+                        $like_e = 1;
+                    }
+                }
+    
+                $column->favorite = $like_e;
+            }
+    
+            $results = array();
+            foreach ($videos as $video) {
+                $url = $video->url;
+                parse_str(parse_url($url, PHP_URL_QUERY), $youtube);
+                $id = $youtube['v'];
+                $api_url = $BASE_URL . $id . $BASE_PART . $api_key . '';
+                $result = json_decode(file_get_contents($api_url));
+                
+                $result->id = $video->id;
+                $result->category = $video->category_name;
+                $result->data_url = $url;
+                $like = 0;
+                if (Auth::user()) {
+                    $user_id = Auth::user()->id;
+                    $favorite = Favorite::where('user_id', $user_id)
+                        ->where('favoritable_id', $video->id)
+                        ->where('favoritable_type', 'videos')->get();
+                    if (count($favorite) > 0) {
+                        $like = 1;
+                    }
+                }
+                $result->favorite = $like;
+                if (isset($result->items[0])) {
+                    $date1 = new DateTime();
+                    $date2 = new DateTime($result->items[0]->snippet->publishedAt);
+                    $interval = $date2->diff($date1);
+                    $result->date_diff = $interval->m;
+                    array_push($results, $result);
+                }
+            }
+            
+            return view('user.searchcategory', compact('categories', 'events', 'columns', 'results','data_id'));
+        }
     }
 
     public function paginateColumn(Request $request)

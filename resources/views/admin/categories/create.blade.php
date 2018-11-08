@@ -7,7 +7,7 @@
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{ route('admin.home') }}">Home</a></li>
                     <li class="breadcrumb-item"><a href="{{ route('categories.index') }}">Category list</a></li>
-                    <li class="breadcrumb-item active"> Edit</li>
+                    <li class="breadcrumb-item active"> Add</li>
                 </ol>
             </div>
         </div>
@@ -37,6 +37,14 @@
                     </div>
                 </div>
                 
+                <div class="form-group row">
+                    <label for="slug" class="col-sm-2 col-form-label"  >Slug</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="slug" name="slug" value="" placeholder="Slug" required="true" autofocus=""
+                               value="{{old('slug')}}">
+                    </div>
+                </div>
+
                 <div class="form-group row">
                     <label for="image" class="col-sm-2 col-form-label">Icon</label>
                     <div class="col-sm-10">

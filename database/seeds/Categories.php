@@ -18,8 +18,10 @@ class Categories extends Seeder
         DB::table('categories')->insert([
             'id'            => 1,
             'name'          => 'エンタメ',
+            'slug'          => 'エンタメ',
             'icon'          => 'img-cate-1.png',
-            'sort'          => 1,            
+            'sort'          => 1,
+                    
             'display'       => 1,
             'description'   => 'ベトナムの仕事事情・生活環境
 国民の平均年齢が28歳弱。
@@ -28,6 +30,7 @@ class Categories extends Seeder
         DB::table('categories')->insert([
             'id'            => 2,
             'name'          => 'サービス',
+            'slug'          => 'サービス',
             'icon'          => 'img-cate-2.png',
             'sort'          => 1,            
             'display'       => 1,
@@ -36,6 +39,7 @@ class Categories extends Seeder
         DB::table('categories')->insert([
             'id'            => 3,
             'name'          => 'テクノロジー',
+            'slug'          => 'テクノロジー',
             'icon'          => 'img-cate-3.png',
             'sort'          => 1,            
             'display'       => 1,
@@ -44,6 +48,7 @@ class Categories extends Seeder
         DB::table('categories')->insert([
             'id'            => 4,
             'name'          => 'モノづくり',
+            'slug'          => 'モノづくり',
             'icon'          => 'img-cate-4.png',
             'sort'          => 1,            
             'display'       => 1,
@@ -52,6 +57,7 @@ class Categories extends Seeder
         DB::table('categories')->insert([
             'id'            => 5,
             'name'          => '教育',
+            'slug'          => '教育',
             'icon'          => 'img-cate-5.png',
             'sort'          => 1,            
             'display'       => 1,
@@ -60,6 +66,7 @@ class Categories extends Seeder
         DB::table('categories')->insert([
             'id'            => 6,
             'name'          => '暮らし',
+            'slug'          => '暮らし',
             'icon'          => 'img-cate-6.png',
             'sort'          => 1,            
             'display'       => 1,
@@ -68,6 +75,7 @@ class Categories extends Seeder
         DB::table('categories')->insert([
             'id'            => 7,
             'name'          => '企業提供講座',
+            'slug'          => '企業提供講座',
             'icon'          => 'img-cate-7.png',
             'sort'          => 1,            
             'display'       => 1,
@@ -76,6 +84,7 @@ class Categories extends Seeder
         DB::table('categories')->insert([
             'id'            => 8,
             'name'          => '食',
+            'slug'          => '食',
             'icon'          => 'img-cate-8.png',
             'sort'          => 1,            
             'display'       => 1,

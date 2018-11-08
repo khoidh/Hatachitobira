@@ -23,15 +23,12 @@
     </div>
 @endsection
 @section('content')
-<?php 
-    $search = isset($_GET['search']) && $_GET['search'] != '' ? $_GET['search'] : 0;
- ?>
 <div class="row-category searchcategory">
     <div class="select-search">
         <select class="select-box search" name="select-category">
             <option value="0">Category</option>
             @foreach($categories as $categorie )
-            <option value="{{$categorie->id}}" {{$categorie->id== $search ? 'selected' : '' }}>{{$categorie->name}}</option>
+            <option value="{{$categorie->id}}-{{ $categorie->slug }}" {{$categorie->id== $data_id ? 'selected' : '' }}>{{$categorie->name}}</option>
             @endforeach
         </select>
     </div>
@@ -165,7 +162,7 @@
                     <div id="carouselExampleevent123" class="carousel slide multi-item-carousel" data-ride="carousel" data-interval="false" data-wrap="false">
                         <div class="carousel-inner row mx-auto" role="listbox">
                             @forelse($results as $key => $result)
-                                    <div class=" item col-xs-12 col-sm-12 col-md-12 col-lg-12 video-detail carousel-item {{ $key == 0  ? 'active' : ''}}">
+                                    <div style="padding: 0" class=" item col-xs-12 col-sm-12 col-md-12 col-lg-12 video-detail carousel-item {{ $key == 0  ? 'active' : ''}}">
                                         <div class="wrapper">
                                             <div class="thump">
                                                 <div class="browse-details" data-id='{{$result->id}}' data-user='{{Auth::user() ? Auth::user()->id : "" }}' data-src='{{$result->items[0]->player->embedHtml}}' data-url = "{{$result->data_url}}">
@@ -333,8 +330,8 @@
         });
 
         $(document).on('change','.select-box.search',function(e){
-            console.log('aaaaa');
-            url = "{{URL::to('search-category') }}?search=" + $(this).val();
+            var link = $(this).val();
+            url = "{{ url('search-category')}}"+"/"+link;
             window.location.href=url;
         })
 
