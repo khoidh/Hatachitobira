@@ -16,6 +16,8 @@ class EnquiryController extends Controller
      *
      * @return void
      */
+    protected  $SUBJECT = 'ハタチのトビラ｜お問い合わせありがとうございます';
+
     public function __construct()
     {
         
@@ -52,23 +54,22 @@ class EnquiryController extends Controller
                         ->withInput();
         }else {
             $thisdata = Enquiry::create($data);
-
             $thisUser = Enquiry::findOrFail($thisdata->id);
-            Mail::send('email.enquiryAdmin',compact('thisUser'),
+            Mail::send('email.enquiry',compact('thisUser'),
                function($mail) use($thisUser)
                {
-                   $mail->to($thisUser->email)->subject('Hatachi Toabira');
+                   $mail->to($thisUser->email)->subject($this->SUBJECT);
                }
             );
-    //        $this->sendEmailUser($thisUser);
+            Mail::send('email.enquiry',compact('thisUser'),
+               function($mail) use($thisUser)
+               {
+                   $mail->to(config('mail.mail_admin'))->subject($this->SUBJECT);
+               }
+            );
             return view('thank_enquiry');
         }
      
-    }
-
-    public function sendEmailUser($thisUser)
-    {
-        Mail::to($thisUser['email'])->send(new enquiryUser($thisUser));
     }
 
 }
