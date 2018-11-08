@@ -135,7 +135,7 @@
     }
     .thump {
         .img-icon {
-            max-height: 200px;
+            max-height: 160px;
         }
     }
     .fa.fa-heart-o.liked {
@@ -201,7 +201,11 @@
                 max-width: 330px;
                 width: 100%;
                 height: 100%;
+                @include only-for-mobile() {
+                    max-width: unset;
+                }
             }
+
         }
 
         .content-right {
@@ -574,7 +578,9 @@
                             height: 100%;
 
                             position: relative;
-
+                            @include only-for-mobile() {
+                                padding: 0px;
+                            }
                             .browse-details {
                                 display: -webkit-box;
                                 display: -ms-flexbox;
@@ -623,6 +629,9 @@
                                 padding-bottom: 24px;
                                 a{
                                     color: pink;
+                                }
+                                @include only-for-mobile() {
+                                    padding: 10px;
                                 }
                             }
 
@@ -726,7 +735,7 @@
                         background: #111;
                         color: #fff;
                         border-radius: 50%;
-                        z-index: 999;
+                        z-index: 99;
                         font-weight: 1000;
                     }
 

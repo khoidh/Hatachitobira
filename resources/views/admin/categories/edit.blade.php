@@ -36,7 +36,13 @@
                         <textarea class="form-control" name="description" id="description" placeholder="Description" id="ckeditor-text" required="true"  value="">{{$category->description}}</textarea>
                     </div>
                 </div>
-                
+                <div class="form-group row">
+                    <label for="slug" class="col-sm-2 col-form-label"  >Slug</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="slug" name="slug" value="{{$category->slug}}" placeholder="Slug" required="true" autofocus=""
+                               value="{{old('slug')}}">
+                    </div>
+                </div>
                 <div class="form-group row">
                     <label for="image" class="col-sm-2 col-form-label">Icon</label>
                     <div class="col-sm-10">
