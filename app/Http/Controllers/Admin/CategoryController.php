@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Category;
 use Illuminate\Support\Facades\DB;
-
+use App\Http\Requests\StoreCategory;
 class CategoryController extends Controller
 {
     public function index()
@@ -21,14 +21,14 @@ class CategoryController extends Controller
         return view('admin.categories.create');
     }
 
-    public function store(Request $request)
+    public function store(StoreCategory $request)
     {
         $data = $request->all();
         if($request->hasFile('image')){
             $file = $request->file('image');
             $fileName = time().'_'.$file->getClientOriginalName();
             $data['icon'] = $fileName;
-            $destinationPath = public_path('image/category');
+            $destinationPath = public_path('images/admin/category');
             $file->move($destinationPath, $fileName);
         }
         Category::create($data);
@@ -47,7 +47,7 @@ class CategoryController extends Controller
         return view('admin.categories.edit', ['category' => $category]);
     }
 
-    public function update(Request $request, $id)
+    public function update(StoreCategory $request, $id)
     {
         $category = Category::find($id);
         $category->fill($request->all());
@@ -55,7 +55,7 @@ class CategoryController extends Controller
             $file = $request->file('image');
             $fileName = time().'_'.$file->getClientOriginalName();
             $category->icon = $fileName;
-            $destinationPath = public_path('image/category');
+            $destinationPath = public_path('images/admin/category');
             $file->move($destinationPath, $fileName);
         }
         $category->save();

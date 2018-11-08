@@ -39,7 +39,7 @@
   <div class="form-group row">
     <label for="icon" class="col-sm-2 col-form-label">Icon</label>
     <div class="col-sm-10">
-      <img src="<?php echo asset('image/category/'.$category->icon) ?>" >
+      <img src="<?php echo asset('images/admin/category/'.$category->icon) ?>" >
     </div>
   </div>
   <div class="form-group row">

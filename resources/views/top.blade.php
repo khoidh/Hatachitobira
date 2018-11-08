@@ -238,7 +238,7 @@
                             @foreach($categories as $categorie)
                             <div class="col-md-3 img-cat-sp">
                                 <a href="{{ url('search-category/'.$categorie->id.'-'.$categorie->slug) }}">
-                                    <img class="img-cat" src="{{ asset('image/category/'.$categorie->icon) }}" alt="{{$categorie->name}}">
+                                    <img class="img-cat" src="{{ asset('images/admin/category/'.$categorie->icon) }}" alt="{{$categorie->name}}">
                                 </a>
                             </div>
                             @endforeach

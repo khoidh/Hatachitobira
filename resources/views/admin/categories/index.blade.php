@@ -44,7 +44,7 @@
                     <td>{{ $category->id }}</td>
                     <td>{{ $category->name}}</td>
                     <td>
-                        <img src="<?php echo asset('image/category/'.$category->icon) ?>" width="150px" height="150px">
+                        <img src="<?php echo asset('images/admin/category/'.$category->icon) ?>" width="150px" height="150px">
                     </td>
                     <td>{{ $category->sort}}</td>
                     <td>{{ $category->display == 1 ? '表示' : '非表示'}}</td>
