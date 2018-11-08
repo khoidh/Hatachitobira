@@ -99,7 +99,7 @@
                         type: 'post',
                         dataType: 'json',
                         data: {
-                            video_id : column_id,
+                            column_id : column_id,
                             user_id: user_id
                         },
                         success : function (result){

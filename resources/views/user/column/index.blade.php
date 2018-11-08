@@ -90,8 +90,28 @@
                 var user_id = $(this).data('user');
                 var column_id = $(this).data('id');
                 var _this = $(this);
-                if (user_id == '') {
-
+                if(user_id) {
+                    $.ajax({
+                        url : '{{route("column.favorite")}}',
+                        type: 'post',
+                        dataType: 'json',
+                        data: {
+                            column_id : column_id,
+                            user_id: user_id
+                        },
+                        success : function (result){
+                            if (result == 'ok') {
+                                _this.addClass('liked');
+                                _this.css('color','pink');
+                            }else {
+                                _this.removeClass('liked');
+                                _this.css('color','#c3c2c2');
+                            }
+                        }
+                    })
+                }
+                else
+                {
                     $html = '';
                     $html +='<div class="form-group code-top">';
                         $html +='<div class="col-md-5">';
@@ -120,43 +140,7 @@
                     $('#modal_register').find('.panel-body').html($html);
                     $('#modal_register').modal('show');
                 }
-                else {
-                    $.ajax({
-                        url : '{{route("column.favorite")}}',
-                        type: 'post',
-                        dataType: 'json',
-                        data: {
-                            column_id : column_id,
-                            user_id: user_id
-                        },
-                        success : function (result){
-                            if (result == 'ok') {
-                                _this.addClass('liked');
-                                _this.css('color','pink');
-                            }else {
-                                _this.removeClass('liked');
-                                _this.css('color','#c3c2c2');
-                            }
-                        }
-                    })
-                }
             });
-            // $(document).on('click', '.pagination .page-link', function (e) {
-            //
-            //     e.preventDefault();
-            //     var page = $(this).attr('href').split('page=')[1];
-            //     $.ajax({
-            //         type: "GET",
-            //         url: '?page=' + page,
-            //         // data:{page:page},
-            //         success:function(data){
-            //             // console.log(data);
-            //             $('body').html(data);
-            //             // $('body,html').animate({scrollTop: 0}, 'slow');
-            //             // $('body,html').animate({scrollTop: 0});
-            //         }
-            //     })
-            // });
         })
     </script>
 @endsection
