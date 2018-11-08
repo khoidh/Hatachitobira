@@ -116,7 +116,7 @@ class VideoController extends Controller
                 $video->publishedAt = date('Y-m-d H:i:s',$publishedAt);
                 
                 $video->save();
-                return redirect()->route('videos.index');
+                return redirect()->route('videos.show',['id' => $video->id]);
             }
             else
             {

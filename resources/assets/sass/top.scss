@@ -530,8 +530,10 @@ body {
 .top .button-link .link-my-page{
     top: 0;
     border-radius: 50px;
-        font-size: 21px;
+    font-size: 21px;
     font-weight: bold;
+    left: 0px;
+    padding: 17px 15%;
 }
 .top .button-link .link-my-page:hover{
     color: #fff;
@@ -1424,6 +1426,6 @@ footer .footter-mobile .a-first{
 
 .content.top {
     @include only-for-mobile() {
-        margin-bottom: -118px;
+        margin-bottom: -70px;
     }
 }
