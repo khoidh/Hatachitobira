@@ -383,8 +383,8 @@ class MypageController extends Controller
                 array_push($results, $result);
             }
         }
-        
-        return view('user.searchcategory', compact('categories', 'events', 'columns', 'results'));
+        $data_id = 0;
+        return view('user.searchcategory', compact('categories', 'events', 'columns', 'results','data_id'));
     }
 
     public function searchCategorySlug($id,$slug){

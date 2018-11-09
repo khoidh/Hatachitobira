@@ -331,7 +331,11 @@
 
         $(document).on('change','.select-box.search',function(e){
             var link = $(this).val();
-            url = "{{ url('search-category')}}"+"/"+link;
+            if (link == 0) {
+                url = "{{ url('search-category')}}";
+            }else {
+                url = "{{ url('search-category')}}"+"/"+link;
+            }
             window.location.href=url;
         })
 
