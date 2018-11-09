@@ -224,6 +224,10 @@
 
 <script type="text/javascript" async defer>
     $(document).ready(function(){
+        $("#modal_video").on('hide.bs.modal', function(){
+            $("iframe").attr('src', '');
+        });
+        
         $(document).on('click','#carouselExample .carousel-control-next',function(){
             if ($('#carouselExample .carousel-inner .carousel-item.active').is(':nth-last-child(2)')) {
                 $('#carouselExample .carousel-control-next').attr('style','display: none !important');
