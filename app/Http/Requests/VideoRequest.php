@@ -30,4 +30,14 @@ class VideoRequest extends FormRequest
             'type'     => 'required|integer', 
         ];
     }
+
+    public function Attributes()
+    {
+        return [
+            'category_id'   => __('カテゴリ'),
+            'url'           => __('Url'),
+            'sort'          => __('Sort'),
+            'type'          => __('タイプ'),
+        ];
+    }
 }

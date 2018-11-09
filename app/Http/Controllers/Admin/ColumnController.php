@@ -7,7 +7,7 @@ use App\Column;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
-
+use App\Http\Requests\ColumnRequest;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 
 class ColumnController extends Controller
@@ -31,32 +31,20 @@ class ColumnController extends Controller
         return view('admin.column.create', ['categories' => $categories]);
     }
 
-    //action de luu colum moi khi form submit
-    public function store(Request $request)
+    public function store(ColumnRequest $request)
     {
         $data = $request->all();
 
-        $this->validate($request,[
-            'title'=>'required',
-            'category_id' => 'required',
-            'description' =>  'required',
-            'content' => 'required',
-            'image' => 'required',
-            'sort' => 'required',
-        ]);
 
-        Column::create($data);
-
-        //Upload file image
-        if($request->hasFile('image')){
-            //Lưu hình ảnh vào thư mục public/image/column
-            $file = $request->file('image');
+        if($request->hasFile('image_selected')){
+            $file = $request->file('image_selected');
             $fileName = time().'_'.$file->getClientOriginalName();
-            $destinationPath = public_path('image/column');
+            $destinationPath = public_path('images/admin/column');
             $file->move($destinationPath, $fileName);
 
-            $data["image"]= $fileName;
+            $data['image']= $fileName;
         }
+        Column::create($data);
 
         return redirect()->route('columns.index');
     }
@@ -80,35 +68,17 @@ class ColumnController extends Controller
         return view('admin.column.edit', ['column' => $column, 'categories' => $categories]);
     }
 
-    public function update(Request $request, $id)
+    public function update(ColumnRequest $request, $id)
     {
         $column = Column::find($id);
         $data = $request->all();
 
-        //Upload file image
         if($request->hasFile('image')) {
-            if (isset($data['image_edited_check']) && (bool)$data['image_edited_check'] == true) {
-                //Hàm kiểm tra file image dữ liệu
-//            $this->validate($request,
-//                [
-//                    //Kiểm tra đúng file đuôi .jpg,.jpeg,.png.gif và dung lượng không quá 2M
-//                    'image' => 'mimes:jpg,jpeg,png,gif|max:2048',
-//                ],
-//                [
-//                    //Tùy chỉnh hiển thị thông báo không thõa điều kiện
-//                    'image.mimes' => 'Chỉ chấp nhận ảnh với đuôi .jpg .jpeg .png .gif',
-//                    'image.max' => 'Ảnh giới hạn dung lượng không quá 2M',
-//                ]
-//            );
-
-                //Lưu hình ảnh vào thư mục public/image/column
-                $file = $request->file('image');
-                $fileName = time() . '_' . $file->getClientOriginalName();
-                $destinationPath = public_path('image/column');
-                $file->move($destinationPath, $fileName);
-
-                $data["image"] = $fileName;
-            }
+            $file = $request->file('image');
+            $fileName = time() . '_' . $file->getClientOriginalName();
+            $destinationPath = public_path('images/admin/column');
+            $file->move($destinationPath, $fileName);
+            $data["image"] = $fileName;
         }
         $column->update($data);
         return redirect()->route('columns.show',$column->id);

@@ -2,20 +2,20 @@
 
 @section('content-header')
     <div class="content-header-left col-md-6 col-12 mb-2 breadcrumb-new">
-        <h3 class="content-header-title mb-0 d-inline-block" style="font-size: 30px">Videos</h3>
+        <h3 class="content-header-title mb-0 d-inline-block" style="font-size: 30px">{{__('動画')}}</h3>
         <div class="row breadcrumbs-top d-inline-block">
             <div class="breadcrumb-wrapper col-12">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="{{ route('admin.home') }}">Home</a></li>
-                    <li class="breadcrumb-item"><a href="{{ route('videos.index') }}">Videos</a></li>
-                    <li class="breadcrumb-item active">Add new </li>
+                    <li class="breadcrumb-item"><a href="{{ route('admin.home') }}">{{__('ホーム')}}</a></li>
+                    <li class="breadcrumb-item"><a href="{{ route('videos.index') }}">{{__('一覧')}}</a></li>
+                    <li class="breadcrumb-item active">{{__('追加')}}</li>
                 </ol>
             </div>
         </div>
     </div>
    
 @endsection
-@section('content-title','Videos')
+@section('content-title','動画情報')
 @section('card-content')
 @endsection
 @section('content')
@@ -40,10 +40,9 @@
     {{ csrf_field() }}
     <div class="form-group row">
 
-        <label class="col-sm-2 col-form-label" for="category_id">Category</label>
+        <label class="col-sm-2 col-form-label" for="category_id">{{__('カテゴリ')}}</label>
         <div class="col-sm-10">
         <select name="category_id" id="category_id" class="form-control" >
-            {{--<option selected>Choose Category</option>--}}
             @foreach($categories as $category)
                 <option value="<?php  echo $category->id ?>"><?php  echo $category->name ?></option>
             @endforeach
@@ -51,14 +50,14 @@
         </div>
     </div>
      <div class="form-group row">
-        <label for="url" class="col-sm-2 col-form-label">URL</label>
+        <label for="url" class="col-sm-2 col-form-label">{{__('URL')}}</label>
         <div class="col-sm-10">
             <input type="text" class="form-control" name="url" id="url" placeholder="URL"
                    value="{{old('url')}}">
         </div>
     </div>
     <div class="form-group row">
-        <label for="sort" class="col-sm-2 col-form-label">Sort</label>
+        <label for="sort" class="col-sm-2 col-form-label">{{__('表示順')}}</label>
         <div class="col-sm-10">
             <input type="number" class="form-control" name="sort" id="sort"
                    value="{{old('sort')}}">
@@ -66,7 +65,7 @@
         </div>
     </div>
     <div class="form-group row">
-        <label for="type" class="col-sm-2 col-form-label">Type</label>
+        <label for="type" class="col-sm-2 col-form-label">{{__('タイプ')}}</label>
         <div class="col-sm-10">
             <select type="number" name="type" id="type" class="form-control" tabindex=1>
                 <option value='0' selected>ジョブシャドウ</option>
@@ -76,7 +75,7 @@
     </div>
     <div class="form-group row">
         <div class="col-sm-10">
-            <button type="submit" class="btn btn-primary">登録</button>
+            <button type="submit" class="btn btn-primary">{{__('登録')}}</button>
         </div>
     </div>
 </form>

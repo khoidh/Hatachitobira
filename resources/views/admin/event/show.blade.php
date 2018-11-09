@@ -6,21 +6,21 @@
 @endsection
 @section('content-header')
 
-    <div class="content-header-left col-md-6 col-12 mb-2 breadcrumb-new">
-        <h3 class="content-header-title mb-0 d-inline-block" style="font-size: 30px">Events</h3>
+<div class="content-header-left col-md-6 col-12 mb-2 breadcrumb-new">
+        <h3 class="content-header-title mb-0 d-inline-block" style="font-size: 30px">{{__('イベント')}}</h3>
         <div class="row breadcrumbs-top d-inline-block">
             <div class="breadcrumb-wrapper col-12">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="{{ route('admin.home') }}">Home</a></li>
-                    <li class="breadcrumb-item"><a href="{{ route('events.index') }}">Events</a></li>
-                    <li class="breadcrumb-item active">Add new </li>
+                    <li class="breadcrumb-item"><a href="{{ route('admin.home') }}">{{__('ホーム')}}</a></li>
+                    <li class="breadcrumb-item"><a href="{{ route('events.index') }}">{{__('イベント一覧')}}</a></li>
+                    <li class="breadcrumb-item active">{{__('ビュー')}}</li>
                 </ol>
             </div>
         </div>
     </div>
     
 @endsection
-@section('content-title','Events')
+@section('content-title','イベント情報')
 @section('card-content')
 @endsection
 @section('javascrip')

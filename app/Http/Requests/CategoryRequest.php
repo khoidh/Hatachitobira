@@ -38,7 +38,7 @@ class CategoryRequest extends FormRequest
     {
         return [
             'name'          => __('名前'),
-            'description'   => __('概要'),
+            'description'   => __('説明'),
             'slug'          => __('スラグ'),
             'icon'          => __('アイコン'),
             'sort'          => __('表示順'),

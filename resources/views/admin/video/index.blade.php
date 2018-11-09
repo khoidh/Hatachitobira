@@ -2,39 +2,39 @@
 
 @section('content-header')
     <div class="content-header-left col-md-6 col-12 mb-2 breadcrumb-new">
-        <h3 class="content-header-title mb-0 d-inline-block" style="font-size: 30px">Videos</h3>
+        <h3 class="content-header-title mb-0 d-inline-block" style="font-size: 30px">{{__('動画')}}</h3>
         <div class="row breadcrumbs-top d-inline-block">
             <div class="breadcrumb-wrapper col-12">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="{{ route('admin.home') }}">Home</a></li>
-                    <li class="breadcrumb-item active">List Video</li>
+                    <li class="breadcrumb-item"><a href="{{ route('admin.home') }}">{{__('ホーム')}}</a></li>
+                    <li class="breadcrumb-item active">{{__('動画一覧')}}</li>
                 </ol>
             </div>
         </div>
     </div>
     <div class="content-header-right col-md-6 col-12">
         <div class="btn-group float-md-right" role="group" aria-label="Button group with nested dropdown">
-            <a class="btn btn-info" href="{{route('videos.create')}}"><i class="la la-plus"></i>   Add New</a>
+            <a class="btn btn-info" href="{{route('videos.create')}}"><i class="la la-plus"></i>{{__('追加')}}</a>
 
         </div>
     </div>
 @endsection
-@section('content-title','Videos')
+@section('content-title','動画一覧')
 @section('card-content')
 @endsection
 @section('content')
-    <div class="table-responsive">
-        <table class="table mb-0">
+    <div class="clearfix panel-body">
+        <table class="table table-striped table-bordered table-hover tbl-resoure">
     <thead>
     <tr>
         <th>ID</th>
-        <th>Category</th>
-        <th>URL</th>
-        <th>Title</th>
-        <th>Thumpnail</th>
-        <th>Sort</th>
-        <th>Type</th>
-        <th>Action</th>
+        <th>{{__('カテゴリ')}}</th>
+        <th>{{__('URL')}}</th>
+        <th>{{__('タイトル')}}</th>
+        <th>{{__('サムネイル')}}</th>
+        <th>{{__('表示順')}}</th>
+        <th>{{__('タイプ')}}</th>
+        <th>{{__('操作')}}</th>
 
     </tr>
     </thead>
@@ -55,8 +55,8 @@
             @endphp
             <td>{{$type}}</td>
             <td>
-                <a href="{{route('videos.show',$video->id)}}"><i title="Detail" class="fa fa-info-circle fa-2x" aria-hidden="true"></i></a>
-                <a href="{{route('videos.edit',$video->id)}}"><i title="Edit" class="fa fa-edit fa-2x" aria-hidden="true"></i></a>
+                <a href="{{route('videos.show',$video->id)}}"><i title="ビュー" class="fa fa-info-circle fa-2x" aria-hidden="true"></i></a>
+                <a href="{{route('videos.edit',$video->id)}}"><i title="編集" class="fa fa-edit fa-2x" aria-hidden="true"></i></a>
             </td>
         </tr>
     @endforeach
