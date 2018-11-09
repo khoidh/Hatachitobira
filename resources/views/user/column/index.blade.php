@@ -22,9 +22,9 @@
                             <hr class="shape-8"/>
                             <img
                                 @if($column->type == 0)
-                                    src="{{asset('image/column/column-icon.png')}}" alt="column-icon.png"
+                                    src="{{asset('images/user/column/column-icon.png')}}" alt="column-icon.png"
                                 @else
-                                    src="{{asset('image/column/column-visible-icon.png')}}" alt="column-visible-icon.png"
+                                    src="{{asset('images/user/column/column-visible-icon.png')}}" alt="column-visible-icon.png"
                                 @endif
                             >
                             <span style="@if($column->type ==1) left: 25px; @endif">{{$column_state}}</span>
@@ -33,8 +33,8 @@
                         <div class="article-content row">
                             <div class="content-left col-md-4">
                                 <a href="{{route('column.show', $column->id)}}" style="text-decoration:none;">
-                                    @php $image='image/column/'.$column->image; @endphp
-                                    <img class="image" src="{{file_exists($image)?asset($image): asset('image/column/column_default.jpg')}}" alt="{{$image}}">
+                                    @php $image='images/admin/column/'.$column->image; @endphp
+                                    <img class="image" src="{{file_exists($image)?asset($image): asset('images/default/column_default.jpg')}}" alt="{{$image}}">
                                 </a>
                             </div>
                             <div class="content-right col-md-8">
@@ -118,7 +118,7 @@
                        $html +='<p class="title-register">イベント参加・個人ページの利用は会員限定です。さあ、マイテーマを探そ</p>';
                         $html +='<input type="hidden" name="type" id="type_regiter" value="1">';
                         $html +='</div>';
-                        $html +='<img src="{{ asset("image/picture1.png") }}">';
+                        $html +='<img src="{{ asset("images/picture1.png") }}">';
                     $html +='</div>';
                     $html +='<div class="form-group">';
                             $html +='<span id="first-name-err" style="color:red;font-size:12px" ></span>';
