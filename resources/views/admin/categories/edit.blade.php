@@ -18,6 +18,15 @@
 @section('card-content')
 @endsection
 @section('content')
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
     <div class="row justify-content-md-center">
         <div class="col-md-10">
             <form action="{{route('categories.update',$category->id)}}" enctype="multipart/form-data" method="POST">
@@ -26,32 +35,35 @@
                 <div class="form-group row">
                     <label for="name" class="col-sm-2 col-form-label"  >Name</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="name" name="name" placeholder="Name" required="true" autofocus="" value="{{$category->name}}">
+                        <input type="text" class="form-control" id="name" name="name" placeholder="Name" autofocus="" value="{{$category->name}}">
                     </div>
                 </div>
 
                 <div class="form-group row">
                     <label for="description" class="col-sm-2 col-form-label">Description</label>
                     <div class="col-sm-10">
-                        <textarea class="form-control" name="description" id="description" placeholder="Description" id="ckeditor-text" required="true"  value="">{{$category->description}}</textarea>
+                        <textarea class="form-control" name="description" id="description" placeholder="Description" id="ckeditor-text"  value="">{{$category->description}}</textarea>
                     </div>
                 </div>
-                
+                <div class="form-group row">
+                    <label for="slug" class="col-sm-2 col-form-label"  >Slug</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="slug" name="slug" value="{{$category->slug}}" placeholder="Slug" 
+                               value="{{old('slug')}}">
+                    </div>
+                </div>
                 <div class="form-group row">
                     <label for="image" class="col-sm-2 col-form-label">Icon</label>
                     <div class="col-sm-10">
-                        <img src="<?php echo asset('image/category/'.$category->icon) ?>" id="temp_img" width="150px" height="150px">
+                        <img src="<?php echo asset('images/admin/category/'.$category->icon) ?>" id="temp_img" width="150px" height="150px">
                         <input type="file" name="image" id="image"  accept="image/*" id="upload" <?php if(!$category->icon) echo 'required'?> >
-                        <input type="hidden" name="icon" value="{{$category->icon}}">
+                        <input type="hidden" name="icon" id="icon" value="{{$category->icon}}">
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="sort" class="col-sm-2 col-form-label">Sort</label>
                     <div class="col-sm-10">
-                        <input type="number" class="form-control" name="sort" id="sort" value="{{$category->sort}}" placeholder="Sort"
-                               min="1" max="2147483647"
-                               onkeypress="return (event.charCode == 8 || event.charCode == 0 || event.charCode == 13) ? null : event.charCode >= 48 && event.charCode <= 57"
-                               required="true">
+                        <input type="number" class="form-control" name="sort" id="sort"  placeholder="Sort" value="{{$category->sort}}">
                     </div>
                 </div>
                 <div class="form-group row">
@@ -83,6 +95,8 @@
             reader.onload = (e) => {
                 selectedImage = e.target.result;
                 $('#temp_img').attr('src', selectedImage);
+                $('#icon').val(file.name);
+
             };
             reader.readAsDataURL(file);
         });

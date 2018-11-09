@@ -40,7 +40,7 @@
 }
 
 .container.about .top .container.content-1 .content-1-title:first-child{
-  margin-top: -45px;
+  margin-top: -188px !important;
 }
 
 .container.about .top .container.content-1 .about-content-1-content .text-detail{
@@ -57,7 +57,7 @@
 }
 .container.about .top .div-bg{
   display: inline-block;
-  width: 68%;
+  width: 66%;
   height: 80px;
   background-color: #fff;
   position: absolute;
@@ -126,7 +126,7 @@
 }
 
 .what-done-col .more-detail span{
-  font-size: 14px;
+  font-size: 20px;
   font-weight: bold;
   color: #000;
   font-family: "Myriad Pro";
@@ -198,7 +198,7 @@
     margin-top: -60px;
   }
   .container.about .top .container.content-1 .content-1-title:first-child{
-    margin-top: 0;
+    margin-top: 0 !important;
   }
   .container.about .top .container.content-1 .content-1-title{
     //font-size: 30px;
@@ -218,6 +218,7 @@
     padding-top: 0 !important;
     top: 50px;
     text-align: justify;
+    padding: 6px;
   }
 
   .container.about .about-content-1-content .text-my-theme .about-cb-path{
@@ -243,16 +244,22 @@
   .container.about .about-why-born{
     background-color: #FFF100;
     margin-top: -155px;
-    padding: 80px 20px;
+    
   }
-  .container.about .about-why-born .why-born-col,
-  .container.about .about-what-done .what-done-col{
+  .container.about .about-why-born .why-born-col{
     background-color: #fff;
     border-radius: 10px;
     text-align: center;
     padding: 20px 30px;
     margin: 20px;
   }
+    
+    .container.about .about-what-done .what-done-col{
+        background-color: #fff;
+        border-radius: 10px;
+        text-align: center;
+      }
+
   .container.about .about-why-born .why-born-col img{
     width: 160px;
     height: 160px;
@@ -268,7 +275,6 @@
   }
   .container.about  .about-what-done .what-done-col p{
     padding-left: 0;
-    margin-left: 10%;
   }
   .container.about  .about-what-done .what-done-col .more-detail{
     margin-top: 20px;
@@ -288,13 +294,15 @@
   }
   .container.about .about-hatachi{
     margin-bottom: 60px;
+    .container {
+        padding-right: 0
+    }
   }
 
   .container.about .about-hatachi .about-hatachi-col{
-    padding: 0px 0 10px 50px;
+    padding: 0 0 20px 0;
     text-align: center;
     margin: 0 auto;
-    padding: 0 50px 10px;
   }
 
   .container.about .about-hatachi .about-hatachi-col a.btn-link:hover,
@@ -412,7 +420,6 @@
   }
   .container.about .about-what-done .what-done-col p {
     padding-left: 0;
-    margin-left: 10%;
   }
   .container.about .about-what-done .what-done-col .more-detail {
     margin-top: 20px;
@@ -432,6 +439,7 @@
   }
   .container.about .about-hatachi {
     margin-bottom: 60px;
+    margin-right: 0 !important;
   }
 
   .container.about .about-hatachi .about-hatachi-col {
@@ -448,13 +456,26 @@
 
 }
 
+.about-why-born{
+    background-color: #FFF100;
+    margin-top: -60px;
+    .container {
+        padding: 50px 80px 50px 115px;
+        margin: 0 auto;
+        @include only-for-mobile() {
+            padding: 0;
+            padding-right: 0;
+            padding-top: 73px;
+        }
+    }
+}
+
 /* Medium Devices, Desktops */
 @media only screen and (min-width : 992px) {
   .about .top .content-1 .about-content-title .content-1-title {
     font-size: 36px !important;
     height: 500px !important;
     text-align: start !important;
-
     margin-top: -150px !important;
   }
 
@@ -462,11 +483,7 @@
     display: none;
   }
 
-  .about-why-born{
-    background-color: #FFF100;
-    padding: 60px 220px;
-    margin-top: -60px;
-  }
+  
 
   .about-why-born .why-born-col,
   .about-what-done .what-done-col,
@@ -492,11 +509,17 @@
   }
 
   .about-what-done{
-    padding: 60px 220px;
+        .container {
+            margin: 0 auto;
+            padding: 0 110px 0 100px;
+        }
   }
 
   .about-hatachi{
-    padding: 0 220px;
+    .container {
+        margin: 0 auto;
+        padding: 0 110px 0 100px;
+    }
   }
 
   .about-hatachi .about-hatachi-col a.btn-link:focus,

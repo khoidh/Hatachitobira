@@ -1,5 +1,5 @@
 body {
-    font-family: sans-serif;
+    font-family: sans-serif !important;
     font-weight: 400
 }
 
@@ -651,10 +651,6 @@ header.fixed .logo.navbar-brand img {
 .image-top.row .img-detail {
     width: 100%;
     border-radius: 15px;
-
-    @include only-for-mobile() {
-        width: 115%;
-    }
 }
 
 .top .text-my-theme {
@@ -911,6 +907,7 @@ footer .footter-mobile .a-first{
         padding: 0;
         text-align: left;
         writing-mode: horizontal-tb;
+        background-color: rgba(255, 255, 255, 0.5);
     }
 
     .top .content-1-content {
@@ -1118,11 +1115,14 @@ footer .footter-mobile .a-first{
     .top .container.movie-top-4.content-2 {
         margin-top: 0;
     }
+    #modal_register .modal-content{
+        width: 98% !important;
+    }
 
     #modal_register p.title-register {
         position: relative;
-        top: 60px;
-        left: 21px;
+        top: 60px !important;
+        left: 21px !important;
         font-weight: bold;
         font-size: 13px;
         width: 102px;
@@ -1200,7 +1200,8 @@ footer .footter-mobile .a-first{
     }
 
     .image-top.row .img-size {
-        width: 100%;
+        max-width: 170px !important;
+        padding: 5px;
     }
 
     .image-top.row {
@@ -1216,14 +1217,20 @@ footer .footter-mobile .a-first{
     padding: 0 !important;
     margin-top: 100px;
     @include only-for-mobile() {
-        padding: 0 20px !important;
+        padding: 0 22px !important;
         margin-top: 0px;
+    }
+
+}
+
+@-moz-document url-prefix() {
+    #modal_register .code-top img {
+        width: 100%;
+        height: 305px;
     }
 }
 
 @media (min-width: 376px) and (max-width: 768px) {
-
-
     .top .movie-top-2 .col-md-9 {
         margin-left: 0;
     }
@@ -1306,8 +1313,10 @@ footer .footter-mobile .a-first{
     height: 45px;
     margin-right: -34px;
     font-size: 30px;
-    text-align: center;
-    line-height: 44px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    line-height: 1
 }
 
 .modal_register .close:hover {

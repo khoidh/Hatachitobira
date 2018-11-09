@@ -6,9 +6,7 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
-
-
-class enquiryUser extends Mailable
+class enquiryMail extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -17,8 +15,6 @@ class enquiryUser extends Mailable
      *
      * @return void
      */
-
-
     public function __construct()
     {
     }
@@ -30,6 +26,6 @@ class enquiryUser extends Mailable
      */
     public function build()
     {
-        return $this->view('email.enquiryUser');
+        return $this->view('thank_enquiry');
     }
 }
