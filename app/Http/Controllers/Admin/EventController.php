@@ -7,6 +7,7 @@ use App\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
+use App\Http\Requests\EventRequest;
 
 use Illuminate\Foundation\Validation\ValidatesRequests;
 
@@ -30,62 +31,23 @@ class EventController extends Controller
         return view('admin.event.create', ['categories' => $categories]);
     }
 
-    public function store(Request $request)
+    public function store(EventRequest $request)
     {
         $data = $request->all();
+        $data['time_from']  = date('Y-m-d H:i:s',strtotime($data['time_from']));
+        $data['time_to']    = date('Y-m-d H:i:s',strtotime($data['time_to']));
+        $data['started_at'] = date('Y-m-d H:i:s',strtotime($data['started_at']));
+        $data['closed_at']   = date('Y-m-d H:i:s',strtotime($data['closed_at']));
 
-        $this->validate($request,[
-         'title'=>'required',
-         'category_id' => 'required',
-         'content' => 'required',
-         'image' => 'required',
-         'sort' => 'required',
-         'time_from_date'    => 'required|date',
-         'time_from_time'    => 'required|date_format:H:i',
-         'time_to_date'    => 'required|date',
-         'time_to_time'    => 'required|date_format:H:i',
-         'started_at_date'    => 'required|date',
-         'started_at_time'    => 'required|date_format:H:i',
-         'closed_at_date'    => 'required|date',
-         'closed_at_time'    => 'required|date_format:H:i',
-//         'time_to'      => 'required|date|after_or_equal:time_from',
-      ]);
-
-        // Gộp ngày tháng và thời gian làm 1
-        if (isset($data['time_from_date']) and isset($data['time_from_time'])) {
-            $data['time_from'] = $data['time_from_date'] . ' ' . $data['time_from_time'];
-            unset($data['time_from_date']);
-            unset($data['time_from_time']);
+        if($request->hasFile('image_selected')){
+            $file = $request->file('image_selected');
+            $fileName = time().'_'.$file->getClientOriginalName();
+            $destinationPath = public_path('images/admin/event/');
+            $file->move($destinationPath, $fileName);
+            $data['image']= $fileName;
         }
-        if (isset($data['time_to_date']) and isset($data['time_to_time'])) {
-            $data['time_to'] = $data['time_to_date'] . ' ' . $data['time_to_time'];
-            unset($data['time_to_date']);
-            unset($data['time_to_time']);
-        }
-        if (isset($data['started_at_date']) and isset($data['started_at_time'])) {
-            $data['started_at'] = $data['started_at_date'] . ' ' . $data['started_at_time'];
-            unset($data['started_at_date']);
-            unset($data['started_at_time']);
-        }
-        if (isset($data['closed_at_date']) and isset($data['closed_at_time'])) {
-            $data['closed_at'] = $data['closed_at_date'] . ' ' . $data['closed_at_time'];
-            unset($data['closed_at_date']);
-            unset($data['closed_at_time']);
-        }
-        // end Gộp ngày tháng và thời gian làm 1
 
         Event::create($data);
-
-        //Upload file image
-        if($request->hasFile('image')){
-            //Lưu hình ảnh vào thư mục public/image/event
-            $file = $request->file('image');
-            $fileName = time().'_'.$file->getClientOriginalName();
-            $destinationPath = public_path('image/event');
-            $file->move($destinationPath, $fileName);
-
-            $data["image"]= $fileName;
-        }
 
         return redirect()->route('events.index');
     }
@@ -109,64 +71,24 @@ class EventController extends Controller
         return view('admin.event.edit', ['event' => $event, 'categories' => $categories]);
     }
 
-    public function update(Request $request, $id)
+    public function update(EventRequest $request, $id)
     {
         $event = Event::find($id);
         $data = $request->all();
+        $data['time_from']  = date('Y-m-d H:i:s',strtotime($data['time_from']));
+        $data['time_to']    = date('Y-m-d H:i:s',strtotime($data['time_to']));
+        $data['started_at'] = date('Y-m-d H:i:s',strtotime($data['started_at']));
+        $data['closed_at']   = date('Y-m-d H:i:s',strtotime($data['closed_at']));
 
-        $this->validate($request,[
-            'title'=>'required',
-            'category_id' => 'required',
-            'content' => 'required',
-//            'image' => 'required',
-            'sort' => 'required',
-//            'time_from_date'    => 'required|date',
-//            'time_from_time'    => 'required|date_format:H:i',
-//            'time_to_date'    => 'required|date',
-//            'time_to_time'    => 'required|date_format:H:i',
-//            'started_at_date'    => 'required|date',
-//            'started_at_time'    => 'required|date_format:H:i',
-//            'closed_at_date'    => 'required|date',
-//            'closed_at_time'    => 'required|date_format:H:i',
-//         'time_to'      => 'required|date|after_or_equal:time_from',
-        ]);
+        if($request->hasFile('image_selected')){
+            $file = $request->file('image_selected');
+            $fileName = time().'_'.$file->getClientOriginalName();
+            $destinationPath = public_path('images/admin/event/');
+            $file->move($destinationPath, $fileName);
+            $data['image']= $fileName;
+        }
 
-        // Gộp ngày tháng và thời gian làm 1
-        if (isset($data['time_from_date']) and isset($data['time_from_time'])) {
-            $data['time_from'] = $data['time_from_date'] . ' ' . $data['time_from_time'];
-            unset($data['time_from_date']);
-            unset($data['time_from_time']);
-        }
-        if (isset($data['time_to_date']) and isset($data['time_to_time'])) {
-            $data['time_to'] = $data['time_to_date'] . ' ' . $data['time_to_time'];
-            unset($data['time_to_date']);
-            unset($data['time_to_time']);
-        }
-        if (isset($data['started_at_date']) and isset($data['started_at_time'])) {
-            $data['started_at'] = $data['started_at_date'] . ' ' . $data['started_at_time'];
-            unset($data['started_at_date']);
-            unset($data['started_at_time']);
-        }
-        if (isset($data['closed_at_date']) and isset($data['closed_at_time'])) {
-            $data['closed_at'] = $data['closed_at_date'] . ' ' . $data['closed_at_time'];
-            unset($data['closed_at_date']);
-            unset($data['closed_at_time']);
-        }
-        // end Gộp ngày tháng và thời gian làm 1
 
-        //Upload file image
-        if($request->hasFile('image')) {
-            if (isset($data['image_edited_check']) && (bool)$data['image_edited_check'] == true)
-            {//if changed image
-                //Lưu hình ảnh vào thư mục public/image/event
-                $file = $request->file('image');
-                $fileName = time() . '_' . $file->getClientOriginalName();
-                $destinationPath = public_path('image/event');
-                $file->move($destinationPath, $fileName);
-
-                $data["image"] = $fileName;
-            }
-        }
         $event->update($data);
         return redirect()->route('events.show',$event->id);
     }

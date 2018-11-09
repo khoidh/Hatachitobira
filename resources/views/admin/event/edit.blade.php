@@ -2,82 +2,10 @@
 
 @section('css')
     @parent
-    <style>
-        #file {
-            display: none;
-        }
-
-        .file-Select {
-            max-width: 125px;
-            max-height: 125px;
-            margin-top: 10px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            line-height: 10px;
-            padding: 4px;
-        }
-
-        /* this code is not required */
-        .btn.btn-default.btn-upload {
-            position: relative;
-            z-index: 1;
-            border: 1px solid #ddd;
-            -webkit-appearance: button;
-            -moz-appearance: button;
-            appearance: button;
-            line-height: 16px;
-            padding: .4em ;
-            margin: .2em;
-            height: 30px;
-        }
-
-        .has-icon .form-control {
-            padding-left: 2.375rem;
-        }
-
-        .has-icon .form-control-feedback {
-            position: absolute;
-            z-index: 2;
-            display: block;
-            width: 2.375rem;
-            /*height: 2.375rem;*/
-            line-height: 2.375rem;
-            text-align: center;
-            pointer-events: none;
-            color: #aaa;
-
-            /*color: #4d4d4d;*/
-            height: 100%;
-            font-size: 18px;
-            display: flex;
-            align-items: center;
-            left: 25px;
-        }
-    </style>
+    
 @endsection
-@section('javascrip')
-    <script src= "{{asset("vendor/unisharp/laravel-ckeditor/ckeditor.js")}}"></script>
-    <script src="https://code.jquery.com/jquery-1.11.3.js"></script>
-    <script>
-        $(document).ready(function () {
-            //this code is not required
-            $('#file').change(function(){
-                if (this.files && this.files[0]) {
-                    var reader = new FileReader();
-                    reader.onload = function (e) {
-                        selectedImage = e.target.result;
-                        $('.file-Select').attr('src', selectedImage);
-                    };
-                    reader.readAsDataURL(this.files[0]);
-                    $('.file-edited-check').val(true);
-
-                }
-            });
-        })
-    </script>
-@endsection
-
 @section('content-header')
+
     <div class="content-header-left col-md-6 col-12 mb-2 breadcrumb-new">
         <h3 class="content-header-title mb-0 d-inline-block" style="font-size: 30px">Events</h3>
         <div class="row breadcrumbs-top d-inline-block">
@@ -85,23 +13,18 @@
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{ route('admin.home') }}">Home</a></li>
                     <li class="breadcrumb-item"><a href="{{ route('events.index') }}">Events</a></li>
-                    <li class="breadcrumb-item active"> Edit</li>
+                    <li class="breadcrumb-item active">Add new </li>
                 </ol>
             </div>
         </div>
     </div>
-    <div class="content-header-right col-md-6 col-12">
-        <div class="btn-group float-md-right" role="group" aria-label="Button group with nested dropdown">
-            <button class="btn btn-info round dropdown-toggle dropdown-menu-right box-shadow-2 px-2" id="btnGroupDrop1" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="ft-settings icon-left"></i> Action </button>
-            <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                <a class="dropdown-item" href="#"><i class="la la-save"></i>   登録</a>
-                <a class="dropdown-item" href="#"><i class="la la-times"></i>   Cancel</a>
-            </div>
-        </div>
-    </div>
+    
 @endsection
 @section('content-title','Events')
 @section('card-content')
+@endsection
+@section('javascrip')
+    <script src= "{{asset("vendor/unisharp/laravel-ckeditor/ckeditor.js")}}"></script>
 @endsection
 @section('content')
 @if ($errors->any())
@@ -115,197 +38,160 @@
 @endif
     <div class="row justify-content-md-center">
         <div class="col-md-10">
-    <form action="{{route('events.update',$event->id)}}" enctype="multipart/form-data" method="POST">
-        {{ csrf_field() }}
+<form  action="{{route('events.store')}}" enctype="multipart/form-data" method="POST">
+    {{ csrf_field() }}
+    <div class="form-group row">
 
-        <div class="form-group row">
-            <label class="col-sm-2 col-form-label" for="inputState">Category</label>
-            <div class="col-sm-10">
-                <select name="category_id" value="<?php echo $event->id ?>" class="form-control">
-                    @foreach($categories as $category)
+        <label class="col-sm-2 col-form-label" for="category_id">{{__('カテゴリ')}}</label>
+        <div class="col-sm-10">
+            <select name="category_id" id="category_id" class="form-control">
+                {{--<option selected>Choose Category</option>--}}
+                @foreach($categories as $category)
                         <option value="{{ $category->id }}" {{($category->id == $event->category_id) ? 'selected' : ''}} >{{$category->name}}</option>
-                    @endforeach
-                </select>
-            </div>
+                @endforeach
+            </select>
         </div>
-
-        <div class="form-group row">
-            <label for="inputEmail3" class="col-sm-2 col-form-label">Title</label>
-            <div class="col-sm-10">
-                <input type="text" class="form-control" name="title" value="{{$event->title}}" placeholder="Title" required="true">
-            </div>
-        </div>
-
-        <div class="form-group row">
-            <label for="inputEmail3" class="col-sm-2 col-form-label">Content</label>
-            <div class="col-sm-10">
-                    <textarea class="form-control" name="content" placeholder="Content" id="ckeditor-text" required="true">
-                        {{$event->content}}
-                    </textarea>
-            </div>
-            <script type="text/javascript">
-                CKEDITOR.replace('ckeditor-text' );
-            </script>
-        </div>
-
-        {{--Image--}}
-        <div class="form-group row">
-            <label for="inputPassword3" class="col-sm-2 col-form-label">Upload Image</label>
-            <div class="col-sm-10">
-                <div class="upload-actions">
-                    <label class="btn btn-default btn-upload" for="file"><i class="fa fa-upload"></i> Choose file</label>
-                    <input type="file" id="file" accept="image/*" name="image">
-                </div>
-                <div>
-                    @php $image='image/event/'.$event->image; @endphp
-                    <img class="file-Select" src="{{file_exists($image)?asset($image): asset('image/event/event_default.jpg')}}">
-                    <input class="file-edited-check" type="hidden" name="image_edited_check" value=false>
-                </div>
-            </div>
-        </div>
-
-        {{--Sort--}}
-        <div class="form-group row">
-            <label for="inputPassword3" class="col-sm-2 col-form-label">Sort</label>
-            <div class="col-sm-10">
-                <input type="number" class="form-control" name="sort" value="{{$event->sort}}"
-                       min="1" max="2147483647"
-                       onkeypress="return (event.charCode == 8 || event.charCode == 0 || event.charCode == 13) ? null : event.charCode >= 48 && event.charCode <= 57"
-                       required="true">
-            </div>
-        </div>
-
-        {{--Thời gian đăng ký--}}
-        <div class="form-group row">
-
-            <label for="time_from" class="col-sm-2 col-form-label">登録時間</label>
-            <div class="col-sm-10" style="padding: 0">
-                <div class="row">
-                    {{--time_from--}}
-                    <div class="col-sm-6">
-                        <label for="time_from" class="col-sm-12 col-form-label">Start at </label>
-                        <div class="col-sm-12">
-                            <div class="row">
-                                <div class="col-sm-7">
-                                    <input type="date" class="form-control" name="time_from_date"
-                                           value="<?php echo date('Y-m-d', strtotime($event->time_from));?>" required >
-                                </div>
-                                <div class="col-sm-5" style="padding-left: 0; padding-right: 0">
-                                    <input type="time" class="form-control" name="time_from_time" value="<?php echo date('H:i:s', strtotime($event->time_from)); ?>" required >
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    {{--time_to--}}
-                    <div class="col-sm-6" style="padding-left: 0;
-    padding-right: 30px;">
-                        <label for="time_to" class="col-sm-12 col-form-label">End at </label>
-                        <div class="col-sm-12">
-                            <div class="row">
-                                <div class="col-sm-7">
-                                    <input type="date" class="form-control" name="time_to_date"
-                                           value="<?php echo date('Y-m-d', strtotime($event->time_to));?>" required="true">
-                                </div>
-                                <div class="col-sm-5" style="padding-left: 0; padding-right: 0">
-                                    <input type="time" class="form-control" name="time_to_time" value="<?php echo date('H:i:s', strtotime($event->time_to));?>" required >
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-        {{--End thời gian đăng ký--}}
-
-        {{--Thời gian diễn ra event--}}
-        <div class="form-group row">
-            <lable  for="started_at" class="col-sm-2 col-form-lable">日程</lable>
-            <div class="col-sm-10" style="padding: 0">
-                <div class="row">
-                    {{--Start hour--}}
-                    <div class="col-sm-6">
-                        <label for="started_at" class="col-sm-12 col-form-label">Start at </label>
-                        <div class="col-sm-12">
-                            <div class="row">
-                                <div class="col-sm-7">
-                                    <input type="date" class="form-control" name="started_at_date"
-                                           value="<?php echo date('Y-m-d', strtotime($event->started_at));?>" required >
-                                </div>
-                                <div class="col-sm-5" style="padding-left: 0; padding-right: 0">
-                                    <input type="time" class="form-control" name="started_at_time" value="<?php echo date('H:i:s', strtotime($event->started_at)); ?>" required >
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    {{--Close hour--}}
-                    <div class="col-sm-6" style="padding-left: 0;
-    padding-right: 30px;">
-                        <label for="closed_at" class="col-sm-12 col-form-label">Start at </label>
-                        <div class="col-sm-12">
-                            <div class="row">
-                                <div class="col-sm-7">
-                                    <input type="date" class="form-control" name="closed_at_date"
-                                           value="<?php echo date('Y-m-d', strtotime($event->closed_at));?>" required >
-                                </div>
-                                <div class="col-sm-5" style="padding-left: 0; padding-right: 0">
-                                    <input type="time" class="form-control" name="closed_at_time" value="<?php echo date('H:i:s', strtotime($event->closed_at)); ?>" required >
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        {{--End thời gian diễn ra event--}}
-
-        {{--Địa điểm--}}
-        <div class="form-group row">
-            <lable class="col-sm-2 col-form-lable">場所</lable>
-            <div class="col-sm-10">
-                <input type="text" class="form-control" name="address" value="{{$event->address}}" placeholder="場所" require="true" maxlength="256">
-            </div>
-        </div>
-
-        {{--Tóm tắt--}}
-        <div class="form-group row">
-            <lable class="col-sm-2 col-form-lable">概要</lable>
-            <div class="col-sm-10">
-                <input type="text" class="form-control" name="overview" value="{{$event->overview}}" placeholder="概要" required="true">
-            </div>
-        </div>
-
-        {{--Phí tham gia--}}
-        <div class="form-group has-icon row">
-            <lable class="col-sm-2 col-form-lable">参加費</lable>
-            <div class="col-sm-10">
-                <span class="fa fa-jpy form-control-feedback" ></span>
-                <input type="number" class="form-control" name="entry_fee" value="{{$event->entry_fee}}" placeholder="参加費"
-                       min="0" max="1000000000"
-                       onkeypress="return (event.charCode == 8 || event.charCode == 0 || event.charCode == 13) ? null : event.charCode >= 48 && event.charCode <= 57"
-                       required="true">
-            </div>
-        </div>
-
-        {{--Sức chứa--}}
-        <div class="form-group has-icon row">
-            <lable class="col-sm-2 col-form-lable">定員</lable>
-            <div class="col-sm-10">
-                <span class="fa fa-users form-control-feedback" ></span>
-                <input type="number" class="form-control" name="capacity" value="{{$event->capacity}}" placeholder="定員"
-                       min="0" max="1000000"
-                       onkeypress="return (event.charCode == 8 || event.charCode == 0 || event.charCode == 13) ? null : event.charCode >= 48 && event.charCode <= 57"
-                       required="true">
-            </div>
-        </div>
-
-        <div class="form-group row">
-            <div class="col-sm-10">
-                <input type="hidden" name="_method" value="patch">
-                <button type="submit" class="btn btn-primary">更新</button>
-            </div>
-        </div>
-    </form>
     </div>
+
+    <div class="form-group row">
+        <label for="title"  class="col-sm-2 col-form-label">{{__('タイトル')}}</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" name="title" id="title" value="{{$event->title}}" placeholder="Title" >
+        </div>
     </div>
+    <div class="form-group row">
+        <label for="ckeditor-text" class="col-sm-2 col-form-label">{{__('コンテンツ')}}</label>
+        <div class="col-sm-10">
+            <textarea class="form-control" name="content" placeholder="Content" id="ckeditor-text" >{{$event->content}}</textarea>
+        </div>
+        <script type="text/javascript">
+            CKEDITOR.replace('ckeditor-text' );
+        </script>
+    </div>
+
+    <div class="form-group row">
+        <label for="file" class="col-sm-2 col-form-label">{{__('イメージ')}}</label>
+        <div class="col-sm-10">
+            <img src="<?php echo asset('images/admin/event/'.$event->image) ?>" id="temp_img" width="150px" height="150px">
+            <input type="file" name="image_selected"  accept="image/*" id="file"  >
+            <input type="hidden" name="image" id="image" value="{{$event->image}}">
+        </div>
+    </div>
+
+     <div class="form-group row">
+        <label for="sort" class="col-sm-2 col-form-label">Sort</label>
+        <div class="col-sm-10">
+            <input type="number" class="form-control" name="sort" id="sort" placeholder="Sort" value="{{$event->sort}}">
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="time_from" class="col-sm-2 col-form-label">{{__('登録時間')}}</label>
+        <div class="col-sm-10" style="padding: 0">
+            <div class="row">
+                <div class="col-sm-6">
+                    <label for="time_from" class="col-sm-12 col-form-label">{{__('始まる')}}</label>
+                    <div class="col-sm-12">
+                                <input type="datetime-local" class="form-control" name="time_from" id="time_from" 
+                                value="<?php echo date('Y-m-d\TH:i:s', strtotime($event->time_from)); ?>">
+                    </div>
+                </div>
+                <div class="col-sm-6" >
+                    <label for="time_to" class="col-sm-12 col-form-label">{{__('終わる')}}</label>
+                    <div class="col-sm-12">
+                                <input type="datetime-local" class="form-control" name="time_to" id="time_to" 
+                                value="<?php echo date('Y-m-d\TH:i:s', strtotime($event->time_to)); ?>">
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+
+    </div>
+
+    <div class="form-group row">
+        <label  for="started_at" class="col-sm-2 col-form-label">{{__('日程')}}</label>
+        <div class="col-sm-10" style="padding: 0">
+            <div class="row">
+                <div class="col-sm-6">
+                    <label for="started_at" class="col-sm-12 col-form-label">{{__('始まる')}}</label>
+                    <div class="col-sm-12">
+                                <input type="datetime-local" class="form-control" name="started_at" id="started_at" 
+                                value="<?php echo date('Y-m-d\TH:i:s', strtotime($event->started_at)); ?>">
+                    </div>
+                </div>
+                <div class="col-sm-6" >
+                    <label for="closed_at" class="col-sm-12 col-form-label">{{__('終わる')}}</label>
+                    <div class="col-sm-12">
+                                <input type="datetime-local" class="form-control" name="closed_at" id="closed_at" 
+                                value="<?php echo date('Y-m-d\TH:i:s', strtotime($event->closed_at)); ?>">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="address" class="col-sm-2 col-form-label" >{{__('場所')}}</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" name="address" id="address" placeholder="{{__('場所')}}"
+                   value="{{$event->address}}">
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="overview" class="col-sm-2 col-form-label">{{__('概要')}}</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" name="overview" id="overview" placeholder="{{__('概要')}}"
+                   value="{{$event->overview}}" >
+        </div>
+    </div>
+
+    <div class="form-group has-icon row">
+        <label for="entry_fee" class="col-sm-2 col-form-label">{{__('参加費')}}</label>
+        <div class="col-sm-10">
+            <div class="input-group">
+              <input type="number" class="form-control" name="entry_fee" id="entry_fee" placeholder="{{__('参加費')}}" 
+                    value="{{$event->entry_fee}}"> 
+              <span class="input-group-addon"><i class="fa fa-jpy"></i></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group has-icon row">
+        <label for="capacity" class="col-sm-2 col-form-label">{{__('定員')}}</label>
+        <div class="col-sm-10">
+            <div class="input-group">
+              <input type="number" class="form-control" name="capacity" id="capacity" placeholder="{{__('定員')}}" 
+                        value="{{$event->capacity}}">
+              <span class="input-group-addon"><i class="fa fa-users"></i></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <div class="col-sm-10">
+            <button type="submit" class="btn btn-primary">{{__('登録')}}</button>
+        </div>
+    </div>
+</form>
+        </div>
+    </div>
+    @endsection
+@section('customjavascript')
+<script type="text/javascript">
+    $(function(){
+        $('input[type="file"]').change(function(e){
+            var file = e.target.files[0];
+            var reader = new FileReader();
+            reader.onload = (e) => {
+                selectedImage = e.target.result;
+                $('#temp_img').attr('src', selectedImage);
+                $('#image').val(file.name);
+            };
+            reader.readAsDataURL(file);
+        });
+
+    });
+</script>
 @endsection

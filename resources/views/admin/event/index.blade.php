@@ -50,9 +50,11 @@
             <td>{{$event->title}}</td>
 
             {{--<td>{{$event->image}}</td>--}}
-            @php $image= 'image/event/'.$event->image @endphp
-            <td><img width="100px" height="100px"
-                     src="{{ file_exists($image)?asset($image):asset('image/event/event_default.jpg')}}" ></td>
+            @php $image= 'images/admin/event/'.$event->image @endphp
+            <td>
+                <img width="150px" height="150px"
+                     src="{{ file_exists($image)?asset($image):asset('images/admin/default.png')}}" >
+             </td>
 
             <td>{{$event->category_name}}</td>
             {{--<td>{{$event->sort}}</td>--}}

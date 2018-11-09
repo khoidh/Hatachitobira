@@ -2,81 +2,8 @@
 
 @section('css')
     @parent
-    <style>
-        #file {
-            display: none;
-        }
-
-        .file-Select {
-            max-width: 125px;
-            max-height: 125px;
-            margin-top: 10px;
-            /*border: 1px solid #ddd;*/
-            /*border-radius: 4px;*/
-            /*line-height: 10px;*/
-            /*padding: 4px;*/
-        }
-
-        /* this code is not required */
-        .btn.btn-default.btn-upload {
-            position: relative;
-            z-index: 1;
-            border: 1px solid #ddd;
-            -webkit-appearance: button;
-            -moz-appearance: button;
-            appearance: button;
-            line-height: 16px;
-            padding: .4em ;
-            margin: .2em;
-            height: 30px;
-        }
-
-        .has-icon .form-control {
-            padding-left: 2.375rem;
-        }
-
-        .has-icon .form-control-feedback {
-            position: absolute;
-            z-index: 2;
-            display: block;
-            width: 2.375rem;
-            /*height: 2.375rem;*/
-            line-height: 2.375rem;
-            text-align: center;
-            pointer-events: none;
-            color: #aaa;
-
-            /*color: #4d4d4d;*/
-            height: 100%;
-            font-size: 18px;
-            display: flex;
-            align-items: center;
-            left: 25px;
-        }
-    </style>
+    
 @endsection
-@section('javascrip')
-    <script src= "{{asset("vendor/unisharp/laravel-ckeditor/ckeditor.js")}}"></script>
-    <script src="https://code.jquery.com/jquery-1.11.3.js"></script>
-    <script>
-        $(document).ready(function () {
-            //this code is not required
-            $('#file').change(function(){
-                if (this.files && this.files[0]) {
-                    var reader = new FileReader();
-                    reader.onload = function (e) {
-                        selectedImage = e.target.result;
-                        $('.file-Select').attr('src', selectedImage);
-                        $('.file-Select').attr('style','border: 1px solid #ddd; border-radius: 4px; line-height: 10px; padding: 4px');
-                    };
-                    reader.readAsDataURL(this.files[0]);
-                    $('.file-edited-check').val(true);
-                }
-            });
-        })
-    </script>
-@endsection
-
 @section('content-header')
 
     <div class="content-header-left col-md-6 col-12 mb-2 breadcrumb-new">
@@ -96,6 +23,9 @@
 @section('content-title','Events')
 @section('card-content')
 @endsection
+@section('javascrip')
+    <script src= "{{asset("vendor/unisharp/laravel-ckeditor/ckeditor.js")}}"></script>
+@endsection
 @section('content')
 @if ($errors->any())
     <div class="alert alert-danger">
@@ -112,9 +42,9 @@
     {{ csrf_field() }}
     <div class="form-group row">
 
-        <label class="col-sm-2 col-form-label" for="inputState">Category</label>
+        <label class="col-sm-2 col-form-label" for="category_id">{{__('カテゴリ')}}</label>
         <div class="col-sm-10">
-            <select name="category_id" class="form-control">
+            <select name="category_id" id="category_id" class="form-control">
                 {{--<option selected>Choose Category</option>--}}
                 @foreach($categories as $category)
                     <option value="{{$category->id}}">{{$category->name}}</option>
@@ -124,16 +54,15 @@
     </div>
 
     <div class="form-group row">
-        <label for="inputEmail3"  class="col-sm-2 col-form-label">Title</label>
+        <label for="title"  class="col-sm-2 col-form-label">{{__('タイトル')}}</label>
         <div class="col-sm-10">
-            <input type="text" class="form-control" name="title" value="{{ old('title') }}" placeholder="Title" required="true">
+            <input type="text" class="form-control" name="title" id="title" value="{{ old('title') }}" placeholder="Title" >
         </div>
     </div>
-
     <div class="form-group row">
-        <label for="inputEmail3" class="col-sm-2 col-form-label">Content</label>
+        <label for="ckeditor-text" class="col-sm-2 col-form-label">{{__('コンテンツ')}}</label>
         <div class="col-sm-10">
-            <textarea class="form-control" name="content" placeholder="Content" id="ckeditor-text" required="true"></textarea>
+            <textarea class="form-control" name="content" placeholder="Content" id="ckeditor-text" >{{old('content')}}</textarea>
         </div>
         <script type="text/javascript">
             CKEDITOR.replace('ckeditor-text' );
@@ -141,171 +70,122 @@
     </div>
 
     <div class="form-group row">
-        <label for="inputPassword3" class="col-sm-2 col-form-label">Upload Image</label>
+        <label for="file" class="col-sm-2 col-form-label">{{__('イメージ')}}</label>
         <div class="col-sm-10">
-            <div class="upload-actions">
-                <label class="btn btn-default btn-upload" for="file" ><i class="fa fa-upload"></i> Choose file</label>
-                <input type="file" id="file" accept="image/*" name="image">
-            </div>
-            <div>
-                <img class="file-Select">
-                <input class="file-edited-check" type="hidden" name="image_edited_check" value=false>
-            </div>
+            <img src="{{asset('images/admin/default.png')}}" id="temp_img" width="150px" height="150px">
+            <input type="file" name="image_selected"  accept="image/*" id="file"  >
+            <input type="hidden" name="image" id="image" value="">
         </div>
     </div>
 
      <div class="form-group row">
-        <label for="inputPassword3" class="col-sm-2 col-form-label">Sort</label>
+        <label for="sort" class="col-sm-2 col-form-label">Sort</label>
         <div class="col-sm-10">
-            <input type="number" class="form-control" name="sort"
-                   value="{{ old('sort') }}"
-                   min="1" max="2147483647"
-                   onkeypress="return (event.charCode == 8 || event.charCode == 0 || event.charCode == 13) ? null : event.charCode >= 48 && event.charCode <= 57"
-                   required="true">
+            <input type="number" class="form-control" name="sort" id="sort" placeholder="Sort" value="{{ old('sort') }}">
         </div>
     </div>
 
-    {{--Thời gian đăng ký--}}
     <div class="form-group row">
-        <label for="time_from" class="col-sm-2 col-form-label">登録時間</label>
+        <label for="time_from" class="col-sm-2 col-form-label">{{__('登録時間')}}</label>
         <div class="col-sm-10" style="padding: 0">
             <div class="row">
-                {{--time_from--}}
                 <div class="col-sm-6">
-                    <label for="time_from" class="col-sm-12 col-form-label">Start at </label>
+                    <label for="time_from" class="col-sm-12 col-form-label">{{__('始まる')}}</label>
                     <div class="col-sm-12">
-                        <div class="row">
-                            <div class="col-sm-7">
-                                <input type="date" class="form-control" name="time_from_date"
-                                       value="{{old('time_from_date')}}"
-                                       required >
-                            </div>
-                            <div class="col-sm-5" style="padding-left: 0; padding-right: 0">
-                                <input type="time" class="form-control" name="time_from_time"
-                                       value="{{old('time_from_time')}}" required >
-                            </div>
-                        </div>
+                                <input type="datetime-local" class="form-control" name="time_from" id="time_from" value="{{old('time_from')}}">
                     </div>
                 </div>
-                {{--time_to--}}
-                <div class="col-sm-6" style="padding-left: 0;
-    padding-right: 30px;">
-                    <label for="time_to" class="col-sm-12 col-form-label">End at </label>
+                <div class="col-sm-6" >
+                    <label for="time_to" class="col-sm-12 col-form-label">{{__('終わる')}}</label>
                     <div class="col-sm-12">
-                        <div class="row">
-                            <div class="col-sm-7">
-                                <input type="date" class="form-control" name="time_to_date"
-                                       value="{{old('time_to_date')}}"
-                                       required>
-                            </div>
-                            <div class="col-sm-5" style="padding-left: 0; padding-right: 0">
-                                <input type="time" class="form-control" name="time_to_time"
-                                       value="{{old('time_to_time')}}" required >
-                            </div>
-                        </div>
+                                <input type="datetime-local" class="form-control" name="time_to" id="time_to" value="{{old('time_to')}}">
                     </div>
                 </div>
+                
             </div>
         </div>
 
     </div>
-    {{--End thời gian đăng ký--}}
 
-    {{--Thời gian diễn ra event--}}
     <div class="form-group row">
-        <lable  for="started_at" class="col-sm-2 col-form-lable">日程</lable>
+        <label  for="started_at" class="col-sm-2 col-form-label">{{__('日程')}}</label>
         <div class="col-sm-10" style="padding: 0">
             <div class="row">
-                {{--Start hour--}}
                 <div class="col-sm-6">
-                    <label for="started_at" class="col-sm-12 col-form-label">Start at </label>
+                    <label for="started_at" class="col-sm-12 col-form-label">{{__('始まる')}}</label>
                     <div class="col-sm-12">
-                        <div class="row">
-                            <div class="col-sm-7">
-                                <input type="date" class="form-control" name="started_at_date"
-                                       value="{{old('started_at_date')}}"
-                                       required >
-                            </div>
-                            <div class="col-sm-5" style="padding-left: 0; padding-right: 0">
-                                <input type="time" class="form-control" name="started_at_time"
-                                       value="{{old('started_at_time')}}" required >
-                            </div>
-                        </div>
+                                <input type="datetime-local" class="form-control" name="started_at" id="started_at" value="{{old('started_at')}}">
                     </div>
                 </div>
-                {{--Close hour--}}
-                <div class="col-sm-6" style="padding-left: 0;
-    padding-right: 30px;">
-                    <label for="closed_at" class="col-sm-12 col-form-label">Start at </label>
+                <div class="col-sm-6" >
+                    <label for="closed_at" class="col-sm-12 col-form-label">{{__('終わる')}}</label>
                     <div class="col-sm-12">
-                        <div class="row">
-                            <div class="col-sm-7">
-                                <input type="date" class="form-control" name="closed_at_date"
-                                       value="{{old('closed_at_date')}}"
-                                       required >
-                            </div>
-                            <div class="col-sm-5" style="padding-left: 0; padding-right: 0">
-                                <input type="time" class="form-control" name="closed_at_time"
-                                       value="{{old('closed_at_time')}}" required >
-                            </div>
-                        </div>
+                                <input type="datetime-local" class="form-control" name="closed_at" id="closed_at" value="{{old('closed_at')}}">
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    {{--End thời gian diễn ra event--}}
 
-    {{--Địa điểm--}}
     <div class="form-group row">
-        <lable class="col-sm-2 col-form-lable">場所</lable>
+        <label for="address" class="col-sm-2 col-form-label" >{{__('場所')}}</label>
         <div class="col-sm-10">
-            <input type="text" class="form-control" name="address" placeholder="場所"
-                   value="{{old('address')}}" require="true" maxlength="256">
+            <input type="text" class="form-control" name="address" id="address" placeholder="{{__('場所')}}"
+                   value="{{old('address')}}">
         </div>
     </div>
 
-    {{--Tóm tắt--}}
     <div class="form-group row">
-        <lable class="col-sm-2 col-form-lable">概要</lable>
+        <label for="overview" class="col-sm-2 col-form-label">{{__('概要')}}</label>
         <div class="col-sm-10">
-            <input type="text" class="form-control" name="overview" placeholder="概要"
-                   value="{{old('overview')}}" required="true">
+            <input type="text" class="form-control" name="overview" id="overview" placeholder="{{__('概要')}}"
+                   value="{{old('overview')}}" >
         </div>
     </div>
 
-    {{--Phí tham gia--}}
     <div class="form-group has-icon row">
-        <lable class="col-sm-2 col-form-lable">参加費</lable>
+        <label for="entry_fee" class="col-sm-2 col-form-label">{{__('参加費')}}</label>
         <div class="col-sm-10">
-            <span class="fa fa-jpy form-control-feedback" ></span>
-            <input type="number" class="form-control" name="entry_fee" placeholder="参加費"
-                   value="{{old('entry_fee')}}"
-                   min="0" max="1000000000"
-                   onkeypress="return (event.charCode == 8 || event.charCode == 0 || event.charCode == 13) ? null : event.charCode >= 48 && event.charCode <= 57"
-                   required="true">
+            <div class="input-group">
+              <input type="number" class="form-control" name="entry_fee" id="entry_fee" placeholder="{{__('参加費')}}" value="{{old('entry_fee')}}"> 
+              <span class="input-group-addon"><i class="fa fa-jpy"></i></span>
+            </div>
         </div>
     </div>
 
-    {{--Sức chứa--}}
     <div class="form-group has-icon row">
-        <lable class="col-sm-2 col-form-lable">定員</lable>
+        <label for="capacity" class="col-sm-2 col-form-label">{{__('定員')}}</label>
         <div class="col-sm-10">
-            <span class="fa fa-users form-control-feedback" ></span>
-            <input type="number" class="form-control" name="capacity" placeholder="定員"
-                   value="{{old('capacity')}}"
-                   min="0" max="1000000"
-                   onkeypress="return (event.charCode == 8 || event.charCode == 0 || event.charCode == 13) ? null : event.charCode >= 48 && event.charCode <= 57"
-                   required="true">
+            <div class="input-group">
+              <input type="number" class="form-control" name="capacity" id="capacity" placeholder="{{__('定員')}}" value="{{old('capacity')}}">
+              <span class="input-group-addon"><i class="fa fa-users"></i></span>
+            </div>
         </div>
     </div>
 
     <div class="form-group row">
         <div class="col-sm-10">
-            <button type="submit" class="btn btn-primary">登録</button>
+            <button type="submit" class="btn btn-primary">{{__('登録')}}</button>
         </div>
     </div>
 </form>
         </div>
     </div>
     @endsection
+@section('customjavascript')
+<script type="text/javascript">
+    $(function(){
+        $('input[type="file"]').change(function(e){
+            var file = e.target.files[0];
+            var reader = new FileReader();
+            reader.onload = (e) => {
+                selectedImage = e.target.result;
+                $('#temp_img').attr('src', selectedImage);
+                $('#image').val(file.name);
+            };
+            reader.readAsDataURL(file);
+        });
+
+    });
+</script>
+@endsection
