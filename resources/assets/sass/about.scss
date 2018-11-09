@@ -294,10 +294,13 @@
   }
   .container.about .about-hatachi{
     margin-bottom: 60px;
+    .container {
+        padding-right: 0
+    }
   }
 
   .container.about .about-hatachi .about-hatachi-col{
-    padding-bottom: 20px;
+    padding: 0 0 20px 0;
     text-align: center;
     margin: 0 auto;
   }
@@ -436,6 +439,7 @@
   }
   .container.about .about-hatachi {
     margin-bottom: 60px;
+    margin-right: 0 !important;
   }
 
   .container.about .about-hatachi .about-hatachi-col {
