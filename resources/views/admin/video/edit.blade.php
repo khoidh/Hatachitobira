@@ -19,6 +19,20 @@
 @section('card-content')
 @endsection
 @section('content')
+        @if(session()->has('message'))
+    <div class="alert alert-danger">
+        {{ session()->get('message') }}
+    </div>
+@endif
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
     <div class="row justify-content-md-center">
         <div class="col-md-10">
     <form action="{{route('videos.update',$video->id)}}"  enctype="multipart/form-data" method="POST">
@@ -40,17 +54,14 @@
         <div class="form-group row">
             <label for="url" class="col-sm-2 col-form-label">URL</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" name="url" id="url" value="{{$video->url}}" required="true">
+                <input type="text" class="form-control" name="url" id="url" value="{{$video->url}}">
             </div>
         </div>
 
         <div class="form-group row">
             <label for="sort" class="col-sm-2 col-form-label">Sort</label>
             <div class="col-sm-10">
-                <input type="number" name="sort" class="form-control" id="sort" value="{{$video->sort}}"
-                       min="1" max="2147483647"
-                       onkeypress="return (event.charCode == 8 || event.charCode == 0 || event.charCode == 13) ? null : event.charCode >= 48 && event.charCode <= 57"
-                       required="true">
+                <input type="number" name="sort" class="form-control" id="sort" value="{{$video->sort}}">
             </div>
         </div>
         <div class="form-group row">

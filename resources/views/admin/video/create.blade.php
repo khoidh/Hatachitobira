@@ -19,21 +19,30 @@
 @section('card-content')
 @endsection
 @section('content')
-
-    <div class="row justify-content-md-center">
-        <div class="col-md-10">
-            @if(session()->has('message'))
+@if(session()->has('message'))
     <div class="alert alert-danger">
         {{ session()->get('message') }}
     </div>
 @endif
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+<div class="row justify-content-md-center">
+    <div class="col-md-10">
+
 <form action="{{route('videos.store')}}"  enctype="multipart/form-data" method="POST">
     {{ csrf_field() }}
     <div class="form-group row">
 
         <label class="col-sm-2 col-form-label" for="category_id">Category</label>
         <div class="col-sm-10">
-        <select name="category_id" id="category_id" class="form-control" required ="true">
+        <select name="category_id" id="category_id" class="form-control" >
             {{--<option selected>Choose Category</option>--}}
             @foreach($categories as $category)
                 <option value="<?php  echo $category->id ?>"><?php  echo $category->name ?></option>
@@ -44,7 +53,7 @@
      <div class="form-group row">
         <label for="url" class="col-sm-2 col-form-label">URL</label>
         <div class="col-sm-10">
-            <input type="text" class="form-control" name="url" id="url" placeholder="URL" required="true"
+            <input type="text" class="form-control" name="url" id="url" placeholder="URL"
                    value="{{old('url')}}">
         </div>
     </div>
@@ -52,10 +61,7 @@
         <label for="sort" class="col-sm-2 col-form-label">Sort</label>
         <div class="col-sm-10">
             <input type="number" class="form-control" name="sort" id="sort"
-                   value="{{old('sort')}}"
-                   min="1" max="2147483647"
-                   onkeypress="return (event.charCode == 8 || event.charCode == 0 || event.charCode == 13) ? null : event.charCode >= 48 && event.charCode <= 57"
-                   required="true" >
+                   value="{{old('sort')}}">
 
         </div>
     </div>
