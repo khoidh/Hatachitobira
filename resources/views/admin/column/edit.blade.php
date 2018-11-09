@@ -2,181 +2,129 @@
 
 @section('css')
     @parent
-    <style>
-        #file {
-            display: none;
-        }
-
-        .file-Select {
-            max-width: 125px;
-            max-height: 125px;
-            margin-top: 10px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            line-height: 10px;
-            padding: 4px;
-        }
-
-        /* this code is not required */
-        .btn.btn-default.btn-upload {
-            position: relative;
-            z-index: 1;
-            border: 1px solid #ddd;
-            -webkit-appearance: button;
-            -moz-appearance: button;
-            appearance: button;
-            line-height: 16px;
-            padding: .4em ;
-            margin: .2em;
-            height: 30px;
-        }
-    </style>
-
-
 @endsection
 @section('javascrip')
     <script src= "{{asset("vendor/unisharp/laravel-ckeditor/ckeditor.js")}}"></script>
-    <script src="https://code.jquery.com/jquery-1.11.3.js"></script>
-    <script>
-        $(document).ready(function () {
-            //this code is not required
-            $('#file').change(function(){
-                if (this.files && this.files[0]) {
-                    var reader = new FileReader();
-                    reader.onload = function (e) {
-                        selectedImage = e.target.result;
-                        $('.file-Select').attr('src', selectedImage);
-                    };
-                    reader.readAsDataURL(this.files[0]);
-                    $('.file-edited-check').val(true);
-
-                }
-            });
-        })
-    </script>
 @endsection
 
 @section('content-header')
     <div class="content-header-left col-md-6 col-12 mb-2 breadcrumb-new">
-        <h3 class="content-header-title mb-0 d-inline-block" style="font-size: 30px">Columns</h3>
+        <h3 class="content-header-title mb-0 d-inline-block" style="font-size: 30px">{{__('コラム')}}</h3>
         <div class="row breadcrumbs-top d-inline-block">
             <div class="breadcrumb-wrapper col-12">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="{{ route('admin.home') }}">Home</a></li>
-                    <li class="breadcrumb-item"><a href="{{ route('columns.index') }}">Columns</a></li>
-                    <li class="breadcrumb-item active"> Edit</li>
+                    <li class="breadcrumb-item"><a href="{{ route('admin.home') }}">{{__('ホーム')}}</a></li>
+                    <li class="breadcrumb-item"><a href="{{ route('columns.index') }}">{{__('コラム一覧')}}</a></li>
+                    <li class="breadcrumb-item active">{{__('編集')}} </li>
                 </ol>
             </div>
         </div>
     </div>
-    <div class="content-header-right col-md-6 col-12">
-        <div class="btn-group float-md-right" role="group" aria-label="Button group with nested dropdown">
-            <button class="btn btn-info round dropdown-toggle dropdown-menu-right box-shadow-2 px-2" id="btnGroupDrop1" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="ft-settings icon-left"></i> Action </button>
-            <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                <a class="dropdown-item" href="#"><i class="la la-save"></i>   更新</a>
-                <a class="dropdown-item" href="#"><i class="la la-times"></i>   Cancel</a>
-            </div>
-        </div>
-    </div>
+    
 @endsection
-@section('content-title','Columns')
+@section('content-title','コラム情報')
 @section('card-content')
 @endsection
 @section('content')
-    @if ($errors->any())
-        <div class="alert alert-danger">
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
     <div class="row justify-content-md-center">
         <div class="col-md-10">
-            <form action="{{route('columns.update',$column->id)}}"  enctype="multipart/form-data" method="POST">
-            {{ csrf_field() }}
+            <form action="{{route('columns.store')}}" enctype="multipart/form-data" method="POST">
+                {{ csrf_field() }}
+                    <div class="form-group row">
 
-            <div class="form-group row">
-                <label class="col-sm-2 col-form-label" for="inputState">Category</label>
-                <div class="col-sm-10">
-                    <select name="category_id" value="<?php echo $column->id ?>" class="form-control" required="true">
-                        @foreach($categories as $category)
-                            <option value="{{ $category->id }}" {{($category->id == $column->category_id) ? 'selected' : ''}} >{{$category->name}}</option>
-                        @endforeach
-                    </select>
-                </div>
-            </div>
+        <label class="col-sm-2 col-form-label" for="category_id">{{__('カテゴリ')}}</label>
+        <div class="col-sm-10">
+            <select name="category_id" id="category_id" class="form-control">
+                {{--<option selected>Choose Category</option>--}}
+                @foreach($categories as $category)
+                    <option value="{{$category->id}}">{{$category->name}}</option>
+                @endforeach
+            </select>
+        </div>
+    </div>
 
-            <div class="form-group row">
-                <label for="inputEmail3" class="col-sm-2 col-form-label">Title</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" name="title" value="{{$column->title}}" placeholder="Title" required="true" maxlength="256">
-                </div>
-            </div>
+    <div class="form-group row">
+        <label for="title"  class="col-sm-2 col-form-label">{{__('タイトル')}}</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" name="title" id="title" value="{{ $column->title }}" placeholder="Title" >
+        </div>
+    </div>
+        <div class="form-group row">
+        <label for="description"  class="col-sm-2 col-form-label">{{__('説明')}}</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" name="description" id="description" value="{{ $column->description }}" placeholder="Description" >
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="ckeditor-text" class="col-sm-2 col-form-label">{{__('コンテンツ')}}</label>
+        <div class="col-sm-10">
+            <textarea class="form-control" name="content" placeholder="Content" id="ckeditor-text" >{{ $column->content }}</textarea>
+        </div>
+        <script type="text/javascript">
+            CKEDITOR.replace('ckeditor-text' );
+        </script>
+    </div>
 
-            <div class="form-group row">
-                <label for="inputEmail3" class="col-sm-2 col-form-label">Description</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" name="description" value="{{$column->description}}" placeholder="Description" required="true" maxlength="256">
-                </div>
-            </div>
+    <div class="form-group row">
+        <label for="file" class="col-sm-2 col-form-label">{{__('イメージ')}}</label>
+        <div class="col-sm-10">
+            <img src="<?php echo asset('images/admin/column/'.$column->image) ?>" id="temp_img" width="150px" height="150px">
+            <input type="file" name="image_selected"  accept="image/*" id="file" >
+            <input type="hidden" name="image" id="image" value="{{ $column->image }}">
+        </div>
+    </div>
 
-            <div class="form-group row">
-                <label for="inputEmail3" class="col-sm-2 col-form-label">Content</label>
-                <div class="col-sm-10">
-                    <textarea class="form-control" name="content" placeholder="Content" id="ckeditor-text" required="true">
-                        {{$column->content}}
-                    </textarea>
-                </div>
-                <script type="text/javascript">
-                    CKEDITOR.replace('ckeditor-text' );
-                </script>
-            </div>
-
-            {{--Image--}}
-            <div class="form-group row">
-                <label for="inputPassword3" class="col-sm-2 col-form-label">Upload Image</label>
-                <div class="col-sm-10">
-                    <div class="upload-actions">
-                        <label class="btn btn-default btn-upload" for="file"><i class="fa fa-upload"></i> Choose file</label>
-                        <input type="file" id="file" accept="image/*" name="image">
-                    </div>
-                    <div>
-                        @php $image='image/column/'.$column->image; @endphp
-                        <img class="file-Select" src="{{file_exists($image)?asset($image): asset('image/column/column_default.jpg')}}">
-                        <input class="file-edited-check" type="hidden" name="image_edited_check" value=false>
-                    </div>
-                </div>
-            </div>
-
-            <div class="form-group row">
-                <label for="inputPassword3" class="col-sm-2 col-form-label">Sort</label>
-                <div class="col-sm-10">
-                    <input type="number" class="form-control" name="sort" value="{{$column->sort}}"
-                           min="1" max="2147483647"
-                           onkeypress="return (event.charCode == 8 || event.charCode == 0 || event.charCode == 13) ? null : event.charCode >= 48 && event.charCode <= 57"
-                           required="true">
-                </div>
-            </div>
+     <div class="form-group row">
+        <label for="sort" class="col-sm-2 col-form-label">{{__('表示順')}}</label>
+        <div class="col-sm-10">
+            <input type="number" class="form-control" name="sort" id="sort" placeholder="Sort" value="{{ $column->sort }}">
+        </div>
+    </div>
 
                 <div class="form-group row">
-                    <label for="inputPassword3" class="col-sm-2 col-form-label">Type</label>
+                    <label for="type" class="col-sm-2 col-form-label">{{__('タイプ')}}</label>
                     <div class="col-sm-10">
-                        <select type="number" name="type" class="form-control" value="{{$column->type}}" tabindex=1>
-                            <option value='0' {{($column->type==0) ? 'selected' : ''}}>インタビュー</option>
-                            <option value='1' {{($column->type==1) ? 'selected' : ''}}>コラム</option>
+                        <select type="number" name="type" id="type" class="form-control" tabindex=1>
+                            <option value='0' selected>インタビュー</option>
+                            <option value='1'>コラム</option>
                         </select>
                     </div>
                 </div>
 
                 <div class="form-group row">
-                <div class="col-sm-10">
-                    <input type="hidden" name="_method" value="patch">
-                    <button type="submit" class="btn btn-primary">更新</button>
+                    <div class="col-sm-10">
+                        <button type="submit" class="btn btn-primary">{{__('更新')}}</button>
+                    </div>
                 </div>
-            </div>
-        </form>
+            </form>
         </div>
     </div>
+
+@endsection
+
+@section('customjavascript')
+<script type="text/javascript">
+    $(function(){
+        $('input[type="file"]').change(function(e){
+            var file = e.target.files[0];
+            var reader = new FileReader();
+            reader.onload = (e) => {
+                selectedImage = e.target.result;
+                $('#temp_img').attr('src', selectedImage);
+                $('#image').val(file.name);
+            };
+            reader.readAsDataURL(file);
+        });
+
+    });
+</script>
 @endsection
