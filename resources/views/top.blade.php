@@ -178,7 +178,7 @@
                     <p class="movie-top-description">コンセプトムービー</p>
                     <div class="corner-wrapper video">
                         <div class="video-list">
-                            @if($videos->count() > 0)
+                            @if(isset($videos) && $videos->count() > 0)
                             <div class="video-detail">
                                 <div class="wrapper">
                                     <div class="thump">
