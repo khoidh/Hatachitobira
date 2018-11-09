@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Video;
 use App\Category;
+use App\Http\Requests\VideoRequest;
+
 class VideoController extends Controller
 {
     protected $BASE_PART = '&part=id,contentDetails,snippet,statistics,player&key=';
@@ -29,9 +31,9 @@ class VideoController extends Controller
         return view('admin.video.create', ['categories' => $categories]);
     }
 
-    public function store(Request $request)
+    public function store(VideoRequest $request)
     {
-        $API_KEY = env('YOUTUBE_API_KEY','AIzaSyAvZofftH6aljZreOzV_owDdOzFdqpvo88');
+        $API_KEY = config('app.youtube_api_key');
         $video = new Video;
         $url = $request->url;
         parse_str(parse_url($url, PHP_URL_QUERY), $youtube);
@@ -86,9 +88,9 @@ class VideoController extends Controller
         return view('admin.video.edit', ['video' => $video, 'categories' => $categories]);
     }
 
-    public function update(Request $request, $id)
+    public function update(VideoRequest $request, $id)
     {
-        $API_KEY = env('YOUTUBE_API_KEY','AIzaSyAvZofftH6aljZreOzV_owDdOzFdqpvo88');
+        $API_KEY = config('app.youtube_api_key');
 
         $video = Video::find($id);
         $url = $request->url;

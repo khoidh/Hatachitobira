@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Category;
 use Illuminate\Support\Facades\DB;
-use App\Http\Requests\StoreCategory;
+use App\Http\Requests\CategoryRequest;
 class CategoryController extends Controller
 {
     public function index()
@@ -21,7 +21,7 @@ class CategoryController extends Controller
         return view('admin.categories.create');
     }
 
-    public function store(StoreCategory $request)
+    public function store(CategoryRequest $request)
     {
         $data = $request->all();
         if($request->hasFile('image')){
@@ -47,7 +47,7 @@ class CategoryController extends Controller
         return view('admin.categories.edit', ['category' => $category]);
     }
 
-    public function update(StoreCategory $request, $id)
+    public function update(CategoryRequest $request, $id)
     {
         $category = Category::find($id);
         $category->fill($request->all());
