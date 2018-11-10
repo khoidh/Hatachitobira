@@ -108,6 +108,10 @@
     </div>
     <script type="text/javascript"  async defer>
         $(document).ready(function() {
+            $("#modal_video").on('hide.bs.modal', function(){
+                $("iframe").attr('src', '');
+            });
+            
             $(document).on('click','.video .video-list .browse-details', function(e){
                 e.preventDefault();
                 var idvideo = $(this).data('id');

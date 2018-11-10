@@ -83,7 +83,7 @@
                                             data-year="{{isset($mythemes[$i]->year) ? $mythemes[$i]->year : $data_date['year']}}" 
                                             data-category = "{{isset($mythemes[$i]->category_id) ? $mythemes[$i]->category_id : $key}}" 
                                             data-id = "{{isset($mythemes[$i]->id) ? $mythemes[$i]->id : ''}}"
-                                            placeholder="Click edit to change content" disabled>{{isset($mythemes[$i]->content_lable) ? $mythemes[$i]->content_lable : ''}}</textarea>
+                                            placeholder="マイテーマにつながる要素を入力しましょう" disabled>{{isset($mythemes[$i]->content_lable) ? $mythemes[$i]->content_lable : ''}}</textarea>
                                     </span>
                                 </div>
                                 <div class="favorite edit label">
@@ -183,7 +183,7 @@
                                     </a>
                                 </div>
                                 <div class="col-sm-8 wrapper-content content-column">
-                                    <p class="clearfix icon-favorior"><i class="fa fa-heart-o" style="font-size: 24px;" data-user = "{{Auth::User()->id}}" data-id = "{{$column_cate->id}}"></i></p>
+                                    <p class="clearfix icon-favorior"><i class="fa fa-heart-o {{$column_cate->columnliked == 1 ? 'liked' : ''}}" style="font-size: 24px;" data-user = "{{Auth::User()->id}}" data-id = "{{$column_cate->id}}"></i></p>
                                     <span class="text-title"><b><a style="color: #111" href="{{route('column.show', $column_cate->id)}}">{{$column_cate->title}}</a></b></span>
                                     <span class="text-category">{{$column_cate->categoryname}}</span>
                                     <p class="text-date">{{date('Y-m-d', strtotime($column_cate->created_at))}}</p>
@@ -211,7 +211,7 @@
                                     </a>
                                 </div>
                                 <div class="col-sm-8 wrapper-content content-event">
-                                    <p class="clearfix icon-favorior"><i class="fa fa-heart-o" style="font-size: 24px;" data-user = "{{Auth::User()->id}}" data-id = "{{$event_cate->id}}"></i></p>
+                                    <p class="clearfix icon-favorior"><i class="fa fa-heart-o {{$event_cate->eventliked == 1? 'liked' : ''}}" style="font-size: 24px;" data-user = "{{Auth::User()->id}}" data-id = "{{$event_cate->id}}"></i></p>
                                     <span class="text-title"><b><a style="color: #111111" href="{{route('event.show', $event_cate->id)}}">{{ $event_cate->title }}</a></b></span>
                                     <span class="text-category">{{ $event_cate->categoryname }}</span>
                                     <p class="text-date">{{date('Y-m-d', strtotime($event_cate->started_at))}}</p>
@@ -230,7 +230,7 @@
                                     <img class="thumbnails" src="{{ $videos_cate->thumbnails }}" alt="img-event-1.png">
                                 </div>
                                 <div class="col-sm-8 wrapper-content content-video">
-                                    <p class="clearfix icon-favorior"><i class="fa fa-heart-o" style="font-size: 24px;" data-user = "{{Auth::User()->id}}" data-id = "{{$videos_cate->id}}"></i></p>
+                                    <p class="clearfix icon-favorior"><i class="fa fa-heart-o {{$videos_cate->videoliked == 1? 'liked' : ''}}" style="font-size: 24px;" data-user = "{{Auth::User()->id}}" data-id = "{{$videos_cate->id}}"></i></p>
                                     <span class="text-title"><b>{{ $videos_cate->title }}</b></span>
                                     <span class="text-category">{{ $videos_cate->categoryname }}</span>
                                     <p class="text-date">{{ $videos_cate->created_at }}</p>
@@ -254,7 +254,7 @@
     <div class="container my-page">
         <div class="group-2">
             <div class="item video1">
-                <span class="underline video-title">お気に入り動画({{count($videos)}})</span>
+                <div class="underline video-title">お気に入り動画(<span class="count-video">{{count($videos)}}</span>)</div>
                 <div class="row video-content video">
                     <div class="row video-list col-md-12">
                         <div class="carousel-inner carosel-video-list row mx-auto">
@@ -319,7 +319,7 @@
                                         </div>
                                         <div class="content-right col-md-8">
                                             <div class="icon-favorite">
-                                                <i class="fa fa-heart-o {{ $event->favorite == 1 ? 'liked' : ''}}"  data-id='{{$event->id}}' data-user='{{Auth::user() ? Auth::user()->id : "" }}' style="font-size:24px;"></i>
+                                                <i class="fa fa-heart-o {{ $event->eventliked == 1 ? 'liked' : ''}}"  data-id='{{$event->id}}' data-user='{{Auth::user() ? Auth::user()->id : "" }}' style="font-size:24px;"></i>
                                             </div>
                                             <div class="title"><a href="{{route('event.show', $event->id)}}">{{$event->title}}</a> &nbsp;&nbsp; <span style="color: #636B6F;">{{$event->category_name}}</span></div>
                                             <div class="category" style="color: #636B6F;">
@@ -448,7 +448,10 @@
 </div>
 <script type="text/javascript" charset="utf-8" async defer>
     $(document).ready(function(){
-
+        $(this).scrollTop(0);
+        $("#modal_video").on('hide.bs.modal', function(){
+            $("iframe").attr('src', '');
+        });
         $('.carousel-inner.carosel-video-list').slick({
             infinite: true,
             slidesToShow: 3,
@@ -563,6 +566,7 @@
                     }else {
                         _this.parents('.video-detail.carousel-item').next().addClass('slick-active');
                         _this.parents('.video-detail.carousel-item').remove();
+                        $('.count-video').text($('.count-video').text() - 1);
                     }
                 }   
             })

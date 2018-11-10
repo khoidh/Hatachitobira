@@ -5,13 +5,13 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use App\Category;
 use Carbon\Carbon;
-
+use Auth;
 class Event extends Model
 {
     protected $table = 'events';
     protected $fillable = ['category_id', 'title','content','image', 'sort', 'time_from', 'time_to','started_at','closed_at','address','overview','capacity','entry_fee'];
 
-    protected $appends = ['eventstatus','categoryname'];
+    protected $appends = ['eventstatus','categoryname','eventliked'];
 
 
     public function category()
@@ -53,5 +53,20 @@ class Event extends Model
             $status = '開催終了';
         }
         return $status;
+    }
+
+    public function getEventlikedAttribute(){
+        $like = 0;
+        $column_id = $this->attributes['id'];
+        if (Auth::user()) {
+            $user_id = Auth::user()->id;
+            $favorite = Favorite::where('user_id', $user_id)
+                ->where('favoritable_id', $column_id)
+                ->where('favoritable_type', 'events')->get();
+            if (count($favorite) > 0) {
+                $like = 1;
+            }
+        }
+        return $like;
     }
 }

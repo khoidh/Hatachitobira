@@ -36,7 +36,7 @@
                             </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    マイテーマを探す
+                                    自分の興味から探す
                                 </a>
                                 <div class="dropdown-menu" >
                                     <a class="dropdown-item" href="{{ url('search-category')}}">マイテーマの種をみつける</a>
@@ -232,7 +232,7 @@
                     <div class="cb-path cb-path-black"></div>
                     <div class="content-row">
                         <div class="col-md-12">
-                            <p class="text-title-3">自分の興味から探す</p>
+                            <p class="text-title-3">マイテーマを見つける</p>
                         </div>
                         <div class="row">
                             @foreach($categories as $categorie)
@@ -544,7 +544,7 @@
                       settings: {
                         arrows: false,
                         centerMode: true,
-                        centerPadding: '80px',
+                        centerPadding: '120px',
                         slidesToShow: 1
                       }
                     }
@@ -553,7 +553,10 @@
            
         }
         $(document).ready(function() {
-
+            $("#modal_video").on('hide.bs.modal', function(){
+                $("iframe").attr('src', '');
+            });
+            
             $('.slide-top').slick({
                 autoplay: true,
                 arrows: false
