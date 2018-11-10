@@ -64,7 +64,7 @@
                     $html +='<p class="title-register">動画やイベント、あなたの興味のあるものを貯めて、マイテーマを作っていこう！</p>';
                     $html +='<input type="hidden" name="type" id="type_regiter" value="1">';
                     $html +='</div>';
-                    $html +='<img src="{{ asset("image/picture1.png") }}">';
+                    $html +='<img src="{{ asset("images/picture1.png") }}">';
                     $html +='</div>';
                     $html +='<div class="form-group">';
                     $html +='<span id="first-name-err" style="color:red;font-size:12px" ></span>';
@@ -120,7 +120,7 @@
                     $html +='<p class="title-register">イベント参加・個人ページの利用は会員限定です。さあ、マイテーマを探そ</p>';
                     $html +='<input type="hidden" name="type" id="type_regiter" value="1">';
                     $html +='</div>';
-                    $html +='<img src="{{ asset("image/picture1.png") }}">';
+                    $html +='<img src="{{ asset("images/picture1.png") }}">';
                     $html +='</div>';
                     $html +='<div class="form-group">';
                     $html +='<span id="first-name-err" style="color:red;font-size:12px" ></span>';

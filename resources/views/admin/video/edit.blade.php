@@ -2,23 +2,37 @@
 
 @section('content-header')
     <div class="content-header-left col-md-6 col-12 mb-2 breadcrumb-new">
-        <h3 class="content-header-title mb-0 d-inline-block" style="font-size: 30px">Videos</h3>
+        <h3 class="content-header-title mb-0 d-inline-block" style="font-size: 30px">{{__('動画')}}</h3>
         <div class="row breadcrumbs-top d-inline-block">
             <div class="breadcrumb-wrapper col-12">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="{{ route('admin.home') }}">Home</a></li>
-                    <li class="breadcrumb-item"><a href="{{ route('videos.index') }}">videos</a></li>
-                    <li class="breadcrumb-item active"> Edit</li>
+                    <li class="breadcrumb-item"><a href="{{ route('admin.home') }}">{{__('ホーム')}}</a></li>
+                    <li class="breadcrumb-item"><a href="{{ route('videos.index') }}">{{__('一覧')}}</a></li>
+                    <li class="breadcrumb-item active">{{__('編集')}}</li>
                 </ol>
             </div>
         </div>
     </div>
    
 @endsection
-@section('content-title','Videos')
+@section('content-title','動画情報')
 @section('card-content')
 @endsection
 @section('content')
+        @if(session()->has('message'))
+    <div class="alert alert-danger">
+        {{ session()->get('message') }}
+    </div>
+@endif
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
     <div class="row justify-content-md-center">
         <div class="col-md-10">
     <form action="{{route('videos.update',$video->id)}}"  enctype="multipart/form-data" method="POST">
@@ -26,7 +40,7 @@
 
         <div class="form-group row">
 
-            <label class="col-sm-2 col-form-label" for="inputState">Category</label>
+            <label class="col-sm-2 col-form-label" for="inputState">{{__('カテゴリ')}}</label>
             <div class="col-sm-10">
 
                 <select name="category_id" value="<?php echo $video->id ?>" class="form-control">
@@ -38,23 +52,20 @@
         </div>
 
         <div class="form-group row">
-            <label for="url" class="col-sm-2 col-form-label">URL</label>
+            <label for="url" class="col-sm-2 col-form-label">{{__('URL')}}</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" name="url" id="url" value="{{$video->url}}" required="true">
+                <input type="text" class="form-control" name="url" id="url" value="{{$video->url}}">
             </div>
         </div>
 
         <div class="form-group row">
-            <label for="sort" class="col-sm-2 col-form-label">Sort</label>
+            <label for="sort" class="col-sm-2 col-form-label">{{__('表示順')}}</label>
             <div class="col-sm-10">
-                <input type="number" name="sort" class="form-control" id="sort" value="{{$video->sort}}"
-                       min="1" max="2147483647"
-                       onkeypress="return (event.charCode == 8 || event.charCode == 0 || event.charCode == 13) ? null : event.charCode >= 48 && event.charCode <= 57"
-                       required="true">
+                <input type="number" name="sort" class="form-control" id="sort" value="{{$video->sort}}">
             </div>
         </div>
         <div class="form-group row">
-            <label for="sort" class="col-sm-2 col-form-label">Type</label>
+            <label for="sort" class="col-sm-2 col-form-label">{{__('タイプ')}}</label>
             <div class="col-sm-10">
                 <select type="number" name="type" class="form-control"  value="{{$video->type}}" tabindex=1>
                     <option value='0' {{($video->type==0) ? 'selected' : ''}}>ジョブシャドウ</option>
@@ -65,7 +76,7 @@
         <div class="form-group row">
             <div class="col-sm-10">
                 <input type="hidden" name="_method" value="patch">
-                <button type="submit" class="btn btn-primary">更新</button>
+                <button type="submit" class="btn btn-primary">{{__('更新')}}</button>
             </div>
             
         </div>

@@ -77,7 +77,7 @@
                 <ul class="nav navbar-nav float-right">
                     <form method="POST" action="{{route('admin.logout')}}">
                         @csrf()
-                        <button type="submit" class="btn btn-primary">Logout</button>
+                        <button type="submit" class="btn btn-primary">{{__('ログアウト')}}</button>
                     </form>
                 </ul>
             </div>
@@ -90,46 +90,46 @@
         <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
 
             {{--=========================================== Categories ================================================--}}
-            <li class="nav-item has-sub"><a href="#"><i class="la la-sitemap"></i><span class="menu-title" data-i18n="nav.columns.main">Categories</span></a>
+            <li class="nav-item has-sub"><a href="#"><i class="la la-sitemap"></i><span class="menu-title" data-i18n="nav.columns.main">{{__('カテゴリ')}}</span></a>
                 <ul class="menu-content" style="">
-                    <li class=""><a class="menu-item" href="{{route('categories.index')}}" data-i18n="nav.dash.allColumn">All Category</a>
+                    <li class=""><a class="menu-item" href="{{route('categories.index')}}" data-i18n="nav.dash.allColumn">{{__('カテゴリ一覧')}}</a>
                     </li>
-                    <li class=""><a class="menu-item" href="{{route('categories.create')}}" data-i18n="nav.dash.addColumn">Add New</a>
+                    <li class=""><a class="menu-item" href="{{route('categories.create')}}" data-i18n="nav.dash.addColumn">{{__('追加する')}}</a>
                     </li>
                 </ul>
             </li>
             {{--=========================================== Events ====================================================--}}
-            <li class="nav-item has-sub"><a href="#"><i class="la la-calendar"></i><span class="menu-title" data-i18n="nav.events.main">Events</span></a>
+            <li class="nav-item has-sub"><a href="#"><i class="la la-calendar"></i><span class="menu-title" data-i18n="nav.events.main">{{__('イベント')}}</span></a>
                 <ul class="menu-content" style="">
-                    <li class=""><a class="menu-item" href="{{route('events.index')}}" data-i18n="nav.dash.allEvent">All Event</a>
+                    <li class=""><a class="menu-item" href="{{route('events.index')}}" data-i18n="nav.dash.allEvent">{{__('イベント一覧')}}</a>
                     </li>
-                    <li class=""><a class="menu-item" href="{{route('events.create')}}" data-i18n="nav.dash.addEvent">Add New</a>
+                    <li class=""><a class="menu-item" href="{{route('events.create')}}" data-i18n="nav.dash.addEvent">{{__('追加する')}}</a>
                     </li>
                 </ul>
             </li>
             {{--=========================================== Videos ====================================================--}}
-            <li class="nav-item has-sub"><a href="#"><i class="la la-file-video-o"></i><span class="menu-title" data-i18n="nav.events.main">Videos</span></a>
+            <li class="nav-item has-sub"><a href="#"><i class="la la-file-video-o"></i><span class="menu-title" data-i18n="nav.events.main">{{__('動画')}}</span></a>
                 <ul class="menu-content" style="">
-                    <li class=""><a class="menu-item" href="{{route('videos.index')}}" data-i18n="nav.dash.allVideo">All Video</a>
+                    <li class=""><a class="menu-item" href="{{route('videos.index')}}" data-i18n="nav.dash.allVideo">{{__('動画一覧')}}</a>
                     </li>
-                    <li class=""><a class="menu-item" href="{{route('videos.create')}}" data-i18n="nav.dash.addVideo">Add New</a>
+                    <li class=""><a class="menu-item" href="{{route('videos.create')}}" data-i18n="nav.dash.addVideo">{{__('追加する')}}</a>
                     </li>
         </ul>
             </li>
             {{--=========================================== Columns ===================================================--}}
-            <li class="nav-item has-sub"><a href="#"><i class="la la-columns"></i><span class="menu-title" data-i18n="nav.columns.main">Columns</span></a>
+            <li class="nav-item has-sub"><a href="#"><i class="la la-columns"></i><span class="menu-title" data-i18n="nav.columns.main">{{__('コラム')}}</span></a>
                 <ul class="menu-content" style="">
-                    <li class=""><a class="menu-item" href="{{route('columns.index')}}" data-i18n="nav.dash.allColumn">All Column</a>
+                    <li class=""><a class="menu-item" href="{{route('columns.index')}}" data-i18n="nav.dash.allColumn">{{__('コラム一覧')}}</a>
                     </li>
-                    <li class=""><a class="menu-item" href="{{route('columns.create')}}" data-i18n="nav.dash.addColumn">Add New</a>
+                    <li class=""><a class="menu-item" href="{{route('columns.create')}}" data-i18n="nav.dash.addColumn">{{__('追加する')}}</a>
                     </li>
                 </ul>
             </li>
 
             {{--=========================================== Enquiry ===================================================--}}
-            <li class="nav-item has-sub"><a href="#"><i class="la la-edit"></i><span class="menu-title" data-i18n="nav.columns.main">Enquiry</span></a>
+            <li class="nav-item has-sub"><a href="#"><i class="la la-edit"></i><span class="menu-title" data-i18n="nav.columns.main">{{__('問合せい')}}</span></a>
                 <ul class="menu-content" style="">
-                    <li class=""><a class="menu-item" href="{{route('enquiry.index')}}" data-i18n="nav.dash.allColumn">All Enquiry</a>
+                    <li class=""><a class="menu-item" href="{{route('enquiry.index')}}" data-i18n="nav.dash.allColumn">{{__('一覧')}}</a>
                     </li>
                     
                 </ul>

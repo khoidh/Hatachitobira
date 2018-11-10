@@ -1,27 +1,24 @@
 @extends('admin.home')
-@section('javascrip')
-<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
-@endsection
+
 @section('content-header')
     <div class="content-header-left col-md-6 col-12 mb-2 breadcrumb-new">
-        <h3 class="content-header-title mb-0 d-inline-block" style="font-size: 30px">Category</h3>
+        <h3 class="content-header-title mb-0 d-inline-block" style="font-size: 30px">{{__('カテゴリ')}}</h3>
         <div class="row breadcrumbs-top d-inline-block">
             <div class="breadcrumb-wrapper col-12">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="{{ route('admin.home') }}">Home</a></li>
-                    <li class="breadcrumb-item"><a href="{{route('categories.index')}}">Category</a></li>
-                    <li class="breadcrumb-item active">Category List</li>
+                    <li class="breadcrumb-item"><a href="{{ route('admin.home') }}">{{__('ホーム')}}</a></li>
+                    <li class="breadcrumb-item active">{{__('カテゴリ一覧')}}</li>
                 </ol>
             </div>
         </div>
     </div>
     <div class="content-header-right col-md-6 col-12">
         <div class="btn-group float-md-right" role="group" aria-label="Button group with nested dropdown">
-            <a class="btn btn-info" href="{{route('categories.create')}}" ><i class="la la-plus"></i> Add New</a>
+            <a class="btn btn-info" href="{{route('categories.create')}}" ><i class="la la-plus"></i> {{__('追加')}}</a>
         </div>
     </div>
 @endsection
-@section('content-title','Categories')
+@section('content-title','カテゴリ一覧')
 @section('card-content')
 @endsection
 @section('content')
@@ -29,13 +26,13 @@
         <table class="table table-striped table-bordered table-hover tbl-resoure" id="dataTables-example">
             <thead>
                 <tr align="center">
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Icon</th>
-                    <th>Sort</th>
-                    <th>Display</th>
-                    <th>Description</th>
-                    <th>Action</th>
+                    <th>{{__('ID')}}</th>
+                    <th>{{__('お名前')}}</th>
+                    <th>{{__('アイコン')}}</th>
+                    <th>{{__('表示順')}}</th>
+                    <th>{{__('表示')}}</th>
+                    <th>{{__('説明')}}</th>
+                    <th>{{__('操作')}}</th>
                 </tr>
             </thead>
             <tbody>
@@ -58,24 +55,7 @@
             </tbody>
         </table>
         {{ $categories->links() }}
-        <div id="myModal_delete" class="modal fade" role="dialog">
-            <div class="modal-dialog" style="margin-top:300px">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h3 class="modal-title" style="text-align:center">Are you sure to want to delete this category
-                            ?</h3>
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    </div>
-                    <div class="modal-body" style="text-align:center">
-                        <a href="" class="btn btn-danger md-delete">Yes</a>
-                        <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div id="myModal_detail" class="modal fade" role="dialog">
-            
-        </div>
+    
     </div>
 @endsection
 @section('customjavascript')

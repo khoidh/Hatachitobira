@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreCategory extends FormRequest
+class CategoryRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -38,7 +38,7 @@ class StoreCategory extends FormRequest
     {
         return [
             'name'          => __('名前'),
-            'description'   => __('概要'),
+            'description'   => __('説明'),
             'slug'          => __('スラグ'),
             'icon'          => __('アイコン'),
             'sort'          => __('表示順'),
