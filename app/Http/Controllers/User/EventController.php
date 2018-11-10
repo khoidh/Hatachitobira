@@ -89,12 +89,12 @@ class EventController extends Controller
             }
             return view('user.event.index', ['events' => $events]);
         }else {
-            
+            $thisUser_add = $request->all();
+
             $userEvent = new User_event();
             $userEvent->user_id = Auth::User()->id;
             $userEvent->event_id = $request->event_id;
             $userEvent->save();
-            
 
             $thisUser = User_event::select()
                 ->select('events.*','users.*')
@@ -102,15 +102,15 @@ class EventController extends Controller
                 ->join('users','users.id','=','user_events.user_id')
                 ->where('user_events.id',$userEvent->id)
                 ->first();
-            
+
             Mail::send('email.eventusers',compact('thisUser'),
                function($mail) use($thisUser)
                {
-                   $mail->to($thisUser->email)->subject('Hatachi Tobira');
+                   $mail->to($thisUser->email)->subject($thisUser->title.'｜申込確認メール');
                }
             );
 
-            return view('thank_enquiry');
+            return view('user.event.thank_event',['thisUser' => $thisUser]);
         }
            
     }

@@ -18,7 +18,7 @@
                             </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                  マイテーマを探す
+                                  自分の興味から探す
                                 </a>
                                 <div class="dropdown-menu" >
                                      <a class="dropdown-item" href="{{ url('search-category')}}">マイテーマの種をみつける</a>
