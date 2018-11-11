@@ -86,17 +86,17 @@
     </div>
 
     <div class="form-group row">
-        <label for="time_from" class="col-sm-2 col-form-label">{{__('登録時間')}}</label>
+        <label for="time_from" class="col-sm-2 col-form-label">{{__('表示期間')}}</label>
         <div class="col-sm-10" style="padding: 0">
             <div class="row">
                 <div class="col-sm-6">
-                    <label for="time_from" class="col-sm-12 col-form-label">{{__('始まる')}}</label>
+                    <label for="time_from" class="col-sm-12 col-form-label">{{__('開始')}}</label>
                     <div class="col-sm-12">
                                 <input type="datetime-local" class="form-control" name="time_from" id="time_from" value="{{old('time_from')}}">
                     </div>
                 </div>
                 <div class="col-sm-6" >
-                    <label for="time_to" class="col-sm-12 col-form-label">{{__('終わる')}}</label>
+                    <label for="time_to" class="col-sm-12 col-form-label">{{__('終了')}}</label>
                     <div class="col-sm-12">
                                 <input type="datetime-local" class="form-control" name="time_to" id="time_to" value="{{old('time_to')}}">
                     </div>
@@ -112,13 +112,11 @@
         <div class="col-sm-10" style="padding: 0">
             <div class="row">
                 <div class="col-sm-6">
-                    <label for="started_at" class="col-sm-12 col-form-label">{{__('始まる')}}</label>
                     <div class="col-sm-12">
                                 <input type="datetime-local" class="form-control" name="started_at" id="started_at" value="{{old('started_at')}}">
                     </div>
                 </div>
                 <div class="col-sm-6" >
-                    <label for="closed_at" class="col-sm-12 col-form-label">{{__('終わる')}}</label>
                     <div class="col-sm-12">
                                 <input type="datetime-local" class="form-control" name="closed_at" id="closed_at" value="{{old('closed_at')}}">
                     </div>
@@ -138,8 +136,7 @@
     <div class="form-group row">
         <label for="overview" class="col-sm-2 col-form-label">{{__('概要')}}</label>
         <div class="col-sm-10">
-            <input type="text" class="form-control" name="overview" id="overview" placeholder="{{__('概要')}}"
-                   value="{{old('overview')}}" >
+            <textarea class="form-control" name="overview" id="overview" placeholder="{{__('概要')}}" rows="4">{{old('overview')}}</textarea>
         </div>
     </div>
 
