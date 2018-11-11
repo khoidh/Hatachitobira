@@ -110,7 +110,7 @@
                 <div class="modal-body" style="text-align:center">
                     <button type="button" id="dismiss-register" class="close" data-dismiss="modal">&times;</button>
                     <div class="panel-body">
-                        <h4>すみません、申込期間は終わりました。</h4>
+                        <h4>お申し込み期間は終了いたしました。</h4>
                     </div>
                 </div>
             </div>
@@ -122,7 +122,7 @@
                 <div class="modal-body" style="text-align:center">
                     <button type="button" id="dismiss-register" class="close" data-dismiss="modal">&times;</button>
                     <div class="panel-body">
-                        <div class="row" style="padding: 30px">イベントの申込はキャンセルされています。よろしいでしょうか。</div>
+                        <div class="row" style="padding: 30px">イベントのお申し込みはキャンセルされています。よろしいでしょうか。</div>
                         <div class="row col-md-12"
                              style="-webkit-box-pack: center !important; justify-content: center !important;">
                             <form class="form-horizontal" action="{{ route('event.delete') }}" method="POST">
