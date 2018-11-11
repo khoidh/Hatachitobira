@@ -73,8 +73,8 @@ class ColumnController extends Controller
         $column = Column::find($id);
         $data = $request->all();
 
-        if($request->hasFile('image')) {
-            $file = $request->file('image');
+        if($request->hasFile('image_selected')) {
+            $file = $request->file('image_selected');
             $fileName = time() . '_' . $file->getClientOriginalName();
             $destinationPath = public_path('images/admin/column');
             $file->move($destinationPath, $fileName);

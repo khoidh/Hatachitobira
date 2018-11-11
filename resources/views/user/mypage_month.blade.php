@@ -68,7 +68,7 @@
                 {{--05--}}
                 <div class="col-sm-4 col-xs-4 col-4 panel-info-wrapper">
                     <div class="event-image">
-                        <img src="{{isset($mythemes['9']->content_lable) ? asset('image/mypage/'.$mythemes['9']->content_lable) :asset('image/mypage/mypage-01.png')}}" alt="">
+                        <img src="{{isset($mythemes['9']->content_lable) ? asset('images/user/mypage/'.$mythemes['9']->content_lable) :asset('images/user/mypage/mypage-01.png')}}" alt="">
                         <div class="description"> {{isset($mythemes['9']->content_1) ? $mythemes['9']->content_1 : 'HATACHI TOBIRA'}}</div>
                         <div class="favorite edit image">
                             <i class="fa fa-pencil"

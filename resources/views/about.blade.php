@@ -61,7 +61,7 @@
 @section('content')
     <div class="container about about-desktop">
         <div class="row about-banner" style="display: inline-block">
-            <img src="{{asset("image/about/about_banner_lg.jpg")}}" alt="" style="width: 100%" />
+            <img src="{{asset("images/user/about/about_banner_lg.jpg")}}" alt="" style="width: 100%" />
         </div>
         <div class="row top" style="margin-left: 0; margin-right: 0">
             <div class="div-bg"></div>
@@ -89,17 +89,17 @@
                 <div class="col-md-4 col-sm-4 col-xs-12 why-born-col">
                     <p class="text_detail_title">自由が故に、<br>後悔する大学生活</p>
                     <p class="text_detail">約65%が後悔する現実</p>
-                    <img src="{{asset("image/about/about_icon_01.jpg")}}" alt="" />
+                    <img src="{{asset("images/user/about/about_icon_01.jpg")}}" alt="" />
                 </div>
                 <div class="col-md-4 col-sm-4 col-xs-12 why-born-col">
                     <p class="text_detail_title">就活までみえにくい<br>将来の選択肢</p>
                     <p class="text_detail">大学と社会の距離が遠く、<br> 将来の選択肢がみえない </p>
-                    <img src="{{asset("image/about/about_icon_02.jpg")}}" alt=""/>
+                    <img src="{{asset("images/user/about/about_icon_02.jpg")}}" alt=""/>
                 </div>
                 <div class="col-md-4 col-sm-4 col-xs-12 why-born-col">
                     <p class="text_detail_title">時代遅れの <br>やりたいこと論</p>
                     <p class="text_detail">日本の就活に合わない <br>欧米型のキャリア論</p>
-                    <img src="{{asset("image/about/about_icon_03.jpg")}}" alt="" />
+                    <img src="{{asset("images/user/about/about_icon_03.jpg")}}" alt="" />
                 </div>
             </div>
         </div>
@@ -110,41 +110,41 @@
                     <p class="about-what-done-title">“ハタチのトビラ”できることとは？ </p>
                 </div>
                 <div class="col-md-4 what-done-col">
-                    <img src="{{asset("image/about/about_icon_04.jpg")}}" alt="" />
+                    <img src="{{asset("images/user/about/about_icon_04.jpg")}}" alt="" />
                     <p class="text_detail_title">社会に触れ選択肢を知れ<br>るジョブシャドウ動画 </p>
                     <p class="text_detail">多様な仕事の1日に触れ <br>自分の興味や視野を広げよう </p>
                     <p class="more-detail">
                         <a href="{{route('video.index')}}" >
                             <span>MORE</span>
-                            <img src="{{asset("image/top/arrow-1.png")}}" alt="" />
+                            <img src="{{asset("images/user/top/arrow-1.png")}}" alt="" />
                         </a>
                     </p>
                 </div>
                 <div class="col-md-4 what-done-col">
-                    <img src="{{asset("image/about/about_icon_05.jpg")}}" alt="" />
+                    <img src="{{asset("images/user/about/about_icon_05.jpg")}}" alt="" />
                     <p class="text_detail_title">ロールモデルや新たな仲<br>間に出会うイベント </p>
                     <p class="text_detail">ちょっと真面目な対話と自分<br>ならではの経験をしよう </p>
                     <p class="more-detail">
                         <a href="{{route('event.index')}}" >
                             <span>MORE</span>
-                            <img src="{{asset("image/top/arrow-1.png")}}" alt="" />
+                            <img src="{{asset("images/user/top/arrow-1.png")}}" alt="" />
                         </a>
                     </p>
                 </div>
                 <div class="col-md-4 what-done-col" >
-                    <img src="{{asset("image/about/about_icon_06.jpg")}}" alt="" />
+                    <img src="{{asset("images/user/about/about_icon_06.jpg")}}" alt="" />
                     <p class="text_detail_title">将来の方向性を見出すた<br>めのマイページ </p>
                     <p class="text_detail">月単位でマイテーマや自分の<br>行動を記録しよう</p>
                     <p class="more-detail">
                         <?php if(Auth::guest()) : ?>
                             <a data-toggle="modal" data-target="#modal_login">
                                 <span>MORE</span>
-                                <img src="{{asset("image/top/arrow-1.png")}}" alt="" />
+                                <img src="{{asset("images/user/top/arrow-1.png")}}" alt="" />
                             </a>
                         <?php else: ?>
                             <a href="{{route('mypage.index')}}">
                             <span>MORE</span>
-                            <img src="{{asset("image/top/arrow-1.png")}}" alt="" />
+                            <img src="{{asset("images/user/top/arrow-1.png")}}" alt="" />
                             </a>
                         <?php endif; ?>   
                     </p>

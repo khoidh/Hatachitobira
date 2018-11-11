@@ -209,7 +209,7 @@ class MypageController extends Controller
         if($request->hasFile('file-image')){
             $file = $request->file('file-image');
             $fileName = time().'_'.$file->getClientOriginalName();
-            $destinationPath = public_path('image/mypage');
+            $destinationPath = public_path('images/user/mypage');
             $file->move($destinationPath, $fileName);
         }
         $data['content_lable'] = $fileName;

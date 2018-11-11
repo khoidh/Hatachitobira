@@ -26,7 +26,7 @@
                 <div>定員       ： {{ $thisUser->capacity}} 人</div>
                 <div>info@originalpoint.co.jpからのメールが受信できるよう設定の上お待ちください</div>
                 <div class="image text-center">
-                    <img src="{{asset('image/share/contact-email.png')}}" alt="contact-email.png">
+                    <img src="{{asset('images/user/share/contact-email.png')}}" alt="contact-email.png">
                 </div>
 
             </div>

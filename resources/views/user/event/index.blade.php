@@ -31,21 +31,21 @@
                 <div class="row">
                     <div class="icon-01 col-md-4">
                         <div class="col-md-12">
-                            <img src="{{asset('image/event/event-01.png')}}" alt="event 01.png">
+                            <img src="{{asset('images/user/event/event-01.png')}}" alt="event 01.png">
                             <p class="icon-title">ちょっと変わった ロールモデルに出会える </p>
                             <P class="icon-content">ベンチャー、大手、公務員、NPO、フリーランス、将来の選択肢を知ることで視野を広げる</P>
                         </div>
                     </div>
                     <div class="icon-01 col-md-4">
                         <div class="col-md-12">
-                            <img src="{{asset('image/event/event-02.png')}}" alt="event 02.png">
+                            <img src="{{asset('images/user/event/event-02.png')}}" alt="event 02.png">
                             <p class="icon-title">ちょっと真面目に 同世代と対話ができる </p>
                             <P class="icon-conten">毎月20日に会って対話をする大学やバイト以外の第3のコミュニティができる</P>
                         </div>
                     </div>
                     <div class="icon-01 col-md-4">
                         <div class="col-md-12">
-                            <img src="{{asset('image/event/event-03.png')}}" alt="event 03.png">
+                            <img src="{{asset('images/user/event/event-03.png')}}" alt="event 03.png">
                             <p class="icon-title">自分の個性をあらわす マイテーマを探求できる </p>
                             <P class="icon-conten">やりたいこと探しとは異なる これからの時代に合ったやり方で大学生活や将来の方向性を探る </P>
                         </div>
@@ -60,9 +60,9 @@
                             <hr class="shape-8"/>
                             <img
                                 @if($event->eventstatus == '受付中' || $event->eventstatus == '開催中')
-                                    src="{{asset('image/event/event-icon.png')}}" alt="event-icon.png"
+                                    src="{{asset('images/user/event/event-icon.png')}}" alt="event-icon.png"
                                 @else
-                                    src="{{asset('image/event/event-visible-icon.png')}}" alt="event-visible-icon.png"
+                                    src="{{asset('images/user/event/event-visible-icon.png')}}" alt="event-visible-icon.png"
                                 @endif
                             >
                             <span style="@if($event->eventstatus == '受付前' || $event->eventstatus == '受付終了'|| $event->eventstatus == '開催終了' ) left: 20px; color: white !important; @endif">{{$event->eventstatus}}</span>
@@ -70,8 +70,8 @@
                         <div class="article-content row">
                             <div class="content-left col-md-4">
                                 <a href="{{route('event.show', $event->id)}}" style="text-decoration:none;">
-                                    @php $image='image/event/'.$event->image; @endphp
-                                    <img src="{{file_exists($image)?asset($image): asset('image/event/event_default.jpg')}}" alt="{{$event->title}}">
+                                    @php $image='images/admin/event/'.$event->image; @endphp
+                                    <img src="{{file_exists($image)?asset($image): asset('images/user/event//event_default.jpg')}}" alt="{{$event->title}}">
                                 </a>
                             </div>
                             <div class="content-right col-md-8">
@@ -155,7 +155,7 @@
                         $html +='<p class="title-register">イベント参加・個人ページの利用は会員限定です。さあ、マイテーマを探そ</p>';
                         $html +='<input type="hidden" name="type" id="type_regiter" value="1">';
                         $html +='</div>';
-                        $html +='<img src="{{ asset("image/picture1.png") }}">';
+                        $html +='<img src="{{ asset("images/picture1.png") }}">';
                     $html +='</div>';
                     $html +='<div class="form-group">';
                             $html +='<span id="first-name-err" style="color:red;font-size:12px" ></span>';
