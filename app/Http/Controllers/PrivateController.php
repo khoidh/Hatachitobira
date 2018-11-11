@@ -10,4 +10,8 @@ class PrivateController extends Controller
     {
         return view('private');
     }
+    public function termsAndConditions()
+    {
+        return view('terms_and_conditions');
+    }
 }

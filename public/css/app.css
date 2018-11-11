@@ -2317,7 +2317,8 @@ footer .footter-mobile .a-first {
 .private .txt .policy .policy-content {
   padding-top: 10px;
   color: #6b6b6b;
-  text-align: justify;
+  white-space: pre-wrap;
+  word-break: break-word;
 }
 
 /*================ Enquiry style (contact) ===============*/

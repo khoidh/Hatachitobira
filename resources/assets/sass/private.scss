@@ -29,7 +29,8 @@
       .policy-content {
         padding-top: 10px;
         color: $text2-color;
-        text-align: justify;
+        white-space: pre-wrap;
+        word-break: break-word;
       }
     }
   }

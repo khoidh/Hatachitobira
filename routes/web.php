@@ -126,3 +126,4 @@ Route::get('paginate-event','User\MypageController@paginateEvent');
 
 /* Privacy policy- Terms of service */
 Route::get('privacy-policy','PrivateController@index')->name('privacy-policy');
+Route::get('terms-and-conditions','PrivateController@termsAndConditions')->name('terms-and-conditions');
