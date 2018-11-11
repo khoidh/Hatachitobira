@@ -127,7 +127,7 @@
             </li>
 
             {{--=========================================== Enquiry ===================================================--}}
-            <li class="nav-item has-sub"><a href="#"><i class="la la-edit"></i><span class="menu-title" data-i18n="nav.columns.main">{{__('問合せい')}}</span></a>
+            <li class="nav-item has-sub"><a href="#"><i class="la la-edit"></i><span class="menu-title" data-i18n="nav.columns.main">{{__('お問い合わせ')}}</span></a>
                 <ul class="menu-content" style="">
                     <li class=""><a class="menu-item" href="{{route('enquiry.index')}}" data-i18n="nav.dash.allColumn">{{__('一覧')}}</a>
                     </li>
