@@ -36,10 +36,10 @@
                             </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    自分の興味から探す
+                                    マイテーマを探す
                                 </a>
                                 <div class="dropdown-menu" >
-                                    <a class="dropdown-item" href="{{ url('search-category')}}">マイテーマの種をみつける</a>
+                                    <a class="dropdown-item" href="{{ url('search-category')}}">自分の興味から探す</a>
                                     <!-- <div class="dropdown-divider"></div>
                                     <a class="dropdown-item" href="{{ url('search-category')}}">将来の選択肢を動画でみる</a> -->
                                     <div class="dropdown-divider"></div>
