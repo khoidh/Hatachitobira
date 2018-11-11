@@ -25,6 +25,14 @@
 @endsection
 @section('javascrip')
     <script src= "{{asset("vendor/unisharp/laravel-ckeditor/ckeditor.js")}}"></script>
+    <script>
+      var options = {
+        filebrowserImageBrowseUrl: '/laravel-filemanager?type=Images',
+        filebrowserImageUploadUrl: '/laravel-filemanager/upload?type=Images&_token=',
+        filebrowserBrowseUrl: '/laravel-filemanager?type=Files',
+        filebrowserUploadUrl: '/laravel-filemanager/upload?type=Files&_token='
+      };
+    </script>
 @endsection
 @section('content')
 @if ($errors->any())
@@ -58,7 +66,7 @@
             <textarea class="form-control"  id="ckeditor-text" disabled="" >{{$event->content}}</textarea>
         </div>
         <script type="text/javascript">
-            CKEDITOR.replace('ckeditor-text' );
+            CKEDITOR.replace('ckeditor-text', options);
         </script>
     </div>
 
