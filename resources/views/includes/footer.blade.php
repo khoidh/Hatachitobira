@@ -29,8 +29,8 @@
                         </div>
                         <div class="col-md-6">
                             <ul>
-                                <li><a href="{{url('private-polisy')}}">プライバシーポリシー</a></li>
-                                <li><a href="{{url('private-polisy')}}">利用規約</a></li>
+                                <li><a href="{{url('privacy-policy')}}">プライバシーポリシー</a></li>
+                                <li><a href="{{url('privacy-policy')}}">利用規約</a></li>
                                 @if(Auth::User())
                                 <li><a href="{{url('my-page')}}">My Page</a></li>
                                 @endif

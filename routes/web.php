@@ -125,4 +125,4 @@ Route::get('paginate-video','User\MypageController@paginateVideo');
 Route::get('paginate-event','User\MypageController@paginateEvent');
 
 /* Privacy policy- Terms of service */
-Route::get('private-polisy','PrivateController@index')->name('provider-polisy');
+Route::get('privacy-policy','PrivateController@index')->name('privacy-policy');

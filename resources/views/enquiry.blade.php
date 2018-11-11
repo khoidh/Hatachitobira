@@ -124,7 +124,7 @@
                                     <li>このフォームで送信される情報はSSLにより暗号化されます。</li>
                                 </ul>
                                 <p>&nbsp&nbsp&nbsp&nbsp<span style="font-size: large">※</span>&nbsp詳しくは
-                                    <a href="{{url('private-polisy')}}"><u>プライバシーポリシー</u></a>をご覧ください。</p>
+                                    <a href="{{url('privacy-policy')}}"><u>プライバシーポリシー</u></a>をご覧ください。</p>
                                 <div class="agreement">
                                     <input type="checkbox" name="" required="" id="privacy">
                                     <label class="checkboxtext" for="privacy">
