@@ -38,8 +38,10 @@
 @endif
     <div class="row justify-content-md-center">
         <div class="col-md-10">
-<form  action="{{route('events.store')}}" enctype="multipart/form-data" method="POST">
+<form  action="{{route('events.update',$event->id)}}" enctype="multipart/form-data" method="POST">
     {{ csrf_field() }}
+    {{ method_field('PUT') }}
+
     <div class="form-group row">
 
         <label class="col-sm-2 col-form-label" for="category_id">{{__('カテゴリ')}}</label>

@@ -13,6 +13,7 @@ body {
 .top .thump .img-icon {
     max-height: 500px !important
 }
+
 .nav-item .nav-link {
     cursor: pointer;
     font-size: 16px;
@@ -166,6 +167,7 @@ body {
     left: -1px;
     width: 44px;
 }
+
 .top .text-vertical-1.last span {
     background: $black-color;
     color: $white-color;
@@ -259,6 +261,7 @@ body {
     color: #6b6b6b;
     font-family: "Kozuka Gothic Pr6N";
     margin-right: 15px;
+
     @include only-for-mobile() {
         margin-right: 0;
     }
@@ -292,6 +295,7 @@ body {
 .top .video-detail {
     margin: 22px 0 16px -12px;
     padding: 0;
+
     @include only-for-mobile() {
         margin: 0;
     }
@@ -352,7 +356,7 @@ body {
 .top .container.content-1 .content-1-title {
     width: 53px;
     padding: 2px 10px;
-    text-align: center;
+    text-align: left;
     font-size: 40px;
     line-height: 1;
     float: right;
@@ -362,6 +366,7 @@ body {
     -ms-writing-mode: tb-rl;
     writing-mode: vertical-rl;
     margin: 6px;
+    height: 440px;
 }
 
 .top .container.content-1>.row {
@@ -437,6 +442,7 @@ body {
     border-radius: 18px;
     margin-top: -12px;
     margin-right: 15px;
+
     @include only-for-mobile() {
         margin-right: 0px;
     }
@@ -527,7 +533,7 @@ body {
     padding-bottom: 60px;
 }
 
-.top .button-link .link-my-page{
+.top .button-link .link-my-page {
     top: 0;
     border-radius: 50px;
     font-size: 21px;
@@ -535,7 +541,8 @@ body {
     left: 0px;
     padding: 17px 15%;
 }
-.top .button-link .link-my-page:hover{
+
+.top .button-link .link-my-page:hover {
     color: #fff;
 }
 
@@ -686,11 +693,11 @@ header.fixed .logo.navbar-brand img {
     color: #c3c2c2;
 }
 
-footer .footter-mobile .a-first{
+footer .footter-mobile .a-first {
     cursor: context-menu;
 }
 
-@media (min-width: 992px)  {
+@media (min-width: 992px) {
     .navbar-expand-lg .navbar-nav .dropdown-menu {
         position: absolute;
         left: -32px;
@@ -706,7 +713,7 @@ footer .footter-mobile .a-first{
 }
 
 @media (max-width: 376px) {
-    header.fixed.headder .navbar.navbar-expand-lg.navbar-light p{
+    header.fixed.headder .navbar.navbar-expand-lg.navbar-light p {
         left: -8px;
     }
 
@@ -758,7 +765,7 @@ footer .footter-mobile .a-first{
     .dropdown-toggle::after {
         margin-left: 11.255em !important;
     }
-    
+
     footer .text-bootom {
         position: relative;
         top: 17px;
@@ -957,16 +964,17 @@ footer .footter-mobile .a-first{
         text-align: left;
         font-size: 24px;
     }
+
     .top .movie-top-2 .text-vertical {
         top: 44px;
         position: relative;
-    } 
+    }
 
     .top .text-vertical.last {
         font-size: 30px;
         top: -30px;
     }
-    
+
     .top .category-aa {
         display: block;
         margin-bottom: 2px;
@@ -1046,12 +1054,12 @@ footer .footter-mobile .a-first{
     }
 
     .top .container.movie-top-4 .cb-path,
-    .top .content-last .cb-path{
+    .top .content-last .cb-path {
         top: 0;
         left: 0
     }
-    
-    .top .container.movie-top-4 .cb-path{
+
+    .top .container.movie-top-4 .cb-path {
         margin-top: 0
     }
 
@@ -1115,7 +1123,8 @@ footer .footter-mobile .a-first{
     .top .container.movie-top-4.content-2 {
         margin-top: 0;
     }
-    #modal_register .modal-content{
+
+    #modal_register .modal-content {
         width: 98% !important;
     }
 
@@ -1127,7 +1136,7 @@ footer .footter-mobile .a-first{
         font-size: 13px;
         width: 102px;
     }
-    
+
     #modal_register p.title-register-mypage {
         position: relative;
         left: 16px !important;
@@ -1135,6 +1144,7 @@ footer .footter-mobile .a-first{
         font-size: 13px;
         width: 118px;
     }
+
     #modal_register .code-top img {
         width: 310px;
         height: 100%;
@@ -1206,6 +1216,7 @@ footer .footter-mobile .a-first{
 
     .image-top.row {
         overflow: hidden;
+        margin: 0 -20px !important;
     }
 
     .owl-nav.disabled,
@@ -1213,9 +1224,11 @@ footer .footter-mobile .a-first{
         display: none;
     }
 }
+
 .container-fluid.top {
     padding: 0 !important;
     margin-top: 100px;
+
     @include only-for-mobile() {
         padding: 0 22px !important;
         margin-top: 0px;
@@ -1267,6 +1280,7 @@ footer .footter-mobile .a-first{
     position: relative;
     left: -166px;
     width: 325px;
+    height: 300px;
 }
 
 #modal_register p.title-register {
@@ -1291,9 +1305,11 @@ footer .footter-mobile .a-first{
     border-color: #353d8d;
     padding: 13px;
 }
+
 #modal_register .btn-register:hover {
     color: #fff;
 }
+
 #modal_login .btn-register.btn-register-btn-1,
 #modal_login .btn-register.btn-register-btn,
 #modal_register .btn-register.btn-register-btn {

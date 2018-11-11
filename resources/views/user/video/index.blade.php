@@ -51,7 +51,7 @@
                     <div class="wrapper">
                         <div class="thump">
                             <div class="browse-details" data-id='{{$result->id}}' data-user='{{Auth::user() ? Auth::user()->id : "" }}' data-src='{{$result->embedHtml}}' data-url = "{{$result->url}}">
-                                <img src="{{ asset('image/video/btn-play.png')}}" alt="" >
+                                <img src="{{ asset('images/user/video/btn-play.png')}}" alt="" >
                                 <div class="favorite" data-id='{{$result->id}}' data-user='{{Auth::user() ? Auth::user()->id : "" }}'><i class="fa fa-heart-o {{$result->favorite == 1 ? 'liked' : ''}}"></i></div>
                             </div>
                             <a href="#">
@@ -101,13 +101,17 @@
         <div class="modal-dialog" style="margin-top:150px">
             <div class="modal-content" style="opacity: 0.45; -moz-opacity: 0.45;filter: alpha(opacity=45);background: none;border: none;">
                 <div class="modal-body" style="text-align:center">
-                    <img src="{{asset('image/video/loading.gif')}}" alt="Be patient..." />
+                    <img src="{{asset('images/user/video/loading.gif')}}" alt="Be patient..." />
                 </div>
             </div>
         </div>   
     </div>
     <script type="text/javascript"  async defer>
         $(document).ready(function() {
+            $("#modal_video").on('hide.bs.modal', function(){
+                $("iframe").attr('src', '');
+            });
+            
             $(document).on('click','.video .video-list .browse-details', function(e){
                 e.preventDefault();
                 var idvideo = $(this).data('id');
@@ -204,7 +208,7 @@
                         $html +='<p class="title-register">イベント参加・個人ページの利用は会員限定です。さあ、マイテーマを探そ</p>';
                         $html +='<input type="hidden" name="type" id="type_regiter" value="1">';
                         $html +='</div>';
-                        $html +='<img src="{{ asset("image/picture1.png") }}">';
+                        $html +='<img src="{{ asset("images/picture1.png") }}">';
                     $html +='</div>';
                     $html +='<div class="form-group">';
                             $html +='<span id="first-name-err" style="color:red;font-size:12px" ></span>';

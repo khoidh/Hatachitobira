@@ -54,9 +54,9 @@
                                     <hr class="shape-8"/>
                                     <img
                                         @if($column->type == 0)
-                                            src="{{asset('image/column/column-icon.png')}}" alt="column-icon.png"
+                                            src="{{asset('images/user/column/column-icon.png')}}" alt="column-icon.png"
                                         @else
-                                            src="{{asset('image/column/column-visible-icon.png')}}" alt="column-visible-icon.png"
+                                            src="{{asset('images/user/column/column-visible-icon.png')}}" alt="column-visible-icon.png"
                                         @endif
                                     >
                                     <span style="@if($column->type ==1) left: 25px; @endif">{{$column_state}}</span>
@@ -64,8 +64,8 @@
                                 <div class="article-content row">
                                     <div class="content-left col-md-4">
                                         <a href="{{route('column.show', $column->id)}}" style="text-decoration:none;">
-                                            @php $image='image/column/'.$column->image; @endphp
-                                            <img src="{{file_exists($image)?asset($image): asset('image/column/event_default.jpg')}}" alt="{{$column->title}}">
+                                            @php $image='images/admin/column/'.$column->image; @endphp
+                                            <img src="{{file_exists($image)?asset($image): asset('images/user/column/column_default.jpg')}}" alt="{{$column->title}}">
                                         </a>
                                     </div>
                                     <div class="content-right col-md-8">
@@ -110,9 +110,9 @@
                                     <hr class="shape-8"/>
                                     <img style="top: -8px;" 
                                         @if($event->eventstatus == '受付中' || $event->eventstatus == '開催中')
-                                            src="{{asset('image/event/event-icon.png')}}" alt="event-icon.png"
+                                            src="{{asset('images/user/event/event-icon.png')}}" alt="event-icon.png"
                                         @else
-                                            src="{{asset('image/event/event-visible-icon.png')}}" alt="event-visible-icon.png"
+                                            src="{{asset('images/user/event/event-visible-icon.png')}}" alt="event-visible-icon.png"
                                         @endif
                                     >
                                     <span style="@if($event->eventstatus == '受付前' || $event->eventstatus == '受付終了'|| $event->eventstatus == '開催終了' ) left: 20px;top: -12px; color: white !important;@else top: -11px;left: 12px; color: black !important; @endif">{{$event->eventstatus}}</span>
@@ -120,8 +120,8 @@
                                 <div class="article-content row">
                                     <div class="content-left col-md-4">
                                         <a href="{{route('event.show', $event->id)}}" style="text-decoration:none;">
-                                            @php $image='image/event/'.$event->image; @endphp
-                                            <img src="{{file_exists($image)?asset($image): asset('image/event/event_default.jpg')}}" alt="{{$event->title}}">
+                                            @php $image='images/admin/event/'.$event->image; @endphp
+                                            <img src="{{file_exists($image)?asset($image): asset('images/user/event/event_default.jpg')}}" alt="{{$event->title}}">
                                         </a>
                                     </div>
                                     <div class="content-right col-md-8">
@@ -166,7 +166,7 @@
                                         <div class="wrapper">
                                             <div class="thump">
                                                 <div class="browse-details" data-id='{{$result->id}}' data-user='{{Auth::user() ? Auth::user()->id : "" }}' data-src='{{$result->items[0]->player->embedHtml}}' data-url = "{{$result->data_url}}">
-                                                    <img src="{{ asset('image/video/btn-play.png')}}" alt="" >
+                                                    <img src="{{ asset('images/user/video/btn-play.png')}}" alt="" >
                                                     <div class="favorite" data-id='{{$result->id}}' data-user='{{Auth::user() ? Auth::user()->id : "" }}'><i class="fa fa-heart-o {{$result->favorite == 1 ? 'liked' : ''}}"></i></div>
                                                  </div>
                                                 <a href="#">
@@ -224,6 +224,10 @@
 
 <script type="text/javascript" async defer>
     $(document).ready(function(){
+        $("#modal_video").on('hide.bs.modal', function(){
+            $("iframe").attr('src', '');
+        });
+        
         $(document).on('click','#carouselExample .carousel-control-next',function(){
             if ($('#carouselExample .carousel-inner .carousel-item.active').is(':nth-last-child(2)')) {
                 $('#carouselExample .carousel-control-next').attr('style','display: none !important');
@@ -378,7 +382,7 @@
                         $html +='<p class="title-register">イベント参加・個人ページの利用は会員限定です。さあ、マイテーマを探そ</p>';
                         $html +='<input type="hidden" name="type" id="type_regiter" value="1">';
                         $html +='</div>';
-                        $html +='<img src="{{ asset("image/picture1.png") }}">';
+                        $html +='<img src="{{ asset("images/picture1.png") }}">';
                     $html +='</div>';
                     $html +='<div class="form-group">';
                             $html +='<span id="first-name-err" style="color:red;font-size:12px" ></span>';
@@ -434,7 +438,7 @@
                         $html +='<p class="title-register">イベント参加・個人ページの利用は会員限定です。さあ、マイテーマを探そ</p>';
                         $html +='<input type="hidden" name="type" id="type_regiter" value="1">';
                         $html +='</div>';
-                        $html +='<img src="{{ asset("image/picture1.png") }}">';
+                        $html +='<img src="{{ asset("images/picture1.png") }}">';
                     $html +='</div>';
                     $html +='<div class="form-group">';
                             $html +='<span id="first-name-err" style="color:red;font-size:12px" ></span>';
@@ -491,7 +495,7 @@
                         $html +='<p class="title-register">イベント参加・個人ページの利用は会員限定です。さあ、マイテーマを探そ</p>';
                         $html +='<input type="hidden" name="type" id="type_regiter" value="1">';
                         $html +='</div>';
-                        $html +='<img src="{{ asset("image/picture1.png") }}">';
+                        $html +='<img src="{{ asset("images/picture1.png") }}">';
                     $html +='</div>';
                     $html +='<div class="form-group">';
                             $html +='<span id="first-name-err" style="color:red;font-size:12px" ></span>';

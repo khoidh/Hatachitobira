@@ -14,6 +14,6 @@
         <input type="hidden" name="last_log" value="{{isset($result_1) ? $result_1->last_log : ''}}">
         <input type="hidden" name="this_mytheme" value="{{isset($result_1) ? $result_1->this_mytheme : ''}}">
         <input type="hidden" name="this_action" value="{{isset($result_1) ? $result_1->this_action : ''}}">
-        <input type="hidden" name="tmppath" id="tmppath" value="{{isset($result) && $result->content_lable ? asset('image/mypage/'.$result->content_lable) : asset('image/mypage/mypage-01.png')}}">
+        <input type="hidden" name="tmppath" id="tmppath" value="{{isset($result) && $result->content_lable ? asset('images/user/mypage/'.$result->content_lable) : asset('images/user/mypage/mypage-01.png')}}">
     </div>
 </form>

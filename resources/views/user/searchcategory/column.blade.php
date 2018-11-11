@@ -11,15 +11,15 @@
             $column_state="受付終了";
         @endphp
         <div class="article-status"
-             style="background-image: url('{{asset('image/event/event-icon.png')}}');">
+             style="background-image: url('{{asset('images/user/event/event-icon.png')}}');">
             <p>{{$column_state}}</p>
         </div>
         <div class="article-content row">
             <div class="content-left col-md-4">
                 <a href="{{route('event.show', $column->id)}}" style="text-decoration:none;">
-                    {{--                                        <img src="{{asset('image/event/event_default.jpg')}}" alt="" class="image">--}}
-                    @php $image='image/event/'.$column->image; @endphp
-                    <img src="{{file_exists($image)?asset($image): asset('image/event/event_default.jpg')}}">
+                    {{--                                        <img src="{{asset('images/uver/event/event_default.jpg')}}" alt="" class="image">--}}
+                    @php $image='images/admin/event/'.$column->image; @endphp
+                    <img src="{{file_exists($image)?asset($image): asset('images/user/event/column_default.jpg')}}">
                 </a>
             </div>
             <div class="content-right col-md-8">

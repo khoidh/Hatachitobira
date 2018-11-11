@@ -4,7 +4,7 @@
         <nav class="navbar navbar-expand-lg navbar-light">
                      <h1 class="logo navbar-brand">
                         <a href="/">
-                            <img src="{{ asset('image/top/logo.png') }}" alt="">
+                            <img src="{{ asset('images/user/top/logo.png') }}" alt="">
                         </a>
                     </h1>
                     <p>ベータ版</p>
@@ -21,7 +21,7 @@
                                   マイテーマを探す
                                 </a>
                                 <div class="dropdown-menu" >
-                                     <a class="dropdown-item" href="{{ url('search-category')}}">マイテーマの種をみつける</a>
+                                     <a class="dropdown-item" href="{{ url('search-category')}}">自分の興味から探す</a>
                                     <div class="dropdown-divider"></div>
                                     <a class="dropdown-item" href="{{ url('video')}}">将来の選択肢を動画でみる</a>
                                     <div class="dropdown-divider"></div>

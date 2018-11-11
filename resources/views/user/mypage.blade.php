@@ -83,7 +83,7 @@
                                             data-year="{{isset($mythemes[$i]->year) ? $mythemes[$i]->year : $data_date['year']}}" 
                                             data-category = "{{isset($mythemes[$i]->category_id) ? $mythemes[$i]->category_id : $key}}" 
                                             data-id = "{{isset($mythemes[$i]->id) ? $mythemes[$i]->id : ''}}"
-                                            placeholder="Click edit to change content" disabled>{{isset($mythemes[$i]->content_lable) ? $mythemes[$i]->content_lable : ''}}</textarea>
+                                            placeholder="マイテーマにつながる要素を入力しましょう" disabled>{{isset($mythemes[$i]->content_lable) ? $mythemes[$i]->content_lable : ''}}</textarea>
                                     </span>
                                 </div>
                                 <div class="favorite edit label">
@@ -101,7 +101,7 @@
                             {{--05--}}
                             <div class="col-sm-4 col-xs-4 col-4 panel-info-wrapper">
                                 <div class="event-image">
-                                    <img src="{{isset($mythemes['9']->content_lable) ? asset('image/mypage/'.$mythemes['9']->content_lable) :asset('image/mypage/mypage-01.png')}}" alt="">
+                                    <img src="{{isset($mythemes['9']->content_lable) ? asset('images/user/mypage/'.$mythemes['9']->content_lable) :asset('images/user/mypage/mypage-01.png')}}" alt="">
                                     <div class="description"> {{isset($mythemes['9']->content_1) ? $mythemes['9']->content_1 : 'HATACHI TOBIRA'}}</div>
                                     <div class="favorite edit image">
                                         <i class="fa fa-pencil"
@@ -169,21 +169,21 @@
                                 <div class="wrapper-status">
                                     <img
                                         @if($column_cate->type == 0)
-                                            src="{{asset('image/column/column-icon.png')}}" alt="column-icon.png"
+                                            src="{{asset('images/user/column/column-icon.png')}}" alt="column-icon.png"
                                         @else
-                                            src="{{asset('image/column/column-visible-icon.png')}}" alt="column-visible-icon.png"
+                                            src="{{asset('images/user/column/column-visible-icon.png')}}" alt="column-visible-icon.png"
                                         @endif
                                     >
                                     <span style="@if($column_cate->type ==1) left: 50px;top: -14px; @endif">{{$column_cate->type == 1 ? 'コラム' : 'インタビュー' }}</span>
                                 </div>
                                 <div class="col-sm-4 wrapper-icon">
                                     <a href="{{route('column.show', $column_cate->id)}}" style="text-decoration:none;">
-                                        @php $image='image/column/'.$column_cate->image; @endphp
-                                        <img class="image thumbnails" src="{{file_exists($image)?asset($image): asset('image/column/column_default.jpg')}}" alt="{{$image}}">
+                                        @php $image='images/admin/column/'.$column_cate->image; @endphp
+                                        <img class="image thumbnails" src="{{file_exists($image)?asset($image): asset('images/user/column/column_default.jpg')}}" alt="{{$image}}">
                                     </a>
                                 </div>
                                 <div class="col-sm-8 wrapper-content content-column">
-                                    <p class="clearfix icon-favorior"><i class="fa fa-heart-o" style="font-size: 24px;" data-user = "{{Auth::User()->id}}" data-id = "{{$column_cate->id}}"></i></p>
+                                    <p class="clearfix icon-favorior"><i class="fa fa-heart-o {{$column_cate->columnliked == 1 ? 'liked' : ''}}" style="font-size: 24px;" data-user = "{{Auth::User()->id}}" data-id = "{{$column_cate->id}}"></i></p>
                                     <span class="text-title"><b><a style="color: #111" href="{{route('column.show', $column_cate->id)}}">{{$column_cate->title}}</a></b></span>
                                     <span class="text-category">{{$column_cate->categoryname}}</span>
                                     <p class="text-date">{{date('Y-m-d', strtotime($column_cate->created_at))}}</p>
@@ -197,21 +197,21 @@
                                 <div class="wrapper-status">
                                     <img
                                         @if($event_cate->eventstatus == '受付中' || $event_cate->eventstatus == '開催中')
-                                            src="{{asset('image/event/event-icon.png')}}" alt="event-icon.png"
+                                            src="{{asset('images/user/event/event-icon.png')}}" alt="event-icon.png"
                                         @else
-                                            src="{{asset('image/event/event-visible-icon.png')}}" alt="event-visible-icon.png"
+                                            src="{{asset('images/user/event/event-visible-icon.png')}}" alt="event-visible-icon.png"
                                         @endif
                                     >
                                     <span style="@if($event_cate->eventstatus == '受付前' || $event_cate->eventstatus == '受付終了'|| $event_cate->eventstatus == '開催終了' ) left: 48px; top: -15px; color: white !important; @endif">{{$event_cate->eventstatus}}</span>
                                 </div>
                                 <div class="col-sm-4 wrapper-icon">
                                     <a href="{{route('event.show', $event_cate->id)}}" style="text-decoration:none;">
-                                        @php $image='image/event/'.$event_cate->image; @endphp
-                                        <img  class="thumbnails" src="{{file_exists($image)?asset($image): asset('image/event/event_default.jpg')}}" alt="{{$event_cate->title}}">
+                                        @php $image='images/admin/event/'.$event_cate->image; @endphp
+                                        <img  class="thumbnails" src="{{file_exists($image)?asset($image): asset('images/user/event/event_default.jpg')}}" alt="{{$event_cate->title}}">
                                     </a>
                                 </div>
                                 <div class="col-sm-8 wrapper-content content-event">
-                                    <p class="clearfix icon-favorior"><i class="fa fa-heart-o" style="font-size: 24px;" data-user = "{{Auth::User()->id}}" data-id = "{{$event_cate->id}}"></i></p>
+                                    <p class="clearfix icon-favorior"><i class="fa fa-heart-o {{$event_cate->eventliked == 1? 'liked' : ''}}" style="font-size: 24px;" data-user = "{{Auth::User()->id}}" data-id = "{{$event_cate->id}}"></i></p>
                                     <span class="text-title"><b><a style="color: #111111" href="{{route('event.show', $event_cate->id)}}">{{ $event_cate->title }}</a></b></span>
                                     <span class="text-category">{{ $event_cate->categoryname }}</span>
                                     <p class="text-date">{{date('Y-m-d', strtotime($event_cate->started_at))}}</p>
@@ -225,12 +225,12 @@
 
                                 <div class="col-sm-4 wrapper-icon">
                                     <div class="browse-details">
-                                        <img src="{{ asset('image/video/btn-play.png')}}" alt="" >
+                                        <img src="{{ asset('images/user/video/btn-play.png')}}" alt="" >
                                      </div>
                                     <img class="thumbnails" src="{{ $videos_cate->thumbnails }}" alt="img-event-1.png">
                                 </div>
                                 <div class="col-sm-8 wrapper-content content-video">
-                                    <p class="clearfix icon-favorior"><i class="fa fa-heart-o" style="font-size: 24px;" data-user = "{{Auth::User()->id}}" data-id = "{{$videos_cate->id}}"></i></p>
+                                    <p class="clearfix icon-favorior"><i class="fa fa-heart-o {{$videos_cate->videoliked == 1? 'liked' : ''}}" style="font-size: 24px;" data-user = "{{Auth::User()->id}}" data-id = "{{$videos_cate->id}}"></i></p>
                                     <span class="text-title"><b>{{ $videos_cate->title }}</b></span>
                                     <span class="text-category">{{ $videos_cate->categoryname }}</span>
                                     <p class="text-date">{{ $videos_cate->created_at }}</p>
@@ -254,7 +254,7 @@
     <div class="container my-page">
         <div class="group-2">
             <div class="item video1">
-                <span class="underline video-title">お気に入り動画({{count($videos)}})</span>
+                <div class="underline video-title">お気に入り動画(<span class="count-video">{{count($videos)}}</span>)</div>
                 <div class="row video-content video">
                     <div class="row video-list col-md-12">
                         <div class="carousel-inner carosel-video-list row mx-auto">
@@ -263,7 +263,7 @@
                                     <div class="wrapper">
                                         <div class="thump">
                                             <div class="browse-details" data-id='{{$result->id}}' data-user='{{Auth::user() ? Auth::user()->id : "" }}' data-src='{{$result->embedHtml}}' data-url="{{$result->url}}">
-                                                <img src="{{ asset('image/video/btn-play.png')}}" alt="" >
+                                                <img src="{{ asset('images/user/video/btn-play.png')}}" alt="" >
                                                 <div class="favorite" data-id='{{$result->id}}' data-user='{{Auth::user() ? Auth::user()->id : "" }}'><i class="fa fa-heart-o {{$result->favorite == 1 ? 'liked' : ''}}"></i></div>
                                              </div>
                                             <a href="#">
@@ -284,7 +284,7 @@
                                 </div>
                             @empty
                             <span class="more-detail" style="width: 100%;top: 0;">
-                            <a href="{{url('video')}}" style="color: #111111;"><b>MORE</b><img src="{{asset('image/top/arrow-1.png')}}"></a></span>
+                            <a href="{{url('video')}}" style="color: #111111;"><b>MORE</b><img src="{{asset('images/user/top/arrow-1.png')}}"></a></span>
                             @endforelse
                         </div>
                      </div>
@@ -303,9 +303,9 @@
                                         <hr class="shape-8"/>
                                         <img
                                             @if($event->eventstatus == '受付中' || $event->eventstatus == '開催中')
-                                                src="{{asset('image/event/event-icon.png')}}" alt="event-icon.png"
+                                                src="{{asset('images/user/event/event-icon.png')}}" alt="event-icon.png"
                                             @else
-                                                src="{{asset('image/event/event-visible-icon.png')}}" alt="event-visible-icon.png"
+                                                src="{{asset('images/user/event/event-visible-icon.png')}}" alt="event-visible-icon.png"
                                             @endif
                                         >
                                         <span style="@if($event->eventstatus == '受付前' || $event->eventstatus == '受付終了'|| $event->eventstatus == '開催終了' ) left: 20px; color: white !important;@else color: black !important @endif">{{$event->eventstatus}}</span>
@@ -313,13 +313,13 @@
                                     <div class="article-content row">
                                         <div class="content-left col-md-4">
                                             <a href="{{route('event.show', $event->id)}}" style="text-decoration:none;">
-                                                @php $image='image/event/'.$event->image; @endphp
-                                                <img src="{{file_exists($image)?asset($image): asset('image/event/event_default.jpg')}}" alt="{{$event->title}}">
+                                                @php $image='images/admin/event/'.$event->image; @endphp
+                                                <img src="{{file_exists($image)?asset($image): asset('images/user/event/event_default.jpg')}}" alt="{{$event->title}}">
                                             </a>
                                         </div>
                                         <div class="content-right col-md-8">
                                             <div class="icon-favorite">
-                                                <i class="fa fa-heart-o {{ $event->favorite == 1 ? 'liked' : ''}}"  data-id='{{$event->id}}' data-user='{{Auth::user() ? Auth::user()->id : "" }}' style="font-size:24px;"></i>
+                                                <i class="fa fa-heart-o {{ $event->eventliked == 1 ? 'liked' : ''}}"  data-id='{{$event->id}}' data-user='{{Auth::user() ? Auth::user()->id : "" }}' style="font-size:24px;"></i>
                                             </div>
                                             <div class="title"><a href="{{route('event.show', $event->id)}}">{{$event->title}}</a> &nbsp;&nbsp; <span style="color: #636B6F;">{{$event->category_name}}</span></div>
                                             <div class="category" style="color: #636B6F;">
@@ -334,7 +334,7 @@
                                 @empty
                                 <p>社会人から話を聞いて、マイテーマ探しをしてみよう</p>
                                 <span class="more-detail" style="width: 100%;top: 0;">
-                                <a href="{{url('event')}}"><b>イベントを探す</b><img src="{{asset('image/top/arrow-1.png')}}"></a></span>
+                                <a href="{{url('event')}}"><b>イベントを探す</b><img src="{{asset('images/user/top/arrow-1.png')}}"></a></span>
                                 @endforelse
                             </div>
                             @if(count($events) > 1)
@@ -371,9 +371,9 @@
                                     <hr class="shape-8"/>
                                     <img
                                         @if($column->type == 0)
-                                            src="{{asset('image/column/column-icon.png')}}" alt="column-icon.png"
+                                            src="{{asset('images/user/column/column-icon.png')}}" alt="column-icon.png"
                                         @else
-                                            src="{{asset('image/column/column-visible-icon.png')}}" alt="column-visible-icon.png"
+                                            src="{{asset('images/user/column/column-visible-icon.png')}}" alt="column-visible-icon.png"
                                         @endif
                                     >
                                     <span style="@if($column->type ==1) left: 25px; @endif">{{$column_state}}</span>
@@ -381,8 +381,8 @@
                                 <div class="article-content row">
                                     <div class="content-left col-md-4">
                                         <a href="{{route('column.show', $column->id)}}" style="text-decoration:none;">
-                                            @php $image='image/column/'.$column->image; @endphp
-                                            <img src="{{file_exists($image)?asset($image): asset('image/column/column_default.jpg')}}" alt="{{$column->title}}">
+                                            @php $image='images/admin/column/'.$column->image; @endphp
+                                            <img src="{{file_exists($image)?asset($image): asset('images/user/column/column_default.jpg')}}" alt="{{$column->title}}">
                                         </a>
                                     </div>
                                     <div class="content-right col-md-8">
@@ -398,7 +398,7 @@
                             </div>
                             @empty
                             <span class="more-detail" style="width: 100%;top: 0;">
-                                <a href="{{url('column')}}" style="color: #111111;"><b>MORE</b><img src="{{asset('image/top/arrow-1.png')}}"></a></span>
+                                <a href="{{url('column')}}" style="color: #111111;"><b>MORE</b><img src="{{asset('images/user/top/arrow-1.png')}}"></a></span>
                             @endforelse
                         </div>
                         @if(count($columns) > 1)
@@ -448,7 +448,10 @@
 </div>
 <script type="text/javascript" charset="utf-8" async defer>
     $(document).ready(function(){
-
+        $(this).scrollTop(0);
+        $("#modal_video").on('hide.bs.modal', function(){
+            $("iframe").attr('src', '');
+        });
         $('.carousel-inner.carosel-video-list').slick({
             infinite: true,
             slidesToShow: 3,
@@ -512,7 +515,7 @@
             $html +='<label for="name" class="control-label">管理していきましょう。</label>';
             $html +=' </div>';
             $html += '<div class="form-group" style="margin-bottom: 28px; margin-top: 30px;">';
-            $html +='<img class="image-register" src="{{ asset("image/register_1.png") }}">';
+            $html +='<img class="image-register" src="{{ asset("images/register_1.png") }}">';
             $html +=' </div>';
             $html += '<div class="form-group">';
             $html += '<div class="col-md-12">'
@@ -563,6 +566,7 @@
                     }else {
                         _this.parents('.video-detail.carousel-item').next().addClass('slick-active');
                         _this.parents('.video-detail.carousel-item').remove();
+                        $('.count-video').text($('.count-video').text() - 1);
                     }
                 }   
             })
@@ -581,7 +585,7 @@
                         $html +='<p class="title-register">動画やイベント、あなたの興味のあるものを貯めて、マイテーマを作っていこう！</p>';
                         $html +='<input type="hidden" name="type" id="type_regiter" value="1">';
                         $html +='</div>';
-                        $html +='<img src="{{ asset("image/picture1.png") }}">';
+                        $html +='<img src="{{ asset("images/picture1.png") }}">';
                     $html +='</div>';
                     $html +='<div class="form-group">';
                             $html +='<span id="first-name-err" style="color:red;font-size:12px" ></span>';

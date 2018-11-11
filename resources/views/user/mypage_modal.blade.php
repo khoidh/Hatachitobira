@@ -9,7 +9,7 @@
                                                 data-year="{{isset($result->year) ? $result->year : $data['year']}}" 
                                                 data-category = "{{isset($result->category_id) ? $result->category_id : $data['category_id']}}" 
                                                 data-id = "{{isset($result) ? $result->id : ''}}"
-                                                placeholder="Click here to edit">{{isset($result) ?  $result->content_lable :'' }}</textarea>
+                                                placeholder="マイテーマにつながる要素を入力しましょう">{{isset($result) ?  $result->content_lable :'' }}</textarea>
         </div>
     </div>
     <div class="title-detail">
@@ -26,7 +26,7 @@
             data-category = "{{isset($result->category_id) ? $result->category_id : $data['category_id']}}" 
             data-id = "{{isset($result) ? $result->id : ''}}"
             data-content = "{{$i}}"
-            placeholder="Click here to edit">{{ isset($result) ?  $result->$content : ''}}</textarea>
+            placeholder="要素を入力しましょう">{{ isset($result) ?  $result->$content : ''}}</textarea>
     </div>
     @endfor
 </div>

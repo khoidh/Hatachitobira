@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" href="{{ asset('image/favicon.ico') }}">
+    <link rel="shortcut icon" href="{{ asset('images/favicon.ico') }}">
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Hatachi Tobira</title>
@@ -23,7 +23,7 @@
                     <h1 class="logo navbar-brand">
                         <a href="/">
                             <p>ベータ版</p>
-                            <img src="{{ asset('image/top/logo.png') }}" alt="">
+                            <img src="{{ asset('images/user/top/logo.png') }}" alt="">
                         </a>
                     </h1>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -39,7 +39,7 @@
                                     マイテーマを探す
                                 </a>
                                 <div class="dropdown-menu" >
-                                    <a class="dropdown-item" href="{{ url('search-category')}}">マイテーマの種をみつける</a>
+                                    <a class="dropdown-item" href="{{ url('search-category')}}">自分の興味から探す</a>
                                     <!-- <div class="dropdown-divider"></div>
                                     <a class="dropdown-item" href="{{ url('search-category')}}">将来の選択肢を動画でみる</a> -->
                                     <div class="dropdown-divider"></div>
@@ -101,7 +101,7 @@
                 <div class="carousel-inner row mx-auto" role="listbox"> -->
                 <div class="slide-top">
                     <figure class="carousel-item">
-                        <img src="{{ asset('image/top/banner.png') }}" alt="楽しもう、背伸びしない自分を">
+                        <img src="{{ asset('images/user/top/banner.png') }}" alt="楽しもう、背伸びしない自分を">
                         <figcaption>
                             <p class="description">What students want to know,Is it transmitted to real?</p>
                             <p class="title">楽しもう、背伸びしない自分を。</p>
@@ -109,7 +109,7 @@
                         </figcaption>
                     </figure>
                     <figure class="carousel-item">
-                        <img src="{{ asset('image/top/banner-1.png') }}" alt="楽しもう、背伸びしない自分を。">
+                        <img src="{{ asset('images/user/top/banner-1.png') }}" alt="楽しもう、背伸びしない自分を。">
                         <figcaption>
                             <p class="description">What students want to know,Is it transmitted to real?</p>
                             <p class="title">これからの就活。</p>
@@ -117,7 +117,7 @@
                         </figcaption>
                     </figure>
                     <figure class="carousel-item">
-                        <img src="{{ asset('image/top/banner-2.png') }}" alt="楽しもう、背伸びしない自分を。">
+                        <img src="{{ asset('images/user/top/banner-2.png') }}" alt="楽しもう、背伸びしない自分を。">
                         <figcaption>
                             <p class="description">What students want to know,Is it transmitted to real?</p>
                             <p class="title"><span class="title-background">マイテーマ</span>って何だろう。</p>
@@ -132,19 +132,19 @@
         </div>
         <div class="image-top row">
             <div class="img-size">
-                <img src="{{ asset('image/top/image-slide-1.png') }}" class="img-detail" alt="Image slide">
+                <img src="{{ asset('images/user/top/image-slide-1.png') }}" class="img-detail" alt="Image slide">
             </div>
             <div class="img-size">
-                <img src="{{ asset('image/top/image-slide-2.png') }}" class="img-detail" alt="Image slide">
+                <img src="{{ asset('images/user/top/image-slide-2.png') }}" class="img-detail" alt="Image slide">
             </div>
             <div class="img-size">
-                <img src="{{ asset('image/top/image-slide-3.png') }}" class="img-detail" alt="Image slide">
+                <img src="{{ asset('images/user/top/image-slide-3.png') }}" class="img-detail" alt="Image slide">
             </div>
             <div class="img-size">
-                <img src="{{ asset('image/top/image-slide-4.png') }}" class="img-detail" alt="Image slide">
+                <img src="{{ asset('images/user/top/image-slide-4.png') }}" class="img-detail" alt="Image slide">
             </div>
             <div class="img-size">
-                <img src="{{ asset('image/top/image-slide-5.png') }}" class="img-detail" alt="Image slide">
+                <img src="{{ asset('images/user/top/image-slide-5.png') }}" class="img-detail" alt="Image slide">
             </div>
         </div>
         <div class="content top">
@@ -183,7 +183,7 @@
                                 <div class="wrapper">
                                     <div class="thump">
                                         <div class="browse-details" data-id='{{$videos->id}}' data-src='{{$videos->embedHtml}}' data-url = "{{$videos->url}}">
-                                            <img src="{{ asset('image/video/btn-play.png')}}" alt="" >
+                                            <img src="{{ asset('images/user/video/btn-play.png')}}" alt="" >
                                         </div>
                                         <a href="#">
                                             <img class="img-icon" src="{{  $videos->thumbnails}}" alt="{{$videos->title}}">
@@ -206,17 +206,17 @@
                     </div>
                     <div class="col-md-10 col-sm-12 col-xs-12 row">
                         <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
-                            <p><img class="movie-image" src="{{ asset('image/top/movie-image-1.png') }}" alt="大学生活をはじめ、今をより充実させるための行動が定まる"></p>
+                            <p><img class="movie-image" src="{{ asset('images/user/top/movie-image-1.png') }}" alt="大学生活をはじめ、今をより充実させるための行動が定まる"></p>
                             <p class="text-tittle">01</p>
                             <p class="movie_image_description">大学生活をはじめ、今をより充実させるための行動が定まる</p>
                         </div>
                         <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
-                            <p><img class="movie-image" src="{{ asset('image/top/movie-image-2.png') }}" alt="マイテーマを探す経験が、個性を際立たせる"></p>
+                            <p><img class="movie-image" src="{{ asset('images/user/top/movie-image-2.png') }}" alt="マイテーマを探す経験が、個性を際立たせる"></p>
                             <p class="text-tittle">02</p>
                             <p class="movie_image_description">マイテーマを探す経験が、個性を際立たせる</p>
                         </div>
                         <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
-                            <p><img class="movie-image" src="{{ asset('image/top/movie-image-3.png') }}" alt="人生100年時代でのキャリア選択や就活の指針に"></p>
+                            <p><img class="movie-image" src="{{ asset('images/user/top/movie-image-3.png') }}" alt="人生100年時代でのキャリア選択や就活の指針に"></p>
                             <p class="text-tittle">03</p>
                             <p class="movie_image_description">人生100年時代でのキャリア選択や就活の指針に</p>
                         </div>
@@ -232,7 +232,7 @@
                     <div class="cb-path cb-path-black"></div>
                     <div class="content-row">
                         <div class="col-md-12">
-                            <p class="text-title-3">自分の興味から探す</p>
+                            <p class="text-title-3">マイテーマを見つける</p>
                         </div>
                         <div class="row">
                             @foreach($categories as $categorie)
@@ -262,7 +262,7 @@
                                         <div class="wrapper">
                                             <div class="thump">
                                                 <div class="browse-details" data-id='{{$result->id}}' data-src='{{$result->embedHtml}}' data-url = "{{$result->url}}">
-                                                    <img src="{{ asset('image/video/btn-play.png')}}" alt="" >
+                                                    <img src="{{ asset('images/user/video/btn-play.png')}}" alt="" >
                                                 </div>
                                                 <a href="#">
                                                     <img class="img-icon" src="{{  $result->thumbnails}}" alt="{{$result->title}}">
@@ -284,7 +284,7 @@
                                         <div class="wrapper">
                                             <div class="thump">
                                                 <div class="browse-details" data-id='{{$result->id}}' data-src='{{$result->embedHtml}}' data-url = "{{$result->url}}">
-                                                    <img src="{{ asset('image/video/btn-play.png')}}" alt="" >
+                                                    <img src="{{ asset('images/user/video/btn-play.png')}}" alt="" >
                                                 </div>
                                                 <a href="#">
                                                     <img class="img-icon" src="{{  $result->thumbnails}}" alt="{{$result->title}}">
@@ -304,7 +304,7 @@
                                         <div class="wrapper">
                                             <div class="thump">
                                                 <div class="browse-details" data-id='{{$result->id}}' data-src='{{$result->embedHtml}}' data-url = "{{$result->url}}">
-                                                    <img src="{{ asset('image/video/btn-play.png')}}" alt="" >
+                                                    <img src="{{ asset('images/user/video/btn-play.png')}}" alt="" >
                                                 </div>
                                                 <a href="#">
                                                     <img class="img-icon" src="{{  $result->thumbnails}}" alt="{{$result->title}}">
@@ -321,7 +321,7 @@
                 </div>
                 <a href="{{url('video')}}">
                     <span class="more-detail ">MORE</span>
-                    <img src="{{ asset('image/top/arrow-1.png') }}" >
+                    <img src="{{ asset('images/user/top/arrow-1.png') }}" >
                 </a>
             </div>
 
@@ -339,7 +339,7 @@
                                         <div class="wrapper">
                                             <div class="thump">
                                                 <div class="browse-details" data-id='{{$result->id}}' data-src='{{$result->embedHtml}}' data-url = "{{$result->url}}">
-                                                    <img src="{{ asset('image/video/btn-play.png')}}" alt="" >
+                                                    <img src="{{ asset('images/user/video/btn-play.png')}}" alt="" >
                                                 </div>
                                                 <a href="#">
                                                     <img class="img-icon" src="{{  $result->thumbnails}}" alt="{{$result->title}}">
@@ -361,7 +361,7 @@
                                         <div class="wrapper">
                                             <div class="thump">
                                                 <div class="browse-details" data-id='{{$result->id}}' data-src='{{$result->embedHtml}}' data-url = "{{$result->url}}">
-                                                    <img src="{{ asset('image/video/btn-play.png')}}" alt="" >
+                                                    <img src="{{ asset('images/user/video/btn-play.png')}}" alt="" >
                                                 </div>
                                                 <a href="#">
                                                     <img class="img-icon" src="{{  $result->thumbnails}}" alt="{{$result->title}}">
@@ -381,7 +381,7 @@
                                         <div class="wrapper">
                                             <div class="thump">
                                                 <div class="browse-details" data-id='{{$result->id}}' data-src='{{$result->embedHtml}}' data-url = "{{$result->url}}">
-                                                    <img src="{{ asset('image/video/btn-play.png')}}" alt="" >
+                                                    <img src="{{ asset('images/user/video/btn-play.png')}}" alt="" >
                                                 </div>
                                                 <a href="#">
                                                     <img class="img-icon" src="{{  $result->thumbnails}}" alt="{{$result->title}}">
@@ -398,7 +398,7 @@
                 </div>
                 <a href="{{ url('video') }}">
                     <span class="more-detail ">MORE</span>
-                    <img src="{{ asset('image/top/arrow-1.png') }}">
+                    <img src="{{ asset('images/user/top/arrow-1.png') }}">
                 </a>
             </div>
             <div class="container movie-top-4 content-2">
@@ -410,7 +410,7 @@
                 </div>
                 <a href="{{ url('event') }}">
                     <span class="more-detail ">MORE</span>
-                    <img src="{{ asset('image/top/arrow-1.png') }}" >
+                    <img src="{{ asset('images/user/top/arrow-1.png') }}" >
                 </a>
             </div>
             <div class=" content-last">
@@ -425,8 +425,8 @@
                             <div class="wrapper">
                                 <div class="icon">
                                     <a href="{{route('column.show', $column->id)}}" style="text-decoration:none;">
-                                        @php $image='image/column/'.$column->image; @endphp
-                                        <img class="image" src="{{file_exists($image)?asset($image): asset('image/column/column_default.jpg')}}" alt="{{$column->title}}">
+                                        @php $image='images/admin/column/'.$column->image; @endphp
+                                        <img class="image" src="{{file_exists($image)?asset($image): asset('images/user/column/column_default.jpg')}}" alt="{{$column->title}}">
                                     </a>
                                 </div>
                                 <div class="content">
@@ -444,7 +444,7 @@
                         
                         <a href="{{ url('column') }}">
                             <span class="more-detail ">MORE</span>
-                            <img src="{{ asset('image/top/arrow-1.png') }}" >
+                            <img src="{{ asset('images/user/top/arrow-1.png') }}" >
                         </a>
                     </div>
                 </div>
@@ -544,7 +544,7 @@
                       settings: {
                         arrows: false,
                         centerMode: true,
-                        centerPadding: '80px',
+                        centerPadding: '120px',
                         slidesToShow: 1
                       }
                     }
@@ -553,7 +553,10 @@
            
         }
         $(document).ready(function() {
-
+            $("#modal_video").on('hide.bs.modal', function(){
+                $("iframe").attr('src', '');
+            });
+            
             $('.slide-top').slick({
                 autoplay: true,
                 arrows: false
@@ -606,7 +609,7 @@
                         $html +='<p class="title-register">イベント参加・個人ページの利用は会員限定です。さあ、マイテーマを探そ</p>';
                         $html +='<input type="hidden" name="type" id="type_regiter" value="1">';
                         $html +='</div>';
-                        $html +='<img src="{{ asset("image/picture1.png") }}">';
+                        $html +='<img src="{{ asset("images/picture1.png") }}">';
                     $html +='</div>';
                     $html +='<div class="form-group">';
                             $html +='<span id="first-name-err" style="color:red;font-size:12px" ></span>';
@@ -657,7 +660,7 @@
                     $html +='<p class="title-register">動画やイベント、あなたの興味のあるものを貯めて、マイテーマを作っていこう！</p>';
                     $html +='<input type="hidden" name="type" id="type_regiter" value="1">';
                     $html +='</div>';
-                    $html +='<img src="{{ asset("image/picture1.png") }}">';
+                    $html +='<img src="{{ asset("images/picture1.png") }}">';
                 $html +='</div>';
                 $html +='<div class="form-group">';
                         $html +='<span id="first-name-err" style="color:red;font-size:12px" ></span>';

@@ -1,7 +1,7 @@
 <?php
 
 namespace App;
-
+use Auth;
 use Illuminate\Database\Eloquent\Model;
 
 class Video extends Model
@@ -9,7 +9,7 @@ class Video extends Model
 
     protected $table = 'videos';
     protected $fillable = ['category_id', 'url', 'description', 'image', 'sort','type'];
-    protected $appends = ['categoryname'];
+    protected $appends = ['categoryname','videoliked'];
 
     public function category()
     {
@@ -29,5 +29,19 @@ class Video extends Model
         return $categoryname->name;
     }
 
+    public function getVideolikedAttribute(){
+        $like = 0;
+        $column_id = $this->attributes['id'];
+        if (Auth::user()) {
+            $user_id = Auth::user()->id;
+            $favorite = Favorite::where('user_id', $user_id)
+                ->where('favoritable_id', $column_id)
+                ->where('favoritable_type', 'videos')->get();
+            if (count($favorite) > 0) {
+                $like = 1;
+            }
+        }
+        return $like;
+    }
 }
 

@@ -37,9 +37,11 @@
 @endif
     <div class="row justify-content-md-center">
         <div class="col-md-10">
-            <form action="{{route('columns.store')}}" enctype="multipart/form-data" method="POST">
+<form action="{{route('columns.update',$column->id)}}" enctype="multipart/form-data" method="POST">
                 {{ csrf_field() }}
-                    <div class="form-group row">
+                {{ method_field('PUT') }}
+
+<div class="form-group row">
 
         <label class="col-sm-2 col-form-label" for="category_id">{{__('カテゴリ')}}</label>
         <div class="col-sm-10">

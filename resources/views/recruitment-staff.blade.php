@@ -27,7 +27,7 @@
 @section('content')
 <div class="requiment-staff requiment-staff-mobile">
 	<div class="requiment-staff-bg">
-		<img style="width: 100%" src="{{ asset('image/requiment/requiment-1.png')}}" alt="">
+		<img style="width: 100%" src="{{ asset('images/user/requiment/requiment-1.png')}}" alt="">
 	</div>
 	<div class="top clearfix">
 		<div class="container content-1 requiment">
@@ -56,23 +56,23 @@
 				<div class="video-detail row">
 	                <div class="col-xs-12">
 	                    <div class="corner-wrapper">
-	                        <img src="{{ asset('image/requiment/requiment-2.png')}}" alt="">
+	                        <img src="{{ asset('images/user/requiment/requiment-2.png')}}" alt="">
 	                    </div>
 					</div>
 					<div class="col-xs-6" style="padding-right:5px;">
 	                    <div class="corner-wrapper">
-	                        <img src="{{ asset('image/requiment/requiment-2.png')}}" alt="">
+	                        <img src="{{ asset('images/user/requiment/requiment-2.png')}}" alt="">
 	                    </div>
 					</div>
 					<div class="col-xs-6" style="padding-left:5px;">
 	                    <div class="corner-wrapper">
-	                        <img src="{{ asset('image/requiment/requiment-2.png')}}" alt="">
+	                        <img src="{{ asset('images/user/requiment/requiment-2.png')}}" alt="">
 	                    </div>
 	                </div>
 	            </div>
 				<a href="#">
 		            <span class="more-detail ">動画をすべて見る</span>
-		            <img src="{{ asset('image/top/arrow-1.png') }}" >
+		            <img src="{{ asset('images/user/top/arrow-1.png') }}" >
 		        </a>
 			</div>
 		</div>
@@ -87,12 +87,12 @@
 		            	<div class="row">
 		            		<div class="col-xs-3">
                                 <a href="#">
-                                    <img src="{{asset('image/requiment/slide-1.png')}}" style="max-width:100%;">
+                                    <img src="{{asset('images/user/requiment/slide-1.png')}}" style="max-width:100%;">
                                 </a>
                             </div>
                             <div class="col-xs-3">
                                 <a href="#">
-                                    <img src="{{asset('image/requiment/slide-2.png')}}" style="max-width:100%;">
+                                    <img src="{{asset('images/user/requiment/slide-2.png')}}" style="max-width:100%;">
                                 </a>
                             </div>
 		            	</div>
@@ -101,12 +101,12 @@
 		            	<div class="row">
                             <div class="col-xs-3">
                                 <a href="#">
-                                    <img src="{{asset('image/requiment/slide-3.png')}}" style="max-width:100%;">
+                                    <img src="{{asset('images/user/requiment/slide-3.png')}}" style="max-width:100%;">
                                 </a>
                             </div>
                             <div class="col-xs-3">
                                 <a href="#">
-                                    <img src="{{asset('image/requiment/slide-4.png')}}" style="max-width:100%;">
+                                    <img src="{{asset('images/user/requiment/slide-4.png')}}" style="max-width:100%;">
                                 </a>
                             </div>
 		            	</div>
@@ -115,12 +115,12 @@
 		            	<div class="row">
                             <div class="col-xs-3">
                                 <a href="#">
-                                    <img src="{{asset('image/requiment/slide-5.png')}}" style="max-width:100%;">
+                                    <img src="{{asset('images/user/requiment/slide-5.png')}}" style="max-width:100%;">
                                 </a>
                             </div>
                             <div class="col-xs-3">
                                 <a href="#">
-                                    <img src="{{asset('image/requiment/slide-6.png')}}" style="max-width:100%;">
+                                    <img src="{{asset('images/user/requiment/slide-6.png')}}" style="max-width:100%;">
                                 </a>
                             </div>
 		            	</div>
@@ -148,13 +148,13 @@
 			<p class="movie-top-text">動画作成STEP</p>
 			<div class="row" style="margin-top: 60px;">
 				<div class="col-12 col-sm-12 requiment-step-col">
-					<img class="image-step" src="{{asset('image/requiment/step_01.jpg')}}" alt="">
+					<img class="image-step" src="{{asset('images/user/requiment/step_01.jpg')}}" alt="">
 				</div>
 				<div class="col-12 col-sm-12 requiment-step-col">
-					<img class="image-step" src="{{asset('image/requiment/step_02.jpg')}}" alt="">
+					<img class="image-step" src="{{asset('images/user/requiment/step_02.jpg')}}" alt="">
 				</div>
 				<div class="col-12 col-sm-12 requiment-step-col">
-					<img class="image-step" src="{{asset('image/requiment/step_03.jpg')}}" alt="">
+					<img class="image-step" src="{{asset('images/user/requiment/step_03.jpg')}}" alt="">
 				</div>
 			</div>
 		</div>
@@ -179,27 +179,27 @@
 			        <ul>
 			            <li>
 			                <a href="#" target="_blank">
-								<img src="{{asset('image/requiment/convertion-1.png')}}" alt="">
+								<img src="{{asset('images/user/requiment/convertion-1.png')}}" alt="">
 								<div class="list-content">
 									<div class="inner">
-										<p class="inner-img"><img src="{{asset('image/requiment/before.png')}}" alt=""></p>
+										<p class="inner-img"><img src="{{asset('images/user/requiment/before.png')}}" alt=""></p>
 										<h3>サービスを利用してみた手応えはいかがでしたか？</h3>
 										<p style="margin-bottom:0;">言葉だけでは伝えきれない社員1人ひとりの個性的な魅力や提供するサービスを立体的に可視化できたと感じています。</p>
 										<p style="margin-top:0;">あとは、ジョブシャドウイング参加学生が、弊社へ長期インターンとして参画してくれたことも嬉しかったですね。</p>
-										<p class="inner-img"><img src="{{asset('image/requiment/affter.png')}}" alt="" ></p>
+										<p class="inner-img"><img src="{{asset('images/user/requiment/affter.png')}}" alt="" ></p>
 									</div>
 								</div>
 							</a>
 			            </li>
 			            <li style="margin-top:0;">
 			                <a href="https://originalpoint.co.jp/recruit/013/" target="_blank">
-								<img src="{{asset('image/requiment/convertion-2.png')}}" alt="">
+								<img src="{{asset('images/user/requiment/convertion-2.png')}}" alt="">
 								<div class="list-content">
 									<div class="inner">
-										<p class="inner-img"><img src="{{asset('image/requiment/before.png')}}" alt=""></p>
+										<p class="inner-img"><img src="{{asset('images/user/requiment/before.png')}}" alt=""></p>
 										<h3>ハタチのトビラに参加してみていかがでしたか？</h3>
 										<p style="margin-bottom:0;">私の以前働いていたインターン先では、社員 の方と仕事でのコミユニケーションはあって も、将来や仕事観等について深くお話する機 会はないので‘1日に多くの社員の方とコミユ ニケーションを取れる機会はすごく貴重でし た。働く現場の実態を知ることができました ね。</p>
-										<p class="inner-img"><img src="{{asset('image/requiment/affter.png')}}" alt="" ></p>
+										<p class="inner-img"><img src="{{asset('images/user/requiment/affter.png')}}" alt="" ></p>
 									</div>
 								</div>
 							</a>
@@ -212,7 +212,7 @@
 </div>
 <div class="requiment-staff requiment-staff-desktop">
 	<div class="requiment-staff-bg">
-		<img style="width: 100%" src="{{ asset('image/requiment/requiment-1.png')}}" alt="">
+		<img style="width: 100%" src="{{ asset('images/user/requiment/requiment-1.png')}}" alt="">
 	</div>
 	<div class="top clearfix">
 		<div class="container content-1 requiment">
@@ -241,24 +241,24 @@
 				<div class="col-md-12 video-detail row">
 	                <div class="col-md-9">
 	                    <div class="corner-wrapper">
-	                        <img src="{{ asset('image/requiment/requiment-2.png')}}" alt="">
+	                        <img src="{{ asset('images/user/requiment/requiment-2.png')}}" alt="">
 	                    </div>
 	                </div>
 	                <div class="col-md-3 video-movie ">
 	                    <div class="corner-wrapper pdd">
-	                        <img src="{{ asset('image/requiment/requiment-2.png')}}" alt="">
+	                        <img src="{{ asset('images/user/requiment/requiment-2.png')}}" alt="">
 	                    </div>
 	                    <div class="corner-wrapper pdd">
-	                        <img src="{{ asset('image/requiment/requiment-2.png')}}" alt="">
+	                        <img src="{{ asset('images/user/requiment/requiment-2.png')}}" alt="">
 	                    </div>
 	                    <div class="corner-wrapper">
-	                        <img src="{{ asset('image/requiment/requiment-2.png')}}" alt="">
+	                        <img src="{{ asset('images/user/requiment/requiment-2.png')}}" alt="">
 	                    </div>
 	                </div>
 	            </div>
 				<a href="#">
 		            <span class="more-detail ">動画をすべて見る</span>
-		            <img src="{{ asset('image/top/arrow-1.png') }}" >
+		            <img src="{{ asset('images/user/top/arrow-1.png') }}" >
 		        </a>
 			</div>
 		</div>
@@ -273,32 +273,32 @@
 		            	<div class="row">
 		            		<div class="col-md-2 col-sm-2 col-xs-2 ol-2">
                                 <a href="#">
-                                    <img src="{{asset('image/requiment/slide-1.png')}}" style="max-width:100%;">
+                                    <img src="{{asset('images/user/requiment/slide-1.png')}}" style="max-width:100%;">
                                 </a>
                             </div>
                             <div class="col-md-2 col-sm-2 col-xs-2 ol-2">
                                 <a href="#">
-                                    <img src="{{asset('image/requiment/slide-2.png')}}" style="max-width:100%;">
+                                    <img src="{{asset('images/user/requiment/slide-2.png')}}" style="max-width:100%;">
                                 </a>
                             </div>
                             <div class="col-md-2 col-sm-2 col-xs-2 ol-2">
                                 <a href="#">
-                                    <img src="{{asset('image/requiment/slide-3.png')}}" style="max-width:100%;">
+                                    <img src="{{asset('images/user/requiment/slide-3.png')}}" style="max-width:100%;">
                                 </a>
                             </div>
                             <div class="col-md-2 col-sm-2 col-xs-2 ol-2">
                                 <a href="#">
-                                    <img src="{{asset('image/requiment/slide-4.png')}}" style="max-width:100%;">
+                                    <img src="{{asset('images/user/requiment/slide-4.png')}}" style="max-width:100%;">
                                 </a>
                             </div>
                             <div class="col-md-2 col-sm-2 col-xs-2 ol-2">
                                 <a href="#">
-                                    <img src="{{asset('image/requiment/slide-5.png')}}" style="max-width:100%;">
+                                    <img src="{{asset('images/user/requiment/slide-5.png')}}" style="max-width:100%;">
                                 </a>
                             </div>
                             <div class="col-md-2 col-sm-2 col-xs-2 ol-2">
                                 <a href="#">
-                                    <img src="{{asset('image/requiment/slide-6.png')}}" style="max-width:100%;">
+                                    <img src="{{asset('images/user/requiment/slide-6.png')}}" style="max-width:100%;">
                                 </a>
                             </div>
 		            	</div>
@@ -307,32 +307,32 @@
 		            	<div class="row">
 		            		<div class="col-md-2 col-sm-2 col-xm-2">
                                 <a href="#">
-                                    <img src="{{asset('image/requiment/slide-1.png')}}" style="max-width:100%;">
+                                    <img src="{{asset('images/user/requiment/slide-1.png')}}" style="max-width:100%;">
                                 </a>
                             </div>
                             <div class="col-md-2 col-sm-2 col-xm-2">
                                 <a href="#">
-                                    <img src="{{asset('image/requiment/slide-2.png')}}" style="max-width:100%;">
+                                    <img src="{{asset('images/user/requiment/slide-2.png')}}" style="max-width:100%;">
                                 </a>
                             </div>
                             <div class="col-md-2 col-sm-2 col-xm-2">
                                 <a href="#">
-                                    <img src="{{asset('image/requiment/slide-3.png')}}" style="max-width:100%;">
+                                    <img src="{{asset('images/user/requiment/slide-3.png')}}" style="max-width:100%;">
                                 </a>
                             </div>
                             <div class="col-md-2 col-sm-2 col-xm-2">
                                 <a href="#">
-                                    <img src="{{asset('image/requiment/slide-4.png')}}" style="max-width:100%;">
+                                    <img src="{{asset('images/user/requiment/slide-4.png')}}" style="max-width:100%;">
                                 </a>
                             </div>
                             <div class="col-md-2 col-sm-2 col-xm-2">
                                 <a href="#">
-                                    <img src="{{asset('image/requiment/slide-5.png')}}" style="max-width:100%;">
+                                    <img src="{{asset('images/user/requiment/slide-5.png')}}" style="max-width:100%;">
                                 </a>
                             </div>
                             <div class="col-md-2 col-sm-2 col-xm-2">
                                 <a href="#">
-                                    <img src="{{asset('image/requiment/slide-6.png')}}" style="max-width:100%;">
+                                    <img src="{{asset('images/user/requiment/slide-6.png')}}" style="max-width:100%;">
                                 </a>
                             </div>
 		            	</div>
@@ -342,32 +342,32 @@
 		            	<div class="row">
 		            		<div class="col-md-2 col-sm-2 col-xm-2">
                                 <a href="#">
-                                    <img src="{{asset('image/requiment/slide-1.png')}}" style="max-width:100%;">
+                                    <img src="{{asset('images/user/requiment/slide-1.png')}}" style="max-width:100%;">
                                 </a>
                             </div>
                             <div class="col-md-2 col-sm-2 col-xm-2">
                                 <a href="#">
-                                    <img src="{{asset('image/requiment/slide-2.png')}}" style="max-width:100%;">
+                                    <img src="{{asset('images/user/requiment/slide-2.png')}}" style="max-width:100%;">
                                 </a>
                             </div>
                             <div class="col-md-2 col-sm-2 col-xm-2">
                                 <a href="#">
-                                    <img src="{{asset('image/requiment/slide-3.png')}}" style="max-width:100%;">
+                                    <img src="{{asset('images/user/requiment/slide-3.png')}}" style="max-width:100%;">
                                 </a>
                             </div>
                             <div class="col-md-2 col-sm-2 col-xm-2">
                                 <a href="#">
-                                    <img src="{{asset('image/requiment/slide-4.png')}}" style="max-width:100%;">
+                                    <img src="{{asset('images/user/requiment/slide-4.png')}}" style="max-width:100%;">
                                 </a>
                             </div>
                             <div class="col-md-2 col-sm-2 col-xm-2">
                                 <a href="#">
-                                    <img src="{{asset('image/requiment/slide-5.png')}}" style="max-width:100%;">
+                                    <img src="{{asset('images/user/requiment/slide-5.png')}}" style="max-width:100%;">
                                 </a>
                             </div>
                             <div class="col-md-2 col-sm-2 col-xm-2">
                                 <a href="#">
-                                    <img src="{{asset('image/requiment/slide-6.png')}}" style="max-width:100%;">
+                                    <img src="{{asset('images/user/requiment/slide-6.png')}}" style="max-width:100%;">
                                 </a>
                             </div>
 		            	</div>
@@ -376,32 +376,32 @@
 		            	<div class="row">
 		            		<div class="col-md-2 col-sm-2 col-xm-2">
                                 <a href="#">
-                                    <img src="{{asset('image/requiment/slide-1.png')}}" style="max-width:100%;">
+                                    <img src="{{asset('images/user/requiment/slide-1.png')}}" style="max-width:100%;">
                                 </a>
                             </div>
                             <div class="col-md-2 col-sm-2 col-xm-2">
                                 <a href="#">
-                                    <img src="{{asset('image/requiment/slide-2.png')}}" style="max-width:100%;">
+                                    <img src="{{asset('images/user/requiment/slide-2.png')}}" style="max-width:100%;">
                                 </a>
                             </div>
                             <div class="col-md-2 col-sm-2 col-xm-2">
                                 <a href="#">
-                                    <img src="{{asset('image/requiment/slide-3.png')}}" style="max-width:100%;">
+                                    <img src="{{asset('images/user/requiment/slide-3.png')}}" style="max-width:100%;">
                                 </a>
                             </div>
                             <div class="col-md-2 col-sm-2 col-xm-2">
                                 <a href="#">
-                                    <img src="{{asset('image/requiment/slide-4.png')}}" style="max-width:100%;">
+                                    <img src="{{asset('images/user/requiment/slide-4.png')}}" style="max-width:100%;">
                                 </a>
                             </div>
                             <div class="col-md-2 col-sm-2 col-xm-2">
                                 <a href="#">
-                                    <img src="{{asset('image/requiment/slide-5.png')}}" style="max-width:100%;">
+                                    <img src="{{asset('images/user/requiment/slide-5.png')}}" style="max-width:100%;">
                                 </a>
                             </div>
                             <div class="col-md-2 col-sm-2 col-xm-2">
                                 <a href="#">
-                                    <img src="{{asset('image/requiment/slide-6.png')}}" style="max-width:100%;">
+                                    <img src="{{asset('images/user/requiment/slide-6.png')}}" style="max-width:100%;">
                                 </a>
                             </div>
 		            	</div>
@@ -429,7 +429,7 @@
 			<div class="cb-path"></div>
 			<p class="movie-top-text">動画作成STEP</p>
 			<div class="row col-md-12" style="margin: auto -55px;padding:0;">
-				<img class="image-step" src="{{asset('image/requiment/step_123.png')}}" alt="">
+				<img class="image-step" src="{{asset('images/user/requiment/step_123.png')}}" alt="">
 			</div>
 		</div>
 	</div>
@@ -453,14 +453,14 @@
 			        <ul>
 			            <li>
 			                <a href="#" target="_blank">
-								<img src="{{asset('image/requiment/convertion-1.png')}}" alt="">
+								<img src="{{asset('images/user/requiment/convertion-1.png')}}" alt="">
 								<div class="list-content">
 									<div class="inner">
-										<p class="inner-img"><img src="{{asset('image/requiment/before.png')}}" alt=""></p>
+										<p class="inner-img"><img src="{{asset('images/user/requiment/before.png')}}" alt=""></p>
 										<h3>サービスを利用してみた手応えはいかがでしたか？</h3>
 										<p>言葉だけでは伝えきれない社員1人ひとりの個性的な魅力や提供するサービスを立体的に可視化できたと感じています。</br>
 											あとは、ジョブシャドウイング参加学生が、弊社へ長期インターンとして参画してくれたことも嬉しかったですね。</p>
-										<p class="inner-img"><img src="{{asset('image/requiment/affter.png')}}" alt="" ></p>
+										<p class="inner-img"><img src="{{asset('images/user/requiment/affter.png')}}" alt="" ></p>
 									</div>
 								</div>
 							</a>
@@ -469,13 +469,13 @@
 			                <a href="https://originalpoint.co.jp/recruit/013/" target="_blank">
 								<div class="list-content">
 								    <div class="inner">
-										<p class="inner-img"><img src="{{asset('image/requiment/before.png')}}" alt=""></p>
+										<p class="inner-img"><img src="{{asset('images/user/requiment/before.png')}}" alt=""></p>
 								        <h3>ハタチのトビラに参加してみていかがでしたか？</h3>
 								        <p>私の以前働いていたインターン先では、社員 の方と仕事でのコミユニケーションはあって も、将来や仕事観等について深くお話する機 会はないので‘1日に多くの社員の方とコミユ ニケーションを取れる機会はすごく貴重でし た。働く現場の実態を知ることができました ね。</p>
-										<p class="inner-img"><img src="{{asset('image/requiment/affter.png')}}" alt="" ></p>
+										<p class="inner-img"><img src="{{asset('images/user/requiment/affter.png')}}" alt="" ></p>
 								    </div>
 								</div>
-								<img src="{{asset('image/requiment/convertion-2.png')}}" alt="">
+								<img src="{{asset('images/user/requiment/convertion-2.png')}}" alt="">
 							</a>
 			            </li>
 			        </ul>
