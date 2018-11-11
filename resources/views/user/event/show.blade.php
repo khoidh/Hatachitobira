@@ -13,6 +13,10 @@
                 letter-spacing: 0px;
             }
         }
+        #modal_event_register .modal-header .close {
+            padding: 0 !important;
+            margin: -31px -34px  0 0 !important;
+        }
     </style>
 @endsection
 @section('content')
@@ -165,11 +169,11 @@
                         </div>
                         <div class="form-group">
                             <label for="phone_number">電話番号</label>
-                            <input type="text" class="form-control" id="phone_number" name="phone_number" required maxlength="200" placeholder="(半角英数)　例)　03-5773...">
+                            <input type="text" class="form-control" id="phone_number" name="phone_number" required maxlength="200" placeholder="(半角英数)　例)　03-5773-6888 携帯電話番号でも可">
                         </div>
                         <div class="form-group">
                             <label for="mail_address">Email:</label>
-                            <input type="email" class="form-control" id="mail_address" name="mail_address" required maxlength="50">
+                            <input type="email" class="form-control" id="mail_address" name="mail_address" required maxlength="50" placeholder="携帯アドレスでも可">
                         </div>
                         <div class="form-group">
                             <label for="question">ご不明点・質問など</label>
