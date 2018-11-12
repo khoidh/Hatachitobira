@@ -103,7 +103,8 @@ class EventController extends Controller
                 ->where('user_events.id',$userEvent->id)
                 ->first();
 
-            Mail::send('email.eventusers',compact('thisUser'),
+            $thisUser_add=array_merge($thisUser_add, $thisUser->getAttributes());
+            Mail::send('email.eventusers',compact('thisUser_add'),
                function($mail) use($thisUser)
                {
                    $mail->to($thisUser->email)->subject($thisUser->title.'｜申込確認メール');
