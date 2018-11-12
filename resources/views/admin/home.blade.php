@@ -13,7 +13,7 @@
     <title>Admin</title>
 
     @section('css')
-    <link rel="apple-touch-icon" href="https://pixinvent.com/modern-admin-clean-bootstrap-4-dashboard-html-template/app-assets/images/ico/apple-icon-120.png">
+    <!-- <link rel="apple-touch-icon" href="https://pixinvent.com/modern-admin-clean-bootstrap-4-dashboard-html-template/app-assets/images/ico/apple-icon-120.png"> -->
     <link rel="shortcut icon" type="image/x-icon" href="https://pixinvent.com/modern-admin-clean-bootstrap-4-dashboard-html-template/app-assets/images/ico/favicon.ico">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Quicksand:300,400,500,700" rel="stylesheet">
     <link href="{{ asset('admin_plugin/css/line-awesome.min.css')}}" rel="stylesheet">
@@ -54,7 +54,7 @@
                 <li class="nav-item mobile-menu d-md-none mr-auto"><a class="nav-link nav-menu-main menu-toggle hidden-xs is-active" href="#"><i class="ft-menu font-large-1"></i></a></li>
                 <li class="nav-item mr-auto">
                     <a class="navbar-brand" href="{{ route('admin.home') }}">
-                        <img class="brand-logo" alt="modern admin logo" src="https://pixinvent.com/modern-admin-clean-bootstrap-4-dashboard-html-template/app-assets/images/logo/logo.png">
+                        <img class="brand-logo" alt="modern admin logo" src="{{asset('images/admin/logo.png')}}">
                         <h3 class="brand-text">Hatachi Admin</h3>
                     </a>
                 </li>
@@ -202,21 +202,15 @@
 
 @section('script')
 <!-- BEGIN VENDOR JS-->
-<script src="https://pixinvent.com/modern-admin-clean-bootstrap-4-dashboard-html-template/app-assets/vendors/js/vendors.min.js" type="text/javascript"></script>
-<!-- BEGIN VENDOR JS-->
-<!-- BEGIN PAGE VENDOR JS-->
-<script src="https://pixinvent.com/modern-admin-clean-bootstrap-4-dashboard-html-template/app-assets/vendors/js/forms/toggle/switchery.min.js" type="text/javascript"></script>
-<script src="https://pixinvent.com/modern-admin-clean-bootstrap-4-dashboard-html-template/app-assets/vendors/js/extensions/dragula.min.js" type="text/javascript"></script>
-<!-- END PAGE VENDOR JS-->
-<!-- BEGIN MODERN JS-->
-<script src="https://pixinvent.com/modern-admin-clean-bootstrap-4-dashboard-html-template/app-assets/js/core/app-menu.min.js" type="text/javascript"></script>
-<script src="https://pixinvent.com/modern-admin-clean-bootstrap-4-dashboard-html-template/app-assets/js/core/app.min.js" type="text/javascript"></script>
-<script src="https://pixinvent.com/modern-admin-clean-bootstrap-4-dashboard-html-template/app-assets/js/scripts/customizer.min.js" type="text/javascript"></script>
-<!-- END MODERN JS-->
-<!-- BEGIN PAGE LEVEL JS-->
-<script src="https://pixinvent.com/modern-admin-clean-bootstrap-4-dashboard-html-template/app-assets/js/scripts/extensions/drag-drop.min.js" type="text/javascript"></script>
+
+<script src="{{asset('js/admin/vendors.min.js')}}" type="text/javascript"></script>
+<script src="{{asset('js/admin/switchery.min.js')}}" type="text/javascript"></script>
+<script src="{{asset('js/admin/dragula.min.js')}}" type="text/javascript"></script>
+<script src="{{asset('js/admin/app-menu.min.js')}}" type="text/javascript"></script>
+<script src="{{asset('js/admin/app.min.js')}}" type="text/javascript"></script>
+<script src="{{asset('js/admin/customizer.min.js')}}" type="text/javascript"></script>
+<script src="{{asset('js/admin/drag-drop.min.js')}}" type="text/javascript"></script>
 <!-- <script src="{{ asset('js/admin.js') }}"></script> -->
-<!-- END PAGE LEVEL JS-->
 @show
 @yield('customjavascript')
 <div class="selection_bubble_root" style="display: none;"></div>
