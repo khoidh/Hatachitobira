@@ -1,7 +1,7 @@
 @if($paginator->lastPage() > 1)
     @if($paginator->currentPage() > 1)
     <li class="page-item" aria-disabled="true" aria-label="&amp;laquo; Previous">
-        <span class="page-link" href="{{$paginator->url($paginator->currentPage()-1)}}" aria-hidden="true"><<</span>
+        <a class="page-link" href="{{$paginator->url($paginator->currentPage()-1)}}" aria-hidden="true"><<</a>
     </li>
     @endif
     @if($paginator->lastPage() > 6)
