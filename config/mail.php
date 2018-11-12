@@ -56,8 +56,8 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'ハタチのトビラ運営事務局'),
-        'name' => env('MAIL_FROM_NAME', 'info@hatachinotobira.com'),
+        'address' => env('MAIL_FROM_ADDRESS', 'info@hatachinotobira.com'),
+        'name' => env('MAIL_FROM_NAME', 'ハタチのトビラ運営事務局'),
     ],
 
     /*
