@@ -303,7 +303,6 @@ body {
 .top .movie-top-description {
   margin-top: 10px;
   font-size: 16px;
-  font-family: "Kozuka Gothic Pr6N";
 }
 
 .container .cb-path {
@@ -317,13 +316,11 @@ body {
 .top .container .text_detail_title {
   font-weight: bold;
   font-size: 24px;
-  font-family: "Kozuka Gothic Pr6N";
 }
 
 .top .container .text-detail {
   font-size: 16px;
   line-height: 2;
-  font-family: "Kozuka Gothic Pr6N";
 }
 
 .top .movie-top-1 {
@@ -407,7 +404,6 @@ body {
   font-size: 36px;
   line-height: 1;
   float: left;
-  font-family: "Kozuka Gothic Pr6N";
   font-weight: bold;
 }
 
@@ -477,7 +473,6 @@ body {
 .top .movie_image_description {
   font-size: 16px;
   line-height: 2;
-  font-family: "Kozuka Gothic Pr6N";
   width: 96%;
   text-align: left;
   font-weight: bold;
@@ -499,7 +494,6 @@ body {
   font-size: 24px;
   font-weight: bold;
   margin-top: -31px;
-  font-family: "Kozuka Gothic Pr6N";
 }
 
 .top .img-cat {
@@ -511,7 +505,6 @@ body {
   font-size: 24px;
   font-weight: bold;
   color: #000;
-  font-family: "Kozuka Gothic Pr6N";
 }
 
 .top .more-detail {
@@ -533,7 +526,6 @@ body {
 
 .top .movie-top-descroption {
   color: #6b6b6b;
-  font-family: "Kozuka Gothic Pr6N";
   margin-right: 15px;
 }
 
@@ -639,7 +631,6 @@ body {
   line-height: 1;
   float: right;
   font-weight: bold;
-  font-family: "Kozuka Gothic Pr6N";
   -webkit-writing-mode: vertical-rl;
   -ms-writing-mode: tb-rl;
   writing-mode: vertical-rl;
@@ -777,7 +768,6 @@ body {
 
 .top .content-last .text-title a,
 .top .content-last .text-title {
-  font-family: "Kozuka Gothic Pr6N";
   font-size: 16px;
   color: #111;
 }
@@ -804,7 +794,6 @@ body {
 .top .button-link {
   text-align: center;
   margin-top: 110px;
-  font-family: "Kozuka Gothic Pr6N";
   padding-bottom: 60px;
 }
 
@@ -833,7 +822,6 @@ footer {
   left: 0;
   width: 100%;
   font-size: 13px;
-  font-family: "Kozuka Gothic Pr6N";
   line-height: 2;
   margin-top: 100px;
 }
@@ -1173,7 +1161,6 @@ footer .footter-mobile .a-first {
     line-height: 1;
     float: right;
     font-weight: bold;
-    font-family: "Kozuka Gothic Pr6N";
     padding: 0;
     text-align: left;
     -webkit-writing-mode: horizontal-tb;
@@ -1290,11 +1277,13 @@ footer .footter-mobile .a-first {
   }
 
   .top .movie-top-3 .img-cat-sp {
-    width: 32%;
+    width: 25%;
+    padding: 0 10px;
   }
 
   .top .movie-top-3 .img-cat-sp img {
     width: 100%;
+    margin: 0 10px 20px 0;
   }
 
   .top .movie-top-3 .cb-path.cb-path-black {
