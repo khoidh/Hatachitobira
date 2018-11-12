@@ -77,7 +77,15 @@
         <div class="row justify-content-center txt-btn">
             <div class="col-sm-6">
                 @if(Auth::User())
+                    @php
+                        $text_modal_show_infor="";
+                    @endphp
                     @if($event->eventstatus != '受付中' && $user_event_register == 0)
+                        @php
+                            $text_modal_show_infor= "お申し込み期間は終了いたしました。";
+                            if($event->eventstatus == '受付前')
+                                $text_modal_show_infor= "登録時間が短縮されます。"."登録時間: ".$event->time_from." ~ ".$event->time_to."。";
+                        @endphp
                         <button type="submit" class="btn btn-primary btn-lg btn-block" data-toggle="modal"
                                 data-target="#modal_show_infor">送信
                         </button>
@@ -86,7 +94,7 @@
                     @else
                         @if($user_event_register == 0)
                             <button type="submit" class="btn btn-primary btn-lg btn-block" data-toggle="modal"
-                                    data-target="#modal_event_register">送信
+                                    data-target="#modal_event_register" data-status="1234">送信
                             </button>
 
                             {{--<form class="form-horizontal" action="{{route('event.update')}}" method="POST">--}}
@@ -114,7 +122,7 @@
                 <div class="modal-body" style="text-align:center">
                     <button type="button" id="dismiss-register" class="close" data-dismiss="modal">&times;</button>
                     <div class="panel-body">
-                        <h4>お申し込み期間は終了いたしました。</h4>
+                        <h4>{{$text_modal_show_infor}}</h4>
                     </div>
                 </div>
             </div>
@@ -169,7 +177,9 @@
                         </div>
                         <div class="form-group">
                             <label for="phone_number">電話番号</label>
-                            <input type="text" class="form-control" id="phone_number" name="phone_number" required maxlength="200" placeholder="(半角英数)　例)　03-5773-6888 携帯電話番号でも可">
+                            <input type="text" class="form-control" id="phone_number" name="phone_number"
+                                   onkeypress="return (event.charCode == 8 || event.charCode == 0 || event.charCode == 13 || event.charCode == 45) ? null : event.charCode >= 48 && event.charCode <= 57"
+                                   required maxlength="13" placeholder="(半角英数)　例)　03-5773-6888 携帯電話番号でも可">
                         </div>
                         <div class="form-group">
                             <label for="mail_address">Email:</label>
