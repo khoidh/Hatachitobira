@@ -11,7 +11,21 @@
     display: inline;
 }
 
-
+#modal_action {
+    .event-information-wrapper {
+        .title-detail {
+            span {
+                font-size: 24px;
+                font-weight: bold;
+                -webkit-box-shadow: inset 0 -10px 0 #fff100;
+                box-shadow: inset 0 -10px 0 #fff100;
+            }
+        }
+        .input-action {
+            margin-top: 20px;
+        }
+    }
+}
 .mypage {
 
     /* ========== Style title màu vàng     =========== */
@@ -327,11 +341,16 @@
             .log-input {
                 padding-top: 10px;
 
-                input {
+                .bootstrap-tagsinput {
                     width: 100%;
                     border: 2px solid $black-color;
                     border-radius: 30px;
                     padding: 10px 20px;
+                    .label-info {
+                        color: black;
+                        padding: 5px;
+                        background-color: #dcdcdc;
+                    }
                 }
             }
         }
@@ -501,9 +520,17 @@
                     width: 100%;
                     border: none;
                 }
+                .pencil-action {
+                    position: absolute;
+                    bottom: 12px;
+                    right: 20px;
+                    z-index: 9;
+                    cursor: pointer;
+                }
             }
         }
     }
+    
 
     //Group-1
     .main {

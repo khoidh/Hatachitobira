@@ -64,7 +64,7 @@
             <img class="thumbnails" src="{{ $videos->thumbnails }}" alt="img-event-1.png">
         </div>
         <div class="col-sm-8 wrapper-content content-video">
-            <p class="clearfix icon-favorior"><i class="fa fa-heart-o {{$vidvideoseos_cate->videoliked == 1? 'liked' : ''}}"  style="font-size: 24px;" data-user = "{{Auth::User()->id}}" data-id = "{{$videos->id}}"></i></p>
+            <p class="clearfix icon-favorior"><i class="fa fa-heart-o {{$videos->videoliked == 1? 'liked' : ''}}"  style="font-size: 24px;" data-user = "{{Auth::User()->id}}" data-id = "{{$videos->id}}"></i></p>
             <span class="text-title"><b>{{ $videos->title }}</b></span>
             <span class="text-category">{{ $videos->categoryname }}</span>
             <p class="text-date">{{ $videos->created_at }}</p>

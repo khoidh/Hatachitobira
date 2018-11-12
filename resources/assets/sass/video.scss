@@ -132,13 +132,24 @@
     cursor: pointer;
 }
 
-.video .browse-details::after {
-    content: "";
-    width: 100%;
-    height: 100%;
+.video .video-title {
+
     position: absolute;
-    background: rgba(0, 0, 0, 0.7);
-    border-radius: 15px;
+    bottom: -14px;
+    color: #fff;
+    background-color: #383737;
+    width: 100%;
+    padding: 15px 47px;
+
+    @include only-for-mobile() {
+        padding: 5px
+    }
+}
+
+.video .video-title.sub-title {
+    padding: 5px 20px;
+    font-size: 13px;
+    border-radius: 0 0 13px 13px;
 }
 
 .video .favorite {
@@ -159,6 +170,7 @@
 .video .browse-details img {
     z-index: 9;
     position: relative;
+    width: 55px
 }
 
 .video .video-list {

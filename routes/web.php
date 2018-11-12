@@ -119,7 +119,8 @@ Route::get('recruitment-staff','HomeController@recruitmentStaff')->name('recruit
 // Search Category
 
 Route::get('search-category','User\MypageController@searchCategory')->name('search-category');
-Route::get('search-category/{id}-{slug}','User\MypageController@searchCategorySlug')->name('search-category-slug');
+Route::get('search-category-cate','User\MypageController@searchCategorySlug')->name('search-category-cate');
+Route::get('search-category/{slug}','User\MypageController@searchCategoryForSlug')->name('search-category-slug');
 Route::get('paginate-column','User\MypageController@paginateColumn');
 Route::get('paginate-video','User\MypageController@paginateVideo');
 Route::get('paginate-event','User\MypageController@paginateEvent');
