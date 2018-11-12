@@ -1,5 +1,43 @@
-.searchcategory {
+.container.searchcategory {
+    >.row {
+        @include only-for-mobile() {
+            padding: 15px;
+        }
+    }
+    .article-list {
+        @include only-for-mobile() {
+            padding-right: 0
+        }
+    }
 
+    .video-search.video {
+        @include only-for-mobile() {
+            margin-left: 0
+        }
+        .video-list {
+            @include only-for-mobile() {
+                padding-right: 0; 
+            }
+        }
+    }
+}
+.searchcategory {
+    .image-category {
+        width: 12.5%;
+        padding: 30px 10px 50px;
+        @include only-for-mobile() {
+            width: 25%;
+            padding: 5px;
+        }
+        img {
+            width: 100%;
+            cursor: pointer;
+        }
+        .img-cat-detail.selected {
+            background-color: #dcdcdc;
+        }
+    }
+    
     /* ========== Style title màu vàng     =========== */
     .main {
         min-height: 175px;
@@ -112,6 +150,10 @@
     font-weight: bold;
     margin-left: 15px;
     font-size: 36px;
+    @include only-for-mobile() {
+        margin-left: 0px;
+
+    }
 }
 
 .searchcategory .title-event:after {
@@ -348,7 +390,7 @@
         }
 
         .title-e {
-            font-size: 55px;
+            font-size: 49px;
         }
 
         //.home .main .title-lx {

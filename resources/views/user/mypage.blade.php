@@ -4,6 +4,7 @@
     @parent
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
     <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <link href="{{ asset('css/iziToast.min.css') }}" rel="stylesheet">
 @endsection
 @section('title-e', 'MY PAGE')
 @section('title-j', 'マイページ')
@@ -446,6 +447,7 @@
         </div>
     </div>   
 </div>
+<script src="{{ asset('js/iziToast.min.js') }}"></script>
 <script type="text/javascript" charset="utf-8" async defer>
     $(document).ready(function(){
         $(this).scrollTop(0);
@@ -830,9 +832,26 @@
                     _this.attr('data-id',result.id);
                     _this.parents('.panel-info-content').find('.favorite.edit').find('.fa-pencil').attr('data-category',result.category_id);
                     _this.parents('.panel-info-content').find('.favorite.edit').find('.fa-pencil').attr('data-id',result.id);
+                    iziToast.success({timeout: 5000, icon: 'fa fa-chrome', title: 'OK', message: 'Change content successfull'});
                 }   
             })
         })
+
+        iziToast.settings({
+          timeout: 3000, // default timeout
+          resetOnHover: true,
+          // icon: '', // icon class
+          transitionIn: 'flipInX',
+          transitionOut: 'flipOutX',
+          position: 'topRight', // bottomRight, bottomLeft, topRight, topLeft, topCenter, bottomCenter, center
+          onOpen: function () {
+            console.log('callback abriu!');
+          },
+          onClose: function () {
+            console.log("callback fechou!");
+          }
+        });
+
 
         $(document).on('focusout','.input-memo,.input-lat-log,.input-my-theme,.input-action',function(e){
             var _this = $(this);
@@ -853,7 +872,9 @@
                     last_log : text_last_log,
                     this_mytheme: text_my_theme,
                     this_action: text_action
-                }  
+                },success:function(data) {
+                    iziToast.success({timeout: 5000, icon: 'fa fa-chrome', title: 'OK', message: 'Change content successfull'});
+                }
             })
         })
 
@@ -879,6 +900,7 @@
                 },
                 success : function (result){
                     _this.parents('.detail-infor').find('.edit-input-content').attr('data-id',result.id);
+                    iziToast.success({timeout: 5000, icon: 'fa fa-chrome', title: 'OK', message: 'Change content successfull'});
                 }   
             })
         })
@@ -974,6 +996,7 @@
                 async: false,
                 success: function (key) {
                     $('#dissmiss_modal_show').addClass('editing');
+                    iziToast.success({timeout: 5000, icon: 'fa fa-chrome', title: 'OK', message: 'Change content successfull'});
                 },
                 processData: false,
                 cache: false,
@@ -991,6 +1014,7 @@
                 async: false,
                 success: function (key) {
                     $('#dissmiss_modal_show').addClass('editing');
+                    iziToast.success({timeout: 5000, icon: 'fa fa-chrome', title: 'OK', message: 'Change content successfull'});
                 },
                 processData: false,
                 cache: false,
