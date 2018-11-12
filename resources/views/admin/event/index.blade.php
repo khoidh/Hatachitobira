@@ -60,8 +60,12 @@
             <td>{{$event->time_from}}~{{$event->time_to}}</td>
             <td>{{$event->started_at}}~{{$event->closed_at}}</td>
             <td>
-                <a href="{{route('events.show',$event->id)}}"><i title="Detail" class="fa fa-info-circle fa-2x" aria-hidden="true"></i></a>
-                <a href="{{route('events.edit',$event->id)}}"><i title="Edit" class="fa fa-edit fa-2x" aria-hidden="true"></i></a>
+                <div >
+                    <a class="btn btn-info" href="{{route('events.show',$event->id)}}">詳細</a>
+                </div>
+                <div style="margin-top: 10px;">
+                    <a class="btn btn-success" href="{{route('events.edit',$event->id)}}">編集</a>
+                </div>
             </td>
         </tr>
     @endforeach

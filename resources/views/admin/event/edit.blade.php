@@ -158,9 +158,9 @@
         <label for="entry_fee" class="col-sm-2 col-form-label">{{__('参加費')}}</label>
         <div class="col-sm-10">
             <div class="input-group">
-              <input type="number" class="form-control" name="entry_fee" id="entry_fee" placeholder="{{__('参加費')}}" 
+              <input type="number" class="form-control" name="entry_fee" id="entry_fee" placeholder="{{__('参加費￥')}}" 
                     value="{{$event->entry_fee}}"> 
-              <span class="input-group-addon"><i class="fa fa-jpy"></i></span>
+              <span class="input-group-addon">￥</span>
             </div>
         </div>
     </div>
@@ -171,7 +171,6 @@
             <div class="input-group">
               <input type="number" class="form-control" name="capacity" id="capacity" placeholder="{{__('定員')}}" 
                         value="{{$event->capacity}}">
-              <span class="input-group-addon"><i class="fa fa-users"></i></span>
             </div>
         </div>
     </div>

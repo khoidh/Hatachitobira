@@ -10,32 +10,33 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     @show
 
-    <title>Admin</title>
+    <title>Hatachi Admin</title>
 
     @section('css')
     <!-- <link rel="apple-touch-icon" href="https://pixinvent.com/modern-admin-clean-bootstrap-4-dashboard-html-template/app-assets/images/ico/apple-icon-120.png"> -->
-    <link rel="shortcut icon" type="image/x-icon" href="https://pixinvent.com/modern-admin-clean-bootstrap-4-dashboard-html-template/app-assets/images/ico/favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="{{asset('images/favicon.ico')}}">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Quicksand:300,400,500,700" rel="stylesheet">
     <link href="{{ asset('admin_plugin/css/line-awesome.min.css')}}" rel="stylesheet">
     <!-- BEGIN VENDOR CSS-->
     <link rel="stylesheet" type="text/css" href="{{ asset('admin_plugin/css/bootstrap.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('admin_plugin/css/style.min.css') }}">
-    <link rel="stylesheet" type="text/css" href="https://pixinvent.com/modern-admin-clean-bootstrap-4-dashboard-html-template/app-assets/fonts/flag-icon-css/css/flag-icon.min.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/admin/flag-icon.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('admin_plugin/css/vendors/css/extensions/pace.css') }}">
     <!-- END VENDOR CSS-->
     <!-- BEGIN MODERN CSS-->
     <link rel="stylesheet" type="text/css" href="{{ asset('css/app.min.css') }}">
     <!-- END MODERN CSS-->
     <!-- BEGIN Page Level CSS-->
-    <link rel="stylesheet" type="text/css" href="https://pixinvent.com/modern-admin-clean-bootstrap-4-dashboard-html-template/app-assets/css/core/menu/menu-types/vertical-menu-modern.css">
-    <link rel="stylesheet" type="text/css" href="https://pixinvent.com/modern-admin-clean-bootstrap-4-dashboard-html-template/app-assets/css/core/colors/palette-gradient.min.css">
-    <link rel="stylesheet" type="text/css" href="https://pixinvent.com/modern-admin-clean-bootstrap-4-dashboard-html-template/app-assets/css/plugins/forms/switch.min.css">
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{asset('css/admin/vertical-menu-modern.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('css/admin/palette-gradient.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('css/admin/switch.min.css')}}">
+    <link href="{{asset('css/admin/font-awesome.min.css')}}" rel="stylesheet">
     <!-- END Page Level CSS-->
     <!-- BEGIN Custom CSS-->
-    <link rel="stylesheet" type="text/css" href="https://pixinvent.com/modern-admin-clean-bootstrap-4-dashboard-html-template/assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="{{asset('css/admin/style.css')}}">
     <!-- END Custom CSS-->
-    
+
+
     @show
 
     @yield('javascrip')

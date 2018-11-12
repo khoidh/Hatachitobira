@@ -55,8 +55,12 @@
             @endphp
             <td>{{$type}}</td>
             <td>
-                <a href="{{route('videos.show',$video->id)}}"><i title="ビュー" class="fa fa-info-circle fa-2x" aria-hidden="true"></i></a>
-                <a href="{{route('videos.edit',$video->id)}}"><i title="編集" class="fa fa-edit fa-2x" aria-hidden="true"></i></a>
+                <div >
+                            <a class="btn btn-info" href="{{route('videos.show',$video->id)}}">詳細</a>
+                        </div>
+                        <div style="margin-top: 10px;">
+                            <a class="btn btn-success" href="{{route('videos.edit',$video->id)}}">編集</a>
+                        </div>
             </td>
         </tr>
     @endforeach

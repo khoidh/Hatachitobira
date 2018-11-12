@@ -46,10 +46,16 @@
                     <td>{{ $category->sort}}</td>
                     <td>{{ $category->display == 1 ? '表示' : '非表示'}}</td>
                     <td>{{ $category->description}}</td>
-                    <td width="10%">
-                        <a href="{{route('categories.show',$category->id)}}"><i title="Detail" class="fa fa-info-circle fa-2x" aria-hidden="true"></i></a>
-                        <a href="{{route('categories.edit',$category->id)}}"><i title="Edit" class="fa fa-edit fa-2x" aria-hidden="true"></i></a>
+                    <td>
+                        <div >
+                            <a class="btn btn-info" href="{{route('categories.show',$category->id)}}">詳細</a>
+                        </div>
+                        <div style="margin-top: 10px;">
+                            <a class="btn btn-success" href="{{route('categories.edit',$category->id)}}">編集</a>
+                        </div>
+
                     </td>
+                        
                 </tr>
                 @endforeach
             </tbody>
