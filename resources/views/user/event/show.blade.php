@@ -75,11 +75,11 @@
         </div>
 
         <div class="row justify-content-center txt-btn">
+            @php
+                $text_modal_show_infor="";
+            @endphp
             <div class="col-sm-6">
                 @if(Auth::User())
-                    @php
-                        $text_modal_show_infor="";
-                    @endphp
                     @if($event->eventstatus != '受付中' && $user_event_register == 0)
                         @php
                             $text_modal_show_infor= "お申し込み期間は終了いたしました。";
