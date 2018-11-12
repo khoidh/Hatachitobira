@@ -126,15 +126,15 @@
                 <div class="modal-body" style="text-align:center">
                     <button type="button" id="dismiss-register" class="close" data-dismiss="modal">&times;</button>
                     <div class="panel-body">
-                        <div class="row" style="padding: 30px">イベントのお申し込みはキャンセルされています。よろしいでしょうか。</div>
+                        <div class="row" style="padding: 30px">イベントのお申し込みをキャンセルいたします。<br>よろしいですか？</div>
                         <div class="row col-md-12"
                              style="-webkit-box-pack: center !important; justify-content: center !important;">
                             <form class="form-horizontal" action="{{ route('event.delete') }}" method="POST">
                                 {{ csrf_field() }}
                                 <input type="hidden" name="event_id" value="{{$event->id}}">
-                                <button type="submit" class="btn btn-primary btn-lg btn-block">Yes</button>
+                                <button type="submit" class="btn btn-primary btn-lg btn-block">はい</button>
                             </form>
-                            <button class="btn btn-default" data-dismiss="modal" style=" margin-left: 20px"> No</button>
+                            <button class="btn btn-default" data-dismiss="modal" style=" margin-left: 20px">いいえ</button>
                         </div>
                     </div>
                 </div>
