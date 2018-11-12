@@ -30,7 +30,6 @@
     </div>
 @endsection
 @section('content')
-    
     <div class="container my-page">
         <div class="row my-page-top">
             <div class="col-sm-12 how-to-use">
@@ -136,9 +135,12 @@
                         <div class="underline">&nbsp;今月のアクション &nbsp;</div>
                     </div>
                     <div class="col-sm-9 col-7 action-input">
-                        <textarea style="width: 100%;border: none;" type="text" rows="2" name="action-of-month" class="input-action" data-month="{{isset($mytheme_first->month) ? $mytheme_first->month : $data_date['month']}}" 
-                                            data-year="{{isset($mytheme_first->year) ? $mytheme_first->year : $data_date['year']}}" placeholder="考えたいこと、行動したいことを3つ決めよう" >{{$mytheme_first ? $mytheme_first->this_action : ''}}</textarea>
+                        <textarea style="width: 100%;border: none;" type="text" rows="2" name="action-of-month" data-month="{{isset($mytheme_first->month) ? $mytheme_first->month : $data_date['month']}}" 
+                                            data-year="{{isset($mytheme_first->year) ? $mytheme_first->year : $data_date['year']}}" placeholder="考えたいこと、行動したいことを3つ決めよう" disabled>{{$mytheme_first ? $mytheme_first->this_action : ''}}</textarea>
+                                    <i class="fa fa-pencil pencil-action" data-toggle="modal" data-target="#modal_action">
+                                        <span>Edit</span></i>
                     </div>
+                   
                 </div>
                 <hr class="shape-8"/>
             </div>
@@ -428,6 +430,26 @@
                 <button type="button" class="close" id="dissmiss_modal_show">&times;</button>
                 <div class="panel-body">
                     
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="modal_action" class="modal fade modal_register" role="dialog">
+    <div class="modal-dialog" style="margin-top:150px">
+        <div class="modal-content">
+            <div class="modal-body" style="text-align:center">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <div class="panel-body">
+                    <div class="event-information-wrapper col-md-12 clearfix">
+                        <div class="title-detail">
+                            <span>今月のアクション</span>
+                        </div>
+                    </div>
+                    <div class="event-information-wrapper col-md-12 clearfix">
+                        <textarea style="width: 100%;border: none;" type="text" rows="3" name="action-of-month" class="input-action" data-month="{{isset($mytheme_first->month) ? $mytheme_first->month : $data_date['month']}}" 
+                                            data-year="{{isset($mytheme_first->year) ? $mytheme_first->year : $data_date['year']}}" placeholder="考えたいこと、行動したいことを3つ決めよう">{{$mytheme_first ? $mytheme_first->this_action : ''}}</textarea>
+                    </div>
                 </div>
             </div>
         </div>
@@ -914,7 +936,6 @@
             var text_last_log = $('.input-lat-log').val();
             var text_my_theme = $('.input-my-theme').val();
             var text_action= $('.input-action').val();
-            console.log(text_last_log);
             $.ajax({
                 url : '{{route("mypage.change-content")}}',
                 type: 'post',
