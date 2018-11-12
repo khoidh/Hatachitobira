@@ -6,7 +6,6 @@ services:
     image: laravel-site
     depends_on:
       - mysql
-      - redis
     volumes:
       - ./:/application
 
@@ -29,8 +28,3 @@ services:
       - ./:/application
     depends_on:
       - app-server
-
-  redis:
-    image: redis
-    ports:
-      - "6379:6379"
