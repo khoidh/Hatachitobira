@@ -327,11 +327,16 @@
             .log-input {
                 padding-top: 10px;
 
-                input {
+                .bootstrap-tagsinput {
                     width: 100%;
                     border: 2px solid $black-color;
                     border-radius: 30px;
                     padding: 10px 20px;
+                    .label-info {
+                        color: black;
+                        padding: 5px;
+                        background-color: #dcdcdc;
+                    }
                 }
             }
         }

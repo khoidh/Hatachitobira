@@ -5,6 +5,7 @@
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
     <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <link href="{{ asset('css/iziToast.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/bootstrap-tagsinput.css') }}" rel="stylesheet">
 @endsection
 @section('title-e', 'MY PAGE')
 @section('title-j', 'マイページ')
@@ -61,8 +62,9 @@
                         <div class="underline">&nbsp;先月のログ&nbsp;</div>
                     </div>
                     <div class="col-sm-10 col-8 log-input">
-                        <input type="text" name="" class="input-lat-log" data-month="{{isset($mytheme_first->month) ? $mytheme_first->month : $data_date['month']}}" 
+                        <input type="text" name="" class="input-lat-log" data-role="tagsinput" data-month="{{isset($mytheme_first->month) ? $mytheme_first->month : $data_date['month']}}" 
                                             data-year="{{isset($mytheme_first->year) ? $mytheme_first->year : $data_date['year']}}" placeholder="先月の自分を#で記録しよう　#バイト三昧　#初ボランティア" value="{{$mytheme_first ? $mytheme_first->last_log : ''}}">
+
                     </div>
                 </div>
             </div>
@@ -134,8 +136,8 @@
                         <div class="underline">&nbsp;今月のアクション &nbsp;</div>
                     </div>
                     <div class="col-sm-9 col-7 action-input">
-                        <input type="text"  name="action-of-month" class="input-action" data-month="{{isset($mytheme_first->month) ? $mytheme_first->month : $data_date['month']}}" 
-                                            data-year="{{isset($mytheme_first->year) ? $mytheme_first->year : $data_date['year']}}" placeholder="考えたいこと、行動したいことを3つ決めよう" value="{{$mytheme_first ? $mytheme_first->this_action : ''}}">
+                        <textarea style="width: 100%;border: none;" type="text" rows="2" name="action-of-month" class="input-action" data-month="{{isset($mytheme_first->month) ? $mytheme_first->month : $data_date['month']}}" 
+                                            data-year="{{isset($mytheme_first->year) ? $mytheme_first->year : $data_date['year']}}" placeholder="考えたいこと、行動したいことを3つ決めよう" >{{$mytheme_first ? $mytheme_first->this_action : ''}}</textarea>
                     </div>
                 </div>
                 <hr class="shape-8"/>
@@ -448,6 +450,8 @@
     </div>   
 </div>
 <script src="{{ asset('js/iziToast.min.js') }}"></script>
+<script src="{{ asset('js/bootstrap-tagsinput.min.js') }}"></script>
+<script src="{{ asset('js/dropzone.js') }}"></script>
 <script type="text/javascript" charset="utf-8" async defer>
     $(document).ready(function(){
         $(this).scrollTop(0);
@@ -852,6 +856,55 @@
           }
         });
 
+        $('.input-lat-log').on('itemAdded', function(event) {
+            var year = $('.input-lat-log').data('year');
+            var month = $('.input-lat-log').data('month');
+            var text_memo = $('.input-memo').val();
+            var text_last_log = $('.input-lat-log').val();
+            var text_my_theme = $('.input-my-theme').val();
+            var text_action= $('.input-action').val();
+            console.log(text_last_log+','+$(this).val());
+            $.ajax({
+                url : '{{route("mypage.change-content")}}',
+                type: 'post',
+                dataType: 'json',
+                data: {
+                    year : year,
+                    month : month,
+                    memo : text_memo,
+                    last_log : text_last_log,
+                    this_mytheme: text_my_theme,
+                    this_action: text_action
+                },success:function(data) {
+                    iziToast.success({timeout: 5000, icon: 'fa fa-chrome', title: 'OK', message: 'Change content successfull'});
+                }
+            })
+        })
+
+        $('.input-lat-log').on('itemRemoved', function(event) {
+            var year = $('.input-lat-log').data('year');
+            var month = $('.input-lat-log').data('month');
+            var text_memo = $('.input-memo').val();
+            var text_last_log = $('.input-lat-log').val();
+            var text_my_theme = $('.input-my-theme').val();
+            var text_action= $('.input-action').val();
+            console.log(text_last_log+','+$(this).val());
+            $.ajax({
+                url : '{{route("mypage.change-content")}}',
+                type: 'post',
+                dataType: 'json',
+                data: {
+                    year : year,
+                    month : month,
+                    memo : text_memo,
+                    last_log : text_last_log,
+                    this_mytheme: text_my_theme,
+                    this_action: text_action
+                },success:function(data) {
+                    iziToast.success({timeout: 5000, icon: 'fa fa-chrome', title: 'OK', message: 'Change content successfull'});
+                }
+            })
+        })
 
         $(document).on('focusout','.input-memo,.input-lat-log,.input-my-theme,.input-action',function(e){
             var _this = $(this);
@@ -861,6 +914,7 @@
             var text_last_log = $('.input-lat-log').val();
             var text_my_theme = $('.input-my-theme').val();
             var text_action= $('.input-action').val();
+            console.log(text_last_log);
             $.ajax({
                 url : '{{route("mypage.change-content")}}',
                 type: 'post',
