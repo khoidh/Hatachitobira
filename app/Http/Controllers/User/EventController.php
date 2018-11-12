@@ -110,6 +110,12 @@ class EventController extends Controller
                    $mail->to($thisUser->email)->subject($thisUser->title.'｜申込確認メール');
                }
             );
+            Mail::send('email.eventusers',compact('thisUser_add'),
+               function($mail) use($thisUser)
+               {
+                   $mail->to(config('mail.mail_admin'))->subject($thisUser->title.'｜申込確認メール');
+               }
+            );
 
             return view('user.event.thank_event',['thisUser' => $thisUser]);
         }
