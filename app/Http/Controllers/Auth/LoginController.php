@@ -8,6 +8,7 @@ use Auth;
 use Socialite;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class LoginController extends Controller
 {
@@ -39,7 +40,7 @@ class LoginController extends Controller
                 $dataUser = array(
                     'name' => $userFacebook->getName(),
                     'email' => $userFacebook->getEmail(),
-                    'password' => bcrypt('123456'),
+                    'password' => bcrypt(Str::random(40)),
                     'image' => $userFacebook->getAvatar(),
                     'verifyToken' => $userFacebook->token
                 );

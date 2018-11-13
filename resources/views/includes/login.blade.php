@@ -48,7 +48,7 @@
                     </form>    
                     <div class="form-group">
                         <div class="col-md-12">
-                            <a href="{{ url('/auth/facebook') }}" class="btn btn-primary btn-register"><i class="fa fa-facebook"></i> Facebook</a>
+                            <a href="{{ url('/auth/facebook') }}" class="btn btn-success btn-register">Facebook</a>
                         </div>
                     </div>
                     
