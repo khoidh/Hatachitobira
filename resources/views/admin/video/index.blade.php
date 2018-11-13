@@ -50,9 +50,11 @@
                 
             </td>
             <td>{{$video->sort}}</td>
-            @php
-                $type=($video->type==0)?'ジョブシャドウ':'ロールプレイ';
-            @endphp
+              <?php 
+                  $type = 'ジョブシャドウ';
+                  if($video->type==1) $type ='ロールプレイ';
+                  else $type = 'コンセプトムービー';
+               ?>
             <td>{{$type}}</td>
             <td>
                 <div >

@@ -70,6 +70,8 @@
             <select type="number" name="type" id="type" class="form-control" tabindex=1>
                 <option value='0' selected>ジョブシャドウ</option>
                 <option value='1'>ロールプレイ</option>
+                <option value='2'>コンセプトムービー</option>
+
             </select>
         </div>
     </div>

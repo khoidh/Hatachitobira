@@ -59,21 +59,23 @@ class HomeController extends Controller
         $videos_1 = Video::select()
             ->select('videos.*','categories.name as category_name')
             ->join('categories','categories.id','=','videos.category_id')
-            ->where('type',0)
+            ->where('type',Video::JOB_SHADOW_TYPE)
             ->orderBy('id','desc')->get();
 
-        $videos = Video::select()
+        $video_concept = Video::select()
             ->select('videos.*','categories.name as category_name')
             ->join('categories','categories.id','=','videos.category_id')
-            ->orderBy('id','desc')->first();
+            ->orderBy('sort','desc')
+            ->where('type',Video::CONCEPT_MOVIE_TYPE)
+            ->first();
 
         $videos_2 = Video::select()
             ->select('videos.*','categories.name as category_name')
             ->join('categories','categories.id','=','videos.category_id')
             ->orderBy('id','desc')
-            ->where('type',1)
+            ->where('type',Video::ROLE_PLAY_TYPE)
             ->get();
 
-        return view('top',compact('columns','events','videos_1','videos_2','categories','videos'));
+        return view('top',compact('columns','events','videos_1','videos_2','categories','video_concept'));
     }
 }
