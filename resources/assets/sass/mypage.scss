@@ -350,6 +350,9 @@
                         color: black;
                         padding: 5px;
                         background-color: #dcdcdc;
+                        @include only-for-mobile() {
+                            line-height: 2
+                        }
                     }
                 }
             }
@@ -411,6 +414,9 @@
                         width: 100%;
                         height: 175px;
                         resize: none;
+                        @include only-for-mobile() {
+                            line-height: 1.7
+                        }
                     }
                 }
 
@@ -441,6 +447,7 @@
                     @include only-for-mobile() {
                         height: 150px;
                         font-size: 12px;
+                        border-radius: 0px;
                     }
                 }
 
@@ -902,6 +909,26 @@
 
 #show-detail-mypage {
     .modal-content {
+
+        .dz-message.needsclick {
+             width: 160px;
+            margin: 0 auto;
+            height: 160px;
+            justify-content: center;
+            -webkit-box-align: center;
+            position: relative;
+            border-style: dashed;
+            border-color: #b5b5b5;
+            cursor: pointer; 
+            i {
+                padding: 10px;
+                border-radius: 50%;
+                background-color: #bdbbbb;
+                color: #fff;
+                margin: 50px;
+            }
+        }
+
         .event-information-content {
             .mypage-number {
                 position: absolute !important;
@@ -965,6 +992,19 @@
                 width: 100%;
                 margin-top: 20px;
             }
+            
+            .image-description {
+                margin-bottom: 30px;
+                border: none;
+            }
         }
     }
+    .dropzone.dropzone-area {
+         border: none;
+    }
+
+}
+.dropzone .dz-preview .dz-image img{
+    width: 100%;
+    height: 100%;
 }

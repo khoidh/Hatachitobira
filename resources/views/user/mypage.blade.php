@@ -1058,26 +1058,26 @@
             })
         })
 
-        $(document).on('change','.file-image',function(e){
-            var formData = new FormData($('#form_information')[0]);
-            console.log(formData)
-            var tmppath = URL.createObjectURL(e.target.files[0]);
-            $('#tmppath').val(tmppath);
-            $.ajax({
-                type: 'post',
-                url: '{{route("mypage.change-avatar")}}',
-                dataType: "json",
-                data: formData,
-                async: false,
-                success: function (key) {
-                    $('#dissmiss_modal_show').addClass('editing');
-                    iziToast.success({timeout: 5000, icon: 'fa fa-chrome', title: 'OK', message: 'Change content successfull'});
-                },
-                processData: false,
-                cache: false,
-                contentType: false,
-            });
-        })
+        // $(document).on('change','.file-image',function(e){
+        //     var formData = new FormData($('#form_information')[0]);
+        //     console.log(formData)
+        //     var tmppath = URL.createObjectURL(e.target.files[0]);
+        //     $('#tmppath').val(tmppath);
+        //     $.ajax({
+        //         type: 'post',
+        //         url: '{{route("mypage.change-avatar")}}',
+        //         dataType: "json",
+        //         data: formData,
+        //         async: false,
+        //         success: function (key) {
+        //             $('#dissmiss_modal_show').addClass('editing');
+        //             iziToast.success({timeout: 5000, icon: 'fa fa-chrome', title: 'OK', message: 'Change content successfull'});
+        //         },
+        //         processData: false,
+        //         cache: false,
+        //         contentType: false,
+        //     });
+        // })
 
         $(document).on('focusout','.image-description',function(e){
             var formData = new FormData($('#form_information')[0]);
@@ -1102,7 +1102,7 @@
             var text = $('#show-detail-mypage').find('.image-description').val();
             var src = $('#tmppath').val();
             $('.description').text(text);
-            $('.event-image').find('img').attr('src',src);
+            $('.event-image').find('img').attr('src',"{{ asset('images/user/mypage')}}"+"/"+src);
             $('#dissmiss_modal_show').removeClass('editing');
             $('#show-detail-mypage').modal('hide');
         })
