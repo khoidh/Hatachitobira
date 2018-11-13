@@ -51,6 +51,10 @@
         console.log(responseText)
         $('#tmppath').val(responseText);
       });
+      var file_name = "{{ isset($result) && $result->content_lable ? $result->content_lable : 'mypage-01.png' }}";
+      var mockFile = { name: file_name, size: 12345 };
+      myDropzone.options.addedfile.call(myDropzone, mockFile);
+      myDropzone.options.thumbnail.call(myDropzone, mockFile, "{{ asset('images/user/mypage')}}"+'/'+ file_name);
 
     })
 </script>

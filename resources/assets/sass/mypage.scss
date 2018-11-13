@@ -1002,4 +1002,9 @@
     .dropzone.dropzone-area {
          border: none;
     }
+
+}
+.dropzone .dz-preview .dz-image img{
+    width: 100%;
+    height: 100%;
 }
