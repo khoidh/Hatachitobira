@@ -5,7 +5,7 @@
     <link href="{{ asset('css/iziToast.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/iziToast.min.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/slick/slick.css') }}" rel="stylesheet">
-    <script src="{{ asset('assets/slick/slick.min.js') }}"></script>
+    <link href="{{ asset('assets/dropzone/basic.min.css') }}" rel="stylesheet">
 @endsection
 @section('title-e', 'MY PAGE')
 @section('title-j', 'マイページ')
@@ -473,7 +473,8 @@
 </div>
 <script src="{{ asset('js/iziToast.min.js') }}"></script>
 <script src="{{ asset('js/bootstrap-tagsinput.min.js') }}"></script>
-<script src="{{ asset('js/dropzone.js') }}"></script>
+<script src="{{ asset('assets/slick/slick.min.js') }}"></script>
+<script src="{{ asset('assets/dropzone/dropzone.min.js') }}"></script>
 <script type="text/javascript" charset="utf-8" async defer>
     $(document).ready(function(){
         $(this).scrollTop(0);

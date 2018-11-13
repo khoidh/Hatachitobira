@@ -30,8 +30,6 @@
     <input type="hidden" name="this_action" value="{{isset($result_1) ? $result_1->this_action : ''}}">
     <input type="hidden" name="content_lable" id="tmppath" value="{{isset($result) && $result->content_lable ? $result->content_lable : 'mypage-01.png'}}">
 </div>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.4.0/basic.css" rel="stylesheet" type="text/css" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.4.0/dropzone.js"></script>
 <script type="text/javascript">
     // Dropzone.autoDiscover = false;
     $(function() {
