@@ -1,0 +1,12 @@
+.text-stroke {
+	filter:dropshadow(color=#fff,offX= 0,offY=-1)
+	dropshadow(color=#fff,offX= 1,offY= 0)
+	dropshadow(color=#fff,offX= 0,offY= 1)
+	dropshadow(color=#fff,offX=-1,offY= 0);
+
+	-webkit-text-stroke-color: #fff;
+	-webkit-text-stroke-width: 1px;
+
+	text-shadow: #fff 1px 1px 0px, #fff -1px 1px 0px,
+	#fff 1px -1px 0px, #fff -1px -1px 0px;
+}

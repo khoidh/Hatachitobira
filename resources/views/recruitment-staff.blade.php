@@ -32,9 +32,9 @@
 	<div class="top clearfix">
 		<div class="container content-1 requiment">
 		    <div class="content-title">
-		        <p class="content-1-title">自社の事業や仕事の魅力を</p>
-		        <p class="content-1-title">学生に訴求する動画を</p>
-		        <p class="content-1-title">創りませんか ？</p>
+		        <p class="content-1-title text-stroke">自社の事業や仕事の魅力を</p>
+		        <p class="content-1-title text-stroke">学生に訴求する動画を</p>
+		        <p class="content-1-title text-stroke">創りませんか ？</p>
 		    </div>
 		    <div class="content-1-content">
 		        <div class="cb-path"></div>
@@ -217,9 +217,9 @@
 	<div class="top clearfix">
 		<div class="container content-1 requiment">
 		    <div class="content-title">
-		        <p class="content-1-title">自社の事業や仕事の魅力を</p>
-		        <p class="content-1-title">学生に訴求する動画を</p>
-		        <p class="content-1-title">創りませんか ？</p>
+		        <p class="content-1-title text-stroke">自社の事業や仕事の魅力を</p>
+		        <p class="content-1-title text-stroke">学生に訴求する動画を</p>
+		        <p class="content-1-title text-stroke">創りませんか ？</p>
 		    </div>
 		    <div class="content-1-content">
 		        <div class="cb-path"></div>
