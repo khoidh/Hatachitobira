@@ -101,7 +101,7 @@
                 <div class="carousel-inner row mx-auto" role="listbox"> -->
                 <div class="slide-top">
                     <figure class="carousel-item">
-                        <img src="{{ asset('images/user/top/banner.png') }}" alt="楽しもう、背伸びしない自分を">
+                        <img src="{{ asset('images/user/top/banner.png') }}" alt="楽しもう、背伸びしない自分を。やりたいことって必要なの？">
                         <figcaption>
                             <p class="description">What students want to know,Is it transmitted to real?</p>
                             <p class="title text-stroke">楽しもう、背伸びしない自分を。</p>
@@ -109,7 +109,7 @@
                         </figcaption>
                     </figure>
                     <figure class="carousel-item">
-                        <img src="{{ asset('images/user/top/banner-1.png') }}" alt="楽しもう、背伸びしない自分を。">
+                        <img src="{{ asset('images/user/top/banner-1.png') }}" alt="これからの就活。マイテーマを軸にする。">
                         <figcaption>
                             <p class="description">What students want to know,Is it transmitted to real?</p>
                             <p class="title text-stroke">これからの就活。</p>
@@ -117,7 +117,7 @@
                         </figcaption>
                     </figure>
                     <figure class="carousel-item">
-                        <img src="{{ asset('images/user/top/banner-2.png') }}" alt="楽しもう、背伸びしない自分を。">
+                        <img src="{{ asset('images/user/top/banner-2.png') }}" alt="マイテーマって何だろう。オトナって何だろう。">
                         <figcaption>
                             <p class="description">What students want to know,Is it transmitted to real?</p>
                             <p class="title text-stroke"><span class="title-background">マイテーマ</span>って何だろう。</p>
