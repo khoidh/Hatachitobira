@@ -6,6 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Video extends Model
 {
+    const JOB_SHADOW_TYPE = 0;
+    const ROLE_PLAY_TYPE = 1;
+    const CONCEPT_MOVIE_TYPE = 2;
 
     protected $table = 'videos';
     protected $fillable = ['category_id', 'url', 'description', 'image', 'sort','type'];

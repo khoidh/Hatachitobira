@@ -76,7 +76,12 @@
   <div class="form-group row">
     <label for="Type" class="col-sm-2 col-form-label">{{__('タイプ')}}</label>
     <div class="col-sm-10">
-      <input id="Type" value="<?php echo ($video->type==0)?'ジョブシャドウ':'ロールプレイ' ?>"class="form-control" disabled="">
+      <?php 
+          $type = 'ジョブシャドウ';
+          if($video->type==1) $type ='ロールプレイ';
+          else $type = 'コンセプトムービー';
+       ?>
+      <input id="Type" value="<?php echo $type ?>"class="form-control" disabled="">
     </div>
   </div>
 
