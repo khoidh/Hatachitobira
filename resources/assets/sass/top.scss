@@ -1143,8 +1143,10 @@ footer .footter-mobile .a-first {
     }
 
     #modal_register .code-top img {
-        width: 310px;
-        height: 100%;
+        margin: auto;
+        width: 100%;
+        max-width: 300px;
+        max-height:100%
     }
 
     .banner a.scroll {
@@ -1235,8 +1237,7 @@ footer .footter-mobile .a-first {
 
 @-moz-document url-prefix() {
     #modal_register .code-top img {
-        width: 100%;
-        height: 305px;
+        //padding-left: 10px;
     }
 }
 
@@ -1274,10 +1275,10 @@ footer .footter-mobile .a-first {
 }
 
 #modal_register .code-top img {
-    position: relative;
-    left: -166px;
-    width: 325px;
-    height: 300px;
+    //position: relative;
+    //left: -166px;
+    //max-width: 325px;
+    //height: 300px;
 }
 
 #modal_register p.title-register {
@@ -1352,6 +1353,7 @@ footer .footter-mobile .a-first {
 #modal_login .form-group,
 #modal_register .form-group {
     display: flex;
+    justify-content: center;
 }
 
 #modal_register .form-register-last {

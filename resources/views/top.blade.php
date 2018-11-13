@@ -178,17 +178,17 @@
                     <p class="movie-top-description">コンセプトムービー</p>
                     <div class="corner-wrapper video">
                         <div class="video-list">
-                            @if(isset($video_concept) && $video_concept->count() > 0)
+                            @if(isset($videos) && $videos->count() > 0)
                             <div class="video-detail">
                                 <div class="wrapper">
                                     <div class="thump">
-                                        <div class="browse-details" data-id='{{$video_concept->id}}' data-src='{{$video_concept->embedHtml}}' data-url = "{{$video_concept->url}}">
+                                        <div class="browse-details" data-id='{{$videos->id}}' data-src='{{$videos->embedHtml}}' data-url = "{{$videos->url}}">
                                             <img src="{{ asset('images/user/video/btn-play.png')}}" alt="" >
                                         </div>
                                         <a href="#">
-                                            <img class="img-icon" src="{{  $video_concept->thumbnails}}" alt="{{$video_concept->title}}">
+                                            <img class="img-icon" src="{{  $videos->thumbnails}}" alt="{{$videos->title}}">
                                         </a>
-                                        <p class="video-title">{{ substr($video_concept->title, 0,50)}} {{strlen($video_concept->title) > 50 ? '...' : ''}}</p>
+                                        <p class="video-title">{{ substr($videos->title, 0,50)}} {{strlen($videos->title) > 50 ? '...' : ''}}</p>
                                     </div>
                                 </div>
                             </div>
@@ -611,11 +611,11 @@
                 if (user == '') {
                     $html = '';
                     $html +='<div class="form-group code-top">';
-                        $html +='<div class="col-md-5">';
-                        $html +='<p class="title-register">イベント参加・個人ページの利用は会員限定です。さあ、マイテーマを探そ</p>';
+                        $html +='<div class="col-md-5" style="display: none;">';
+                        $html +='<p class="title-register"></p>';
                         $html +='<input type="hidden" name="type" id="type_regiter" value="1">';
                         $html +='</div>';
-                        $html +='<img src="{{ asset("images/picture1.png") }}">';
+                        $html +='<img src="{{ asset("images/register_love.png") }}">';
                     $html +='</div>';
                     $html +='<div class="form-group">';
                             $html +='<span id="first-name-err" style="color:red;font-size:12px" ></span>';
@@ -662,11 +662,11 @@
                 e.preventDefault();
                 $html = '';
                 $html +='<div class="form-group code-top">';
-                    $html +='<div class="col-md-5">';
-                    $html +='<p class="title-register">動画やイベント、あなたの興味のあるものを貯めて、マイテーマを作っていこう！</p>';
+                    $html +='<div class="col-md-5" style="display: none;">';
+                    $html +='<p></p>';
                     $html +='<input type="hidden" name="type" id="type_regiter" value="1">';
                     $html +='</div>';
-                    $html +='<img src="{{ asset("images/picture1.png") }}">';
+                    $html +='<img src="{{ asset("images/register_mypage.png") }}">';
                 $html +='</div>';
                 $html +='<div class="form-group">';
                         $html +='<span id="first-name-err" style="color:red;font-size:12px" ></span>';

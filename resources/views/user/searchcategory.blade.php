@@ -380,11 +380,11 @@
             if (user == '') {
                 $html = '';
                     $html +='<div class="form-group code-top">';
-                        $html +='<div class="col-md-5">';
-                        $html +='<p class="title-register">イベント参加・個人ページの利用は会員限定です。さあ、マイテーマを探そ</p>';
+                        $html +='<div class="col-md-5" style="display: none;">';
+                        $html +='<p class="title-register"></p>';
                         $html +='<input type="hidden" name="type" id="type_regiter" value="1">';
                         $html +='</div>';
-                        $html +='<img src="{{ asset("images/picture1.png") }}">';
+                        $html +='<img src="{{ asset("images/register_love.png") }}">';
                     $html +='</div>';
                     $html +='<div class="form-group">';
                             $html +='<span id="first-name-err" style="color:red;font-size:12px" ></span>';
@@ -436,11 +436,11 @@
             if (user == '') {
                 $html = '';
                     $html +='<div class="form-group code-top">';
-                        $html +='<div class="col-md-5">';
-                        $html +='<p class="title-register">イベント参加・個人ページの利用は会員限定です。さあ、マイテーマを探そ</p>';
+                        $html +='<div class="col-md-5" style="display: none;">';
+                        $html +='<p class="title-register"></p>';
                         $html +='<input type="hidden" name="type" id="type_regiter" value="1">';
                         $html +='</div>';
-                        $html +='<img src="{{ asset("images/picture1.png") }}">';
+                        $html +='<img src="{{ asset("images/register_love.png") }}">';
                     $html +='</div>';
                     $html +='<div class="form-group">';
                             $html +='<span id="first-name-err" style="color:red;font-size:12px" ></span>';
@@ -493,11 +493,11 @@
             if (user == '') {
                 $html = '';
                     $html +='<div class="form-group code-top">';
-                        $html +='<div class="col-md-5">';
-                        $html +='<p class="title-register">イベント参加・個人ページの利用は会員限定です。さあ、マイテーマを探そ</p>';
+                        $html +='<div class="col-md-5" style="display: none;">';
+                        $html +='<p class="title-register"></p>';
                         $html +='<input type="hidden" name="type" id="type_regiter" value="1">';
                         $html +='</div>';
-                        $html +='<img src="{{ asset("images/picture1.png") }}">';
+                        $html +='<img src="{{ asset("images/register_love.png") }}">';
                     $html +='</div>';
                     $html +='<div class="form-group">';
                             $html +='<span id="first-name-err" style="color:red;font-size:12px" ></span>';
