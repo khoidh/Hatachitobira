@@ -246,7 +246,7 @@ body {
 
 .top .content-last .content-text.col-md-10 {
     @include only-for-mobile() {
-        margin-left: 12px;
+        margin-left: 0px;
     }
 }
 
@@ -408,7 +408,13 @@ body {
     padding-right: 0
 }
 
-
+.top .movie-top-2 .container .col-md-10 {
+    .col-md-12.col-sm-12.col-xs-12 {
+        @include only-for-mobile() {
+            padding: 0
+        }
+    }
+}
 
 .top .container.movie-top-4 {
     margin-top: 174px;

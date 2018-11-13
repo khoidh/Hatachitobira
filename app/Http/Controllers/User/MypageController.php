@@ -12,10 +12,12 @@ use App\Mytheme;
 use App\UserCategory;
 use DateTime;
 use Date;
+use Response;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 class MypageController extends Controller
 {
@@ -106,6 +108,44 @@ class MypageController extends Controller
             'cat_id'        => $cat_id,
         ];
         return view('user.mypage', $array);
+    }
+
+    public function uploadImage(Request $request) {
+        $data = $request->all();
+
+        $rules = array(
+            'file' => 'image|max:3000',
+        );
+
+        $validation = Validator::make($data, $rules);
+
+        if ($validation->fails())
+        {
+            return Response::make($validation->errors->first(), 400);
+        }
+
+        $file = $request->file('file');
+        $fileName = time().'_'.$file->getClientOriginalName();
+        $destinationPath = public_path('images/user/mypage/');
+        $file->move($destinationPath, $fileName);
+        unset($data['file']);
+        unset($data['_token']);
+
+        $user_id = Auth::User()->id;
+        $data['user_id'] = $user_id;
+        $data['content_lable'] = $fileName;
+
+        $result = Mytheme::where('user_id',$user_id)->where('month',$data['month'])->where('year',$data['year'])->where('category_id',$data['category_id'])->first();
+        if ($result) {
+            Mytheme::where('user_id',$user_id)->where('month',$data['month'])->where('year',$data['year'])->where('category_id',$data['category_id'])->update($data);
+            $results =  Mytheme::where('user_id',$user_id)->where('month',$data['month'])->where('year',$data['year'])->where('category_id',$data['category_id'])->first();
+        }
+        else {
+            $results= Mytheme::create($data);
+        }
+
+        return Response::json($fileName, 200);
+        
     }
 
     public function contentCategoryNew(Request $request) {
@@ -202,17 +242,10 @@ class MypageController extends Controller
 
     public function changeAvatar(Request $request) {
         $data = $request->all();
+
         $user_id = Auth::User()->id;
         $data['user_id'] = $user_id;
-        //Upload file image
-        $fileName = '';
-        if($request->hasFile('file-image')){
-            $file = $request->file('file-image');
-            $fileName = time().'_'.$file->getClientOriginalName();
-            $destinationPath = public_path('images/user/mypage');
-            $file->move($destinationPath, $fileName);
-        }
-        $data['content_lable'] = $fileName;
+        
         $data['content_1'] = $data['description'];
 
         unset($data['file-image']);
