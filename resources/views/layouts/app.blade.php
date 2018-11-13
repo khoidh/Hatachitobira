@@ -8,8 +8,17 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>Hatachi Tobira</title>
-    {{--<title>{{ config('app.name') }}</title>--}}
+    <title>@yield('page_title') | ハタチのトビラ</title>
+    <meta content="@yield('description')" name="description">
+    <meta property="og:title" content="@yield('page_title')" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="{{ Request::url() }}" />
+    <meta property="og:image" content="" />
+    <meta property="og:site_name" content="ハタチのトビラ" />
+    <meta property="og:description" content="@yield('description')" />
+    <meta property="fb:app_id" content="{{ env('FACEBOOK_ID') }}" />
+    <meta name="twitter:card" content=" summary" />
+
     <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-NP6F7VN');</script>
     <!-- End Google Tag Manager -->

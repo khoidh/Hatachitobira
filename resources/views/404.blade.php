@@ -2,6 +2,7 @@
 @section('css')
     <link href="{{ asset('css/p404.css') }}" rel="stylesheet">
 @endsection
+@section('page_title', 'お探しのページは見つかりませんでした')
 @section('title-e', '404 file not found')
 @section('title-j', 'お探しのページは見つかりません')
 @section('content')

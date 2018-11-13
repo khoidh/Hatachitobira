@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('page_title', 'カテゴリーから探す')
+@section('description', '学校と社会をつなぐ「ハタチのトビラ」のカテゴリー検索ページです。自分の興味から、マイテーマの種をみつけよう。')
 @section('title-e', 'Category Search')
 @section('title-j', 'カテゴリー検索')
 @section('main')

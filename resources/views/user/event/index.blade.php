@@ -16,6 +16,8 @@
         /*}*/
     </style>
 @endsection
+@section('page_title', 'イベントに参加する')
+@section('description', '学校と社会をつなぐ「ハタチのトビラ」のイベントページです。多様なロールモデルや同世代に出会い、普段のコミュニティでは話にくい"ちょっと真面目な対話"を通じて、マイテーマを考えてみよう。')
 @section('title-e', 'Event')
 @section('title-j', 'イベントに参加する')
 @section('content')

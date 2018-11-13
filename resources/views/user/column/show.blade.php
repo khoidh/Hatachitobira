@@ -3,6 +3,8 @@
 @section('css-add')
     @parent
 @endsection
+@section('page_title', $column->title)
+@section('description', '学校と社会をつなぐ「ハタチのトビラ」のコラムページです。「私が、探求したいこと」であるマイテーマをみつけるノウハウ・イベントレポート・アラハタ世代の活躍を発信していきます。')
 @section('title-e', 'Column')
 @section('title-j', 'コラム')
 @section('content')
