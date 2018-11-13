@@ -28,7 +28,7 @@
     <input type="hidden" name="last_log" value="{{isset($result_1) ? $result_1->last_log : ''}}">
     <input type="hidden" name="this_mytheme" value="{{isset($result_1) ? $result_1->this_mytheme : ''}}">
     <input type="hidden" name="this_action" value="{{isset($result_1) ? $result_1->this_action : ''}}">
-    <input type="hidden" name="content_lable" id="tmppath" value="{{isset($result) && $result->content_lable ? $result->content_lable : 'mypage-01.png'}}">
+    <input type="hidden" name="content_lable" id="tmppath" value="{{isset($result) && $result->content_lable ? $result->content_lable : 'no_image.png'}}">
 </div>
 <script type="text/javascript">
     // Dropzone.autoDiscover = false;
@@ -49,7 +49,7 @@
         console.log(responseText)
         $('#tmppath').val(responseText);
       });
-      var file_name = "{{ isset($result) && $result->content_lable ? $result->content_lable : 'mypage-01.png' }}";
+      var file_name = "{{ isset($result) && $result->content_lable ? $result->content_lable : 'no_image.png' }}";
       var mockFile = { name: file_name, size: 12345 };
       myDropzone.options.addedfile.call(myDropzone, mockFile);
       myDropzone.options.thumbnail.call(myDropzone, mockFile, "{{ asset('images/user/mypage')}}"+'/'+ file_name);
