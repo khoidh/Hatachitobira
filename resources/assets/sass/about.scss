@@ -27,7 +27,6 @@
 
 .container.about .top .container.content-1{
   background: none;
-  padding: 0 100px;
 }
 
 .container.about .top .container.content-1 .char-rotate{
@@ -460,7 +459,7 @@
     background-color: #FFF100;
     margin-top: -60px;
     .container {
-        padding: 50px 80px 50px 115px;
+        padding: 50px 26px;
         margin: 0 auto;
         @include only-for-mobile() {
             padding: 0;
@@ -511,14 +510,12 @@
   .about-what-done{
         .container {
             margin: 0 auto;
-            padding: 0 110px 0 100px;
         }
   }
 
   .about-hatachi{
     .container {
         margin: 0 auto;
-        padding: 0 110px 0 100px;
     }
   }
 
