@@ -99,9 +99,10 @@
         <div class="banner figure">
             <!-- <div id="carouseltop" class="carousel slide" data-ride="carousel" data-interval="false">
                 <div class="carousel-inner row mx-auto" role="listbox"> -->
-                <div class="slide-top">
+                 <div class="slide-top">
                     <figure class="carousel-item">
-                        <img src="{{ asset('images/user/top/banner.png') }}" alt="楽しもう、背伸びしない自分を">
+                        <img class="image-sp" src="{{ asset('images/user/top/banner_sp.png') }}" alt="楽しもう、背伸びしない自分を">
+                        <img class="image-pc" src="{{ asset('images/user/top/banner.png') }}" alt="楽しもう、背伸びしない自分を">
                         <figcaption>
                             <p class="description">What students want to know,Is it transmitted to real?</p>
                             <p class="title">楽しもう、背伸びしない自分を。</p>
@@ -109,7 +110,8 @@
                         </figcaption>
                     </figure>
                     <figure class="carousel-item">
-                        <img src="{{ asset('images/user/top/banner-1.png') }}" alt="楽しもう、背伸びしない自分を。">
+                        <img class="image-sp" src="{{ asset('images/user/top/banner-1-sp.png') }}" alt="楽しもう、背伸びしない自分を。">
+                        <img class="image-pc" src="{{ asset('images/user/top/banner-1.png') }}" alt="楽しもう、背伸びしない自分を。">
                         <figcaption>
                             <p class="description">What students want to know,Is it transmitted to real?</p>
                             <p class="title">これからの就活。</p>
@@ -117,7 +119,8 @@
                         </figcaption>
                     </figure>
                     <figure class="carousel-item">
-                        <img src="{{ asset('images/user/top/banner-2.png') }}" alt="楽しもう、背伸びしない自分を。">
+                        <img class="image-sp" src="{{ asset('images/user/top/banner-2-sp.png') }}" alt="楽しもう、背伸びしない自分を。">
+                        <img class="image-pc" src="{{ asset('images/user/top/banner-2.png') }}" alt="楽しもう、背伸びしない自分を。">
                         <figcaption>
                             <p class="description">What students want to know,Is it transmitted to real?</p>
                             <p class="title"><span class="title-background">マイテーマ</span>って何だろう。</p>

@@ -753,10 +753,24 @@ footer .footter-mobile .a-first {
     // }
 }
 
+.banner figure>img.image-sp {
+    display: none;
+}
+.banner figure>img.image-pc {
+    display: block;
+}
+
 @media (max-width: 427px) {
 
     .banner figure>img {
         width: 100%;
+    }
+        
+    .banner figure>img.image-sp {
+        display: block;
+    }
+    .banner figure>img.image-pc {
+        display: none;
     }
 
     main {
@@ -1144,7 +1158,8 @@ footer .footter-mobile .a-first {
     }
 
     .top .container.movie-top-4.content-2 {
-        margin-top: 0;
+        margin: 0;
+        padding-left: 0;
     }
 
     #modal_register .modal-content {
