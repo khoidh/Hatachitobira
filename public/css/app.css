@@ -284,6 +284,33 @@ body {
   font-size: 16px;
 }
 
+.dropdown-menu.show {
+  border-radius: 1.0rem;
+  -webkit-box-shadow: 1px 1px 8px 1px rgba(50, 49, 49, 0.39) !important;
+          box-shadow: 1px 1px 8px 1px rgba(50, 49, 49, 0.39) !important;
+}
+
+@media (min-width: 576px) {
+  .dropdown-menu.show:before {
+    content: "";
+    width: 45px;
+    height: 30px;
+    position: absolute;
+    top: -17px;
+    background-image: url(/images/user/top/dropdown.png);
+    background-size: 75%;
+    background-repeat: no-repeat;
+    left: 105px;
+  }
+}
+
+.nav-link.link-append.show-modal-register-mypage {
+  display: block;
+  margin: 0px;
+  height: 80px;
+  padding: 27px 7px;
+}
+
 .top .thump .img-icon {
   max-height: 500px !important;
 }
@@ -3145,6 +3172,7 @@ footer .footter-mobile .a-first {
 .my-page .select-month .icon-next {
   color: #d2d2d2;
   cursor: auto;
+  pointer-events: none;
 }
 
 @media (max-width: 575.98px) {
