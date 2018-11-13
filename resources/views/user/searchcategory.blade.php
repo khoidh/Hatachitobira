@@ -97,7 +97,7 @@
                 </div>
             </div>
         </div>
-        <div class="row event-search event">
+        <div class="row event-search event" style="margin-top: 30px;">
             <h3 class="title-event">イベント</h3>
             <div class="article-list col-md-12">
                 <div id="carouselExampleevent" class="carousel slide" data-ride="carousel" data-interval="false" data-wrap="false">
@@ -154,7 +154,7 @@
                 </div>
             </div>
         </div>
-        <div class="row video-search video">
+        <div class="row video-search video" style="margin-top: 30px;">
             <h3 class="title-event">動画</h3>
              <div class="row video-list col-md-12">
                 <div id="carouselExampleevent123" class="carousel slide multi-item-carousel" data-ride="carousel" data-interval="false" data-wrap="false">
