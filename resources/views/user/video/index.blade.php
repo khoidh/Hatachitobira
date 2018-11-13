@@ -57,7 +57,7 @@
                             <a href="#">
                                 <img class="img-icon" src="{{  $result->thumbnails}}" alt="">
                             </a>
-                            <p class="video-title sub-title">{{ substr($result->title, 0,50)}} {{strlen($result->title) > 50 ? '...' : ''}}</p>
+                            <p class="video-title sub-title">{{ substr(trim($result->title), 0,50)}} {{strlen($result->title) > 50 ? '...' : ''}}</p>
                         </div>
                         <div class="description">
                             <p>
