@@ -859,7 +859,7 @@
                     _this.attr('data-id',result.id);
                     _this.parents('.panel-info-content').find('.favorite.edit').find('.fa-pencil').attr('data-category',result.category_id);
                     _this.parents('.panel-info-content').find('.favorite.edit').find('.fa-pencil').attr('data-id',result.id);
-                    iziToast.success({timeout: 5000, icon: 'fa fa-chrome', title: 'OK', message: 'Change content successfull'});
+                    iziToast.success({timeout: 5000, icon: 'fa fa-chrome', title: 'OK', message: '更新いたしました'});
                 }   
             })
         })
@@ -899,7 +899,7 @@
                     this_mytheme: text_my_theme,
                     this_action: text_action
                 },success:function(data) {
-                    iziToast.success({timeout: 5000, icon: 'fa fa-chrome', title: 'OK', message: 'Change content successfull'});
+                    iziToast.success({timeout: 5000, icon: 'fa fa-chrome', title: 'OK', message: '更新いたしました'});
                 }
             })
         })
@@ -924,7 +924,7 @@
                     this_mytheme: text_my_theme,
                     this_action: text_action
                 },success:function(data) {
-                    iziToast.success({timeout: 5000, icon: 'fa fa-chrome', title: 'OK', message: 'Change content successfull'});
+                    iziToast.success({timeout: 5000, icon: 'fa fa-chrome', title: 'OK', message: '更新いたしました'});
                 }
             })
         })
@@ -949,7 +949,7 @@
                     this_mytheme: text_my_theme,
                     this_action: text_action
                 },success:function(data) {
-                    iziToast.success({timeout: 5000, icon: 'fa fa-chrome', title: 'OK', message: 'Change content successfull'});
+                    iziToast.success({timeout: 5000, icon: 'fa fa-chrome', title: 'OK', message: '更新いたしました'});
                 }
             })
         })
@@ -976,7 +976,7 @@
                 },
                 success : function (result){
                     _this.parents('.detail-infor').find('.edit-input-content').attr('data-id',result.id);
-                    iziToast.success({timeout: 5000, icon: 'fa fa-chrome', title: 'OK', message: 'Change content successfull'});
+                    iziToast.success({timeout: 5000, icon: 'fa fa-chrome', title: 'OK', message: '更新いたしました'});
                 }   
             })
         })
@@ -1072,7 +1072,7 @@
         //         async: false,
         //         success: function (key) {
         //             $('#dissmiss_modal_show').addClass('editing');
-        //             iziToast.success({timeout: 5000, icon: 'fa fa-chrome', title: 'OK', message: 'Change content successfull'});
+        //             iziToast.success({timeout: 5000, icon: 'fa fa-chrome', title: 'OK', message: '更新いたしました'});
         //         },
         //         processData: false,
         //         cache: false,
@@ -1090,7 +1090,7 @@
                 async: false,
                 success: function (key) {
                     $('#dissmiss_modal_show').addClass('editing');
-                    iziToast.success({timeout: 5000, icon: 'fa fa-chrome', title: 'OK', message: 'Change content successfull'});
+                    iziToast.success({timeout: 5000, icon: 'fa fa-chrome', title: 'OK', message: '更新いたしました'});
                 },
                 processData: false,
                 cache: false,
