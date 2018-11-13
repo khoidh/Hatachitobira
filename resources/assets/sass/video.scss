@@ -135,11 +135,12 @@
 .video .video-title {
 
     position: absolute;
-    bottom: -14px;
+    bottom: 0;
     color: #fff;
-    background-color: #383737;
+    background-color: rgba(0,0,0,.7);
     width: 100%;
     padding: 15px 47px;
+    margin: 0;
 
     @include only-for-mobile() {
         padding: 5px

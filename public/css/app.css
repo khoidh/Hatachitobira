@@ -208,6 +208,14 @@
 
 /* ========================== Set style by sp/pc ============================*/
 
+.text-stroke {
+  -webkit-filter: dropshadow(color=#fff, offX=0, offY=-1) dropshadow(color=#fff, offX=1, offY=0) dropshadow(color=#fff, offX=0, offY=1) dropshadow(color=#fff, offX=-1, offY=0);
+          filter: dropshadow(color=#fff, offX=0, offY=-1) dropshadow(color=#fff, offX=1, offY=0) dropshadow(color=#fff, offX=0, offY=1) dropshadow(color=#fff, offX=-1, offY=0);
+  -webkit-text-stroke-color: #fff;
+  -webkit-text-stroke-width: 1px;
+  text-shadow: #fff 1px 1px 0px, #fff -1px 1px 0px, #fff 1px -1px 0px, #fff -1px -1px 0px;
+}
+
 .home .main {
   min-height: 175px;
   margin-bottom: 30px;
@@ -663,7 +671,6 @@ body {
   writing-mode: vertical-rl;
   margin: 6px;
   height: 465px;
-  text-shadow: 1px 1px 0.5px #fff;
 }
 
 .top .container.content-1 > .row {
@@ -2700,11 +2707,12 @@ footer .footter-mobile .a-first {
 
 .video .video-title {
   position: absolute;
-  bottom: -14px;
+  bottom: 0;
   color: #fff;
-  background-color: #383737;
+  background-color: rgba(0, 0, 0, 0.7);
   width: 100%;
   padding: 15px 47px;
+  margin: 0;
 }
 
 @media (max-width: 575.98px) {
@@ -8134,11 +8142,6 @@ pre code {
 }
 
 .form-control::-webkit-input-placeholder {
-  color: #6c757d;
-  opacity: 1;
-}
-
-.form-control:-ms-input-placeholder {
   color: #6c757d;
   opacity: 1;
 }

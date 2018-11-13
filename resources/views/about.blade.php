@@ -69,12 +69,12 @@
                     <div class="div-bg"></div>
                     <div class="container content-1">
                         <div class="about-content-title">
-                            <p class="content-1-title">「正解がわからないから、</p>
-                            <p class="content-1-title">誰かに正解を</p>
-                            <p class="content-1-title">求めたくなる時代…<span class="char-rotate">」</span></p>
+                            <p class="content-1-title text-stroke">「正解がわからないから、</p>
+                            <p class="content-1-title text-stroke">誰かに正解を</p>
+                            <p class="content-1-title text-stroke">求めたくなる時代…<span class="char-rotate">」</span></p>
                         </div>
                         <div class="about-content-1-content">
-                            <div class="text-my-theme" style="padding-top: 30px;">
+                            <div class="text-my-theme" style="padding-top: 70px;">
                                 <div class="about-cb-path path-1"></div>
                                 <p class="text-detail">高校までは偏差値という便利な指標があったけど、<br>これから過ごす社会には共通の指標なんてない。 </p>
                                 <p class="text-detail">親も先生も正解は誰も知らないんだ。<br>だからこそ、自分なりの正解となるマイテーマを探しにいこう！</p>

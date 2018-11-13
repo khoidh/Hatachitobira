@@ -18,7 +18,7 @@
 <div>申込み者のお名前: {{$thisUser_add['name'] }}</div>
 <div>お電話番号     : {{$thisUser_add['phone_number'] }}</div>
 <div>メールアドレス : {{$thisUser_add['mail_address'] }}</div>
-<div>質問          : {{$thisUser_add['question'] }}</div>
+<div>質問          : {!! nl2br($thisUser_add['question']) !!}</div>
 <div>-----</div>
 <br>
 <div>イベントに関するご質問は、</div>
