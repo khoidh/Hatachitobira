@@ -48,7 +48,7 @@
                     </form>    
                     <div class="form-group">
                         <div class="col-md-12">
-                            <a href="{{ url('/auth/facebook') }}" class="btn btn-primary btn-register"><i class="fa fa-facebook"></i> Facebook</a>
+                            <a href="{{ url('/auth/facebook') }}" class="btn btn-success btn-register">Facebook</a>
                         </div>
                     </div>
                     
@@ -84,17 +84,19 @@
         e.preventDefault();
         $html = '';
         $html +='<div class="form-group code-top">';
-            $html +='<div class="col-md-5">';
-            $html +='<p class="title-register">動画やイベント、あなたの興味のあるものを貯めて、マイテーマを作っていこう！</p>';
+            $html +='<div class="col-md-5" style="display: none;">';
+            $html +='<p class="title-register"></p>';
             $html +='<input type="hidden" name="type" id="type_regiter" value="0">';
             $html +='</div>';
-            $html +='<img src="{{ asset("images/picture1.png") }}">';
+            $html +='<img src="{{ asset("images/register_mypage.png") }}">';
         $html +='</div>';
         $html +='<div class="form-group">';
-                $html +='<span id="first-name-err" style="color:red;font-size:12px" ></span>';
             $html +='<div class="col-md-10 offset-md-1" style="text-align: left;">';
                 $html +='<input class="input-checkbox"  type="checkbox" id="input-check-required">';
                 $html +='<label class="lblcheckbox"><a class="link-redirect" href="/terms-and-conditions">利用規約</a> と <a class="link-redirect" href="/privacy-policy">プライバシーポリシー</a> に同意する </label>';
+                $html +='<span id="first-name-err" style="color:red;font-size:12px" ></span>';
+                
+
             $html +='</div>';
         $html +='</div>';
         $html +='<div class="form-group">';
@@ -188,7 +190,7 @@
             $('#modal_register').find('.panel-body').css('display','block');
         }
         else {
-            $('#first-name-err').text('This input is required');
+            $('#first-name-err').text('会員登録には、利用規約 と プライバシーポリシーの同意が必要です。');
         }
     });
 
@@ -265,7 +267,7 @@
             window.location = $(this).attr('href');
         }
         else {
-            $('#first-name-err').text('This input is required');
+            $('#first-name-err').text('会員登録には、利用規約 と プライバシーポリシーの同意が必要です。');
         }
     });
 </script>

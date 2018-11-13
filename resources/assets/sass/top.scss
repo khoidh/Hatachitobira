@@ -10,6 +10,32 @@ body {
     font-size: 16px;
 }
 
+.dropdown-menu.show {
+    border-radius: 1.0rem;
+    box-shadow: 1px 1px 8px 1px rgba(50, 49, 49, 0.39) !important;
+}
+
+.dropdown-menu.show:before {
+     @include only-for-pc() {
+        content: "";
+        width: 45px;
+        height: 30px;
+        position: absolute;
+        top: -17px;
+        background-image: url(/images/user/top/dropdown.png);
+        background-size: 75%;
+        background-repeat: no-repeat;
+        left: 105px;
+    }
+}
+
+.nav-link.link-append.show-modal-register-mypage {
+    display: block;
+    margin: 0px;
+    height: 80px;
+    padding: 27px 7px;
+}
+
 .top .thump .img-icon {
     max-height: 500px !important
 }
@@ -726,10 +752,24 @@ footer .footter-mobile .a-first {
     // }
 }
 
+.banner figure>img.image-sp {
+    display: none;
+}
+.banner figure>img.image-pc {
+    display: block;
+}
+
 @media (max-width: 427px) {
 
     .banner figure>img {
         width: 100%;
+    }
+        
+    .banner figure>img.image-sp {
+        display: block;
+    }
+    .banner figure>img.image-pc {
+        display: none;
     }
 
     main {
@@ -1117,7 +1157,8 @@ footer .footter-mobile .a-first {
     }
 
     .top .container.movie-top-4.content-2 {
-        margin-top: 0;
+        margin: 0;
+        padding-left: 0;
     }
 
     #modal_register .modal-content {
@@ -1142,8 +1183,10 @@ footer .footter-mobile .a-first {
     }
 
     #modal_register .code-top img {
-        width: 310px;
-        height: 100%;
+        margin: auto;
+        width: 100%;
+        max-width: 300px;
+        max-height:100%
     }
 
     .banner a.scroll {
@@ -1234,8 +1277,7 @@ footer .footter-mobile .a-first {
 
 @-moz-document url-prefix() {
     #modal_register .code-top img {
-        width: 100%;
-        height: 305px;
+        //padding-left: 10px;
     }
 }
 
@@ -1273,10 +1315,10 @@ footer .footter-mobile .a-first {
 }
 
 #modal_register .code-top img {
-    position: relative;
-    left: -166px;
-    width: 325px;
-    height: 300px;
+    //position: relative;
+    //left: -166px;
+    //max-width: 325px;
+    //height: 300px;
 }
 
 #modal_register p.title-register {
@@ -1351,6 +1393,7 @@ footer .footter-mobile .a-first {
 #modal_login .form-group,
 #modal_register .form-group {
     display: flex;
+    justify-content: center;
 }
 
 #modal_register .form-register-last {

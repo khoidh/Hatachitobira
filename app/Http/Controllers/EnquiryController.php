@@ -17,7 +17,7 @@ class EnquiryController extends Controller
      * @return void
      */
     protected  $SUBJECT = 'ハタチのトビラ｜お問い合わせありがとうございます';
-
+    protected  $SUBJECT_ADMIN = 'ハタチのトビラ｜お問い合わせがありました';
     public function __construct()
     {
         
@@ -61,10 +61,10 @@ class EnquiryController extends Controller
                    $mail->to($thisUser->email)->subject($this->SUBJECT);
                }
             );
-            Mail::send('email.enquiry',compact('thisUser'),
+            Mail::send('email.enquiryAdmin',compact('thisUser'),
                function($mail) use($thisUser)
                {
-                   $mail->to(config('mail.mail_admin'))->subject($this->SUBJECT);
+                   $mail->to(config('mail.mail_admin'))->subject($this->SUBJECT_ADMIN);
                }
             );
             return view('thank_enquiry');

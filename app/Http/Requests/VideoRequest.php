@@ -26,7 +26,7 @@ class VideoRequest extends FormRequest
         return [
             'category_id' => 'required|integer',
             'url'      => 'required|max:256',
-            'sort'     => 'required|integer',
+            'sort'     => 'required|integer|min:0',
             'type'     => 'required|integer', 
         ];
     }

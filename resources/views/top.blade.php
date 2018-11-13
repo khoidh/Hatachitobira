@@ -113,9 +113,10 @@ $description = '学校と社会をつなぐ「ハタチのトビラ」は、将�
         <div class="banner figure">
             <!-- <div id="carouseltop" class="carousel slide" data-ride="carousel" data-interval="false">
                 <div class="carousel-inner row mx-auto" role="listbox"> -->
-                <div class="slide-top">
+                 <div class="slide-top">
                     <figure class="carousel-item">
-                        <img src="{{ asset('images/user/top/banner.png') }}" alt="楽しもう、背伸びしない自分を。やりたいことって必要なの？">
+                        <img class="image-sp" src="{{ asset('images/user/top/banner_sp.png') }}" alt="楽しもう、背伸びしない自分を">
+                        <img class="image-pc" src="{{ asset('images/user/top/banner.png') }}" alt="楽しもう、背伸びしない自分を">
                         <figcaption>
                             <p class="description">What students want to know,Is it transmitted to real?</p>
                             <p class="title text-stroke">楽しもう、背伸びしない自分を。</p>
@@ -123,7 +124,8 @@ $description = '学校と社会をつなぐ「ハタチのトビラ」は、将�
                         </figcaption>
                     </figure>
                     <figure class="carousel-item">
-                        <img src="{{ asset('images/user/top/banner-1.png') }}" alt="これからの就活。マイテーマを軸にする。">
+                        <img class="image-sp" src="{{ asset('images/user/top/banner-1-sp.png') }}" alt="楽しもう、背伸びしない自分を。">
+                        <img class="image-pc" src="{{ asset('images/user/top/banner-1.png') }}" alt="楽しもう、背伸びしない自分を。">
                         <figcaption>
                             <p class="description">What students want to know,Is it transmitted to real?</p>
                             <p class="title text-stroke">これからの就活。</p>
@@ -131,7 +133,8 @@ $description = '学校と社会をつなぐ「ハタチのトビラ」は、将�
                         </figcaption>
                     </figure>
                     <figure class="carousel-item">
-                        <img src="{{ asset('images/user/top/banner-2.png') }}" alt="マイテーマって何だろう。オトナって何だろう。">
+                        <img class="image-sp" src="{{ asset('images/user/top/banner-2-sp.png') }}" alt="楽しもう、背伸びしない自分を。">
+                        <img class="image-pc" src="{{ asset('images/user/top/banner-2.png') }}" alt="楽しもう、背伸びしない自分を。">
                         <figcaption>
                             <p class="description">What students want to know,Is it transmitted to real?</p>
                             <p class="title text-stroke"><span class="title-background">マイテーマ</span>って何だろう。</p>
@@ -625,11 +628,11 @@ $description = '学校と社会をつなぐ「ハタチのトビラ」は、将�
                 if (user == '') {
                     $html = '';
                     $html +='<div class="form-group code-top">';
-                        $html +='<div class="col-md-5">';
-                        $html +='<p class="title-register">イベント参加・個人ページの利用は会員限定です。さあ、マイテーマを探そ</p>';
+                        $html +='<div class="col-md-5" style="display: none;">';
+                        $html +='<p class="title-register"></p>';
                         $html +='<input type="hidden" name="type" id="type_regiter" value="1">';
                         $html +='</div>';
-                        $html +='<img src="{{ asset("images/picture1.png") }}">';
+                        $html +='<img src="{{ asset("images/register_love.png") }}">';
                     $html +='</div>';
                     $html +='<div class="form-group">';
                             $html +='<span id="first-name-err" style="color:red;font-size:12px" ></span>';
@@ -676,11 +679,11 @@ $description = '学校と社会をつなぐ「ハタチのトビラ」は、将�
                 e.preventDefault();
                 $html = '';
                 $html +='<div class="form-group code-top">';
-                    $html +='<div class="col-md-5">';
-                    $html +='<p class="title-register">動画やイベント、あなたの興味のあるものを貯めて、マイテーマを作っていこう！</p>';
+                    $html +='<div class="col-md-5" style="display: none;">';
+                    $html +='<p></p>';
                     $html +='<input type="hidden" name="type" id="type_regiter" value="1">';
                     $html +='</div>';
-                    $html +='<img src="{{ asset("images/picture1.png") }}">';
+                    $html +='<img src="{{ asset("images/register_mypage.png") }}">';
                 $html +='</div>';
                 $html +='<div class="form-group">';
                         $html +='<span id="first-name-err" style="color:red;font-size:12px" ></span>';

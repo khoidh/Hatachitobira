@@ -40,10 +40,10 @@
 
         <div class="form-group row">
 
-            <label class="col-sm-2 col-form-label" for="inputState">{{__('カテゴリ')}}</label>
+            <label class="col-sm-2 col-form-label" for="category_id">{{__('カテゴリ')}}</label>
             <div class="col-sm-10">
 
-                <select name="category_id" value="<?php echo $video->id ?>" class="form-control">
+                <select name="category_id" id="category_id" value="<?php echo $video->id ?>" class="form-control">
                     @foreach($categories as $category)
                         <option value="{{ $category->id }}" {{($category->id == $video->category_id) ? 'selected' : ''}} >{{$category->name}}</option>
                     @endforeach
@@ -65,11 +65,12 @@
             </div>
         </div>
         <div class="form-group row">
-            <label for="sort" class="col-sm-2 col-form-label">{{__('タイプ')}}</label>
+            <label for="type" class="col-sm-2 col-form-label">{{__('タイプ')}}</label>
             <div class="col-sm-10">
-                <select type="number" name="type" class="form-control"  value="{{$video->type}}" tabindex=1>
+                <select type="number" name="type" id="type" class="form-control"  value="{{$video->type}}" tabindex=1>
                     <option value='0' {{($video->type==0) ? 'selected' : ''}}>ジョブシャドウ</option>
                     <option value='1' {{($video->type==1) ? 'selected' : ''}}>ロールプレイ</option>
+                    <option value='2' {{($video->type==2) ? 'selected' : ''}}>コンセプトムービー</option>
                 </select>
             </div>
         </div>
