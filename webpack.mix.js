@@ -15,4 +15,5 @@ mix.js('resources/assets/js/app.js', 'public/js')
    .sass('resources/assets/sass/app.scss', 'public/css')
    .js('resources/assets/js/admin.js', 'public/js')
    // .copy('node_modules/slick-carousel/slick', 'public/assets/slick')
+   .copy('node_modules/dropzone/dist/min', 'public/assets/dropzone')
 ;
