@@ -10,9 +10,9 @@
     <title>Hatachi Tobira</title>
     <link href="{{ asset('css/top.css') }}" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/slick/slick.css') }}" rel="stylesheet">
     <script src="{{ asset('js/app.js') }}"></script>
-    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
-    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script src="{{ asset('assets/slick/slick.min.js') }}"></script>
 </head>
 <body style="overflow-x: hidden;">
     

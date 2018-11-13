@@ -2,10 +2,10 @@
 
 @section('css-add')
     @parent
-    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
-    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <link href="{{ asset('css/iziToast.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/bootstrap-tagsinput.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/iziToast.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/slick/slick.css') }}" rel="stylesheet">
+    <script src="{{ asset('assets/slick/slick.min.js') }}"></script>
 @endsection
 @section('title-e', 'MY PAGE')
 @section('title-j', 'マイページ')
