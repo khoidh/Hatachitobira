@@ -1,3 +1,4 @@
+<link href="{{ asset('css/bootstrap-tagsinput.css') }}" rel="stylesheet">
 <div class="col-sm-12 how-to-use">
     <a class="a-user" href="#">
         <i class="fa fa-question-circle-o"></i>
@@ -23,12 +24,13 @@
     </div>
     <hr class="shape-8"/>
     <div class="row log">
-        <div class="col-sm-2 log-text">
+        <div class="col-sm-2 col-4 log-text">
             <div class="underline">&nbsp;先月のログ&nbsp;</div>
         </div>
-        <div class="col-sm-10 log-input">
-            <input type="text" name="" class="input-lat-log" data-month="{{isset($mytheme_first->month) ? $mytheme_first->month : $data_search['month']}}" 
-                                data-year="{{isset($mytheme_first->year) ? $mytheme_first->year : $data_search['year']}}" placeholder="先月の自分を#で記録しよう　#バイト三昧　#初ボランティア" value="{{$mytheme_first ? $mytheme_first->last_log : ''}}">
+        <div class="col-sm-10 col-8 log-input">
+            <input type="text" name="" class="input-lat-log" data-role="tagsinput" data-month="{{isset($mytheme_first->month) ? $mytheme_first->month : $data_date['month']}}" 
+                                data-year="{{isset($mytheme_first->year) ? $mytheme_first->year : $data_date['year']}}" placeholder="先月の自分を#で記録しよう　#バイト三昧　#初ボランティア" value="{{$mytheme_first ? $mytheme_first->last_log : ''}}">
+
         </div>
     </div>
 </div>
@@ -97,13 +99,17 @@
     </div>
     <hr class="shape-8"/>
     <div class="row action">
-        <div class="col-sm-3 action-text">
-            <div class="underline">&nbsp;今月のアクション &nbsp;</div>
-        </div>
-        <div class="col-sm-9 action-input">
-            <input type="text" name="action-of-month" class="input-action" data-month="{{isset($mytheme_first->month) ? $mytheme_first->month : $data_date['month']}}" 
-                                data-year="{{isset($mytheme_first->year) ? $mytheme_first->year : $data_date['year']}}" placeholder="考えたいこと、行動したいことを3つ決めよう" value="{{$mytheme_first ? $mytheme_first->this_action : ''}}">
-        </div>
-    </div>
+                    <div class="col-sm-3 col-5 action-text">
+                        <div class="underline">&nbsp;今月のアクション &nbsp;</div>
+                    </div>
+                    <div class="col-sm-9 col-7 action-input">
+                        <textarea style="width: 100%;border: none;" type="text" rows="2" name="action-of-month" data-month="{{isset($mytheme_first->month) ? $mytheme_first->month : $data_date['month']}}" 
+                                            data-year="{{isset($mytheme_first->year) ? $mytheme_first->year : $data_date['year']}}" placeholder="考えたいこと、行動したいことを3つ決めよう" disabled>{{$mytheme_first ? $mytheme_first->this_action : ''}}</textarea>
+                                    <i class="fa fa-pencil pencil-action" data-toggle="modal" data-target="#modal_action">
+                                        <span>Edit</span></i>
+                    </div>
+                   
+                </div>
     <hr class="shape-8"/>
 </div>
+<script src="{{ asset('js/bootstrap-tagsinput.min.js') }}"></script>
