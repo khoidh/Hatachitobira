@@ -2661,11 +2661,12 @@ footer .footter-mobile .a-first {
 
 .video .video-title {
   position: absolute;
-  bottom: -14px;
+  bottom: 0;
   color: #fff;
-  background-color: #383737;
+  background-color: rgba(0, 0, 0, 0.7);
   width: 100%;
   padding: 15px 47px;
+  margin: 0;
 }
 
 @media (max-width: 575.98px) {
@@ -8094,11 +8095,6 @@ pre code {
 }
 
 .form-control::-webkit-input-placeholder {
-  color: #6c757d;
-  opacity: 1;
-}
-
-.form-control:-ms-input-placeholder {
   color: #6c757d;
   opacity: 1;
 }
