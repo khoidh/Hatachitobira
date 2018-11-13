@@ -65,7 +65,7 @@ class HomeController extends Controller
         $video_concept = Video::select()
             ->select('videos.*','categories.name as category_name')
             ->join('categories','categories.id','=','videos.category_id')
-            ->orderBy('sort','desc')
+            ->orderBy('sort','asc')
             ->where('type',Video::CONCEPT_MOVIE_TYPE)
             ->first();
 
