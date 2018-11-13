@@ -520,7 +520,7 @@ body {
 
 @media (max-width: 575.98px) {
   .top .content-last .content-text.col-md-10 {
-    margin-left: 12px;
+    margin-left: 0px;
   }
 }
 
@@ -679,6 +679,12 @@ body {
 .top .movie-top-2 .container .col-md-10,
 .top .movie-top-2 .container .col-md-10 .col-lg-4:last-child {
   padding-right: 0;
+}
+
+@media (max-width: 575.98px) {
+  .top .movie-top-2 .container .col-md-10 .col-md-12.col-sm-12.col-xs-12 {
+    padding: 0;
+  }
 }
 
 .top .container.movie-top-4 {
@@ -3204,6 +3210,12 @@ footer .footter-mobile .a-first {
   background-color: #dcdcdc;
 }
 
+@media (max-width: 575.98px) {
+  .my-page .info-1 .log .log-input .bootstrap-tagsinput .label-info {
+    line-height: 2;
+  }
+}
+
 .my-page .panel-info {
   padding-top: 32px;
 }
@@ -3282,6 +3294,13 @@ footer .footter-mobile .a-first {
   resize: none;
 }
 
+@media (max-width: 575.98px) {
+  .my-page .panel-info .panel-info-wrapper .panel-info-content .mypage-text .edit-input-lable_1,
+  .my-page .panel-info .panel-info-wrapper .panel-info-content .mypage-text .edit-input-lable {
+    line-height: 1.7;
+  }
+}
+
 .my-page .panel-info .panel-info-wrapper .panel-info-content > .edit {
   position: absolute;
   color: #ababab;
@@ -3310,6 +3329,7 @@ footer .footter-mobile .a-first {
   .my-page .panel-info .panel-info-wrapper .event-image img {
     height: 150px;
     font-size: 12px;
+    border-radius: 0px;
   }
 }
 
@@ -3761,6 +3781,28 @@ footer .footter-mobile .a-first {
   text-align: right;
 }
 
+#show-detail-mypage .modal-content .dz-message.needsclick {
+  width: 160px;
+  margin: 0 auto;
+  height: 160px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  position: relative;
+  border-style: dashed;
+  border-color: #b5b5b5;
+  cursor: pointer;
+}
+
+#show-detail-mypage .modal-content .dz-message.needsclick i {
+  padding: 10px;
+  border-radius: 50%;
+  background-color: #bdbbbb;
+  color: #fff;
+  margin: 50px;
+}
+
 #show-detail-mypage .modal-content .event-information-content .mypage-number {
   position: absolute !important;
   z-index: 1;
@@ -3816,6 +3858,20 @@ footer .footter-mobile .a-first {
 #show-detail-mypage .modal-content .event-information-wrapper .file-image {
   width: 100%;
   margin-top: 20px;
+}
+
+#show-detail-mypage .modal-content .event-information-wrapper .image-description {
+  margin-bottom: 30px;
+  border: none;
+}
+
+#show-detail-mypage .dropzone.dropzone-area {
+  border: none;
+}
+
+.dropzone .dz-preview .dz-image img {
+  width: 100%;
+  height: 100%;
 }
 
 .recruiment {
