@@ -27,7 +27,6 @@
 
 .container.about .top .container.content-1{
   background: none;
-  //padding: 0 100px;
 }
 
 .container.about .top .container.content-1 .char-rotate{
@@ -349,6 +348,20 @@
 
 }
 
+.about-why-born{
+    background-color: #FFF100;
+    margin-top: -60px;
+    .container {
+        padding: 50px 26px;
+        margin: 0 auto;
+        @include only-for-mobile() {
+            padding: 0;
+            padding-right: 0;
+            padding-top: 73px;
+        }
+    }
+}
+
 /* Medium Devices, Desktops */
 @media only screen and (min-width : 992px) {
   .about .top .content-1 .about-content-title .content-1-title {
@@ -362,4 +375,45 @@
     display: none;
   }
 
+  
+
+  .about-why-born .why-born-col,
+  .about-what-done .what-done-col,
+  .about-hatachi .about-hatachi-col{
+    background-color: #fff;
+    border-radius: 10px;
+    margin-right: 30px;
+    flex: 0 0 30%;
+    text-align: center;
+    padding: 20px 30px;
+  }
+
+  .about-hatachi .about-hatachi-col{
+    padding: 20px 0 20px 20px;
+    text-align: left;
+    margin-right: 5px;
+  }
+
+  .about-why-born .why-born-col:last-child,
+  .about-what-done .what-done-col:last-child,
+  .about-hatachi .about-hatachi-col:last-child{
+    margin-right: 0px;
+  }
+
+  .about-what-done{
+        .container {
+            margin: 0 auto;
+        }
+  }
+
+  .about-hatachi{
+    .container {
+        margin: 0 auto;
+    }
+  }
+
+  .about-hatachi .about-hatachi-col a.btn-link:focus,
+  .about-hatachi .about-hatachi-col a.btn-link:hover{
+    text-decoration: none;
+  }
 }

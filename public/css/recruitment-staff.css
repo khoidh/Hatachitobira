@@ -360,7 +360,6 @@
 
     .top .content-1.requiment {
         background: none;
-        padding: 0 100px;
     }
 
     .requiment-staff.requiment-staff-mobile {
@@ -397,11 +396,11 @@
         margin-top: 90px;
     }
 
-    .video .container,
+    ./*video .container,
     .video-requiment .container {
         padding: 0 100px;
     }
-
+*/
     .requiment-staff .video-requiment .container .video-detail {
         padding: 0;
         margin-top: 30px;
@@ -411,9 +410,9 @@
         font-weight: bold;
     }
 
-    .requiment-staff .requiment-slide .container {
+    ./*requiment-staff .requiment-slide .container {
         padding: 0 100px;
-    }
+    }*/
 
     .requiment-staff .requiment-slide .carousel-indicators {
         -webkit-box-pack: left;
@@ -498,9 +497,9 @@
         background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E");
     }
 
-    .requiment-staff .requiment-step .container {
+    /*.requiment-staff .requiment-step .container {
         padding: 0 100px;
-    }
+    }*/
 
     .requiment-staff .requiment-step .row.col-md-12:before,
     .requiment-staff .requiment-step .row.col-md-12:after {
@@ -519,10 +518,10 @@
         padding-bottom: 95px;
     }
 
-    .requiment-convertion .container {
+   /* .requiment-convertion .container {
         padding: 0 100px;
-    }
-
+    }*/
+/**/
     .requiment-staff .requiment-convertion {
         position: relative;
         margin-top: 80px;
