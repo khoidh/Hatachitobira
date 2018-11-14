@@ -1544,18 +1544,22 @@ footer .footter-mobile .a-first {
     display: none;
 }
 
-.loading-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 200;
-    background-color:rgba(0,0,0,0.5);
-}
+// .loading-overlay {
+//     position: absolute;
+//     top: 0;
+//     left: 0;
+//     width: 100%;
+//     height: 100%;
+//     z-index: 200;
+//     background-color:rgba(0,0,0,0.5);
+// }
 .loader {
     position: fixed;
     top: 50%;
     left: 50%;
     z-index: 201;
+}
+
+.loader-inner > div {
+    background-color: #111 !important;
 }
