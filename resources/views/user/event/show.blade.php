@@ -76,45 +76,102 @@
             </div>
         </div>
 
-        <div class="row justify-content-center txt-btn">
-            @php
-                $text_modal_show_infor="";
-            @endphp
-            <div class="col-sm-6">
-                @if(Auth::User())
-                    @if($event->eventstatus != '受付中' && $user_event_register == 0)
-                        @php
-                            $text_modal_show_infor= "お申し込み期間は終了いたしました。";
-                            if($event->eventstatus == '受付前')
-                                $text_modal_show_infor= "登録時間が短縮されます。"."登録時間: ".$event->time_from." ~ ".$event->time_to."。";
-                        @endphp
-                        <button type="submit" class="btn btn-primary btn-lg btn-block" data-toggle="modal"
-                                data-target="#modal_show_infor">送信
-                        </button>
-                    @elseif($event->eventstatus != '受付中' && $user_event_register == 1)
-                        <button type="submit" class="btn btn-primary btn-lg btn-block" disabled>キャンセル</button>
-                    @else
-                        @if($user_event_register == 0)
-                            <button type="submit" class="btn btn-primary btn-lg btn-block" data-toggle="modal"
-                                    data-target="#modal_event_register" data-status="1234">送信
-                            </button>
-
-                            {{--<form class="form-horizontal" action="{{route('event.update')}}" method="POST">--}}
-                                {{--{{ csrf_field() }}--}}
-                                {{--<input type="hidden" name="event_id" value="{{$event->id}}">--}}
-                                {{--<button type="submit" class="btn btn-primary btn-lg btn-block">送信</button>--}}
-                            {{--</form>--}}
-                        @else
-                            <button type="submit" class="btn btn-primary btn-lg btn-block" data-toggle="modal"
-                                    data-target="#modal_show_delete">キャンセル
-                            </button>
-                        @endif
-                    @endif
-                @else
-                    <button type="button" class="btn btn-primary btn-lg btn-block show-modal-register-mypage">送信</button>
-                @endif
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
             </div>
-        </div>
+        @endif
+
+        @php
+            $form_user_register_display='none';
+            if(Auth::User() && $event->eventstatus == '受付中' && $user_event_register == 0)
+                $form_user_register_display = 'block';
+        @endphp
+
+        <form id="form-user-register" class="form-horizontal" action="{{route('event.update')}}" method="POST"
+              style="display: {{ $form_user_register_display }}"
+        >
+            {{ csrf_field() }}
+
+            <div class="row" style="margin: 30px 0 0 0; background-color: #FAFAFA; border-radius: 5px; border: #ced4da solid 1px;">
+                <div class="modal-body" style="margin: 30px; ">
+                    <div class="form-group">
+                        <label for="school">学校・学部</label>
+                        <input type="text" class="form-control" id="school" name="school" required maxlength="50"
+                               placeholder="例) 東京大学　OO学部">
+                    </div>
+                    <div class="form-group">
+                        <label for="school_year">学年</label>
+                        <input type="text" class="form-control" id="school_year" name="school_year" required
+                               maxlength="3"
+                               onkeypress="return (event.charCode == 8 || event.charCode == 0 || event.charCode == 13) ? null : event.charCode >= 48 && event.charCode <= 57"
+                               placeholder="">
+                    </div>
+                    <div class="form-group">
+                        <label for="name">氏名</label>
+                        <input type="text" class="form-control" id="name" name="name" required maxlength="50"
+                               placeholder="例) 山田　太郎">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone_number">電話番号</label>
+                        <input type="text" class="form-control" id="phone_number" name="phone_number"
+                               onkeypress="return (event.charCode == 8 || event.charCode == 0 || event.charCode == 13 || event.charCode == 45) ? null : event.charCode >= 48 && event.charCode <= 57"
+                               required maxlength="13" placeholder="(半角英数)　例)　03-5773-6888 携帯電話番号でも可">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">メールアドレス</label>
+                        <input type="email" class="form-control" id="email" name="email" required
+                               maxlength="50" placeholder="携帯アドレスでも可">
+                    </div>
+                    <div class="form-group">
+                        <label for="question">ご不明点・質問など</label>
+                        <textarea class="form-control" type="textarea" name="question" id="question" placeholder=""
+                                  maxlength="6000" rows="7"></textarea>
+                    </div>
+
+                    <input type="hidden" name="event_id" value="{{$event->id}}">
+                </div>
+            </div>
+
+        </form>
+
+            <div class="row justify-content-center txt-btn">
+                @php
+                    $text_modal_show_infor="";
+                @endphp
+                <div class="col-sm-6">
+                    @if(Auth::User())
+                        @if($event->eventstatus != '受付中' && $user_event_register == 0)
+                            @php
+                                $text_modal_show_infor= "お申し込み期間は終了いたしました。";
+                                if($event->eventstatus == '受付前')
+                                   $text_modal_show_infor= "登録時間が短縮されます。"."登録時間: ".$event->time_from." ~ ".$event->time_to."。";
+                            @endphp
+                            <button type="submit" class="btn btn-primary btn-lg btn-block" data-toggle="modal"
+                                    data-target="#modal_show_infor">送信
+                            </button>
+                        @elseif($event->eventstatus != '受付中' && $user_event_register == 1)
+                            <button type="submit" class="btn btn-primary btn-lg btn-block" disabled>キャンセル</button>
+                        @else
+                            {{--Trong thời gian đăng ký--}}
+                            @if($user_event_register == 0)
+                                <button type="button" class="btn btn-primary btn-lg btn-block" onclick="myFunction()">送信</button>
+                            @else
+                                <button type="submit" class="btn btn-primary btn-lg btn-block" data-toggle="modal"
+                                        data-target="#modal_show_delete">キャンセル
+                                </button>
+                            @endif
+                        @endif
+                    @else
+                        <button type="button" class="btn btn-primary btn-lg btn-block show-modal-register-mypage">送信
+                        </button>
+                    @endif
+                </div>
+            </div>
     </div>
 
     {{-- Modal --}}
@@ -128,7 +185,7 @@
                     </div>
                 </div>
             </div>
-        </div>   
+        </div>
     </div>
     <div id="modal_show_delete" class="modal fade modal_register" role="dialog">
         <div class="modal-dialog" style="margin-top:130px">
@@ -149,54 +206,6 @@
                     </div>
                 </div>
             </div>
-        </div>   
-    </div>
-
-    <div id="modal_event_register" class="modal fade modal_register" role="dialog">
-        <div class="modal-dialog">
-            <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">×</button>
-                    <h4 class="modal-title"><b>イベント申し込み</b></h4>
-                </div>
-                <div class="modal-body">
-                    <form class="form-horizontal" action="{{route('event.update')}}" method="POST">
-                        {{ csrf_field() }}
-                        <div class="form-group">
-                            <label for="school">学校・学部</label>
-                            <input type="text" class="form-control" id="school" name="school" required maxlength="50" placeholder="例) 東京大学　OO学部">
-                        </div>
-                        <div class="form-group">
-                            <label for="school_year">学年</label>
-                            <input type="text" class="form-control" id="school_year" name="school_year" required maxlength="3"
-                                   onkeypress="return (event.charCode == 8 || event.charCode == 0 || event.charCode == 13) ? null : event.charCode >= 48 && event.charCode <= 57"
-                                   placeholder="">
-                        </div>
-                        <div class="form-group">
-                            <label for="name">氏名</label>
-                            <input type="text" class="form-control" id="name" name="name" required maxlength="50" placeholder="例) 山田　太郎">
-                        </div>
-                        <div class="form-group">
-                            <label for="phone_number">電話番号</label>
-                            <input type="text" class="form-control" id="phone_number" name="phone_number"
-                                   onkeypress="return (event.charCode == 8 || event.charCode == 0 || event.charCode == 13 || event.charCode == 45) ? null : event.charCode >= 48 && event.charCode <= 57"
-                                   required maxlength="13" placeholder="(半角英数)　例)　03-5773-6888 携帯電話番号でも可">
-                        </div>
-                        <div class="form-group">
-                            <label for="mail_address">Email:</label>
-                            <input type="email" class="form-control" id="mail_address" name="mail_address" required maxlength="50" placeholder="携帯アドレスでも可">
-                        </div>
-                        <div class="form-group">
-                            <label for="question">ご不明点・質問など</label>
-                            <textarea class="form-control" type="textarea" name="question" id="question" placeholder="" maxlength="6000" rows="7"></textarea>
-                        </div>
-
-                        <input type="hidden" name="event_id" value="{{$event->id}}">
-                        <button type="submit" class="btn btn-primary btn-lg btn-block">送信</button>
-                    </form>
-                </div>
-            </div>
         </div>
     </div>
 @endsection
@@ -215,10 +224,10 @@
                 $html +='<img src="{{ asset("images/register_love.png") }}">';
                 $html +='</div>';
                 $html +='<div class="form-group">';
-                $html +='<span id="first-name-err" style="color:red;font-size:12px" ></span>';
                 $html +='<div class="col-md-10 offset-md-1" style="text-align: left;">';
                 $html +='<input class="input-checkbox"  type="checkbox" id="input-check-required">';
                 $html +='<label class="lblcheckbox"><a class="link-redirect" href="/privacy-policy">利用規約</a> と <a class="link-redirect" href="/privacy-policy">プライバシーポリシー</a> に同意する </label>';
+                $html +='<span id="first-name-err" style="color:red;font-size:12px" ></span>';
                 $html +='</div>';
                 $html +='</div>';
                 $html +='<div class="form-group">';
@@ -270,10 +279,10 @@
                     $html +='<img src="{{ asset("images/register_love.png") }}">';
                     $html +='</div>';
                     $html +='<div class="form-group">';
-                    $html +='<span id="first-name-err" style="color:red;font-size:12px" ></span>';
                     $html +='<div class="col-md-10 offset-md-1" style="text-align: left;">';
                     $html +='<input class="input-checkbox"  type="checkbox" id="input-check-required">';
                     $html +='<label class="lblcheckbox"><a class="link-redirect" href="/privacy-policy">利用規約</a> と <a class="link-redirect" href="/privacy-policy">プライバシーポリシー</a> に同意する </label>';
+                    $html +='<span id="first-name-err" style="color:red;font-size:12px" ></span>';
                     $html +='</div>';
                     $html +='</div>';
                     $html +='<div class="form-group">';
@@ -291,5 +300,9 @@
                 }
             });
         })
+
+        function myFunction() {
+            document.getElementById("form-user-register").submit();
+        }
     </script>
 @endsection

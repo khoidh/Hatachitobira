@@ -46,10 +46,12 @@ class LoginController extends Controller
                 );
                 $data = User::create($dataUser);
                 Auth::login($data, true);
+                $this->redirectTo = '/?redirect-link=true';
             }
         }
         else {
             $authUser = $this->findOrCreateUser($user, $provider);
+            $this->redirectTo = '/?redirect-link=true';
             Auth::login($authUser, true);
         }
         return redirect($this->redirectTo);

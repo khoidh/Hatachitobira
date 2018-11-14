@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Validator;
 
 class EventController extends Controller
 {
@@ -89,37 +90,49 @@ class EventController extends Controller
             }
             return view('user.event.index', ['events' => $events]);
         }else {
-            $thisUser_add = $request->all();
+            $data = $request->all();
+            $validation = Validator::make($data, [
+                'school' => 'required',
+                'school_year' => 'required',
+                'name' => 'required',
+                'phone_number' => 'required',
+                'email' => 'required|string|email|max:50|min:11',
+            ]);
 
-            $userEvent = new User_event();
-            $userEvent->user_id = Auth::User()->id;
-            $userEvent->event_id = $request->event_id;
-            $userEvent->save();
+            if ($validation->fails()) {
+                return redirect()->route('event.show', $request->event_id)
+                    ->withErrors($validation)
+                    ->withInput();
+            }else {
 
-            $thisUser = User_event::select()
-                ->select('events.*','users.*')
-                ->join('events','events.id','=','user_events.event_id')
-                ->join('users','users.id','=','user_events.user_id')
-                ->where('user_events.id',$userEvent->id)
-                ->first();
+                $userEvent = new User_event();
+                $userEvent->user_id = Auth::User()->id;
+                $userEvent->event_id = $request->event_id;
+                $userEvent->save();
 
-            $thisUser_add=array_merge($thisUser_add, $thisUser->getAttributes());
-            Mail::send('email.eventusers',compact('thisUser_add'),
-               function($mail) use($thisUser)
-               {
-                   $mail->to($thisUser->email)->subject($thisUser->title.'｜申込確認メール');
-               }
-            );
-            Mail::send('email.eventusers',compact('thisUser_add'),
-               function($mail) use($thisUser)
-               {
-                   $mail->to(config('mail.mail_admin'))->subject($thisUser->title.'｜申込確認メール');
-               }
-            );
+                $thisUser = User_event::select()
+                    ->select('events.*', 'users.*')
+                    ->join('events', 'events.id', '=', 'user_events.event_id')
+                    ->join('users', 'users.id', '=', 'user_events.user_id')
+                    ->where('user_events.id', $userEvent->id)
+                    ->first();
 
-            return view('user.event.thank_event',['thisUser' => $thisUser]);
+                $thisUser_add = array_merge($data, $thisUser->getAttributes());
+                Mail::send('email.eventusers', compact('thisUser_add'),
+                    function ($mail) use ($thisUser) {
+                        $mail->to($thisUser->email)->subject($thisUser->title . '｜申込確認メール');
+                    }
+                );
+                Mail::send('email.eventusers', compact('thisUser_add'),
+                    function ($mail) use ($thisUser) {
+                        $mail->to(config('mail.mail_admin'))->subject($thisUser->title . '｜申込確認メール');
+                    }
+                );
+
+                return view('user.event.thank_event', ['thisUser' => $thisUser]);
+            }
         }
-           
+
     }
 
     public function delete(Request $request){

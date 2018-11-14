@@ -151,6 +151,7 @@
     padding: 5px 20px;
     font-size: 13px;
     border-radius: 0 0 13px 13px;
+    white-space: nowrap;
 }
 
 .video .favorite {
@@ -186,17 +187,16 @@
 .video .description p{
     font-size: 16px;
     margin-top: 10px;
+    margin-bottom: 0px;
 }
 
 .video .description {
     padding-bottom: 10px;
+    height: 50px;
 }
 
 .video .description span{
     font-size: 12px;
-    position: absolute;
-    bottom: 0;
-    left: 0;
 }
 
 .video .paging {

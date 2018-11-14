@@ -139,6 +139,8 @@ return [
         'question_type' => 'お問い合わせ内容',
         'phone_number' => '電話番号',
         'company' => '企業名',
+        'school' => '学校・学部',
+        'school_year' => '学年'
     ],
 
 ];

@@ -68,9 +68,9 @@
             @yield('content')
             @include('includes.footer')
             @include('includes.login')
+            @include('includes.loader')
         </div>
     </div>
-
     <!-- Scripts -->
     @section('javascript-add')
     @show

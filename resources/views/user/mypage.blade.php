@@ -6,6 +6,7 @@
     <link href="{{ asset('css/iziToast.min.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/slick/slick.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/dropzone/basic.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/bootstrap-tagsinput.css') }}" rel="stylesheet">
 @endsection
 @section('page_title', 'マイページ')
 @section('description', '学校と社会をつなぐ「ハタチのトビラ」のマイページです。月単位で、「私が、探求したいこと」であるマイテーマや、自分の行動を記録してみましょう。')
@@ -53,8 +54,8 @@
                         <div class="underline">&nbsp;MEMO&nbsp;</div>
                     </div>
                     <div class="col-sm-10 col-8 memo-input">
-                        <input type="text" name="" class="input-memo" data-month="{{isset($mytheme_first->month) ? $mytheme_first->month : $data_date['month']}}" 
-                                            data-year="{{isset($mytheme_first->year) ? $mytheme_first->year : $data_date['year']}}"  placeholder="先月の行動を振り返り記録しよう" value="{{$mytheme_first? $mytheme_first->memo : ''}}">
+                        <textarea type="text" name="" class="input-memo" data-month="{{isset($mytheme_first->month) ? $mytheme_first->month : $data_date['month']}}" 
+                                            data-year="{{isset($mytheme_first->year) ? $mytheme_first->year : $data_date['year']}}"  placeholder="先月の行動を振り返り記録しよう"> {{$mytheme_first? $mytheme_first->memo : ''}}</textarea>
                     </div>
                 </div>
                 <hr class="shape-8"/>
@@ -291,7 +292,7 @@
                                 </div>
                             @empty
                             <span class="more-detail" style="width: 100%;top: 0;">
-                            <a href="{{url('video')}}" style="color: #111111;"><b>MORE</b><img src="{{asset('images/user/top/arrow-1.png')}}"></a></span>
+                            <a href="{{url('video')}}" style="color: #111111;margin-left: 13px"><b>MORE</b><img src="{{asset('images/user/top/arrow-1.png')}}"></a></span>
                             @endforelse
                         </div>
                      </div>

@@ -31,7 +31,7 @@ class EventRequest extends FormRequest
             'sort'          => 'required|integer|min:0',
             'time_from'     => 'required|date',
             'time_to'       => 'required|date|after:time_from',
-            'started_at'    => 'required|date',
+            'started_at'    => 'required|date|after:time_to',
             'closed_at'     => 'required|date|after:started_at',
             'address'       => 'required|max:256',
             'overview'      => 'required|max:10000',

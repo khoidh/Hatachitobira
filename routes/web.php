@@ -87,6 +87,7 @@ Route::group(['middleware' => 'auth:user'],function ()
 
     Route::get('my-page','User\MypageController@index')->name('mypage.index');
     Route::post('file-upload','User\MypageController@uploadImage');
+    Route::get('file-upload-remove','User\MypageController@uploadImageDelete');
     Route::post('change-lable','User\MypageController@changeLable')->name('mypage.change-lable');
     Route::post('change-content','User\MypageController@changeContent')->name('mypage.change-content');
     Route::post('change-content-child','User\MypageController@changeContentChild')->name('mypage.change-content-child');

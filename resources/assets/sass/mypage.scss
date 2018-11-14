@@ -273,7 +273,7 @@
         text-align: center;
         //font-size: 60px;
         color: $black-color;
-
+        z-index: 999;
         .fa {
             cursor: pointer;
         }
@@ -347,6 +347,7 @@
                     border: 2px solid $black-color;
                     border-radius: 30px;
                     padding: 10px 20px;
+                    line-height: 2;
                     .label-info {
                         color: black;
                         padding: 5px;
@@ -359,7 +360,15 @@
             }
         }
     }
-
+    textarea.input-memo {
+        background: none;
+        border: none;
+        width: 100%;
+        resize: none;
+        @include only-for-mobile() {
+            line-height: 1.7
+        }
+    }
     .panel-info {
         padding-top: 32px;
         .row{
@@ -408,6 +417,7 @@
                     @include only-for-mobile() {
                         padding: 0
                     }
+
                     .edit-input-lable_1,
                     .edit-input-lable, {
                         background: none;
@@ -818,6 +828,8 @@
                 color: $black-color;
 
                 img {
+                    max-width: 300px;
+                    max-height: 300px;
                     width: 100%;
                     height: auto;
                 }

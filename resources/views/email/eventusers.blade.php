@@ -17,7 +17,7 @@
 <div>学年          : {{$thisUser_add['school_year'] }}</div>
 <div>申込み者のお名前: {{$thisUser_add['name'] }}</div>
 <div>お電話番号     : {{$thisUser_add['phone_number'] }}</div>
-<div>メールアドレス : {{$thisUser_add['mail_address'] }}</div>
+<div>メールアドレス : {{$thisUser_add['email'] }}</div>
 <div>質問          : {!! nl2br($thisUser_add['question']) !!}</div>
 <div>-----</div>
 <br>

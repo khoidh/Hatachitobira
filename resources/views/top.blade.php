@@ -195,17 +195,22 @@ $description = '学校と社会をつなぐ「ハタチのトビラ」は、将�
                     <p class="movie-top-description">コンセプトムービー</p>
                     <div class="corner-wrapper video">
                         <div class="video-list">
-                            @if(isset($videos) && $videos->count() > 0)
+                            @if(isset($video_concept) && $video_concept->count() > 0)
                             <div class="video-detail">
                                 <div class="wrapper">
                                     <div class="thump">
-                                        <div class="browse-details" data-id='{{$videos->id}}' data-src='{{$videos->embedHtml}}' data-url = "{{$videos->url}}">
+                                        <div class="browse-details" data-id='{{$video_concept->id}}' data-src='{{$video_concept->embedHtml}}' data-url = "{{$video_concept->url}}">
                                             <img src="{{ asset('images/user/video/btn-play.png')}}" alt="" >
                                         </div>
                                         <a href="#">
-                                            <img class="img-icon" src="{{  $videos->thumbnails}}" alt="{{$videos->title}}">
+                                            <img class="img-icon" src="{{  $video_concept->thumbnails}}" alt="{{$video_concept->title}}">
                                         </a>
-                                        <p class="video-title">{{ substr($videos->title, 0,50)}} {{strlen($videos->title) > 50 ? '...' : ''}}</p>
+                                        <?php 
+                                            $title = $video_concept->title;
+                                            substr($title, 0,50);
+                                        ?> 
+                                        <p class="video-title">{{$title}} {{strlen($video_concept->title) > 50 ? '...' : ''}}</p>
+
                                     </div>
                                 </div>
                             </div>
@@ -284,7 +289,11 @@ $description = '学校と社会をつなぐ「ハタチのトビラ」は、将�
                                                 <a href="#">
                                                     <img class="img-icon" src="{{  $result->thumbnails}}" alt="{{$result->title}}">
                                                 </a>
-                                                <p class="video-title">{{ substr($result->title, 0,50)}} {{strlen($result->title) > 50 ? '...' : ''}}</p>
+                                                <?php 
+                                                    $title = $result->title;
+                                                    substr($title, 0,50);
+                                                ?> 
+                                                <p class="video-title">{{ $title }} {{strlen($result->title) > 50 ? '...' : ''}}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -307,7 +316,11 @@ $description = '学校と社会をつなぐ「ハタチのトビラ」は、将�
                                                 <a href="#">
                                                     <img class="img-icon" src="{{  $result->thumbnails}}" alt="{{$result->title}}">
                                                 </a>
-                                                <p class="video-title sub-title">{{ substr($result->title, 0,50)}} {{strlen($result->title) > 50 ? '...' : ''}}</p>
+                                                <?php 
+                                                    $title = $result->title;
+                                                    substr($title, 0,50);
+                                                ?> 
+                                                <p class="video-title sub-title">{{ $title }} {{strlen($result->title) > 50 ? '...' : ''}}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -328,7 +341,11 @@ $description = '学校と社会をつなぐ「ハタチのトビラ」は、将�
                                                 <a href="#">
                                                     <img class="img-icon" src="{{  $result->thumbnails}}" alt="{{$result->title}}">
                                                 </a>
-                                                <p class="video-title sub-title">{{ substr($result->title, 0,50)}} {{strlen($result->title) > 50 ? '...' : ''}}</p>
+                                                <?php 
+                                                    $title = $result->title;
+                                                    substr($title, 0,50);
+                                                ?> 
+                                                <p class="video-title sub-title">{{ $title }} {{strlen($result->title) > 50 ? '...' : ''}}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -364,7 +381,11 @@ $description = '学校と社会をつなぐ「ハタチのトビラ」は、将�
                                                 <a href="#">
                                                     <img class="img-icon" src="{{  $result->thumbnails}}" alt="{{$result->title}}">
                                                 </a>
-                                                <p class="video-title">{{ substr($result->title, 0,50)}} {{strlen($result->title) > 50 ? '...' : ''}}</p>
+                                                <?php 
+                                                    $title = $result->title;
+                                                    substr($title, 0,50);
+                                                ?> 
+                                                <p class="video-title">{{ $title }} {{strlen($result->title) > 50 ? '...' : ''}}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -387,7 +408,11 @@ $description = '学校と社会をつなぐ「ハタチのトビラ」は、将�
                                                 <a href="#">
                                                     <img class="img-icon" src="{{  $result->thumbnails}}" alt="{{$result->title}}">
                                                 </a>
-                                                <p class="video-title sub-title">{{ substr($result->title, 0,50)}} {{strlen($result->title) > 50 ? '...' : ''}}</p>
+                                                <?php 
+                                                    $title = $result->title;
+                                                    substr($title, 0,50);
+                                                ?> 
+                                                <p class="video-title sub-title">{{ $title }} {{strlen($result->title) > 50 ? '...' : ''}}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -408,7 +433,11 @@ $description = '学校と社会をつなぐ「ハタチのトビラ」は、将�
                                                 <a href="#">
                                                     <img class="img-icon" src="{{  $result->thumbnails}}" alt="{{$result->title}}">
                                                 </a>
-                                                <p class="video-title sub-title">{{ substr($result->title, 0,50)}} {{strlen($result->title) > 50 ? '...' : ''}}</p>
+                                                <?php 
+                                                    $title = $result->title;
+                                                    substr($title, 0,50);
+                                                ?> 
+                                                <p class="video-title sub-title">{{ $title }} {{strlen($result->title) > 50 ? '...' : ''}}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -534,6 +563,8 @@ $description = '学校と社会をつなぐ「ハタチのトビラ」は、将�
             $('.bx_header .navbar-nav.mr-auto').append('<li class="nav-item"><a class="nav-link link-append" href="{{url("my-page")}}">マイテーマを見つける</a></li>');
             $('.bx_header .navbar-nav.mr-auto').css('align-items','flex-start');
             $('.bx_header .navbar-nav.mr-auto').css('font-weight','bold');
+            $('.bx_header .navbar-nav.mr-auto').css('background-color','#fff');
+            $('.bx_header .navbar-nav.mr-auto').css('margin-top','15px');
             $('.bx_header .nav-item').addClass('aaaafixed');
             $('.banner.figure').append('<a class="link-my-page {{Auth::Guest() ? "show-modal-register-mypage" : ""}}" href="{{url("my-page")}}">マイテーマを見つける</a>');
 
@@ -576,6 +607,50 @@ $description = '学校と社会をつなぐ「ハタチのトビラ」は、将�
            
         }
         $(document).ready(function() {
+
+            function GetURLParameter(sParam) {
+                var sPageURL = window.location.search.substring(1);
+                var sURLVariables = sPageURL.split('&');
+                for (var i = 0; i < sURLVariables.length; i++){
+                    var sParameterName = sURLVariables[i].split('=');
+                    if (sParameterName[0] == sParam)
+                    {
+                        return sParameterName[1];
+                    }
+                }
+            }
+
+            tech = GetURLParameter('redirect-link');
+            if (tech == 'true') {
+                $html = '<div class ="form-register-last">'
+                $html += '<div class="form-group">';
+                $html +='<h3>会員登録が完了しました!</h3>';
+                $html +=' </div>';
+                $html += '<div class="form-group">';
+                $html +='<label for="name" class="control-label">マイテーマを探すために、</label>';
+                $html +=' </div>';
+                $html += '<div class="form-group">';
+                $html +='<label for="name" class="control-label">気になる動画の収集や、個人の活動の記録を</label>';
+                $html +=' </div>';
+                $html += '<div class="form-group">';
+                $html +='<label for="name" class="control-label">管理していきましょう。</label>';
+                $html +=' </div>';
+                $html += '<div class="form-group" style="margin-bottom: 28px; margin-top: 30px;">';
+                $html +='<img class="image-register" src="{{ asset("images/register_1.png") }}">';
+                $html +=' </div>';
+                $html += '<div class="form-group">';
+                $html += '<div class="col-md-12">'
+                $html +='<a  class="btn btn-warning" href="{{route("mypage.index")}}">MY PAGEへ</a>';
+                $html +=' </div>';
+                $html +=' </div>';
+                $html +=' </div>';
+                $('#modal_register').find('.panel-body').addClass('form-horizontal');
+                $('#modal_register').find('.panel-body').html($html);
+                $('#modal_register').modal('show');
+            }
+
+
+            
             $("#modal_video").on('hide.bs.modal', function(){
                 $("iframe").attr('src', '');
             });
@@ -635,10 +710,11 @@ $description = '学校と社会をつなぐ「ハタチのトビラ」は、将�
                         $html +='<img src="{{ asset("images/register_love.png") }}">';
                     $html +='</div>';
                     $html +='<div class="form-group">';
-                            $html +='<span id="first-name-err" style="color:red;font-size:12px" ></span>';
                         $html +='<div class="col-md-10 offset-md-1" style="text-align: left;">';
                             $html +='<input class="input-checkbox"  type="checkbox" id="input-check-required">';
                             $html +='<label class="lblcheckbox"><a class="link-redirect" href="/privacy-policy">利用規約</a> と <a class="link-redirect" href="/privacy-policy">プライバシーポリシー</a> に同意する </label>';
+                            $html +='<span id="first-name-err" style="color:red;font-size:12px" ></span>';
+                            
                         $html +='</div>';
                     $html +='</div>';
                     $html +='<div class="form-group">';
@@ -686,10 +762,11 @@ $description = '学校と社会をつなぐ「ハタチのトビラ」は、将�
                     $html +='<img src="{{ asset("images/register_mypage.png") }}">';
                 $html +='</div>';
                 $html +='<div class="form-group">';
-                        $html +='<span id="first-name-err" style="color:red;font-size:12px" ></span>';
                     $html +='<div class="col-md-10 offset-md-1" style="text-align: left;">';
                         $html +='<input class="input-checkbox"  type="checkbox" id="input-check-required">';
                         $html +='<label class="lblcheckbox"><a class="link-redirect" href="/privacy-policy">利用規約</a> と <a class="link-redirect" href="/privacy-policy">プライバシーポリシー</a> に同意する </label>';
+                        $html +='<span id="first-name-err" style="color:red;font-size:12px" ></span>';
+
                     $html +='</div>';
                 $html +='</div>';
                 $html +='<div class="form-group">';
