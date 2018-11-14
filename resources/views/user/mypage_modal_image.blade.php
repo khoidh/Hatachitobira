@@ -20,9 +20,9 @@
         <input type="text" name="description" class="image-description" placeholder="Description" value="{{isset($result) ? $result->content_1 : ''}}">
     </div>
     <input type="hidden" name="content_lable" value="" id="content_label">
-    <input type="hidden" name="month" value="{{isset($result->month) ? $result->month : $data['month']}}">
-    <input type="hidden" name="year" value="{{isset($result->year) ? $result->year : $data['year']}}">
-    <input type="hidden" name="category_id" value="{{isset($result->category_id) ? $result->category_id : $data['category_id']}}">
+    <input type="hidden" name="month" id="data-month" value="{{isset($result->month) ? $result->month : $data['month']}}">
+    <input type="hidden" name="year" id="data-year" value="{{isset($result->year) ? $result->year : $data['year']}}">
+    <input type="hidden" name="category_id" id="data-cat_id" value="{{isset($result->category_id) ? $result->category_id : $data['category_id']}}">
     <input type="hidden" name="id" value="{{isset($result) ? $result->id : ''}}">
     <input type="hidden" name="memo" value="{{isset($result_1) ? $result_1->memo : ''}}">
     <input type="hidden" name="last_log" value="{{isset($result_1) ? $result_1->last_log : ''}}">
@@ -41,18 +41,25 @@
         addRemoveLinks: true,
         maxFiles: 1
       });
+      myDropzone.on("removedfile", function(file) {
+        $('#tmppath').val('no_image.png');
+        $.ajax({
+            url : '{{url("file-upload-remove?category_id=")}}'+ $('#data-cat_id').val() +'&year='+$('#data-year').val()+'&month='+$('#data-month').val(),
+        })
+      });
       myDropzone.on("complete", function(file) {
         console.log(file.xhr)
         $('#dissmiss_modal_show').addClass('editing');
         var responseText = file.xhr.responseText.replace('"', "");
         responseText = responseText.replace('"', "");
-        console.log(responseText)
         $('#tmppath').val(responseText);
       });
-      var file_name = "{{ isset($result) && $result->content_lable ? $result->content_lable : 'no_image.png' }}";
+      var file_name = "{{ isset($result) && $result->content_lable ? $result->content_lable : '' }}";
       var mockFile = { name: file_name, size: 12345 };
-      myDropzone.options.addedfile.call(myDropzone, mockFile);
-      myDropzone.options.thumbnail.call(myDropzone, mockFile, "{{ asset('images/user/mypage')}}"+'/'+ file_name);
+      if (file_name != '') {
+        myDropzone.options.addedfile.call(myDropzone, mockFile);
+        myDropzone.options.thumbnail.call(myDropzone, mockFile, "{{ asset('images/user/mypage')}}"+'/'+ file_name);
+      }
 
     })
 </script>

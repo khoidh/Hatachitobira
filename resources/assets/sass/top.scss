@@ -273,7 +273,7 @@ body {
 
 .top .content-last .content-text.col-md-10 {
     @include only-for-mobile() {
-        margin-left: 0px;
+        margin-left: 12px;
     }
 }
 

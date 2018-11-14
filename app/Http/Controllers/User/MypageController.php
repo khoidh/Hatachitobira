@@ -110,6 +110,13 @@ class MypageController extends Controller
         return view('user.mypage', $array);
     }
 
+    public function uploadImageDelete(Request $request) {
+        $data = $request->all();
+        $user_id = Auth::User()->id;
+        Mytheme::where('user_id',$user_id)->where('month',$data['month'])->where('year',$data['year'])->where('category_id',$data['category_id'])->delete();
+        return json_encode('deleted');
+    }
+
     public function uploadImage(Request $request) {
         $data = $request->all();
 
