@@ -42,8 +42,8 @@
         </div>
     </div>
     <div class="row link-assosial {{Auth::User() ? 'logined' :''}}">
-        <a class="icon-link first" href="http://line.me/ti/p/%40uzx8009a"><img src="{{ asset('images/user/top/footer-icon-1.png') }}" alt=""></a>
-        <a class="icon-link" href="https://www.youtube.com/channel/UCUcAny1-bt4V-TB6UaBEkiw" target="_blank"><img src="{{ asset('images/user/top/footer-icon.png') }}" alt=""></a>
+        <a class="icon-link first line" href="http://line.me/ti/p/%40uzx8009a"><img src="{{ asset('images/user/top/icon-line.png') }}" alt="LINE@"></a>
+        <a class="icon-link youtube" href="https://www.youtube.com/channel/UCUcAny1-bt4V-TB6UaBEkiw" target="_blank"><img src="{{ asset('images/user/top/icon-youtube.png') }}" alt="Youtube"></a>
         <a class="icon-link" href="https://twitter.com/hatachi_tobira" target="_blank"><i class="fa fa-2x fa-twitter" aria-hidden="true"></i></a>
         <a class="icon-link" href="https://www.facebook.com/hatachinotobira/" target="_blank"><i class="fa fa-2x fa-facebook" aria-hidden="true"></i></a>
         <a class="icon-link" href="https://www.instagram.com/hatachi_tobira/" target="_blank"><i class="fa fa-2x fa-instagram" aria-hidden="true"></i></a>

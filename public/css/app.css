@@ -874,6 +874,11 @@ footer .logo {
   width: 230px;
 }
 
+footer .link-assosial .line img,
+footer .link-assosial .youtube img {
+  height: 23px;
+}
+
 footer .border-footer {
   border-top: 1px solid #656464;
   margin-top: 15px;
