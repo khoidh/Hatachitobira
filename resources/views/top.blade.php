@@ -181,17 +181,21 @@
                     <p class="movie-top-description">コンセプトムービー</p>
                     <div class="corner-wrapper video">
                         <div class="video-list">
-                            @if(isset($videos) && $videos->count() > 0)
+                            @if(isset($video_concept) && $video_concept->count() > 0)
                             <div class="video-detail">
                                 <div class="wrapper">
                                     <div class="thump">
-                                        <div class="browse-details" data-id='{{$videos->id}}' data-src='{{$videos->embedHtml}}' data-url = "{{$videos->url}}">
+                                        <div class="browse-details" data-id='{{$video_concept->id}}' data-src='{{$video_concept->embedHtml}}' data-url = "{{$video_concept->url}}">
                                             <img src="{{ asset('images/user/video/btn-play.png')}}" alt="" >
                                         </div>
                                         <a href="#">
-                                            <img class="img-icon" src="{{  $videos->thumbnails}}" alt="{{$videos->title}}">
+                                            <img class="img-icon" src="{{  $video_concept->thumbnails}}" alt="{{$video_concept->title}}">
                                         </a>
-                                        <p class="video-title">{{ substr($videos->title, 0,50)}} {{strlen($videos->title) > 50 ? '...' : ''}}</p>
+                                        <?php 
+                                            $title = $video_concept->title;
+                                            substr($title, 0,50);
+                                        ?> 
+                                        <p class="video-title">{{$title}} {{strlen($video_concept->title) > 50 ? '...' : ''}}</p>
                                     </div>
                                 </div>
                             </div>
@@ -270,7 +274,11 @@
                                                 <a href="#">
                                                     <img class="img-icon" src="{{  $result->thumbnails}}" alt="{{$result->title}}">
                                                 </a>
-                                                <p class="video-title">{{ substr($result->title, 0,50)}} {{strlen($result->title) > 50 ? '...' : ''}}</p>
+                                                <?php 
+                                                    $title = $result->title;
+                                                    substr($title, 0,50);
+                                                ?> 
+                                                <p class="video-title">{{ $title }} {{strlen($result->title) > 50 ? '...' : ''}}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -293,7 +301,11 @@
                                                 <a href="#">
                                                     <img class="img-icon" src="{{  $result->thumbnails}}" alt="{{$result->title}}">
                                                 </a>
-                                                <p class="video-title sub-title">{{ substr($result->title, 0,50)}} {{strlen($result->title) > 50 ? '...' : ''}}</p>
+                                                <?php 
+                                                    $title = $result->title;
+                                                    substr($title, 0,50);
+                                                ?> 
+                                                <p class="video-title sub-title">{{ $title }} {{strlen($result->title) > 50 ? '...' : ''}}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -314,7 +326,11 @@
                                                 <a href="#">
                                                     <img class="img-icon" src="{{  $result->thumbnails}}" alt="{{$result->title}}">
                                                 </a>
-                                                <p class="video-title sub-title">{{ substr($result->title, 0,50)}} {{strlen($result->title) > 50 ? '...' : ''}}</p>
+                                                <?php 
+                                                    $title = $result->title;
+                                                    substr($title, 0,50);
+                                                ?> 
+                                                <p class="video-title sub-title">{{ $title }} {{strlen($result->title) > 50 ? '...' : ''}}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -350,7 +366,11 @@
                                                 <a href="#">
                                                     <img class="img-icon" src="{{  $result->thumbnails}}" alt="{{$result->title}}">
                                                 </a>
-                                                <p class="video-title">{{ substr($result->title, 0,50)}} {{strlen($result->title) > 50 ? '...' : ''}}</p>
+                                                <?php 
+                                                    $title = $result->title;
+                                                    substr($title, 0,50);
+                                                ?> 
+                                                <p class="video-title">{{ $title }} {{strlen($result->title) > 50 ? '...' : ''}}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -373,7 +393,11 @@
                                                 <a href="#">
                                                     <img class="img-icon" src="{{  $result->thumbnails}}" alt="{{$result->title}}">
                                                 </a>
-                                                <p class="video-title sub-title">{{ substr($result->title, 0,50)}} {{strlen($result->title) > 50 ? '...' : ''}}</p>
+                                                <?php 
+                                                    $title = $result->title;
+                                                    substr($title, 0,50);
+                                                ?> 
+                                                <p class="video-title sub-title">{{ $title }} {{strlen($result->title) > 50 ? '...' : ''}}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -394,7 +418,11 @@
                                                 <a href="#">
                                                     <img class="img-icon" src="{{  $result->thumbnails}}" alt="{{$result->title}}">
                                                 </a>
-                                                <p class="video-title sub-title">{{ substr($result->title, 0,50)}} {{strlen($result->title) > 50 ? '...' : ''}}</p>
+                                                <?php 
+                                                    $title = $result->title;
+                                                    substr($title, 0,50);
+                                                ?> 
+                                                <p class="video-title sub-title">{{ $title }} {{strlen($result->title) > 50 ? '...' : ''}}</p>
                                             </div>
                                         </div>
                                     </div>
