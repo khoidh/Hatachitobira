@@ -2142,7 +2142,7 @@
 }
 
 .home .main .title-lx {
-  font-family: Oswald, sans-serif;
+  font-family: "Oswald", sans-serif;
   background: #fff100;
   color: #fffa9d;
   display: block;
@@ -2172,7 +2172,7 @@
 }
 
 .home .main .title-lx .container .relative .info .absolute {
-  font-family: "Raleway", sans-serif !important;
+  font-family: "Kozuka Gothic Pr6N" !important;
   font-size: 20px;
   position: absolute;
   color: #111111;

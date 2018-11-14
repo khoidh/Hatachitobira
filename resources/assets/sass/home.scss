@@ -3,7 +3,7 @@
     min-height: 175px;
     margin-bottom: 30px;
     .title-lx{
-      font-family: Oswald, sans-serif;
+      font-family: $font-family-oswald;
       background: $yellow-color;
       color: #fffa9d;
       display: block;
@@ -24,7 +24,7 @@
             margin-left: -5px;
           }
           .absolute{
-            font-family: $font-family-sans-serif !important;
+            font-family: $font-family-gothic !important;
             font-size: 20px;
             position: absolute;
             color: $black-color;
