@@ -60,10 +60,10 @@
                 </div>
                 <hr class="shape-8"/>
                 <div class="row log">
-                    <div class="col-sm-2 col-4 log-text">
+                    <div class="col-sm-2 log-text">
                         <div class="underline">&nbsp;先月のログ&nbsp;</div>
                     </div>
-                    <div class="col-sm-10 col-8 log-input">
+                    <div class="col-sm-10 log-input">
                         <input type="text" name="" class="input-lat-log" data-role="tagsinput" data-month="{{isset($mytheme_first->month) ? $mytheme_first->month : $data_date['month']}}" 
                                             data-year="{{isset($mytheme_first->year) ? $mytheme_first->year : $data_date['year']}}" placeholder="先月の自分を#で記録しよう　#バイト三昧　#初ボランティア" value="{{$mytheme_first ? $mytheme_first->last_log : ''}}">
 
@@ -279,16 +279,10 @@
                                             </a>
                                         </div>
                                         <div class="description">
-                                            <p>
-                                                <?php 
-                                                    $title = $result->title;
-                                                    substr($title, 0,10);
-                                                    echo $title. '...';
-                                                ?>
-                                            </p>
+                                            <p>{{ $result->title }}</p>
                                             <span>{{$result->viewCount}} Views / {{$result->date_diff}} month ago / {{$result->category_name}}</span>
-                                         </div>
-                                     </div>
+                                        </div>
+                                    </div>
                                 </div>
                             @empty
                             <span class="more-detail" style="width: 100%;top: 0;">
@@ -450,7 +444,7 @@
                         </div>
                     </div>
                     <div class="event-information-wrapper col-md-12 clearfix">
-                        <textarea style="width: 100%;border: none;" type="text" rows="3" name="action-of-month" class="input-action" data-month="{{isset($mytheme_first->month) ? $mytheme_first->month : $data_date['month']}}" 
+                        <textarea style="width: 100%;border: none;" type="text" rows="3" id="action-of-month" name="action-of-month" class="input-action" data-month="{{isset($mytheme_first->month) ? $mytheme_first->month : $data_date['month']}}" 
                                             data-year="{{isset($mytheme_first->year) ? $mytheme_first->year : $data_date['year']}}" placeholder="考えたいこと、行動したいことを3つ決めよう">{{$mytheme_first ? $mytheme_first->this_action : ''}}</textarea>
                     </div>
                 </div>
@@ -1007,6 +1001,14 @@
                     _this.parents('.panel-info-content').find('.edit-input-lable').addClass('editing');
                 }   
             })
+        })
+
+        $('#show-detail-mypage').on('shown.bs.modal', function () {
+            $('#value-lable-main').focus();
+        })
+
+        $('#modal_action').on('shown.bs.modal', function () {
+            $('#action-of-month').focus();
         })
 
         $(document).on('click','.favorite.edit.image .fa-pencil',function(e){

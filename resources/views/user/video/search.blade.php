@@ -16,7 +16,7 @@
                 {{-- <p class="video-title sub-title">{{ $title }} {{strlen($result->title) > 50 ? '...' : ''}}</p> --}}
             </div>
             <div class="description">
-                <p>{{ $title }} {{strlen($result->title) > 50 ? '...' : ''}}</p>
+                <p>{{ $title }}</p>
                 <span>{{$result->viewCount}} Views /{{ $result->date_diff }} month ago /{{$result->category_name}}</span>
             </div>
         </div>

@@ -961,7 +961,6 @@
                     z-index: 123;
                     background: none;
                     border: none;
-                    left: 26px;
                     height: 80px;
                     resize: none;
                 }
@@ -970,7 +969,7 @@
 
         .title-detail {
             margin-top: 1px;
-            background-image: url('/image/mypage/back-gr-modal.png');
+            background-image: url('/images/user/mypage/back-gr-modal.png');
             height: 52px;
             background-size: 100%;
             background-position: center;
@@ -979,7 +978,6 @@
             background-repeat: no-repeat;
             span {
                 position: relative;
-                top: 3px;
                 font-weight: bold;
                 font-size: 24px
             }
@@ -993,7 +991,6 @@
                     z-index: 123;
                     background: none;
                     border: none;
-                    left: 26px;
                     height: 80px;
                     resize: none;
                     border-bottom: 1px solid;

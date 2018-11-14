@@ -4787,9 +4787,6 @@ footer .footter-mobile .a-first {
 }
 
 .video .video-detail span {
-  position: absolute;
-  bottom: 0;
-  left: 15px;
   font-size: 12px;
 }
 
@@ -5907,14 +5904,13 @@ footer .footter-mobile .a-first {
   z-index: 123;
   background: none;
   border: none;
-  left: 26px;
   height: 80px;
   resize: none;
 }
 
 #show-detail-mypage .modal-content .title-detail {
   margin-top: 1px;
-  background-image: url("/image/mypage/back-gr-modal.png");
+  background-image: url("/images/user/mypage/back-gr-modal.png");
   height: 52px;
   background-size: 100%;
   background-position: center;
@@ -5925,7 +5921,6 @@ footer .footter-mobile .a-first {
 
 #show-detail-mypage .modal-content .title-detail span {
   position: relative;
-  top: 3px;
   font-weight: bold;
   font-size: 24px;
 }
@@ -5936,7 +5931,6 @@ footer .footter-mobile .a-first {
   z-index: 123;
   background: none;
   border: none;
-  left: 26px;
   height: 80px;
   resize: none;
   border-bottom: 1px solid;
@@ -6502,7 +6496,7 @@ footer .footter-mobile .a-first {
   line-height: 1.5;
   font-size: 18px;
   font-weight: bold;
-  background-image: url("/image/requiment/background.png");
+  background-image: url("/images/user/requiment/background.png");
   background-repeat: no-repeat;
   background-position: center;
 }
@@ -10265,6 +10259,11 @@ pre code {
 }
 
 .form-control::-webkit-input-placeholder {
+  color: #6c757d;
+  opacity: 1;
+}
+
+.form-control:-ms-input-placeholder {
   color: #6c757d;
   opacity: 1;
 }
