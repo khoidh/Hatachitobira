@@ -259,6 +259,10 @@ body {
 
 .top .img-cat {
     margin: 0 25px 30px 0;
+    &:hover, &.selected {
+       -webkit-filter: invert(1);
+        filter: invert(1);
+    }
 }
 
 .top .movie-top-text,

@@ -2464,6 +2464,12 @@ body {
   margin: 0 25px 30px 0;
 }
 
+.top .img-cat:hover,
+.top .img-cat.selected {
+  -webkit-filter: invert(1);
+  filter: invert(1);
+}
+
 .top .movie-top-text,
 .top .more-detail {
   font-size: 24px;

@@ -34,7 +34,7 @@
             width: 100%;
             cursor: pointer;
 
-          &:hover,  &.selected{
+            &:hover, &.selected {
                -webkit-filter: invert(1);
                 filter: invert(1);
             }
