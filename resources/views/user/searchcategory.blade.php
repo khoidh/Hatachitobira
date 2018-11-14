@@ -28,7 +28,7 @@
 
 
 <div class="container searchcategory">
-    <div class="row">
+    <div class="row fix-mb">
         @foreach($categories as $categorie)
         <div class="image-category">
             <img class="img-cat-detail {{$categorie->slug == $slug ? 'selected' : ''}}" data-id="{{$categorie->id}}" src="{{ asset('images/admin/category/'.$categorie->icon) }}" alt="{{$categorie->name}}">
