@@ -2215,11 +2215,11 @@ body {
 
 #myHeader .bx_header {
   position: relative;
-  top: -110px;
+  top: -110px !important;
 }
 
 #myHeader.fixed .bx_header {
-  top: 0;
+  top: 0 !important;
 }
 
 .dropdown-menu.show {
