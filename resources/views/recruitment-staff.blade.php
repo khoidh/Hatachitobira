@@ -4,8 +4,6 @@
 @endsection
 @section('page_title', '企業採用担当の方へ')
 @section('description', '「ハタチのトビラ」サービスの企業採用担当の方向けのページです。')
-@section('title-e', 'RECRUITMENT STAFF')
-@section('title-j', '企業採用担当の方へ ')
 @section('main')
     <div class="container-fluid recruiment">
         <div class="main row">
@@ -13,12 +11,10 @@
                 <div class="container">
                     <div class="relative row">
                         <div class="info col-md-12">
-                            <span class="title-e">@yield('title-e','RECRUITMENT STAFF')</span>
-                            <div class="absolute">
-                                <p style="margin-bottom: 0">@yield('title-black')</p>
-                                <p style="margin-bottom: 0"><span class="title-j"> @yield('title-j','タートル')</span>@yield('title-blackspan')</p>
-
-                            </div>
+							<span class="title-e">RECRUITMENT STAFF</span>
+							<div class="absolute">
+								<p><span class="title-j"> 企業採用担当の方へ</span></p>
+							</div>
                         </div>
                     </div>
                 </div>

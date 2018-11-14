@@ -19,11 +19,9 @@
                 <div class="container">
                     <div class="relative row">
                         <div class="info col-md-12">
-                            <span class="title-e">@yield('title-e','MY PAGE')</span>
+                            <span class="title-e">MY PAGE</span>
                             <div class="absolute">
-                                <p style="margin-bottom: 0">@yield('title-black')</p>
-                                <p style="margin-bottom: 0"><span class="title-j"> @yield('title-j','タートル')</span>@yield('title-blackspan')</p>
-
+                                <p><span class="title-j"> マイページ</span></p>
                             </div>
                         </div>
                     </div>

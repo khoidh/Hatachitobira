@@ -2,8 +2,6 @@
 
 @section('page_title', 'カテゴリーから探す')
 @section('description', '学校と社会をつなぐ「ハタチのトビラ」のカテゴリー検索ページです。自分の興味から、マイテーマの種をみつけよう。')
-@section('title-e', 'Category Search')
-@section('title-j', 'カテゴリー検索')
 @section('main')
     <div class="container-fluid searchcategory">
         <div class="main row">
@@ -11,11 +9,9 @@
                 <div class="container">
                     <div class="relative row">
                         <div class="info col-md-12">
-                            <span class="title-e">@yield('title-e','Title')</span>
+                            <span class="title-e">Category Search</span>
                             <div class="absolute">
-                                <p style="margin-bottom: 0">@yield('title-black')</p>
-                                <p style="margin-bottom: 0"><span class="title-j"> @yield('title-j','タートル')</span>@yield('title-blackspan')</p>
-
+                                <p><span class="title-j"> カテゴリー検索</span></p>
                             </div>
                         </div>
                     </div>

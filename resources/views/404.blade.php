@@ -3,8 +3,24 @@
     <link href="{{ asset('css/p404.css') }}" rel="stylesheet">
 @endsection
 @section('page_title', 'お探しのページは見つかりませんでした')
-@section('title-e', '404 file not found')
-@section('title-j', 'お探しのページは見つかりません')
+@section('main')
+    <div class="container-fluid p-404">
+        <div class="main row">
+            <div class="title-lx">
+                <div class="container">
+                    <div class="relative row">
+                        <div class="info col-md-12">
+                            <span class="title-e">404 file not found</span>
+                            <div class="absolute">
+                                <p><span class="title-j"> お探しのページは見つかりません</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+@endsection
 @section('content')
     <div class="container p-404">
         <div class="row">
