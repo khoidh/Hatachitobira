@@ -18,8 +18,10 @@ $brand-danger: #bf5329;
 
 // Typography
 $icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
+$font-family-main: "Noto Sans Japanese", sans-serif;
 $font-family-sans-serif: "Raleway", sans-serif;
 $font-family-oswald: "Oswald", sans-serif;
+$font-family-gothic: "Kozuka Gothic Pr6N";
 
 $font-size-base: 1rem;
 $line-height-base: 1.6;
@@ -82,7 +84,7 @@ $yellow-color: #fff100;
 @mixin standard-font($font-size: 16px, $line-height: 30px) {
   font-size: $font-size;
   line-height: $line-height;
-  font-family: $font-family-sans-serif;
+  font-family: $font-family-main;
 }
 @mixin title-font($font-size: 20px, $line-height: 40px, $font-weight: bold) {
   font-size: $font-size;

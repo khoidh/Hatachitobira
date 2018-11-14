@@ -50,10 +50,10 @@
             </div>
             <div class="col-sm-12 info-1">
                 <div class="row memo">
-                    <div class="col-sm-2 col-4 memo-text">
+                    <div class="col-sm-2 memo-text">
                         <div class="underline">&nbsp;MEMO&nbsp;</div>
                     </div>
-                    <div class="col-sm-10 col-8 memo-input">
+                    <div class="col-sm-10 memo-input">
                         <textarea type="text" name="" class="input-memo" data-month="{{isset($mytheme_first->month) ? $mytheme_first->month : $data_date['month']}}" 
                                             data-year="{{isset($mytheme_first->year) ? $mytheme_first->year : $data_date['year']}}"  placeholder="先月の行動を振り返り記録しよう"> {{$mytheme_first? $mytheme_first->memo : ''}}</textarea>
                     </div>

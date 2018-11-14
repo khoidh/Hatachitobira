@@ -2201,7 +2201,7 @@
 }
 
 body {
-  font-family: 'Noto Sans Japanese', sans-serif !important;
+  font-family: "Noto Sans Japanese", sans-serif !important;
   font-weight: 400;
   position: relative;
 }
@@ -3768,7 +3768,7 @@ footer .footter-mobile .a-first {
 .event {
   font-size: 16px;
   line-height: 30px;
-  font-family: "Raleway", sans-serif;
+  font-family: "Noto Sans Japanese", sans-serif;
 }
 
 .event .icon {
@@ -4079,7 +4079,7 @@ footer .footter-mobile .a-first {
 .column {
   font-size: 16px;
   line-height: 30px;
-  font-family: "Raleway", sans-serif;
+  font-family: "Noto Sans Japanese", sans-serif;
 }
 
 .column .article-list {
@@ -4319,7 +4319,7 @@ footer .footter-mobile .a-first {
 .private {
   font-size: 16px;
   line-height: 30px;
-  font-family: "Raleway", sans-serif;
+  font-family: "Noto Sans Japanese", sans-serif;
   font-family: Oswald,sans-serif;
   padding-bottom: 56px;
 }
@@ -4370,7 +4370,7 @@ footer .footter-mobile .a-first {
 .enquiry {
   font-size: 16px;
   line-height: 40px;
-  font-family: "Raleway", sans-serif;
+  font-family: "Noto Sans Japanese", sans-serif;
 }
 
 .enquiry .enquiry-title {
@@ -4911,7 +4911,6 @@ footer .footter-mobile .a-first {
 .my-page .info-2 .my-theme .my-theme-text .underline,
 .my-page .info-2 .action .action-text .underline,
 .my-page .group-2 > .item .underline {
-  font-family: "Raleway", sans-serif;
   font-size: 20px;
   font-weight: bold;
   color: #111111;
@@ -4951,7 +4950,7 @@ footer .footter-mobile .a-first {
 }
 
 .mypage .main .title-lx {
-  font-family: Oswald, sans-serif;
+  font-family: "Oswald", sans-serif;
   background: #fff100;
   color: #fffa9d;
   display: block;
@@ -4999,7 +4998,7 @@ footer .footter-mobile .a-first {
 }
 
 .mypage .main .title-lx .container .relative .info .absolute {
-  font-family: "Raleway", sans-serif !important;
+  font-family: "Kozuka Gothic Pr6N" !important;
   font-size: 20px;
   position: absolute;
   color: #111;
@@ -5068,9 +5067,8 @@ footer .footter-mobile .a-first {
 .my-page {
   font-size: 16px;
   line-height: 30px;
-  font-family: "Raleway", sans-serif;
+  font-family: "Noto Sans Japanese", sans-serif;
   color: #6b6b6b;
-  font-family: "Kozuka Gothic Pr6N";
 }
 
 .my-page .article-list.col-md-12 {
@@ -5189,7 +5187,7 @@ footer .footter-mobile .a-first {
 }
 
 .my-page .select-month {
-  font-family: Oswald, sans-serif;
+  font-family: "Oswald", sans-serif;
   text-align: center;
   color: #111111;
   z-index: 998;
@@ -5226,7 +5224,6 @@ footer .footter-mobile .a-first {
 }
 
 .my-page .info-1 .memo .memo-text .underline {
-  font-family: "Oswald", sans-serif;
   font-size: 36px;
   -webkit-box-shadow: inset 0 -15px 0 #fff100;
           box-shadow: inset 0 -15px 0 #fff100;
@@ -5260,7 +5257,7 @@ footer .footter-mobile .a-first {
   border: 2px solid #111111;
   border-radius: 30px;
   padding: 10px 20px;
-  line-height: 2;
+  line-height: 2.5;
 }
 
 .my-page .info-1 .log .log-input .bootstrap-tagsinput .label-info {
@@ -5333,7 +5330,7 @@ footer .footter-mobile .a-first {
   z-index: 1;
   left: 20px;
   bottom: 24px;
-  font-family: Oswald, sans-serif;
+  font-family: "Oswald", sans-serif;
   font-size: 100px;
   color: #FFFFFF;
 }
@@ -5662,7 +5659,7 @@ footer .footter-mobile .a-first {
 }
 
 .my-page .group-2 > .item .underline {
-  font-family: "Oswald", sans-serif;
+  font-family: "Kozuka Gothic Pr6N";
   font-size: 36px;
   -webkit-box-shadow: inset 0 -15px 0 #fff100;
           box-shadow: inset 0 -15px 0 #fff100;
@@ -5884,7 +5881,7 @@ footer .footter-mobile .a-first {
   z-index: 1;
   left: 0px;
   top: -57px;
-  font-family: Oswald, sans-serif;
+  font-family: "Oswald", sans-serif;
   font-size: 100px;
   color: #FFF100;
 }
