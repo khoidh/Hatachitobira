@@ -7,7 +7,6 @@ use App\Http\Controllers\Controller;
 use App\Video;
 use App\Category;
 use App\Http\Requests\VideoRequest;
-use Illuminate\Support\Facades\Log;
 
 class VideoController extends Controller
 {
@@ -23,7 +22,6 @@ class VideoController extends Controller
             ->paginate(10);
 
         return view('admin.video.index', ['videos' => $events]);
-        
     }
 
     public function create()
