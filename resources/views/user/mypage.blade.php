@@ -6,6 +6,7 @@
     <link href="{{ asset('css/iziToast.min.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/slick/slick.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/dropzone/basic.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/bootstrap-tagsinput.css') }}" rel="stylesheet">
 @endsection
 @section('title-e', 'MY PAGE')
 @section('title-j', 'マイページ')

@@ -634,6 +634,10 @@ footer .text-bootom .a-link:after {
 
 header.fixed.headder .bx_header {
     padding: 0 0 0 25px;
+    @include only-for-mobile() {
+        align-items: normal;
+        padding: 15px 0 0 25px;
+    }
 }
 
 header.fixed.headder .navbar.navbar-expand-lg.navbar-light {
