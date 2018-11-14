@@ -18,8 +18,8 @@
             <div class="underline">&nbsp;MEMO&nbsp;</div>
         </div>
         <div class="col-sm-10 memo-input">
-            <input type="text" name="" class="input-memo" data-month="{{isset($mytheme_first->month) ? $mytheme_first->month : $data_search['month']}}" 
-                                data-year="{{isset($mytheme_first->year) ? $mytheme_first->year : $data_search['year']}}"  placeholder="先月の行動を振り返り記録しよう" value="{{$mytheme_first? $mytheme_first->memo : ''}}">
+            <textarea type="text" name="" class="input-memo" data-month="{{isset($mytheme_first->month) ? $mytheme_first->month : $data_search['month']}}" 
+                                data-year="{{isset($mytheme_first->year) ? $mytheme_first->year : $data_search['year']}}"  placeholder="先月の行動を振り返り記録しよう"> {{$mytheme_first? $mytheme_first->memo : ''}} </textarea>
         </div>
     </div>
     <hr class="shape-8"/>
