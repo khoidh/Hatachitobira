@@ -279,16 +279,10 @@
                                             </a>
                                         </div>
                                         <div class="description">
-                                            <p>
-                                                <?php 
-                                                    $title = $result->title;
-                                                    substr($title, 0,10);
-                                                    echo $title. '...';
-                                                ?>
-                                            </p>
+                                            <p>{{ $result->title }}</p>
                                             <span>{{$result->viewCount}} Views / {{$result->date_diff}} month ago / {{$result->category_name}}</span>
-                                         </div>
-                                     </div>
+                                        </div>
+                                    </div>
                                 </div>
                             @empty
                             <span class="more-detail" style="width: 100%;top: 0;">

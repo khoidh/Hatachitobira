@@ -175,9 +175,9 @@
                                         </div>
                                         <div class="description">
                                             <p>{{ $result->items[0]->snippet->title }}</p>
+                                            <span>{{$result->items[0]->statistics->viewCount}} Views/{{ $result->date_diff}} month ago/{{$result->category}}</span>
                                         </div>
                                     </div>
-                                    <span>{{$result->items[0]->statistics->viewCount}} Views/{{ $result->date_diff}} month ago/{{$result->category}}</span>
                                 </div>
                         @empty
                         <h4 class="data-not-found">No data found</h4>
