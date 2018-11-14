@@ -798,9 +798,10 @@ footer .footter-mobile .a-first {
     .navbar-nav .dropdown-menu {
         box-shadow: none !important;
         text-align: left !important;
-        .dropdown-item{
-            padding-left: 0 !important
-        }
+        // SP display sub item normally
+        // .dropdown-item{
+        //     padding-left: 0 !important
+        // }
     }
 
     .banner figure>img.image-sp {
