@@ -307,15 +307,21 @@ body {
 .corner-wrapper.movie-2 {
 
     width: 100%;
-    height: 131px;
+    height: 130px;
 }
 
 .top .video-detail {
-    margin: 22px 0 16px -12px;
+    margin: 30px auto;
     padding: 0;
 
     @include only-for-mobile() {
         margin: 0;
+    }
+
+    .video-movie {
+        .movie-2:first-child {
+            margin-bottom: 10px;
+        }
     }
 }
 
@@ -1126,7 +1132,7 @@ footer .footter-mobile .a-first {
     }
 
     .top .content-last .wrapper {
-        display: inline-block;
+        display: block;
     }
 
     .top .content-last .text-category {

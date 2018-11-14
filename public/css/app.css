@@ -592,11 +592,11 @@ body {
 
 .corner-wrapper.movie-2 {
   width: 100%;
-  height: 131px;
+  height: 130px;
 }
 
 .top .video-detail {
-  margin: 22px 0 16px -12px;
+  margin: 30px auto;
   padding: 0;
 }
 
@@ -604,6 +604,10 @@ body {
   .top .video-detail {
     margin: 0;
   }
+}
+
+.top .video-detail .video-movie .movie-2:first-child {
+  margin-bottom: 10px;
 }
 
 .top .container.movie-top-4.content-2 {
@@ -1394,7 +1398,7 @@ footer .footter-mobile .a-first {
   }
 
   .top .content-last .wrapper {
-    display: inline-block;
+    display: block;
   }
 
   .top .content-last .text-category {
