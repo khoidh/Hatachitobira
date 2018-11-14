@@ -2839,6 +2839,16 @@ header.fixed.headder .bx_header {
   padding: 0 0 0 25px;
 }
 
+@media (max-width: 575.98px) {
+  header.fixed.headder .bx_header {
+    -webkit-box-align: normal;
+        -ms-flex-align: normal;
+            align-items: normal;
+    padding: 15px 0 0 25px;
+    height: unset;
+  }
+}
+
 header.fixed.headder .navbar.navbar-expand-lg.navbar-light {
   padding: 0px;
   margin-bottom: 0;
@@ -2959,6 +2969,16 @@ footer .footter-mobile .a-first {
     width: 100%;
   }
 
+  .navbar-nav .dropdown-menu {
+    -webkit-box-shadow: none !important;
+            box-shadow: none !important;
+    text-align: left !important;
+  }
+
+  .navbar-nav .dropdown-menu .dropdown-item {
+    padding-left: 0 !important;
+  }
+
   .banner figure > img.image-sp {
     display: block;
   }
@@ -3006,7 +3026,12 @@ footer .footter-mobile .a-first {
   }
 
   #myHeader.fixed .bx_header {
-    padding: 10px;
+    padding: 0 10px;
+  }
+
+  header.fixed,
+  header.fixed .bx_header {
+    height: unset !important;
   }
 
   #myHeader.fixed .navbar.navbar-expand-lg.navbar-light,
@@ -4702,6 +4727,7 @@ footer .footter-mobile .a-first {
 .video .description p {
   font-size: 16px;
   margin-top: 10px;
+  margin-bottom: 0px;
 }
 
 .video .description {
@@ -4710,9 +4736,6 @@ footer .footter-mobile .a-first {
 
 .video .description span {
   font-size: 12px;
-  position: absolute;
-  bottom: 0;
-  left: 0;
 }
 
 .video .paging {
@@ -5125,6 +5148,7 @@ footer .footter-mobile .a-first {
   font-family: Oswald, sans-serif;
   text-align: center;
   color: #111111;
+  z-index: 999;
 }
 
 .my-page .select-month .fa {
@@ -5203,6 +5227,19 @@ footer .footter-mobile .a-first {
 @media (max-width: 575.98px) {
   .my-page .info-1 .log .log-input .bootstrap-tagsinput .label-info {
     line-height: 2;
+  }
+}
+
+.my-page textarea.input-memo {
+  background: none;
+  border: none;
+  width: 100%;
+  resize: none;
+}
+
+@media (max-width: 575.98px) {
+  .my-page textarea.input-memo {
+    line-height: 1.7;
   }
 }
 
@@ -7422,6 +7459,24 @@ footer .footter-mobile .a-first {
   }
 }
 
+.about-why-born {
+  background-color: #FFF100;
+  margin-top: -60px;
+}
+
+.about-why-born .container {
+  padding: 50px 26px;
+  margin: 0 auto;
+}
+
+@media (max-width: 575.98px) {
+  .about-why-born .container {
+    padding: 0;
+    padding-right: 0;
+    padding-top: 73px;
+  }
+}
+
 /* Medium Devices, Desktops */
 
 @media only screen and (min-width: 992px) {
@@ -7434,6 +7489,44 @@ footer .footter-mobile .a-first {
 
   .container.about .about-cb-path.path-1 {
     display: none;
+  }
+
+  .about-why-born .why-born-col,
+  .about-what-done .what-done-col,
+  .about-hatachi .about-hatachi-col {
+    background-color: #fff;
+    border-radius: 10px;
+    margin-right: 30px;
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 30%;
+            flex: 0 0 30%;
+    text-align: center;
+    padding: 20px 30px;
+  }
+
+  .about-hatachi .about-hatachi-col {
+    padding: 20px 0 20px 20px;
+    text-align: left;
+    margin-right: 5px;
+  }
+
+  .about-why-born .why-born-col:last-child,
+  .about-what-done .what-done-col:last-child,
+  .about-hatachi .about-hatachi-col:last-child {
+    margin-right: 0px;
+  }
+
+  .about-what-done .container {
+    margin: 0 auto;
+  }
+
+  .about-hatachi .container {
+    margin: 0 auto;
+  }
+
+  .about-hatachi .about-hatachi-col a.btn-link:focus,
+  .about-hatachi .about-hatachi-col a.btn-link:hover {
+    text-decoration: none;
   }
 }
 
