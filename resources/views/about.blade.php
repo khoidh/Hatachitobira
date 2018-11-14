@@ -56,6 +56,8 @@
         }
     </style>
 @endsection
+@section('page_title', 'ハタチのトビラとは')
+@section('description', '学校と社会をつなぐ「ハタチのトビラ」は、将来の選択肢に触れ、マイテーマを探すきっかけを提供します。誰にでも見出せるマイテーマは、変化していくものでありながら、今と未来をより充実させるための行動指針となっていきます。')
 @section('title-e', 'About')
 @section('title-j', 'ハタチのトビラとは ')
 @section('content')

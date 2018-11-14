@@ -8,6 +8,8 @@
     <link href="{{ asset('assets/dropzone/basic.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/bootstrap-tagsinput.css') }}" rel="stylesheet">
 @endsection
+@section('page_title', 'マイページ')
+@section('description', '学校と社会をつなぐ「ハタチのトビラ」のマイページです。月単位で、「私が、探求したいこと」であるマイテーマや、自分の行動を記録してみましょう。')
 @section('title-e', 'MY PAGE')
 @section('title-j', 'マイページ')
 @section('main')

@@ -344,6 +344,9 @@ body {
 .logo.navbar-brand a p {
     margin-bottom: 0
 }
+.logo.navbar-brand a img {
+    width: 270px;
+}
 
 .top .container.movie-top-4 .cb-path,
 .top .content-last .cb-path {
@@ -582,6 +585,18 @@ footer {
     font-size: 13px;
     line-height: 2;
     margin-top: 100px;
+
+    .logo {
+        width: 230px;
+    }
+
+    .link-assosial {
+        .line, .youtube {
+            img {
+                height: 23px;
+            }
+        }
+    }
 }
 
 
@@ -844,7 +859,8 @@ footer .footter-mobile .a-first {
     }
 
     #myHeader.fixed .logo.navbar-brand img {
-        width: 100%
+        width: 100%;
+        height: auto;
     }
 
     #myHeader.fixed .navbar-brand p {

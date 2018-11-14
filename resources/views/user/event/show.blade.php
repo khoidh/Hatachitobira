@@ -3,6 +3,8 @@
 @section('css-add')
     @parent
 @endsection
+@section('page_title', $event->title)
+@section('description', '学校と社会をつなぐ「ハタチのトビラ」のコラムページです。「私が、探求したいこと」であるマイテーマをみつけるノウハウ・イベントレポート・アラハタ世代の活躍を発信していきます。')
 @section('title-e', 'Event')
 @section('title-j', 'イベントに参加する')
 @section('main')

@@ -1,3 +1,7 @@
+@php
+$title = 'ハタチのトビラ';
+$description = '学校と社会をつなぐ「ハタチのトビラ」は、将来の選択肢に触れ、マイテーマを探すきっかけを提供します。誰にでも見出せるマイテーマは、変化していくものでありながら、今と未来をより充実させるための行動指針となっていきます。';
+@endphp
 <!DOCTYPE html>
 <html lang="{{ app()->getLocale() }}">
 <head>
@@ -7,7 +11,17 @@
     <link rel="shortcut icon" href="{{ asset('images/favicon.ico') }}">
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>Hatachi Tobira</title>
+    <title>{{$title}}</title>
+    <meta content="{{ $description }}" name="description">
+    <meta property="og:title" content="{{$title}}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="{{ Request::url() }}" />
+    <meta property="og:image" content="" />
+    <meta property="og:site_name" content="{{ $title }}" />
+    <meta property="og:description" content="{{ $description }}" />
+    <meta property="fb:app_id" content="{{ env('FACEBOOK_ID') }}" />
+    <meta name="twitter:card" content=" summary" />
+
     <link href="{{ asset('css/top.css') }}" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/slick/slick.css') }}" rel="stylesheet">

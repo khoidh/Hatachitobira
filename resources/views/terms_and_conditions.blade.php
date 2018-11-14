@@ -3,6 +3,8 @@
 @section('css-add')
     @parent
 @endsection
+@section('page_title', '利用規約')
+@section('description', '「ハタチのトビラ」サービスの利用規約です。ハタチのトビラを利用する方は、「ハタチのトビラ利用規約」及び「個人情報の取り扱いについて」の内容を全て承諾したものとします。')
 @section('title-e', 'Terms & Conditions')
 @section('title-j', '利用規約')
 @section('content')

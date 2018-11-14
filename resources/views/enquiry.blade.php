@@ -2,6 +2,8 @@
 @section('css-add')
     @parent
 @endsection
+@section('page_title', 'お問い合わせ')
+@section('description', '"学校と社会をつなぐ「ハタチのトビラ」の問い合わせページです。ハタチのトビラに共感いただき、動画（採用広報映像）、イベント企画、イベント協賛、取材を申し込みたい方々は、こちらから問い合わせください。"')
 @section('title-e', 'Contact')
 @section('title-j', 'お問い合わせ')
 @section('content')
@@ -26,7 +28,7 @@
                     <div class="input-data">
                         {{-- ==================== 問い合わせ内容 ======================= --}}
                         <div class="form-group form-group-lg row">
-                            <label class="col-sm-3 col-form-label" for="category_id">問い合わせ内容</label>
+                            <label class="col-sm-3 col-form-label" for="category_id">お問い合わせ内容</label>
                             <div class="col-sm-9" >
                                 <div class="row">
                                     <div class="col-sm-6 category_id">
@@ -102,9 +104,9 @@
 
                         {{-- ==================== 住所 ======================= --}}
                         <div class="form-group form-group-lg row">
-                            <label class="col-sm-3 col-form-label" for="name">住所</label>
+                            <label class="col-sm-3 col-form-label" for="name">ご住所</label>
                             <div class="col-sm-9">
-                                <textarea class="form-control" rows="4" name="address" placeholder="お問い合わせ内容がはいります" tabindex=6>{{old('address')}}</textarea>
+                                <textarea class="form-control" rows="4" name="address" placeholder="ご住所" tabindex=6>{{old('address')}}</textarea>
                             </div>
                         </div>
                     </div>

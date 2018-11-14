@@ -2,6 +2,8 @@
 @section('css')
 	<link href="{{ asset('css/recruitment-staff.css') }}" rel="stylesheet">
 @endsection
+@section('page_title', '企業採用担当の方へ')
+@section('description', '「ハタチのトビラ」サービスの企業採用担当の方向けのページです。')
 @section('title-e', 'RECRUITMENT STAFF')
 @section('title-j', '企業採用担当の方へ ')
 @section('main')

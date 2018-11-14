@@ -3,6 +3,8 @@
 @section('css-add')
     @parent
 @endsection
+@section('page_title', 'プライバシーポリシー')
+@section('description', '「ハタチのトビラ」サービスのプライバシーポリシーです。お客様からお預かりする個人情報を安全に保管・管理し、適切に使用する事を社会的責務と考え、以下の方針に基づき個人情報の保護・管理・運用・利用を徹底致します。')
 @section('title-e', 'Privacy policy')
 @section('title-j', 'プライバシーポリシー')
 @section('content')
