@@ -206,7 +206,7 @@
 }
 
 .carousel.multi-item-carousel .video-detail.carousel-item .wrapper .thump {
-    height: 200px;
+    height: 175px;
 }
 
 .carousel-control-prev,
@@ -221,7 +221,11 @@
 
 
 .searchcategory .video .description p {
-    min-height: 49px;
+    min-height: 28px;
+}
+
+.searchcategory .video-search.video .video-title.sub-title {
+    bottom: 8px;
 }
 
 .column-search.event,
