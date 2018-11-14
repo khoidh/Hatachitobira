@@ -292,7 +292,7 @@
                                 </div>
                             @empty
                             <span class="more-detail" style="width: 100%;top: 0;">
-                            <a href="{{url('video')}}" style="color: #111111;margin-left: 13px"><b>MORE</b><img src="{{asset('images/user/top/arrow-1.png')}}"></a></span>
+                            <a href="{{url('video')}}" style="color: #111111;margin-left: 13px;display: -webkit-inline-box;margin-top: 30px;"><b>MORE</b><img src="{{asset('images/user/top/arrow-1.png')}}"></a></span>
                             @endforelse
                         </div>
                      </div>
