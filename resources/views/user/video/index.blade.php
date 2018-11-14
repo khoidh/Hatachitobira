@@ -49,7 +49,7 @@
             @forelse($videos as $result)
                 <?php 
                     $title = $result->title;
-                    substr($title, 0,20);
+                    substr($title, 0,10);
                 ?>
                 <div class="col-lg-4 col-sm-4 col-md-4 video-detail">
                     <div class="wrapper">
@@ -61,10 +61,10 @@
                             <a href="#">
                                 <img class="img-icon" src="{{  $result->thumbnails}}" alt="">
                             </a>
-                            <p class="video-title sub-title">{{ $title }} {{strlen($result->title) > 50 ? '...' : ''}}</p>
+                            <p class="video-title sub-title">{{ $title }} {{strlen($result->title) >10 ? '...' : ''}}</p>
                         </div>
                         <div class="description">
-                            <p>{{ $title }} {{strlen($result->title) > 50 ? '...' : ''}}</p>
+                            <p>{{ $title }} {{strlen($result->title) > 10 ? '...' : ''}}</p>
                             <span>{{$result->viewCount}} Views /{{ $result->date_diff }} month ago /{{$result->category_name}}</span>
                         </div>
                     </div>
