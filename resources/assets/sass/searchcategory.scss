@@ -32,10 +32,13 @@
         img {
             width: 100%;
             cursor: pointer;
+
+          &:hover,  &.selected{
+               -webkit-filter: invert(1);
+                filter: invert(1);
+            }
         }
-        .img-cat-detail.selected {
-            background-color: #dcdcdc;
-        }
+
     }
     
     /* ========== Style title màu vàng     =========== */
