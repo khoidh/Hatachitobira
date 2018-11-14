@@ -52,7 +52,7 @@
                                 data-year="{{isset($mythemes[$i]->year) ? $mythemes[$i]->year : $data_search['year']}}" 
                                 data-category = "{{isset($mythemes[$i]->category_id) ? $mythemes[$i]->category_id : $key}}" 
                                 data-id = "{{isset($mythemes[$i]->id) ? $mythemes[$i]->id : ''}}"
-                                placeholder="Click edit to change content" disabled>{{isset($mythemes[$i]->content_lable) ? $mythemes[$i]->content_lable : ''}}</textarea>
+                                placeholder="マイテーマにつながる要素を入力しましょう" disabled>{{isset($mythemes[$i]->content_lable) ? $mythemes[$i]->content_lable : ''}}</textarea>
                         </span>
                     </div>
                     <div class="favorite edit label">
