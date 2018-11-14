@@ -46,6 +46,8 @@
       -webkit-transform: translateZ(0);
       transform: translateZ(0);
       img {
+        max-width: 300px;
+        max-height: 300px;
         width: 100%;
         height: auto;
       }
@@ -273,6 +275,13 @@
     //    -webkit-box-shadow: 3px 3px 3px $yellow-color;
     //  }
     //}
+  }
+
+  .form-user-register .modal-body{
+    @include only-for-mobile()
+    {
+      margin: 10px !important;
+    }
   }
 
   .txt-btn{

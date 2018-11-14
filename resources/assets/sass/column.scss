@@ -4,10 +4,12 @@
 
   .article-list{
     width:100%;
-    .article{
+    .article {
       width: 100%;
       padding-top: 32px;
       img{
+        max-width: 300px;
+        max-height: 300px;
         width: 100%;
         height: auto;
       }

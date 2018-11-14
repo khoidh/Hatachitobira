@@ -347,6 +347,7 @@
                     border: 2px solid $black-color;
                     border-radius: 30px;
                     padding: 10px 20px;
+                    line-height: 2;
                     .label-info {
                         color: black;
                         padding: 5px;
@@ -827,6 +828,8 @@
                 color: $black-color;
 
                 img {
+                    max-width: 300px;
+                    max-height: 300px;
                     width: 100%;
                     height: auto;
                 }

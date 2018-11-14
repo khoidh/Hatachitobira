@@ -151,6 +151,7 @@
     padding: 5px 20px;
     font-size: 13px;
     border-radius: 0 0 13px 13px;
+    white-space: nowrap;
 }
 
 .video .favorite {
@@ -191,6 +192,7 @@
 
 .video .description {
     padding-bottom: 10px;
+    height: 50px;
 }
 
 .video .description span{

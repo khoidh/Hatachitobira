@@ -273,7 +273,7 @@ body {
 
 .top .content-last .content-text.col-md-10 {
     @include only-for-mobile() {
-        margin-left: 0px;
+        margin-left: 12px;
     }
 }
 
@@ -1217,6 +1217,9 @@ footer .footter-mobile .a-first {
     }
 
     #modal_register .code-top img {
+        padding-top: 10px !important;
+        padding-bottom: 10px !important;
+
         margin: auto;
         width: 100%;
         max-width: 300px;
@@ -1349,10 +1352,8 @@ footer .footter-mobile .a-first {
 }
 
 #modal_register .code-top img {
-    //position: relative;
-    //left: -166px;
-    //max-width: 325px;
-    //height: 300px;
+    padding-top: 30px;
+    padding-bottom: 30px;
 }
 
 #modal_register p.title-register {
