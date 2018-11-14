@@ -5258,6 +5258,10 @@ footer .footter-mobile .a-first {
   line-height: 2.5;
 }
 
+.my-page .info-1 .log .log-input .bootstrap-tagsinput input {
+  width: 100%;
+}
+
 .my-page .info-1 .log .log-input .bootstrap-tagsinput .label-info {
   color: black;
   padding: 9px;
@@ -6689,6 +6693,21 @@ footer .footter-mobile .a-first {
     display: block;
     text-align: left;
     background-image: none;
+  }
+
+  #modal_register .form-register-last h3 {
+    font-size: 22px;
+  }
+
+  #modal_register .form-register-last h3:after {
+    content: "";
+    background-color: #fff100;
+    width: 100%;
+    height: 75%;
+    position: absolute;
+    top: 15px;
+    left: 0px;
+    z-index: -1;
   }
 }
 
