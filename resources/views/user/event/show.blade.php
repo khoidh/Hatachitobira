@@ -101,36 +101,36 @@
                 <div class="modal-body" style="margin: 30px; ">
                     <div class="form-group">
                         <label for="school">学校・学部</label>
-                        <input type="text" class="form-control" id="school" name="school" required maxlength="50"
+                        <input type="text" class="form-control" id="school" name="school" required maxlength="50" value="{{old('school')}}" 
                                placeholder="例) 東京大学　OO学部">
                     </div>
                     <div class="form-group">
                         <label for="school_year">学年</label>
-                        <input type="text" class="form-control" id="school_year" name="school_year" required
+                        <input type="text" class="form-control" id="school_year" name="school_year" required value="{{old('school_year')}}"
                                maxlength="3"
                                onkeypress="return (event.charCode == 8 || event.charCode == 0 || event.charCode == 13) ? null : event.charCode >= 48 && event.charCode <= 57"
                                placeholder="">
                     </div>
                     <div class="form-group">
                         <label for="name">氏名</label>
-                        <input type="text" class="form-control" id="name" name="name" required maxlength="50"
+                        <input type="text" class="form-control" id="name" name="name" required maxlength="50" value="{{old('name')}}"
                                placeholder="例) 山田　太郎">
                     </div>
                     <div class="form-group">
                         <label for="phone_number">電話番号</label>
                         <input type="text" class="form-control" id="phone_number" name="phone_number"
                                onkeypress="return (event.charCode == 8 || event.charCode == 0 || event.charCode == 13 || event.charCode == 45) ? null : event.charCode >= 48 && event.charCode <= 57"
-                               required maxlength="13" placeholder="(半角英数)　例)　03-5773-6888 携帯電話番号でも可">
+                               required maxlength="13" placeholder="(半角英数)　例)　03-5773-6888 携帯電話番号でも可" value="{{old('phone_number')}}">
                     </div>
                     <div class="form-group">
                         <label for="email">メールアドレス</label>
                         <input type="email" class="form-control" id="email" name="email" required
-                               maxlength="50" placeholder="携帯アドレスでも可">
+                               maxlength="50" placeholder="携帯アドレスでも可" value="{{old('email')}}">
                     </div>
                     <div class="form-group">
                         <label for="question">ご不明点・質問など</label>
-                        <textarea class="form-control" type="textarea" name="question" id="question" placeholder=""
-                                  maxlength="6000" rows="7"></textarea>
+                        <textarea class="form-control" type="textarea" name="question" id="question" placeholder="" 
+                                  maxlength="6000" rows="7">{{old('question')}}</textarea>
                     </div>
 
                     <input type="hidden" name="event_id" value="{{$event->id}}">
