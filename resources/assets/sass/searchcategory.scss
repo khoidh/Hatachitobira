@@ -52,7 +52,7 @@
         }
 
         .title-lx {
-            font-family: Oswald, sans-serif;
+            font-family: $font-family-oswald;
             background: #fff100;
             color: #fffa9d;
             display: block;
@@ -88,7 +88,7 @@
                     }
 
                     .absolute {
-                        font-family: $font-family-sans-serif !important;
+                        font-family: $font-family-gothic !important;
                         font-size: 20px;
                         position: absolute;
                         color: #111;

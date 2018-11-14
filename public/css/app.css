@@ -2262,7 +2262,6 @@ body {
   font-size: 32px;
   font-weight: bold;
   margin-bottom: 0;
-  font-family: "Myriad Pro";
 }
 
 .top .movie-top-description {
@@ -2473,7 +2472,7 @@ body {
 }
 
 .top .more-detail {
-  font-family: "Myriad Pro";
+  font-family: "Kozuka Gothic Pr6N";
 }
 
 @media (max-width: 575.98px) {
@@ -4554,7 +4553,7 @@ footer .footter-mobile .a-first {
 }
 
 .video .main .title-lx {
-  font-family: Oswald, sans-serif;
+  font-family: "Oswald", sans-serif;
   background: #fff100;
   color: #fffa9d;
   display: block;
@@ -4592,7 +4591,7 @@ footer .footter-mobile .a-first {
 }
 
 .video .main .title-lx .container .relative .info .absolute {
-  font-family: "Raleway", sans-serif !important;
+  font-family: "Kozuka Gothic Pr6N" !important;
   font-size: 20px;
   position: absolute;
   color: #111111;
@@ -6758,7 +6757,7 @@ footer .footter-mobile .a-first {
 }
 
 .searchcategory .main .title-lx {
-  font-family: Oswald, sans-serif;
+  font-family: "Oswald", sans-serif;
   background: #fff100;
   color: #fffa9d;
   display: block;
@@ -6805,7 +6804,7 @@ footer .footter-mobile .a-first {
 }
 
 .searchcategory .main .title-lx .container .relative .info .absolute {
-  font-family: "Raleway", sans-serif !important;
+  font-family: "Kozuka Gothic Pr6N" !important;
   font-size: 20px;
   position: absolute;
   color: #111;
