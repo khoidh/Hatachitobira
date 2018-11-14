@@ -8,8 +8,8 @@
 <div><p>企業名: {{$thisUser->company}}</p></div>
 <div><p>メールアドレス： {{$thisUser->email}}</p></div>
 <div><p>郵便番号： {{$thisUser->postal_code}}</p></div>
-<div><p>ご住所: {{$thisUser->address}}</p></div>
-<div><p>内容: {{$thisUser->content}}</p></div>
+<div><p>ご住所: {!! nl2br($thisUser->address) !!}</p></div>
+<div><p>内容: {!! nl2br($thisUser->content) !!}</p></div>
 <div><p>-----</p></div>
 <div></div>
 <div><p>数日以内に担当者よりお返事差し上げます。</p></div>
