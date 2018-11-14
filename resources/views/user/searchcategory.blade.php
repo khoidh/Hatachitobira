@@ -172,19 +172,12 @@
                                             <a href="#">
                                                 <img class="img-icon" src="{{  $result->items[0]->snippet->thumbnails->medium->url}}" alt="">
                                             </a>
-                                            <p class="video-title sub-title">{{ substr($result->items[0]->snippet->title, 0,50)}} {{strlen($result->items[0]->snippet->title) > 50 ? '...' : ''}}</p>
                                         </div>
                                         <div class="description">
-                                            <p>
-                                                <?php 
-                                                    $title = $result->items[0]->snippet->title;
-                                                    substr($title, 0,50);
-                                                    echo $title. '...';
-                                                ?>
-                                            </p>
-                                            <span>{{$result->items[0]->statistics->viewCount}} Views/{{ $result->date_diff}} month ago/{{$result->category}}</span>
-                                         </div>
-                                     </div>
+                                            <p>{{ $result->items[0]->snippet->title }}</p>
+                                        </div>
+                                    </div>
+                                    <span>{{$result->items[0]->statistics->viewCount}} Views/{{ $result->date_diff}} month ago/{{$result->category}}</span>
                                 </div>
                         @empty
                         <h4 class="data-not-found">No data found</h4>
