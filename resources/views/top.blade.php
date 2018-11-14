@@ -205,12 +205,7 @@ $description = '学校と社会をつなぐ「ハタチのトビラ」は、将�
                                         <a href="#">
                                             <img class="img-icon" src="{{  $video_concept->thumbnails}}" alt="{{$video_concept->title}}">
                                         </a>
-                                        <?php 
-                                            $title = $video_concept->title;
-                                            substr($title, 0,50);
-                                        ?> 
-                                        <p class="video-title">{{$title}} {{strlen($video_concept->title) > 50 ? '...' : ''}}</p>
-
+                                        <p class="video-title">{{$video_concept->title}}</p>
                                     </div>
                                 </div>
                             </div>
@@ -289,11 +284,7 @@ $description = '学校と社会をつなぐ「ハタチのトビラ」は、将�
                                                 <a href="#">
                                                     <img class="img-icon" src="{{  $result->thumbnails}}" alt="{{$result->title}}">
                                                 </a>
-                                                <?php 
-                                                    $title = $result->title;
-                                                    substr($title, 0,50);
-                                                ?> 
-                                                <p class="video-title">{{ $title }} {{strlen($result->title) > 50 ? '...' : ''}}</p>
+                                                <p class="video-title">{{ $result->title }}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -316,11 +307,7 @@ $description = '学校と社会をつなぐ「ハタチのトビラ」は、将�
                                                 <a href="#">
                                                     <img class="img-icon" src="{{  $result->thumbnails}}" alt="{{$result->title}}">
                                                 </a>
-                                                <?php 
-                                                    $title = $result->title;
-                                                    substr($title, 0,50);
-                                                ?> 
-                                                <p class="video-title sub-title">{{ $title }} {{strlen($result->title) > 50 ? '...' : ''}}</p>
+                                                <p class="video-title sub-title">{{ $result->title }}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -341,11 +328,7 @@ $description = '学校と社会をつなぐ「ハタチのトビラ」は、将�
                                                 <a href="#">
                                                     <img class="img-icon" src="{{  $result->thumbnails}}" alt="{{$result->title}}">
                                                 </a>
-                                                <?php 
-                                                    $title = $result->title;
-                                                    substr($title, 0,50);
-                                                ?> 
-                                                <p class="video-title sub-title">{{ $title }} {{strlen($result->title) > 50 ? '...' : ''}}</p>
+                                                <p class="video-title sub-title">{{ $result->title }}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -381,11 +364,7 @@ $description = '学校と社会をつなぐ「ハタチのトビラ」は、将�
                                                 <a href="#">
                                                     <img class="img-icon" src="{{  $result->thumbnails}}" alt="{{$result->title}}">
                                                 </a>
-                                                <?php 
-                                                    $title = $result->title;
-                                                    substr($title, 0,50);
-                                                ?> 
-                                                <p class="video-title">{{ $title }} {{strlen($result->title) > 50 ? '...' : ''}}</p>
+                                                <p class="video-title">{{ $result->title }}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -408,11 +387,7 @@ $description = '学校と社会をつなぐ「ハタチのトビラ」は、将�
                                                 <a href="#">
                                                     <img class="img-icon" src="{{  $result->thumbnails}}" alt="{{$result->title}}">
                                                 </a>
-                                                <?php 
-                                                    $title = $result->title;
-                                                    substr($title, 0,50);
-                                                ?> 
-                                                <p class="video-title sub-title">{{ $title }} {{strlen($result->title) > 50 ? '...' : ''}}</p>
+                                                <p class="video-title sub-title">{{ $result->title }}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -433,11 +408,7 @@ $description = '学校と社会をつなぐ「ハタチのトビラ」は、将�
                                                 <a href="#">
                                                     <img class="img-icon" src="{{  $result->thumbnails}}" alt="{{$result->title}}">
                                                 </a>
-                                                <?php 
-                                                    $title = $result->title;
-                                                    substr($title, 0,50);
-                                                ?> 
-                                                <p class="video-title sub-title">{{ $title }} {{strlen($result->title) > 50 ? '...' : ''}}</p>
+                                                <p class="video-title sub-title">{{ $result->title }}</p>
                                             </div>
                                         </div>
                                     </div>

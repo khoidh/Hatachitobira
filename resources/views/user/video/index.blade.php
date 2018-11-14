@@ -63,10 +63,10 @@
                             <a href="#">
                                 <img class="img-icon" src="{{  $result->thumbnails}}" alt="">
                             </a>
-                            <p class="video-title sub-title">{{ $title }} {{strlen($result->title) >10 ? '...' : ''}}</p>
+                            {{-- <p class="video-title sub-title">{{ $title }} {{strlen($result->title) >10 ? '...' : ''}}</p> --}}
                         </div>
                         <div class="description">
-                            <p>{{ $title }} {{strlen($result->title) > 10 ? '...' : ''}}</p>
+                            <p>{{ $title }}</p>
                         </div>
                     </div>
                     <span>{{$result->viewCount}} Views /{{ $result->date_diff }} month ago /{{$result->category_name}}</span>

@@ -139,7 +139,7 @@
     color: #fff;
     background-color: rgba(0,0,0,.7);
     width: 100%;
-    padding: 15px 47px;
+    padding: 10px 47px;
     margin: 0;
 
     @include only-for-mobile() {
@@ -151,6 +151,14 @@
     padding: 5px 20px;
     font-size: 13px;
     border-radius: 0 0 13px 13px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.video .description p {
+    overflow: hidden;
+    text-overflow: ellipsis;
     white-space: nowrap;
 }
 
@@ -184,7 +192,7 @@
 .video .video-detail {
     margin-bottom: 10px;
     position: relative;
-    padding-bottom: 10px;
+    // padding-bottom: 10px;
 }
 
 .video .description p{

@@ -13,7 +13,7 @@
                 <a href="#">
                     <img class="img-icon" src="{{  $result->thumbnails}}" alt="">
                 </a>
-                <p class="video-title sub-title">{{ $title }} {{strlen($result->title) > 50 ? '...' : ''}}</p>
+                {{-- <p class="video-title sub-title">{{ $title }} {{strlen($result->title) > 50 ? '...' : ''}}</p> --}}
             </div>
             <div class="description">
                 <p>{{ $title }} {{strlen($result->title) > 50 ? '...' : ''}}</p>
