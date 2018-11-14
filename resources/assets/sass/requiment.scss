@@ -10,7 +10,7 @@
         }
 
         .title-lx {
-            font-family: Oswald, sans-serif;
+            font-family: $font-family-oswald;
             background: #fff100;
             color: #fffa9d;
             display: block;
@@ -47,7 +47,7 @@
                     }
 
                     .absolute {
-                        font-family: $font-family-sans-serif !important;
+                        font-family: $font-family-gothic !important;
                         font-size: 20px;
                         position: absolute;
                         color: #111;
@@ -121,10 +121,6 @@
 
 .requiment-staff .video .cb-path {
     margin-top: -60px;
-}
-
-.requiment-staff {
-    font-family: "Kozuka Gothic Pr6N";
 }
 
 .requiment-staff .corner-wrapper.movie-1 {
@@ -334,7 +330,6 @@
     background-color: #111;
     padding: 5px 17px;
     border-radius: 50px;
-    font-family: "Myriad Pro";
 }
 
 .requiment-staff .requiment-step .col-md-3 p {
