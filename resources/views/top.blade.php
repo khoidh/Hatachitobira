@@ -181,17 +181,17 @@
                     <p class="movie-top-description">コンセプトムービー</p>
                     <div class="corner-wrapper video">
                         <div class="video-list">
-                            @if(isset($videos) && $videos->count() > 0)
+                            @if(isset($video_concept) && $video_concept->count() > 0)
                             <div class="video-detail">
                                 <div class="wrapper">
                                     <div class="thump">
-                                        <div class="browse-details" data-id='{{$videos->id}}' data-src='{{$videos->embedHtml}}' data-url = "{{$videos->url}}">
+                                        <div class="browse-details" data-id='{{$video_concept->id}}' data-src='{{$video_concept->embedHtml}}' data-url = "{{$video_concept->url}}">
                                             <img src="{{ asset('images/user/video/btn-play.png')}}" alt="" >
                                         </div>
                                         <a href="#">
-                                            <img class="img-icon" src="{{  $videos->thumbnails}}" alt="{{$videos->title}}">
+                                            <img class="img-icon" src="{{  $video_concept->thumbnails}}" alt="{{$video_concept->title}}">
                                         </a>
-                                        <p class="video-title">{{ substr($videos->title, 0,50)}} {{strlen($videos->title) > 50 ? '...' : ''}}</p>
+                                        <p class="video-title">{{ substr($video_concept->title, 0,50)}} {{strlen($video_concept->title) > 50 ? '...' : ''}}</p>
                                     </div>
                                 </div>
                             </div>
@@ -520,6 +520,8 @@
             $('.bx_header .navbar-nav.mr-auto').append('<li class="nav-item"><a class="nav-link link-append" href="{{url("my-page")}}">マイテーマを見つける</a></li>');
             $('.bx_header .navbar-nav.mr-auto').css('align-items','flex-start');
             $('.bx_header .navbar-nav.mr-auto').css('font-weight','bold');
+            $('.bx_header .navbar-nav.mr-auto').css('background-color','#fff');
+            $('.bx_header .navbar-nav.mr-auto').css('margin-top','15px');
             $('.bx_header .nav-item').addClass('aaaafixed');
             $('.banner.figure').append('<a class="link-my-page {{Auth::Guest() ? "show-modal-register-mypage" : ""}}" href="{{url("my-page")}}">マイテーマを見つける</a>');
 
@@ -665,10 +667,11 @@
                         $html +='<img src="{{ asset("images/register_love.png") }}">';
                     $html +='</div>';
                     $html +='<div class="form-group">';
-                            $html +='<span id="first-name-err" style="color:red;font-size:12px" ></span>';
                         $html +='<div class="col-md-10 offset-md-1" style="text-align: left;">';
                             $html +='<input class="input-checkbox"  type="checkbox" id="input-check-required">';
                             $html +='<label class="lblcheckbox"><a class="link-redirect" href="/privacy-policy">利用規約</a> と <a class="link-redirect" href="/privacy-policy">プライバシーポリシー</a> に同意する </label>';
+                            $html +='<span id="first-name-err" style="color:red;font-size:12px" ></span>';
+                            
                         $html +='</div>';
                     $html +='</div>';
                     $html +='<div class="form-group">';
@@ -716,10 +719,11 @@
                     $html +='<img src="{{ asset("images/register_mypage.png") }}">';
                 $html +='</div>';
                 $html +='<div class="form-group">';
-                        $html +='<span id="first-name-err" style="color:red;font-size:12px" ></span>';
                     $html +='<div class="col-md-10 offset-md-1" style="text-align: left;">';
                         $html +='<input class="input-checkbox"  type="checkbox" id="input-check-required">';
                         $html +='<label class="lblcheckbox"><a class="link-redirect" href="/privacy-policy">利用規約</a> と <a class="link-redirect" href="/privacy-policy">プライバシーポリシー</a> に同意する </label>';
+                        $html +='<span id="first-name-err" style="color:red;font-size:12px" ></span>';
+
                     $html +='</div>';
                 $html +='</div>';
                 $html +='<div class="form-group">';
