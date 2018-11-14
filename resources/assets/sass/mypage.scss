@@ -350,8 +350,10 @@
                     line-height: 2;
                     .label-info {
                         color: black;
-                        padding: 5px;
-                        background-color: #dcdcdc;
+                        padding: 9px;
+                        border-radius: 3px;
+                        border: 1px solid darken(#ededed, 10%);
+                        background-color: #ededed;
                         @include only-for-mobile() {
                             line-height: 2
                         }
