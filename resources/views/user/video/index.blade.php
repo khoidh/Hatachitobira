@@ -67,9 +67,9 @@
                         </div>
                         <div class="description">
                             <p>{{ $title }} {{strlen($result->title) > 10 ? '...' : ''}}</p>
-                            <span>{{$result->viewCount}} Views /{{ $result->date_diff }} month ago /{{$result->category_name}}</span>
                         </div>
                     </div>
+                    <span>{{$result->viewCount}} Views /{{ $result->date_diff }} month ago /{{$result->category_name}}</span>
                 </div>
             @empty
                 <h4 class="data-not-found">Data not found</h4>
