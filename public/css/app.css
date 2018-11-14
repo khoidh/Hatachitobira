@@ -631,6 +631,10 @@ body {
   margin-bottom: 0;
 }
 
+.logo.navbar-brand a img {
+  width: 270px;
+}
+
 .top .container.movie-top-4 .cb-path,
 .top .content-last .cb-path {
   margin-left: 0;
@@ -864,6 +868,10 @@ footer {
   font-size: 13px;
   line-height: 2;
   margin-top: 100px;
+}
+
+footer .logo {
+  width: 230px;
 }
 
 footer .border-footer {
@@ -1100,6 +1108,7 @@ footer .footter-mobile .a-first {
 
   #myHeader.fixed .logo.navbar-brand img {
     width: 100%;
+    height: auto;
   }
 
   #myHeader.fixed .navbar-brand p {
@@ -8142,11 +8151,6 @@ pre code {
 }
 
 .form-control::-webkit-input-placeholder {
-  color: #6c757d;
-  opacity: 1;
-}
-
-.form-control:-ms-input-placeholder {
   color: #6c757d;
   opacity: 1;
 }
