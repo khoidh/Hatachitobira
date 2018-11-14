@@ -43,7 +43,7 @@ return [
     'exists'               => '選択された:attributeは、有効ではありません。',
     'file'                 => ':attributeはファイルでなければいけません。',
     'filled'               => ':attributeは必須です。',
-    'image'                => ':attributeには、画像を入力してください。',
+    'image'                => ':attributeには、画像を選択してください。',
     'in'                   => '選択された:attributeは、有効ではありません。',
     'in_array'             => ':attributeは、:otherに存在しません。',
     'integer'              => ':attributeには、整数を入力してください。',
@@ -86,7 +86,7 @@ return [
     ],
     'string'   => ':attributeには、文字を入力してください。',
     'timezone' => ':attributeには、有効なタイムゾーンを入力してください。',
-    'unique'   => '指定の:attributeは既に使用されています。',
+    'unique'   => '入力した:attributeは既に使用されています。',
     'uploaded' => ':attributeのアップロードに失敗しました。',
     'url'      => ':attributeは、有効なURL形式で入力してください。',
 
