@@ -4,7 +4,7 @@
     @parent
 @endsection
 @section('page_title', $event->title)
-@section('description', '学校と社会をつなぐ「ハタチのトビラ」のコラムページです。「私が、探求したいこと」であるマイテーマをみつけるノウハウ・イベントレポート・アラハタ世代の活躍を発信していきます。')
+@section('description', '学校と社会をつなぐ「ハタチのトビラ」のイベントページです。多様なロールモデルや同世代に出会い、普段のコミュニティでは話にくい"ちょっと真面目な対話"を通じて、マイテーマを考えてみよう。')
 @section('title-e', 'Event')
 @section('title-j', 'イベントに参加する')
 @section('main')

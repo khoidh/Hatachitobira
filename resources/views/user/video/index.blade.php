@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('page_title', '動画から探す')
-@section('description', '学校と社会をつなぐ「ハタチのトビラ」の動画検索ページです。仕事現場の働く1日に学生が密着した映像や、ロールモデルから、マイテーマの種をみつけよう。')
+@section('description', '学校と社会をつなぐ「ハタチのトビラ」の動画検索ページです。仕事現場の働く1日に学生が密着した動画や、ロールモデルの人生ストーリーから、マイテーマの種をみつけよう。')
 @section('title-e', 'My theme')
 @section('title-black', '動画から将来の選択肢を知って')
 @section('title-blackspan', 'の種をみつけよう')

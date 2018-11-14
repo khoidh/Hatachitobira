@@ -3,7 +3,7 @@
 	<link href="{{ asset('css/recruitment-staff.css') }}" rel="stylesheet">
 @endsection
 @section('page_title', '企業採用担当の方へ')
-@section('description', '「ハタチのトビラ」サービスの企業採用担当の方向けのページです。')
+@section('description', 'ハタチのトビラは、就活や働くことを見据え将来と向き合うハタチの学生に、自社の事業や仕事の魅力を訴求する動画配信サービスです。採用の広報施策や内定者フォローをご検討の採用担当者様は、こちらから問い合わせください。')
 @section('title-e', 'RECRUITMENT STAFF')
 @section('title-j', '企業採用担当の方へ ')
 @section('main')
