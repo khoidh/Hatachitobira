@@ -177,11 +177,14 @@
 
 .video .video-list {
     margin-top: 40px;
+    -webkit-align-items: stretch; /* Safari */
+    align-items:         stretch;
 }
 
 .video .video-detail {
+    margin-bottom: 10px;
     position: relative;
-    margin-top: 20px;
+    padding-bottom: 10px;
 }
 
 .video .description p{
@@ -192,10 +195,13 @@
 
 .video .description {
     padding-bottom: 10px;
-    height: 50px;
+    min-height: 50px;
 }
 
-.video .description span{
+.video .video-detail span{
+    position: absolute;
+    bottom: 0;
+    left: 15px;
     font-size: 12px;
 }
 
