@@ -13,7 +13,7 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        //
+        Commands\UpdateViewcount::class,
     ];
 
     /**
@@ -24,8 +24,9 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')
-        //          ->hourly();
+        $schedule->command('command:update_viewcount')->dailyAt('00:00');
+        $schedule->command('command:update_viewcount')->dailyAt('08:00');
+        $schedule->command('command:update_viewcount')->dailyAt('16:00');
     }
 
     /**
@@ -35,6 +36,8 @@ class Kernel extends ConsoleKernel
      */
     protected function commands()
     {
+        $this->load(__DIR__.'/Commands');
+
         require base_path('routes/console.php');
     }
 }
