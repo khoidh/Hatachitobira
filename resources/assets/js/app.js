@@ -6,6 +6,14 @@
 require('./bootstrap');
 window.$ = window.jQuery = require('jquery');
 require('owl.carousel');
+require('loaders.css');
+
+/* set loader for all Ajax call */
+$(document).bind("ajaxSend", function(){
+  $("#loading").show();
+}).bind("ajaxComplete", function(){
+  $("#loading").hide();
+});
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

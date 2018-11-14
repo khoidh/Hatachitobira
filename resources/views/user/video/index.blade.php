@@ -98,15 +98,6 @@
             </div>
         </div>   
     </div>
-    <div id="modal_loading" class="modal fade modal_register" role="dialog">
-        <div class="modal-dialog" style="margin-top:150px">
-            <div class="modal-content" style="opacity: 0.45; -moz-opacity: 0.45;filter: alpha(opacity=45);background: none;border: none;">
-                <div class="modal-body" style="text-align:center">
-                    <img src="{{asset('images/user/video/loading.gif')}}" alt="Be patient..." />
-                </div>
-            </div>
-        </div>   
-    </div>
     <script type="text/javascript"  async defer>
         $(document).ready(function() {
             $("#modal_video").on('hide.bs.modal', function(){
@@ -127,7 +118,7 @@
             var popupMeta = {
                 width: 400,
                 height: 400
-            }
+            };
             $(document).on('click', '.social-share', function(event){
                 event.preventDefault();
 
@@ -147,16 +138,18 @@
             });
 
             $(document).on('change','#category_id',function(e){
+
                 e.preventDefault();
                 var text = $('.search-container input').val();
                 var id = $(this).val();
                 $.ajax({
                     url : '{{url("video-search-text?category_id=")}}'+ id +'&page=1&description='+text,
+
                     success: function (data) {
                         $('.row.video-list').html(data);
                     }
                 });
-            })
+            });
 
             $(document).on('keypress','.search-container input',function(e){
                 if(e.which == 13) {
@@ -169,7 +162,7 @@
                         }
                     });
                 }
-            })
+            });
 
             $(document).on('click','#searchvideo',function(e){
                 e.preventDefault();
@@ -253,5 +246,7 @@
                 }
             })
         });
+
+
     </script>
 @endsection

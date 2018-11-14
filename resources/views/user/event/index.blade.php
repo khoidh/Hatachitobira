@@ -5,7 +5,42 @@
     <style type="text/css">
         @media (max-width: 575.98px) {
             #app .home .main .title-lx .relative .info .absolute .title-j{
-                letter-spacing: 0px;
+                letter-spacing: 5px;
+            }
+            .home .main .title-lx .container .relative .info .title-e {
+                /*margin-left: -5px;*/
+                /*font-size: 55px;*/
+                position: relative;
+                top: -140px;
+                font-size: 49px;
+            }
+            .home .main .title-lx .container .relative .info .absolute .title-j {
+                font-size: 30px;
+                letter-spacing: 8px;
+            }
+            .home .main .title-lx {
+                min-height: 90px;
+                height: 90px;
+            }
+
+            .home .main .title-lx .container .relative .info {
+                /*margin-top: -30px !important;*/
+                /*line-height: 95%;*/
+                margin-top: 85px;
+                line-height: 1.5;
+            }
+            .home .main .title-lx .container .relative .info .absolute {
+                /*bottom: 0;*/
+                /*top: 95px;*/
+                /*left: 10px;*/
+                bottom: 125px;
+            }
+            .home .main {
+                min-height: 75px;
+            }
+            .home .main .title-lx {
+                height: 120px;
+                min-height: unset;
             }
         }
 
