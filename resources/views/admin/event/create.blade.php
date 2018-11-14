@@ -70,7 +70,7 @@
     <div class="form-group row">
         <label for="ckeditor-text" class="col-sm-2 col-form-label">{{__('コンテンツ')}}</label>
         <div class="col-sm-10">
-            <textarea class="form-control" name="content" placeholder="Content" id="ckeditor-text" >{{old('content')}}</textarea>
+            <textarea class="form-control" name="content" placeholder="Content" id="ckeditor-text" autofocus="">{{old('content')}}</textarea>
         </div>
         <script type="text/javascript">
             CKEDITOR.replace('ckeditor-text', options);

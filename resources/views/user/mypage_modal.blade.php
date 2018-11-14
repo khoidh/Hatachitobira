@@ -4,7 +4,7 @@
             <span class="mypage-number">0{{$data['category_id']}}</span>
         </div>
         <div class="mypage-text clearfix">
-            <textarea name="value-lable" class="edit-input-lable" 
+            <textarea autofocus="" name="value-lable" class="edit-input-lable" 
                                                 data-month="{{isset($result->month) ? $result->month : $data['month']}}" 
                                                 data-year="{{isset($result->year) ? $result->year : $data['year']}}" 
                                                 data-category = "{{isset($result->category_id) ? $result->category_id : $data['category_id']}}" 
