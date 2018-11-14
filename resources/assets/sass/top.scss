@@ -828,9 +828,9 @@ footer .footter-mobile .a-first {
         padding: 0 10px;
     }
     
-
+    header.fixed,
     header.fixed .bx_header {
-        height: unset;
+        height: unset !important;
     }
     #myHeader.fixed .navbar.navbar-expand-lg.navbar-light,
     #myHeader.fixed .hd_left {
