@@ -39,7 +39,7 @@ class VideoController extends Controller
         parse_str(parse_url($url, PHP_URL_QUERY), $youtube);
         if(!$youtube)
         {
-            return redirect()->back()->with('message','This url not youtube link');
+            return redirect()->back()->with('message',__('youtubeのリンクではありません。'));
         }
         else
         {
@@ -64,7 +64,7 @@ class VideoController extends Controller
             }
             else
             {
-                return redirect()->back()->with('message','Cant not get youtube information');
+                return redirect()->back()->with('message',__('youtubeの情報を取得出来ませんでした。'));
             }
             
         }
@@ -97,7 +97,7 @@ class VideoController extends Controller
         parse_str(parse_url($url, PHP_URL_QUERY), $youtube);
         if(!$youtube)
         {
-            return redirect()->back()->with('message','This url not youtube link');
+            return redirect()->back()->with('message', __('youtubeのリンクではありません。'));
         }
         else
         {
@@ -122,7 +122,7 @@ class VideoController extends Controller
             }
             else
             {
-                return redirect()->back()->with('message','Cant not get youtube information');
+                return redirect()->back()->with('message', __('youtubeの情報を取得出来ませんでした。'));
             }
             
         }
