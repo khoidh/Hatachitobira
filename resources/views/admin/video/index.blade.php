@@ -23,7 +23,7 @@
 @section('card-content')
 @endsection
 @section('content')
-    <div class="clearfix panel-body">
+    <div class="table-responsive">
         <table class="table table-striped table-bordered table-hover tbl-resoure">
     <thead>
     <tr>
