@@ -11,6 +11,15 @@ body {
     font-size: 16px;
 }
 
+#myHeader .bx_header {
+    position: relative;
+    top: -110px
+}
+
+#myHeader.fixed .bx_header {
+    top: 0;
+}
+
 .dropdown-menu.show {
     border-radius: 1.0rem;
     box-shadow: 1px 1px 8px 1px rgba(50, 49, 49, 0.39) !important;
