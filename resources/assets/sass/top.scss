@@ -634,6 +634,11 @@ footer .text-bootom .a-link:after {
 
 header.fixed.headder .bx_header {
     padding: 0 0 0 25px;
+    @include only-for-mobile() {
+        align-items: normal;
+        padding: 15px 0 0 25px;
+        height: unset;
+    }
 }
 
 header.fixed.headder .navbar.navbar-expand-lg.navbar-light {
@@ -764,7 +769,15 @@ footer .footter-mobile .a-first {
     .banner figure>img {
         width: 100%;
     }
-        
+    
+    .navbar-nav .dropdown-menu {
+        box-shadow: none !important;
+        text-align: left !important;
+        .dropdown-item{
+            padding-left: 0 !important
+        }
+    }
+
     .banner figure>img.image-sp {
         display: block;
     }
@@ -812,9 +825,13 @@ footer .footter-mobile .a-first {
     }
 
     #myHeader.fixed .bx_header {
-        padding: 10px;
+        padding: 0 10px;
     }
-
+    
+    header.fixed,
+    header.fixed .bx_header {
+        height: unset !important;
+    }
     #myHeader.fixed .navbar.navbar-expand-lg.navbar-light,
     #myHeader.fixed .hd_left {
         width: 100%;

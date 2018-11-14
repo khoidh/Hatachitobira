@@ -520,6 +520,8 @@
             $('.bx_header .navbar-nav.mr-auto').append('<li class="nav-item"><a class="nav-link link-append" href="{{url("my-page")}}">マイテーマを見つける</a></li>');
             $('.bx_header .navbar-nav.mr-auto').css('align-items','flex-start');
             $('.bx_header .navbar-nav.mr-auto').css('font-weight','bold');
+            $('.bx_header .navbar-nav.mr-auto').css('background-color','#fff');
+            $('.bx_header .navbar-nav.mr-auto').css('margin-top','15px');
             $('.bx_header .nav-item').addClass('aaaafixed');
             $('.banner.figure').append('<a class="link-my-page {{Auth::Guest() ? "show-modal-register-mypage" : ""}}" href="{{url("my-page")}}">マイテーマを見つける</a>');
 
