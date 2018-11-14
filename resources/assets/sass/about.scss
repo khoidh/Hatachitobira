@@ -75,7 +75,6 @@
     background-color: $white-color;
     border-radius: 10px;
     padding: 50px 18%;
-    font-family: "Kozuka Gothic Pr6N";
 
     .text_detail_title,
     .text_detail_title{
@@ -109,7 +108,7 @@
 
   .what-done-col .more-detail{
     text-align: left;
-    font-family: Oswald,sans-serif !important;
+    font-family: $font-family-oswald !important;
     //padding-left: 35px;
   }
 
@@ -122,7 +121,6 @@
     font-size: 20px;
     font-weight: bold;
     color: #000;
-    //font-family: "Myriad Pro";
   }
 
   .what-done-col .more-detail img{
@@ -161,7 +159,6 @@
   color: #fff;
   padding: 20px 0;
   text-align: center;
-  font-family: "Kozuka Gothic Pr6N";
   border-radius: 35px;
   width: 100%;
   display: inline-block;

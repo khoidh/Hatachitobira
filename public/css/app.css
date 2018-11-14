@@ -7230,7 +7230,6 @@ footer .footter-mobile .a-first {
   background-color: #FFFFFF;
   border-radius: 10px;
   padding: 50px 18%;
-  font-family: "Kozuka Gothic Pr6N";
 }
 
 .about-why-born .why-born-col .text_detail_title,
@@ -7278,7 +7277,7 @@ footer .footter-mobile .a-first {
 
 .about-what-done .what-done-col .more-detail {
   text-align: left;
-  font-family: Oswald,sans-serif !important;
+  font-family: "Oswald", sans-serif !important;
 }
 
 .about-what-done .what-done-col .more-detail a:hover,
@@ -7328,7 +7327,6 @@ footer .footter-mobile .a-first {
   color: #fff;
   padding: 20px 0;
   text-align: center;
-  font-family: "Kozuka Gothic Pr6N";
   border-radius: 35px;
   width: 100%;
   display: inline-block;
