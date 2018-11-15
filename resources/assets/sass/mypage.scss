@@ -211,7 +211,7 @@
     .article-content {
 
         .content-left img {
-            border-radius: 14px;
+            border-radius: 15px;
             max-height: 230px;
             width: 100%;
             object-fit: cover;
@@ -856,13 +856,6 @@
                 padding-top: 32px;
                 color: $black-color;
 
-                img {
-                    max-width: 300px;
-                    max-height: 300px;
-                    width: 100%;
-                    height: auto;
-                }
-
                 .article-status {
                     line-height: 200%;
                     font-size: small;
@@ -898,17 +891,14 @@
 
                 .article-content {
                     @include title-font();
-
-                    img {
-                        border-radius: 15px;
-                        -moz-border-radius: 15px;
-                        /*Firefox*/
-                        -webkit-border-radius: 15px;
-                        /*Chrome và Safary*/
-                    }
-
                     .content-left {
                         .image {
+                            border-radius: 15px;
+                            -moz-border-radius: 15px;
+                            /*Firefox*/
+                            -webkit-border-radius: 15px;
+                            /*Chrome và Safary*/
+
                             max-height: 230px;
                             width: 100%;
                             object-fit: cover;
