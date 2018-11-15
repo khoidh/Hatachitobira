@@ -472,7 +472,7 @@ $description = '学校と社会をつなぐ「ハタチのトビラ」は、将�
                 </div>
             </div>
             <div class="container button-link">
-                <a class="link-my-page {{Auth::Guest() ? "show-modal-register-mypage" : ""}}" href="{{url("my-page")}}">マイテーマを見つける</a>
+                <a class="round-button black lg {{Auth::Guest() ? "show-modal-register-mypage" : ""}}" href="{{url("my-page")}}">マイテーマを見つける</a>
             </div>
         </div>
         <div id="modal_video" class="modal fade modal_register" role="dialog">
@@ -536,7 +536,7 @@ $description = '学校と社会をつなぐ「ハタチのトビラ」は、将�
             $('.bx_header .navbar-nav.mr-auto').css('background-color','#fff');
             $('.bx_header .navbar-nav.mr-auto').css('margin-top','70px');
             $('.bx_header .nav-item').addClass('aaaafixed');
-            $('.banner.figure').append('<a class="link-my-page {{Auth::Guest() ? "show-modal-register-mypage" : ""}}" href="{{url("my-page")}}">マイテーマを見つける</a>');
+            $('.banner.figure').append('<a class="round-button black lg {{Auth::Guest() ? "show-modal-register-mypage" : ""}}" href="{{url("my-page")}}">マイテーマを見つける</a>');
 
             $('.dropdown').on('show.bs.dropdown', function() {
                 $(this).find('.dropdown-menu').first().stop(true, true).slideDown();
