@@ -16039,6 +16039,7 @@ a.text-dark:focus {
 }
 
 .underline-text {
+  font-family: "Oswald", sans-serif;
   color: #111111;
   border-bottom: 0 solid #fff100;
   -webkit-box-shadow: inset 0 -15px 0 #fff100;
@@ -16097,7 +16098,7 @@ a.text-dark:focus {
   width: 100%;
   z-index: 111;
   height: 175px;
-  margin-bottom: 50px;
+  margin-bottom: 20px;
 }
 
 .headline .container {
@@ -16122,11 +16123,10 @@ a.text-dark:focus {
   bottom: -26px;
   display: inline-block;
   background: #000000;
-  text-indent: 7px;
   color: white;
   font-size: 42px;
   font-weight: 700;
-  letter-spacing: 10px;
+  letter-spacing: 9px;
   font-family: "Noto Sans Japanese", sans-serif;
   color: white;
   z-index: 112;
@@ -16135,7 +16135,6 @@ a.text-dark:focus {
 @media (max-width: 575.98px) {
   .headline {
     height: 100px;
-    margin-bottom: 50px;
   }
 
   .headline .container {
@@ -16148,8 +16147,8 @@ a.text-dark:focus {
   }
 
   .headline .container .title-j {
-    bottom: -16px;
-    letter-spacing: 5px;
+    bottom: -10px;
+    left: 3px;
     font-size: 7vw !important;
   }
 }
@@ -20033,9 +20032,21 @@ footer .footter-mobile .a-first {
   float: right;
 }
 
+@media (max-width: 575.98px) {
+  .my-page .how-to-use .a-user {
+    font-size: 13px;
+  }
+}
+
 .my-page .how-to-use .a-user .fa {
   font-size: large;
   color: #111111;
+}
+
+@media (max-width: 575.98px) {
+  .my-page .how-to-use .a-user .fa {
+    font-style: small;
+  }
 }
 
 .my-page .how-to-use .a-user .a-user-text {
@@ -20047,6 +20058,17 @@ footer .footter-mobile .a-first {
   text-align: center;
   color: #111111;
   z-index: 998;
+}
+
+.my-page .select-month h1 {
+  margin-top: 15px;
+  margin-bottom: 30px;
+}
+
+@media (max-width: 575.98px) {
+  .my-page .select-month h1 {
+    font-size: 1.5rem;
+  }
 }
 
 .my-page .select-month .fa {
@@ -20102,6 +20124,17 @@ footer .footter-mobile .a-first {
 
 .my-page .info-1 .log .log-text {
   padding-top: 24px;
+}
+
+@media (max-width: 575.98px) {
+  .my-page .info-1 .log .log-text {
+    padding-top: 0px;
+  }
+}
+
+.my-page .info-1 .log .log-text h3 {
+  font-size: 1.2rem;
+  font-weight: bold;
 }
 
 .my-page .info-1 .log .log-text .underline {
@@ -20175,12 +20208,6 @@ footer .footter-mobile .a-first {
 }
 
 @media (max-width: 575.98px) {
-  .my-page .panel-info .row {
-    padding: 0 20px;
-  }
-}
-
-@media (max-width: 575.98px) {
   .my-page .panel-info .panel-info-wrapper {
     padding: 0;
   }
@@ -20201,7 +20228,7 @@ footer .footter-mobile .a-first {
 
 @media (max-width: 575.98px) {
   .my-page .panel-info .panel-info-wrapper .panel-info-content {
-    height: 150px;
+    height: 125px;
     font-size: 12px;
     margin-bottom: 0;
     border-radius: 0px;
@@ -20281,7 +20308,7 @@ footer .footter-mobile .a-first {
 
 @media (max-width: 575.98px) {
   .my-page .panel-info .panel-info-wrapper .event-image img {
-    height: 150px;
+    height: 125px;
     font-size: 12px;
     border-radius: 0px;
   }
