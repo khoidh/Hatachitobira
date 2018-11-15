@@ -235,6 +235,16 @@
           height: 100% !important;
         }
       }
+
+      img[style*=right] {
+        margin-bottom: 0.5rem;
+        margin-left: 1rem;
+      }
+
+      img[style*=left] {
+        margin-bottom: 0.5rem;
+        margin-right: 1rem;
+      }
     }
     .txt-form{
       padding-top: 24px;
