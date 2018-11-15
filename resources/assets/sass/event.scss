@@ -134,7 +134,11 @@
       //max-height: 250px;
     }
     .icon-01{
-      padding: 0 32px;
+      padding: 0;
+      @include only-for-tab-pc-lx(){
+        padding: 0 32px;
+      }
+      
     }
   }
 
