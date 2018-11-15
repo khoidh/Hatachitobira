@@ -14,7 +14,7 @@ header .bx_header {
 }
 
 .bx_header .hd_left {
-    padding-left: 60px;
+    // padding-left: 60px;
 }
 
 .nav {
@@ -177,7 +177,11 @@ main {
 
 .navbar.navbar-expand-lg.navbar-light {
     width: 100%;
-    padding: 0
+    padding: 0 0 0 2em;
+    @include only-for-mobile() {
+        padding: 0 1em !important;
+    }
+    align-items: end;
 }
 
 header.fixed {
@@ -194,6 +198,7 @@ header.fixed {
 
 .bx_header .nav-item.aaaafixed {
     border-top: 1px solid #d2d2d2;
+    padding: 0.5em;
     width: 100%
 }
 

@@ -370,7 +370,7 @@ header.fixed .bx_header .hd_left .navbar-expand-lg.navbar-light{
 }
 
 .flex-column .navbar-brand {
-    margin-right: -9rem !important;
+    // margin-right: -9rem !important;
 }
 
 .logo.navbar-brand a {
@@ -686,16 +686,15 @@ footer .text-bootom .a-link:after {
 }
 
 header.fixed.header .bx_header {
-    padding: 0 1em;
+    padding: 1em 0;
     @include only-for-mobile() {
         align-items: normal;
-        padding: 1em;
         height: unset;
     }
 }
 
 header.fixed.header .navbar.navbar-expand-lg.navbar-light {
-    padding: 0px;
+    padding: 0 0 0 1em;
     margin-bottom: 0;
 }
 
@@ -704,7 +703,7 @@ header.fixed.header .navbar.navbar-expand-lg.navbar-light p {
     font-weight: bold;
     font-size: 16px;
     position: relative;
-    top: 0px;
+    top: 15px;
     left: 20px;
 }
 
@@ -892,13 +891,14 @@ footer .footter-mobile .a-first {
     }
 
     .header .navbar.navbar-expand-lg.navbar-light p {
-        font-size: 12px !important;
+        font-size: 14px !important;
         position: relative;
-        margin-left: -19px;
+        margin-left: 10px;
+        top: 15px;
     }
 
     #myHeader.fixed .bx_header {
-        padding: 0 1em;
+        padding: 1em 0;
     }
     
     // header.fixed,
@@ -911,12 +911,12 @@ footer .footter-mobile .a-first {
     }
 
     #myHeader.fixed .navbar-light .navbar-toggler {
-        position: fixed;
-        top: 20px;
+        // position: fixed;
+        // top: 20px;
     }
     
     #myHeader.fixed .logo.navbar-brand {
-        width: 45%;
+        width: 35%;
         margin-bottom: 0;
     }
 
@@ -928,7 +928,11 @@ footer .footter-mobile .a-first {
     }
 
     #myHeader.fixed .navbar-brand p {
-        display: none;
+        // display: none;
+        position: relative;
+        top: 5px;
+        font-size: 14px;
+        margin-left: 10px;
     }
 
     #myHeader.fixed .hd_right {
@@ -950,7 +954,7 @@ footer .footter-mobile .a-first {
 
     .navbar-toggler:not(:disabled):not(.disabled) {
         position: relative;
-        right: 0px !important;
+        right: 15px !important;
     }
 
     footer {
@@ -1587,6 +1591,7 @@ footer .footter-mobile .a-first {
 .navbar-nav.mr-auto {
     width: 100%;
     justify-content: flex-end;
+    margin-top: 10px;
 }
 
 .content.top {

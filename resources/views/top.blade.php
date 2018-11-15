@@ -75,7 +75,7 @@ $description = '学校と社会をつなぐ「ハタチのトビラ」は、将�
                             <li class="nav-item">
                                 <a class="nav-link" data-toggle="modal" data-target="#modal_login">ログイン</a>
                             </li>
-                            <li class="nav-item"><a class="nav-link link-append show-modal-register-mypage" style="display: none;margin: 0px;" href="{{url('my-page')}}">マイテーマを見つける</a></li>
+                            {{-- <li class="nav-item"><a class="nav-link link-append show-modal-register-mypage" style="display: none;margin: 0px;" href="{{url('my-page')}}">マイテーマを見つける</a></li> --}}
                             @endif
                             @if(Auth::User())
                             <li class="nav-item">
@@ -534,7 +534,7 @@ $description = '学校と社会をつなぐ「ハタチのトビラ」は、将�
             $('.bx_header .navbar-nav.mr-auto').css('align-items','flex-start');
             $('.bx_header .navbar-nav.mr-auto').css('font-weight','bold');
             $('.bx_header .navbar-nav.mr-auto').css('background-color','#fff');
-            $('.bx_header .navbar-nav.mr-auto').css('margin-top','70px');
+            $('.bx_header .navbar-nav.mr-auto').css('margin-top','10px');
             $('.bx_header .nav-item').addClass('aaaafixed');
             $('.banner.figure').append('<a class="link-my-page {{Auth::Guest() ? "show-modal-register-mypage" : ""}}" href="{{url("my-page")}}">マイテーマを見つける</a>');
 

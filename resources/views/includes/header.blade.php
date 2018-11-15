@@ -10,10 +10,10 @@
             </button>
             <div class="collapse navbar-collapse clearfix" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item">
+                    <li class="nav-item aaaafixed">
                         <a class="nav-link active" href="{{url('about')}}">ABOUT</a>
                     </li>
-                    <li class="nav-item dropdown">
+                    <li class="nav-item dropdown aaaafixed">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                           マイテーマを探す
                         </a>
@@ -27,21 +27,22 @@
                             <a class="dropdown-item" href="{{ url('column')}}">ハタチのトビラコラム</a>
                     </li>
                     @if(Auth::Guest())
-                    <li class="nav-item">
+                    <li class="nav-item aaaafixed">
                         <a class="nav-link show-modal-register" data-toggle="modal" data-target="#modal_register">新規登録</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item aaaafixed">
                         <a class="nav-link" href="{{url('recruitment-staff')}}">企業採用担当の方</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item aaaafixed">
                         <a class="nav-link" data-toggle="modal" data-target="#modal_login">ログイン</a>
                     </li>
+                    <li class="nav-item"><a class="nav-link link-append show-modal-register-mypage" style="display: none;margin: 0px;" href="{{url('my-page')}}">マイテーマを見つける</a></li>
                     @endif
                     @if(Auth::User())
-                    <li class="nav-item">
+                    <li class="nav-item aaaafixed">
                         <a class="nav-link" href="{{url('my-page')}}">マイページ</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item aaaafixed">
                         <a class="nav-link" href="{{ route('logout') }}"
                            onclick="event.preventDefault();
                                              document.getElementById('logout-form').submit();">
