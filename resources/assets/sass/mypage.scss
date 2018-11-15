@@ -148,7 +148,8 @@
     }
     .thump {
         .img-icon {
-            max-height: 160px;
+            
+            height: 200px;
         }
     }
     .fa.fa-heart-o.liked {
@@ -761,34 +762,42 @@
                         }
                     }
                     .slick-track {
-                        margin-top: 30px;
+                        margin-top: 45px;
                     }
 
                     .slick-prev.slick-arrow ,
                     .slick-next.slick-arrow{
-                        font-size: 14px;
-                        line-height: 1;
+                        
                         position: absolute;
                         top: 6%;
                         display: block;
-                        width: 24px;
-                        height: 25px;
+                        width: 35px;
+                        height: 35px;
                         padding: 0px;
                         right: 48px;
                         -webkit-transform: translate(0, -50%);
                         transform: translate(0, -50%);
                         cursor: pointer;
-                        border: 2px solid;
-                        background: #111;
-                        color: #fff;
-                        border-radius: 50%;
                         z-index: 99;
-                        font-weight: 1000;
+                        border: none;
                     }
 
                     .slick-next.slick-arrow{
-                        right: 20px;
-                        display: block !important
+                        right: 10px;
+                        display: block !important;
+                        background-image: url(/images/user/top/arrow_next.png);
+                        background-size: 92%;
+                        background-color: transparent;
+                        background-repeat: no-repeat;
+                    }
+
+                    .slick-prev.slick-arrow{
+                        background-image: url('/images/user/top/arrow_prev.png');
+                        background-size: 100%;
+                        background-color: transparent;
+                        background-repeat: no-repeat;
+                        background-position: center;
+                        top: 5%;
                     }
 
                 }

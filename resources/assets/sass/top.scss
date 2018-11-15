@@ -872,6 +872,11 @@ footer .footter-mobile .a-first {
         width: 100%;
     }
 
+    #myHeader.fixed .navbar-light .navbar-toggler {
+        position: fixed;
+        top: 20px;
+    }
+    
     #myHeader.fixed .logo.navbar-brand {
         width: 45%;
         margin-bottom: 0;
@@ -880,6 +885,8 @@ footer .footter-mobile .a-first {
     #myHeader.fixed .logo.navbar-brand img {
         width: 100%;
         height: auto;
+        position: fixed;
+        top: 20px;
     }
 
     #myHeader.fixed .navbar-brand p {
