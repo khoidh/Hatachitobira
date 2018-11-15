@@ -94,7 +94,7 @@
     </div>
 
     <div class="form-group row">
-        <label for="time_from" class="col-sm-2 col-form-label">{{__('表示期間')}}</label>
+        <label for="time_from" class="col-sm-2 col-form-label">{{__('受付期間')}}</label>
         <div class="col-sm-10" style="padding: 0">
             <div class="row">
                 <div class="col-sm-6">
