@@ -4,11 +4,6 @@
     <style>
         /* Custom, iPhone Retina, Tablets*/
         @media only screen and (min-width: 320px) and (max-width: 991px) {
-            .home .main .title-lx .container .relative .info .title-e {
-                margin-left: -5px;
-                font-size: 55px;
-            }
-
             header.fixed.headder .navbar.navbar-expand-lg.navbar-light p {
                 font-size: 12px !important;
                 position: relative;
@@ -19,47 +14,29 @@
                 position: relative;
                 right: 15px !important;
             }
-
-            .home .main .title-lx {
-                min-height: 90px;
-                height: 90px;
-            }
-
-            .home .main .title-lx .container .relative .info {
-                margin-top: -30px !important;
-                line-height: 95%;
-            }
-
-            .home .main .title-lx .container .relative .info .absolute {
-                bottom: 0;
-                top: 95px;
-                left: 10px;
-            }
-
-            .home .main .title-lx .container .relative .info .absolute .title-j {
-                font-size: 30px;
-                letter-spacing: 8px;
-            }
-        }
-
-        /* Medium Devices, Desktops */
-        @media only screen and (min-width: 992px) {
-            .home .main .title-lx {
-                font-family: Oswald, sans-serif;
-                background: #fff100;
-                color: #fffa9d;
-                display: block;
-                font-size: 120px !important;
-                min-height: 175px;
-                width: 100%;
-            }
         }
     </style>
 @endsection
 @section('page_title', 'ハタチのトビラとは')
 @section('description', '学校と社会をつなぐ「ハタチのトビラ」は、将来の選択肢に触れ、マイテーマを探すきっかけを提供します。誰にでも見出せるマイテーマは、変化していくものでありながら、今と未来をより充実させるための行動指針となっていきます。')
-@section('title-e', 'About')
-@section('title-j', 'ハタチのトビラとは ')
+@section('main')
+    <div class="container-fluid about">
+        <div class="main row">
+            <div class="title-lx">
+                <div class="container">
+                    <div class="relative row">
+                        <div class="info col-md-12">
+                            <span class="title-e">About</span>
+                            <div class="absolute">
+                                <p><span class="title-j"> ハタチのトビラとは</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+@endsection
 @section('content')
     <div class="container about about-desktop">
         <div class="row about-banner" style="display: inline-block">

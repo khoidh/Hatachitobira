@@ -118,7 +118,13 @@ $container-max-widths: (
   }
 }
 
-// $grid-breakpoints: (
+@mixin only-for-tab {
+  @media only screen and (min-width : 576px) and (max-width : 991px) {
+    @content;
+  }
+}
+
+//$grid-breakpoints: (
 //        xs: 0,
 //        sm: 576px,
 //        md: 768px,
