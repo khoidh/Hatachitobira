@@ -10,3 +10,14 @@
 	text-shadow: #fff 1px 1px 0px, #fff -1px 1px 0px,
 	#fff 1px -1px 0px, #fff -1px -1px 0px;
 }
+
+.underline-text {
+	color: $black-color;
+	border-bottom: 0 solid $yellow-color;
+	box-shadow: inset 0 -15px 0 $yellow-color;
+	transition: background .15s cubic-bezier(.33, .66, .66, 1);
+	display: inline;
+	@include only-for-mobile() {
+		box-shadow: inset 0 -10px 0 $yellow-color;
+	}
+}
