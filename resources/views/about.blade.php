@@ -7,7 +7,7 @@
             header.fixed.headder .navbar.navbar-expand-lg.navbar-light p {
                 font-size: 12px !important;
                 position: relative;
-                margin-left: -19px;
+                margin-left: 0px;
             }
 
             .navbar-toggler:not(:disabled):not(.disabled) {
