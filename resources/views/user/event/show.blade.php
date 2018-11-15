@@ -154,17 +154,17 @@
                             @php
                                 $text_modal_show_infor= "お申し込み期間は終了いたしました。";
                                 if($event->eventstatus == '受付前')
-                                   $text_modal_show_infor= "登録時間が短縮されます。"."登録時間: ".$event->time_from." ~ ".$event->time_to."。";
+                                   $text_modal_show_infor= "お申し込み期間前のイベントになります。\nお申し込み期間: ".$event->time_from." ~ ".$event->time_to;
                             @endphp
-                            <button type="submit" class="btn btn-primary btn-lg btn-block" data-toggle="modal"
-                                    data-target="#modal_show_infor">送信
-                            </button>
+                            <p>{!! nl2br($text_modal_show_infor) !!}</p>
                         @elseif($event->eventstatus != '受付中' && $user_event_register == 1)
                             <button type="submit" class="btn btn-primary btn-lg btn-block" disabled>キャンセル</button>
                         @else
                             {{--Trong thời gian đăng ký--}}
                             @if($user_event_register == 0)
-                                <button type="button" class="btn btn-primary btn-lg btn-block" onclick="myFunction()">送信</button>
+                                @if($event->eventstatus == '受付中')
+                                    <button type="button" class="btn btn-primary btn-lg btn-block" onclick="myFunction()">送信</button>
+                                @endif
                             @else
                                 <button type="submit" class="btn btn-primary btn-lg btn-block" data-toggle="modal"
                                         data-target="#modal_show_delete">キャンセル
@@ -172,8 +172,9 @@
                             @endif
                         @endif
                     @else
-                        <button type="button" class="btn btn-primary btn-lg btn-block show-modal-register-mypage">送信
-                        </button>
+                        @if($event->eventstatus == '受付中')
+                            <button type="button" class="btn btn-primary btn-lg btn-block show-modal-register-mypage">送信</button>
+                        @endif
                     @endif
                 </div>
             </div>

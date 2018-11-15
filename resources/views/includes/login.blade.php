@@ -121,11 +121,11 @@
         var password = $(this).parents('#form-login').find("#password").val();
         var url = "{{URL::to('user-login') }}";
         if ($.trim(email) == ''){
-            $('.error-login').text("{{__('メールアドレスを入力してください')}}");
+            $('.error-login').text("{{__('メールアドレスを入力してください。')}}");
             return false;
         }
         if ($.trim(password) == ''){
-            $('.error-login').text("{{__('パスワードを入力してください')}}");
+            $('.error-login').text("{{__('パスワードを入力してください。')}}");
             return false;
         }
         $.ajax({
@@ -190,7 +190,7 @@
             $('#modal_register').find('.panel-body').css('display','block');
         }
         else {
-            $('#first-name-err').text('会員登録には、利用規約 と プライバシーポリシーの同意が必要です。');
+            $('#first-name-err').text('会員登録には、利用規約 と プライバシーポリシーへの同意が必要です。');
         }
     });
 
@@ -267,7 +267,7 @@
             window.location = $(this).attr('href');
         }
         else {
-            $('#first-name-err').text('会員登録には、利用規約 と プライバシーポリシーの同意が必要です。');
+            $('#first-name-err').text('会員登録には、利用規約 と プライバシーポリシーへの同意が必要です。');
         }
     });
 </script>

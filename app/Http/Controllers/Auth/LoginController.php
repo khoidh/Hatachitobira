@@ -69,12 +69,12 @@ class LoginController extends Controller
                 $result['status'] = true;
             }else {
                 $result['status'] = false;
-                $result['message'] = 'ログインに失敗いたしました。';
+                $result['message'] = 'ログインに失敗しました。';
             }
         }
         else {
             $result['status'] = false;
-            $result['message'] = 'ログインに失敗いたしました。';
+            $result['message'] = 'ログインに失敗しました。';
         }
         return json_encode($result);
     }
