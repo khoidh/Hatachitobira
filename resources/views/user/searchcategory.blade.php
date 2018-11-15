@@ -1,5 +1,8 @@
 @extends('layouts.app')
-
+@section('css-add')
+    @parent
+    <link href="{{ asset('assets/slick/slick.css') }}" rel="stylesheet">
+@endsection
 @section('page_title', 'カテゴリーから探す')
 @section('description', '学校と社会をつなぐ「ハタチのトビラ」のカテゴリー検索ページです。自分の興味から、マイテーマの種をみつけよう。')
 @section('title-e', 'Category Search')
@@ -35,7 +38,10 @@
         </div>
         @endforeach
     </div>
-    <div class="row content-search">
+
+</div>
+<div class="container content-search my-page">
+    <div class="row searchcategory">
         <div class="row column-search event">
             <h3 class="title-event">コラム</h3>
             <div class="article-list col-md-12">
@@ -156,45 +162,39 @@
                 </div>
             </div>
         </div>
-        <div class="row video-search video" style="margin-top: 30px;">
-            <h3 class="title-event">動画</h3>
-             <div class="row video-list col-md-12">
-                <div id="carouselExampleevent123" class="carousel slide multi-item-carousel" data-ride="carousel" data-interval="false" data-wrap="false">
-                    <div class="carousel-inner row mx-auto" role="listbox">
-                        @forelse($results as $key => $result)
-                                <div style="padding: 0" class=" item col-xs-12 col-sm-12 col-md-12 col-lg-12 video-detail carousel-item {{ $key == 0  ? 'active' : ''}}">
-                                    <div class="wrapper">
-                                        <div class="thump">
-                                            <div class="browse-details" data-id='{{$result->id}}' data-user='{{Auth::user() ? Auth::user()->id : "" }}' data-src='{{$result->items[0]->player->embedHtml}}' data-url = "{{$result->data_url}}">
-                                                <img src="{{ asset('images/user/video/btn-play.png')}}" alt="" >
-                                                <div class="favorite" data-id='{{$result->id}}' data-user='{{Auth::user() ? Auth::user()->id : "" }}'><i class="fa fa-heart-o {{$result->favorite == 1 ? 'liked' : ''}}"></i></div>
-                                             </div>
-                                            <a href="#">
-                                                <img class="img-icon" src="{{  $result->items[0]->snippet->thumbnails->medium->url}}" alt="">
-                                            </a>
-                                        </div>
-                                        <div class="description">
-                                            <p>{{ $result->items[0]->snippet->title }}</p>
-                                            <span>{{$result->items[0]->statistics->viewCount}} Views/{{ $result->date_diff}} month ago/{{$result->category}}</span>
-                                        </div>
+        
+    </div>
+    <div class="group-2">
+        <div class="item video1">
+            <div class="underline video-title">動画</div>
+            <div class="row video-content video">
+                <div class="row video-list col-md-12">
+                    <div class="carousel-inner carosel-video-list row mx-auto">
+                        @forelse($videos as $key => $result)
+                            <div class=" item col-xs-12 col-sm-12 col-md-12 col-lg-12 video-detail carousel-item {{ $key == 0  ? 'active' : ''}}">
+                                <div class="wrapper">
+                                    <div class="thump">
+                                        <div class="browse-details" data-id='{{$result->id}}' data-user='{{Auth::user() ? Auth::user()->id : "" }}' data-src='{{$result->embedHtml}}' data-url="{{$result->url}}">
+                                            <img src="{{ asset('images/user/video/btn-play.png')}}" alt="" >
+                                            <div class="favorite" data-id='{{$result->id}}' data-user='{{Auth::user() ? Auth::user()->id : "" }}'><i class="fa fa-heart-o {{$result->favorite == 1 ? 'liked' : ''}}"></i></div>
+                                         </div>
+                                        <a href="#">
+                                            <img class="img-icon" src="{{  $result->thumbnails}}" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="description">
+                                        <p>{{ $result->title }}</p>
+                                        <span>{{$result->viewCount}} Views / {{$result->date_diff}} month ago / {{$result->category_name}}</span>
                                     </div>
                                 </div>
+                            </div>
                         @empty
-                        <h4 class="data-not-found">No data found</h4>
+                        <span class="more-detail" style="width: 100%;top: 0;">
+                        <a href="{{url('video')}}" style="color: #111111;margin-left: 13px;display: -webkit-inline-box;margin-top: 30px;"><b>MORE</b><img src="{{asset('images/user/top/arrow-1.png')}}"></a></span>
                         @endforelse
                     </div>
-                    @if(count($results) > 3)
-                    <a class="carousel-control-prev" style="display: none;" href="#carouselExampleevent123" role="button" data-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Previous</span>
-                    </a>
-                    <a class="carousel-control-next text-faded" href="#carouselExampleevent123" role="button" data-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Next</span>
-                    </a>
-                    @endif
-                </div>
-             </div>
+                 </div>
+            </div>
         </div>
     </div>
 </div>
@@ -215,13 +215,47 @@
         </div>
     </div>   
 </div>
-
+<script src="{{ asset('assets/slick/slick.min.js') }}"></script>
 <script type="text/javascript" async defer>
     $(document).ready(function(){
         $("#modal_video").on('hide.bs.modal', function(){
             $("iframe").attr('src', '');
         });
         
+        $('.carousel-inner.carosel-video-list').slick({
+            infinite: true,
+            slidesToShow: 3,
+            slidesToScroll: 3,
+            infinite: false,
+            nextArrow: '<button type="button" data-role="none" class="slick-next slick-arrow" aria-label="Next" role="button" style="display: block;"></button>',
+            prevArrow: '<button type="button" data-role="none" class="slick-prev slick-arrow" aria-label="Previous" role="button" style="display: block;"></button>',
+            responsive: [
+            {
+              breakpoint: 1024,
+              settings: {
+                slidesToShow: 3,
+                slidesToScroll: 3,
+                infinite: true,
+                dots: true
+              }
+            },
+            {
+              breakpoint: 600,
+              settings: {
+                slidesToShow: 2,
+                slidesToScroll: 2
+              }
+            },
+            {
+              breakpoint: 480,
+              settings: {
+                slidesToShow: 1,
+                slidesToScroll: 1
+              }
+            }
+            ]
+        });
+
         $(document).on('click','#carouselExample .carousel-control-next',function(){
             if ($('#carouselExample .carousel-inner .carousel-item.active').is(':nth-last-child(2)')) {
                 $('#carouselExample .carousel-control-next').attr('style','display: none !important');

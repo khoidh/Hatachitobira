@@ -154,6 +154,7 @@
     font-weight: bold;
     margin-left: 15px;
     font-size: 36px;
+    color: #111;
     @include only-for-mobile() {
         margin-left: 0px;
 
@@ -216,11 +217,32 @@
 .carousel-control-prev,
 .carousel-control-next {
     top: -22px !important;
+    .carousel-control-prev-icon {
+        background-image: url('/images/user/top/arrow_prev.png');
+        width: 35px;
+        height: 35px;
+        border: none;
+        background-color: transparent !important;
+        background-size: 100% !important;
+        position: relative;
+        top: -15px;
+    }
+    .carousel-control-next-icon {
+        background-image: url('/images/user/top/arrow_next.png');
+        width: 35px;
+        height: 35px;
+         border: none;
+        background-color: transparent !important;
+        background-size: 95% !important;
+        position: relative;
+        top: -15px;
+        right: -7px;
+    }
 }
 
 .video-search .carousel-control-prev,
 .video-search .carousel-control-next {
-    top: -20px !important;
+    top: -35px !important;
 }
 
 
@@ -236,7 +258,8 @@
 .video-search.video,
 .event-search.event,
 #carouselExampleevent123 {
-    width: 100%,
+    width: 100%;
+    margin-left:0
 }
 
 .data-not-found {
