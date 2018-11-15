@@ -211,7 +211,7 @@
     .article-content {
 
         .content-left img {
-            border-radius: 14px;
+            border-radius: 15px;
             max-height: 230px;
             width: 100%;
             object-fit: cover;
@@ -861,21 +861,49 @@
                     max-height: 300px;
                     width: 100%;
                     height: auto;
+                .article-status {
+                    line-height: 200%;
+                    font-size: small;
+                    font-weight: bold;
+                    color: $white-color;
+
+                    position: relative;
+                    display: inline-block;
+                    width: 100%;
+
+                    .shape-8 {
+                        @extend %shape-8;
+                        margin: 8px 0 16px !important;
+                        height: 0px !important;
+                        background-color: #DCDCDC !important;
+                    }
+
+                    img {
+                        position: absolute;
+                        max-height: 24px;
+                        max-width: 101px;
+                        top: 0;
+                    }
+
+                    span {
+                        position: absolute;
+                        max-height: 24px;
+                        max-width: 101px;
+                        top: 0;
+                        left: 5px;
+                    }
                 }
 
                 .article-content {
                     @include title-font();
-
-                    img {
-                        border-radius: 15px;
-                        -moz-border-radius: 15px;
-                        /*Firefox*/
-                        -webkit-border-radius: 15px;
-                        /*Chrome và Safary*/
-                    }
-
                     .content-left {
                         .image {
+                            border-radius: 15px;
+                            -moz-border-radius: 15px;
+                            /*Firefox*/
+                            -webkit-border-radius: 15px;
+                            /*Chrome và Safary*/
+
                             max-height: 230px;
                             width: 100%;
                             object-fit: cover;
