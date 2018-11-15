@@ -119,8 +119,8 @@ $description = '学校と社会をつなぐ「ハタチのトビラ」は、将�
                         <img class="image-pc" src="{{ asset('images/user/top/banner.png') }}" alt="楽しもう、背伸びしない自分を">
                         <figcaption>
                             <p class="description">What students want to know,Is it transmitted to real?</p>
-                            <p class="title text-stroke">楽しもう、背伸びしない自分を。</p>
-                            <p class="title text-stroke">やりたいことって必要なの ？</p>
+                            <p class="title">楽しもう、背伸びしない自分を。</p>
+                            <p class="title">やりたいことって必要なの ？</p>
                         </figcaption>
                     </figure>
                     <figure class="carousel-item">
@@ -128,8 +128,8 @@ $description = '学校と社会をつなぐ「ハタチのトビラ」は、将�
                         <img class="image-pc" src="{{ asset('images/user/top/banner-1.png') }}" alt="楽しもう、背伸びしない自分を。">
                         <figcaption>
                             <p class="description">What students want to know,Is it transmitted to real?</p>
-                            <p class="title text-stroke">これからの就活。</p>
-                            <p class="title text-stroke"><span class="title-background">マイテーマ</span>を軸にする、</p>
+                            <p class="title">これからの就活。</p>
+                            <p class="title"><span class="title-background">マイテーマ</span>を軸にする、</p>
                         </figcaption>
                     </figure>
                     <figure class="carousel-item">
@@ -137,8 +137,8 @@ $description = '学校と社会をつなぐ「ハタチのトビラ」は、将�
                         <img class="image-pc" src="{{ asset('images/user/top/banner-2.png') }}" alt="楽しもう、背伸びしない自分を。">
                         <figcaption>
                             <p class="description">What students want to know,Is it transmitted to real?</p>
-                            <p class="title text-stroke"><span class="title-background">マイテーマ</span>って何だろう。</p>
-                            <p class="title text-stroke">オトナって何だろう。</p>
+                            <p class="title"><span class="title-background">マイテーマ</span>って何だろう。</p>
+                            <p class="title">オトナって何だろう。</p>
                         </figcaption>
                     </figure>
                 </div>
@@ -167,9 +167,9 @@ $description = '学校と社会をつなぐ「ハタチのトビラ」は、将�
         <div class="content top">
             <div class="container content-1">
                 <div class="content-title">
-                    <p class="content-1-title text-stroke">何が起きるかわからない</p>
-                    <p class="content-1-title text-stroke"><span style="writing-mode: horizontal-tb;">5</span>年後に悩むのは、</p>
-                    <p class="content-1-title text-stroke">もうやめない ？</p>
+                    <p class="content-1-title">何が起きるかわからない</p>
+                    <p class="content-1-title"><span style="writing-mode: horizontal-tb;">5</span>年後に悩むのは、</p>
+                    <p class="content-1-title">もうやめない ？</p>
                 </div>
                 <div class="content-1-content">
                     <div class="cb-path path-one"></div>

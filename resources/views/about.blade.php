@@ -71,9 +71,9 @@
                     <div class="div-bg"></div>
                     <div class="container content-1">
                         <div class="about-content-title">
-                            <p class="content-1-title text-stroke">「正解がわからないから、</p>
-                            <p class="content-1-title text-stroke">誰かに正解を</p>
-                            <p class="content-1-title text-stroke">求めたくなる時代…<span class="char-rotate">」</span></p>
+                            <p class="content-1-title">「正解がわからないから、</p>
+                            <p class="content-1-title">誰かに正解を</p>
+                            <p class="content-1-title">求めたくなる時代…<span class="char-rotate">」</span></p>
                         </div>
                         <div class="about-content-1-content">
                             <div class="text-my-theme" style="padding-top: 70px;">
