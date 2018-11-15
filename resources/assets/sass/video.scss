@@ -54,7 +54,7 @@
                             /* ========== sp =========== */
                             letter-spacing: 0px;
                             /* ========== pc =========== */
-                            @include only-for-pc() {
+                            @include only-for-tab-pc() {
                                 letter-spacing: 10px;
                             }
                             color: $white-color;
@@ -62,7 +62,7 @@
                         }
                     }
 
-                    @include only-for-pc() { /* note: @content begins here */
+                    @include only-for-tab-pc() { /* note: @content begins here */
                     }
                     /* @content ends */
                 }
@@ -216,7 +216,7 @@
     //for sp
     padding: 32px 0 !important;
     //for pc
-    @include only-for-pc(){
+    @include only-for-tab-pc(){
         padding: 32px 0 0 !important;
     }
 
@@ -233,7 +233,7 @@
         margin: 4px;
         padding: 2px 11px;
         //for pc
-        @include only-for-pc(){
+        @include only-for-tab-pc(){
             border-radius: 35px;
             margin: 10px;
             padding: 8px 17px;
