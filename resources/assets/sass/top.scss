@@ -26,7 +26,7 @@ body {
 }
 
 .dropdown-menu.show:before {
-     @include only-for-pc() {
+     @include only-for-tab-pc() {
         content: "";
         width: 45px;
         height: 30px;

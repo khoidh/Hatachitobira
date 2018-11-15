@@ -146,12 +146,6 @@
       position: relative;
       -webkit-transform: translateZ(0);
       transform: translateZ(0);
-      img {
-        max-width: 300px;
-        max-height: 300px;
-        width: 100%;
-        height: auto;
-      }
       .article-status {
         line-height: 200%;
         font-size: small;
@@ -197,6 +191,10 @@
           border-radius: 15px;
           -moz-border-radius: 15px; /*Firefox*/
           -webkit-border-radius: 15px; /*Chrome và Safary*/
+
+          max-height: 230px;
+          width: 100%;
+          object-fit: cover;
         }
 
         .content-right {
@@ -222,7 +220,7 @@
             font-size: small;
             display: block;
 
-            @include only-for-pc() {
+            @include only-for-tab-pc() {
               display: inline;
             }
           }
@@ -245,7 +243,7 @@
       //for sp
       padding: 32px 0 !important;
       //for pc
-      @include only-for-pc(){
+      @include only-for-tab-pc(){
         padding: 32px 0 0 !important;
       }
 
@@ -262,7 +260,7 @@
         margin: 4px;
         padding: 2px 11px;
         //for pc
-        @include only-for-pc(){
+        @include only-for-tab-pc(){
           border-radius: 35px;
           margin: 10px;
           padding: 8px 17px;

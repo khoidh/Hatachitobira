@@ -130,7 +130,7 @@
         }
       }/* @content ends */
 
-      @include only-for-pc(){/* note: @content begins here */
+      @include only-for-tab-pc(){/* note: @content begins here */
         .form-group{
           margin-bottom: 2.5%;
         }
