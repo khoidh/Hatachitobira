@@ -883,10 +883,10 @@ footer .footter-mobile .a-first {
     }
 
     #myHeader.fixed .logo.navbar-brand img {
-        width: 100%;
-        height: auto;
         position: fixed;
         top: 20px;
+        max-width: 190px;
+        max-height: 40px;
     }
 
     #myHeader.fixed .navbar-brand p {
@@ -1593,5 +1593,15 @@ footer .footter-mobile .a-first {
     }
     .bx_header .nav-link.link-append{
         margin-right: 30px !important;
+    }
+}
+@media (max-width: 575.98px){
+    header.fixed.headder .bx_header {
+          padding: 0 0 0 10px;
+          height: 80px !important;
+      }
+    header.fixed .bx_header .hd_left .logo img {
+        width: 270px;
+        height: auto;
     }
 }

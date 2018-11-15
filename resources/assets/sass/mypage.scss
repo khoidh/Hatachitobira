@@ -1066,3 +1066,9 @@
 .my-page .panel-info .panel-info-wrapper .event-image img{
     object-fit: cover;
 }
+
+@media (max-width: 575.98px){
+    .my-page .info-1 .log .log-input .bootstrap-tagsinput .label-info {
+        display: block;
+    }
+}
