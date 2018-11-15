@@ -333,9 +333,9 @@ class MypageController extends Controller
 
     public function searchCategory()
     {
-        $api_key = 'AIzaSyCHOj6MNDK2YFRLQhK5yKP2KEBIRKHlHuU';
-        $BASE_URL = 'https://www.googleapis.com/youtube/v3/videos?id=';
-        $BASE_PART = '&part=id,contentDetails,snippet,statistics,player&key=';
+        // $api_key = 'AIzaSyCHOj6MNDK2YFRLQhK5yKP2KEBIRKHlHuU';
+        // $BASE_URL = 'https://www.googleapis.com/youtube/v3/videos?id=';
+        // $BASE_PART = '&part=id,contentDetails,snippet,statistics,player&key=';
 
         $categories = Category::where('display',1)->get();
 
@@ -393,46 +393,44 @@ class MypageController extends Controller
             $column->favorite = $like_e;
         }
 
-        $results = array();
-        foreach ($videos as $video) {
-            $url = $video->url;
-            parse_str(parse_url($url, PHP_URL_QUERY), $youtube);
-            $id = $youtube['v'];
-            $api_url = $BASE_URL . $id . $BASE_PART . $api_key . '';
-            $result = json_decode(file_get_contents($api_url));
+        // $results = array();
+        // foreach ($videos as $video) {
+        //     $url = $video->url;
+        //     parse_str(parse_url($url, PHP_URL_QUERY), $youtube);
+        //     $id = $youtube['v'];
+        //     $api_url = $BASE_URL . $id . $BASE_PART . $api_key . '';
+        //     $result = json_decode(file_get_contents($api_url));
             
-            $result->id = $video->id;
-            $result->category = $video->category_name;
-            $result->data_url = $url;
-            $like = 0;
-            if (Auth::user()) {
-                $user_id = Auth::user()->id;
-                $favorite = Favorite::where('user_id', $user_id)
-                    ->where('favoritable_id', $video->id)
-                    ->where('favoritable_type', 'videos')->get();
-                if (count($favorite) > 0) {
-                    $like = 1;
-                }
-            }
-            $result->favorite = $like;
-            if (isset($result->items[0])) {
-                $date1 = new DateTime();
-                $date2 = new DateTime($result->items[0]->snippet->publishedAt);
-                $interval = $date2->diff($date1);
-                $result->date_diff = $interval->m;
-                array_push($results, $result);
-            }
-        }
+        //     $result->id = $video->id;
+        //     $result->category = $video->category_name;
+        //     $result->data_url = $url;
+        //     $like = 0;
+        //     if (Auth::user()) {
+        //         $user_id = Auth::user()->id;
+        //         $favorite = Favorite::where('user_id', $user_id)
+        //             ->where('favoritable_id', $video->id)
+        //             ->where('favoritable_type', 'videos')->get();
+        //         if (count($favorite) > 0) {
+        //             $like = 1;
+        //         }
+        //     }
+        //     $result->favorite = $like;
+        //     if (isset($result->items[0])) {
+        //         $date1 = new DateTime();
+        //         $date2 = new DateTime($result->items[0]->snippet->publishedAt);
+        //         $interval = $date2->diff($date1);
+        //         $result->date_diff = $interval->m;
+        //         array_push($results, $result);
+        //     }
+        // }
         $slug = '';
-        return view('user.searchcategory', compact('categories', 'events', 'columns', 'results','data_id','slug'));
+        return view('user.searchcategory', compact('categories', 'events', 'columns', 'videos','data_id','slug'));
     }
 
     public function searchCategorySlug(){
         {
             $id = $_GET['search'];
-            $api_key = 'AIzaSyCHOj6MNDK2YFRLQhK5yKP2KEBIRKHlHuU';
-            $BASE_URL = 'https://www.googleapis.com/youtube/v3/videos?id=';
-            $BASE_PART = '&part=id,contentDetails,snippet,statistics,player&key=';
+          
     
             $categories = Category::where('display',1)->get();
     
@@ -484,48 +482,14 @@ class MypageController extends Controller
     
                 $column->favorite = $like_e;
             }
-    
-            $results = array();
-            foreach ($videos as $video) {
-                $url = $video->url;
-                parse_str(parse_url($url, PHP_URL_QUERY), $youtube);
-                $id = $youtube['v'];
-                $api_url = $BASE_URL . $id . $BASE_PART . $api_key . '';
-                $result = json_decode(file_get_contents($api_url));
-                
-                $result->id = $video->id;
-                $result->category = $video->category_name;
-                $result->data_url = $url;
-                $like = 0;
-                if (Auth::user()) {
-                    $user_id = Auth::user()->id;
-                    $favorite = Favorite::where('user_id', $user_id)
-                        ->where('favoritable_id', $video->id)
-                        ->where('favoritable_type', 'videos')->get();
-                    if (count($favorite) > 0) {
-                        $like = 1;
-                    }
-                }
-                $result->favorite = $like;
-                if (isset($result->items[0])) {
-                    $date1 = new DateTime();
-                    $date2 = new DateTime($result->items[0]->snippet->publishedAt);
-                    $interval = $date2->diff($date1);
-                    $result->date_diff = $interval->m;
-                    array_push($results, $result);
-                }
-            }
             
-            return view('user.search_category', compact('categories', 'events', 'columns', 'results'));
+            return view('user.search_category', compact('categories', 'events', 'columns', 'videos'));
         }
     }
 
     public function searchCategoryForSlug($slug){
         {
-            $api_key = 'AIzaSyCHOj6MNDK2YFRLQhK5yKP2KEBIRKHlHuU';
-            $BASE_URL = 'https://www.googleapis.com/youtube/v3/videos?id=';
-            $BASE_PART = '&part=id,contentDetails,snippet,statistics,player&key=';
-    
+           
             $categories = Category::where('display',1)->get();
     
             $events = Event::select()
@@ -577,38 +541,9 @@ class MypageController extends Controller
                 $column->favorite = $like_e;
             }
     
-            $results = array();
-            foreach ($videos as $video) {
-                $url = $video->url;
-                parse_str(parse_url($url, PHP_URL_QUERY), $youtube);
-                $id = $youtube['v'];
-                $api_url = $BASE_URL . $id . $BASE_PART . $api_key . '';
-                $result = json_decode(file_get_contents($api_url));
-                
-                $result->id = $video->id;
-                $result->category = $video->category_name;
-                $result->data_url = $url;
-                $like = 0;
-                if (Auth::user()) {
-                    $user_id = Auth::user()->id;
-                    $favorite = Favorite::where('user_id', $user_id)
-                        ->where('favoritable_id', $video->id)
-                        ->where('favoritable_type', 'videos')->get();
-                    if (count($favorite) > 0) {
-                        $like = 1;
-                    }
-                }
-                $result->favorite = $like;
-                if (isset($result->items[0])) {
-                    $date1 = new DateTime();
-                    $date2 = new DateTime($result->items[0]->snippet->publishedAt);
-                    $interval = $date2->diff($date1);
-                    $result->date_diff = $interval->m;
-                    array_push($results, $result);
-                }
-            }
             
-            return view('user.searchcategory', compact('categories', 'events', 'columns', 'results','slug'));
+            
+            return view('user.searchcategory', compact('categories', 'events', 'columns', 'videos','slug'));
         }
     }
 
