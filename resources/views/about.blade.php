@@ -136,24 +136,18 @@
                         <p class="about-hatachi-title">“ハタチのトビラ”の先に、自分らしいレールつくるために  </p>
                         <p class="about-hatachi-detail">学校と社会をつなぐ"ハタチのトビラ"は、 <br>将来の選択肢に触れ、マイテーマを探すきっかけを提供します </p>
                     </div>
-                    <div class="col-md-4 col-sm-4 col-xs-12">
-                        <div class="about-hatachi-col">
-                            <a href="{{route('video.index')}}" class="btn-link">動画をみる</a>
-                        </div>
+                    <div class="col-md-4 col-sm-4 col-xs-12 mb-20">
+                        <a class="round-button black lg full" href="{{route('video.index')}}" class="btn-link">動画をみる</a>
                     </div>
-                    <div class="col-md-4 col-sm-4 col-xs-12">
-                        <div class="about-hatachi-col">
-                            <a href="{{route('event.index')}}" class="btn-link">イベントに参加する</a>
-                        </div>
+                    <div class="col-md-4 col-sm-4 col-xs-12 mb-20">
+                        <a class="round-button black lg full" href="{{route('event.index')}}" class="btn-link">イベントに参加する</a>
                     </div>
-                    <div class="col-md-4 col-sm-4 col-xs-12">
-                        <div class="about-hatachi-col">
-                            <?php if(Auth::guest()) : ?>
-                            <a class="btn-link show-modal-register" data-toggle="modal" data-target="#modal_register" style="color: white !important; cursor: pointer !important;">マイテーマを探す</a>
-                            <?php else: ?>
-                            <a href="{{route('mypage.index')}}" class="btn-link">マイテーマを探す</a>
-                            <?php endif; ?>
-                        </div>
+                    <div class="col-md-4 col-sm-4 col-xs-12 mb-20">
+                        <?php if(Auth::guest()) : ?>
+                        <a class="round-button black lg full show-modal-register" data-toggle="modal" data-target="#modal_register" style="color: white !important; cursor: pointer !important;">マイテーマを探す</a>
+                        <?php else: ?>
+                        <a class="round-button black lg full" href="{{route('mypage.index')}}" class="btn-link">マイテーマを探す</a>
+                        <?php endif; ?>
                     </div>
                 </div>
             </div>

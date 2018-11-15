@@ -140,7 +140,7 @@
 
                     <div class="row justify-content-center form-group enquiry-btn">
                         <div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3">
-                            <button type="submit" class="btn btn-primary btn-lg btn-block">送信</button>
+                            <button type="submit" class="round-button black lg">送信</button>
                         </div>
                     </div>
                 </form>

@@ -39,7 +39,7 @@
         </div>
         <div class="row justify-content-center txt-btn">
             <div class="col-sm-6">
-                <button type="button" class="btn btn-primary btn-lg btn-block show-modal-register-mypage"
+                <button type="button" class="round-button black lg show-modal-register-mypage"
                         data-id="{{$column->id}}"
                         data-user='{{Auth::user() ? Auth::user()->id : ""}}'>マイテーマを見つける
                 </button>

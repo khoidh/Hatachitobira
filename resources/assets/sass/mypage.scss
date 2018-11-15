@@ -717,24 +717,6 @@
 
             .btn-category-list {
                 padding: 32px 0 24px;
-
-                button {
-                    padding: 5px 30px;
-                    border-radius: 30px;
-                    -moz-border-radius: 30px;
-                    -webkit-border-radius: 30px;
-                    border: none;
-                    background: $black-color;
-                    color: $white-color;
-                    font-weight: bold;
-                    font-size: 24pt;
-                    line-height: 40pt;
-                    cursor: pointer;
-                    //Đổ bóng phía dưới
-                    box-shadow: 3px 3px 3px $yellow-color;
-                    -moz-box-shadow: 3px 3px 3px $yellow-color;
-                    -webkit-box-shadow: 3px 3px 3px $yellow-color;
-                }
             }
 
         }

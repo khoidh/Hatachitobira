@@ -550,10 +550,10 @@
         background-color: #fff100;
         text-align: center;
         font-weight: bold;
-        padding-top: 60px;
         font-size: 20px;
         line-height: 1;
-        padding-bottom: 95px;
+        padding-top: 60px;
+        padding-bottom: 60px;
     }
 
    /* .requiment-convertion .container {

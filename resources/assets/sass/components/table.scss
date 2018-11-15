@@ -1,0 +1,23 @@
+.txt-form{
+  padding-top: 24px;
+  line-height: 34px;
+  th, td {
+    border-top: 1px solid $black-color;
+    border-bottom: 1px solid $black-color;
+  }
+  .table-td_1{
+    background-color: $color-yellow;
+    text-align: center;
+    width: 30%;
+  }
+  .table-td_2{
+    color: $text2-color;
+    padding-left: 50px;
+  }
+
+  @include only-for-mobile() {
+    .table-td_2{
+      padding-left: 1rem;
+    }
+  }
+}

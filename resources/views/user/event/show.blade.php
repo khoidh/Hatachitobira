@@ -141,35 +141,34 @@
                 @php
                     $text_modal_show_infor="";
                 @endphp
-                <div class="col-sm-6">
-                    @if(Auth::User())
-                        @if($event->eventstatus != '受付中' && $user_event_register == 0)
-                            @php
-                                $text_modal_show_infor= "お申し込み期間は終了いたしました。";
-                                if($event->eventstatus == '受付前')
-                                   $text_modal_show_infor= "お申し込み期間前のイベントになります。\nお申し込み期間: ".$event->time_from." ~ ".$event->time_to;
-                            @endphp
-                            <p>{!! nl2br($text_modal_show_infor) !!}</p>
-                        @elseif($event->eventstatus != '受付中' && $user_event_register == 1)
-                            <button type="submit" class="btn btn-primary btn-lg btn-block" disabled>キャンセル</button>
-                        @else
-                            {{--Trong thời gian đăng ký--}}
-                            @if($user_event_register == 0)
-                                @if($event->eventstatus == '受付中')
-                                    <button type="button" class="btn btn-primary btn-lg btn-block" onclick="myFunction()">送信</button>
-                                @endif
-                            @else
-                                <button type="submit" class="btn btn-primary btn-lg btn-block" data-toggle="modal"
-                                        data-target="#modal_show_delete">キャンセル
-                                </button>
-                            @endif
-                        @endif
+                @if(Auth::User())
+                    @if($event->eventstatus != '受付中' && $user_event_register == 0)
+                        @php
+                            $text_modal_show_infor= "お申し込み期間は終了いたしました。";
+                            if($event->eventstatus == '受付前')
+                               $text_modal_show_infor= "お申し込み期間前のイベントになります。\nお申し込み期間: ".$event->time_from." ~ ".$event->time_to;
+                        @endphp
+                        <p>{!! nl2br($text_modal_show_infor) !!}</p>
+                    @elseif($event->eventstatus != '受付中' && $user_event_register == 1)
+                        <button type="submit" class="round-button black lg" disabled>キャンセル</button>
                     @else
-                        @if($event->eventstatus == '受付中')
-                            <button type="button" class="btn btn-primary btn-lg btn-block show-modal-register-mypage">送信</button>
+                        {{--Trong thời gian đăng ký--}}
+                        @if($user_event_register == 0)
+                            @if($event->eventstatus == '受付中')
+                                <button type="button" class="round-button black lg" onclick="myFunction()">送信</button>
+                            @endif
+                        @else
+                            <button type="submit" class="btn btn-primary btn-lg btn-block" data-toggle="modal"
+                                    data-target="#modal_show_delete">キャンセル
+                            </button>
                         @endif
                     @endif
-                </div>
+                @else
+                    @if($event->eventstatus == '受付中')
+                        <button type="button" class="round-button black lg show-modal-register-mypage">送信</button>
+
+                    @endif
+                @endif
             </div>
     </div>
 

@@ -1,24 +1,5 @@
 // Fonts
 @import url('https://fonts.googleapis.com/css?family=Roboto');
-// Variables
-@import "variables";
-@import "components/text";
-@import "components/space";
-
-@import "home";
-@import "top";
-@import "main";
-@import "event";
-@import "column";
-@import "private";
-
-@import "enquiry";
-@import "video";
-@import "mypage";
-@import "requiment";
-@import "searchcategory";
-@import "about";
-@import "dropzone";
 
 // Bootstrap
 @import "~bootstrap/scss/bootstrap.scss";
@@ -35,5 +16,26 @@
 @import url('https://fonts.googleapis.com/css?family=Oswald');
 @import url(http://fonts.googleapis.com/earlyaccess/notosansjapanese.css);
 
+// Variables
+@import "variables";
+@import "components/space";
+@import "components/layout";
+@import "components/text";
+@import "components/button";
+@import "components/table";
 
+@import "home";
+@import "top";
+@import "main";
+@import "event";
+@import "column";
+@import "private";
+
+@import "enquiry";
+@import "video";
+@import "mypage";
+@import "requiment";
+@import "searchcategory";
+@import "about";
+@import "dropzone";
 
