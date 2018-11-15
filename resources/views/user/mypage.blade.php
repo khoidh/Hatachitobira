@@ -36,7 +36,7 @@
     <div class="container my-page">
         <div class="row my-page-top">
             <div class="col-sm-12 how-to-use">
-                <a class="a-user" href="#">
+                <a class="a-user" href="/column/2">
                     <i class="fa fa-question-circle-o"></i>
                     <span class="a-user-text" >&nbsp;このパーツの使い方はこちら</span>
                 </a>
