@@ -859,8 +859,8 @@ footer .footter-mobile .a-first {
     }
 
     #myHeader.fixed .logo.navbar-brand img {
-        width: 100%;
-        height: auto;
+        max-width: 190px;
+        max-height: 40px;
     }
 
     #myHeader.fixed .navbar-brand p {
@@ -1549,4 +1549,15 @@ footer .footter-mobile .a-first {
     top: 50%;
     left: 50%;
     z-index: 201;
+}
+
+@media (max-width: 575.98px){
+    header.fixed.headder .bx_header {
+          padding: 0 0 0 10px;
+          height: 80px !important;
+      }
+    header.fixed .bx_header .hd_left .logo img {
+        width: 270px;
+        height: auto;
+    }
 }

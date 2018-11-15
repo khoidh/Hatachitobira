@@ -1021,3 +1021,9 @@
     width: 100%;
     height: 100%;
 }
+
+@media (max-width: 575.98px){
+    .my-page .info-1 .log .log-input .bootstrap-tagsinput .label-info {
+        display: block;
+    }
+}
