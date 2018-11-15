@@ -114,7 +114,7 @@
                                             data-year="{{isset($mythemes['9']->year) ? $mythemes['9']->year : $data_date['year']}}" 
                                             data-category = "{{isset($mythemes['9']->category_id) ? $mythemes['9']->category_id : '9'}}" 
                                             data-id = "{{isset($mythemes['9']->id) ? $mythemes['9']->id : ''}}"
-                                        ><span>Edit</span></i>
+                                        ><span> Edit</span></i>
                                     </div>
                                 </div>
                             </div>
@@ -444,7 +444,7 @@
                         </div>
                     </div>
                     <div class="event-information-wrapper col-md-12 clearfix">
-                        <textarea style="width: 100%;border: none;" type="text" rows="3" id="action-of-month" name="action-of-month" class="input-action" data-month="{{isset($mytheme_first->month) ? $mytheme_first->month : $data_date['month']}}" 
+                        <textarea style="width: 100%;border: none;" type="text" rows="3" id="action-of-month" name="action-of-month" class="input-action" data-month="{{isset($mytheme_first->month) ? $mytheme_first->month : $data_date['month']}}"
                                             data-year="{{isset($mytheme_first->year) ? $mytheme_first->year : $data_date['year']}}" placeholder="考えたいこと、行動したいことを3つ決めよう">{{$mytheme_first ? $mytheme_first->this_action : ''}}</textarea>
                     </div>
                 </div>

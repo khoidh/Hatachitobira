@@ -860,7 +860,7 @@ footer .footter-mobile .a-first {
     }
 
     #myHeader.fixed .bx_header {
-        padding: 0 10px;
+        padding: 0px;
     }
     
     header.fixed,
@@ -1572,4 +1572,19 @@ footer .footter-mobile .a-first {
 
 .loader-inner > div {
     background-color: #111 !important;
+}
+
+@media (max-width: 427px){
+    #myHeader.fixed .logo.navbar-brand img {
+        margin-left: 15px;
+    }
+    .bx_header .nav-item.aaaafixed{
+        margin-left: 15px;
+    }
+    .navbar-nav .dropdown-menu .dropdown-item {
+        padding-left: 35px !important;
+    }
+    .bx_header .nav-link.link-append{
+        margin-right: 30px !important;
+    }
 }

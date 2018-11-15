@@ -1020,3 +1020,15 @@
     width: 100%;
     height: 100%;
 }
+@media screen and (max-width: 480px){
+    .my-page .panel-info .panel-info-wrapper .event-image .favorite.edit .fa-pencil {
+        right: 8px !important;
+        bottom: 8px !important;;
+    }
+    .mypage .main .title-lx .container .relative .info .absolute{
+        font-family: "Noto Sans Japanese" !important;
+    }
+}
+.my-page .panel-info .panel-info-wrapper .event-image img{
+    object-fit: cover;
+}
