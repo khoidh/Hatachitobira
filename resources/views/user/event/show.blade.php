@@ -2,24 +2,32 @@
 
 @section('css-add')
     @parent
-@endsection
-@section('page_title', $event->title)
-@section('description', '学校と社会をつなぐ「ハタチのトビラ」のイベントページです。多様なロールモデルや同世代に出会い、普段のコミュニティでは話にくい"ちょっと真面目な対話"を通じて、マイテーマを考えてみよう。')
-@section('title-e', 'Event')
-@section('title-j', 'イベントに参加する')
-@section('main')
-    @parent
     <style>
-        @media (max-width: 575.98px) {
-            #app .home .main .title-lx .relative .info .absolute .title-j{
-                letter-spacing: 0px;
-            }
-        }
         #modal_event_register .modal-header .close {
             padding: 0 !important;
             margin: -31px -34px  0 0 !important;
         }
     </style>
+@endsection
+@section('page_title', $event->title)
+@section('description', '学校と社会をつなぐ「ハタチのトビラ」のコラムページです。「私が、探求したいこと」であるマイテーマをみつけるノウハウ・イベントレポート・アラハタ世代の活躍を発信していきます。')
+@section('main')
+    <div class="container-fluid event">
+        <div class="main row">
+            <div class="title-lx">
+                <div class="container">
+                    <div class="relative row">
+                        <div class="info col-md-12">
+                            <span class="title-e">Event</span>
+                            <div class="absolute">
+                                <p><span class="title-j"> イベントに参加する</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection
 @section('content')
     <div class="container event">

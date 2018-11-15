@@ -2,59 +2,27 @@
 
 @section('css-add')
     @parent
-    <style type="text/css">
-        @media (max-width: 575.98px) {
-            #app .home .main .title-lx .relative .info .absolute .title-j{
-                letter-spacing: 5px;
-            }
-            .home .main .title-lx .container .relative .info .title-e {
-                /*margin-left: -5px;*/
-                /*font-size: 55px;*/
-                position: relative;
-                top: -140px;
-                font-size: 49px;
-            }
-            .home .main .title-lx .container .relative .info .absolute .title-j {
-                font-size: 30px;
-                letter-spacing: 8px;
-            }
-            .home .main .title-lx {
-                min-height: 90px;
-                height: 90px;
-            }
-
-            .home .main .title-lx .container .relative .info {
-                /*margin-top: -30px !important;*/
-                /*line-height: 95%;*/
-                margin-top: 85px;
-                line-height: 1.5;
-            }
-            .home .main .title-lx .container .relative .info .absolute {
-                /*bottom: 0;*/
-                /*top: 95px;*/
-                /*left: 10px;*/
-                bottom: 125px;
-            }
-            .home .main {
-                min-height: 75px;
-            }
-            .home .main .title-lx {
-                height: 120px;
-                min-height: unset;
-            }
-        }
-
-        /*.my-active span{*/
-            /*background-color: yellow !important;*/
-            /*color: black !important;*/
-            /*border-color: yellow !important;*/
-        /*}*/
-    </style>
 @endsection
 @section('page_title', 'イベントに参加する')
 @section('description', '学校と社会をつなぐ「ハタチのトビラ」のイベントページです。多様なロールモデルや同世代に出会い、普段のコミュニティでは話にくい"ちょっと真面目な対話"を通じて、マイテーマを考えてみよう。')
-@section('title-e', 'Event')
-@section('title-j', 'イベントに参加する')
+@section('main')
+    <div class="container-fluid event">
+        <div class="main row">
+            <div class="title-lx">
+                <div class="container">
+                    <div class="relative row">
+                        <div class="info col-md-12">
+                            <span class="title-e">Event</span>
+                            <div class="absolute">
+                                <p><span class="title-j"> イベントに参加する</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+@endsection
 @section('content')
     <div class="container event">
         <div class="row">

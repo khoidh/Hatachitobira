@@ -10,6 +10,8 @@
     display: inline;
 }
 
+#modal_memo,
+#modal_my_theme,
 #modal_action {
     .event-information-wrapper {
         .title-detail {
@@ -100,7 +102,7 @@
                             letter-spacing: 0px;
 
                             /* ========== pc =========== */
-                            @include only-for-pc() {
+                            @include only-for-tab-pc() {
                                 letter-spacing: 10px;
                             }
 
@@ -109,7 +111,7 @@
                         }
                     }
 
-                    @include only-for-pc() {
+                    @include only-for-tab-pc() {
                         /* note: @content begins here */
                     }
 
@@ -148,7 +150,8 @@
     }
     .thump {
         .img-icon {
-            max-height: 160px;
+            
+            height: 200px;
         }
     }
     .fa.fa-heart-o.liked {
@@ -207,18 +210,11 @@
 
     .article-content {
 
-        .content-left {
-            img {
-                border-radius: 14px;
-                max-height: 230px;
-                max-width: 330px;
-                width: 100%;
-                height: 100%;
-                @include only-for-mobile() {
-                    max-width: unset;
-                }
-            }
-
+        .content-left img {
+            border-radius: 14px;
+            max-height: 230px;
+            width: 100%;
+            object-fit: cover;
         }
 
         .content-right {
@@ -305,7 +301,9 @@
                     @extend %underline;
                     font-size: 36px;
                     box-shadow: inset 0 -15px 0 $yellow-color;
-                    
+                    @include only-for-mobile() {
+                        font-size: 20px;
+                    }
                 }
             }
 
@@ -362,6 +360,7 @@
             }
         }
     }
+    textarea.input-my-theme,
     textarea.input-memo {
         background: none;
         border: none;
@@ -369,6 +368,19 @@
         resize: none;
         @include only-for-mobile() {
             line-height: 1.7
+        }
+    }
+
+    .my-theme .pencil-theme,
+    .memo-input .pencil-memo {
+        position: absolute;
+        bottom: 12px;
+        right: 20px;
+        cursor: pointer;
+        span {
+            @include only-for-mobile() {
+               display: none;
+            }
         }
     }
     .panel-info {
@@ -421,7 +433,7 @@
                     }
 
                     .edit-input-lable_1,
-                    .edit-input-lable, {
+                    .edit-input-lable {
                         background: none;
                         border: none;
                         width: 100%;
@@ -471,6 +483,8 @@
                         bottom: 27px;
                         cursor: pointer;
                         font-size: 14px;
+                        color: #888;
+                        box-shadow: inset 0 -6px 0 #fff100;
                     }
                 }
 
@@ -546,6 +560,11 @@
                     right: 20px;
                     z-index: 9;
                     cursor: pointer;
+                    span {
+                        @include only-for-mobile() {
+                            display: none;
+                        }
+                    }
                 }
             }
         }
@@ -761,34 +780,42 @@
                         }
                     }
                     .slick-track {
-                        margin-top: 30px;
+                        margin-top: 45px;
                     }
 
                     .slick-prev.slick-arrow ,
                     .slick-next.slick-arrow{
-                        font-size: 14px;
-                        line-height: 1;
+                        
                         position: absolute;
                         top: 6%;
                         display: block;
-                        width: 24px;
-                        height: 25px;
+                        width: 35px;
+                        height: 35px;
                         padding: 0px;
                         right: 48px;
                         -webkit-transform: translate(0, -50%);
                         transform: translate(0, -50%);
                         cursor: pointer;
-                        border: 2px solid;
-                        background: #111;
-                        color: #fff;
-                        border-radius: 50%;
                         z-index: 99;
-                        font-weight: 1000;
+                        border: none;
                     }
 
                     .slick-next.slick-arrow{
-                        right: 20px;
-                        display: block !important
+                        right: 10px;
+                        display: block !important;
+                        background-image: url(/images/user/top/arrow_next.png);
+                        background-size: 92%;
+                        background-color: transparent;
+                        background-repeat: no-repeat;
+                    }
+
+                    .slick-prev.slick-arrow{
+                        background-image: url('/images/user/top/arrow_prev.png');
+                        background-size: 100%;
+                        background-color: transparent;
+                        background-repeat: no-repeat;
+                        background-position: center;
+                        top: 5%;
                     }
 
                 }
@@ -883,6 +910,8 @@
                     .content-left {
                         .image {
                             max-height: 230px;
+                            width: 100%;
+                            object-fit: cover;
                         }
                     }
 
@@ -907,7 +936,7 @@
                             font-size: small;
                             display: block;
 
-                            @include only-for-pc() {
+                            @include only-for-tab-pc() {
                                 display: inline;
                             }
                         }
@@ -1019,4 +1048,22 @@
 .dropzone .dz-preview .dz-image img{
     width: 100%;
     height: 100%;
+}
+@media screen and (max-width: 480px){
+    .my-page .panel-info .panel-info-wrapper .event-image .favorite.edit .fa-pencil {
+        right: 8px !important;
+        bottom: 8px !important;;
+    }
+    .mypage .main .title-lx .container .relative .info .absolute{
+        font-family: "Noto Sans Japanese" !important;
+    }
+}
+.my-page .panel-info .panel-info-wrapper .event-image img{
+    object-fit: cover;
+}
+
+@media (max-width: 575.98px){
+    .my-page .info-1 .log .log-input .bootstrap-tagsinput .label-info {
+        display: block;
+    }
 }

@@ -3,9 +3,25 @@
     @parent
 @endsection
 @section('page_title', 'お問い合わせ完了')
-@section('description', '学校と社会をつなぐ「ハタチのトビラ」の問い合わせページです。ハタチのトビラに共感いただき、動画（広報施策）、イベント企画、イベント協賛、取材を申し込みたい方々は、こちらから問い合わせください。')
-@section('title-e', 'Contact')
-@section('title-j', 'お問い合わせ')
+@section('description', '学校と社会をつなぐ「ハタチのトビラ」の問い合わせページです。ハタチのトビラに共感いただき、動画（採用広報映像）、イベント企画、イベント協賛、取材を申し込みたい方々は、こちらから問い合わせください。')
+@section('main')
+    <div class="container-fluid enquiry">
+        <div class="main row">
+            <div class="title-lx">
+                <div class="container">
+                    <div class="relative row">
+                        <div class="info col-md-12">
+                            <span class="title-e">Contact</span>
+                            <div class="absolute">
+                                <p><span class="title-j"> お問い合わせ</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+@endsection
 @section('content')
 <div class="container enquiry">
     <div class="row">

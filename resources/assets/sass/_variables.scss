@@ -112,13 +112,26 @@ $container-max-widths: (
     @content;
   }
 }
-@mixin only-for-pc {
+
+@mixin only-for-tab {
+  @media only screen and (min-width : 576px) and (max-width : 991px) {
+    @content;
+  }
+}
+
+@mixin only-for-tab-pc {
   @media (min-width: 576px) {
     @content;
   }
 }
 
-// $grid-breakpoints: (
+@mixin only-for-tab-pc-lx {
+  @media  (min-width: 768px) {
+    @content;
+  }
+}
+
+//$grid-breakpoints: (
 //        xs: 0,
 //        sm: 576px,
 //        md: 768px,

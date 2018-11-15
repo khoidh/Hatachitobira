@@ -14,12 +14,14 @@
 </div>
 <div class="col-sm-12 info-1">
     <div class="row memo">
-        <div class="col-sm-2 memo-text">
+        <div class="col-sm-2 col-4 memo-text">
             <div class="underline">&nbsp;MEMO&nbsp;</div>
         </div>
-        <div class="col-sm-10 memo-input">
-            <textarea type="text" name="" class="input-memo" data-month="{{isset($mytheme_first->month) ? $mytheme_first->month : $data_search['month']}}" 
-                                data-year="{{isset($mytheme_first->year) ? $mytheme_first->year : $data_search['year']}}"  placeholder="先月の行動を振り返り記録しよう"> {{$mytheme_first? $mytheme_first->memo : ''}} </textarea>
+        <div class="col-sm-10 col-8 memo-input">
+           <textarea type="text" name="" class="input-memo" data-month="{{isset($mytheme_first->month) ? $mytheme_first->month : $data_date['month']}}"  disabled 
+                                            data-year="{{isset($mytheme_first->year) ? $mytheme_first->year : $data_date['year']}}"  placeholder="先月の行動を振り返り記録しよう"> {{$mytheme_first? $mytheme_first->memo : ''}}</textarea>
+                        <i class="fa fa-pencil pencil-memo" data-toggle="modal" data-target="#modal_memo">
+                                        <span>Edit</span></i>
         </div>
     </div>
     <hr class="shape-8"/>
@@ -41,7 +43,7 @@
             <?php $key = $i>4 ? $i : $i+1 ?>
             @if($i!=4)
             <div class="col-sm-4 col-xs-4 col-4 panel-info-wrapper">
-                <div class="panel-info-content">
+                <div class="panel-info-content {{$i%2 == 1 ? 'chan' : ''}}">
                     <div class="number">
                         <span>0{{$index++}}</span>
                     </div>
@@ -62,7 +64,7 @@
                             data-category = "{{isset($mythemes[$i]->category_id) ? $mythemes[$i]->category_id : $key}}" 
                             data-id = "{{isset($mythemes[$i]->id) ? $mythemes[$i]->id : ''}}"
                         >
-                            Edit</i>
+                            <span>Edit</span></i>
                     </div>
                 </div>
             </div>
@@ -78,7 +80,7 @@
                                 data-year="{{isset($mythemes['9']->year) ? $mythemes['9']->year : $data_search['year']}}" 
                                 data-category = "{{isset($mythemes['9']->category_id) ? $mythemes['9']->category_id : '9'}}" 
                                 data-id = "{{isset($mythemes['9']->id) ? $mythemes['9']->id : ''}}"
-                            >Edit</i>
+                            ><span>Edit</span></i>
                         </div>
                     </div>
                 </div>
@@ -89,12 +91,14 @@
 </div>
 <div class="col-sm-12 info-2">
     <div class="row my-theme">
-        <div class="col-sm-3 my-theme-text">
+        <div class="col-sm-3 col-4 my-theme-text">
             <div class="underline">&nbsp;今月のマイテーマ&nbsp;</div>
         </div>
-        <div class="col-sm-9 my-theme-input">
-            <input type="text" name="my-therme-month" class="input-my-theme" data-month="{{isset($mytheme_first->month) ? $mytheme_first->month : $data_date['month']}}" 
-                                data-year="{{isset($mytheme_first->year) ? $mytheme_first->year : $data_date['year']}}" placeholder="例:「人に喜んでもらう接客とは？」「自分の理想のチームをつくるには？」" value="{{$mytheme_first ? $mytheme_first->this_mytheme : ''}}">
+        <div class="col-sm-9 col-8 my-theme-input">
+            <textarea type="text" name="my-therme-month" class="input-my-theme" data-month="{{isset($mytheme_first->month) ? $mytheme_first->month : $data_date['month']}}" 
+                                            data-year="{{isset($mytheme_first->year) ? $mytheme_first->year : $data_date['year']}}" placeholder="例:「人に喜んでもらう接客とは？」「自分の理想のチームをつくるには？」">{{$mytheme_first ? $mytheme_first->this_mytheme : ''}}</textarea>
+                        <i class="fa fa-pencil pencil-theme" data-toggle="modal" data-target="#modal_my_theme">
+                                        <span>Edit</span></i>
         </div>
     </div>
     <hr class="shape-8"/>

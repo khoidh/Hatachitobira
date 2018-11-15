@@ -2,11 +2,39 @@
 
 @section('css-add')
     @parent
+    <link href="{{ asset('css/recruitment-staff.css') }}" rel="stylesheet">
+    <style>
+        .recruiment .main .title-lx .container .relative .info .absolute .title-j {
+            letter-spacing: 10px;
+            line-height: 30px;
+        }
+        @media (max-width: 575.98px) {
+            .recruiment {
+                padding-bottom: 0px;
+            }
+        }
+    </style>
 @endsection
 @section('page_title', '利用規約')
 @section('description', '「ハタチのトビラ」サービスの利用規約です。ハタチのトビラを利用する方は、「ハタチのトビラ利用規約」及び「個人情報の取り扱いについて」の内容を全て承諾したものとします。')
-@section('title-e', 'Terms & Conditions')
-@section('title-j', '利用規約')
+@section('main')
+    <div class="container-fluid recruiment">
+        <div class="main row">
+            <div class="title-lx">
+                <div class="container">
+                    <div class="relative row">
+                        <div class="info col-md-12">
+                            <span class="title-e">Terms & Conditions</span>
+                            <div class="absolute">
+                                <p><span class="title-j"> 利用規約</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+@endsection
 @section('content')
     <div class="container private">
         <div class="row">

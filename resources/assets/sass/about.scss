@@ -1,11 +1,119 @@
+.about{
+  /* ========== Style title màu vàng     =========== */
+  .main {
+    min-height: 175px;
+    margin-bottom: 30px;
+
+    .title-lx {
+      font-family: Oswald, sans-serif;
+      background: #fff100;
+      color: #fffa9d;
+      display: block;
+      font-size: 120px !important;
+      min-height: 175px;
+      width: 100%;
+      z-index: 111;
+      height: 100%;
+
+      .container .relative {
+        position: relative;
+
+        .info {
+          margin-top: 50px;
+          line-height: 95%;
+
+          .title-e {
+            margin-left: -5px;
+          }
+
+          .absolute {
+            font-family: $font-family-sans-serif !important;
+            font-size: 20px;
+            position: absolute;
+            color: #111;
+
+            bottom: -27px;
+            font-weight: bold;
+
+            p {
+              margin-bottom: 0;
+              font-size: 35px;
+              letter-spacing: 10px;
+              line-height: 120%;
+            }
+
+            .title-j {
+              display: inline-block;
+              background: #000000;
+              letter-spacing: 10px;
+
+              color: white;
+              line-height: 30px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @include only-for-mobile() {
+    .main {
+      min-height: 75px;
+
+      .title-lx {
+        height: 120px;
+        min-height: unset;
+
+        .container .relative {
+          position: relative;
+
+          .info {
+            margin-top: 85px;
+            line-height: 1.5;
+
+            .title-e {
+              position: relative;
+              top: -130px;
+              font-size: 85px;
+            }
+
+            .absolute {
+              bottom: 134px;
+
+              p {
+              }
+
+              .title-j {
+                display: inline-block;
+                letter-spacing: 0px;
+                line-height: 40px;
+                font-size: 33px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  /* ========== End style title màu vàng =========== */
+  @include only-for-mobile(){
+    padding-bottom: 56px;
+  }
+}
+
 .container.about{
   width: 100%;
-  padding: 0;
+  max-width: 100%;
+  padding: none;
   margin-top: -30px;
   margin-bottom: -30px;
   overflow-y: hidden;
 }
-
+.jladev_fix_title{
+  min-height: 51px;
+  overflow: hidden;
+}
 .container.about .about-banner{
   margin: 0;
   padding: 0;
@@ -195,7 +303,7 @@
   }
   .container.about .top .container.content-1{
     padding: 45px 0 0;
-    margin-top: -60px;
+    margin-top: -68px;
   }
   .container.about .top .container.content-1 .content-1-title:first-child{
     margin-top: 0 !important;
@@ -238,8 +346,10 @@
   }
 
   .container.about .top .container.content-1 .about-content-1-content .text_detail_title{
-    padding: 0 5px;
+    padding: 0 50px 12px 21px;
     font-size: 20px;
+    position: absolute;
+    margin-top: -16px;
   }
 
 
@@ -413,3 +523,12 @@
     text-decoration: none;
   }
 }
+
+.jladev_fix_about_1{
+  padding-left: 60px;
+}
+.jladev_fix_about_2{
+  padding-left: 40px;
+  padding-right: 25px;
+}
+

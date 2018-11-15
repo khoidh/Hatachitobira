@@ -51,11 +51,9 @@
                                     <div class="info col-md-12">
                                         <span class="title-e">@yield('title-e','Title')</span>
                                         <div class="absolute">
-                                            <p style="margin-bottom: 0">@yield('title-black')</p>
-                                            <p style="margin-bottom: 0"><span
-                                                        class="title-j"> @yield('title-j','タートル')</span>@yield('title-blackspan')
+                                            <p>@yield('title-black')</p>
+                                            <p><span class="title-j"> @yield('title-j','タートル')</span>@yield('title-blackspan')
                                             </p>
-
                                         </div>
                                     </div>
                                 </div>
