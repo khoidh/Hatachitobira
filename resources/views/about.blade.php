@@ -95,22 +95,22 @@
                 <div class="row">
                     <div class="col-md-4 col-sm-4 col-xs-12">
                         <div class="why-born-col">
-                            <p class="text_detail_title">自由が故に、<br>後悔する大学生活</p>
-                            <p class="text_detail">約65%が後悔する現実<br><br></p>
+                            <p class="text_detail_title jladev_fix_about_1">自由が故に、<br>後悔する大学生活</p>
+                            <p class="text_detail jladev_fix_about_1">約65%が後悔する現実<br><br></p>
                             <img src="{{asset("images/user/about/about_icon_01.jpg")}}" alt="about_icon_01.jpg"/>
                         </div>
                     </div>
                     <div class="col-md-4 col-sm-4 col-xs-12">
                         <div class="why-born-col">
-                            <p class="text_detail_title">就活までみえにくい<br>将来の選択肢</p>
-                            <p class="text_detail">大学と社会の距離が遠く、将来の選択肢がみえない </p>
+                            <p class="text_detail_title jladev_fix_about_2">就活までみえにくい<br>将来の選択肢</p>
+                            <p class="text_detail jladev_fix_about_2">大学と社会の距離が遠く、将来の選択肢がみえない </p>
                             <img src="{{asset("images/user/about/about_icon_02.jpg")}}" alt="about_icon_02.jpg"/>
                         </div>
                     </div>
                     <div class="col-md-4 col-sm-4 col-xs-12">
                         <div class="why-born-col">
-                            <p class="text_detail_title">時代遅れの <br>やりたいこと論</p>
-                            <p class="text_detail">日本の就活に合わない欧米型のキャリア論</p>
+                            <p class="text_detail_title jladev_fix_about_2">時代遅れの <br>やりたいこと論</p>
+                            <p class="text_detail jladev_fix_about_2">日本の就活に合わない欧米型のキャリア論</p>
                             <img src="{{asset("images/user/about/about_icon_03.jpg")}}" alt="about_icon_03.jpg" />
                         </div>
                     </div>
