@@ -531,7 +531,7 @@ $description = '学校と社会をつなぐ「ハタチのトビラ」は、将�
             $("body").css('padding-top','100px');
             $('.navbar.navbar-expand-lg.navbar-light').removeClass('flex-column');
             $('.navbar-nav.mr-auto').removeClass('flex-column');
-            $('.bx_header .navbar-nav.mr-auto').append('<li class="nav-item"><a class="nav-link link-append" href="{{url("my-page")}}">マイテーマを見つける</a></li>');
+            $('.bx_header .navbar-nav.mr-auto').append('<li class="nav-item"><a style="height: 40px; padding: 8px 0px;" class="nav-link link-append {{Auth::Guest() ? 'show-modal-register-mypage' : ''}}" href="{{url("my-page")}}">マイテーマを見つける</a></li>');
             $('.bx_header .navbar-nav.mr-auto').css('align-items','flex-start');
             $('.bx_header .navbar-nav.mr-auto').css('font-weight','bold');
             $('.bx_header .navbar-nav.mr-auto').css('background-color','#fff');
