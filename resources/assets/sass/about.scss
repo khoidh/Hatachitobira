@@ -1,12 +1,15 @@
 .container.about{
   width: 100%;
   max-width: 100%;
-  padding: 0;
+  padding: none;
   margin-top: -30px;
   margin-bottom: -30px;
   overflow-y: hidden;
 }
-
+.jladev_fix_title{
+  min-height: 51px;
+  overflow: hidden;
+}
 .container.about .about-banner{
   margin: 0;
   padding: 0;
