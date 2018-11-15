@@ -14,7 +14,7 @@
                         <div class="info col-md-12">
                             <span class="title-e">Privacy policy</span>
                             <div class="absolute">
-                                <p style="margin-bottom: 0"><span class="title-j"> プライバシーポリシー</span></p>
+                                <p><span class="title-j"> プライバシーポリシー</span></p>
                             </div>
                         </div>
                     </div>
