@@ -303,7 +303,7 @@
   }
   .container.about .top .container.content-1{
     padding: 45px 0 0;
-    margin-top: -60px;
+    margin-top: -68px;
   }
   .container.about .top .container.content-1 .content-1-title:first-child{
     margin-top: 0 !important;
@@ -346,8 +346,10 @@
   }
 
   .container.about .top .container.content-1 .about-content-1-content .text_detail_title{
-    padding: 0 5px;
+    padding: 0 50px 12px 21px;
     font-size: 20px;
+    position: absolute;
+    margin-top: -16px;
   }
 
 
@@ -521,3 +523,12 @@
     text-decoration: none;
   }
 }
+
+.jladev_fix_about_1{
+  padding-left: 60px;
+}
+.jladev_fix_about_2{
+  padding-left: 40px;
+  padding-right: 25px;
+}
+
