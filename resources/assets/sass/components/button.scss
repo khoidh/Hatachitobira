@@ -4,6 +4,8 @@
     -webkit-border-radius: 30px;
     border: none;
     cursor: pointer;
+    display: block;
+    text-align: center;
     &.black {
         background: $black-color;
         color: $white-color;
@@ -19,9 +21,13 @@
         font-weight: 700;
         height: 74px;
         line-height: 74px;
-        @include only-for-mobile() {
-            margin: 0 15px;
+
+        &.full {
             width: 100%;
+        }
+        @include only-for-mobile() {
+            margin: 0 auto;
+            width: 92%;
             font-size: 16px;
             font-weight: 500;
             height: 50px;

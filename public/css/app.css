@@ -16185,6 +16185,8 @@ a.text-dark:focus {
   -webkit-border-radius: 30px;
   border: none;
   cursor: pointer;
+  display: block;
+  text-align: center;
 }
 
 .round-button.black {
@@ -16204,10 +16206,14 @@ a.text-dark:focus {
   line-height: 74px;
 }
 
+.round-button.lg.full {
+  width: 100%;
+}
+
 @media (max-width: 575.98px) {
   .round-button.lg {
-    margin: 0 15px;
-    width: 100%;
+    margin: 0 auto;
+    width: 92%;
     font-size: 16px;
     font-weight: 500;
     height: 50px;
@@ -19007,34 +19013,6 @@ footer .footter-mobile .a-first {
   }
 }
 
-.column .txt-btn {
-  padding: 40px 0;
-}
-
-.column .txt-btn button {
-  padding: 5px 30px;
-  border-radius: 30px;
-  -moz-border-radius: 30px;
-  -webkit-border-radius: 30px;
-  border: none;
-  background: #111111;
-  color: #FFFFFF;
-  font-weight: bold;
-  font-size: 20pt;
-  line-height: 40pt;
-  cursor: pointer;
-  box-shadow: 3px 3px 3px #fff100;
-  -moz-box-shadow: 3px 3px 3px #fff100;
-  -webkit-box-shadow: 3px 3px 3px #fff100;
-}
-
-@media (min-width: 576px) {
-  .column .txt-btn button {
-    font-size: 24pt;
-    padding: 5px 5px;
-  }
-}
-
 .private {
   /* ========== Style title màu vàng     =========== */
   /* ========== End style title màu vàng =========== */
@@ -19380,27 +19358,6 @@ footer .footter-mobile .a-first {
   /* Checkbox text */
   font-size: 110%;
   display: inline;
-}
-
-.enquiry .enquiry-form .enquiry-btn {
-  padding: 40px 0;
-}
-
-.enquiry .enquiry-form .enquiry-btn button {
-  padding: 5px 30px;
-  border-radius: 30px;
-  -moz-border-radius: 30px;
-  -webkit-border-radius: 30px;
-  border: none;
-  background: #111111;
-  color: #FFFFFF;
-  font-weight: bold;
-  font-size: 24pt;
-  line-height: 40pt;
-  cursor: pointer;
-  box-shadow: 3px 3px 3px #fff100;
-  -moz-box-shadow: 3px 3px 3px #fff100;
-  -webkit-box-shadow: 3px 3px 3px #fff100;
 }
 
 /*================ Thank_enquiry style (contact sankyu) ===============*/
@@ -20562,23 +20519,6 @@ footer .footter-mobile .a-first {
   padding: 32px 0 24px;
 }
 
-.my-page .main .group-1 .btn-category-list button {
-  padding: 5px 30px;
-  border-radius: 30px;
-  -moz-border-radius: 30px;
-  -webkit-border-radius: 30px;
-  border: none;
-  background: #111111;
-  color: #FFFFFF;
-  font-weight: bold;
-  font-size: 24pt;
-  line-height: 40pt;
-  cursor: pointer;
-  box-shadow: 3px 3px 3px #fff100;
-  -moz-box-shadow: 3px 3px 3px #fff100;
-  -webkit-box-shadow: 3px 3px 3px #fff100;
-}
-
 .my-page .group-2 {
   margin-bottom: 150px;
 }
@@ -20992,17 +20932,6 @@ footer .footter-mobile .a-first {
   font-size: 20px;
   line-height: 1;
   padding-bottom: 80px;
-}
-
-.requiment-staff .requiment-content .content-button a {
-  display: inline-block;
-  font-size: 16px;
-  background: #111;
-  padding: 25px 100px;
-  color: #fff;
-  border-radius: 50px;
-  text-decoration: none;
-  margin-top: 15px;
 }
 
 .requiment-staff .requiment-slide {
@@ -22234,20 +22163,6 @@ footer .footter-mobile .a-first {
 .about-hatachi .about-hatachi-col a.btn-link:focus,
 .about-hatachi .about-hatachi-col a.btn-link:hover {
   text-decoration: none;
-}
-
-.about-hatachi a.btn-link {
-  font-size: 20px;
-  font-weight: bold;
-  background-color: #000;
-  color: #fff;
-  padding: 20px 0;
-  text-align: center;
-  border-radius: 35px;
-  width: 100%;
-  display: inline-block;
-  -webkit-box-shadow: 0px 2px 0px 0px #fff100;
-  box-shadow: 0px 3px 0px 0px #fff100;
 }
 
 /* Custom, iPhone Retina */
