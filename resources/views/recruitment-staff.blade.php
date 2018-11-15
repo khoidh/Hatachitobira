@@ -4,24 +4,9 @@
 @endsection
 @section('page_title', '企業採用担当の方へ')
 @section('description', '「ハタチのトビラ」サービスの企業採用担当の方向けのページです。')
-@section('main')
-    <div class="container-fluid recruiment">
-        <div class="main row">
-            <div class="title-lx">
-                <div class="container">
-                    <div class="relative row">
-                        <div class="info col-md-12">
-							<span class="title-e">RECRUITMENT STAFF</span>
-							<div class="absolute">
-								<p><span class="title-j"> 企業採用担当の方へ</span></p>
-							</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-@endsection
+@section('title-e', 'RECRUITMENT STAFF')
+@section('title-j', '企業採用担当の方へ')
+@section('body-class', 'recruiment-page')
 @section('content')
 <div class="requiment-staff requiment-staff-mobile">
 	<div class="requiment-staff-bg">
@@ -30,9 +15,9 @@
 	<div class="top clearfix">
 		<div class="container content-1 requiment">
 		    <div class="content-title">
-		        <p class="content-1-title text-stroke">自社の事業や仕事の魅力を</p>
-		        <p class="content-1-title text-stroke">学生に訴求する動画を</p>
-		        <p class="content-1-title text-stroke">創りませんか ？</p>
+		        <p class="content-1-title">自社の事業や仕事の魅力を</p>
+		        <p class="content-1-title">学生に訴求する動画を</p>
+		        <p class="content-1-title">創りませんか ？</p>
 		    </div>
 		    <div class="content-1-content">
 		        <div class="cb-path"></div>
