@@ -59,8 +59,7 @@ header .bx_header {
 
 .btn_find:hover {
     text-decoration: none;
-    border: 1px solid #fff100;
-    background-color: #fff;
+    opacity: 0.7;
 }
 
 main {
