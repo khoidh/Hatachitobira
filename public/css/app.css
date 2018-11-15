@@ -2528,7 +2528,7 @@ header.fixed .bx_header .hd_left .nav {
 }
 
 .top .more-detail {
-  font-family: "Kozuka Gothic Pr6N";
+  font-family: "Noto Sans Japanese", sans-serif;
 }
 
 @media (max-width: 575.98px) {
@@ -5007,7 +5007,7 @@ footer .footter-mobile .a-first {
 }
 
 .video .main .title-lx .container .relative .info .absolute {
-  font-family: "Kozuka Gothic Pr6N" !important;
+  font-family: "Noto Sans Japanese", sans-serif !important;
   font-size: 20px;
   position: absolute;
   color: #111111;
@@ -5420,7 +5420,7 @@ footer .footter-mobile .a-first {
 }
 
 .mypage .main .title-lx .container .relative .info .absolute {
-  font-family: "Kozuka Gothic Pr6N" !important;
+  font-family: "Noto Sans Japanese", sans-serif !important;
   font-size: 20px;
   position: absolute;
   color: #111;
@@ -6111,7 +6111,7 @@ footer .footter-mobile .a-first {
 }
 
 .my-page .group-2 > .item .underline {
-  font-family: "Kozuka Gothic Pr6N";
+  font-family: "Noto Sans Japanese", sans-serif;
   font-size: 36px;
   -webkit-box-shadow: inset 0 -15px 0 #fff100;
           box-shadow: inset 0 -15px 0 #fff100;
@@ -6411,10 +6411,6 @@ footer .footter-mobile .a-first {
     right: 8px !important;
     bottom: 8px !important;
   }
-
-  .mypage .main .title-lx .container .relative .info .absolute {
-    font-family: "Noto Sans Japanese" !important;
-  }
 }
 
 .my-page .panel-info .panel-info-wrapper .event-image img {
@@ -6493,7 +6489,7 @@ footer .footter-mobile .a-first {
 }
 
 .recruiment .main .title-lx .container .relative .info .absolute {
-  font-family: "Kozuka Gothic Pr6N" !important;
+  font-family: "Noto Sans Japanese", sans-serif !important;
   font-size: 20px;
   position: absolute;
   color: #111;
@@ -7274,7 +7270,7 @@ footer .footter-mobile .a-first {
 }
 
 .searchcategory .main .title-lx .container .relative .info .absolute {
-  font-family: "Kozuka Gothic Pr6N" !important;
+  font-family: "Noto Sans Japanese", sans-serif !important;
   font-size: 20px;
   position: absolute;
   color: #111;
@@ -10877,11 +10873,6 @@ pre code {
 }
 
 .form-control::-webkit-input-placeholder {
-  color: #6c757d;
-  opacity: 1;
-}
-
-.form-control:-ms-input-placeholder {
   color: #6c757d;
   opacity: 1;
 }
