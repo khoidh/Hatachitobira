@@ -687,11 +687,11 @@ footer .text-bootom .a-link:after {
 
 header.fixed.header .bx_header {
     padding: 0 1em;
-    // @include only-for-mobile() {
-    //     align-items: normal;
-    //     // padding: 15px 0 0 25px;
-    //     height: unset;
-    // }
+    @include only-for-mobile() {
+        align-items: normal;
+        padding: 1em;
+        height: unset;
+    }
 }
 
 header.fixed.header .navbar.navbar-expand-lg.navbar-light {
@@ -722,6 +722,7 @@ header.fixed .logo.navbar-brand img {
 .navbar-light {
     .navbar-toggler {
         border: none !important;
+        padding: 0.5em 0;
     }
     .navbar-toggler-icon-tmp {
         background-image: url("data:image/svg+xml;charset=utf8,%3Csvg width='1.014in' height='0.833in' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd'  stroke='rgb(27, 27, 27)' stroke-width='6px' stroke-linecap='round' stroke-linejoin='miter' fill='none' d='M6.200,3.000 L63.800,3.000 '/%3E%3Cpath fill-rule='evenodd'  stroke='rgb(27, 27, 27)' stroke-width='6px' stroke-linecap='round' stroke-linejoin='miter' fill='none' d='M6.200,25.312 L44.600,25.312 '/%3E%3Cpath fill-rule='evenodd'  stroke='rgb(27, 27, 27)' stroke-width='6px' stroke-linecap='round' stroke-linejoin='miter' fill='none' d='M6.200,47.626 L63.800,47.626 '/%3E%3C/svg%3E");
@@ -730,12 +731,11 @@ header.fixed .logo.navbar-brand img {
 
 .navbar-toggler-icon-tmp {
     display: inline-block;
-    width: 2em;
-    height: 2em;
+    width: 1.6em;
+    height: 1.3em;
     vertical-align: middle;
     content: "";
-    background: no-repeat center center;
-    background-size: 100% 100%;
+    background-size: 140% 150%; // to fit svg to span
 }
 
 .fixed.header .nav {
@@ -898,7 +898,7 @@ footer .footter-mobile .a-first {
     }
 
     #myHeader.fixed .bx_header {
-        padding: 0 10px;
+        padding: 0 1em;
     }
     
     // header.fixed,
@@ -950,7 +950,7 @@ footer .footter-mobile .a-first {
 
     .navbar-toggler:not(:disabled):not(.disabled) {
         position: relative;
-        right: 15px !important;
+        right: 0px !important;
     }
 
     footer {
