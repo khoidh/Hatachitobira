@@ -10,6 +10,8 @@
     display: inline;
 }
 
+#modal_memo,
+#modal_my_theme,
 #modal_action {
     .event-information-wrapper {
         .title-detail {
@@ -306,7 +308,9 @@
                     @extend %underline;
                     font-size: 36px;
                     box-shadow: inset 0 -15px 0 $yellow-color;
-                    
+                    @include only-for-mobile() {
+                        font-size: 20px;
+                    }
                 }
             }
 
@@ -363,6 +367,7 @@
             }
         }
     }
+    textarea.input-my-theme,
     textarea.input-memo {
         background: none;
         border: none;
@@ -370,6 +375,19 @@
         resize: none;
         @include only-for-mobile() {
             line-height: 1.7
+        }
+    }
+
+    .my-theme .pencil-theme,
+    .memo-input .pencil-memo {
+        position: absolute;
+        bottom: 12px;
+        right: 20px;
+        cursor: pointer;
+        span {
+            @include only-for-mobile() {
+               display: none;
+            }
         }
     }
     .panel-info {
@@ -472,6 +490,8 @@
                         bottom: 27px;
                         cursor: pointer;
                         font-size: 14px;
+                        color: #888;
+                        box-shadow: inset 0 -6px 0 #fff100;
                     }
                 }
 
@@ -547,6 +567,11 @@
                     right: 20px;
                     z-index: 9;
                     cursor: pointer;
+                    span {
+                        @include only-for-mobile() {
+                            display: none;
+                        }
+                    }
                 }
             }
         }

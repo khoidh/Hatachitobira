@@ -17,7 +17,7 @@
         </form>
     <form action="" id="form_information" accept-charset="utf-8" enctype="multipart/form-data">
     <div class="col-md-12 clearfix">
-        <input type="text" name="description" class="image-description" placeholder="Description" value="{{isset($result) ? $result->content_1 : ''}}">
+        <input type="text" name="description" class="image-description" placeholder="自分の名前を入力してください。" value="{{isset($result) ? $result->content_1 : ''}}">
     </div>
     <input type="hidden" name="content_lable" value="" id="content_label">
     <input type="hidden" name="month" id="data-month" value="{{isset($result->month) ? $result->month : $data['month']}}">
@@ -43,12 +43,12 @@
       });
       myDropzone.on("removedfile", function(file) {
         $('#tmppath').val('no_image.png');
+        $('#dissmiss_modal_show').addClass('editing');
         $.ajax({
             url : '{{url("file-upload-remove?category_id=")}}'+ $('#data-cat_id').val() +'&year='+$('#data-year').val()+'&month='+$('#data-month').val(),
         })
       });
       myDropzone.on("complete", function(file) {
-        console.log(file.xhr)
         $('#dissmiss_modal_show').addClass('editing');
         var responseText = file.xhr.responseText.replace('"', "");
         responseText = responseText.replace('"', "");

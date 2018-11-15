@@ -1,5 +1,4 @@
 @extends('layouts.app')
-
 @section('css-add')
     @parent
     <link href="{{ asset('css/iziToast.min.css') }}" rel="stylesheet">
@@ -50,20 +49,22 @@
             </div>
             <div class="col-sm-12 info-1">
                 <div class="row memo">
-                    <div class="col-sm-2 memo-text">
+                    <div class="col-sm-2 col-4 memo-text">
                         <div class="underline">&nbsp;MEMO&nbsp;</div>
                     </div>
-                    <div class="col-sm-10 memo-input">
-                        <textarea type="text" name="" class="input-memo" data-month="{{isset($mytheme_first->month) ? $mytheme_first->month : $data_date['month']}}" 
+                    <div class="col-sm-10 col-8 memo-input">
+                        <textarea type="text" name="" class="input-memo" data-month="{{isset($mytheme_first->month) ? $mytheme_first->month : $data_date['month']}}"  disabled 
                                             data-year="{{isset($mytheme_first->year) ? $mytheme_first->year : $data_date['year']}}"  placeholder="先月の行動を振り返り記録しよう"> {{$mytheme_first? $mytheme_first->memo : ''}}</textarea>
+                        <i class="fa fa-pencil pencil-memo" data-toggle="modal" data-target="#modal_memo">
+                                        <span>Edit</span></i>
                     </div>
                 </div>
                 <hr class="shape-8"/>
                 <div class="row log">
-                    <div class="col-sm-2 log-text">
+                    <div class="col-sm-2 col-4 log-text">
                         <div class="underline">&nbsp;先月のログ&nbsp;</div>
                     </div>
-                    <div class="col-sm-10 log-input">
+                    <div class="col-sm-10 col-8 log-input">
                         <input type="text" name="" class="input-lat-log" data-role="tagsinput" data-month="{{isset($mytheme_first->month) ? $mytheme_first->month : $data_date['month']}}" 
                                             data-year="{{isset($mytheme_first->year) ? $mytheme_first->year : $data_date['year']}}" placeholder="先月の自分を#で記録しよう　#バイト三昧　#初ボランティア" value="{{$mytheme_first ? $mytheme_first->last_log : ''}}">
 
@@ -128,8 +129,10 @@
                         <div class="underline">&nbsp;今月のマイテーマ&nbsp;</div>
                     </div>
                     <div class="col-sm-9 col-7 my-theme-input">
-                        <input type="text" name="my-therme-month" class="input-my-theme" data-month="{{isset($mytheme_first->month) ? $mytheme_first->month : $data_date['month']}}" 
-                                            data-year="{{isset($mytheme_first->year) ? $mytheme_first->year : $data_date['year']}}" placeholder="例:「人に喜んでもらう接客とは？」「自分の理想のチームをつくるには？」" value="{{$mytheme_first ? $mytheme_first->this_mytheme : ''}}">
+                        <textarea type="text" name="my-therme-month" class="input-my-theme" data-month="{{isset($mytheme_first->month) ? $mytheme_first->month : $data_date['month']}}" 
+                                            data-year="{{isset($mytheme_first->year) ? $mytheme_first->year : $data_date['year']}}" placeholder="例:「人に喜んでもらう接客とは？」「自分の理想のチームをつくるには？」">{{$mytheme_first ? $mytheme_first->this_mytheme : ''}}</textarea>
+                        <i class="fa fa-pencil pencil-theme" data-toggle="modal" data-target="#modal_my_theme">
+                                        <span>Edit</span></i>
                     </div>
                 </div>
                 <hr class="shape-8"/>
@@ -138,7 +141,7 @@
                         <div class="underline">&nbsp;今月のアクション &nbsp;</div>
                     </div>
                     <div class="col-sm-9 col-7 action-input">
-                        <textarea style="width: 100%;border: none;" type="text" rows="2" name="action-of-month" data-month="{{isset($mytheme_first->month) ? $mytheme_first->month : $data_date['month']}}" 
+                        <textarea style="width: 100%;border: none;" type="text" rows="2" disabled name="action-of-month" class="action-of-month" data-month="{{isset($mytheme_first->month) ? $mytheme_first->month : $data_date['month']}}" 
                                             data-year="{{isset($mytheme_first->year) ? $mytheme_first->year : $data_date['year']}}" placeholder="考えたいこと、行動したいことを3つ決めよう" disabled>{{$mytheme_first ? $mytheme_first->this_action : ''}}</textarea>
                                     <i class="fa fa-pencil pencil-action" data-toggle="modal" data-target="#modal_action">
                                         <span>Edit</span></i>
@@ -446,6 +449,46 @@
                     <div class="event-information-wrapper col-md-12 clearfix">
                         <textarea style="width: 100%;border: none;" type="text" rows="3" id="action-of-month" name="action-of-month" class="input-action" data-month="{{isset($mytheme_first->month) ? $mytheme_first->month : $data_date['month']}}" 
                                             data-year="{{isset($mytheme_first->year) ? $mytheme_first->year : $data_date['year']}}" placeholder="考えたいこと、行動したいことを3つ決めよう">{{$mytheme_first ? $mytheme_first->this_action : ''}}</textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="modal_my_theme" class="modal fade modal_register" role="dialog">
+    <div class="modal-dialog" style="margin-top:150px">
+        <div class="modal-content">
+            <div class="modal-body" style="text-align:center">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <div class="panel-body">
+                    <div class="event-information-wrapper col-md-12 clearfix">
+                        <div class="title-detail">
+                            <span>今月のマイテーマ</span>
+                        </div>
+                    </div>
+                    <div class="event-information-wrapper col-md-12 clearfix">
+                        <textarea style="width: 100%;border: none;" type="text" rows="3" name="my-therme-month" id="input-my-theme" class="input-my-theme"  data-month="{{isset($mytheme_first->month) ? $mytheme_first->month : $data_date['month']}}" 
+                                            data-year="{{isset($mytheme_first->year) ? $mytheme_first->year : $data_date['year']}}" placeholder="例:「人に喜んでもらう接客とは？」「自分の理想のチームをつくるには？」">{{$mytheme_first ? $mytheme_first->this_mytheme : ''}}</textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="modal_memo" class="modal fade modal_register" role="dialog">
+    <div class="modal-dialog" style="margin-top:150px">
+        <div class="modal-content">
+            <div class="modal-body" style="text-align:center">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <div class="panel-body">
+                    <div class="event-information-wrapper col-md-12 clearfix">
+                        <div class="title-detail">
+                            <span>MEMO</span>
+                        </div>
+                    </div>
+                    <div class="event-information-wrapper col-md-12 clearfix">
+                        <textarea style="width: 100%;border: none;" type="text" rows="3" name="my-therme-month" id="input-memo" class="input-memo"  data-month="{{isset($mytheme_first->month) ? $mytheme_first->month : $data_date['month']}}" 
+                                            data-year="{{isset($mytheme_first->year) ? $mytheme_first->year : $data_date['year']}}" placeholder="先月の行動を振り返り記録しよう">{{$mytheme_first ? $mytheme_first->memo : ''}}</textarea>
                     </div>
                 </div>
             </div>
@@ -930,9 +973,9 @@
             var _this = $(this);
             var year = _this.data('year');
             var month = _this.data('month');
-            var text_memo = $('.input-memo').val();
+            var text_memo = $('#input-memo').val();
             var text_last_log = $('.input-lat-log').val();
-            var text_my_theme = $('.input-my-theme').val();
+            var text_my_theme = $('#input-my-theme').val();
             var text_action= $('.input-action').val();
             $.ajax({
                 url : '{{route("mypage.change-content")}}',
@@ -946,6 +989,9 @@
                     this_mytheme: text_my_theme,
                     this_action: text_action
                 },success:function(data) {
+                    $('.input-memo').text(data.memo);
+                    $('.input-my-theme').text(data.this_mytheme);
+                    $('.action-of-month').text(data.this_action);
                     iziToast.success({timeout: 5000, icon: 'fa fa-chrome', title: 'OK', message: '更新いたしました'});
                 }
             })
@@ -1008,7 +1054,27 @@
         })
 
         $('#modal_action').on('shown.bs.modal', function () {
+            $('#modal_action .close').addClass('editting');
             $('#action-of-month').focus();
+            $('#action-of-month').text($('.action-input textarea').text());
+            $('#action-of-month').attr('data-month',$('.action-input textarea').data('month'));
+            $('#action-of-month').attr('data-year',$('.action-input textarea').data('year'));
+        })
+
+        $('#modal_my_theme').on('shown.bs.modal', function () {
+            $('#modal_my_theme .close').addClass('editting');
+            $('#input-my-theme').focus();
+            $('#input-my-theme').text($('.my-theme-input .input-my-theme').text());
+            $('#input-my-theme').attr('data-month',$('.my-theme-input .input-my-theme').data('month'));
+            $('#input-my-theme').attr('data-year',$('.my-theme-input .input-my-theme').data('year'));
+        })
+
+        $('#modal_memo').on('shown.bs.modal', function () {
+            $('#modal_memo .close').addClass('editting');
+            $('#input-memo').focus();
+            $('#input-memo').text($('.memo-input .input-memo').text());
+            $('#input-memo').attr('data-month',$('.memo-input .input-memo').data('month'));
+            $('#input-memo').attr('data-month',$('.memo-input .input-memo').data('year'));
         })
 
         $(document).on('click','.favorite.edit.image .fa-pencil',function(e){
