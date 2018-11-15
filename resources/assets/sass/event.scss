@@ -99,9 +99,7 @@
   /* ========== End style title màu vàng =========== */
 
   //@include standard_font();
-  @include only-for-mobile(){
-    padding-bottom: 56px;
-  }
+
   //======== event list =========
   .icon{
     width: 100%;
