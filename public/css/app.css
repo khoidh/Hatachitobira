@@ -3102,10 +3102,10 @@ footer .footter-mobile .a-first {
   }
 
   #myHeader.fixed .logo.navbar-brand img {
-    width: 100%;
-    height: auto;
     position: fixed;
     top: 20px;
+    max-width: 190px;
+    max-height: 40px;
   }
 
   #myHeader.fixed .navbar-brand p {
@@ -3820,6 +3820,18 @@ footer .footter-mobile .a-first {
   }
 }
 
+@media (max-width: 575.98px) {
+  header.fixed.headder .bx_header {
+    padding: 0 0 0 10px;
+    height: 80px !important;
+  }
+
+  header.fixed .bx_header .hd_left .logo img {
+    width: 270px;
+    height: auto;
+  }
+}
+
 .event {
   /* ========== Style title màu vàng     =========== */
   /* ========== End style title màu vàng =========== */
@@ -3972,13 +3984,6 @@ footer .footter-mobile .a-first {
   transform: translateZ(0);
 }
 
-.event .event-article-list .article img {
-  max-width: 300px;
-  max-height: 300px;
-  width: 100%;
-  height: auto;
-}
-
 .event .event-article-list .article .article-status {
   line-height: 200%;
   font-size: small;
@@ -4027,6 +4032,10 @@ footer .footter-mobile .a-first {
   /*Firefox*/
   -webkit-border-radius: 15px;
   /*Chrome và Safary*/
+  max-height: 230px;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 @media (max-width: 575.98px) {
@@ -4333,13 +4342,6 @@ footer .footter-mobile .a-first {
   padding-top: 32px;
 }
 
-.column .article-list .article img {
-  max-width: 300px;
-  max-height: 300px;
-  width: 100%;
-  height: auto;
-}
-
 .column .article-list .article .article-status {
   line-height: 200%;
   font-size: small;
@@ -4388,10 +4390,17 @@ footer .footter-mobile .a-first {
   /*Firefox*/
   -webkit-border-radius: 15px;
   /*Chrome và Safary*/
+  max-height: 230px;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .column .article-list .article .article-content .content-left .image {
   max-height: 230px;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 @media (max-width: 575.98px) {
@@ -5341,6 +5350,8 @@ footer .footter-mobile .a-first {
   display: inline;
 }
 
+#modal_memo .event-information-wrapper .title-detail span,
+#modal_my_theme .event-information-wrapper .title-detail span,
 #modal_action .event-information-wrapper .title-detail span {
   font-size: 24px;
   font-weight: bold;
@@ -5348,6 +5359,8 @@ footer .footter-mobile .a-first {
   box-shadow: inset 0 -10px 0 #fff100;
 }
 
+#modal_memo .event-information-wrapper .input-action,
+#modal_my_theme .event-information-wrapper .input-action,
 #modal_action .event-information-wrapper .input-action {
   margin-top: 20px;
 }
@@ -5556,15 +5569,9 @@ footer .footter-mobile .a-first {
 .my-page .article-content .content-left img {
   border-radius: 14px;
   max-height: 230px;
-  max-width: 330px;
   width: 100%;
-  height: 100%;
-}
-
-@media (max-width: 575.98px) {
-  .my-page .article-content .content-left img {
-    max-width: unset;
-  }
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 @media (max-width: 575.98px) {
@@ -5648,6 +5655,12 @@ footer .footter-mobile .a-first {
           box-shadow: inset 0 -15px 0 #fff100;
 }
 
+@media (max-width: 575.98px) {
+  .my-page .info-1 .memo .memo-text .underline {
+    font-size: 20px;
+  }
+}
+
 .my-page .info-1 .memo .memo-input {
   padding-top: 8px;
 }
@@ -5697,6 +5710,7 @@ footer .footter-mobile .a-first {
   }
 }
 
+.my-page textarea.input-my-theme,
 .my-page textarea.input-memo {
   background: none;
   border: none;
@@ -5705,8 +5719,24 @@ footer .footter-mobile .a-first {
 }
 
 @media (max-width: 575.98px) {
+  .my-page textarea.input-my-theme,
   .my-page textarea.input-memo {
     line-height: 1.7;
+  }
+}
+
+.my-page .my-theme .pencil-theme,
+.my-page .memo-input .pencil-memo {
+  position: absolute;
+  bottom: 12px;
+  right: 20px;
+  cursor: pointer;
+}
+
+@media (max-width: 575.98px) {
+  .my-page .my-theme .pencil-theme span,
+  .my-page .memo-input .pencil-memo span {
+    display: none;
   }
 }
 
@@ -5833,6 +5863,9 @@ footer .footter-mobile .a-first {
   bottom: 27px;
   cursor: pointer;
   font-size: 14px;
+  color: #888;
+  -webkit-box-shadow: inset 0 -6px 0 #fff100;
+          box-shadow: inset 0 -6px 0 #fff100;
 }
 
 .my-page .panel-info .panel-info-wrapper .event-image .description {
@@ -5902,6 +5935,12 @@ footer .footter-mobile .a-first {
   right: 20px;
   z-index: 9;
   cursor: pointer;
+}
+
+@media (max-width: 575.98px) {
+  .my-page .info-2 .action .action-input .pencil-action span {
+    display: none;
+  }
 }
 
 .my-page .main {
@@ -6248,6 +6287,9 @@ footer .footter-mobile .a-first {
 
 .my-page .group-2 > .column .article .article-content .content-left .image {
   max-height: 230px;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 @media (max-width: 575.98px) {
@@ -6388,6 +6430,12 @@ footer .footter-mobile .a-first {
 .my-page .panel-info .panel-info-wrapper .event-image img {
   -o-object-fit: cover;
      object-fit: cover;
+}
+
+@media (max-width: 575.98px) {
+  .my-page .info-1 .log .log-input .bootstrap-tagsinput .label-info {
+    display: block;
+  }
 }
 
 .recruiment {
@@ -7500,9 +7548,9 @@ footer .footter-mobile .a-first {
 .searchcategory .article-content .content-left img {
   border-radius: 14px;
   max-height: 230px;
-  max-width: 330px;
   width: 100%;
-  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 @media (max-width: 575.98px) {
@@ -7951,7 +7999,7 @@ footer .footter-mobile .a-first {
 
   .container.about .top .container.content-1 {
     padding: 45px 0 0;
-    margin-top: -60px;
+    margin-top: -68px;
   }
 
   .container.about .top .container.content-1 .content-1-title:first-child {
@@ -7998,8 +8046,10 @@ footer .footter-mobile .a-first {
   }
 
   .container.about .top .container.content-1 .about-content-1-content .text_detail_title {
-    padding: 0 5px;
+    padding: 0 50px 12px 21px;
     font-size: 20px;
+    position: absolute;
+    margin-top: -16px;
   }
 
   .container.about .about-why-born {
@@ -8179,6 +8229,15 @@ footer .footter-mobile .a-first {
   .about-hatachi .about-hatachi-col a.btn-link:hover {
     text-decoration: none;
   }
+}
+
+.jladev_fix_about_1 {
+  padding-left: 60px;
+}
+
+.jladev_fix_about_2 {
+  padding-left: 40px;
+  padding-right: 25px;
 }
 
 /*
