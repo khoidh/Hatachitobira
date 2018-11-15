@@ -4,7 +4,7 @@
     <style>
         /* Custom, iPhone Retina, Tablets*/
         @media only screen and (min-width: 320px) and (max-width: 991px) {
-            header.fixed.headder .navbar.navbar-expand-lg.navbar-light p {
+            header.fixed.header .navbar.navbar-expand-lg.navbar-light p {
                 font-size: 12px !important;
                 position: relative;
                 margin-left: 0px;
