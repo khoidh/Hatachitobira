@@ -24,7 +24,6 @@
     <!-- End Google Tag Manager -->
     @section('css-add')
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-        <link href="{{ asset('css/top.css') }}" rel="stylesheet">
         <script src="{{ asset('js/app.js') }}"></script>
     @show
     @yield('css')
