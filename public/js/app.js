@@ -39971,7 +39971,7 @@ module.exports = function (css) {
 /* 42 */
 /***/ (function(module, exports) {
 
-throw new Error("Module build failed: ModuleBuildError: Module build failed: \n}\n^\n      Invalid CSS after \"}\": expected \"}\", was \"\"\n      in /application/resources/assets/sass/mypage.scss (line 1061, column 1)\n    at runLoaders (/application/node_modules/webpack/lib/NormalModule.js:195:19)\n    at /application/node_modules/loader-runner/lib/LoaderRunner.js:364:11\n    at /application/node_modules/loader-runner/lib/LoaderRunner.js:230:18\n    at context.callback (/application/node_modules/loader-runner/lib/LoaderRunner.js:111:13)\n    at Object.asyncSassJobQueue.push [as callback] (/application/node_modules/sass-loader/lib/loader.js:55:13)\n    at Object.done [as callback] (/application/node_modules/neo-async/async.js:8077:18)\n    at options.error (/application/node_modules/node-sass/lib/index.js:294:32)");
+// removed by extract-text-webpack-plugin
 
 /***/ })
 /******/ ]);

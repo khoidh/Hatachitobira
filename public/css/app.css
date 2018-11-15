@@ -4363,7 +4363,13 @@ footer .footter-mobile .a-first {
 }
 
 .event .icon .icon-01 {
-  padding: 0 32px;
+  padding: 0;
+}
+
+@media (min-width: 768px) {
+  .event .icon .icon-01 {
+    padding: 0 32px;
+  }
 }
 
 .event .event-article-list {
@@ -5872,7 +5878,8 @@ footer .footter-mobile .a-first {
 .column .article-list .shape-8,
 .column .tit .shape-8,
 .my-page .info-1 .shape-8,
-.my-page .info-2 .shape-8 {
+.my-page .info-2 .shape-8,
+.my-page .group-2 > .column .article .article-status .shape-8 {
   width: 100%;
   size: 30px;
   padding-top: 1px;
@@ -5960,7 +5967,7 @@ footer .footter-mobile .a-first {
 }
 
 .my-page .article-content .content-left img {
-  border-radius: 14px;
+  border-radius: 15px;
   max-height: 230px;
   width: 100%;
   -o-object-fit: cover;
@@ -6633,21 +6640,49 @@ footer .footter-mobile .a-first {
   height: auto;
 }
 
+.my-page .group-2 > .column .article .article-status {
+  line-height: 200%;
+  font-size: small;
+  font-weight: bold;
+  color: #FFFFFF;
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+.my-page .group-2 > .column .article .article-status .shape-8 {
+  margin: 8px 0 16px !important;
+  height: 0px !important;
+  background-color: #DCDCDC !important;
+}
+
+.my-page .group-2 > .column .article .article-status img {
+  position: absolute;
+  max-height: 24px;
+  max-width: 101px;
+  top: 0;
+}
+
+.my-page .group-2 > .column .article .article-status span {
+  position: absolute;
+  max-height: 24px;
+  max-width: 101px;
+  top: 0;
+  left: 5px;
+}
+
 .my-page .group-2 > .column .article .article-content {
   font-size: 20px;
   line-height: 40px;
   font-weight: bold;
 }
 
-.my-page .group-2 > .column .article .article-content img {
+.my-page .group-2 > .column .article .article-content .content-left .image {
   border-radius: 15px;
   -moz-border-radius: 15px;
   /*Firefox*/
   -webkit-border-radius: 15px;
   /*Chrome và Safary*/
-}
-
-.my-page .group-2 > .column .article .article-content .content-left .image {
   max-height: 230px;
   width: 100%;
   -o-object-fit: cover;
@@ -7867,7 +7902,7 @@ footer .footter-mobile .a-first {
 }
 
 .searchcategory .article-content .content-left img {
-  border-radius: 14px;
+  border-radius: 15px;
   max-height: 230px;
   width: 100%;
   -o-object-fit: cover;
