@@ -5,24 +5,8 @@
 @endsection
 @section('page_title', 'カテゴリーから探す')
 @section('description', '学校と社会をつなぐ「ハタチのトビラ」のカテゴリー検索ページです。自分の興味から、マイテーマの種をみつけよう。')
-@section('main')
-    <div class="container-fluid searchcategory">
-        <div class="main row">
-            <div class="title-lx">
-                <div class="container">
-                    <div class="relative row">
-                        <div class="info col-md-12">
-                            <span class="title-e">Category Search</span>
-                            <div class="absolute">
-                                <p><span class="title-j"> カテゴリー検索</span></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-@endsection
+@section('title-e', 'Category Search')
+@section('title-j', 'カテゴリー検索')
 @section('content')
 
 

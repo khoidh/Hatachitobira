@@ -2189,6 +2189,99 @@
   text-align: center;
 }
 
+.headline {
+  background: #fff100;
+  display: block;
+  width: 100%;
+  z-index: 111;
+  height: 175px;
+  margin-bottom: 50px;
+}
+
+.headline .container {
+  position: relative;
+  height: 175px;
+}
+
+.headline .container .title-e,
+.headline .container .title-j {
+  position: absolute;
+  left: 0;
+}
+
+.headline .container .title-e {
+  bottom: 0;
+  font-family: "Oswald", sans-serif;
+  font-size: 120px;
+  color: #fffa9d;
+}
+
+.headline .container .title-j {
+  bottom: -26px;
+  display: inline-block;
+  background: #000000;
+  text-indent: 7px;
+  color: white;
+  font-size: 42px;
+  font-weight: 700;
+  letter-spacing: 10px;
+  font-family: "Noto Sans Japanese", sans-serif;
+  color: white;
+  z-index: 112;
+}
+
+@media (max-width: 575.98px) {
+  .headline {
+    height: 100px;
+    margin-bottom: 50px;
+  }
+
+  .headline .container {
+    height: 100px;
+  }
+
+  .headline .container .title-e {
+    bottom: 10px;
+    font-size: 14.5vw !important;
+  }
+
+  .headline .container .title-j {
+    bottom: -16px;
+    letter-spacing: 5px;
+    font-size: 7vw !important;
+  }
+}
+
+.text-vertical {
+  -webkit-writing-mode: vertical-rl;
+  -ms-writing-mode: tb-rl;
+  writing-mode: vertical-rl;
+  -webkit-text-orientation: upright;
+  text-orientation: upright;
+}
+
+@media (min-width: 576px) {
+  .text-vertical-pc {
+    -webkit-writing-mode: vertical-rl;
+    -ms-writing-mode: tb-rl;
+    writing-mode: vertical-rl;
+    -webkit-text-orientation: upright;
+    text-orientation: upright;
+  }
+}
+
+@media (max-width: 575.98px) {
+  br.pc {
+    display: none;
+  }
+}
+
+@media (min-width: 576px) {
+  br.sp {
+    display: none;
+  }
+}
+
 .m-0 {
   margin: 0px !important;
 }
@@ -8029,119 +8122,8 @@ footer .footter-mobile .a-first {
   margin: 10px 0;
 }
 
-@media (max-width: 426px) {
-  .fix-mb:before {
-    content: "";
-    background-color: #fff100;
-    width: 100%;
-    height: 305px;
-    position: absolute;
-    top: 0px;
-    left: 0;
-    z-index: 1;
-  }
-}
-
-.about {
-  /* ========== Style title màu vàng     =========== */
-  /* ========== End style title màu vàng =========== */
-}
-
-.about .main {
-  min-height: 175px;
-  margin-bottom: 30px;
-}
-
-.about .main .title-lx {
-  font-family: Oswald, sans-serif;
-  background: #fff100;
-  color: #fffa9d;
-  display: block;
-  font-size: 120px !important;
-  min-height: 175px;
-  width: 100%;
-  z-index: 111;
-  height: 100%;
-}
-
-.about .main .title-lx .container .relative {
-  position: relative;
-}
-
-.about .main .title-lx .container .relative .info {
-  margin-top: 50px;
-  line-height: 95%;
-}
-
-.about .main .title-lx .container .relative .info .title-e {
-  margin-left: -5px;
-}
-
-.about .main .title-lx .container .relative .info .absolute {
-  font-family: "Raleway", sans-serif !important;
-  font-size: 20px;
-  position: absolute;
-  color: #111;
-  bottom: -27px;
-  font-weight: bold;
-}
-
-.about .main .title-lx .container .relative .info .absolute p {
+.about-page .headline {
   margin-bottom: 0;
-  font-size: 35px;
-  letter-spacing: 10px;
-  line-height: 120%;
-}
-
-.about .main .title-lx .container .relative .info .absolute .title-j {
-  display: inline-block;
-  background: #000000;
-  letter-spacing: 10px;
-  color: white;
-  line-height: 30px;
-}
-
-@media (max-width: 575.98px) {
-  .about .main {
-    min-height: 75px;
-  }
-
-  .about .main .title-lx {
-    height: 120px;
-    min-height: unset;
-  }
-
-  .about .main .title-lx .container .relative {
-    position: relative;
-  }
-
-  .about .main .title-lx .container .relative .info {
-    margin-top: 85px;
-    line-height: 1.5;
-  }
-
-  .about .main .title-lx .container .relative .info .title-e {
-    position: relative;
-    top: -130px;
-    font-size: 85px;
-  }
-
-  .about .main .title-lx .container .relative .info .absolute {
-    bottom: 134px;
-  }
-
-  .about .main .title-lx .container .relative .info .absolute .title-j {
-    display: inline-block;
-    letter-spacing: 0px;
-    line-height: 40px;
-    font-size: 33px;
-  }
-}
-
-@media (max-width: 575.98px) {
-  .about {
-    padding-bottom: 56px;
-  }
 }
 
 .container.about {
@@ -8158,9 +8140,64 @@ footer .footter-mobile .a-first {
   overflow: hidden;
 }
 
-.container.about .about-banner {
-  margin: 0;
+.about-page .about-banner {
+  margin: 0 auto;
   padding: 0;
+  width: 100%;
+  max-width: 1440px;
+  position: relative;
+}
+
+.about-page .about-banner img {
+  width: 100%;
+}
+
+.about-page .about-banner .div-bg {
+  display: block;
+  width: 66%;
+  height: 50px;
+  background-color: #fff;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+@media (max-width: 575.98px) {
+  .about-page .about-banner .div-bg {
+    display: none;
+  }
+}
+
+.about-page .about-banner .about-content-title {
+  position: absolute;
+  font-size: 36px;
+  font-weight: 700;
+  top: 60%;
+  left: 65%;
+  height: 500px;
+}
+
+.about-page .about-banner .about-content-title span {
+  display: block;
+}
+
+@media (max-width: 575.98px) {
+  .about-page .about-banner .about-content-title {
+    font-size: 20px;
+    top: 65%;
+    left: 5%;
+    height: auto;
+  }
+
+  .about-page .about-banner .about-content-title span {
+    display: inline;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .about-page .about-banner {
+    padding-bottom: 56px;
+  }
 }
 
 .container.about .about-cb-path {
@@ -8172,7 +8209,7 @@ footer .footter-mobile .a-first {
 }
 
 .container.about .top {
-  margin-top: -60px;
+  margin-top: -40px;
 }
 
 .container.about .top .container.content-1 {
@@ -8205,14 +8242,6 @@ footer .footter-mobile .a-first {
   padding-bottom: 24px;
 }
 
-.container.about .top .div-bg {
-  display: inline-block;
-  width: 66%;
-  height: 80px;
-  background-color: #fff;
-  position: absolute;
-}
-
 .about-why-born,
 .about-what-done {
   padding: 60px 0;
@@ -8228,6 +8257,18 @@ footer .footter-mobile .a-first {
   background-color: #FFFFFF;
   border-radius: 10px;
   padding: 50px 18%;
+}
+
+@media (max-width: 575.98px) {
+  .about-why-born .why-born-col,
+  .about-why-born .what-done-col,
+  .about-what-done .why-born-col,
+  .about-what-done .what-done-col {
+    width: 90%;
+    margin: 0 auto 20px;
+    display: block;
+    padding: 30px 10%;
+  }
 }
 
 .about-why-born .why-born-col .text_detail_title,
@@ -8296,6 +8337,12 @@ footer .footter-mobile .a-first {
   margin-bottom: 0;
 }
 
+@media (max-width: 575.98px) {
+  .about-what-done .what-done-col {
+    padding: 5px 0;
+  }
+}
+
 .about-what-done-title,
 .about-hatachi-title {
   font-size: 22px;
@@ -8335,16 +8382,12 @@ footer .footter-mobile .a-first {
 /* Custom, iPhone Retina */
 
 @media only screen and (max-width: 575.98px) {
-  .container.about {
-    margin-top: -120px;
-  }
-
   .container.about .about-banner img {
     width: 100%;
   }
 
   .container.about .top {
-    margin-top: 110px !important;
+    margin-top: 100px !important;
   }
 
   .container.about .top .content-1 .about-content-title {
@@ -8399,17 +8442,19 @@ footer .footter-mobile .a-first {
   }
 
   .container.about .top .container.content-1 .about-content-1-content .text-detail {
-    font-weight: bold;
-    font-size: 18px;
-    padding: 0 5px 20px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 160%;
+    padding: 0 5px 0;
   }
 
   .container.about .top .container.content-1 .about-content-1-content .text-detail:last-child {
     padding-top: 0;
+    margin-bottom: 0;
   }
 
   .container.about .top .container.content-1 .about-content-1-content .text_detail_title {
-    padding: 0 50px 12px 21px;
+    padding: 0 0 12px 0;
     font-size: 20px;
     position: absolute;
     margin-top: -16px;
@@ -8537,7 +8582,7 @@ footer .footter-mobile .a-first {
   .about-why-born .container {
     padding: 0;
     padding-right: 0;
-    padding-top: 73px;
+    padding-top: 20px;
   }
 }
 
@@ -8598,9 +8643,22 @@ footer .footter-mobile .a-first {
   padding-left: 60px;
 }
 
+@media (max-width: 575.98px) {
+  .jladev_fix_about_1 {
+    padding-left: 10px;
+  }
+}
+
 .jladev_fix_about_2 {
   padding-left: 40px;
   padding-right: 25px;
+}
+
+@media (max-width: 575.98px) {
+  .jladev_fix_about_2 {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
 }
 
 /*

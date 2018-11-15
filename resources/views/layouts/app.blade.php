@@ -29,7 +29,7 @@
     @show
     @yield('css')
 </head>
-<body>
+<body class="@yield('body-class')">
     <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NP6F7VN" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
@@ -42,26 +42,12 @@
             </div>
 
             {{--Main--}}
-            @section('main')
-                <div class="container-fluid home">
-                    <div class="main row">
-                        <div class="title-lx">
-                            <div class="container">
-                                <div class="relative row">
-                                    <div class="info col-md-12">
-                                        <span class="title-e">@yield('title-e','Title')</span>
-                                        <div class="absolute">
-                                            <p>@yield('title-black')</p>
-                                            <p><span class="title-j"> @yield('title-j','タートル')</span>@yield('title-blackspan')
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            @show
+            <div class="container-fluid headline">
+                <h1 class="container">
+                    <span class="title-e">@yield('title-e')</span>
+                    <span class="title-j">@yield('title-j')</span>
+                </h1>
+            </div>
 
             @yield('content')
             @include('includes.footer')
