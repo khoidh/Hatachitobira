@@ -12,24 +12,9 @@
 @endsection
 @section('page_title', 'イベントお申込み完了')
 @section('description', '学校と社会をつなぐ「ハタチのトビラ」のコラムページです。「私が、探求したいこと」であるマイテーマをみつけるノウハウ・イベントレポート・アラハタ世代の活躍を発信していきます。')
-@section('main')
-    <div class="container-fluid event">
-        <div class="main row">
-            <div class="title-lx">
-                <div class="container">
-                    <div class="relative row">
-                        <div class="info col-md-12">
-                            <span class="title-e">Event</span>
-                            <div class="absolute">
-                                <p><span class="title-j"> イベント</span></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-@endsection
+@section('title-e', 'Event')
+@section('title-j', 'イベント')
+@section('body-class', 'event-page')
 @section('content')
     <div class="container enquiry thank_event">
         <div class="row">
