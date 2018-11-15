@@ -6,24 +6,7 @@
                     <div class="carousel-inner row mx-auto" role="listbox">
                         @forelse($columns as $key => $column)
                         <div class="article carousel-item {{ $key == 0 ? 'active' : ''}}">
-                            @php
-                                $column_state="";
-                                if($column->type == 1)
-                                    $column_state = "コラム";
-                                else
-                                    $column_state = "インタビュー";
-                            @endphp
-                            <div class="article-status">
-                                <hr class="shape-8"/>
-                                <img
-                                    @if($column->type == 0)
-                                        src="{{asset('images/user/column/column-icon.png')}}" alt="column-icon.png"
-                                    @else
-                                        src="{{asset('images/user/column/column-visible-icon.png')}}" alt="column-visible-icon.png"
-                                    @endif
-                                >
-                                <span style="@if($column->type ==1) left: 25px; @endif">{{$column_state}}</span>
-                            </div>
+                            @include('includes/column_state', compact('column'))
                             <div class="article-content row">
                                 <div class="content-left col-md-4">
                                     <a href="{{route('column.show', $column->id)}}" style="text-decoration:none;">
@@ -40,13 +23,13 @@
                                         <p>{{$column->category_name}}</p>
                                     </div>
                                     <div class="date" style="text-align: right">
-                                        <p>{{date('Y-m-d', strtotime($column->created_at))}}</p>
+                                        <p>{{date('Y.m.d', strtotime($column->created_at))}}</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         @empty
-                        <h4 class="data-not-found">Data not found</h4>
+                        <h4 class="data-not-found">登録データがありません。</h4>
                         @endforelse
                     </div>
                     @if(count($columns) > 1)
@@ -69,17 +52,7 @@
                     <div class="carousel-inner" role="listbox">
                         @forelse($events as $key => $event)
                         <div class="article carousel-item {{ $key == 0 ? 'active' : ''}}">
-                            <div class="article-status">
-                                <hr class="shape-8"/>
-                                <img style="top: -8px;" 
-                                    @if($event->eventstatus == '受付中' || $event->eventstatus == '開催中')
-                                        src="{{asset('images/user/event/event-icon.png')}}" alt="event-icon.png"
-                                    @else
-                                        src="{{asset('images/user/event/event-visible-icon.png')}}" alt="event-visible-icon.png"
-                                    @endif
-                                >
-                                <span style="@if($event->eventstatus == '受付前' || $event->eventstatus == '受付終了'|| $event->eventstatus == '開催終了' ) left: 20px;top: -12px; color: white !important;@else top: -11px;left: 12px; color: black !important; @endif">{{$event->eventstatus}}</span>
-                            </div>
+                            @include('includes/event_state', compact('event'))
                             <div class="article-content row">
                                 <div class="content-left col-md-4">
                                     <a href="{{route('event.show', $event->id)}}" style="text-decoration:none;">
@@ -96,13 +69,13 @@
                                         <p>{{$event->category_name}}</p>
                                     </div>
                                     <div class="date" >
-                                        <p>{{date('Y-m-d', strtotime($event->started_at))}}</p>
+                                        <p>{{date('Y.m.d', strtotime($event->started_at))}}</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         @empty
-                        <h4 class="data-not-found">Data not found</h4>
+                        <h4 class="data-not-found">登録データがありません。</h4>
                         @endforelse
                     </div>
                     @if(count($events) > 1)
