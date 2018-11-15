@@ -67,7 +67,7 @@
 
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
-                                <a href="{{ url('/auth/facebook') }}" class="btn btn-register btn-primary"><i class="fa fa-facebook"></i> Facebook</a>
+                                <a href="{{ url('/auth/facebook') }}" class="btn btn-primary"><i class="fa fa-facebook"></i> Facebook</a>
                             </div>
                         </div>
 
