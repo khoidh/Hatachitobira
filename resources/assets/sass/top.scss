@@ -4,10 +4,29 @@ body {
     position: relative;
 }
 
+header.fixed .bx_header .hd_left .navbar-nav,
+header.fixed .bx_header .hd_left .nav {
+    width: 75%;
+    @include only-for-mobile() {
+        width: 100%;
+    }
+}
+
+header.fixed .bx_header,
+header.fixed .bx_header .hd_left,
+header.fixed .bx_header .hd_left .navbar-nav,
+header.fixed .bx_header .hd_left .nav,
+header.fixed .bx_header .hd_left .navbar-expand-lg.navbar-light{
+    @include only-for-tab-pc() {
+        align-items: center;
+        height: 80px
+    }
+}
+
 #myHeader.fixed .navbar-brand p {
     position: absolute;
     left: 200px;
-    top: 12px;
+    top: 24px;
     font-size: 16px;
 }
 
@@ -860,13 +879,13 @@ footer .footter-mobile .a-first {
     }
 
     #myHeader.fixed .bx_header {
-        padding: 0px;
+        padding: 0 10px;
     }
     
-    header.fixed,
-    header.fixed .bx_header {
-        height: unset !important;
-    }
+    // header.fixed,
+    // header.fixed .bx_header {
+    //     height: unset !important;
+    // }
     #myHeader.fixed .navbar.navbar-expand-lg.navbar-light,
     #myHeader.fixed .hd_left {
         width: 100%;
@@ -883,10 +902,10 @@ footer .footter-mobile .a-first {
     }
 
     #myHeader.fixed .logo.navbar-brand img {
+        width: 100%;
+        height: auto;
         position: fixed;
         top: 20px;
-        max-width: 190px;
-        max-height: 40px;
     }
 
     #myHeader.fixed .navbar-brand p {
@@ -1579,29 +1598,4 @@ footer .footter-mobile .a-first {
 
 .loader-inner > div {
     background-color: #111 !important;
-}
-
-@media (max-width: 427px){
-    #myHeader.fixed .logo.navbar-brand img {
-        margin-left: 15px;
-    }
-    .bx_header .nav-item.aaaafixed{
-        margin-left: 15px;
-    }
-    .navbar-nav .dropdown-menu .dropdown-item {
-        padding-left: 35px !important;
-    }
-    .bx_header .nav-link.link-append{
-        margin-right: 30px !important;
-    }
-}
-@media (max-width: 575.98px){
-    header.fixed.headder .bx_header {
-          padding: 0 0 0 10px;
-          height: 80px !important;
-      }
-    header.fixed .bx_header .hd_left .logo img {
-        width: 270px;
-        height: auto;
-    }
 }
