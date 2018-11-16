@@ -1550,3 +1550,14 @@ footer .footter-mobile .a-first {
     left: 50%;
     z-index: 201;
 }
+.top .text-vertical.last:after{
+    height: 85% !important;
+}
+@media screen and (max-width: 480px){
+    .top .text-vertical-1.last span {
+        margin-left: -1px;
+    }
+    .top .text-vertical.last:after {
+        width: 50%;
+    }
+}
