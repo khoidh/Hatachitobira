@@ -360,7 +360,7 @@
                 <div class="underline column-title">お気に入り記事(<span class="column-count">{{$columns->count()}}</span>)</div>
                 <div class="article-list col-md-12">
                     <div id="carouselExampleevent" class="carousel slide" data-ride="carousel" data-interval="false" data-wrap="false">
-                        <div class="carousel-inner row mx-auto" role="listbox">
+                        <div class="carousel-inner carouselExampleevent-item row mx-auto" role="listbox">
                             @forelse($columns as $key_1 => $column)
                             <div class="article carousel-item {{ $key_1 == 0 ? 'active' : ''}}">
                                 @php
@@ -617,7 +617,7 @@
             var idvideo = $(this).data('id');
             var user = $(this).data('user');
             var _this = $(this);
-            
+            var _number = $('.count-video').text() - 1;
             $.ajax({
                 url : '{{route("video.favorite")}}',
                 type: 'post',
@@ -633,7 +633,11 @@
                     }else {
                         _this.parents('.video-detail.carousel-item').next().addClass('slick-active');
                         _this.parents('.video-detail.carousel-item').remove();
-                        $('.count-video').text($('.count-video').text() - 1);
+
+                        $('.count-video').text(_number);
+                        if (_number == 0) {
+                            $('.carousel-inner.carosel-video-list').html('<span class="more-detail" style="width: 100%;top: 0;"><a href="{{url('video')}}" style="color: #111111;margin-left: 13px;display: -webkit-inline-box;margin-top: 30px;"><b>MORE</b><img src="{{asset('images/user/top/arrow-1.png')}}"></a></span>');
+                        }
                     }
                 }   
             })
@@ -701,7 +705,7 @@
             var idevent = $(this).data('id');
             var user = $(this).data('user');
             var _this = $(this);
-            
+            var number = $('.column-count').text() - 1;
             $.ajax({
                 url : '{{route("column.favorite")}}',
                 type: 'post',
@@ -715,9 +719,12 @@
                         _this.addClass('liked');
                         _this.css('color','pink');
                     }else {
-                        $('.column-count').text($('.column-count').text() - 1);
+                        $('.column-count').text(number);
                         _this.parents('.article.carousel-item').next().addClass('active');
                         _this.parents('.article.carousel-item').remove();
+                        if (number == 0) {
+                            $('.carouselExampleevent-item').html('<span class="more-detail" style="width: 100%;top: 0;"><a href="{{url('column')}}" style="color: #111111;margin-left: 13px;display: -webkit-inline-box;margin-top: 30px;"><b>MORE</b><img src="{{asset('images/user/top/arrow-1.png')}}"></a></span>');
+                        }
                     }
                 }   
            })
