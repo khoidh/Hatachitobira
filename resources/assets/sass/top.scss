@@ -92,6 +92,7 @@ main {
                 top: 15%;
             }
             .title{
+                @include mainvisual-font(36px, 160%);
                 font-weight: bold;
                 width: 80px;
                 font-size: 36px;
@@ -99,7 +100,6 @@ main {
                 padding: 3px 10px;
                 margin: 1px;
                 letter-spacing: 0px;
-                @include mainvisual-font(36px, 160%);
             }
             .description{
                 font-size: 12px;
@@ -362,6 +362,7 @@ footer .footer-bottom li {
             }
 
             @include only-for-mobile() {
+                margin: 50px 0 0;
                 text-align: center;
             }
         }
@@ -382,9 +383,9 @@ footer .footer-bottom li {
             .back-gr {
                 display: block;
                 position: absolute;
-                top: 11px;
-                right: 0%;
-                width: 80%;
+                top: -20px;
+                right: -50px;
+                width: 90%;
                 z-index: 1;
             }
         }

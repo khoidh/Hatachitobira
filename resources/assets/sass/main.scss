@@ -271,6 +271,9 @@ body {
     height: 300px;
     border-radius: 15px;
     transform: translateZ(0px);
+    @include only-for-mobile() {
+        margin-bottom: 10px;
+    }
 }
 
 .corner-wrapper.movie-2 {
@@ -282,10 +285,6 @@ body {
 .top .video-detail {
     margin: 20px 0 30px;
     padding: 0;
-
-    @include only-for-mobile() {
-        margin: 0;
-    }
     .col-md-8 {
         padding: 0
     }
@@ -377,9 +376,16 @@ body {
     position: relative;
     width: 83.3333%;
     top: 130px;
+    @include only-for-mobile() {
+        width: 100%;
+    }
     .img-cat-sp {
         padding-right: 25px;
         padding-left: 25px;
+        @include only-for-mobile() {
+            width: 25%;
+            padding: 0 10px;
+        }
         .img-cat {
             width: 100%;
         }
@@ -737,8 +743,8 @@ footer .footter-mobile .a-first {
 
     .top .container.content-1 {
         background-position: bottom, top;
-        background-size: 85%, 51%;
-        background-position-y: 51%, 15%;
+        background-size: 85%, 40%;
+        background-position-y: 53%, 5%;
         background-position-x: 0px, 45%;
         z-index: 123;
     }
@@ -858,13 +864,16 @@ footer .footter-mobile .a-first {
         width: 100%;
         padding: 20px;
         position: relative;
-        margin-bottom: 30px;
+        margin-bottom: 60px;
     }
     .top .text-my-theme1 {
         padding: 140px 20px 0;
     }
     .top .text-my-theme2 {
         padding: 40px 20px 20px;
+    }
+    .top .text_detail_title {
+        font-size: 20px;
     }
 
     .top .corner-wrapper {
@@ -907,7 +916,7 @@ footer .footter-mobile .a-first {
     }
 
     .top .movie-top-3 {
-        padding: 60px 20px 20px;
+        padding: 60px 20px 30px;
         margin: 0 -20px;
     }
 
@@ -926,7 +935,8 @@ footer .footter-mobile .a-first {
     }
 
     .top .movie_image_description {
-        width: 100%
+        padding: 0;
+        width: 100%;
     }
 
     .top .movie-top-3 .content-row .row {
@@ -1025,6 +1035,7 @@ footer .footter-mobile .a-first {
         width: 100%;
     }
 
+    .top .video-detail .col-md-4,
     .top .video-detail .col-md-8 {
         padding-left: 0;
         padding-right: 0;
@@ -1038,6 +1049,7 @@ footer .footter-mobile .a-first {
 
     .top .corner-wrapper.movie-2 {
         height: 131px;
+        margin-right: 10px;
     }
 
     .top .container.movie-top-4.content-2 {

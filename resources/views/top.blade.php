@@ -195,9 +195,8 @@ $description = '学校と社会をつなぐ「ハタチのトビラ」は、将�
                     <div class="cb-path last"></div>
                     
                     <div class="text-my-theme text-my-theme2">
-                        <h3>
-                            <p class="text_detail_title">WHAT IS マイテーマ</p>
-                            <p class="text-detail">マイテーマとは、自分の興味と意志からつくられる「私が、探求したいこと」です。誰にでも見出せるマイテーマは、変化していくものでありながら、今と未来をより充実させるための行動指針となっていきます。</p>
+                        <p class="text_detail_title">WHAT IS マイテーマ</p>
+                        <p class="text-detail">マイテーマとは、自分の興味と意志からつくられる「私が、探求したいこと」です。誰にでも見出せるマイテーマは、変化していくものでありながら、今と未来をより充実させるための行動指針となっていきます。</p>
                     </div>
                 </div>
                 <div class="cb-path"></div>
