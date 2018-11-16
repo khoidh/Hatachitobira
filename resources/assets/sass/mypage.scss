@@ -765,17 +765,18 @@
             .video-title {}
 
             .video-content {
-                padding-top: 32px;
+                padding-top: 0px;
                 @include only-for-mobile() {
-                    padding-top: 0;
+                    padding-top: 11px;
                     position: relative;
                     top: -40px;
                 }
                 
                 .video-list {
-                    margin-top: 0;
+                    margin-top: -16px;
                     @include only-for-mobile() {
                         padding-right: 0;
+                        margin-top: 0px;
                     }
                     .carousel-item {
                         @include only-for-mobile() {
