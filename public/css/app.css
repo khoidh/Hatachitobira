@@ -22480,6 +22480,10 @@ footer .footter-mobile .a-first {
   }
 }
 
+.container.searchcategory {
+  margin-bottom: 50px;
+}
+
 @media (max-width: 575.98px) {
   .container.searchcategory > .row {
     padding: 15px;
@@ -22729,7 +22733,7 @@ footer .footter-mobile .a-first {
   background-color: transparent !important;
   background-size: 100% !important;
   position: relative;
-  top: -15px;
+  top: -35px;
 }
 
 @media (max-width: 575.98px) {
@@ -22748,7 +22752,7 @@ footer .footter-mobile .a-first {
   background-color: transparent !important;
   background-size: 95% !important;
   position: relative;
-  top: -15px;
+  top: -35px;
   right: -7px;
 }
 

@@ -118,7 +118,7 @@
     </div>
     <div class="group-2">
         <div class="item video1">
-            <h3 class="underline-text">動画</h3>
+            <h3 class="underline-text video-title">動画</h3>
             <div class="row video-content video">
                 <div class="row video-list col-md-12">
                     <div class="carousel-inner carosel-video-list row mx-auto">

@@ -1,102 +1,100 @@
-<div class="row searchcategory">
-        <div class="row column-search event">
-            <h3 class="title-event">コラム</h3>
-            <div class="article-list col-md-12">
-                <div id="carouselExample" class="carousel slide" data-ride="carousel" data-interval="false" data-wrap="false">
-                    <div class="carousel-inner row mx-auto" role="listbox">
-                        @forelse($columns as $key => $column)
-                        <div class="article carousel-item {{ $key == 0 ? 'active' : ''}}">
-                            @include('includes/column_state', compact('column'))
-                            <div class="article-content row">
-                                <div class="content-left col-md-4">
-                                    <a href="{{route('column.show', $column->id)}}" style="text-decoration:none;">
-                                        @php $image='images/admin/column/'.$column->image; @endphp
-                                        <img src="{{file_exists($image)?asset($image): asset('images/user/column/column_default.jpg')}}" alt="{{$column->title}}">
-                                    </a>
+<div class="searchcategory">
+    <div class="row column-search event mb-30">
+        <h3 class="underline-text">コラム</h3>
+        <div class="article-list col-md-12">
+            <div id="carouselExample" class="carousel slide" data-ride="carousel" data-interval="false" data-wrap="false">
+                <div class="carousel-inner row mx-auto" role="listbox">
+                    @forelse($columns as $key => $column)
+                    <div class="article carousel-item {{ $key == 0 ? 'active' : ''}}">
+                        @include('includes/column_state', compact('column'))
+                        <div class="article-content row">
+                            <div class="content-left col-md-4">
+                                <a href="{{route('column.show', $column->id)}}" style="text-decoration:none;">
+                                    @php $image='images/admin/column/'.$column->image; @endphp
+                                    <img src="{{file_exists($image)?asset($image): asset('images/user/column/column_default.jpg')}}" alt="{{$column->title}}">
+                                </a>
+                            </div>
+                            <div class="content-right col-md-8">
+                                <div class="icon-favorite">
+                                    <i class="fa fa-heart-o {{ $column->favorite == 1 ? 'liked' : ''}}" data-id='{{$column->id}}' data-user='{{Auth::user() ? Auth::user()->id : "" }}' style="font-size:24px;"></i>
                                 </div>
-                                <div class="content-right col-md-8">
-                                    <div class="icon-favorite">
-                                        <i class="fa fa-heart-o {{ $column->favorite == 1 ? 'liked' : ''}}" data-id='{{$column->id}}' data-user='{{Auth::user() ? Auth::user()->id : "" }}' style="font-size:24px;"></i>
-                                    </div>
-                                    <div class="title"><a href="{{route('column.show', $column->id)}}">{{$column->title}}</a> &nbsp;&nbsp; <span style="color: #636B6F;">{{$column->category_name}}</span></div>
-                                    <div class="category" style="color: #636B6F;">
-                                        <p>{{$column->category_name}}</p>
-                                    </div>
-                                    <div class="date" style="text-align: right">
-                                        <p>{{date('Y.m.d', strtotime($column->created_at))}}</p>
-                                    </div>
+                                <div class="title"><a href="{{route('column.show', $column->id)}}">{{$column->title}}</a> &nbsp;&nbsp; <span style="color: #636B6F;">{{$column->category_name}}</span></div>
+                                <div class="category" style="color: #636B6F;">
+                                    <p>{{$column->category_name}}</p>
+                                </div>
+                                <div class="date" style="text-align: right">
+                                    <p>{{date('Y.m.d', strtotime($column->created_at))}}</p>
                                 </div>
                             </div>
                         </div>
-                        @empty
-                        <h4 class="data-not-found">登録データがありません。</h4>
-                        @endforelse
                     </div>
-                    @if(count($columns) > 1)
-                     <a class="carousel-control-prev" style="display: none;" href="#carouselExample" role="button" data-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Previous</span>
-                    </a>
-                    <a class="carousel-control-next text-faded" href="#carouselExample" role="button" data-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Next</span>
-                    </a>
-                    @endif
+                    @empty
+                    <h4 class="data-not-found">登録データがありません。</h4>
+                    @endforelse
                 </div>
+                @if(count($columns) > 1)
+                 <a class="carousel-control-prev" style="display: none;" href="#carouselExample" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next text-faded" href="#carouselExample" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+                @endif
             </div>
         </div>
-        <div class="row event-search event" style="margin-top: 30px;">
-            <h3 class="title-event">イベント</h3>
-            <div class="article-list col-md-12">
-                <div id="carouselExampleevent" class="carousel slide" data-ride="carousel" data-interval="false" data-wrap="false">
-                    <div class="carousel-inner" role="listbox">
-                        @forelse($events as $key => $event)
-                        <div class="article carousel-item {{ $key == 0 ? 'active' : ''}}">
-                            @include('includes/event_state', compact('event'))
-                            <div class="article-content row">
-                                <div class="content-left col-md-4">
-                                    <a href="{{route('event.show', $event->id)}}" style="text-decoration:none;">
-                                        @php $image='images/admin/event/'.$event->image; @endphp
-                                        <img src="{{file_exists($image)?asset($image): asset('images/user/event/event_default.jpg')}}" alt="{{$event->title}}">
-                                    </a>
+    </div>
+    <div class="row event-search event mb-30">
+        <h3 class="underline-text">イベント</h3>
+        <div class="article-list col-md-12">
+            <div id="carouselExampleevent" class="carousel slide" data-ride="carousel" data-interval="false" data-wrap="false">
+                <div class="carousel-inner" role="listbox">
+                    @forelse($events as $key => $event)
+                    <div class="article carousel-item {{ $key == 0 ? 'active' : ''}}">
+                        @include('includes/event_state', compact('event'))
+                        <div class="article-content row">
+                            <div class="content-left col-md-4">
+                                <a href="{{route('event.show', $event->id)}}" style="text-decoration:none;">
+                                    @php $image='images/admin/event/'.$event->image; @endphp
+                                    <img src="{{file_exists($image)?asset($image): asset('images/user/event/event_default.jpg')}}" alt="{{$event->title}}">
+                                </a>
+                            </div>
+                            <div class="content-right col-md-8">
+                                <div class="icon-favorite">
+                                    <i class="fa fa-heart-o {{ $event->favorite == 1 ? 'liked' : ''}}"  data-id='{{$event->id}}' data-user='{{Auth::user() ? Auth::user()->id : "" }}' style="font-size:24px;"></i>
                                 </div>
-                                <div class="content-right col-md-8">
-                                    <div class="icon-favorite">
-                                        <i class="fa fa-heart-o {{ $event->favorite == 1 ? 'liked' : ''}}"  data-id='{{$event->id}}' data-user='{{Auth::user() ? Auth::user()->id : "" }}' style="font-size:24px;"></i>
-                                    </div>
-                                    <div class="title"><a href="{{route('event.show', $event->id)}}">{{$event->title}}</a> &nbsp;&nbsp; <span style="color: #636B6F;">{{$event->category_name}}</span></div>
-                                    <div class="category" style="color: #636B6F;">
-                                        <p>{{$event->category_name}}</p>
-                                    </div>
-                                    <div class="date" >
-                                        <p>{{date('Y.m.d', strtotime($event->started_at))}}</p>
-                                    </div>
+                                <div class="title"><a href="{{route('event.show', $event->id)}}">{{$event->title}}</a> &nbsp;&nbsp; <span style="color: #636B6F;">{{$event->category_name}}</span></div>
+                                <div class="category" style="color: #636B6F;">
+                                    <p>{{$event->category_name}}</p>
+                                </div>
+                                <div class="date" >
+                                    <p>{{date('Y.m.d', strtotime($event->started_at))}}</p>
                                 </div>
                             </div>
                         </div>
-                        @empty
-                        <h4 class="data-not-found">登録データがありません。</h4>
-                        @endforelse
                     </div>
-                    @if(count($events) > 1)
+                    @empty
+                    <h4 class="data-not-found">登録データがありません。</h4>
+                    @endforelse
+                </div>
+                @if(count($events) > 1)
 
-                    <a class="carousel-control-prev" style="display: none;" href="#carouselExampleevent" role="button" data-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Previous</span>
-                    </a>
-                    <a class="carousel-control-next text-faded" href="#carouselExampleevent" role="button" data-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Next</span>
-                    </a>
-                    @endif
-                </div>
+                <a class="carousel-control-prev" style="display: none;" href="#carouselExampleevent" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next text-faded" href="#carouselExampleevent" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+                @endif
             </div>
         </div>
-        
     </div>
     <div class="group-2">
         <div class="item video1">
-            <div class="underline video-title">動画</div>
+            <h3 class="underline-text video-title">動画</h3>
             <div class="row video-content video">
                 <div class="row video-list col-md-12">
                     <div class="carousel-inner carosel-video-list row mx-auto">
