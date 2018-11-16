@@ -17622,7 +17622,7 @@ footer .footer-bottom li {
 }
 
 .top .movie-top-3 .content-tile-movie {
-  font-size: 42px;
+  font-size: 38px;
   font-weight: 700;
   color: #111111;
 }
@@ -17989,7 +17989,7 @@ body {
   display: block;
   overflow: hidden;
   width: 100%;
-  height: 270px;
+  height: 300px;
   border-radius: 15px;
   -webkit-transform: translateZ(0px);
           transform: translateZ(0px);
@@ -17997,12 +17997,11 @@ body {
 
 .corner-wrapper.movie-2 {
   width: 100%;
-  height: 130px;
+  height: 145px;
 }
 
 .top .video-detail {
-  background-color: rgba(0, 0, 0, 0.5);
-  margin: 0;
+  margin: 20px 0 30px;
   padding: 0;
 }
 
@@ -18094,7 +18093,17 @@ body {
 
 .top .movie-top-3 .content-row {
   position: relative;
+  width: 83.3333%;
   top: 130px;
+}
+
+.top .movie-top-3 .content-row .img-cat-sp {
+  padding-right: 25px;
+  padding-left: 25px;
+}
+
+.top .movie-top-3 .content-row .img-cat-sp .img-cat {
+  width: 100%;
 }
 
 .top .movie-top-2 {
@@ -18128,7 +18137,7 @@ body {
 }
 
 .top .container.movie-top-4 {
-  margin-top: 174px;
+  margin-top: 220px;
 }
 
 .top .movie-top-3.row .col-md-10,
@@ -20792,7 +20801,6 @@ footer .footter-mobile .a-first {
 }
 
 .my-page .article-status .wrapper-status {
-  border: 1px solid blue;
   position: absolute;
   top: -1px;
   left: 0;
@@ -20809,7 +20817,6 @@ footer .footter-mobile .a-first {
 }
 
 .my-page .article-status .wrapper-status .ws-text {
-  border: 1px solid red;
   position: absolute;
   width: 100%;
   height: 100%;
@@ -21528,6 +21535,21 @@ footer .footter-mobile .a-first {
   color: #111111;
 }
 
+.my-page .group-2 > .column .column-content .more-detail {
+  position: relative;
+  font-size: 20px;
+  line-height: 40px;
+  font-weight: bold;
+  color: #111111;
+}
+
+.my-page .group-2 > .column .column-content .more-detail a {
+  color: #111111;
+  margin-left: 0;
+  display: -webkit-inline-box;
+  margin-top: 30px;
+}
+
 .my-page .group-2 > .column .article {
   width: 100%;
   padding-top: 32px;
@@ -21547,7 +21569,6 @@ footer .footter-mobile .a-first {
 }
 
 .my-page .group-2 > .column .article .article-status .wrapper-status {
-  border: 1px solid blue;
   position: absolute;
   top: -1px;
   left: 0;
@@ -21564,7 +21585,6 @@ footer .footter-mobile .a-first {
 }
 
 .my-page .group-2 > .column .article .article-status .wrapper-status .ws-text {
-  border: 1px solid red;
   position: absolute;
   width: 100%;
   height: 100%;
@@ -21584,7 +21604,6 @@ footer .footter-mobile .a-first {
 }
 
 .my-page .group-2 > .column .article .article-content {
-  border: 1px solid blue;
   font-size: 20px;
   line-height: 40px;
   font-weight: bold;

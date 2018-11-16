@@ -453,7 +453,7 @@ $description = '学校と社会をつなぐ「ハタチのトビラ」は、将�
             <div class="container movie-top-4 content-2">
                 <div class="cb-path"></div>
                 <p class="movie-top-text">イベントに参加する</p>
-                <div class="event col-md-10">
+                <div class="event col-md-10" style="padding-left:0px;">
                     <p class="movie-top-descroption">多様なロールモデルや同世代に出会い、普段のコミュニティでは話にくい"ちょっと真面目な対話"を通じて、マイテーマを考えてみよう</p>
                             
                 </div>
@@ -462,7 +462,7 @@ $description = '学校と社会をつなぐ「ハタチのトビラ」は、将�
                     <img src="{{ asset('images/user/top/arrow-1.png') }}" >
                 </a>
             </div>
-            <div class=" content-last">
+            <div class=" content-last" style="margin-top:150px;">
                 <div class="container">
                     <div class="cb-path"></div>
                     <p class="movie-top-text">ハタチのトビラコラム</p>
