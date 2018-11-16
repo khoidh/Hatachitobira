@@ -648,7 +648,7 @@ $description = '学校と社会をつなぐ「ハタチのトビラ」は、将�
             });
             
             $('.slide-top').slick({
-                autoplay: false,
+                autoplay: true,
                 arrows: false
             });
 
