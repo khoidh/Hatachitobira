@@ -366,7 +366,11 @@
 }
 .video {
     top: 0px;
-    padding-top: 25px;
+    padding-top: 23px;
+}
+
+.video-content.video {
+    padding-top: 0;
 }
 
 .home .main .title-lx {

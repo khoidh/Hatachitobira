@@ -765,17 +765,18 @@
             .video-title {}
 
             .video-content {
-                padding-top: 32px;
+                padding-top: 0px;
                 @include only-for-mobile() {
-                    padding-top: 0;
+                    padding-top: 11px;
                     position: relative;
                     top: -40px;
                 }
                 
                 .video-list {
-                    margin-top: 0;
+                    margin-top: -16px;
                     @include only-for-mobile() {
                         padding-right: 0;
+                        margin-top: 0px;
                     }
                     .carousel-item {
                         @include only-for-mobile() {
@@ -971,7 +972,7 @@
                 position: absolute !important;
                 z-index: 1;
                 left: 0px;
-                top: -57px;
+                top: -45px;
                 font-family: $font-family-oswald;
                 font-size: 100px;
                 color: #FFF100;
@@ -1006,6 +1007,8 @@
         }
 
         .detail-infor {
+            padding-right: 0;
+            margin-left: -9px;
             .event-information-content {
                 .edit-input-content {
                     width: 100%;
