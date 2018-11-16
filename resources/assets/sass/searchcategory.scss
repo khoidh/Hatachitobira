@@ -33,7 +33,12 @@
     }
     .video-list {
         @include only-for-mobile() {
-            margin: 40px auto 0;
+            margin: -28px auto 0;
+        }
+        .item {
+            @include only-for-mobile() {
+                padding: 0
+            }
         }
     }
 }
@@ -291,7 +296,7 @@
 .content-search .group-2 {
 
     .slick-track {
-        margin-top: 45px;
+        margin-top: 60px;
     }
     
     .slick-prev.slick-arrow ,
@@ -464,7 +469,10 @@
 
 
 @media screen and (max-width: 575.98px){
-  .carousel-control-prev .carousel-control-next-icon, .carousel-control-next .carousel-control-next-icon{
+  .carousel-control-next .carousel-control-next-icon{
     right: 0px !important;
+  }
+  .carousel-control-prev .carousel-control-next-icon {
+    right: 10px !important;
   }
 }

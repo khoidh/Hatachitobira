@@ -276,13 +276,15 @@ body {
 }
 
 .top .video-detail {
-    margin: 30px auto;
+    margin: 0;
     padding: 0;
 
     @include only-for-mobile() {
         margin: 0;
     }
-
+    .col-md-8 {
+        padding: 0
+    }
     .video-movie {
         .movie-2:first-child {
             margin-bottom: 10px;
@@ -1100,7 +1102,7 @@ footer .footter-mobile .a-first {
     margin-top: 100px;
 
     @include only-for-mobile() {
-        padding: 0 22px !important;
+        padding: 100px 22px !important;
         margin-top: 0px;
     }
 
@@ -1120,7 +1122,7 @@ footer .footter-mobile .a-first {
     .top .content-last .content-text {
         position: relative;
         right: 20px;
-        left: -13px;
+        left: 0px;
     }
 
     .top .movie-top-3 {
