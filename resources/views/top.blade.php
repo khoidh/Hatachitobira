@@ -41,7 +41,7 @@ $description = '学校と社会をつなぐ「ハタチのトビラ」は、将�
                     </h1>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon-tmp"></span>
-                      </button>
+                    </button>
                     <div class="collapse navbar-collapse clearfix" id="navbarSupportedContent">
                         <ul class="navbar-nav mr-auto flex-column">
                             <li class="nav-item">
