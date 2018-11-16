@@ -17264,13 +17264,13 @@ main {
 .banner figure figcaption {
   position: absolute;
   top: 20%;
-  right: 0px;
+  right: 50px;
   line-height: 7;
   text-align: -webkit-auto;
 }
 
 .banner figure figcaption.first {
-  top: 3%;
+  top: 15%;
 }
 
 .banner figure figcaption .title {
@@ -17628,6 +17628,50 @@ footer .footer-bottom li {
   padding: 30px 0;
 }
 
+@media (max-width: 768px) {
+  .flex-space-between-pc {
+    height: 570px;
+  }
+
+  .top .movie-top-2 .p-text {
+    font-size: 27px;
+  }
+
+  .top .movie-top-3 .content-tile-movie .text-vertical-pc {
+    top: 17px;
+    font-size: 27px;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .flex-space-between-pc {
+    height: 1160px;
+  }
+
+  .top .movie_image_description {
+    font-size: 20px !important;
+  }
+
+  .top .container.movie-top-4 {
+    margin-top: -90px !important;
+  }
+
+  .top .container.movie-top-4.content-2 {
+    position: relative;
+    top: 100px;
+  }
+}
+
+@media (max-width: 480px) {
+  .flex-space-between-pc {
+    height: 1060px;
+  }
+
+  .top .container.movie-top-4 {
+    margin-top: 5px !important;
+  }
+}
+
 body {
   font-family: "Noto Sans Japanese", sans-serif !important;
   font-weight: 400;
@@ -17908,7 +17952,7 @@ body {
 }
 
 .top .video-detail {
-  margin: 30px auto;
+  margin: 0;
   padding: 0;
 }
 
@@ -17916,6 +17960,10 @@ body {
   .top .video-detail {
     margin: 0;
   }
+}
+
+.top .video-detail .col-md-8 {
+  padding: 0;
 }
 
 .top .video-detail .video-movie .movie-2:first-child {
@@ -18271,6 +18319,10 @@ footer .footter-mobile .a-first {
   .navbar-expand-lg .navbar-nav .dropdown-menu {
     position: absolute;
     left: -32px;
+  }
+
+  .banner .slick-list {
+    overflow: unset;
   }
 }
 
@@ -18722,7 +18774,7 @@ footer .footter-mobile .a-first {
 
 @media (max-width: 575.98px) {
   .container-fluid.top {
-    padding: 0 22px !important;
+    padding: 100px 22px !important;
     margin-top: 0px;
   }
 }
@@ -18739,12 +18791,12 @@ footer .footter-mobile .a-first {
   .top .content-last .content-text {
     position: relative;
     right: 20px;
-    left: -13px;
+    left: 0px;
   }
 
   .top .movie-top-3 {
     position: relative;
-    top: -105px;
+    top: 0px;
   }
 
   .top .movie-top-1,
@@ -20410,11 +20462,15 @@ footer .footter-mobile .a-first {
 }
 
 .video .video-list {
-  margin-top: 40px;
+  margin-top: -37px;
   /* Safari */
   -webkit-box-align: stretch;
       -ms-flex-align: stretch;
           align-items: stretch;
+}
+
+.video .video-list.list-video-tall {
+  margin-top: 40px;
 }
 
 .video .video-detail {
@@ -20555,6 +20611,7 @@ footer .footter-mobile .a-first {
 
 .video {
   top: 0px;
+  padding-top: 25px;
 }
 
 .home .main .title-lx {
@@ -21313,7 +21370,7 @@ footer .footter-mobile .a-first {
   position: absolute;
   background: rgba(0, 0, 0, 0.7);
   border-radius: 15px;
-  max-width: 326px;
+  max-width: 280px;
   left: 0px;
 }
 
@@ -21475,13 +21532,6 @@ footer .footter-mobile .a-first {
   width: 100%;
   padding-top: 32px;
   color: #111111;
-}
-
-.my-page .group-2 > .column .article img {
-  max-width: 300px;
-  max-height: 300px;
-  width: 100%;
-  height: auto;
 }
 
 .my-page .group-2 > .column .article .article-status {
@@ -21673,18 +21723,41 @@ footer .footter-mobile .a-first {
   .my-page .info-1 .log .log-input .bootstrap-tagsinput .label-info {
     display: block;
   }
-}
 
-@media screen and (max-width: 575.98px) {
   .event-image {
     backgroud-color: #ededed !important;
-    height: 150px !important;
-    padding-top: 25px !important;
+    height: 100%;
   }
 
   .event-image img {
-    height: 100px !important;
+    height: 100% !important;
+    -o-object-fit: cover;
+       object-fit: cover;
+    width: 100%;
   }
+
+  .my-page .panel-info .panel-info-wrapper .event-image .description {
+    font-size: 12px;
+    line-height: 18px;
+  }
+}
+
+.my-page .panel-info .panel-info-wrapper .event-image .favorite.edit .fa-pencil {
+  -webkit-box-shadow: none !important;
+          box-shadow: none !important;
+}
+
+.my-page .panel-info .panel-info-wrapper .event-image .description {
+  width: 80%;
+  margin-left: 10%;
+  bottom: 20%;
+  padding: 5px;
+  font-size: 16px;
+  line-height: 24px;
+  max-height: 80px;
+  overflow: hidden;
+  border-radius: 5px;
+  left: 0;
 }
 
 .recruiment-page .headline {
@@ -22374,7 +22447,13 @@ footer .footter-mobile .a-first {
 
 @media (max-width: 575.98px) {
   .content-search .video-list {
-    margin: 40px auto 0;
+    margin: -28px auto 0;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .content-search .video-list .item {
+    padding: 0;
   }
 }
 
@@ -22636,7 +22715,7 @@ footer .footter-mobile .a-first {
 }
 
 .content-search .group-2 .slick-track {
-  margin-top: 45px;
+  margin-top: 60px;
 }
 
 .content-search .group-2 .slick-prev.slick-arrow,
@@ -22810,9 +22889,12 @@ footer .footter-mobile .a-first {
 }
 
 @media screen and (max-width: 575.98px) {
-  .carousel-control-prev .carousel-control-next-icon,
   .carousel-control-next .carousel-control-next-icon {
     right: 0px !important;
+  }
+
+  .carousel-control-prev .carousel-control-next-icon {
+    right: 10px !important;
   }
 }
 
@@ -23238,8 +23320,10 @@ footer .footter-mobile .a-first {
   }
 
   .container.about .top .container.content-1 .about-content-1-content .text_detail_title {
-    padding: 0 5px;
+    padding: 0 50px 12px 21px;
     font-size: 20px;
+    position: absolute;
+    margin-top: -16px;
   }
 
   .container.about .about-hatachi .about-hatachi-col a.btn-link:hover,
@@ -23410,11 +23494,28 @@ footer .footter-mobile .a-first {
   .container.about .about-content-1-content .text-my-theme {
     top: -45px !important;
   }
+
+  .container.about .top .container.content-1 .about-content-1-content .text_detail_title {
+    margin-top: 0px !important;
+  }
+
+  .jladev_fix_about_2 {
+    padding-left: 20px;
+    padding-right: 5px;
+  }
+
+  .jladev_fix_about_1 {
+    padding-left: 44px;
+  }
 }
 
 @media only screen and (max-width: 375px) {
   .jladev_fix_img_title {
     margin-left: -5%;
+  }
+
+  .about-page .about-banner .about-content-title {
+    top: 62% !important;
   }
 }
 
@@ -23441,6 +23542,19 @@ footer .footter-mobile .a-first {
   .jladev_fix_img_title {
     margin-left: -10%;
   }
+
+  .jladev_fix_about_1 {
+    padding-left: 22px;
+  }
+}
+
+.jladev_fix_about_1 {
+  padding-left: 35px;
+}
+
+.jladev_fix_about_2 {
+  padding-left: 15px;
+  padding-right: 5px;
 }
 
 /*
