@@ -418,3 +418,10 @@
 .row.searchcategory .row {
     margin: 10px 0
 }
+
+
+@media screen and (max-width: 575.98px){
+  .carousel-control-prev .carousel-control-next-icon, .carousel-control-next .carousel-control-next-icon{
+    right: 0px !important;
+  }
+}
