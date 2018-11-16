@@ -194,7 +194,8 @@
                                             src="{{asset('images/user/event/event-visible-icon.png')}}" alt="event-visible-icon.png"
                                         @endif
                                     >
-                                    <span class="ws-text"  style="@if($event_cate->eventstatus == '受付前' || $event_cate->eventstatus == '受付終了'|| $event_cate->eventstatus == '開催終了' ) color: white !important; @endif">{{$event_cate->eventstatus}}</span>
+                                    <span class="ws-text" style="">{{$event_cate->eventstatus}}</span>
+                                    {{-- @f($event_cate->eventstatus == '受付前' || $event_cate->eventstatus == '受付終了'|| $event_cate->eventstatus == '開催終了' ) color: white !important; @endif --}}
                                 </div>
                                 <div class="col-sm-4 wrapper-icon">
                                     <a href="{{route('event.show', $event_cate->id)}}" style="text-decoration:none;">
@@ -295,7 +296,8 @@
                                                     src="{{asset('images/user/event/event-visible-icon.png')}}" alt="event-visible-icon.png"
                                                     @endif
                                             >
-                                            <span class="ws-text" style="@if($event->eventstatus == '受付前' || $event->eventstatus == '受付終了'|| $event->eventstatus == '開催終了' ) color: white !important;@else color: black !important @endif">{{$event->eventstatus}}</span>
+                                            <span class="ws-text" style="">{{$event->eventstatus}}</span>
+                                            {{-- @if($event->eventstatus == '受付前' || $event->eventstatus == '受付終了'|| $event->eventstatus == '開催終了' ) color: white !important;@else color: black !important @endif --}}
                                         </div>
 
                                     </div>

@@ -37,7 +37,8 @@
                     src="{{asset('images/user/event/event-visible-icon.png')}}" alt="event-visible-icon.png"
                 @endif
             >
-            <span style="@if($event->eventstatus == '受付前' || $event->eventstatus == '受付終了'|| $event->eventstatus == '開催終了' ) left: 48px; color: white !important; @else color: black !important @endif">{{$event->eventstatus}}</span>
+            <span style="">{{$event->eventstatus}}</span>
+            {{-- @if($event->eventstatus == '受付前' || $event->eventstatus == '受付終了'|| $event->eventstatus == '開催終了' ) left: 48px; color: white !important; @else color: black !important @endif --}}
         </div>
         <div class="col-sm-4 wrapper-icon">
             <a href="{{route('event.show', $event->id)}}" style="text-decoration:none;">
