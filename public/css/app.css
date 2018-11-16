@@ -4385,11 +4385,6 @@ pre code {
   opacity: 1;
 }
 
-.form-control:-ms-input-placeholder {
-  color: #6c757d;
-  opacity: 1;
-}
-
 .form-control::-ms-input-placeholder {
   color: #6c757d;
   opacity: 1;
@@ -17281,6 +17276,10 @@ main {
   padding: 3px 10px;
   margin: 1px;
   letter-spacing: 0px;
+  color: #111111;
+  font-size: 36px;
+  line-height: 160%;
+  font-weight: 400;
 }
 
 .banner figure figcaption .description {
