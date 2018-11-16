@@ -16804,6 +16804,12 @@ a.text-dark:focus {
 }
 
 @media (min-width: 576px) {
+  .logo.navbar-brand {
+    padding: 0 1rem;
+  }
+}
+
+@media (min-width: 576px) {
   .dropdown-menu.show:before {
     content: "";
     width: 45px;
@@ -22736,6 +22742,13 @@ footer .footter-mobile .a-first {
   background-size: 100% !important;
   position: relative;
   top: -15px;
+}
+
+@media (max-width: 575.98px) {
+  .carousel-control-prev .carousel-control-prev-icon,
+  .carousel-control-next .carousel-control-prev-icon {
+    right: 9px;
+  }
 }
 
 .carousel-control-prev .carousel-control-next-icon,
