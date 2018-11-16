@@ -16720,6 +16720,47 @@ a.text-dark:focus {
   content: "\F107";
 }
 
+.select-wrapper {
+  position: relative;
+}
+
+.select-wrapper select {
+  background: #fff;
+  border: 2px solid #111111;
+  border-radius: 35px;
+  width: 100%;
+  padding: 10px 20px;
+  font-size: 18px;
+  color: #111111;
+  /* Here's the code we need */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+}
+
+.select-wrapper select::-ms-expand {
+  display: none;
+}
+
+.select-wrapper:after {
+  font-family: FontAwesome;
+  content: '\F107';
+  font-size: 28px;
+  position: absolute;
+  top: 12px;
+  right: 30px;
+  color: #111111;
+  pointer-events: none;
+}
+
+@media (max-width: 575.98px) {
+  .select-wrapper:after {
+    right: 20px;
+  }
+}
+
 @media (min-width: 576px) {
   #top .fixed-header {
     display: none;

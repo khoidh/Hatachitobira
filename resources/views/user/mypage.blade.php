@@ -138,8 +138,8 @@
         <div class="main ">
             <div class="container group-1">
                 <div class="category row">
-                    <strong class="col-sm-10 col-9 category-input">
-                        <select name="category_id" class="cb-category" id="category_id_value" required="true" autofocus>
+                    <strong class="col-sm-10 col-9 category-input select-wrapper">
+                        <select name="category_id" class="" id="category_id_value" required="true" autofocus>
                             <option selected disabled>あなたのカテゴリ</option>
                             @foreach($categories as $category)
                                 @if(isset($cat_id))

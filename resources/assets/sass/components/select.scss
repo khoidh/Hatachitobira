@@ -1,0 +1,40 @@
+.select-wrapper {
+  position: relative;
+
+  select {
+    background: $white;
+    border: 2px solid $black-color;
+    border-radius: 35px;
+    width: 100%;
+    padding: 10px 20px;
+    font-size: 18px;
+    color: $black-color;
+
+    /* Here's the code we need */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+     -o-appearance: none;
+      appearance: none;
+  }
+
+  select::-ms-expand {
+    display: none;
+  }
+
+  &:after {
+    font-family: FontAwesome;
+    content: '\f107';
+    font-size: 28px;
+    position: absolute;
+    top: 12px;
+    right: 30px;
+    color: $black-color;
+    pointer-events: none;
+
+    @include only-for-mobile() {
+      right: 20px;
+    }
+  }
+}
+
