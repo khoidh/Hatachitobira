@@ -66,8 +66,8 @@ body {
     height: 490px;
     border-radius: 15px;
     transform: translateZ(0px);
-    border: 1px solid #fff;
     top: 0;
+    padding-top: 0
 }
 
 .top .movie-top-2 {
@@ -266,7 +266,6 @@ body {
     height: 270px;
     border-radius: 15px;
     transform: translateZ(0px);
-    border: 3px solid #eee;
 }
 
 .corner-wrapper.movie-2 {
@@ -297,7 +296,7 @@ body {
 }
 
 .top .video-detail.row .col-md-4 {
-    padding-left: 0;
+    padding-right: 0;
 }
 
 .top .video-detail.row .col-md-4:first {
