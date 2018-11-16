@@ -4385,11 +4385,6 @@ pre code {
   opacity: 1;
 }
 
-.form-control:-ms-input-placeholder {
-  color: #6c757d;
-  opacity: 1;
-}
-
 .form-control::-ms-input-placeholder {
   color: #6c757d;
   opacity: 1;
@@ -17023,8 +17018,8 @@ header.fixed .hd_right {
   }
 
   .c-top {
-    width: 96vw;
-    margin: 0 auto;
+    width: 100%;
+    margin: 0 20px;
   }
 
   #myHeader.fixed .bx_header {
@@ -17060,8 +17055,7 @@ header.fixed .hd_right {
   }
 
   .navbar-toggler:not(:disabled):not(.disabled) {
-    top: 20px;
-    right: 50px !important;
+    margin-top: 20px;
   }
 
   .bx_header .hd_left {
@@ -19824,100 +19818,11 @@ footer .footter-mobile .a-first {
 }
 
 .private {
-  /* ========== Style title màu vàng     =========== */
   /* ========== End style title màu vàng =========== */
   font-size: 16px;
   line-height: 30px;
   font-family: "Noto Sans Japanese", sans-serif;
   padding-bottom: 56px;
-}
-
-.private .main {
-  min-height: 175px;
-  margin-bottom: 30px;
-}
-
-.private .main .title-lx {
-  font-family: Oswald, sans-serif;
-  background: #fff100;
-  color: #fffa9d;
-  display: block;
-  font-size: 120px !important;
-  min-height: 175px;
-  width: 100%;
-  z-index: 111;
-  height: 100%;
-}
-
-.private .main .title-lx .container .relative {
-  position: relative;
-}
-
-.private .main .title-lx .container .relative .info {
-  margin-top: 50px;
-  line-height: 95%;
-}
-
-.private .main .title-lx .container .relative .info .title-e {
-  margin-left: -5px;
-}
-
-.private .main .title-lx .container .relative .info .absolute {
-  font-family: "Raleway", sans-serif !important;
-  font-size: 20px;
-  position: absolute;
-  color: #111;
-  bottom: -27px;
-  font-weight: bold;
-}
-
-.private .main .title-lx .container .relative .info .absolute p {
-  font-size: 35px;
-  letter-spacing: 10px;
-  line-height: 120%;
-}
-
-.private .main .title-lx .container .relative .info .absolute .title-j {
-  display: inline-block;
-  background: #000000;
-  letter-spacing: 10px;
-  color: white;
-  line-height: 30px;
-}
-
-@media (max-width: 575.98px) {
-  .private .main {
-    min-height: 75px;
-  }
-
-  .private .main .title-lx {
-    height: 120px;
-    min-height: unset;
-  }
-
-  .private .main .title-lx .container .relative {
-    position: relative;
-  }
-
-  .private .main .title-lx .container .relative .info {
-    margin-top: 85px;
-    line-height: 1.5;
-  }
-
-  .private .main .title-lx .container .relative .info .title-e {
-    position: relative;
-    top: -140px;
-    font-size: 56px;
-  }
-
-  .private .main .title-lx .container .relative .info .absolute {
-    bottom: 80px;
-  }
-
-  .private .main .title-lx .container .relative .info .absolute .title-j {
-    display: inline;
-    line-height: 40px;
-  }
 }
 
 .private .tit {
@@ -19959,6 +19864,10 @@ footer .footter-mobile .a-first {
   color: #6b6b6b;
   white-space: pre-wrap;
   word-break: break-word;
+}
+
+.privacy-page .title-j {
+  font-size: 6.5vw;
 }
 
 /*================ Enquiry style (contact) ===============*/
@@ -22443,11 +22352,6 @@ footer .footter-mobile .a-first {
     font-size: 20px !important;
   }
 
-  .navbar-toggler:not(:disabled):not(.disabled) {
-    position: relative;
-    right: 40px;
-  }
-
   .requiment-staff .requiment-step .col-md-3.arrow:after {
     content: "\5F0A\793E";
     background-color: #d1d1d1;
@@ -23590,11 +23494,6 @@ footer .footter-mobile .a-first {
 
   .about-why-born div.container {
     width: 90% !important;
-  }
-
-  .navbar-toggler:not(:disabled):not(.disabled) {
-    top: 20px;
-    right: 50px !important;
   }
 }
 

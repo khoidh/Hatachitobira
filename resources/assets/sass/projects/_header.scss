@@ -333,8 +333,8 @@ header.fixed {
     }
 
     .c-top {
-        width: 96vw;
-        margin: 0 auto;
+        width: 100%;
+        margin: 0 20px;
     }
 
     #myHeader.fixed .bx_header {
@@ -380,8 +380,7 @@ header.fixed {
     }
 
     .navbar-toggler:not(:disabled):not(.disabled) {
-        top: 20px;
-        right: 50px !important;
+        margin-top: 20px;
     }
 
     .bx_header .hd_left {
