@@ -11,7 +11,7 @@ class Video extends Model
     const CONCEPT_MOVIE_TYPE = 2;
 
     protected $table = 'videos';
-    protected $fillable = ['category_id', 'url', 'description', 'image', 'sort','type'];
+    protected $fillable = ['category_id', 'url', 'description', 'image', 'sort','type','published_at'];
     protected $appends = ['categoryname','videoliked'];
 
     public function category()

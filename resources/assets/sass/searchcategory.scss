@@ -237,6 +237,9 @@
         background-size: 100% !important;
         position: relative;
         top: -15px;
+        @include only-for-mobile() {
+            right: 9px;
+        }
     }
     .carousel-control-next-icon {
         background-image: url('/images/user/top/arrow_next.png');

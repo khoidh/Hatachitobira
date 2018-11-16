@@ -41,13 +41,14 @@
             </div>
 
             {{--Main--}}
+            @section('main')
             <div class="container-fluid headline">
                 <h1 class="container">
                     <span class="title-e">@yield('title-e')</span>
                     <span class="title-j">@yield('title-j')</span>
                 </h1>
             </div>
-
+            @show
             @yield('content')
             @include('includes.footer')
             @include('includes.login')
