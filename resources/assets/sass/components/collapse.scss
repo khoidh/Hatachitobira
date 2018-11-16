@@ -1,0 +1,22 @@
+.collapse-toggle {
+    position: relative;
+    &:after {
+        font-family: FontAwesome;
+        position: absolute;
+        top: 0;
+        right: 20px;
+        display: block;
+    }
+
+    &[aria-expanded=true] {
+        &:after {
+            content: "\f106";
+        }
+    }
+
+    &[aria-expanded=false] {
+        &:after {
+            content: "\f107";
+        }
+    }
+}
