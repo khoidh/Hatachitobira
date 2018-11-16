@@ -21,6 +21,7 @@ body {
 
 .top .movie-top-description {
     margin-top: 10px;
+    margin-bottom: 2rem;
     font-size: 16px;
 }
 
@@ -186,8 +187,9 @@ body {
 
 
 .top .movie_image_description {
-    font-size: 16px;
-    line-height: 2;
+    font-size: 17px;
+    padding: 0 20px;
+    line-height: 1.5;
     width: 96%;
     text-align: left;
     font-weight: bold;
@@ -390,7 +392,7 @@ body {
     }
 }
 
-.top .movie-top-2 .container,
+// .top .movie-top-2 .container,
 .top .movie-top-2 .container .col-xs-12row {
     padding: 0;
 }

@@ -17518,11 +17518,11 @@ footer .footer-bottom li {
 
 .top .movie-top-2 .c-col {
   margin: 0;
-  width: 20%;
+  width: 25%;
 }
 
 .top .movie-top-2 .p-text {
-  font-size: 42px;
+  font-size: 38px;
   font-weight: 700;
   color: #111111;
 }
@@ -17539,7 +17539,7 @@ footer .footer-bottom li {
 }
 
 .top .movie-top-2 .image {
-  margin-bottom: 12px;
+  margin: 50px 20px 0;
   position: relative;
   text-align: right;
   height: 200px;
@@ -17706,6 +17706,7 @@ body {
 
 .top .movie-top-description {
   margin-top: 10px;
+  margin-bottom: 2rem;
   font-size: 16px;
 }
 
@@ -17871,8 +17872,9 @@ body {
 }
 
 .top .movie_image_description {
-  font-size: 16px;
-  line-height: 2;
+  font-size: 17px;
+  padding: 0 20px;
+  line-height: 1.5;
   width: 96%;
   text-align: left;
   font-weight: bold;
@@ -18077,7 +18079,6 @@ body {
   }
 }
 
-.top .movie-top-2 .container,
 .top .movie-top-2 .container .col-xs-12row {
   padding: 0;
 }
@@ -20446,7 +20447,7 @@ footer .footter-mobile .a-first {
   color: #fff;
   background-color: rgba(0, 0, 0, 0.7);
   width: 100%;
-  padding: 10px 47px;
+  padding: 15px 30px;
   margin: 0;
 }
 
