@@ -11,24 +11,9 @@
 @endsection
 @section('page_title', $event->title)
 @section('description', '学校と社会をつなぐ「ハタチのトビラ」のコラムページです。「私が、探求したいこと」であるマイテーマをみつけるノウハウ・イベントレポート・アラハタ世代の活躍を発信していきます。')
-@section('main')
-    <div class="container-fluid event">
-        <div class="main row">
-            <div class="title-lx">
-                <div class="container">
-                    <div class="relative row">
-                        <div class="info col-md-12">
-                            <span class="title-e">Event</span>
-                            <div class="absolute">
-                                <p><span class="title-j"> イベントに参加する</span></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-@endsection
+@section('title-e', 'Event')
+@section('title-j', 'イベントに参加する')
+@section('body-class', 'event-page')
 @section('content')
     <div class="container event">
         <div class="row">
@@ -156,34 +141,34 @@
                 @php
                     $text_modal_show_infor="";
                 @endphp
-                <div class="col-sm-6">
-                    @if(Auth::User())
-                        @if($event->eventstatus != '受付中' && $user_event_register == 0)
-                            @php
-                                $text_modal_show_infor= "お申し込み期間は終了いたしました。";
-                                if($event->eventstatus == '受付前')
-                                   $text_modal_show_infor= "登録時間が短縮されます。"."登録時間: ".$event->time_from." ~ ".$event->time_to."。";
-                            @endphp
-                            <button type="submit" class="btn btn-primary btn-lg btn-block" data-toggle="modal"
-                                    data-target="#modal_show_infor">送信
-                            </button>
-                        @elseif($event->eventstatus != '受付中' && $user_event_register == 1)
-                            <button type="submit" class="btn btn-primary btn-lg btn-block" disabled>キャンセル</button>
-                        @else
-                            {{--Trong thời gian đăng ký--}}
-                            @if($user_event_register == 0)
-                                <button type="button" class="btn btn-primary btn-lg btn-block" onclick="myFunction()">送信</button>
-                            @else
-                                <button type="submit" class="btn btn-primary btn-lg btn-block" data-toggle="modal"
-                                        data-target="#modal_show_delete">キャンセル
-                                </button>
-                            @endif
-                        @endif
+                @if(Auth::User())
+                    @if($event->eventstatus != '受付中' && $user_event_register == 0)
+                        @php
+                            $text_modal_show_infor= "お申し込み期間は終了いたしました。";
+                            if($event->eventstatus == '受付前')
+                               $text_modal_show_infor= "お申し込み期間前のイベントになります。\nお申し込み期間: ".$event->time_from." ~ ".$event->time_to;
+                        @endphp
+                        <p>{!! nl2br($text_modal_show_infor) !!}</p>
+                    @elseif($event->eventstatus != '受付中' && $user_event_register == 1)
+                        <button type="submit" class="round-button black lg" disabled>キャンセル</button>
                     @else
-                        <button type="button" class="btn btn-primary btn-lg btn-block show-modal-register-mypage">送信
-                        </button>
+                        {{--Trong thời gian đăng ký--}}
+                        @if($user_event_register == 0)
+                            @if($event->eventstatus == '受付中')
+                                <button type="button" class="round-button black lg" onclick="myFunction()">送信</button>
+                            @endif
+                        @else
+                            <button type="submit" class="btn btn-primary btn-lg btn-block" data-toggle="modal"
+                                    data-target="#modal_show_delete">キャンセル
+                            </button>
+                        @endif
                     @endif
-                </div>
+                @else
+                    @if($event->eventstatus == '受付中')
+                        <button type="button" class="round-button black lg show-modal-register-mypage">送信</button>
+
+                    @endif
+                @endif
             </div>
     </div>
 

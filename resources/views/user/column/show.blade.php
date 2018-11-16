@@ -5,24 +5,9 @@
 @endsection
 @section('page_title', $column->title)
 @section('description', '学校と社会をつなぐ「ハタチのトビラ」のコラムページです。「私が、探求したいこと」であるマイテーマをみつけるノウハウ・イベントレポート・アラハタ世代の活躍を発信していきます。')
-@section('main')
-    <div class="container-fluid column">
-        <div class="main row">
-            <div class="title-lx">
-                <div class="container">
-                    <div class="relative row">
-                        <div class="info col-md-12">
-                            <span class="title-e">Column</span>
-                            <div class="absolute">
-                                <p><span class="title-j"> コラム</span></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-@endsection
+@section('title-e', 'Column')
+@section('title-j', 'コラム')
+@section('body-class', 'column-page')
 @section('content')
     <div class="container column">
         <div class="row">
@@ -54,7 +39,7 @@
         </div>
         <div class="row justify-content-center txt-btn">
             <div class="col-sm-6">
-                <button type="button" class="btn btn-primary btn-lg btn-block show-modal-register-mypage"
+                <button type="button" class="round-button black lg show-modal-register-mypage"
                         data-id="{{$column->id}}"
                         data-user='{{Auth::user() ? Auth::user()->id : ""}}'>マイテーマを見つける
                 </button>

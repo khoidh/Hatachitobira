@@ -33,7 +33,7 @@
     <div class="container my-page">
         <div class="row my-page-top">
             <div class="col-sm-12 how-to-use">
-                <a class="a-user" href="#">
+                <a class="a-user" href="/column/2">
                     <i class="fa fa-question-circle-o"></i>
                     <span class="a-user-text" >&nbsp;このパーツの使い方はこちら</span>
                 </a>
@@ -252,7 +252,7 @@
 
                 <div class="row justify-content-center form-group btn-category-list">
                     <div class="col-sm-6 col-sm-offset-3">
-                        <button type="submit" class="btn btn-primary btn-lg btn-block" id="btn_search_category">一覧を見る</button>
+                        <button type="submit" class="round-button black lg" id="btn_search_category">一覧を見る</button>
                     </div>
                 </div>
             </div>
@@ -385,7 +385,7 @@
                                     <div class="content-left col-md-4">
                                         <a href="{{route('column.show', $column->id)}}" style="text-decoration:none;">
                                             @php $image='images/admin/column/'.$column->image; @endphp
-                                            <img src="{{file_exists($image)?asset($image): asset('images/user/column/column_default.jpg')}}" alt="{{$column->title}}">
+                                            <img class="image" src="{{file_exists($image)?asset($image): asset('images/user/column/column_default.jpg')}}" alt="{{$column->title}}">
                                         </a>
                                     </div>
                                     <div class="content-right col-md-8">

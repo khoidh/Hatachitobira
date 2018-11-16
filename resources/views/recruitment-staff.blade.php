@@ -4,24 +4,9 @@
 @endsection
 @section('page_title', '企業採用担当の方へ')
 @section('description', '「ハタチのトビラ」サービスの企業採用担当の方向けのページです。')
-@section('main')
-    <div class="container-fluid recruiment">
-        <div class="main row">
-            <div class="title-lx">
-                <div class="container">
-                    <div class="relative row">
-                        <div class="info col-md-12">
-							<span class="title-e">RECRUITMENT STAFF</span>
-							<div class="absolute">
-								<p><span class="title-j"> 企業採用担当の方へ</span></p>
-							</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-@endsection
+@section('title-e', 'RECRUITMENT STAFF')
+@section('title-j', '企業採用担当の方へ')
+@section('body-class', 'recruiment-page')
 @section('content')
 <div class="requiment-staff requiment-staff-mobile">
 	<div class="requiment-staff-bg">
@@ -30,9 +15,9 @@
 	<div class="top clearfix">
 		<div class="container content-1 requiment">
 		    <div class="content-title">
-		        <p class="content-1-title text-stroke">自社の事業や仕事の魅力を</p>
-		        <p class="content-1-title text-stroke">学生に訴求する動画を</p>
-		        <p class="content-1-title text-stroke">創りませんか ？</p>
+		        <p class="content-1-title">自社の事業や仕事の魅力を</p>
+		        <p class="content-1-title">学生に訴求する動画を</p>
+		        <p class="content-1-title">創りませんか ？</p>
 		    </div>
 		    <div class="content-1-content">
 		        <div class="cb-path"></div>
@@ -163,8 +148,8 @@
 				<p>コスト、スケジュールやその他ご質問がございましたら、</p>
 				<p>まずはお気軽にお問い合わせください</p>
 			</div>
-			<div class="content-button">
-				<a href="<?php echo e(route('contact')); ?>">お問い合わせはこちら</a>
+			<div class="buttons">
+				<a class="round-button black lg" href="<?php echo e(route('contact')); ?>">お問い合わせはこちら</a>
 			</div>
 		</div>
 	</div>
@@ -433,12 +418,12 @@
 	</div>
 	<div class="requiment-content">
 		<div class="container">
-			<div class="content-text">
+			<div class="content-text mb-40">
 				<p>コスト、スケジュールやその他ご質問がございましたら、</p>
 				<p>まずはお気軽にお問い合わせください</p>
 			</div>
-			<div class="content-button">
-				<a href="<?php echo e(route('contact')); ?>">お問い合わせはこちら</a>
+			<div class="buttons">
+				<a class="round-button black lg" href="<?php echo e(route('contact')); ?>">お問い合わせはこちら</a>
 			</div>
 		</div>
 	</div>
@@ -455,7 +440,7 @@
 								<div class="list-content">
 									<div class="inner">
 										<p class="inner-img"><img src="{{asset('images/user/requiment/before.png')}}" alt=""></p>
-										<h3>サービスを利用してみた手応えはいかがでしたか？</h3>
+										<h3 class="underline-text">サービスを利用してみた手応えはいかがでしたか？</h3>
 										<p>言葉だけでは伝えきれない社員1人ひとりの個性的な魅力や提供するサービスを立体的に可視化できたと感じています。</br>
 											あとは、ジョブシャドウイング参加学生が、弊社へ長期インターンとして参画してくれたことも嬉しかったですね。</p>
 										<p class="inner-img"><img src="{{asset('images/user/requiment/affter.png')}}" alt="" ></p>
@@ -468,7 +453,7 @@
 								<div class="list-content">
 								    <div class="inner">
 										<p class="inner-img"><img src="{{asset('images/user/requiment/before.png')}}" alt=""></p>
-								        <h3>ハタチのトビラに参加してみていかがでしたか？</h3>
+								        <h3 class="underline-text">ハタチのトビラに参加してみていかがでしたか？</h3>
 								        <p>私の以前働いていたインターン先では、社員 の方と仕事でのコミユニケーションはあって も、将来や仕事観等について深くお話する機 会はないので‘1日に多くの社員の方とコミユ ニケーションを取れる機会はすごく貴重でし た。働く現場の実態を知ることができました ね。</p>
 										<p class="inner-img"><img src="{{asset('images/user/requiment/affter.png')}}" alt="" ></p>
 								    </div>

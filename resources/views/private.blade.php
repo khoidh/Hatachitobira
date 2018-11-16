@@ -5,24 +5,9 @@
 @endsection
 @section('page_title', 'プライバシーポリシー')
 @section('description', '「ハタチのトビラ」サービスのプライバシーポリシーです。お客様からお預かりする個人情報を安全に保管・管理し、適切に使用する事を社会的責務と考え、以下の方針に基づき個人情報の保護・管理・運用・利用を徹底致します。')
-@section('main')
-    <div class="container-fluid private">
-        <div class="main row">
-            <div class="title-lx">
-                <div class="container">
-                    <div class="relative row">
-                        <div class="info col-md-12">
-                            <span class="title-e">Privacy policy</span>
-                            <div class="absolute">
-                                <p><span class="title-j"> プライバシーポリシー</span></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-@endsection
+@section('title-e', 'Privacy policy')
+@section('title-j', 'プライバシーポリシー')
+@section('body-class', 'privacy-page')
 @section('content')
     <div class="container private">
         <div class="row">

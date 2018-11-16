@@ -113,7 +113,6 @@
 
     .requiment-staff.requiment-staff-mobile {
         display: block;
-        margin-top: 90px
     }
 
     .requiment-staff.requiment-staff-desktop {
@@ -135,10 +134,6 @@
     header.fixed.headder .navbar.navbar-expand-lg.navbar-light p {
         font-size: 10px !important;
         left: 0;
-    }
-
-    .requiment-staff-bg {
-        margin-top: -178px;
     }
 
     .top .content-1.requiment {
@@ -555,10 +550,10 @@
         background-color: #fff100;
         text-align: center;
         font-weight: bold;
-        padding-top: 60px;
         font-size: 20px;
         line-height: 1;
-        padding-bottom: 95px;
+        padding-top: 60px;
+        padding-bottom: 60px;
     }
 
    /* .requiment-convertion .container {

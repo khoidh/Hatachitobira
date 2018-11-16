@@ -99,9 +99,7 @@
   /* ========== End style title màu vàng =========== */
 
   //@include standard_font();
-  @include only-for-mobile(){
-    padding-bottom: 56px;
-  }
+
   //======== event list =========
   .icon{
     width: 100%;
@@ -134,7 +132,11 @@
       //max-height: 250px;
     }
     .icon-01{
-      padding: 0 32px;
+      padding: 0;
+      @include only-for-tab-pc-lx(){
+        padding: 0 32px;
+      }
+      
     }
   }
 
@@ -345,25 +347,7 @@
         margin-right: 1rem;
       }
     }
-    .txt-form{
-      padding-top: 24px;
-      font-size: 18px;
-      line-height: 34px;
-      th, td {
-        border-top: 1px solid $black-color;
-        border-bottom: 1px solid $black-color;
-      }
-      .table-td_1{
-        background-color: $color-yellow;
-        text-align: center;
-        font-size: 20px;
-        width: 30%;
-      }
-      .table-td_2{
-        color: $text2-color;
-        padding-left: 50px;
-      }
-    }
+
     //.txt-btn{
     //  padding: 24px 0;
     //  button{
@@ -395,22 +379,5 @@
 
   .txt-btn{
     padding: 40px 0;
-    button{
-      padding: 5px 30px;
-      border-radius: 30px;
-      -moz-border-radius: 30px;
-      -webkit-border-radius: 30px;
-      border: none;
-      background: $black-color;
-      color: $white-color;
-      font-weight: bold;
-      font-size: 24pt;
-      line-height: 40pt;
-      cursor: pointer;
-      //Đổ bóng phía dưới
-      box-shadow: 3px 3px 3px $yellow-color;
-      -moz-box-shadow: 3px 3px 3px $yellow-color;
-      -webkit-box-shadow: 3px 3px 3px $yellow-color;
-    }
   }
 }

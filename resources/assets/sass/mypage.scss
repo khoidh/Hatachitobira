@@ -211,7 +211,7 @@
     .article-content {
 
         .content-left img {
-            border-radius: 14px;
+            border-radius: 15px;
             max-height: 230px;
             width: 100%;
             object-fit: cover;
@@ -717,24 +717,6 @@
 
             .btn-category-list {
                 padding: 32px 0 24px;
-
-                button {
-                    padding: 5px 30px;
-                    border-radius: 30px;
-                    -moz-border-radius: 30px;
-                    -webkit-border-radius: 30px;
-                    border: none;
-                    background: $black-color;
-                    color: $white-color;
-                    font-weight: bold;
-                    font-size: 24pt;
-                    line-height: 40pt;
-                    cursor: pointer;
-                    //Đổ bóng phía dưới
-                    box-shadow: 3px 3px 3px $yellow-color;
-                    -moz-box-shadow: 3px 3px 3px $yellow-color;
-                    -webkit-box-shadow: 3px 3px 3px $yellow-color;
-                }
             }
 
         }
@@ -862,7 +844,6 @@
                     width: 100%;
                     height: auto;
                 }
-
                 .article-status {
                     line-height: 200%;
                     font-size: small;
@@ -898,17 +879,14 @@
 
                 .article-content {
                     @include title-font();
-
-                    img {
-                        border-radius: 15px;
-                        -moz-border-radius: 15px;
-                        /*Firefox*/
-                        -webkit-border-radius: 15px;
-                        /*Chrome và Safary*/
-                    }
-
                     .content-left {
                         .image {
+                            border-radius: 15px;
+                            -moz-border-radius: 15px;
+                            /*Firefox*/
+                            -webkit-border-radius: 15px;
+                            /*Chrome và Safary*/
+
                             max-height: 230px;
                             width: 100%;
                             object-fit: cover;
@@ -1053,9 +1031,6 @@
     .my-page .panel-info .panel-info-wrapper .event-image .favorite.edit .fa-pencil {
         right: 8px !important;
         bottom: 8px !important;;
-    }
-    .mypage .main .title-lx .container .relative .info .absolute{
-        font-family: "Noto Sans Japanese" !important;
     }
 }
 .my-page .panel-info .panel-info-wrapper .event-image img{

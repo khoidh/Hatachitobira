@@ -22,7 +22,6 @@ $description = '学校と社会をつなぐ「ハタチのトビラ」は、将�
     <meta property="fb:app_id" content="{{ env('FACEBOOK_ID') }}" />
     <meta name="twitter:card" content=" summary" />
 
-    <link href="{{ asset('css/top.css') }}" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/slick/slick.css') }}" rel="stylesheet">
     <script src="{{ asset('js/app.js') }}"></script>
@@ -41,7 +40,7 @@ $description = '学校と社会をつなぐ「ハタチのトビラ」は、将�
                         </a>
                     </h1>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
+                        <span class="navbar-toggler-icon-tmp"></span>
                       </button>
                     <div class="collapse navbar-collapse clearfix" id="navbarSupportedContent">
                         <ul class="navbar-nav mr-auto flex-column">
@@ -76,7 +75,7 @@ $description = '学校と社会をつなぐ「ハタチのトビラ」は、将�
                             <li class="nav-item">
                                 <a class="nav-link" data-toggle="modal" data-target="#modal_login">ログイン</a>
                             </li>
-                            <li class="nav-item"><a class="nav-link link-append show-modal-register-mypage" style="display: none;margin: 0px;" href="{{url('my-page')}}">マイテーマを見つける</a></li>
+                            {{-- <li class="nav-item"><a class="nav-link link-append show-modal-register-mypage" style="display: none;margin: 0px;" href="{{url('my-page')}}">マイテーマを見つける</a></li> --}}
                             @endif
                             @if(Auth::User())
                             <li class="nav-item">
@@ -167,9 +166,9 @@ $description = '学校と社会をつなぐ「ハタチのトビラ」は、将�
         <div class="content top">
             <div class="container content-1">
                 <div class="content-title">
-                    <p class="content-1-title text-stroke">何が起きるかわからない</p>
-                    <p class="content-1-title text-stroke"><span style="writing-mode: horizontal-tb;">5</span>年後に悩むのは、</p>
-                    <p class="content-1-title text-stroke">もうやめない ？</p>
+                    <p class="content-1-title">何が起きるかわからない</p>
+                    <p class="content-1-title"><span style="writing-mode: horizontal-tb;">5</span>年後に悩むのは、</p>
+                    <p class="content-1-title">もうやめない ？</p>
                 </div>
                 <div class="content-1-content">
                     <div class="cb-path path-one"></div>
@@ -473,7 +472,7 @@ $description = '学校と社会をつなぐ「ハタチのトビラ」は、将�
                 </div>
             </div>
             <div class="container button-link">
-                <a class="link-my-page {{Auth::Guest() ? "show-modal-register-mypage" : ""}}" href="{{url("my-page")}}">マイテーマを見つける</a>
+                <a class="round-button black lg {{Auth::Guest() ? "show-modal-register-mypage" : ""}}" href="{{url("my-page")}}">マイテーマを見つける</a>
             </div>
         </div>
         <div id="modal_video" class="modal fade modal_register" role="dialog">
@@ -535,9 +534,9 @@ $description = '学校と社会をつなぐ「ハタチのトビラ」は、将�
             $('.bx_header .navbar-nav.mr-auto').css('align-items','flex-start');
             $('.bx_header .navbar-nav.mr-auto').css('font-weight','bold');
             $('.bx_header .navbar-nav.mr-auto').css('background-color','#fff');
-            $('.bx_header .navbar-nav.mr-auto').css('margin-top','70px');
+            $('.bx_header .navbar-nav.mr-auto').css('margin-top','10px');
             $('.bx_header .nav-item').addClass('aaaafixed');
-            $('.banner.figure').append('<a class="link-my-page {{Auth::Guest() ? "show-modal-register-mypage" : ""}}" href="{{url("my-page")}}">マイテーマを見つける</a>');
+            $('.banner.figure').append('<a class="round-button black lg {{Auth::Guest() ? "show-modal-register-mypage" : ""}}" href="{{url("my-page")}}">マイテーマを見つける</a>');
 
             $('.dropdown').on('show.bs.dropdown', function() {
                 $(this).find('.dropdown-menu').first().stop(true, true).slideDown();
