@@ -81,10 +81,11 @@
                     </div>
                     <div class="col-md-4 col-sm-4 col-xs-12">
                         <div class="what-done-col">
-                            <img src="{{asset("images/user/about/about_icon_04.jpg")}}" alt="" />
-                            <p class="text_detail_title">社会に触れ選択肢を知れる<br class="pc">ジョブシャドウ動画 </p>
-                            <p class="text_detail">多様な仕事の1日に触れ<br class="pc">自分の興味や視野を広げよう </p>
-                            <p class="more-detail">
+                            <img src="{{asset("images/user/about/jladev_fix_01.png")}}" alt="" />
+                            <div class="jladev_fix_img_1"></div>
+                            <p class="text_detail_title jladev_fix_img_title">社会に触れ選択肢を知れ<br>るジョブシャドウ動画 </p>
+                            <p class="text_detail jladev_fix_img_title">多様な仕事の1日に触れ <br>自分の興味や視野を広げよう </p>
+                            <p class="more-detail jladev_fix_img_title">
                                 <a href="{{route('video.index')}}" >
                                     <span>MORE</span>
                                     <img src="{{asset("images/user/top/arrow-1.png")}}" alt="" />
@@ -94,10 +95,11 @@
                     </div>
                     <div class="col-md-4 col-sm-4 col-xs-12">
                         <div class="what-done-col">
-                            <img src="{{asset("images/user/about/about_icon_05.jpg")}}" alt="" />
-                            <p class="text_detail_title">ロールモデルや新たな仲間に出会うイベント </p>
-                            <p class="text_detail">ちょっと真面目な対話と自分<br>ならではの経験をしよう </p>
-                            <p class="more-detail">
+                            <img src="{{asset("images/user/about/jladev_fix_02.png")}}" alt="" />
+                            <div class="jladev_fix_img_2"></div>
+                            <p class="text_detail_title jladev_fix_img_title">ロールモデルや新たな仲<br>間に出会うイベント </p>
+                            <p class="text_detail jladev_fix_img_title">ちょっと真面目な対話と自分<br>ならではの経験をしよう </p>
+                            <p class="more-detail jladev_fix_img_title">
                                 <a href="{{route('event.index')}}" >
                                     <span>MORE</span>
                                     <img src="{{asset("images/user/top/arrow-1.png")}}" alt="" />
@@ -107,10 +109,11 @@
                     </div>
                     <div class="col-md-4 col-sm-4 col-xs-12">
                         <div class="what-done-col">
-                            <img src="{{asset("images/user/about/about_icon_06.jpg")}}" alt="" />
-                            <p class="text_detail_title">将来の方向性を見出すための<br class="pc">マイページ </p>
-                            <p class="text_detail">月単位でマイテーマや自分の<br>行動を記録しよう</p>
-                            <p class="more-detail">
+                            <img src="{{asset("images/user/about/jladev_fix_03.png")}}" alt="" />
+                            <div class="jladev_fix_img_3"></div>
+                            <p class="text_detail_title jladev_fix_img_title">将来の方向性を見出すた<br>めのマイページ </p>
+                            <p class="text_detail jladev_fix_img_title">月単位でマイテーマや自分の<br>行動を記録しよう</p>
+                            <p class="more-detail jladev_fix_img_title">
                                 <?php if(Auth::guest()) : ?>
                                 <a data-toggle="modal" data-target="#modal_login">
                                     <span>MORE</span>
