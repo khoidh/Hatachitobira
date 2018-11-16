@@ -465,19 +465,82 @@
   }
 }
 
-.jladev_fix_about_1{
-  padding-left: 60px;
+.jladev_fix_img_1{
+  position: relative;
+}
+.jladev_fix_img_1:before{
+  content: '';
+  background: url(/images/user/about/0-1.png) no-repeat;
+  width: 200px;
+  height: 200px;
+  display: block;
+  margin-top: -130px;
+  z-index: 10000000;
+  margin-left: -80px;
+}
+.jladev_fix_img_2{
+  position: relative;
+}
+.jladev_fix_img_2:before{
+  content: '';
+  background: url(/images/user/about/0-2.png) no-repeat;
+  width: 200px;
+  height: 200px;
+  display: block;
+  margin-top: -130px;
+  z-index: 10000000;
+  margin-left: -80px;
+}
+.jladev_fix_img_3{
+  position: relative;
+}
+.jladev_fix_img_3:before{
+  content: '';
+  background: url(/images/user/about/0-3.png) no-repeat;
+  width: 200px;
+  height: 200px;
+  display: block;
+  margin-top: -130px;
+  z-index: 10000000;
+  margin-left: -80px;
+}
+.jladev_fix_img_title{
+  letter-spacing: 4px;
+  margin-left: -15px;
+}
 
-  @include only-for-mobile() {
-    padding-left: 10px;
+@media only screen and (max-width: 575.98px){
+  .jladev_fix_img_1:before{
+     content: '';
+     background: url(/images/user/about/0-1-mobile.png) no-repeat;
+     width: 150px;
+     height: 165px;
+     display: block;
+     margin-top: -130px;
+     z-index: 10000000;
+     margin-left: -115px;
+   }
+  .jladev_fix_img_title{
+    margin-left: -45px;
+  }
+  .jladev_fix_img_2:before{
+    content: '';
+    background: url(/images/user/about/0-2-mobile.png) no-repeat;
+    width: 150px;
+    height: 165px;
+    display: block;
+    margin-top: -130px;
+    z-index: 10000000;
+    margin-left: -115px;
+  }
+  .jladev_fix_img_3:before{
+    content: '';
+    background: url(/images/user/about/0-3-mobile.png) no-repeat;
+    width: 150px;
+    height: 165px;
+    display: block;
+    margin-top: -130px;
+    z-index: 10000000;
+    margin-left: -115px;
   }
 }
-.jladev_fix_about_2{
-  padding-left: 40px;
-  padding-right: 25px;
-  @include only-for-mobile() {
-    padding-left: 10px;
-    padding-right: 10px;
-  }
-}
-
