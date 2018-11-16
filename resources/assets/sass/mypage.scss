@@ -408,7 +408,7 @@
         padding-top: 32px;
         .row{
             @include only-for-mobile() {
-                // padding: 0 20px;
+                margin: 0
             }
         }
         .panel-info-wrapper {
@@ -1061,5 +1061,16 @@
 @media (max-width: 575.98px){
     .my-page .info-1 .log .log-input .bootstrap-tagsinput .label-info {
         display: block;
+    }
+}
+
+@media screen and (max-width: 575.98px){
+    .event-image {
+        backgroud-color: #ededed !important;
+        height: 150px !important;
+        padding-top: 25px !important;
+    }
+    .event-image img {
+        height: 100px !important;
     }
 }

@@ -118,9 +118,9 @@ $description = '学校と社会をつなぐ「ハタチのトビラ」は、将�
                     <figure class="carousel-item">
                         <img class="image-sp" src="{{ asset('images/user/top/banner_sp.png') }}" alt="楽しもう、背伸びしない自分を">
                         <img class="image-pc" src="{{ asset('images/user/top/banner.png') }}" alt="楽しもう、背伸びしない自分を">
-                        <figcaption>
+                        <figcaption class="first">
                             <div class="text-vertical-pc">
-                                <p class="title">やりたいことって必要なの ？<br>楽しもう、背伸びしない自分を。</p>
+                                <p class="title">やりたいことって必要なの？<br>楽しもう、背伸びしない自分を。</p>
                                 <p class="description">What students want to know,Is it transmitted to real?</p>
                             </div>
                         </figcaption>
@@ -129,16 +129,20 @@ $description = '学校と社会をつなぐ「ハタチのトビラ」は、将�
                         <img class="image-sp" src="{{ asset('images/user/top/banner-1-sp.png') }}" alt="楽しもう、背伸びしない自分を。">
                         <img class="image-pc" src="{{ asset('images/user/top/banner-1.png') }}" alt="楽しもう、背伸びしない自分を。">
                         <figcaption>
-                            <p class="title"><span class="title-background">マイテーマ</span>を軸にする、<br>これからの就活。</p>
-                            <p class="description">What students want to know,Is it transmitted to real?</p>
+                            <div class="text-vertical-pc">
+                                <p class="title"><span class="title-background">マイテーマ</span>を軸にする、<br>これからの就活。</p>
+                                <p class="description">What students want to know,Is it transmitted to real?</p>
+                            </div>
                         </figcaption>
                     </figure>
                     <figure class="carousel-item">
                         <img class="image-sp" src="{{ asset('images/user/top/banner-2-sp.png') }}" alt="楽しもう、背伸びしない自分を。">
                         <img class="image-pc" src="{{ asset('images/user/top/banner-2.png') }}" alt="楽しもう、背伸びしない自分を。">
                         <figcaption>
-                            <p class="title">オトナって何だろう。<span class="title-background">マイテーマ</span>って何だろう。</p>
-                            <p class="description">What students want to know,Is it transmitted to real?</p>
+                            <div class="text-vertical-pc">
+                                <p class="title">オトナって何だろう。<br><span class="title-background">マイテーマ</span>って何だろう。</p>
+                                <p class="description">What students want to know,Is it transmitted to real?</p>
+                            </div>
                         </figcaption>
                     </figure>
                 </div>

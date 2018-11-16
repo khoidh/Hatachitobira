@@ -21473,6 +21473,18 @@ footer .footter-mobile .a-first {
   }
 }
 
+@media screen and (max-width: 575.98px) {
+  .event-image {
+    backgroud-color: #ededed !important;
+    height: 150px !important;
+    padding-top: 25px !important;
+  }
+
+  .event-image img {
+    height: 100px !important;
+  }
+}
+
 .recruiment-page .headline {
   margin-bottom: 40px;
 }

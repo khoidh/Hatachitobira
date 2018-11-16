@@ -133,7 +133,7 @@
 
 @include only-for-mobile() {
     br.pc {
-        display: none;
+        // display: none;
     }
 }
 @include only-for-tab-pc() {

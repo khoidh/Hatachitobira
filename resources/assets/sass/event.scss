@@ -381,3 +381,115 @@
     padding: 40px 0;
   }
 }
+
+
+.jladev_stt_1{
+  position: relative;
+}
+.jladev_stt_1:before{
+  content: '';
+  background: url(/images/user/about/0-1.png) no-repeat;
+  width: 200px;
+  height: 190px;
+  display: block;
+  margin-top: -130px;
+  z-index: 10000000;
+  margin-left: -80px;
+}
+.jladev_stt_2{
+  position: relative;
+}
+.jladev_stt_2:before{
+  content: '';
+  background: url(/images/user/about/0-2.png) no-repeat;
+  width: 200px;
+  height: 190px;
+  display: block;
+  margin-top: -130px;
+  z-index: 10000000;
+  margin-left: -80px;
+}
+.jladev_stt_3{
+  position: relative;
+}
+.jladev_stt_3:before{
+  content: '';
+  background: url(/images/user/about/0-3.png) no-repeat;
+  width: 200px;
+  height: 190px;
+  display: block;
+  margin-top: -130px;
+  z-index: 10000000;
+  margin-left: -80px;
+}
+.jladev_even_text{
+  margin-left: -10%;
+}
+
+@media only screen and (max-width: 575.98px){
+  .event .icon .icon-01{
+    margin-bottom: 25px;
+  }
+  .jladev_even_text{
+    margin-left: 0;
+  }
+  .jladev_stt_1:before{
+    content: '';
+    background: url(/images/user/about/0-1-mobile.png) no-repeat;
+    width: 150px;
+    height: 165px;
+    display: block;
+    margin-top: -130px;
+    z-index: 10000000;
+    margin-left: -17%;
+  }
+  .jladev_stt_2:before{
+    content: '';
+    background: url(/images/user/about/0-2-mobile.png) no-repeat;
+    width: 150px;
+    height: 165px;
+    display: block;
+    margin-top: -130px;
+    z-index: 10000000;
+    margin-left: -17%;
+  }
+  .jladev_stt_3:before{
+    content: '';
+    background: url(/images/user/about/0-3-mobile.png) no-repeat;
+    width: 150px;
+    height: 165px;
+    display: block;
+    margin-top: -130px;
+    z-index: 10000000;
+    margin-left: -17%;
+  }
+}
+
+@media only screen and (max-width: 375px){
+  .jladev_even_text {
+    margin-left: 5px;
+  }
+  .event .icon .title-x{
+    font-size: 18px;
+  }
+  .home .main .title-lx .container .relative .info .title-e{
+    font-size: 60px;
+  }
+}
+@media only screen and (max-width: 320px){
+  .jladev_stt_1:before{
+    margin-left: -23%;
+  }
+  .jladev_stt_2:before{
+    margin-left: -23%;
+  }
+  .jladev_stt_3:before{
+    margin-left: -23%;
+  }
+  .jladev_even_text{
+    margin-left: 0;
+  }
+  .home .main .title-lx .container .relative .info .absolute .title-j{
+    font-size: 26px !important;
+  }
+}
