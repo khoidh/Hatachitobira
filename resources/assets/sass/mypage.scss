@@ -1063,3 +1063,14 @@
         display: block;
     }
 }
+
+@media screen and (max-width: 575.98px){
+    .event-image {
+        backgroud-color: #ededed !important;
+        height: 150px !important;
+        padding-top: 25px !important;
+    }
+    .event-image img {
+        height: 100px !important;
+    }
+}
