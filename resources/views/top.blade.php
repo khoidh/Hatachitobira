@@ -117,27 +117,26 @@ $description = '学校と社会をつなぐ「ハタチのトビラ」は、将�
                         <img class="image-sp" src="{{ asset('images/user/top/banner_sp.png') }}" alt="楽しもう、背伸びしない自分を">
                         <img class="image-pc" src="{{ asset('images/user/top/banner.png') }}" alt="楽しもう、背伸びしない自分を">
                         <figcaption>
-                            <p class="description">What students want to know,Is it transmitted to real?</p>
-                            <p class="title">楽しもう、背伸びしない自分を。</p>
-                            <p class="title">やりたいことって必要なの ？</p>
+                            <div class="text-vertical-pc">
+                                <p class="title">やりたいことって必要なの ？<br>楽しもう、背伸びしない自分を。</p>
+                                <p class="description">What students want to know,Is it transmitted to real?</p>
+                            </div>
                         </figcaption>
                     </figure>
                     <figure class="carousel-item">
                         <img class="image-sp" src="{{ asset('images/user/top/banner-1-sp.png') }}" alt="楽しもう、背伸びしない自分を。">
                         <img class="image-pc" src="{{ asset('images/user/top/banner-1.png') }}" alt="楽しもう、背伸びしない自分を。">
                         <figcaption>
+                            <p class="title"><span class="title-background">マイテーマ</span>を軸にする、<br>これからの就活。</p>
                             <p class="description">What students want to know,Is it transmitted to real?</p>
-                            <p class="title">これからの就活。</p>
-                            <p class="title"><span class="title-background">マイテーマ</span>を軸にする、</p>
                         </figcaption>
                     </figure>
                     <figure class="carousel-item">
                         <img class="image-sp" src="{{ asset('images/user/top/banner-2-sp.png') }}" alt="楽しもう、背伸びしない自分を。">
                         <img class="image-pc" src="{{ asset('images/user/top/banner-2.png') }}" alt="楽しもう、背伸びしない自分を。">
                         <figcaption>
+                            <p class="title">オトナって何だろう。<span class="title-background">マイテーマ</span>って何だろう。</p>
                             <p class="description">What students want to know,Is it transmitted to real?</p>
-                            <p class="title"><span class="title-background">マイテーマ</span>って何だろう。</p>
-                            <p class="title">オトナって何だろう。</p>
                         </figcaption>
                     </figure>
                 </div>
@@ -173,20 +172,19 @@ $description = '学校と社会をつなぐ「ハタチのトビラ」は、将�
                 <div class="content-1-content">
                     <div class="cb-path path-one"></div>
                     
-                    <div class="text-my-theme ">
+                    <div class="text-my-theme text-my-theme1">
                         <p class="text-detail">学校と社会をつなぐ"ハタチのトビラ"は、将来の選択肢に触れ、マイテーマを探すきっかけを提供します</p>
                     </div>
                     
                     <div class="cb-path last"></div>
                     
-                    <div class="text-my-theme">
-                        <p class="text_detail_title">WHAT IS マイテーマ</p>
-                        <p class="text-detail">マイテーマとは、自分の興味と意志からつくられる「私が、探求したいこと」です。誰にでも見出せるマイテーマは、変化していくものでありながら、今と未来をより充実させるための行動指針となっていきます。</p>
+                    <div class="text-my-theme text-my-theme2">
+                        <h3>
+                            <p class="text_detail_title">WHAT IS マイテーマ</p>
+                            <p class="text-detail">マイテーマとは、自分の興味と意志からつくられる「私が、探求したいこと」です。誰にでも見出せるマイテーマは、変化していくものでありながら、今と未来をより充実させるための行動指針となっていきます。</p>
                     </div>
-                    
-                    <div class="cb-path"></div>
                 </div>
-                
+                <div class="cb-path"></div>
             </div>
             <div class="movie-top-1">
                 <div class="container">
@@ -216,40 +214,45 @@ $description = '学校と社会をつなぐ「ハタチのトビラ」は、将�
                 </div>
             </div>
             <div class="movie-top-2">
-                <div class="container">
-                    <div class="col-md-2 col-sm-12 col-xs-12row">
-                        <p class="text-vertical">探す3つの理由</p>
-                        <p class="text-vertical last">マイテ<span>ー</span>マを</p>
+                <div class="container flex-space-between-pc">
+                    <div class="c-col p-text">
+                        <div class="text-vertical-pc"><span>マイテーマ</span>を<br>探す3つの理由</div>
                     </div>
-                    <div class="col-md-10 col-sm-12 col-xs-12 row">
-                        <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
-                            <p><img class="movie-image" src="{{ asset('images/user/top/movie-image-1.png') }}" alt="大学生活をはじめ、今をより充実させるための行動が定まる"></p>
-                            <p class="text-tittle">01</p>
-                            <p class="movie_image_description">大学生活をはじめ、今をより充実させるための行動が定まる</p>
+                    <div class="c-col">
+                        <div class="image">
+                            <img class="movie-image" src="{{ asset('images/user/top/movie-image-1.png') }}" alt="大学生活をはじめ、今をより充実させるための行動が定まる">
+                            <span class="text-tittle">01</span>
                         </div>
-                        <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
-                            <p><img class="movie-image" src="{{ asset('images/user/top/movie-image-2.png') }}" alt="マイテーマを探す経験が、個性を際立たせる"></p>
-                            <p class="text-tittle">02</p>
-                            <p class="movie_image_description">マイテーマを探す経験が、個性を際立たせる</p>
+                        <p class="movie_image_description">大学生活をはじめ、今をより充実させるための行動が定まる</p>
+                    </div>
+                    <div class="c-col">
+                        <div class="image">
+                            <img class="movie-image" src="{{ asset('images/user/top/movie-image-2.png') }}" alt="マイテーマを探す経験が、個性を際立たせる">
+                            <span class="text-tittle">02</span>
                         </div>
-                        <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
-                            <p><img class="movie-image" src="{{ asset('images/user/top/movie-image-3.png') }}" alt="人生100年時代でのキャリア選択や就活の指針に"></p>
-                            <p class="text-tittle">03</p>
-                            <p class="movie_image_description">人生100年時代でのキャリア選択や就活の指針に</p>
+                        <p class="movie_image_description">マイテーマを探す経験が、個性を際立たせる</p>
+                    </div>
+                    <div class="c-col">
+                        <div class="image">
+                            <img class="movie-image" src="{{ asset('images/user/top/movie-image-3.png') }}" alt="人生100年時代でのキャリア選択や就活の指針に">
+                            <span class="text-tittle">03</span>
                         </div>
+                        <p class="movie_image_description">人生100年時代でのキャリア選択や就活の指針に</p>
                     </div>
                 </div>
+                <img src="/images/user/top/back-gr-2.png" class="back-gr">
             </div>
+        </div>
+        <div class="content top">
             <div class="movie-top-3">
                 <div class="container">
                     <div class="content-tile-movie">
-                        <p class="text-vertical-1 last"><span>マイテ</span><span class="vertical">ー</span><span>マ</span>の</p>
-                        <p class="text-vertical-1">探し方</p>
+                        <div class="text-vertical-pc"><span>マイテーマ</span>の<br class="pc">探し方</div>
                     </div>
                     <div class="cb-path cb-path-black"></div>
                     <div class="content-row">
                         <div class="col-md-12">
-                            <p class="text-title-3">マイテーマを見つける</p>
+                            <p class="text-title-3">自分の興味から探す</p>
                         </div>
                         <div class="row">
                             @foreach($categories as $categorie)
@@ -440,7 +443,7 @@ $description = '学校と社会をつなぐ「ハタチのトビラ」は、将�
                     <div class="cb-path"></div>
                     <p class="movie-top-text">ハタチのトビラコラム</p>
                     <p class="movie-top-descroption">マイテーマをみつけるノウハウ、イベントレポート、アラハタ世代の活躍を発信していきます</p>
-                    <div class="content-text col-md-10">
+                    <div class="content-text col-md-12">
                         @forelse($columns as $key => $column)
                         <div class="item {{$key > 0 ? 'second' : ''}}">
                             <div class="text-category {{ $column->type == 1 ? 'last' : ''}}">{{ $column->type == 1 ?'コラム' :'インタビュー'}}</div>
@@ -471,7 +474,7 @@ $description = '学校と社会をつなぐ「ハタチのトビラ」は、将�
                     </div>
                 </div>
             </div>
-            <div class="container button-link">
+            <div class="container button-link bottom">
                 <a class="round-button black lg {{Auth::Guest() ? "show-modal-register-mypage" : ""}}" href="{{url("my-page")}}">マイテーマを見つける</a>
             </div>
         </div>
@@ -626,7 +629,7 @@ $description = '学校と社会をつなぐ「ハタチのトビラ」は、将�
             });
             
             $('.slide-top').slick({
-                autoplay: true,
+                autoplay: false,
                 arrows: false
             });
 
