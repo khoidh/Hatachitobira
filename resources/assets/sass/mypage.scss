@@ -1056,15 +1056,36 @@
     .my-page .info-1 .log .log-input .bootstrap-tagsinput .label-info {
         display: block;
     }
-}
-
-@media screen and (max-width: 575.98px){
     .event-image {
         backgroud-color: #ededed !important;
-        height: 150px !important;
-        padding-top: 25px !important;
+        height: 100%;
     }
     .event-image img {
-        height: 100px !important;
+        height: 100% !important;
+        object-fit: cover;
+        width: 100%;
     }
+
+    .my-page .panel-info .panel-info-wrapper .event-image .description{
+        font-size: 12px;
+        line-height: 18px;
+    }
+
+
+}
+.my-page .panel-info .panel-info-wrapper .event-image .favorite.edit .fa-pencil{
+    box-shadow: none !important;
+}
+
+.my-page .panel-info .panel-info-wrapper .event-image .description{
+    width: 80%;
+    margin-left: 10%;
+    bottom: 20%;
+    padding: 5px;
+    font-size: 16px;
+    line-height: 24px;
+    max-height: 80px;
+    overflow: hidden;
+    border-radius: 5px;
+    left: 0;
 }

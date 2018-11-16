@@ -384,8 +384,10 @@
   }
 
   .container.about .top .container.content-1 .about-content-1-content .text_detail_title {
-    padding: 0 5px;
+    padding: 0 50px 12px 21px;
     font-size: 20px;
+    position: absolute;
+    margin-top: -16px;
   }
 
   .container.about .about-hatachi .about-hatachi-col a.btn-link:hover,
@@ -547,14 +549,28 @@
     top: -45px !important;
   }
 
+  .container.about .top .container.content-1 .about-content-1-content .text_detail_title{
+    margin-top: 0px !important;
+  }
+  .jladev_fix_about_2 {
+    padding-left: 20px;
+    padding-right: 5px;
+  }
+  .jladev_fix_about_1 {
+    padding-left: 44px;
+  }
 }
 
 @media only screen and (max-width: 375px){
   .jladev_fix_img_title {
     margin-left: -5%;
   }
+  .about-page .about-banner .about-content-title{
+    top: 62% !important;
+  }
 }
 @media only screen and (max-width: 320px){
+
   .jladev_fix_img_1:before{
     margin-left: -38%;
   }
@@ -573,4 +589,16 @@
   .jladev_fix_img_title {
     margin-left: -10%;
   }
+  .jladev_fix_about_1 {
+    padding-left: 22px;
+  }
+
+}
+
+.jladev_fix_about_1{
+  padding-left: 35px;
+}
+.jladev_fix_about_2{
+  padding-left: 15px;
+  padding-right: 5px;
 }
