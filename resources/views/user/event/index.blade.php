@@ -21,23 +21,26 @@
                 <div class="row">
                     <div class="icon-01 col-md-4">
                         <div class="col-md-12">
-                            <img src="{{asset('images/user/event/event-01.png')}}" alt="event 01.png">
-                            <p class="icon-title">ちょっと変わった ロールモデルに出会える </p>
-                            <P class="icon-content">ベンチャー、大手、公務員、NPO、フリーランス、将来の選択肢を知ることで視野を広げる</P>
+                            <img src="{{asset('images/user/event/img-event-0-1.png')}}" alt="event 01.png">
+                            <div class="jladev_stt_1"></div>
+                            <p class="icon-title jladev_even_text">ちょっと変わった <br/>ロールモデルに出会える </p>
+                            <P class="icon-content jladev_even_text">ベンチャー、大手、公務員、NPO、フリーランス、将来の選択肢を知ることで視野を広げる</P>
                         </div>
                     </div>
                     <div class="icon-01 col-md-4">
                         <div class="col-md-12">
-                            <img src="{{asset('images/user/event/event-02.png')}}" alt="event 02.png">
-                            <p class="icon-title">ちょっと真面目に 同世代と対話ができる </p>
-                            <P class="icon-conten">毎月20日に会って対話をする大学やバイト以外の第3のコミュニティができる</P>
+                            <img src="{{asset('images/user/event/img-event-0-2.png')}}" alt="event 02.png">
+                            <div class="jladev_stt_2"></div>
+                            <p class="icon-title jladev_even_text">ちょっと真面目に <br/> 同世代と対話ができる </p>
+                            <P class="icon-conten jladev_even_text">毎月20日に会って対話をする大学やバイト以外の第3のコミュニティができる</P>
                         </div>
                     </div>
                     <div class="icon-01 col-md-4">
                         <div class="col-md-12">
-                            <img src="{{asset('images/user/event/event-03.png')}}" alt="event 03.png">
-                            <p class="icon-title">自分の個性をあらわす マイテーマを探求できる </p>
-                            <P class="icon-conten">やりたいこと探しとは異なる これからの時代に合ったやり方で大学生活や将来の方向性を探る </P>
+                            <img src="{{asset('images/user/event/img-event-0-3.png')}}" alt="event 03.png">
+                            <div class="jladev_stt_3"></div>
+                            <p class="icon-title jladev_even_text">自分の個性をあらわす <br/> マイテーマを探求できる </p>
+                            <P class="icon-conten jladev_even_text">やりたいこと探しとは異なる これからの時代に合ったやり方で大学生活や将来の方向性を探る </P>
                         </div>
                     </div>
                 </div>
