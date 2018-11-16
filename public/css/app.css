@@ -17286,6 +17286,7 @@ main {
   font-size: 12px;
   position: relative;
   padding: 5px 0;
+  font-family: "Oswald", sans-serif;
 }
 
 @media (min-width: 576px) {
