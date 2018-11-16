@@ -13,10 +13,10 @@
         <div class="row">
             <div class="icon col-md-12">
                 <div class="title-x">
-                    <div class="underline">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+                    <div class="cb-path"></div>
+                    <span>ちょっと真面目な出会いや対話を通じて</span>
                     <br>
-                    <p>ちょっと真面目な出会いや対話を通じて</p>
-                    <p>マイテーマを磨くための一歩を踏みだすイベント情報</p>
+                    <span>マイテーマを磨くための一歩を踏みだすイベント情報</span>
                 </div>
                 <div class="row">
                     <div class="icon-01 col-md-4">

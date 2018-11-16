@@ -43,7 +43,7 @@
                                     </div>
                                     <div class="title"><a href="{{route('column.show', $column->id)}}">{{$column->title}}</a> &nbsp;&nbsp; <span style="color: #636B6F;">{{$column->category_name}}</span></div>
                                     <div class="category" style="color: #636B6F;">
-                                        <p>{{$column->category_name}}</p>
+                                        <p>#{{$column->category_name}}</p>
                                     </div>
                                     <div class="date" style="text-align: right">
                                         <p>{{date('Y.m.d', strtotime($column->created_at))}}</p>
@@ -89,7 +89,7 @@
                                     </div>
                                     <div class="title"><a href="{{route('event.show', $event->id)}}">{{$event->title}}</a> &nbsp;&nbsp; <span style="color: #636B6F;">{{$event->category_name}}</span></div>
                                     <div class="category" style="color: #636B6F;">
-                                        <p>{{$event->category_name}}</p>
+                                        <p>#{{$event->category_name}}</p>
                                     </div>
                                     <div class="date" >
                                         <p>{{date('Y.m.d', strtotime($event->started_at))}}</p>

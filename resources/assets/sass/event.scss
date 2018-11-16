@@ -119,7 +119,7 @@
     .icon-title {
       font-size: 20px;
       line-height: 1.5;
-      margin-bottom: 20px;
+      margin-bottom: 5px;
       font-weight: bold;
     }
     img {
@@ -424,6 +424,7 @@
 }
 .jladev_even_text{
   margin-left: -10%;
+  line-height: 1.5;
 }
 
 @media only screen and (max-width: 575.98px){
@@ -475,6 +476,7 @@
 @media only screen and (max-width: 375px){
   .jladev_even_text {
     margin-left: 5px;
+    line-height: 1.5;
   }
   .event .icon .title-x{
     font-size: 18px;

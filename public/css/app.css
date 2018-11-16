@@ -19211,7 +19211,7 @@ footer .footter-mobile .a-first {
 .event .icon .icon-title {
   font-size: 20px;
   line-height: 1.5;
-  margin-bottom: 20px;
+  margin-bottom: 5px;
   font-weight: bold;
 }
 
@@ -19510,6 +19510,7 @@ footer .footter-mobile .a-first {
 
 .jladev_even_text {
   margin-left: -10%;
+  line-height: 1.5;
 }
 
 @media only screen and (max-width: 575.98px) {
@@ -19565,6 +19566,7 @@ footer .footter-mobile .a-first {
 @media only screen and (max-width: 375px) {
   .jladev_even_text {
     margin-left: 5px;
+    line-height: 1.5;
   }
 
   .event .icon .title-x {
