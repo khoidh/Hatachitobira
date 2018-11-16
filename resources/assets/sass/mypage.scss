@@ -1010,7 +1010,7 @@
                 position: absolute !important;
                 z-index: 1;
                 left: 0px;
-                top: -45px;
+                top: 10px;
                 font-family: $font-family-oswald;
                 font-size: 100px;
                 color: #FFF100;
@@ -1040,7 +1040,10 @@
             span {
                 position: relative;
                 font-weight: bold;
-                font-size: 24px
+                font-size: 24px;
+                @include only-for-mobile() {
+                    font-size: 18px;
+                }
             }
         }
 

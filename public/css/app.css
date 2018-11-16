@@ -21713,7 +21713,7 @@ footer .footter-mobile .a-first {
   position: absolute !important;
   z-index: 1;
   left: 0px;
-  top: -45px;
+  top: 10px;
   font-family: "Oswald", sans-serif;
   font-size: 100px;
   color: #FFF100;
@@ -21744,6 +21744,12 @@ footer .footter-mobile .a-first {
   position: relative;
   font-weight: bold;
   font-size: 24px;
+}
+
+@media (max-width: 575.98px) {
+  #show-detail-mypage .modal-content .title-detail span {
+    font-size: 18px;
+  }
 }
 
 #show-detail-mypage .modal-content .detail-infor {
