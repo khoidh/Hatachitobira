@@ -283,13 +283,15 @@ body {
 }
 
 .top .video-detail {
-    margin: 30px auto;
+    margin: 0;
     padding: 0;
 
     @include only-for-mobile() {
         margin: 0;
     }
-
+    .col-md-8 {
+        padding: 0
+    }
     .video-movie {
         .movie-2:first-child {
             margin-bottom: 10px;
