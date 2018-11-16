@@ -17664,7 +17664,7 @@ footer .footer-bottom li {
 
 @media (max-width: 480px) {
   .flex-space-between-pc {
-    height: 1060px;
+    height: 1150px;
   }
 
   .top .container.movie-top-4 {
@@ -17741,8 +17741,8 @@ body {
   border-radius: 15px;
   -webkit-transform: translateZ(0px);
           transform: translateZ(0px);
-  border: 1px solid #fff;
   top: 0;
+  padding-top: 0;
 }
 
 .top .movie-top-2 {
@@ -17943,7 +17943,6 @@ body {
   border-radius: 15px;
   -webkit-transform: translateZ(0px);
           transform: translateZ(0px);
-  border: 3px solid #eee;
 }
 
 .corner-wrapper.movie-2 {
@@ -17975,7 +17974,7 @@ body {
 }
 
 .top .video-detail.row .col-md-4 {
-  padding-left: 0;
+  padding-right: 0;
 }
 
 .top .video-detail.row .col-md-4:first {
@@ -18343,6 +18342,15 @@ footer .footter-mobile .a-first {
 }
 
 @media (max-width: 427px) {
+  ul.navbar-nav {
+    padding-top: 10px;
+  }
+
+  .navbar-nav li {
+    height: 50px;
+    line-height: 50px;
+  }
+
   .banner figure > img {
     width: 100%;
   }
@@ -19468,6 +19476,13 @@ footer .footter-mobile .a-first {
     margin-top: -130px;
     z-index: 10000000;
     margin-left: -17%;
+  }
+
+  .event .icon img {
+    min-width: auto;
+    min-height: auto;
+    margin: 0 auto;
+    display: block;
   }
 }
 
@@ -20611,7 +20626,11 @@ footer .footter-mobile .a-first {
 
 .video {
   top: 0px;
-  padding-top: 25px;
+  padding-top: 23px;
+}
+
+.video-content.video {
+  padding-top: 0;
 }
 
 .home .main .title-lx {
@@ -20761,6 +20780,7 @@ footer .footter-mobile .a-first {
 .column .article-list .article .article-status .shape-8,
 .column .article-list .shape-8,
 .column .tit .shape-8,
+.my-page .article-status .shape-8,
 .my-page .info-1 .shape-8,
 .my-page .info-2 .shape-8,
 .my-page .group-2 > .column .article .article-status .shape-8 {
@@ -20804,46 +20824,52 @@ footer .footter-mobile .a-first {
 }
 
 .my-page .article-status {
-  line-height: 200%;
-  font-size: small;
   font-weight: bold;
-  color: #111111;
-  position: relative;
-  display: inline-block;
+  color: #FFFFFF;
   width: 100%;
 }
 
-.my-page .article-status span {
-  position: absolute;
-  max-height: 22px;
-  max-width: 101px;
-  color: #fff;
-  font-size: 13px;
-  top: -3px;
-}
-
-.my-page .article-status hr {
+.my-page .article-status .shape-8 {
   margin: 8px 0 16px !important;
   height: 0px !important;
   background-color: #DCDCDC !important;
-  width: 100%;
-  size: 30px;
-  padding-top: 1px;
 }
 
-.my-page .article-status img {
+.my-page .article-status .wrapper-status {
+  border: 1px solid blue;
   position: absolute;
-  max-height: 24px;
+  top: -1px;
+  left: 0;
   max-width: 101px;
+  max-height: 24px;
+  width: 100%;
+  height: 100%;
+}
+
+.my-page .article-status .wrapper-status img {
+  vertical-align: unset;
+  width: 100%;
+  height: 100%;
+}
+
+.my-page .article-status .wrapper-status .ws-text {
+  border: 1px solid red;
+  position: absolute;
+  width: 100%;
+  height: 100%;
   top: 0;
-}
-
-.my-page .article-status img.events {
-  top: -8px;
-}
-
-.my-page .article-status span.events {
-  top: -12px;
+  left: -2px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #FFFFFF;
+  font-size: 12px;
 }
 
 .my-page .slick-track {
@@ -21311,20 +21337,37 @@ footer .footter-mobile .a-first {
   padding: 32px 22px 22px;
 }
 
-.my-page .main .group-1 .content-text .item .wrapper .wrapper-status img {
+.my-page .main .group-1 .content-text .item .wrapper .wrapper-status {
   position: absolute;
-  max-height: 24px;
-  max-width: 101px;
   top: -10px;
   left: 35px;
+  max-width: 101px;
+  max-height: 24px;
+  width: 100%;
+  height: 100%;
 }
 
-.my-page .main .group-1 .content-text .item .wrapper .wrapper-status span {
+.my-page .main .group-1 .content-text .item .wrapper .wrapper-status img {
+  vertical-align: unset;
+  width: 100%;
+  height: 100%;
+}
+
+.my-page .main .group-1 .content-text .item .wrapper .wrapper-status .ws-text {
   position: absolute;
-  max-height: 24px;
-  max-width: 101px;
-  top: -13px;
-  left: 43px;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: -2px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   color: #FFFFFF;
   font-size: 12px;
 }
@@ -21435,24 +21478,25 @@ footer .footter-mobile .a-first {
 }
 
 .my-page .group-2 > .video1 .video-content {
-  padding-top: 32px;
+  padding-top: 0px;
 }
 
 @media (max-width: 575.98px) {
   .my-page .group-2 > .video1 .video-content {
-    padding-top: 0;
+    padding-top: 11px;
     position: relative;
     top: -40px;
   }
 }
 
 .my-page .group-2 > .video1 .video-content .video-list {
-  margin-top: 0;
+  margin-top: -16px;
 }
 
 @media (max-width: 575.98px) {
   .my-page .group-2 > .video1 .video-content .video-list {
     padding-right: 0;
+    margin-top: 0px;
   }
 }
 
@@ -21535,12 +21579,8 @@ footer .footter-mobile .a-first {
 }
 
 .my-page .group-2 > .column .article .article-status {
-  line-height: 200%;
-  font-size: small;
   font-weight: bold;
   color: #FFFFFF;
-  position: relative;
-  display: inline-block;
   width: 100%;
 }
 
@@ -21550,22 +21590,45 @@ footer .footter-mobile .a-first {
   background-color: #DCDCDC !important;
 }
 
-.my-page .group-2 > .column .article .article-status img {
+.my-page .group-2 > .column .article .article-status .wrapper-status {
+  border: 1px solid blue;
   position: absolute;
-  max-height: 24px;
+  top: -1px;
+  left: 0;
   max-width: 101px;
-  top: 0;
+  max-height: 24px;
+  width: 100%;
+  height: 100%;
 }
 
-.my-page .group-2 > .column .article .article-status span {
+.my-page .group-2 > .column .article .article-status .wrapper-status img {
+  vertical-align: unset;
+  width: 100%;
+  height: 100%;
+}
+
+.my-page .group-2 > .column .article .article-status .wrapper-status .ws-text {
+  border: 1px solid red;
   position: absolute;
-  max-height: 24px;
-  max-width: 101px;
+  width: 100%;
+  height: 100%;
   top: 0;
-  left: 5px;
+  left: -2px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #FFFFFF;
+  font-size: 12px;
 }
 
 .my-page .group-2 > .column .article .article-content {
+  border: 1px solid blue;
   font-size: 20px;
   line-height: 40px;
   font-weight: bold;
@@ -21643,7 +21706,7 @@ footer .footter-mobile .a-first {
   position: absolute !important;
   z-index: 1;
   left: 0px;
-  top: -57px;
+  top: -45px;
   font-family: "Oswald", sans-serif;
   font-size: 100px;
   color: #FFF100;
@@ -21674,6 +21737,11 @@ footer .footter-mobile .a-first {
   position: relative;
   font-weight: bold;
   font-size: 24px;
+}
+
+#show-detail-mypage .modal-content .detail-infor {
+  padding-right: 0;
+  margin-left: -9px;
 }
 
 #show-detail-mypage .modal-content .detail-infor .event-information-content .edit-input-content {
@@ -21751,13 +21819,13 @@ footer .footter-mobile .a-first {
   width: 80%;
   margin-left: 10%;
   bottom: 20%;
-  padding: 5px;
   font-size: 16px;
   line-height: 24px;
   max-height: 80px;
   overflow: hidden;
   border-radius: 5px;
   left: 0;
+  text-align: center;
 }
 
 .recruiment-page .headline {
@@ -23450,10 +23518,17 @@ footer .footter-mobile .a-first {
 
 .jladev_fix_img_title {
   letter-spacing: 4px;
-  margin-left: -15px;
+  margin-left: -30px;
 }
 
 @media only screen and (max-width: 575.98px) {
+  .about-what-done .what-done-col img {
+    width: auto;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+  }
+
   .jladev_fix_img_1:before {
     content: '';
     background: url(/images/user/about/0-1-mobile.png) no-repeat;
@@ -23506,6 +23581,15 @@ footer .footter-mobile .a-first {
 
   .jladev_fix_about_1 {
     padding-left: 44px;
+  }
+
+  .about-why-born div.container {
+    width: 90% !important;
+  }
+
+  .navbar-toggler:not(:disabled):not(.disabled) {
+    top: 20px;
+    right: 50px !important;
   }
 }
 
