@@ -81,14 +81,16 @@ main {
             height: auto;
             margin: 0 auto;
         }
-
+        
         figcaption {
             position: absolute;
-            top: 30%;
+            top: 20%;
             right: 0px;
             line-height: 7;
             text-align: -webkit-auto;
-
+            &.first{
+                top: 3%;
+            }
             .title{
                 font-weight: bold;
                 width: 80px;
@@ -454,8 +456,8 @@ footer .footer-bottom li {
             .back-gr {
                 display: block;
                 position: absolute;
-                top: -40px;
-                right: -15%;
+                top: 11px;
+                right: 0%;
                 width: 80%;
                 z-index: 1;
             }
