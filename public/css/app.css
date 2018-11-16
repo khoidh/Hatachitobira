@@ -21020,8 +21020,8 @@ footer .footter-mobile .a-first {
 .my-page .info-1 .log .log-input .bootstrap-tagsinput {
   width: 100%;
   border: 2px solid #111111;
-  border-radius: 30px;
-  padding: 10px 20px;
+  border-radius: 10px;
+  padding: 5px 7px;
   line-height: 2.5;
 }
 
@@ -21031,16 +21031,10 @@ footer .footter-mobile .a-first {
 
 .my-page .info-1 .log .log-input .bootstrap-tagsinput .label-info {
   color: black;
-  padding: 9px;
-  border-radius: 3px;
+  padding: 5px 7px;
+  border-radius: 5px;
   border: 1px solid #d4d3d3;
   background-color: #ededed;
-}
-
-@media (max-width: 575.98px) {
-  .my-page .info-1 .log .log-input .bootstrap-tagsinput .label-info {
-    line-height: 2;
-  }
 }
 
 .my-page textarea.input-my-theme,
@@ -21055,6 +21049,7 @@ footer .footter-mobile .a-first {
   .my-page textarea.input-my-theme,
   .my-page textarea.input-memo {
     line-height: 1.7;
+    font-size: 4vw;
   }
 }
 
@@ -21074,7 +21069,7 @@ footer .footter-mobile .a-first {
 }
 
 .my-page .panel-info {
-  padding-top: 32px;
+  padding: 32px 0 0;
 }
 
 @media (max-width: 575.98px) {
@@ -21300,6 +21295,12 @@ footer .footter-mobile .a-first {
   }
 }
 
+@media (max-width: 575.98px) {
+  .my-page .main .group-1 .category .category-input {
+    padding-right: 0px;
+  }
+}
+
 .my-page .main .group-1 .category .category-input .cb-category {
   width: 100%;
   border: 2px solid #111111;
@@ -21311,8 +21312,14 @@ footer .footter-mobile .a-first {
 .my-page .main .group-1 .category .category-text {
   font-size: 20px;
   color: #111111;
-  padding-top: 8px;
+  padding-top: 12px;
   padding-left: 0;
+}
+
+@media (max-width: 575.98px) {
+  .my-page .main .group-1 .category .category-text {
+    padding-left: 5px;
+  }
 }
 
 .my-page .main .group-1 .content-text {
@@ -21412,27 +21419,26 @@ footer .footter-mobile .a-first {
   max-height: 180px;
 }
 
+@media (max-width: 575.98px) {
+  .my-page .main .group-1 .content-text .item .wrapper .wrapper-content {
+    padding: 10px 0 0 0;
+  }
+}
+
 .my-page .main .group-1 .content-text .item .wrapper .wrapper-content .icon-favorior,
 .my-page .main .group-1 .content-text .item .wrapper .wrapper-content .text-date {
   text-align: right;
-}
-
-.my-page .main .group-1 .content-text .item .wrapper .wrapper-content .icon-favorior {
-  padding-bottom: 24px;
 }
 
 .my-page .main .group-1 .content-text .item .wrapper .wrapper-content .icon-favorior a {
   color: pink;
 }
 
-@media (max-width: 575.98px) {
-  .my-page .main .group-1 .content-text .item .wrapper .wrapper-content .icon-favorior {
-    padding: 10px;
-  }
+.my-page .main .group-1 .content-text .item .wrapper .wrapper-content p {
+  margin-bottom: 0;
 }
 
 .my-page .main .group-1 .content-text .item .wrapper .wrapper-content .text-title {
-  padding-top: 24px;
   color: #111111;
 }
 
@@ -21446,7 +21452,7 @@ footer .footter-mobile .a-first {
 }
 
 .my-page .group-2 {
-  margin-bottom: 150px;
+  margin-bottom: 50px;
 }
 
 .my-page .group-2 > .item {
@@ -21789,10 +21795,6 @@ footer .footter-mobile .a-first {
 }
 
 @media (max-width: 575.98px) {
-  .my-page .info-1 .log .log-input .bootstrap-tagsinput .label-info {
-    display: block;
-  }
-
   .event-image {
     backgroud-color: #ededed !important;
     height: 100%;

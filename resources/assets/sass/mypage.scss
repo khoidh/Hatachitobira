@@ -359,20 +359,20 @@
                 .bootstrap-tagsinput {
                     width: 100%;
                     border: 2px solid $black-color;
-                    border-radius: 30px;
-                    padding: 10px 20px;
+                    border-radius: 10px;
+                    padding: 5px 7px;
                     line-height: 2.5;
                     input {
                         width: 100%;
                     }
                     .label-info {
                         color: black;
-                        padding: 9px;
-                        border-radius: 3px;
+                        padding: 5px 7px;
+                        border-radius: 5px;
                         border: 1px solid darken(#ededed, 10%);
                         background-color: #ededed;
                         @include only-for-mobile() {
-                            line-height: 2
+                            // line-height: 3
                         }
                     }
                 }
@@ -386,7 +386,8 @@
         width: 100%;
         resize: none;
         @include only-for-mobile() {
-            line-height: 1.7
+            line-height: 1.7;
+            font-size: 4vw;
         }
     }
 
@@ -403,7 +404,7 @@
         }
     }
     .panel-info {
-        padding-top: 32px;
+        padding: 32px 0 0;
         .row{
             @include only-for-mobile() {
                 margin: 0
@@ -611,6 +612,9 @@
                 }
                 //background-color: red;
                 .category-input {
+                    @include only-for-mobile() {
+                        padding-right: 0px;
+                    }
                     .cb-category {
                         width: 100%;
                         border: 2px solid $black-color;
@@ -623,8 +627,11 @@
                 .category-text {
                     font-size: 20px;
                     color: $black-color;
-                    padding-top: 8px;
+                    padding-top: 12px;
                     padding-left: 0;
+                    @include only-for-mobile() {
+                        padding-left: 5px;
+                    }
                 }
             }
 
@@ -712,24 +719,29 @@
                         }
 
                         .wrapper-content {
-
+                            @include only-for-mobile() {
+                                padding: 10px 0 0 0;
+                            }
                             .icon-favorior,
                             .text-date {
                                 text-align: right;
                             }
 
                             .icon-favorior {
-                                padding-bottom: 24px;
+                                // padding-bottom: 24px;
                                 a{
                                     color: pink;
                                 }
                                 @include only-for-mobile() {
-                                    padding: 10px;
+                                    // padding: 10px;
                                 }
+                            }
+                            p {
+                                margin-bottom: 0;
                             }
 
                             .text-title {
-                                padding-top: 24px;
+                                // padding-top: 24px;
                                 color: $black-color;
                             }
 
@@ -751,7 +763,7 @@
 
     //Group-2
     .group-2 {
-        margin-bottom: 150px;
+        margin-bottom: 50px;
 
         >.item {
             padding-top: 64px;
@@ -1083,7 +1095,7 @@
 
 @media (max-width: 575.98px){
     .my-page .info-1 .log .log-input .bootstrap-tagsinput .label-info {
-        display: block;
+        // display: block;
     }
     .event-image {
         backgroud-color: #ededed !important;

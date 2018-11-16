@@ -11,24 +11,7 @@
 @section('description', '学校と社会をつなぐ「ハタチのトビラ」のマイページです。月単位で、「私が、探求したいこと」であるマイテーマや、自分の行動を記録してみましょう。')
 @section('title-e', 'MY PAGE')
 @section('title-j', 'マイページ')
-@section('main')
-    <div class="container-fluid mypage">
-        <div class="main row">
-            <div class="title-lx">
-                <div class="container">
-                    <div class="relative row">
-                        <div class="info col-md-12">
-                            <span class="title-e">MY PAGE</span>
-                            <div class="absolute">
-                                <p><span class="title-j"> マイページ</span></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-@endsection
+@section('body-class', 'my-page')
 @section('content')
     <div class="container my-page">
         <div class="row my-page-top">
@@ -123,10 +106,10 @@
             </div>
             <div class="col-sm-12 info-2">
                 <div class="row my-theme">
-                    <div class="col-sm-3 col-5 my-theme-text">
+                    <div class="col-sm-3 my-theme-text">
                         <div class="underline">&nbsp;今月のマイテーマ&nbsp;</div>
                     </div>
-                    <div class="col-sm-9 col-7 my-theme-input">
+                    <div class="col-sm-9 my-theme-input">
                         <textarea type="text" name="my-therme-month" class="input-my-theme" data-month="{{isset($mytheme_first->month) ? $mytheme_first->month : $data_date['month']}}" 
                                             data-year="{{isset($mytheme_first->year) ? $mytheme_first->year : $data_date['year']}}" placeholder="例:「人に喜んでもらう接客とは？」「自分の理想のチームをつくるには？」">{{$mytheme_first ? $mytheme_first->this_mytheme : ''}}</textarea>
                         <i class="fa fa-pencil pencil-theme" data-toggle="modal" data-target="#modal_my_theme">
@@ -135,10 +118,10 @@
                 </div>
                 <hr class="shape-8"/>
                 <div class="row action">
-                    <div class="col-sm-3 col-5 action-text">
+                    <div class="col-sm-3 action-text">
                         <div class="underline">&nbsp;今月のアクション &nbsp;</div>
                     </div>
-                    <div class="col-sm-9 col-7 action-input">
+                    <div class="col-sm-9 action-input">
                         <textarea style="width: 100%;border: none;" type="text" rows="2" disabled name="action-of-month" class="action-of-month" data-month="{{isset($mytheme_first->month) ? $mytheme_first->month : $data_date['month']}}" 
                                             data-year="{{isset($mytheme_first->year) ? $mytheme_first->year : $data_date['year']}}" placeholder="考えたいこと、行動したいことを3つ決めよう" disabled>{{$mytheme_first ? $mytheme_first->this_action : ''}}</textarea>
                                     <i class="fa fa-pencil pencil-action" data-toggle="modal" data-target="#modal_action">
@@ -155,7 +138,7 @@
         <div class="main ">
             <div class="container group-1">
                 <div class="category row">
-                    <strong class="col-sm-10 col-8 category-input">
+                    <strong class="col-sm-10 col-9 category-input">
                         <select name="category_id" class="cb-category" id="category_id_value" required="true" autofocus>
                             <option selected disabled>あなたのカテゴリ</option>
                             @foreach($categories as $category)
@@ -167,7 +150,7 @@
                             @endforeach
                         </select>
                     </strong>
-                    <span class="col-sm-2 col-4 category-text"><b>の新着</b></span>
+                    <span class="col-sm-2 col-3 category-text"><b>の新着</b></span>
                 </div>
 
                 <div class="content-text" id="content-text">
@@ -193,8 +176,8 @@
                                 </div>
                                 <div class="col-sm-8 wrapper-content content-column">
                                     <p class="clearfix icon-favorior"><i class="fa fa-heart-o {{$column_cate->columnliked == 1 ? 'liked' : ''}}" style="font-size: 24px;" data-user = "{{Auth::User()->id}}" data-id = "{{$column_cate->id}}"></i></p>
-                                    <span class="text-title"><b><a style="color: #111" href="{{route('column.show', $column_cate->id)}}">{{$column_cate->title}}</a></b></span>
-                                    <span class="text-category">{{$column_cate->categoryname}}</span>
+                                    <p class="text-title"><b><a style="color: #111" href="{{route('column.show', $column_cate->id)}}">{{$column_cate->title}}</a></b></p>
+                                    <p class="text-category">{{$column_cate->categoryname}}</p>
                                     <p class="text-date">{{date('Y-m-d', strtotime($column_cate->created_at))}}</p>
                                 </div>
                             </div>
@@ -221,8 +204,8 @@
                                 </div>
                                 <div class="col-sm-8 wrapper-content content-event">
                                     <p class="clearfix icon-favorior"><i class="fa fa-heart-o {{$event_cate->eventliked == 1? 'liked' : ''}}" style="font-size: 24px;" data-user = "{{Auth::User()->id}}" data-id = "{{$event_cate->id}}"></i></p>
-                                    <span class="text-title"><b><a style="color: #111111" href="{{route('event.show', $event_cate->id)}}">{{ $event_cate->title }}</a></b></span>
-                                    <span class="text-category">{{ $event_cate->categoryname }}</span>
+                                    <p class="text-title"><b><a style="color: #111111" href="{{route('event.show', $event_cate->id)}}">{{ $event_cate->title }}</a></b></p>
+                                    <p class="text-category">{{ $event_cate->categoryname }}</p>
                                     <p class="text-date">{{date('Y-m-d', strtotime($event_cate->started_at))}}</p>
                                 </div>
                             </div>
@@ -240,8 +223,8 @@
                                 </div>
                                 <div class="col-sm-8 wrapper-content content-video">
                                     <p class="clearfix icon-favorior"><i class="fa fa-heart-o {{$videos_cate->videoliked == 1? 'liked' : ''}}" style="font-size: 24px;" data-user = "{{Auth::User()->id}}" data-id = "{{$videos_cate->id}}"></i></p>
-                                    <span class="text-title"><b>{{ $videos_cate->title }}</b></span>
-                                    <span class="text-category">{{ $videos_cate->categoryname }}</span>
+                                    <p class="text-title"><b>{{ $videos_cate->title }}</b></p>
+                                    <p class="text-category">{{ $videos_cate->categoryname }}</p>
                                     <p class="text-date">{{ $videos_cate->created_at }}</p>
                                 </div>
                             </div>
