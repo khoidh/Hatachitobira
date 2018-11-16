@@ -21,6 +21,7 @@ body {
 
 .top .movie-top-description {
     margin-top: 10px;
+    margin-bottom: 2rem;
     font-size: 16px;
 }
 
@@ -30,6 +31,9 @@ body {
     background-color: #fff100;
     margin-bottom: 30px;
     margin-top: 60px;
+    &.last {
+        margin-bottom: 50px;
+    }
 }
 
 .top .container .text_detail_title {
@@ -183,8 +187,9 @@ body {
 
 
 .top .movie_image_description {
-    font-size: 16px;
-    line-height: 2;
+    font-size: 17px;
+    padding: 0 20px;
+    line-height: 1.5;
     width: 96%;
     text-align: left;
     font-weight: bold;
@@ -200,7 +205,7 @@ body {
 
 .top .content-title {
     position: relative;
-    top: -110px;
+    top: -140px;
 }
 
 .top .text-title-3 {
@@ -275,6 +280,7 @@ body {
 }
 
 .top .video-detail {
+    background-color: rgba(0, 0, 0, 0.5s);
     margin: 0;
     padding: 0;
 
@@ -354,9 +360,9 @@ body {
     background-image: url(/images/user/top/back-gr-1.png), url(/images/user/top/back-gr-3.png);
     background-repeat: no-repeat;
     background-position: left, right;
-    background-position-y: 50%, 58%;
-    background-size: 39%, 20%;
-    background-position-x: 20px, 100%;
+    background-position-y: 48%, 130%;
+    background-size: 40%, 25%;
+    background-position-x: 15px, 100%;
 }
 
 .top .content-last .more-detail {
@@ -386,7 +392,7 @@ body {
     }
 }
 
-.top .movie-top-2 .container,
+// .top .movie-top-2 .container,
 .top .movie-top-2 .container .col-xs-12row {
     padding: 0;
 }

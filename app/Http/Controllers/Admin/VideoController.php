@@ -56,8 +56,8 @@ class VideoController extends Controller
                 $video->thumbnails = $result->items[0]->snippet->thumbnails->high->url; 
                 $video->embedHtml = $result->items[0]->player->embedHtml; 
                 $video->viewCount = (double)($result->items[0]->statistics->viewCount); 
-                $publishedAt = strtotime($result->items[0]->snippet->publishedAt);
-                $video->publishedAt = date('Y-m-d H:i:s',$publishedAt);
+                $published_at = strtotime($result->items[0]->snippet->publishedAt);
+                $video->published_at = date('Y-m-d H:i:s',$published_at);
                 
                 $video->save();
                 return redirect()->route('videos.index');
@@ -114,8 +114,8 @@ class VideoController extends Controller
                 $video->thumbnails = $result->items[0]->snippet->thumbnails->high->url; 
                 $video->embedHtml = $result->items[0]->player->embedHtml; 
                 $video->viewCount = (double)($result->items[0]->statistics->viewCount); 
-                $publishedAt = strtotime($result->items[0]->snippet->publishedAt);
-                $video->publishedAt = date('Y-m-d H:i:s',$publishedAt);
+                $published_at = strtotime($result->items[0]->snippet->publishedAt);
+                $video->published_at = date('Y-m-d H:i:s',$published_at);
                 
                 $video->save();
                 return redirect()->route('videos.show',['id' => $video->id]);

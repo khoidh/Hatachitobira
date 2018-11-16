@@ -208,10 +208,10 @@ $description = '学校と社会をつなぐ「ハタチのトビラ」は、将�
                     <p class="movie-top-description">コンセプトムービー</p>
                     <div class="corner-wrapper video">
                         <div class="video-list">
-                            @if(isset($video_concept) && $video_concept->count() > 0)
                             <div class="video-detail">
                                 <div class="wrapper">
                                     <div class="thump">
+                                        @if(isset($video_concept) && $video_concept->count() > 0)
                                         <div class="browse-details" data-id='{{$video_concept->id}}' data-src='{{$video_concept->embedHtml}}' data-url = "{{$video_concept->url}}">
                                             <img src="{{ asset('images/user/video/btn-play.png')}}" alt="" >
                                         </div>
@@ -219,10 +219,18 @@ $description = '学校と社会をつなぐ「ハタチのトビラ」は、将�
                                             <img class="img-icon" src="{{  $video_concept->thumbnails}}" alt="{{$video_concept->title}}">
                                         </a>
                                         <p class="video-title">{{$video_concept->title}}</p>
+                                        @else
+                                        <div class="browse-details" data-id='1' data-src='' data-url = "">
+                                            <img src="{{ asset('images/user/video/btn-play.png')}}" alt="" >
+                                        </div>
+                                        <a href="#">
+                                            <img class="img-icon" src="" alt="">
+                                        </a>
+                                        <p class="video-title">映画テンプレート</p>
+                                        @endif
                                     </div>
                                 </div>
                             </div>
-                            @endif
                         </div>
 
                         <!-- <iframe width="100%" height="100%" src="https://www.youtube.com/embed/ObwNpMXlmPU" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen="allowfullscreen"></iframe> -->
