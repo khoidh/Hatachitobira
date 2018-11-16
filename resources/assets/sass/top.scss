@@ -99,12 +99,13 @@ main {
                 padding: 3px 10px;
                 margin: 1px;
                 letter-spacing: 0px;
-
+                @include mainvisual-font(36px, 160%);
             }
             .description{
                 font-size: 12px;
                 position: relative;
                 padding: 5px 0;
+                font-family: $font-family-oswald;
 
                 @include only-for-tab-pc() {
                     -webkit-text-orientation: mixed;
