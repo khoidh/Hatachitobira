@@ -288,6 +288,12 @@
             cursor: auto;
             pointer-events: none;
         }
+        span {
+            font-size: 1.4rem;
+            @include only-for-mobile() {
+                font-size: 0.7rem;
+            }
+        }
     }
     .favorite.edit {
         i {

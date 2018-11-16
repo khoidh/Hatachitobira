@@ -20972,6 +20972,16 @@ footer .footter-mobile .a-first {
   pointer-events: none;
 }
 
+.my-page .select-month span {
+  font-size: 1.4rem;
+}
+
+@media (max-width: 575.98px) {
+  .my-page .select-month span {
+    font-size: 0.7rem;
+  }
+}
+
 @media (max-width: 575.98px) {
   .my-page .favorite.edit i span {
     display: none;
