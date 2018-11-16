@@ -183,7 +183,7 @@
                                             src="{{asset('images/user/column/column-visible-icon.png')}}" alt="column-visible-icon.png"
                                         @endif
                                     >
-                                    <span style="@if($column_cate->type ==1) left: 50px;top: -14px; @endif">{{$column_cate->type == 1 ? 'コラム' : 'インタビュー' }}</span>
+                                    <span class="ws-text" style="@if($column_cate->type ==1) @endif">{{$column_cate->type == 1 ? 'コラム' : 'インタビュー' }}</span>
                                 </div>
                                 <div class="col-sm-4 wrapper-icon">
                                     <a href="{{route('column.show', $column_cate->id)}}" style="text-decoration:none;">
@@ -211,7 +211,7 @@
                                             src="{{asset('images/user/event/event-visible-icon.png')}}" alt="event-visible-icon.png"
                                         @endif
                                     >
-                                    <span style="@if($event_cate->eventstatus == '受付前' || $event_cate->eventstatus == '受付終了'|| $event_cate->eventstatus == '開催終了' ) left: 48px; top: -15px; color: white !important; @endif">{{$event_cate->eventstatus}}</span>
+                                    <span class="ws-text"  style="@if($event_cate->eventstatus == '受付前' || $event_cate->eventstatus == '受付終了'|| $event_cate->eventstatus == '開催終了' ) color: white !important; @endif">{{$event_cate->eventstatus}}</span>
                                 </div>
                                 <div class="col-sm-4 wrapper-icon">
                                     <a href="{{route('event.show', $event_cate->id)}}" style="text-decoration:none;">
@@ -304,14 +304,17 @@
                                 <div class="article carousel-item {{ $key == 0 ? 'active' : ''}}">
                                     <div class="article-status">
                                         <hr class="shape-8"/>
-                                        <img
-                                            @if($event->eventstatus == '受付中' || $event->eventstatus == '開催中')
-                                                src="{{asset('images/user/event/event-icon.png')}}" alt="event-icon.png"
-                                            @else
-                                                src="{{asset('images/user/event/event-visible-icon.png')}}" alt="event-visible-icon.png"
-                                            @endif
-                                        >
-                                        <span style="@if($event->eventstatus == '受付前' || $event->eventstatus == '受付終了'|| $event->eventstatus == '開催終了' ) left: 20px; color: white !important;@else color: black !important @endif">{{$event->eventstatus}}</span>
+                                        <div class="wrapper-status">
+                                            <img
+                                                    @if($event->eventstatus == '受付中' || $event->eventstatus == '開催中')
+                                                    src="{{asset('images/user/event/event-icon.png')}}" alt="event-icon.png"
+                                                    @else
+                                                    src="{{asset('images/user/event/event-visible-icon.png')}}" alt="event-visible-icon.png"
+                                                    @endif
+                                            >
+                                            <span class="ws-text" style="@if($event->eventstatus == '受付前' || $event->eventstatus == '受付終了'|| $event->eventstatus == '開催終了' ) color: white !important;@else color: black !important @endif">{{$event->eventstatus}}</span>
+                                        </div>
+
                                     </div>
                                     <div class="article-content row">
                                         <div class="content-left col-md-4">
@@ -372,14 +375,16 @@
                                 @endphp
                                 <div class="article-status">
                                     <hr class="shape-8"/>
-                                    <img
-                                        @if($column->type == 0)
-                                            src="{{asset('images/user/column/column-icon.png')}}" alt="column-icon.png"
-                                        @else
-                                            src="{{asset('images/user/column/column-visible-icon.png')}}" alt="column-visible-icon.png"
-                                        @endif
-                                    >
-                                    <span style="@if($column->type ==1) left: 25px; @endif">{{$column_state}}</span>
+                                    <div class="wrapper-status">
+                                        <img
+                                                @if($column->type == 0)
+                                                src="{{asset('images/user/column/column-icon.png')}}" alt="column-icon.png"
+                                                @else
+                                                src="{{asset('images/user/column/column-visible-icon.png')}}" alt="column-visible-icon.png"
+                                                @endif
+                                        >
+                                        <span class="ws-text" style="@if($column->type ==1)  @endif">{{$column_state}}</span>
+                                    </div>
                                 </div>
                                 <div class="article-content row">
                                     <div class="content-left col-md-4">
