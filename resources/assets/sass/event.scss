@@ -463,6 +463,13 @@
     z-index: 10000000;
     margin-left: -17%;
   }
+  .event .icon img{
+    min-width: auto;
+    min-height: auto;
+    margin: 0 auto;
+    display: block;
+  }
+
 }
 
 @media only screen and (max-width: 375px){
