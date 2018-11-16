@@ -47,7 +47,7 @@
                 </div>
             </div>
         </div>
-        <div class="row video-list">
+        <div class="row video-list list-video-tall">
             @forelse($videos as $result)
                 <?php 
                     $title = $result->title;

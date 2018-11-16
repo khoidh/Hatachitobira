@@ -649,6 +649,10 @@ footer .footter-mobile .a-first {
         position: absolute;
         left: -32px;
     }
+
+    .banner .slick-list {
+        overflow: unset;
+    }
 }
 
 .top .category-aa {
@@ -665,6 +669,8 @@ footer .footter-mobile .a-first {
     //     padding-right: 6%;
     // }
 }
+
+
 
 .banner figure>img.image-sp {
     display: none;
@@ -1127,7 +1133,7 @@ footer .footter-mobile .a-first {
 
     .top .movie-top-3 {
         position: relative;
-        top: -105px;
+        top: 0px;
     }
 
     .top .movie-top-1,
