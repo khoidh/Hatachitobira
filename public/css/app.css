@@ -16676,6 +16676,26 @@ a.text-dark:focus {
   }
 }
 
+.collapse-toggle {
+  position: relative;
+}
+
+.collapse-toggle:after {
+  font-family: FontAwesome;
+  position: absolute;
+  top: 0;
+  right: 20px;
+  display: block;
+}
+
+.collapse-toggle[aria-expanded=true]:after {
+  content: "\F106";
+}
+
+.collapse-toggle[aria-expanded=false]:after {
+  content: "\F107";
+}
+
 @media (min-width: 576px) {
   #top .fixed-header {
     display: none;
@@ -16708,13 +16728,14 @@ a.text-dark:focus {
 @media (max-width: 575.98px) {
   .fixed-header .find-theme {
     background-color: #FFFFFF;
-    padding: 3px;
+    padding: 20px;
   }
 
   .fixed-header .find-theme a {
     display: block;
     background-color: #111111;
     color: #FFFFFF !important;
+    text-align: center;
   }
 }
 
@@ -16729,9 +16750,27 @@ a.text-dark:focus {
           justify-content: flex-end;
 }
 
+.navbar-nav {
+  padding-top: 10px;
+}
+
 .navbar-nav li {
   height: 80px;
   line-height: 80px;
+}
+
+@media (max-width: 575.98px) {
+  .navbar-nav li {
+    min-height: 60px;
+    height: auto;
+    line-height: 60px;
+    border-bottom: 1px solid #EEE;
+  }
+
+  .navbar-nav li .collapse.show,
+  .navbar-nav li:first-child {
+    border-top: 1px solid #EEE;
+  }
 }
 
 .navbar-nav .dropdown-menu .dropdown-item {
@@ -18353,15 +18392,6 @@ footer .footter-mobile .a-first {
 }
 
 @media (max-width: 427px) {
-  ul.navbar-nav {
-    padding-top: 10px;
-  }
-
-  .navbar-nav li {
-    height: 50px;
-    line-height: 50px;
-  }
-
   .banner figure > img {
     width: 100%;
   }

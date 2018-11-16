@@ -28,11 +28,12 @@
         }
         @include only-for-mobile() {
             background-color: $white-color;
-            padding: 3px ;
+            padding: 20px;
             a {
                 display: block;
                 background-color: $black-color;
                 color: $white-color !important;
+                text-align: center;
             }
         }
     }
@@ -45,10 +46,23 @@
     width: 100%;
     justify-content: flex-end;
 }
+
 .navbar-nav {
+    padding-top: 10px;
     li {
         height: 80px;
         line-height: 80px;
+        @include only-for-mobile() {
+            min-height: 60px;
+            height: auto;
+            line-height: 60px;
+            border-bottom: 1px solid $light-gray-color;
+
+            .collapse.show,
+            &:first-child {
+                border-top: 1px solid $light-gray-color;
+            }
+        }
     }
 
     .dropdown-menu {
