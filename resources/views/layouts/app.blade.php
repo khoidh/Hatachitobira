@@ -36,7 +36,7 @@
 
     <!-- @yield('slide') -->
         <div class="content" style="top: 55px">
-            <div class="container-fluid">
+            <div class="container-fluid fixed-header">
                 @include('includes.header')
             </div>
 
