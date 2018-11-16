@@ -176,25 +176,101 @@
           font-size: 20px;
           padding: 5px 0;
 
-          input[type=checkbox]
-          {
-            /* Double-sized Checkboxes */
-            -ms-transform: scale(2); /* IE */
-            -moz-transform: scale(2); /* FF */
-            -webkit-transform: scale(2); /* Safari and Chrome */
-            -o-transform: scale(2); /* Opera */
-            padding: 10px;
+          // Customer checkbox ==========================
+          /* Base for label styling */
+          [type="checkbox"]:not(:checked),
+          [type="checkbox"]:checked {
+            position: absolute;
+            left: -9999px;
           }
+          [type="checkbox"]:not(:checked) + label,
+          [type="checkbox"]:checked + label {
+            position: relative;
+            padding-left: 1.35em;
+            cursor: pointer;
+          }
+
+          /* checkbox aspect */
+          [type="checkbox"]:not(:checked) + label:before,
+          [type="checkbox"]:checked + label:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.1em;
+            width: 7.6vw;
+            height: 7.6vw;
+            border: 2px solid #ccc;
+            background: #fff;
+            border-radius: 4px;
+            box-shadow: inset 0 1px 3px rgba(0,0,0,.1);
+          }
+
+          /* checked mark aspect */
+          [type="checkbox"]:not(:checked) + label:after,
+          [type="checkbox"]:checked + label:after {
+            content: '\2713\0020';
+            position: absolute;
+            top: .3em;
+            left: .02em;
+            font-size: 1.2em;
+            font-weight: bold;
+            line-height: 0.8;
+            color: #434343;
+            transition: all .2s;
+            font-family: 'Lucida Sans Unicode', 'Arial Unicode MS', Arial;
+          }
+          /* checked mark aspect changes */
+          [type="checkbox"]:not(:checked) + label:after {
+            opacity: 0;
+            transform: scale(0);
+          }
+          [type="checkbox"]:checked + label:after {
+            opacity: 1;
+            transform: scale(1);
+          }
+          /* disabled checkbox */
+          [type="checkbox"]:disabled:not(:checked) + label:before,
+          [type="checkbox"]:disabled:checked + label:before {
+            box-shadow: none;
+            border-color: #bbb;
+            background-color: #ddd;
+          }
+          [type="checkbox"]:disabled:checked + label:after {
+            color: #999;
+          }
+          [type="checkbox"]:disabled + label {
+            color: #aaa;
+          }
+          /* accessibility */
+          [type="checkbox"]:checked:focus + label:before,
+          [type="checkbox"]:not(:checked):focus + label:before {
+            //border: 2px dotted blue;
+          }
+
+          /* hover style just for information */
+          label:hover:before {
+            //border: 2px solid #4778d9!important;
+          }
+
+          //input[type=checkbox]
+          //{
+          //  /* Double-sized Checkboxes */
+          //  -ms-transform: scale(2); /* IE */
+          //  -moz-transform: scale(2); /* FF */
+          //  -webkit-transform: scale(2); /* Safari and Chrome */
+          //  -o-transform: scale(2); /* Opera */
+          //  padding: 10px;
+          //}
 
           /* Might want to wrap a span around your checkbox text */
           .checkboxtext
           {
             /* Checkbox text */
-            font-size: 110%;
+            font-size: 30vm;
             display: inline;
           }
 
-
+          // End Customer checkbox ==========================
         }
       }
     }
