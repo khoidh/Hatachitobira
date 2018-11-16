@@ -47,10 +47,10 @@
             </div>
             <div class="col-sm-12 info-1">
                 <div class="row memo">
-                    <div class="col-sm-2 col-4 memo-text">
-                        <div class="underline">&nbsp;MEMO&nbsp;</div>
+                    <div class="col-sm-2 col-3 memo-text">
+                        <h3 class="underline-text">&nbsp;MEMO&nbsp;</h3>
                     </div>
-                    <div class="col-sm-10 col-8 memo-input">
+                    <div class="col-sm-10 col-9 memo-input">
                         <textarea type="text" name="" class="input-memo" data-month="{{isset($mytheme_first->month) ? $mytheme_first->month : $data_date['month']}}"  disabled 
                                             data-year="{{isset($mytheme_first->year) ? $mytheme_first->year : $data_date['year']}}"  placeholder="先月の行動を振り返り記録しよう"> {{$mytheme_first? $mytheme_first->memo : ''}}</textarea>
                         <i class="fa fa-pencil pencil-memo" data-toggle="modal" data-target="#modal_memo">
@@ -59,10 +59,10 @@
                 </div>
                 <hr class="shape-8"/>
                 <div class="row log">
-                    <div class="col-sm-2 col-4 log-text">
-                        <div class="underline">&nbsp;先月のログ&nbsp;</div>
+                    <div class="col-sm-2 log-text">
+                        <h3 class="underline-text">&nbsp;先月のログ&nbsp;</h3>
                     </div>
-                    <div class="col-sm-10 col-8 log-input">
+                    <div class="col-sm-10 log-input">
                         <input type="text" name="" class="input-lat-log" data-role="tagsinput" data-month="{{isset($mytheme_first->month) ? $mytheme_first->month : $data_date['month']}}" 
                                             data-year="{{isset($mytheme_first->year) ? $mytheme_first->year : $data_date['year']}}" placeholder="先月の自分を#で記録しよう　#バイト三昧　#初ボランティア" value="{{$mytheme_first ? $mytheme_first->last_log : ''}}">
 

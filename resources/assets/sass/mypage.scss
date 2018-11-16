@@ -249,9 +249,15 @@
     .how-to-use {
         .a-user {
             float: right;
+            @include only-for-mobile() {
+                font-size: 13px;
+            }
 
             .fa {
                 font-size: large;
+                    @include only-for-mobile() {
+                        font-style: small;
+                    }
                 color: $black-color;
             }
 
@@ -268,6 +274,13 @@
         //font-size: 60px;
         color: $black-color;
         z-index: 998;
+        h1 {
+            margin-top: 15px;
+            margin-bottom: 30px;
+            @include only-for-mobile() {
+                font-size: 1.5rem;
+            }
+        }
         .fa {
             cursor: pointer;
         }
@@ -325,6 +338,14 @@
             .log-text {
                 //padding-bottom: 10px;
                 padding-top: 24px;
+                @include only-for-mobile() {
+                    padding-top: 0px;
+                }
+                h3 {
+                    font-size: 1.2rem;
+                    font-weight: bold;
+
+                }
 
                 .underline {
                     @extend %underline;
@@ -387,7 +408,7 @@
         padding-top: 32px;
         .row{
             @include only-for-mobile() {
-                padding: 0 20px;
+                // padding: 0 20px;
             }
         }
         .panel-info-wrapper {
@@ -403,7 +424,7 @@
                 border-radius: 10px;
                 height: 236px;
                 @include only-for-mobile() {
-                    height: 150px;
+                    height: 125px;
                     font-size: 12px;
                     margin-bottom: 0;
                     border-radius: 0px;
@@ -470,7 +491,7 @@
                     border-radius: 10px;
                     background-size: 100% 100%;
                     @include only-for-mobile() {
-                        height: 150px;
+                        height: 125px;
                         font-size: 12px;
                         border-radius: 0px;
                     }

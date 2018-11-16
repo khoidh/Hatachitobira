@@ -1,0 +1,171 @@
+
+.flex {
+  @include flex(flex);
+  @include flex-align-items(flex-start);
+}
+.flex-center {
+  @include flex(flex);
+  @include flex-wrap(nowrap);
+  @include flex-justify-content(center);
+  @include flex-align-items(flex-start);
+}
+.flex-center-center {
+  @include flex(flex);
+  @include flex-wrap(nowrap);
+  @include flex-justify-content(center);
+  @include flex-align-items(center);
+}
+.flex-wrap-center {
+  @include flex(flex);
+  @include flex-wrap(wrap);
+  @include flex-justify-content(center);
+  @include flex-align-items(flex-start);
+}
+.flex-center-stretch {
+  @include flex(flex);
+  @include flex-wrap(nowrap);
+  @include flex-justify-content(center);
+  @include flex-align-items(stretch);
+}
+.flex-wrap-center-stretch {
+  @include flex(flex);
+  @include flex-wrap(wrap);
+  @include flex-justify-content(center);
+  @include flex-align-items(stretch);
+}
+.flex-start {
+  @include flex(flex);
+  @include flex-wrap(nowrap);
+  @include flex-justify-content(flex-start);
+  @include flex-align-items(flex-start);
+}
+.flex-wrap-start {
+  @include flex(flex);
+  @include flex-wrap(wrap);
+  @include flex-justify-content(flex-start);
+  @include flex-align-items(flex-start);
+}
+.flex-space-between {
+  @include flex(flex);
+  @include flex-wrap(nowrap);
+  @include flex-justify-content(space-between);
+  @include flex-align-items(flex-start);
+}
+.flex-wrap-space-between {
+  @include flex(flex);
+  @include flex-wrap(wrap);
+  @include flex-justify-content(space-between);
+  @include flex-align-items(flex-start);
+}
+.flex-space-between-stretch {
+  @include flex(flex);
+  @include flex-wrap(nowrap);
+  @include flex-justify-content(space-between);
+  @include flex-align-items(stretch);
+}
+.flex-space-between-center {
+  @include flex(flex);
+  @include flex-wrap(nowrap);
+  @include flex-justify-content(space-between);
+  @include flex-align-items(center);
+}
+.flex-space-between-end {
+  @include flex(flex);
+  @include flex-wrap(nowrap);
+  @include flex-justify-content(space-between);
+  @include flex-align-items(flex-end);
+}
+.flex-wrap-space-between-stretch {
+  @include flex(flex);
+  @include flex-wrap(wrap);
+  @include flex-justify-content(space-between);
+  @include flex-align-items(stretch);
+}
+.flex-strat-stretch {
+  @include flex(flex);
+  @include flex-wrap(nowrap);
+  @include flex-justify-content(flex-start);
+  @include flex-align-items(stretch);
+}
+.flex-wrap-strat-stretch {
+  @include flex(flex);
+  @include flex-wrap(wrap);
+  @include flex-justify-content(flex-start);
+  @include flex-align-items(stretch);
+}
+.flex-wrap-space-around-stretch {
+  @include flex(flex);
+  @include flex-wrap(wrap);
+  @include flex-justify-content(space-around);
+  @include flex-align-items(stretch);
+}
+.flex-wrap-column {
+  @include flex(flex);
+  @include flex-direction(column);
+  @include flex-wrap(wrap);
+}
+.flex-buttons {
+  @include flex-center-buttons();
+}
+
+$flex_classes: (
+  'flex-space-between',
+  'flex-wrap-space-between',
+);
+
+
+@include only-for-tab-pc {
+
+  .flex-space-between-pc {
+    @include flex(flex);
+    @include flex-wrap(nowrap);
+    @include flex-justify-content(space-between);
+    @include flex-align-items(flex-start);
+  }
+  .flex-wrap-space-between-pc {
+    @include flex(flex);
+    @include flex-wrap(wrap);
+    @include flex-justify-content(space-between);
+    @include flex-align-items(flex-start);
+  }
+
+  @each $flex_class in $flex_classes {
+    .#{$flex_class}-pc {
+      &.c-col2 {
+        .c-col {
+          width: 48%;
+        }
+      }
+      &.c-col3 {
+        .c-col {
+          width: 31%;
+        }
+      }
+    }
+  }
+}
+
+@include only-for-mobile() {
+  .flex-space-between-mobile {
+    @include flex(flex);
+    @include flex-wrap(nowrap);
+    @include flex-justify-content(space-between);
+    @include flex-align-items(flex-start);
+  }
+
+  .flex-wrap-strat-stretch-mobile {
+    @include flex(flex);
+    @include flex-wrap(wrap);
+    @include flex-justify-content(flex-start);
+    @include flex-align-items(stretch);
+  }
+
+  @each $flex_class in $flex_classes {
+    .#{$flex_class}-mobile {
+      .c-col {
+        width: 100%;
+        margin-bottom: 20px;
+      }
+    }
+  }
+}

@@ -1,10 +1,12 @@
 <header class="fixed header">
     <div class="bx_header">
         <nav class="navbar navbar-expand-lg navbar-light">
-            <a class="logo navbar-brand" href="/">
-                <img src="{{ asset('images/user/top/logo.png') }}" alt="">
-            </a>
-            <p>ベータ版</p>
+            <div class="logo navbar-brand">
+                <a href="/">
+                    <img src="{{ asset('images/user/top/logo.png') }}" alt="ハタチのトビラ">
+                    <span>ベータ版</span>
+                </a>
+            </div>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon-tmp"></span>
             </button>
