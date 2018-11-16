@@ -17711,6 +17711,10 @@ body {
   margin-top: 60px;
 }
 
+.container .cb-path.last {
+  margin-bottom: 50px;
+}
+
 .top .container .text_detail_title {
   font-weight: bold;
   font-size: 24px;
@@ -17877,7 +17881,7 @@ body {
 
 .top .content-title {
   position: relative;
-  top: -110px;
+  top: -140px;
 }
 
 .top .text-title-3 {
@@ -17956,6 +17960,7 @@ body {
 }
 
 .top .video-detail {
+  background-color: rgba(0, 0, 0, 0.5);
   margin: 0;
   padding: 0;
 }
@@ -18037,9 +18042,9 @@ body {
   background-image: url(/images/user/top/back-gr-1.png), url(/images/user/top/back-gr-3.png);
   background-repeat: no-repeat;
   background-position: left, right;
-  background-position-y: 50%, 58%;
-  background-size: 39%, 20%;
-  background-position-x: 20px, 100%;
+  background-position-y: 48%, 130%;
+  background-size: 40%, 25%;
+  background-position-x: 15px, 100%;
 }
 
 .top .content-last .more-detail {
