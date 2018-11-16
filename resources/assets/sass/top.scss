@@ -444,3 +444,39 @@ footer .footer-bottom li {
     }
 }
 
+@media (max-width: 768px){
+    .flex-space-between-pc{
+        height: 570px;
+    }
+    .top .movie-top-2 .p-text{
+        font-size: 27px;
+    }
+    .top .movie-top-3 .content-tile-movie .text-vertical-pc{
+        top: 17px;
+        font-size: 27px;
+    }
+}
+@media(max-width: 575.98px) {
+    .flex-space-between-pc {
+        height: 1160px;
+    }
+    .top .movie_image_description{
+        font-size: 20px !important;
+    }
+    .top .container.movie-top-4{
+        margin-top: -90px !important;
+    }
+    .top .container.movie-top-4.content-2{
+        position: relative;
+        top: 100px;
+    }
+}
+
+@media (max-width: 480px){
+    .flex-space-between-pc {
+        height: 1060px;
+    }
+    .top .container.movie-top-4 {
+        margin-top: 5px !important;
+    }
+}
