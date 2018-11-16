@@ -22,7 +22,7 @@ class VideoController extends Controller
             ->select('videos.*','categories.name as category_name')
             ->join('categories','categories.id','=','videos.category_id')
             ->where('categories.display', 1)
-            ->orderBy('id','desc')
+            ->orderBy('sort','desc')->orderBy('published_at','desc')->orderBy('id','desc')
             ->paginate(9);
         
         foreach ($videos as $video)
@@ -40,7 +40,7 @@ class VideoController extends Controller
             }
             $video->favorite = $like;
             $date1 = new DateTime();
-            $date2 = new DateTime($video->publishedAt);
+            $date2 = new DateTime($video->published_at);
             $interval = $date2->diff($date1);
             $video->date_diff = $interval->m;
 
@@ -61,7 +61,7 @@ class VideoController extends Controller
             $videos =$videos->where('category_id',$data['category']);
         }
 
-        $videos =$videos->orderBy('id','desc')->paginate(9);
+        $videos =$videos->orderBy('sort','desc')->orderBy('published_at','desc')->orderBy('id','desc')->paginate(9);
 
         /*End filter*/
         $videos = $videos->get();
@@ -79,7 +79,7 @@ class VideoController extends Controller
             }
             $video->favorite = $like;
             $date1 = new DateTime();
-            $date2 = new DateTime($video->publishedAt);
+            $date2 = new DateTime($video->published_at);
             $interval = $date2->diff($date1);
             $video->date_diff = $interval->m;
         }
@@ -108,7 +108,7 @@ class VideoController extends Controller
         }
         
         /*End filter*/
-        $videos = $videos->orderBy('id','desc')->paginate(9);
+        $videos = $videos->orderBy('sort','desc')->orderBy('published_at','desc')->orderBy('id','desc')->paginate(9);
 
         foreach ($videos as $key => $video)
         {
@@ -125,7 +125,7 @@ class VideoController extends Controller
             $video->favorite = $like;
             
             $date1 = new DateTime();
-            $date2 = new DateTime($video->publishedAt);
+            $date2 = new DateTime($video->published_at);
             $interval = $date2->diff($date1);
             $video->date_diff = $interval->m;
 

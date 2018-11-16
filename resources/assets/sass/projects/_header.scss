@@ -124,8 +124,14 @@
     box-shadow: 1px 1px 8px 1px rgba(50, 49, 49, 0.39) !important;
 }
 
+.logo.navbar-brand {
+    @include only-for-tab-pc() {
+        padding: 0 1rem
+    }
+}
+
 .dropdown-menu.show:before {
-     @include only-for-tab-pc() {
+    @include only-for-tab-pc() {
         content: "";
         width: 45px;
         height: 30px;
