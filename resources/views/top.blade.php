@@ -27,9 +27,9 @@ $description = '学校と社会をつなぐ「ハタチのトビラ」は、将�
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('assets/slick/slick.min.js') }}"></script>
 </head>
-<body style="overflow-x: hidden;">
+<body id="top" style="overflow-x: hidden;">
     
-    <header id="myHeader">
+    <header id="myHeader" class="top-header">
         <div class="bx_header">
             <div class="hd_left">
                 <nav class="navbar navbar-expand-lg navbar-light flex-column">
@@ -106,7 +106,9 @@ $description = '学校と社会をつなぐ「ハタチのトビラ」は、将�
         </div>
         <!--/.bx_header-->
     </header>
-           
+    <div class="container-fluid fixed-header">
+    @include('includes.header')
+    </div>
         
     <div class="container-fluid top">
         <div class="banner figure">
@@ -516,43 +518,46 @@ $description = '学校と社会をつなぐ「ハタチのトビラ」は、将�
             // Add the sticky class to the header when you reach its scroll position. Remove "sticky" when you leave the scroll position
             function myFunction() {
                 if (window.pageYOffset > sticky) {
-                    header.classList.add("fixed");
-                    $('.navbar.navbar-expand-lg.navbar-light').removeClass('flex-column');
-                    $('.navbar-nav.mr-auto').removeClass('flex-column');
-                    $('.nav-link.link-append').css('display','block');
+                    $('.fixed-header').show();
+                    $('.top-header').hide();
+                    // header.classList.add("fixed");
+                    // $('.navbar.navbar-expand-lg.navbar-light').removeClass('flex-column');
+                    // $('.navbar-nav.mr-auto').removeClass('flex-column');
+                    // $('.nav-link.link-append').css('display','block');
                 } else {
-                    header.classList.remove("fixed");
-                    $('.bx_header .navbar-nav.mr-auto .link-a').remove();
-                    $('.navbar.navbar-expand-lg.navbar-light').addClass('flex-column');
-                    $('.navbar-nav.mr-auto').addClass('flex-column');
-                    $('.nav-link.link-append').css('display','none');
+                    $('.fixed-header').hide();
+                    $('.top-header').show();
+                    // header.classList.remove("fixed");
+                    // $('.bx_header .navbar-nav.mr-auto .link-a').remove();
+                    // $('.navbar.navbar-expand-lg.navbar-light').addClass('flex-column');
+                    // $('.navbar-nav.mr-auto').addClass('flex-column');
+                    // $('.nav-link.link-append').css('display','none');
                 }
-
             }
+            myFunction();
         }
 
         if (window.innerWidth < 993) {
-            header.classList.add("fixed");
             
-            $("body").css('padding-top','100px');
-            $('.navbar.navbar-expand-lg.navbar-light').removeClass('flex-column');
-            $('.navbar-nav.mr-auto').removeClass('flex-column');
-            $('.bx_header .navbar-nav.mr-auto').append('<li class="nav-item"><a style="height: 40px; padding: 8px 0px;" class="nav-link link-append {{Auth::Guest() ? 'show-modal-register-mypage' : ''}}" href="{{url("my-page")}}">マイテーマを見つける</a></li>');
-            $('.bx_header .navbar-nav.mr-auto').css('align-items','flex-start');
-            $('.bx_header .navbar-nav.mr-auto').css('font-weight','bold');
-            $('.bx_header .navbar-nav.mr-auto').css('background-color','#fff');
-            $('.bx_header .navbar-nav.mr-auto').css('margin-top','10px');
-            $('.bx_header .nav-item').addClass('aaaafixed');
-            $('.banner.figure').append('<a class="round-button black lg {{Auth::Guest() ? "show-modal-register-mypage" : ""}}" href="{{url("my-page")}}">マイテーマを見つける</a>');
+            // $("body").css('padding-top','100px');
+            // $('.navbar.navbar-expand-lg.navbar-light').removeClass('flex-column');
+            // $('.navbar-nav.mr-auto').removeClass('flex-column');
+            // $('.bx_header .navbar-nav.mr-auto').append('<li class="nav-item"><a style="height: 40px; padding: 8px 0px;" class="nav-link link-append {{Auth::Guest() ? 'show-modal-register-mypage' : ''}}" href="{{url("my-page")}}">マイテーマを見つける</a></li>');
+            // $('.bx_header .navbar-nav.mr-auto').css('align-items','flex-start');
+            // $('.bx_header .navbar-nav.mr-auto').css('font-weight','bold');
+            // $('.bx_header .navbar-nav.mr-auto').css('background-color','#fff');
+            // $('.bx_header .navbar-nav.mr-auto').css('margin-top','10px');
+            // $('.bx_header .nav-item').addClass('aaaafixed');
+            // $('.banner.figure').append('<a class="round-button black lg {{Auth::Guest() ? "show-modal-register-mypage" : ""}}" href="{{url("my-page")}}">マイテーマを見つける</a>');
 
-            $('.dropdown').on('show.bs.dropdown', function() {
-                $(this).find('.dropdown-menu').first().stop(true, true).slideDown();
-              });
+            // $('.dropdown').on('show.bs.dropdown', function() {
+            //     $(this).find('.dropdown-menu').first().stop(true, true).slideDown();
+            //   });
 
-              // Add slideUp animation to Bootstrap dropdown when collapsing.
-            $('.dropdown').on('hide.bs.dropdown', function() {
-                $(this).find('.dropdown-menu').first().stop(true, true).slideUp();
-            });
+            //   // Add slideUp animation to Bootstrap dropdown when collapsing.
+            // $('.dropdown').on('hide.bs.dropdown', function() {
+            //     $(this).find('.dropdown-menu').first().stop(true, true).slideUp();
+            // });
 
             $('.image-top.row').slick({
                 autoplay: false,
