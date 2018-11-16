@@ -16219,6 +16219,25 @@ a.text-dark:focus {
   }
 }
 
+.round-button.md {
+  width: 240px;
+  font-size: 20px;
+  font-weight: 700;
+  height: 50px;
+}
+
+.round-button.md.full {
+  width: 100%;
+}
+
+@media (max-width: 575.98px) {
+  .round-button.md {
+    margin: 0 auto;
+    width: 92%;
+    font-weight: 500;
+  }
+}
+
 .round-button:hover {
   opacity: 0.7;
 }
