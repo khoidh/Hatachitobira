@@ -11,6 +11,6 @@ class VideoType extends Model
 
     public function videos()
     {
-        return $this->hasMany('App\Models\video','category_id');
+        return $this->hasMany('App\Models\video','type');
     }
 }

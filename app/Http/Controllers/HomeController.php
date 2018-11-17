@@ -57,21 +57,20 @@ class HomeController extends Controller
             ->take(3)->get();
 
         $videos_1 = Video::select()
-            ->select('videos.*','categories.name as category_name')
-            ->join('categories','categories.id','=','videos.category_id')
-            ->where('type',Video::JOB_SHADOW_TYPE)
+            ->select('videos.*','video_types.name as category_name')
+            ->join('video_types','video_types.id','=','videos.type')
             ->orderBy('id','desc')->get();
 
         $video_concept = Video::select()
-            ->select('videos.*','categories.name as category_name')
-            ->join('categories','categories.id','=','videos.category_id')
+            ->select('videos.*','video_types.name as category_name')
+            ->join('video_types','video_types.id','=','videos.type')
             ->orderBy('sort','asc')
-            ->where('type',Video::CONCEPT_MOVIE_TYPE)
+            ->where('type',Video::JOB_SHADOW_TYPE)
             ->first();
 
         $videos_2 = Video::select()
-            ->select('videos.*','categories.name as category_name')
-            ->join('categories','categories.id','=','videos.category_id')
+            ->select('videos.*','video_types.name as category_name')
+            ->join('video_types','video_types.id','=','videos.type')
             ->orderBy('id','desc')
             ->where('type',Video::ROLE_PLAY_TYPE)
             ->get();

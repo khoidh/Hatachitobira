@@ -7,9 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Video extends Model
 {
-    const JOB_SHADOW_TYPE = 0;
-    const ROLE_PLAY_TYPE = 1;
-    const CONCEPT_MOVIE_TYPE = 2;
+    const JOB_SHADOW_TYPE = 1;
+    const ROLE_PLAY_TYPE = 2;
+    const CONCEPT_MOVIE_TYPE = 3;
 
     protected $table = 'videos';
     protected $fillable = ['category_id', 'url', 'description', 'image', 'sort','type','published_at'];
@@ -17,7 +17,7 @@ class Video extends Model
 
     public function category()
     {
-        return $this->belongsTo('App\Models\VideoType','category_id');
+        return $this->belongsTo('App\Models\VideoType','type');
     }
 
     public function favorites()

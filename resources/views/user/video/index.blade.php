@@ -34,7 +34,9 @@
                 <select name="category_id" id="category_id" class="">
                     <option value="">動画のタイプ</option>
                     @foreach($categories as $category)
-                    <option value="{{$category->id}}">{{$category->name}}</option>
+                    <option value="{{$category->id}}"
+                        >{{$category->name}}</option>
+                        }
                     @endforeach
                     <option value="">全て</option>
                 </select>
