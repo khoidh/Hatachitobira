@@ -265,7 +265,10 @@
           .checkboxtext
           {
             /* Checkbox text */
-            font-size: 30vm;
+            font-size: 4vw;
+            @include only-for-tab-pc(){
+              font-size: 1vw;
+            }
             display: inline;
           }
 
