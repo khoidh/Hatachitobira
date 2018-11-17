@@ -138,7 +138,7 @@
         <div class="main ">
             <div class="container group-1">
                 <div class="category row">
-                    <strong class="col-sm-10 col-9 category-input select-wrapper">
+                    <div class="col-sm-10 col-9 category-input select-wrapper">
                         <select name="category_id" class="" id="category_id_value" required="true" autofocus>
                             <option selected disabled>あなたのカテゴリ</option>
                             @foreach($categories as $category)
@@ -149,7 +149,7 @@
                                 @endif
                             @endforeach
                         </select>
-                    </strong>
+                    </div>
                     <span class="col-sm-2 col-3 category-text"><b>の新着</b></span>
                 </div>
 
