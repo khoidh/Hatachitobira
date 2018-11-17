@@ -70,7 +70,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function() {
 |--------------------------------------------------------------------------
 */
 // Route::resource('event', 'User\EventController');
-Route::resource('video', 'User\VideoController');
+Route::get('video', 'User\VideoController@index')->name('video');
 Route::resource('column', 'User\ColumnController');
 Route::get('event','User\EventController@index')->name('event.index');
 Route::get('event/{event}','User\EventController@show')->name('event.show');

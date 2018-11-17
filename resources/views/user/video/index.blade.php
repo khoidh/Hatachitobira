@@ -36,6 +36,7 @@
                     @foreach($categories as $category)
                     <option value="{{$category->id}}">{{$category->name}}</option>
                     @endforeach
+                    <option value="">全て</option>
                 </select>
             </div>
             <div class="col-md-6 col-12 input-wrapper">

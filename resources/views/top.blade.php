@@ -364,7 +364,7 @@ $description = '学校と社会をつなぐ「ハタチのトビラ」は、将�
                         
                     </div>
                 </div>
-                <a href="{{url('video')}}">
+                <a href="{{ route('video', ['slug' => 'job_shadow']) }}">
                     <span class="more-detail ">MORE</span>
                     <img src="{{ asset('images/user/top/arrow-1.png') }}" >
                 </a>
@@ -444,7 +444,7 @@ $description = '学校と社会をつなぐ「ハタチのトビラ」は、将�
                         
                     </div>
                 </div>
-                <a href="{{ url('video') }}">
+                <a href="{{ route('video', ['slug' => 'role_model']) }}">
                     <span class="more-detail ">MORE</span>
                     <img src="{{ asset('images/user/top/arrow-1.png') }}">
                 </a>

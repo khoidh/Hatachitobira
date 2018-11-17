@@ -5,7 +5,7 @@ namespace App\Http\Controllers\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 Use App\Video;
-Use App\Category;
+Use App\Models\VideoType;
 Use DateTime;
 use Illuminate\Pagination\LengthAwarePaginator;
 use App\Favorite;
@@ -16,15 +16,15 @@ class VideoController extends Controller
 
     public function index(Request $request)
     {
-
-        $categories = Category::where('display',1)->get();
+        $categories = VideoType::all();
         $videos = Video::select()
-            ->select('videos.*','categories.name as category_name')
-            ->join('categories','categories.id','=','videos.category_id')
-            ->where('categories.display', 1)
-            ->orderBy('sort','desc')->orderBy('published_at','desc')->orderBy('id','desc')
-            ->paginate(9);
-        
+            ->select('videos.*','video_types.name as category_name')
+            ->join('video_types','video_types.id','=','videos.category_id');
+
+        if ($request->has('slug')) {
+            $videos = $videos->where('video_types.slug', $request->get('slug'));
+        }
+        $videos =$videos->orderBy('sort','desc')->orderBy('published_at','desc')->orderBy('id','desc')->paginate(9);
         foreach ($videos as $video)
         {
 
@@ -52,10 +52,10 @@ class VideoController extends Controller
     public function videoSearchCategory(Request $request) {
         $data = $request->all();
         
-        $categories = Category::where('display',1)->get();
+        $categories = VideoType::all();
         $videos = Video::select()
-            ->select('videos.*','categories.name as category_name')
-            ->join('categories','categories.id','=','videos.category_id');
+            ->select('videos.*','video_types.name as category_name')
+            ->join('video_types','video_types.id','=','videos.category_id');
 
         if (isset($data['category']) && $data['category'] != 0) {
             $videos =$videos->where('category_id',$data['category']);
@@ -91,21 +91,20 @@ class VideoController extends Controller
        
         
         $videos = Video::select()
-            ->select('videos.*','categories.name as category_name')
-            ->join('categories','categories.id','=','videos.category_id');
+            ->select('videos.*','video_types.name as category_name')
+            ->join('video_types','video_types.id','=','videos.category_id');
 
-        
         if($request->category_id !='')
         {
             $category_id = $request->category_id;
             $videos = $videos->where('category_id',$category_id);
         }
         
-        if($request->description !='')
-        {
-            $description = $request->description;
-            $videos = $videos->where('title','like',"%$description%");
-        }
+        // if($request->description !='')
+        // {
+        //     $description = $request->description;
+        //     $videos = $videos->where('title','like',"%$description%");
+        // }
         
         /*End filter*/
         $videos = $videos->orderBy('sort','desc')->orderBy('published_at','desc')->orderBy('id','desc')->paginate(9);

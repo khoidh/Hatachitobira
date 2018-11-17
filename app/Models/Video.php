@@ -2,6 +2,7 @@
 
 namespace App;
 use Auth;
+Use App\Models\VideoType;
 use Illuminate\Database\Eloquent\Model;
 
 class Video extends Model
@@ -16,7 +17,7 @@ class Video extends Model
 
     public function category()
     {
-        return $this->belongsTo('App\Models\category','category_id');
+        return $this->belongsTo('App\Models\VideoType','category_id');
     }
 
     public function favorites()
@@ -28,7 +29,7 @@ class Video extends Model
 
     public function getCategorynameAttribute(){
         $category_id = $this->attributes['category_id'];
-        $categoryname =Category::find($category_id);
+        $categoryname =VideoType::find($category_id);
         return $categoryname->name;
     }
 
