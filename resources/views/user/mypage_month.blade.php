@@ -92,7 +92,7 @@
 <div class="col-sm-12 info-2">
     <div class="row my-theme">
         <div class="col-sm-3 col-4 my-theme-text">
-            <div class="underline">&nbsp;今月のマイテーマ&nbsp;</div>
+            <h5 class="underline-text font-weight-bold">&nbsp;今月のマイテーマ&nbsp;</h5>
         </div>
         <div class="col-sm-9 col-8 my-theme-input">
             <textarea type="text" name="my-therme-month" class="input-my-theme" data-month="{{isset($mytheme_first->month) ? $mytheme_first->month : $data_date['month']}}" 
@@ -104,7 +104,7 @@
     <hr class="shape-8"/>
     <div class="row action">
                     <div class="col-sm-3 col-5 action-text">
-                        <div class="underline">&nbsp;今月のアクション &nbsp;</div>
+                        <h5 class="underline-text font-weight-bold">&nbsp;今月のアクション &nbsp;</h5>
                     </div>
                     <div class="col-sm-9 col-7 action-input">
                         <textarea style="width: 100%;border: none;" type="text" rows="2" name="action-of-month" data-month="{{isset($mytheme_first->month) ? $mytheme_first->month : $data_date['month']}}" 

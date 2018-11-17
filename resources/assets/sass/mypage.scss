@@ -313,52 +313,15 @@ $panel_info_height_sp: 130px;
         @include only-for-mobile() {
             padding: 20px;
         }
-        .memo {
-            .memo-text {
-                padding-bottom: 16px;
-
-                .underline {
-                    @extend %underline;
-                    font-size: 36px;
-                    box-shadow: inset 0 -15px 0 $yellow-color;
-                    @include only-for-mobile() {
-                        font-size: 20px;
-                    }
-                }
-            }
-
-            .memo-input {
-                padding-top: 8px;
-
-                input {
-                    width: 100%;
-                    border: none;
-                }
-            }
-        }
-
         .shape-8 {
             @extend %shape-8;
         }
 
         .log {
             .log-text {
-                //padding-bottom: 10px;
-                padding-top: 24px;
+                padding-top: 10px;
                 @include only-for-mobile() {
                     padding-top: 0px;
-                }
-                h3 {
-                    font-size: 1.2rem;
-                    font-weight: bold;
-
-                }
-
-                .underline {
-                    @extend %underline;
-                    box-shadow: inset 0 -10px 0 $yellow-color;
-                    padding-top: 20px;
-                    
                 }
             }
 
