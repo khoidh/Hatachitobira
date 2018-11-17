@@ -182,7 +182,7 @@ header.fixed {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
+    width: 100vw;
     transform: translate3d(0, 0, 0);
     background-color: #fff;
     box-shadow: 0 0 8px 0 rgba(50, 49, 49, 0.39);
