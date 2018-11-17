@@ -318,7 +318,7 @@ $description = '学校と社会をつなぐ「ハタチのトビラ」は、将�
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4 video-movie">
+                    <div class="col-md-4 video-movie flex-space-between-mobile">
                         <div class="corner-wrapper video movie-2">
                             <div class="video-list">
                                 @foreach($videos_1 as $key => $result)
@@ -398,7 +398,7 @@ $description = '学校と社会をつなぐ「ハタチのトビラ」は、将�
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4 video-movie">
+                    <div class="col-md-4 video-movie flex-space-between-mobile">
                         <div class="corner-wrapper video movie-2">
                             <div class="video-list">
                                 @foreach($videos_2 as $key => $result)
