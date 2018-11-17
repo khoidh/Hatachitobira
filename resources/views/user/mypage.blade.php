@@ -258,107 +258,102 @@
 
     <div class="container my-page">
         <div class="group-2">
-            <div class="item video1">
-                <div class="underline video-title">お気に入り動画(<span class="count-video">{{count($videos)}}</span>)</div>
-                <div class="row video-content video">
-                    <div class="row video-list col-md-12">
-                        <div class="carousel-inner carosel-video-list row mx-auto">
-                            @forelse($videos as $key => $result)
-                                <div class=" item col-xs-12 col-sm-12 col-md-12 col-lg-12 video-detail carousel-item {{ $key == 0  ? 'active' : ''}}">
-                                    <div class="wrapper">
-                                        <div class="thump">
-                                            <div class="browse-details" data-id='{{$result->id}}' data-user='{{Auth::user() ? Auth::user()->id : "" }}' data-src='{{$result->embedHtml}}' data-url="{{$result->url}}">
-                                                <img src="{{ asset('images/user/video/btn-play.png')}}" alt="" >
-                                                <div class="favorite" data-id='{{$result->id}}' data-user='{{Auth::user() ? Auth::user()->id : "" }}'><i class="fa fa-heart-o {{$result->favorite == 1 ? 'liked' : ''}}"></i></div>
-                                             </div>
-                                            <a href="#">
-                                                <img class="img-icon" src="{{  $result->thumbnails}}" alt="">
-                                            </a>
+            <div class="video">
+                <h2 class="underline-text font-weight-bold">お気に入り動画 <span class="count-video">({{count($videos)}})</span></h2>
+                <div class="video-list">
+                    <div class="carousel-inner carosel-video-list">
+                        @forelse($videos as $key => $result)
+                            <div class=" item col-12 video-detail carousel-item {{ $key == 0  ? 'active' : ''}}">
+                                <div class="wrapper">
+                                    <div class="thump">
+                                        <div class="browse-details" data-id='{{$result->id}}' data-user='{{Auth::user() ? Auth::user()->id : "" }}' data-src='{{$result->embedHtml}}' data-url="{{$result->url}}">
+                                            <img src="{{ asset('images/user/video/btn-play.png')}}" alt="" >
+                                            <div class="favorite" data-id='{{$result->id}}' data-user='{{Auth::user() ? Auth::user()->id : "" }}'><i class="fa fa-heart-o {{$result->favorite == 1 ? 'liked' : ''}}"></i></div>
+                                         </div>
+                                        <a href="#">
+                                            <img class="img-icon" src="{{  $result->thumbnails}}" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="description">
+                                        <p>{{ $result->title }}</p>
+                                        <span>{{$result->viewCount}} Views / {{$result->date_diff}} month ago / {{$result->category_name}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        @empty
+                        <span class="more-detail" style="width: 100%;top: 0;margin-left: 15px; ">
+                        <a href="{{url('video')}}" style="color: #111111;margin-left: 0;display: -webkit-inline-box;margin-top: 12px;"><b>MORE</b><img src="{{asset('images/user/top/arrow-1.png')}}" style="max-width:99px; max-height:23px;"></a></span>
+                        @endforelse
+                    </div>
+                </div>
+            </div>
+
+            <div class="event">
+                <h2 class="underline-text font-weight-bold">参加したイベント <span class="count-video">({{$events->count()}})</span></h2>
+                <div class="article-list">
+                    <div id="carouselExample" class="carousel slide" data-ride="carousel" data-interval="false" data-wrap="false">
+                        <div class="carousel-inner row mx-auto" role="listbox">
+                            @forelse($events as $key => $event)
+                            <div class="article carousel-item {{ $key == 0 ? 'active' : ''}}">
+                                <div class="article-status">
+                                    <hr class="shape-8"/>
+                                    <div class="wrapper-status">
+                                        <img
+                                                @if($event->eventstatus == '受付中' || $event->eventstatus == '開催中')
+                                                src="{{asset('images/user/event/event-icon.png')}}" alt="event-icon.png"
+                                                @else
+                                                src="{{asset('images/user/event/event-visible-icon.png')}}" alt="event-visible-icon.png"
+                                                @endif
+                                        >
+                                        <span class="ws-text" style="">{{$event->eventstatus}}</span>
+                                        {{-- @if($event->eventstatus == '受付前' || $event->eventstatus == '受付終了'|| $event->eventstatus == '開催終了' ) color: white !important;@else color: black !important @endif --}}
+                                    </div>
+
+                                </div>
+                                <div class="article-content row">
+                                    <div class="content-left col-md-4">
+                                        <a href="{{route('event.show', $event->id)}}" style="text-decoration:none;">
+                                            @php $image='images/admin/event/'.$event->image; @endphp
+                                            <img src="{{file_exists($image)?asset($image): asset('images/user/event/event_default.jpg')}}" alt="{{$event->title}}">
+                                        </a>
+                                    </div>
+                                    <div class="content-right col-md-8">
+                                        <div class="icon-favorite">
+                                            <i class="fa fa-heart-o {{ $event->eventliked == 1 ? 'liked' : ''}}"  data-id='{{$event->id}}' data-user='{{Auth::user() ? Auth::user()->id : "" }}' style="font-size:24px;"></i>
                                         </div>
-                                        <div class="description">
-                                            <p>{{ $result->title }}</p>
-                                            <span>{{$result->viewCount}} Views / {{$result->date_diff}} month ago / {{$result->category_name}}</span>
+                                        <div class="title"><a href="{{route('event.show', $event->id)}}">{{$event->title}}</a> &nbsp;&nbsp; <span style="color: #636B6F;">{{$event->category_name}}</span></div>
+                                        <div class="category" style="color: #636B6F;">
+                                            <p>{{$event->category_name}}</p>
+                                        </div>
+                                        <div class="date" >
+                                            <p>{{date('Y-m-d', strtotime($event->started_at))}}</p>
                                         </div>
                                     </div>
                                 </div>
+                            </div>
                             @empty
-                            <span class="more-detail" style="width: 100%;top: 0;margin-left: 15px; ">
-                            <a href="{{url('video')}}" style="color: #111111;margin-left: 0;display: -webkit-inline-box;margin-top: 12px;"><b>MORE</b><img src="{{asset('images/user/top/arrow-1.png')}}" style="max-width:99px; max-height:23px;"></a></span>
+                            <p>社会人から話を聞いて、マイテーマ探しをしてみよう</p>
+                            <span class="more-detail" style="width: 100%;top: 0;">
+                            <a href="{{url('event')}}"><b>マイテーマをみつけるノウハウ、イベントレポートを見てみよう<br>記事を探す</b><img src="{{asset('images/user/top/arrow-1.png')}}"></a></span>
                             @endforelse
                         </div>
-                     </div>
-                </div>
-            </div>
-
-            <div class="item event">
-                <div class="underline event-title">参加したイベント({{$events->count()}})</div>
-                <div class="event-content">
-                    <div class="article-list col-md-12">
-                        <div id="carouselExample" class="carousel slide" data-ride="carousel" data-interval="false" data-wrap="false">
-                            <div class="carousel-inner row mx-auto" role="listbox">
-                                @forelse($events as $key => $event)
-                                <div class="article carousel-item {{ $key == 0 ? 'active' : ''}}">
-                                    <div class="article-status">
-                                        <hr class="shape-8"/>
-                                        <div class="wrapper-status">
-                                            <img
-                                                    @if($event->eventstatus == '受付中' || $event->eventstatus == '開催中')
-                                                    src="{{asset('images/user/event/event-icon.png')}}" alt="event-icon.png"
-                                                    @else
-                                                    src="{{asset('images/user/event/event-visible-icon.png')}}" alt="event-visible-icon.png"
-                                                    @endif
-                                            >
-                                            <span class="ws-text" style="">{{$event->eventstatus}}</span>
-                                            {{-- @if($event->eventstatus == '受付前' || $event->eventstatus == '受付終了'|| $event->eventstatus == '開催終了' ) color: white !important;@else color: black !important @endif --}}
-                                        </div>
-
-                                    </div>
-                                    <div class="article-content row">
-                                        <div class="content-left col-md-4">
-                                            <a href="{{route('event.show', $event->id)}}" style="text-decoration:none;">
-                                                @php $image='images/admin/event/'.$event->image; @endphp
-                                                <img src="{{file_exists($image)?asset($image): asset('images/user/event/event_default.jpg')}}" alt="{{$event->title}}">
-                                            </a>
-                                        </div>
-                                        <div class="content-right col-md-8">
-                                            <div class="icon-favorite">
-                                                <i class="fa fa-heart-o {{ $event->eventliked == 1 ? 'liked' : ''}}"  data-id='{{$event->id}}' data-user='{{Auth::user() ? Auth::user()->id : "" }}' style="font-size:24px;"></i>
-                                            </div>
-                                            <div class="title"><a href="{{route('event.show', $event->id)}}">{{$event->title}}</a> &nbsp;&nbsp; <span style="color: #636B6F;">{{$event->category_name}}</span></div>
-                                            <div class="category" style="color: #636B6F;">
-                                                <p>{{$event->category_name}}</p>
-                                            </div>
-                                            <div class="date" >
-                                                <p>{{date('Y-m-d', strtotime($event->started_at))}}</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                @empty
-                                <p>社会人から話を聞いて、マイテーマ探しをしてみよう</p>
-                                <span class="more-detail" style="width: 100%;top: 0;">
-                                <a href="{{url('event')}}"><b>イベントを探す</b><img src="{{asset('images/user/top/arrow-1.png')}}"></a></span>
-                                @endforelse
-                            </div>
-                            @if(count($events) > 1)
-                             <a class="carousel-control-prev" style="display: none;" href="#carouselExample" role="button" data-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="sr-only">Previous</span>
-                            </a>
-                            <a class="carousel-control-next text-faded" href="#carouselExample" role="button" data-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="sr-only">Next</span>
-                            </a>
-                            @endif
-                        </div>
+                        @if(count($events) > 1)
+                         <a class="carousel-control-prev" style="display: none;" href="#carouselExample" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next text-faded" href="#carouselExample" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                        @endif
                     </div>
-                    
                 </div>
             </div>
 
-            <div class="item column">
-                <div class="underline column-title">お気に入り記事(<span class="column-count">{{$columns->count()}}</span>)</div>
-                <div class="article-list col-md-12">
+            <div class="event">
+                <h2 class="underline-text font-weight-bold">お気に入り記事 <span class="column-count">({{$columns->count()}})</span></h2>
+                <div class="article-list">
                     <div id="carouselExampleevent" class="carousel slide" data-ride="carousel" data-interval="false" data-wrap="false">
                         <div class="carousel-inner carouselExampleevent-item row mx-auto" role="listbox">
                             @forelse($columns as $key_1 => $column)

@@ -69,9 +69,6 @@
             }
         }
     }
-    /* ========== End style title màu vàng =========== */
-    position: relative;
-    top: 50px;
 }
 
 .video .search-container button {
@@ -163,20 +160,80 @@
     width: 55px
 }
 
-.video .video-list {
-    margin-top: -37px;
-    -webkit-align-items: stretch; /* Safari */
-    align-items:         stretch;
+$top-height: 70px;
+$title-to-slide-height: 35px;
+
+.video {
+    position: relative;
+    margin-top: 60px;
+    
+    .video-list {
+        margin-top: -$title-to-slide-height;
+        align-items: stretch;
+
+        .slick-track {
+            margin-top: $top-height;
+        }
+
+        .slick-arrow {
+            position: absolute;
+            top: 6%;
+            display: block;
+            width: 35px;
+            height: 35px;
+            // padding: 0px;
+            transform: translate(0, -50%);
+            cursor: pointer;
+            z-index: 99;
+            border: none;
+
+            &.slick-prev {
+                right: 48px;
+                background-image: url(/images/user/top/arrow_prev.png);
+                background-size: 100%;
+                background-color: transparent;
+                background-repeat: no-repeat;
+            }
+
+            &.slick-next {
+                right: 10px;
+                background-image: url(/images/user/top/arrow_next.png);
+                background-size: 90%;
+                background-color: transparent;
+                background-repeat: no-repeat;
+            }
+        }
+
+        .video-detail {
+            padding-left: 0;
+            @include only-for-mobile() {
+                padding-right: 0;
+            }
+        }
+
+
+    }
+
+    .img {
+        border-radius: 15px;
+
+    }
+
+    .title {
+        padding-top: 16px;
+        color: $black-color;
+        text-align: justify;
+    }
+
+    .attached {
+        color: $text2-color;
+        font-size: small;
+    }
 }
+
 
 .video .video-list.list-video-tall{
     margin-top: 40px;
-}
-
-.video .video-detail {
-    margin-bottom: 10px;
-    position: relative;
-    // padding-bottom: 10px;
 }
 
 .video .description p{
@@ -327,11 +384,6 @@
     //}
 
 }
-.video {
-    top: 0px;
-    padding-top: 23px;
-}
-
 .video-content.video {
     padding-top: 0;
 }

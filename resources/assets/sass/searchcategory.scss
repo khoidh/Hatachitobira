@@ -226,33 +226,35 @@
     height: 175px;
 }
 
-.carousel-control-prev,
-.carousel-control-next {
-    top: -22px !important;
-    .carousel-control-prev-icon {
-        background-image: url('/images/user/top/arrow_prev.png');
-        width: 35px;
-        height: 35px;
-        border: none;
-        background-color: transparent !important;
-        background-size: 100% !important;
-        position: relative;
-        top: -35px;
-        @include only-for-mobile() {
-            right: 9px;
-        }
+
+@include only-for-mobile() {
+    .carousel-control-prev,
+    .carousel-control-next {
+        top: -19% !important;
     }
-    .carousel-control-next-icon {
-        background-image: url('/images/user/top/arrow_next.png');
-        width: 35px;
-        height: 35px;
-         border: none;
-        background-color: transparent !important;
-        background-size: 95% !important;
-        position: relative;
-        top: -35px;
-        right: -7px;
-    }
+}
+
+.carousel-control-prev {
+    right: 48px !important;
+}
+
+.carousel-control-prev-icon {
+    background-image: url('/images/user/top/arrow_prev.png');
+    width: 35px;
+    height: 35px;
+    border: none;
+    background-color: transparent !important;
+    background-size: 100% !important;
+    position: relative;
+}
+.carousel-control-next-icon {
+    background-image: url('/images/user/top/arrow_next.png');
+    width: 35px;
+    height: 35px;
+     border: none;
+    background-color: transparent !important;
+    background-size: 95% !important;
+    position: relative;
 }
 
 .video-search .carousel-control-prev,
