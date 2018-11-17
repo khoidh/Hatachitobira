@@ -447,7 +447,7 @@ footer .footer-bottom li {
 }
 
 @media (max-width: 768px){
-    .flex-space-between-pc{
+    .top .movie-top-2 .flex-space-between-pc{
         height: 570px;
     }
     .top .movie-top-2 .p-text{
@@ -459,7 +459,7 @@ footer .footer-bottom li {
     }
 }
 @media(max-width: 575.98px) {
-    .flex-space-between-pc {
+    .top .movie-top-2 .flex-space-between-pc {
         height: 1160px;
     }
     .top .movie_image_description{
@@ -475,7 +475,7 @@ footer .footer-bottom li {
 }
 
 @media (max-width: 480px){
-    .flex-space-between-pc {
+    .top .movie-top-2 .flex-space-between-pc {
         height: 1150px;
     }
     .top .container.movie-top-4 {
