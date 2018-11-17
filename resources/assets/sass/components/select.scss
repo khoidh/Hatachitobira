@@ -1,21 +1,25 @@
-.select-wrapper {
+@mixin wrapper_layout {
   position: relative;
+  line-height: 1.5;
+  margin-bottom: 15px;
+}
+
+@mixin select_input_layout {
+  background: $white;
+  border: 2px solid $black-color;
+  border-radius: 35px;
+  padding: 10px 20px;
+  font-size: 18px;
+  color: $black-color;
+  appearance: none;
+}
+
+.select-wrapper {
+  @include wrapper_layout;
 
   select {
-    background: $white;
-    border: 2px solid $black-color;
-    border-radius: 35px;
+    @include select_input_layout;
     width: 100%;
-    padding: 10px 20px;
-    font-size: 18px;
-    color: $black-color;
-
-    /* Here's the code we need */
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    -ms-appearance: none;
-     -o-appearance: none;
-      appearance: none;
   }
 
   select::-ms-expand {
@@ -27,14 +31,34 @@
     content: '\f107';
     font-size: 28px;
     position: absolute;
-    top: 12px;
+    top: 5px;
     right: 30px;
     color: $black-color;
     pointer-events: none;
-
-    @include only-for-mobile() {
-      right: 20px;
-    }
   }
 }
 
+.input-wrapper {
+  @include wrapper_layout;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+
+  input {
+    @include select_input_layout;
+    width: 1%;
+    flex: 1 1 auto;
+    border-right: none;
+
+    &:not(:last-child) {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+  }
+  button {
+    @include select_input_layout;
+    border-left: none;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+}

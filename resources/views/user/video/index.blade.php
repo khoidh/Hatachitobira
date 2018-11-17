@@ -29,22 +29,18 @@
 @endsection
 @section('content')
     <div class="container video">
-        <div class="row">
-            <div class="form-group col-md-6 col-sm-6">
-                <select name="category_id" id="category_id" class="form-control">
-                    <option value="">Category</option>
+        <div class="category row">
+            <div class="col-md-6 col-12 category-input select-wrapper">
+                <select name="category_id" id="category_id" class="">
+                    <option value="">カテゴリ</option>
                     @foreach($categories as $category)
                     <option value="{{$category->id}}">{{$category->name}}</option>
                     @endforeach
                 </select>
             </div>
-            <div class="form-group col-md-6 col-sm-6">
-                <div class="topnav">
-                    <div class="search-container">
-                        <input type="text" placeholder="" name="search">
-                        <button id="searchvideo"><i class="fa fa-search" ></i></button>
-                    </div>
-                </div>
+            <div class="col-md-6 col-12 input-wrapper">
+                <input type="text" placeholder="" name="search">
+                <button id="searchvideo"><i class="fa fa-search" ></i></button>
             </div>
         </div>
         <div class="row video-list list-video-tall">
