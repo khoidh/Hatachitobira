@@ -32,7 +32,7 @@
         <div class="category row">
             <div class="col-md-6 col-12 category-input select-wrapper">
                 <select name="category_id" id="category_id" class="">
-                    <option value="">カテゴリ</option>
+                    <option value="">動画のタイプ</option>
                     @foreach($categories as $category)
                     <option value="{{$category->id}}">{{$category->name}}</option>
                     @endforeach
