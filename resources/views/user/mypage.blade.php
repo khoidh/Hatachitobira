@@ -281,7 +281,7 @@
                                 </div>
                             </div>
                         @empty
-                        <span class="more-detail" style="width: 100%;top: 0;margin-left: 15px; ">
+                        <span class="more-detail">
                         <a href="{{url('video')}}" style="color: #111111;margin-left: 0;display: -webkit-inline-box;margin-top: 12px;"><b>MORE</b><img src="{{asset('images/user/top/arrow-1.png')}}" style="max-width:99px; max-height:23px;"></a></span>
                         @endforelse
                     </div>
@@ -333,7 +333,7 @@
                             </div>
                             @empty
                             <p>社会人から話を聞いて、マイテーマ探しをしてみよう</p>
-                            <span class="more-detail" style="width: 100%;top: 0;">
+                            <span class="more-detail">
                             <a href="{{url('event')}}"><b>マイテーマをみつけるノウハウ、イベントレポートを見てみよう<br>記事を探す</b><img src="{{asset('images/user/top/arrow-1.png')}}"></a></span>
                             @endforelse
                         </div>
@@ -397,7 +397,7 @@
                                 </div>
                             </div>
                             @empty
-                            <span class="more-detail" style="width: 100%;top: 0;margin-top: 40px;">
+                            <span class="more-detail">
                                 <a href="{{url('column')}}" style="color: #111111;"><b>MORE</b><img src="{{asset('images/user/top/arrow-1.png')}}"></a></span>
                             @endforelse
                         </div>
@@ -642,7 +642,7 @@
 
                         $('.count-video').text(_number);
                         if (_number == 0) {
-                            $('.carousel-inner.carosel-video-list').html('<span class="more-detail" style="width: 100%;top: 0;margin-left: 15px; "><a href="{{url('video')}}" style="color: #111111;margin-left: 0;display: -webkit-inline-box;margin-top: 12px;"><b>MORE</b><img src="{{asset('images/user/top/arrow-1.png')}}"></a></span>');
+                            $('.carousel-inner.carosel-video-list').html('<span class="more-detail"><a href="{{url('video')}}" style="color: #111111;margin-left: 0;display: -webkit-inline-box;margin-top: 12px;"><b>MORE</b><img src="{{asset('images/user/top/arrow-1.png')}}"></a></span>');
                         }
                     }
                 }   
@@ -729,7 +729,7 @@
                         _this.parents('.article.carousel-item').next().addClass('active');
                         _this.parents('.article.carousel-item').remove();
                         if (number == 0) {
-                            $('.carouselExampleevent-item').html('<span class="more-detail" style="width: 100%;margin-top: 40px; "><a href="{{url('column')}}" style="color: #111111;margin-left: 0;display: -webkit-inline-box;margin-top: 30px;"><b>MORE</b><img src="{{asset('images/user/top/arrow-1.png')}}"></a></span>');
+                            $('.carouselExampleevent-item').html('<span class="more-detail"><a href="{{url('column')}}" style="color: #111111;margin-left: 0;display: -webkit-inline-box;margin-top: 30px;"><b>MORE</b><img src="{{asset('images/user/top/arrow-1.png')}}"></a></span>');
                         }
                     }
                 }   
