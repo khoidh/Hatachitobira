@@ -52,7 +52,7 @@
                         <input type="text" name="" class="input-lat-log" data-role="tagsinput"
                             data-month="{{isset($mytheme_first->month) ? $mytheme_first->month : $data_date['month']}}" 
                             data-year="{{isset($mytheme_first->year) ? $mytheme_first->year : $data_date['year']}}"
-                            placeholder="先月の自分を#で記録しよう　#バイト三昧　#初ボランティア"
+                            placeholder="{{isset($mytheme_first->last_log) ? '' : '先月の自分を#で記録しよう　#バイト三昧　#初ボランティア'}}"
                             value="{{$mytheme_first ? $mytheme_first->last_log : ''}}">
                     </div>
                 </div>
@@ -282,7 +282,11 @@
                             </div>
                         @empty
                         <span class="more-detail">
-                        <a href="{{url('video')}}" style="color: #111111;margin-left: 0;display: -webkit-inline-box;margin-top: 12px;"><b>MORE</b><img src="{{asset('images/user/top/arrow-1.png')}}" style="max-width:99px; max-height:23px;"></a></span>
+                            <a href="{{url('video')}}">
+                                <b>多様な仕事の1日に触れ、自分の興味や視野を広げよう動画を探す</b>
+                                <img src="{{asset('images/user/top/arrow-1.png')}}">
+                            </a>
+                        </span>
                         @endforelse
                     </div>
                 </div>
@@ -334,7 +338,11 @@
                             @empty
                             <p>社会人から話を聞いて、マイテーマ探しをしてみよう</p>
                             <span class="more-detail">
-                            <a href="{{url('event')}}"><b>マイテーマをみつけるノウハウ、イベントレポートを見てみよう<br>記事を探す</b><img src="{{asset('images/user/top/arrow-1.png')}}"></a></span>
+                                <a href="{{url('event')}}">
+                                    <b>マイテーマをみつけるノウハウ、イベントレポートを見てみよう記事を探す</b>
+                                    <img src="{{asset('images/user/top/arrow-1.png')}}">
+                                </a>
+                            </span>
                             @endforelse
                         </div>
                         @if(count($events) > 1)

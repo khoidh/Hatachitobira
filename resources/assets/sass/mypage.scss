@@ -738,6 +738,14 @@ $panel_info_height_sp: 130px;
     //Group-2
     .group-2 {
         margin-bottom: 50px;
+        .video {
+            span.more-detail {
+                width: 100% !important;
+            }
+            a {
+                color: #6b6b6b;
+            }
+        }
         .event,
         .column {
             margin-top: 60px;
@@ -746,7 +754,7 @@ $panel_info_height_sp: 130px;
             }
 
             a {
-                color: #6b6b6b
+                color: #6b6b6b;
             }
         }
 
