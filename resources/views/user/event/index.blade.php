@@ -18,8 +18,8 @@
                     <br>
                     <span>マイテーマを磨くための一歩を踏みだすイベント情報</span>
                 </div>
-                <div class="row">
-                    <div class="icon-01 col-md-4">
+                <div class="row flex-space-between-pc p-features">
+                    <div class="icon-01 c-col">
                         <div class="col-md-12">
                             <img src="{{asset('images/user/event/img-event-0-1.png')}}" alt="event 01.png">
                             <div class="jladev_stt_1"></div>
@@ -27,7 +27,7 @@
                             <P class="icon-content jladev_even_text">ベンチャー、大手、公務員、NPO、フリーランス、将来の選択肢を知ることで視野を広げる</P>
                         </div>
                     </div>
-                    <div class="icon-01 col-md-4">
+                    <div class="icon-01 c-col">
                         <div class="col-md-12">
                             <img src="{{asset('images/user/event/img-event-0-2.png')}}" alt="event 02.png">
                             <div class="jladev_stt_2"></div>
@@ -35,7 +35,7 @@
                             <P class="icon-conten jladev_even_text">毎月20日に会って対話をする大学やバイト以外の第3のコミュニティができる</P>
                         </div>
                     </div>
-                    <div class="icon-01 col-md-4">
+                    <div class="icon-01 c-col">
                         <div class="col-md-12">
                             <img src="{{asset('images/user/event/img-event-0-3.png')}}" alt="event 03.png">
                             <div class="jladev_stt_3"></div>
