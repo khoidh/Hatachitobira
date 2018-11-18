@@ -23,8 +23,13 @@ class VideoController extends Controller
             ->where('videos.display', 1)
             ;
 
+        $selected_video_type_id = '';
         if ($request->has('slug')) {
             $videos = $videos->where('video_types.slug', $request->get('slug'));
+            $selected_video_type = VideoType::where('slug', $request->get('slug'))->first();
+            if (isset($selected_video_type)) {
+                $selected_video_type_id = $selected_video_type->id;
+            }
         }
         $videos =$videos->orderBy('sort','desc')->orderBy('published_at','desc')->orderBy('id','desc')->paginate(9);
         foreach ($videos as $video)
@@ -48,7 +53,11 @@ class VideoController extends Controller
 
         }
 
-        return view('user.video.index', ['videos' => $videos,'video_types'=>$video_types]);
+        return view('user.video.index', [
+            'videos' => $videos,
+            'video_types'=>$video_types,
+            'selected_video_type_id'=>$selected_video_type_id
+        ]);
     }
 
     public function videoSearchCategory(Request $request) {

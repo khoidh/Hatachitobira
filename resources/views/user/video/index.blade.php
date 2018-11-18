@@ -34,9 +34,10 @@
                 <select name="video_type" id="video_type" class="">
                     <option value="">動画のタイプ</option>
                     @foreach($video_types as $type)
-                    <option value="{{$type->id}}"
+                    <option
+                        value="{{$type->id}}"
+                        {{ ($selected_video_type_id == $type->id) ? 'selected' : ''}}
                         >{{$type->name}}</option>
-                        }
                     @endforeach
                     <option value="">全て</option>
                 </select>
