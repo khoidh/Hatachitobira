@@ -354,17 +354,23 @@ class MypageController extends Controller
 
         $events = Event::select()
             ->select('events.*', 'categories.name as category_name')
-            ->join('categories', 'categories.id', '=', 'events.category_id');
+            ->join('categories', 'categories.id', '=', 'events.category_id')
+            ->where('events.display' , 1)
+            ;
 
 
         $columns = Column::select()
             ->select('columns.*', 'categories.name as category_name')
-            ->join('categories', 'categories.id', '=', 'columns.category_id');
+            ->join('categories', 'categories.id', '=', 'columns.category_id')
+            ->where('columns.display' , 1)
+            ;
             
 
         $videos = Video::select()
             ->select('videos.*', 'categories.name as category_name')
-            ->join('categories', 'categories.id', '=', 'videos.category_id');
+            ->join('categories', 'categories.id', '=', 'videos.category_id')
+            ->where('videos.display' , 1)
+            ;
             
 
         if (isset($_GET['search']) && $_GET['search'] != 0) {
