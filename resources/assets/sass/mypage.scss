@@ -160,6 +160,9 @@ $panel_info_height_sp: 130px;
     .fa.fa-heart-o.liked {
         color: pink !important;
     }
+    @include only-for-mobile() {
+        padding-bottom: 100px;
+    }
 
     .article-status {
         font-weight: bold;
@@ -740,14 +743,8 @@ $panel_info_height_sp: 130px;
     //Group-2
     .group-2 {
         margin-bottom: 50px;
-        .video {
-            span.more-detail {
-                width: 100% !important;
-            }
-            a {
-                color: #6b6b6b;
-            }
-        }
+
+        .video,
         .event,
         .column {
             margin-top: 60px;
@@ -850,6 +847,13 @@ $panel_info_height_sp: 130px;
                     }
                 }
             }
+        }
+    }
+
+
+    span.more-detail {
+        a {
+            color: #232323 !important;
         }
     }
 }

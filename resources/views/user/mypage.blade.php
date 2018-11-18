@@ -260,7 +260,8 @@
         <div class="group-2">
             <div class="video">
                 <h2 class="underline-text font-weight-bold">お気に入り動画 <span class="count-video">({{count($videos)}})</span></h2>
-                <div class="video-list">
+                <div class="article-list video-list">
+                    @if(count($videos) > 0)
                     <div class="carousel-inner carosel-video-list">
                         @forelse($videos as $key => $result)
                             <div class=" item col-12 video-detail carousel-item {{ $key == 0  ? 'active' : ''}}">
@@ -281,20 +282,23 @@
                                 </div>
                             </div>
                         @empty
-                        <span class="more-detail">
-                            <a href="{{url('video')}}">
-                                <b>多様な仕事の1日に触れ、自分の興味や視野を広げよう動画を探す</b>
-                                <img src="{{asset('images/user/top/arrow-1.png')}}">
-                            </a>
-                        </span>
                         @endforelse
                     </div>
+                    @else
+                        <p class="empty-text">多様な仕事の1日に触れ、自分の興味や視野を広げよう</p>
+                        <span class="more-detail">
+                            <a href="{{url('video')}}">
+                                <b>動画を探す</b><img src="{{asset('images/user/top/arrow-1.png')}}">
+                            </a>
+                        </span>
+                    @endif
                 </div>
             </div>
 
             <div class="event">
                 <h2 class="underline-text font-weight-bold">参加したイベント <span class="count-video">({{$events->count()}})</span></h2>
                 <div class="article-list">
+                    @if(count($events) > 0)
                     <div id="carouselExample" class="carousel slide" data-ride="carousel" data-interval="false" data-wrap="false">
                         <div class="carousel-inner row mx-auto" role="listbox">
                             @forelse($events as $key => $event)
@@ -336,15 +340,17 @@
                                 </div>
                             </div>
                             @empty
-                            <p>社会人から話を聞いて、マイテーマ探しをしてみよう</p>
-                            <span class="more-detail">
-                                <a href="{{url('event')}}">
-                                    <b>マイテーマをみつけるノウハウ、イベントレポートを見てみよう記事を探す</b>
-                                    <img src="{{asset('images/user/top/arrow-1.png')}}">
-                                </a>
-                            </span>
                             @endforelse
                         </div>
+
+                        @else
+                            <p class="empty-text">社会人から話を聞いて、マイテーマ探しをしてみよう</p>
+                            <span class="more-detail">
+                                <a href="{{url('event')}}">
+                                    <b>イベントを探す</b><img src="{{asset('images/user/top/arrow-1.png')}}">
+                                </a>
+                            </span>
+                        @endif
                         @if(count($events) > 1)
                          <a class="carousel-control-prev" style="display: none;" href="#carouselExample" role="button" data-slide="prev">
                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -362,6 +368,7 @@
             <div class="event">
                 <h2 class="underline-text font-weight-bold">お気に入り記事 <span class="column-count">({{$columns->count()}})</span></h2>
                 <div class="article-list">
+                    @if(count($columns) > 0)
                     <div id="carouselExampleevent" class="carousel slide" data-ride="carousel" data-interval="false" data-wrap="false">
                         <div class="carousel-inner carouselExampleevent-item row mx-auto" role="listbox">
                             @forelse($columns as $key_1 => $column)
@@ -405,10 +412,15 @@
                                 </div>
                             </div>
                             @empty
-                            <span class="more-detail">
-                                <a href="{{url('column')}}" style="color: #111111;"><b>MORE</b><img src="{{asset('images/user/top/arrow-1.png')}}"></a></span>
                             @endforelse
                         </div>
+
+                        @else
+                            <p class="empty-text">マイテーマをみつけるノウハウ、イベントレポートを見てみよう</p>
+                            <span class="more-detail">
+                                <a href="{{url('column')}}"><b>記事を探す</b><img src="{{asset('images/user/top/arrow-1.png')}}"></a>
+                            </span>
+                        @endif
                         @if(count($columns) > 1)
                          <a class="carousel-control-prev" style="display: none;" href="#carouselExampleevent" role="button" data-slide="prev">
                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
