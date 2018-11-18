@@ -10,12 +10,19 @@ class Video extends Model
     const JOB_SHADOW_TYPE = 1;
     const ROLE_PLAY_TYPE = 2;
     const CONCEPT_MOVIE_TYPE = 3;
+    CONST JOB_SHADOW = 'ジョブシャドウ';
+    CONST ROLE_PLAY = 'ロールプレイ';
 
     protected $table = 'videos';
     protected $fillable = ['category_id', 'url', 'description', 'image', 'sort','type','published_at'];
     protected $appends = ['categoryname','videoliked'];
 
     public function category()
+    {
+        return $this->belongsTo('App\Models\Category','category_id');
+    }
+
+    public function type()
     {
         return $this->belongsTo('App\Models\VideoType','type');
     }
@@ -24,14 +31,12 @@ class Video extends Model
     {
         return $this->morphMany('App\Models\favorite','favoritable');
     }
-        CONST JOB_SHADOW = 'ジョブシャドウ';
-        CONST ROLE_PLAY = 'ロールプレイ';
 
-    public function getCategorynameAttribute(){
-        $category_id = $this->attributes['category_id'];
-        $categoryname =VideoType::find($category_id);
-        return $categoryname->name;
-    }
+    // public function getCategorynameAttribute(){
+    //     $category_id = $this->attributes['category_id'];
+    //     $categoryname =Category::find($category_id);
+    //     return $categoryname->name;
+    // }
 
     public function getVideolikedAttribute(){
         $like = 0;

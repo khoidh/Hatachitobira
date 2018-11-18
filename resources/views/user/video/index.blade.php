@@ -31,11 +31,11 @@
     <div class="container video">
         <div class="category row">
             <div class="col-md-6 col-12 category-input select-wrapper">
-                <select name="category_id" id="category_id" class="">
+                <select name="video_type" id="video_type" class="">
                     <option value="">動画のタイプ</option>
-                    @foreach($categories as $category)
-                    <option value="{{$category->id}}"
-                        >{{$category->name}}</option>
+                    @foreach($video_types as $type)
+                    <option value="{{$type->id}}"
+                        >{{$type->name}}</option>
                         }
                     @endforeach
                     <option value="">全て</option>
@@ -136,13 +136,13 @@
                 }
             });
 
-            $(document).on('change','#category_id',function(e){
+            $(document).on('change','#video_type',function(e){
 
                 e.preventDefault();
                 var text = $('.search-container input').val();
                 var id = $(this).val();
                 $.ajax({
-                    url : '{{url("video-search-text?category_id=")}}'+ id +'&page=1&description='+text,
+                    url : '{{url("video-search-text?video_type=")}}'+ id +'&page=1&description='+text,
 
                     success: function (data) {
                         $('.row.video-list').html(data);

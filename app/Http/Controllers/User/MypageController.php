@@ -27,7 +27,6 @@ class MypageController extends Controller
        
         /* Get category list */
         $categories = Category::where('display',1)->get();
-
         
         $user_id = Auth::User()->id;
         

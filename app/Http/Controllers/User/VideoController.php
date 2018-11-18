@@ -16,7 +16,7 @@ class VideoController extends Controller
 
     public function index(Request $request)
     {
-        $categories = VideoType::all();
+        $video_types = VideoType::all();
         $videos = Video::select()
             ->select('videos.*','video_types.name as category_name')
             ->join('video_types','video_types.id','=','videos.type');
@@ -46,7 +46,7 @@ class VideoController extends Controller
 
         }
 
-        return view('user.video.index', ['videos' => $videos,'categories'=>$categories]);
+        return view('user.video.index', ['videos' => $videos,'video_types'=>$video_types]);
     }
 
     public function videoSearchCategory(Request $request) {
@@ -94,10 +94,10 @@ class VideoController extends Controller
             ->select('videos.*','video_types.name as category_name')
             ->join('video_types','video_types.id','=','videos.type');
 
-        if($request->category_id !='')
+        if($request->video_type !='')
         {
-            $category_id = $request->category_id;
-            $videos = $videos->where('type',$category_id);
+            $video_type = $request->video_type;
+            $videos = $videos->where('type',$video_type);
         }
         
         // if($request->description !='')
