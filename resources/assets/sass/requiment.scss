@@ -642,3 +642,37 @@
     }
 
 }
+
+.requiment-staff {
+    .video-requiment {
+        .thumb-link {
+            display: block;
+            top: 0 !important;
+            left: 0 !important;
+
+            &.big {
+                height: 410px;
+            }
+            &.small {
+                height: 134px;
+            }
+
+            img {
+                height: 100%;
+                width: 100%;
+                object-fit: cover;
+            }
+
+            @include only-for-mobile() {
+                &.big,
+                img {
+                    height: auto;
+                }
+            }
+
+            &:hover {
+                @include link-hover();
+            }
+        }
+    }
+}
