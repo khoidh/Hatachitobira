@@ -20,7 +20,7 @@ $brand-danger: #bf5329;
 $icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
 $font-family-main: "Noto Sans Japanese", sans-serif;
 $font-family-sans-serif: "Raleway", sans-serif;
-$font-family-oswald: "Oswald", sans-serif;
+$font-family-oswald: "Oswald", "Noto Sans Japanese", sans-serif;
 $font-family-gothic: "Noto Sans Japanese", sans-serif;
 $font-family-tsuku-ard-gothic: "fot-tsukuardgothic-std",sans-serif;;
 
@@ -65,6 +65,7 @@ $purple-color: #B10DC9;
 $maroon-color: #85144B;
 $white-color: #FFFFFF;
 $light-gray-color: #EEE;
+$light-gray2-color: #f7f7f7;
 $silver-color: #DDDDDD;
 $gray-color: #AAAAAA;
 $black-color: #000;

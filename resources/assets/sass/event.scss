@@ -223,26 +223,6 @@
   }
 
   .txt{
-    .txt_content{
-      color: $text2-color;
-      text-align: justify;
-      @include only-for-mobile(){
-        img {
-          max-width: 100% !important;
-          height: 100% !important;
-        }
-      }
-
-      img[style*=right] {
-        margin-bottom: 0.5rem;
-        margin-left: 1rem;
-      }
-
-      img[style*=left] {
-        margin-bottom: 0.5rem;
-        margin-right: 1rem;
-      }
-    }
 
     //.txt-btn{
     //  padding: 24px 0;

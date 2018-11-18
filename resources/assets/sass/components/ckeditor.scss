@@ -1,0 +1,106 @@
+.ckeditor-body {
+    color: $black-color;
+    text-align: justify;
+    @include only-for-mobile(){
+      img {
+        max-width: 100% !important;
+        height: 100% !important;
+      }
+    }
+
+    img[style*=right] {
+      margin-bottom: 0.5rem;
+      margin-left: 1rem;
+    }
+
+    img[style*=left] {
+      margin-bottom: 0.5rem;
+      margin-right: 1rem;
+    }
+
+    .healine1 {
+        border-top: solid 4px $black-color;
+        position: relative;
+        background-color: $light-gray2-color;
+        padding: 0.5rem 2%;
+        margin-bottom: 2rem;
+        font-size: 18px;
+
+        &:after {
+          content: "";
+          display: block;
+          line-height: 0;
+          overflow: hidden;
+          position: absolute;
+          left: 0;
+          top: -4px;
+          width: 2%;
+          border-bottom: solid 4px $yellow-color;
+        }
+    }
+
+    .healine2 {
+        position: relative;
+        padding: 0.5rem 1.5rem;
+        font-size: 16px;
+        margin-bottom: 1rem;
+        &:before {
+            font-family: FontAwesome;
+            content: '\f10c';
+            font-size: 20px;
+            position: absolute;
+            top: 6px;
+            left: 0;
+            color: $black-color;
+            pointer-events: none;
+        }
+    }
+
+    .frame1 {
+        border-radius: 20px;
+        -moz-border-radius: 20px;
+        -webkit-border-radius: 20px;
+        border: 2px solid $black-color;
+        position: relative;
+        padding: 2rem;
+        margin-bottom: 1rem;
+
+        &:before {
+            content: url(/images/shares/flame1_-corner1.png);
+            display: inline-block;
+            vertical-align: middle;
+            position: absolute;
+            top: -1rem;
+            left: -1rem;
+        }
+
+        &:after {
+            content: url(/images/shares/flame1_-corner2.png);
+            display: inline-block;
+            vertical-align: middle;
+            position: absolute;
+            bottom: -1rem;
+            right: -1rem;
+        }
+    }
+
+    ol {
+        counter-reset: item;
+        list-style-type: none;
+        padding-left: 0;
+
+        li{
+            text-indent: -1.3em;
+            padding-left: 1.3em;
+        }
+        li:before {
+            counter-increment: item;
+            content: '0' counter(item)'.';
+            /* 以下は自由に装飾... */
+            padding-right: .5em;
+            font-weight: 400;
+            font-family: $font-family-oswald;
+            font-size: 2rem;
+        }
+    }
+}
