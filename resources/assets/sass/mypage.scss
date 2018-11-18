@@ -364,6 +364,9 @@ $panel_info_height_sp: 130px;
             line-height: 1.7;
             font-size: 4vw;
         }
+        &:disabled {
+            color: $black-color;
+        }
     }
 
     .my-theme .pencil-theme,
@@ -437,6 +440,10 @@ $panel_info_height_sp: 130px;
                         resize: none;
                         @include only-for-mobile() {
                             line-height: 1.7
+                        }
+                        
+                        &:disabled {
+                            color: $black-color;
                         }
                     }
                 }
