@@ -35,7 +35,7 @@
                     </div>
                     <div class="col-sm-10 memo-input">
                         <textarea
-                            type="text" name="" class="input-memo" placeholder="先月の行動を振り返り記録しよう" disabled
+                            type="text" name="" class="input-memo" placeholder="先月の行動を振り返り記録しよう" readonly
                             data-month="{{isset($mytheme_first->month) ? $mytheme_first->month : $data_date['month']}}" 
                             data-year="{{isset($mytheme_first->year) ? $mytheme_first->year : $data_date['year']}}"
                         >{{ $mytheme_first ? $mytheme_first->memo : '' }}</textarea>
@@ -70,7 +70,7 @@
                                 </div>
                                 <div class="mypage-text">
                                     <span>
-                                        <textarea name="value-lable" class="edit-input-lable" disabled
+                                        <textarea name="value-lable" class="edit-input-lable" readonly
                                             data-month="{{isset($mythemes[$i]->month) ? $mythemes[$i]->month : $data_date['month']}}" 
                                             data-year="{{isset($mythemes[$i]->year) ? $mythemes[$i]->year : $data_date['year']}}" 
                                             data-category = "{{isset($mythemes[$i]->category_id) ? $mythemes[$i]->category_id : $key}}" 
@@ -116,7 +116,7 @@
                         <h5 class="underline-text font-weight-bold">&nbsp;今月のマイテーマ&nbsp;</h5>
                     </div>
                     <div class="col-sm-9 my-theme-input">
-                        <textarea type="text" name="my-therme-month" class="input-my-theme"
+                        <textarea type="text" name="my-therme-month" class="input-my-theme" readonly
                             data-month="{{isset($mytheme_first->month) ? $mytheme_first->month : $data_date['month']}}" 
                             data-year="{{isset($mytheme_first->year) ? $mytheme_first->year : $data_date['year']}}"
                             placeholder="例:「人に喜んでもらう接客とは？」「自分の理想のチームをつくるには？」"
@@ -131,10 +131,10 @@
                         <h5 class="underline-text font-weight-bold">&nbsp;今月のアクション &nbsp;</h5>
                     </div>
                     <div class="col-sm-9 action-input">
-                        <textarea style="width: 100%;border: none;" type="text" rows="2" disabled name="action-of-month" class="action-of-month"
+                        <textarea style="width: 100%;border: none;" type="text" rows="2" readonly name="action-of-month" class="action-of-month"
                             data-month="{{isset($mytheme_first->month) ? $mytheme_first->month : $data_date['month']}}" 
                             data-year="{{isset($mytheme_first->year) ? $mytheme_first->year : $data_date['year']}}"
-                            placeholder="考えたいこと、行動したいことを3つ決めよう" disabled
+                            placeholder="考えたいこと、行動したいことを3つ決めよう" 
                         >{{$mytheme_first ? $mytheme_first->this_action : ''}}</textarea>
                         <i class="fa fa-pencil pencil-action" data-toggle="modal" data-target="#modal_action">
                         <span>Edit</span></i>
@@ -152,7 +152,7 @@
                 <div class="category row">
                     <div class="col-sm-10 col-9 category-input select-wrapper">
                         <select name="category_id" class="" id="category_id_value" required="true" autofocus>
-                            <option selected disabled>あなたのカテゴリ</option>
+                            <option selected readonly>あなたのカテゴリ</option>
                             @foreach($categories as $category)
                                 @if(isset($cat_id))
                                 <option value="{{$category->id}}" {{$category->id == $cat_id->categories_id ? 'selected' : ''}} >{{$category->name}}</option>

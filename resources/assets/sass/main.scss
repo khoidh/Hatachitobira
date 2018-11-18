@@ -549,66 +549,6 @@ body {
     color: #fff;
 }
 
-footer {
-    padding: 45px 54px 30px 55px;
-    background-color: $black-color;
-    position: absolute;
-    left: 0;
-    width: 100%;
-    font-size: 13px;
-    line-height: 2;
-    margin-top: 100px;
-
-    .logo {
-        width: 230px;
-    }
-
-    .link-assosial {
-        .line, .youtube {
-            img {
-                height: 23px;
-            }
-        }
-    }
-}
-
-
-footer .border-footer {
-    border-top: 1px solid #656464;
-    margin-top: 15px;
-    padding: 10px;
-}
-
-footer .text-bootom {
-    width: 100%;
-    text-align: center;
-}
-
-footer .icon-link.first {
-    margin-left: 15px;
-}
-
-footer .icon-link {
-    margin-right: 20px;
-}
-
-footer .text-bootom a {
-    padding-left: 14px;
-    cursor: pointer;
-    text-decoration: none;
-}
-
-footer .text-bootom .a-link:after {
-    content: "";
-    top: 0;
-    left: 0;
-    border-right: 1px solid #656464;
-    padding: 0 14px;
-}
-
-.logo-footer p {
-    margin-bottom: 0
-}
 
 #app .content {
     position: relative;
@@ -658,9 +598,6 @@ footer .text-bootom .a-link:after {
     color: #c3c2c2;
 }
 
-footer .footter-mobile .a-first {
-    cursor: context-menu;
-}
 
 @media (min-width: 992px) {
     .navbar-expand-lg .navbar-nav .dropdown-menu {
@@ -728,11 +665,6 @@ footer .footter-mobile .a-first {
         width: 55% !important;
     }
 
-    footer .text-bootom {
-        position: relative;
-        top: 17px;
-    }
-
 
     .top .container.content-1 {
         background-position: bottom, top;
@@ -740,69 +672,6 @@ footer .footter-mobile .a-first {
         background-position-y: 53%, 5%;
         background-position-x: 0px, 45%;
         z-index: 123;
-    }
-
-    footer {
-        padding: 30px;
-        font-size: 12px;
-        margin-top: 0;
-    }
-
-    footer .icon-link {
-        margin-right: 13px;
-    }
-
-    footer .footter-mobile {
-        width: 50%;
-    }
-
-    footer .link-assosial {
-        position: relative;
-        bottom: -85px;
-        -webkit-transform: translateZ(0);
-        transform: translateZ(0);
-    }
-
-    footer .link-assosial.logined {
-        bottom: -20px;
-    }
-
-    footer .link-assosial:after {
-        content: "";
-        background-color: #656464;
-        width: 90%;
-        height: 1px;
-        position: absolute;
-        top: -11px;
-        left: 15px;
-        z-index: -1;
-    }
-
-    footer .border-footer {
-        position: relative;
-        top: -30px;
-    }
-
-    footer .row.footer-bootom {
-        position: relative;
-        top: -51px;
-    }
-
-    footer .text-bootom .a-link:after {
-        padding: 0 8px;
-    }
-
-    footer .text-bootom a {
-        padding-left: 10px;
-        font-size: 12px;
-    }
-
-    footer .li-first img {
-        width: 100%
-    }
-
-    footer .li-first {
-        padding: 30px 30px 0 30px;
     }
 
     .top .text-title-3 {

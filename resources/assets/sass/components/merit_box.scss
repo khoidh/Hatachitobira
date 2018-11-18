@@ -1,0 +1,37 @@
+.c-merit_box {
+    position: relative;
+    .number {
+        font-family: $font-family-oswald;
+        color: $yellow-color;
+        font-size: 58px;
+        border-top: 4px solid $yellow-color;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+    }
+
+    .image {
+        position: relative;
+        text-align: right;
+        height: 200px;
+        img {
+            width: 165px;
+            height: 165px;
+        }
+
+        @include only-for-mobile() {
+            text-align: center;
+        }
+    }
+
+    .title {
+        font-size: 18px;
+        line-height: 1.5;
+        width: 96%;
+        text-align: left;
+        font-weight: 700;
+    }
+    .description {
+
+    }
+}

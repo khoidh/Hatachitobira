@@ -39,21 +39,27 @@
 				<div class="video-detail row">
 	                <div class="col-xs-12">
 	                    <div class="corner-wrapper">
-	                        <img src="{{ asset('images/user/requiment/requiment-2.png')}}" alt="">
+	                        <a href="https://www.youtube.com/watch?v=OLLai7lzepw" target="_blank" class="thumb-link big">
+	                        	<img src="https://i.ytimg.com/vi/OLLai7lzepw/hqdefault.jpg" alt="ハタチのトビラ#2（株）shake 〜人材育成業界で働くLGBT当事者の1日とは〜">
+	                        </a>
 	                    </div>
 					</div>
 					<div class="col-xs-6" style="padding-right:5px;">
 	                    <div class="corner-wrapper">
-	                        <img src="{{ asset('images/user/requiment/requiment-2.png')}}" alt="">
+	                        <a href="https://www.youtube.com/watch?v=KO9MH9-hz38" target="_blank" class="thumb-link small">
+	                        	<img src="https://i.ytimg.com/vi/KO9MH9-hz38/hqdefault.jpg" alt="ハタチのトビラ#3 （株）Huber. 〜インバウンド事業に取り組む社会人の1日にとは〜">
+	                        </a>
 	                    </div>
 					</div>
 					<div class="col-xs-6" style="padding-left:5px;">
 	                    <div class="corner-wrapper">
-	                        <img src="{{ asset('images/user/requiment/requiment-2.png')}}" alt="">
+	                    	<a href="https://www.youtube.com/watch?v=uvaMVEDj6Cc" target="_blank" class="thumb-link small">
+	                    		<img src="https://i.ytimg.com/vi/uvaMVEDj6Cc/hqdefault.jpg" alt="ハタチのトビラ#6 NPO法人グリーンズ〜持続可能な社会をつくるために活動するNPO職員の1日とは〜">
+	                    	</a>
 	                    </div>
 	                </div>
 	            </div>
-				<a href="#">
+				<a href="https://www.youtube.com/channel/UCUcAny1-bt4V-TB6UaBEkiw" target="_blank">
 		            <span class="more-detail ">動画をすべて見る</span>
 		            <img src="{{ asset('images/user/top/arrow-1.png') }}" >
 		        </a>
@@ -200,9 +206,9 @@
 	<div class="top clearfix">
 		<div class="container content-1 requiment">
 		    <div class="content-title">
-		        <p class="content-1-title text-stroke">自社の事業や仕事の魅力を</p>
-		        <p class="content-1-title text-stroke">学生に訴求する動画を</p>
-		        <p class="content-1-title text-stroke">創りませんか ？</p>
+		        <p class="content-1-title">自社の事業や仕事の魅力を</p>
+		        <p class="content-1-title">学生に訴求する動画を</p>
+		        <p class="content-1-title">創りませんか ？</p>
 		    </div>
 		    <div class="content-1-content">
 		        <div class="cb-path"></div>
@@ -224,22 +230,30 @@
 				<div class="col-md-12 video-detail row">
 	                <div class="col-md-9">
 	                    <div class="corner-wrapper">
-	                        <img src="{{ asset('images/user/requiment/requiment-2.png')}}" alt="">
+	                        <a href="https://www.youtube.com/watch?v=OLLai7lzepw" target="_blank" class="thumb-link big">
+	                        	<img src="https://i.ytimg.com/vi/OLLai7lzepw/hqdefault.jpg" alt="ハタチのトビラ#2（株）shake 〜人材育成業界で働くLGBT当事者の1日とは〜">
+	                        </a>
 	                    </div>
 	                </div>
 	                <div class="col-md-3 video-movie ">
 	                    <div class="corner-wrapper pdd">
-	                        <img src="{{ asset('images/user/requiment/requiment-2.png')}}" alt="">
+	                        <a href="https://www.youtube.com/watch?v=KO9MH9-hz38" target="_blank" class="thumb-link small">
+	                        	<img src="https://i.ytimg.com/vi/KO9MH9-hz38/hqdefault.jpg" alt="ハタチのトビラ#3 （株）Huber. 〜インバウンド事業に取り組む社会人の1日にとは〜">
+	                        </a>
 	                    </div>
 	                    <div class="corner-wrapper pdd">
-	                        <img src="{{ asset('images/user/requiment/requiment-2.png')}}" alt="">
+	                        <a href="https://www.youtube.com/watch?v=uvaMVEDj6Cc" target="_blank" class="thumb-link small">
+	                        	<img src="https://i.ytimg.com/vi/uvaMVEDj6Cc/hqdefault.jpg" alt="ハタチのトビラ#6 NPO法人グリーンズ〜持続可能な社会をつくるために活動するNPO職員の1日とは〜">
+	                        </a>
 	                    </div>
 	                    <div class="corner-wrapper">
-	                        <img src="{{ asset('images/user/requiment/requiment-2.png')}}" alt="">
+	                        <a href="https://www.youtube.com/watch?v=CgQimHyhNUQ" target="_blank" class="thumb-link small">
+	                        	<img src="https://i.ytimg.com/vi/CgQimHyhNUQ/hqdefault.jpg" alt="行政職員の1日とは？島根県雲南市役所にて、未来を見据えて政策を考え推進する仕事とは_ハタチのトビラ予告編">
+	                        </a>
 	                    </div>
 	                </div>
 	            </div>
-				<a href="#">
+				<a href="https://www.youtube.com/channel/UCUcAny1-bt4V-TB6UaBEkiw" target="_blank">
 		            <span class="more-detail ">動画をすべて見る</span>
 		            <img src="{{ asset('images/user/top/arrow-1.png') }}" >
 		        </a>

@@ -241,27 +241,21 @@ $description = '学校と社会をつなぐ「ハタチのトビラ」は、将�
                     <div class="c-col p-text">
                         <div class="text-vertical-pc"><span>マイテーマ</span>を<br>探す3つの理由</div>
                     </div>
-                    <div class="c-col">
-                        <div class="image">
-                            <img class="movie-image" src="{{ asset('images/user/top/movie-image-1.png') }}" alt="大学生活をはじめ、今をより充実させるための行動が定まる">
-                            <span class="text-tittle">01</span>
-                        </div>
-                        <p class="movie_image_description">大学生活をはじめ、今をより充実させるための行動が定まる</p>
-                    </div>
-                    <div class="c-col">
-                        <div class="image">
-                            <img class="movie-image" src="{{ asset('images/user/top/movie-image-2.png') }}" alt="マイテーマを探す経験が、個性を際立たせる">
-                            <span class="text-tittle">02</span>
-                        </div>
-                        <p class="movie_image_description">マイテーマを探す経験が、個性を際立たせる</p>
-                    </div>
-                    <div class="c-col">
-                        <div class="image">
-                            <img class="movie-image" src="{{ asset('images/user/top/movie-image-3.png') }}" alt="人生100年時代でのキャリア選択や就活の指針に">
-                            <span class="text-tittle">03</span>
-                        </div>
-                        <p class="movie_image_description">人生100年時代でのキャリア選択や就活の指針に</p>
-                    </div>
+                    @include('includes.merit_box', [
+                        'number'=>1,
+                        'image'=>'images/user/top/movie-image-1.png',
+                        'title'=>'大学生活をはじめ、今をより充実させるための行動が定まる',
+                    ])
+                    @include('includes.merit_box', [
+                        'number'=>2,
+                        'image'=>'images/user/top/movie-image-2.png',
+                        'title'=>'マイテーマを探す経験が、個性を際立たせる',
+                    ])
+                    @include('includes.merit_box', [
+                        'number'=>3,
+                        'image'=>'images/user/top/movie-image-3.png',
+                        'title'=>'人生100年時代でのキャリア選択や就活の指針に',
+                    ])
                 </div>
                 <img src="/images/user/top/back-gr-2.png" class="back-gr">
             </div>

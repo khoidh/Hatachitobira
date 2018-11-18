@@ -110,6 +110,10 @@ $contents-width: 1000px;
   font-weight: $font-weight;
 }
 
+@mixin link-hover() {
+  opacity: 0.7;
+}
+
 $container-max-widths: (
   sm: 540px,
   md: 720px,
