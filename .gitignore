@@ -1,12 +1,6 @@
 node_modules
 storage/*.key
-vendor/*
-!vendor/unisharp
-vendor/unisharp/*
-!vendor/unisharp/laravel-ckeditor
-vendor/unisharp/laravel-ckeditor/*
-!vendor/unisharp/laravel-ckeditor/config.js
-!vendor/unisharp/laravel-ckeditor/styles.js
+vendor
 
 public/hot
 public/storage
