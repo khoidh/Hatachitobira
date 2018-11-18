@@ -958,6 +958,11 @@
                     this_mytheme: text_my_theme,
                     this_action: text_action
                 },success:function(data) {
+                    if (text_last_log.length > 0) {
+                        $('.input-lat-log').parent('.log-input').find('input').each(function(index, element) {
+                            $(element).attr('placeholder', '');
+                        });
+                    }
                     iziToast.success({timeout: 1500, iconUrl: '/images/site_icon.png', title: 'OK', message: '更新いたしました', progressBar: false});
                 }
             })
@@ -983,6 +988,11 @@
                     this_mytheme: text_my_theme,
                     this_action: text_action
                 },success:function(data) {
+                    if (text_last_log.length < 1) {
+                        $('.input-lat-log').parent('.log-input').find('input').each(function(index, element) {
+                        $(element).attr('placeholder', '先月の自分を#で記録しよう　#バイト三昧　#初ボランティア');
+                    });
+                    }
                     iziToast.success({timeout: 1500, iconUrl: '/images/site_icon.png', title: 'OK', message: '更新いたしました', progressBar: false});
                 }
             })
