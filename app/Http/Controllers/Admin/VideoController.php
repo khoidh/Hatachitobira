@@ -17,8 +17,9 @@ class VideoController extends Controller
     public function index()
     {
         $events = Video::select()
-            ->select('videos.*','categories.name as category_name')
+            ->select('videos.*','categories.name as category_name','video_types.name as type_name')
             ->join('categories','categories.id','=','videos.category_id')
+            ->join('video_types','video_types.id','=','videos.type')
             ->orderBy('id','desc')
             ->paginate(10);
 
@@ -80,8 +81,9 @@ class VideoController extends Controller
     {
         $video = Video::select()
             ->where('videos.id', $id)
-            ->select('videos.*','categories.name as category_name')
+            ->select('videos.*','categories.name as category_name','video_types.name as type_name')
             ->join('categories','categories.id','=','videos.category_id')
+            ->join('video_types','video_types.id','=','videos.type')
             ->first();
 
         return view('admin.video.show', ['video' => $video]);

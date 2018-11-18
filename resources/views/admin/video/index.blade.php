@@ -51,13 +51,7 @@
                 
             </td>
             <td>{{$video->sort}}</td>
-              <?php 
-                  $type = '';
-                  if($video->type==0) $type ='ジョブシャドウ';
-                  if($video->type==1) $type ='ロールモデル';
-                  if($video->type==2) $type = 'コンセプトムービー';
-               ?>
-            <td>{{$type}}</td>
+            <td>{{$video->type_name}}</td>
             <td>
                 <div >
                             <a class="btn btn-info" href="{{route('videos.show',$video->id)}}">詳細</a>
