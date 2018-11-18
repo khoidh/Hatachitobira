@@ -554,6 +554,9 @@ $panel_info_height_sp: 130px;
                     width: 100%;
                     border: none;
                 }
+                textarea {
+                    color: $black-color;
+                }
                 .pencil-action {
                     position: absolute;
                     bottom: 12px;
