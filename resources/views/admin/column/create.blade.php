@@ -97,22 +97,29 @@
             <input type="number" class="form-control" name="sort" id="sort" placeholder="Sort" value="{{ old('sort') }}">
         </div>
     </div>
-
-                <div class="form-group row">
-                    <label for="type" class="col-sm-2 col-form-label">{{__('タイプ')}}</label>
-                    <div class="col-sm-10">
-                        <select type="number" name="type" id="type" class="form-control" tabindex=1>
-                            <option value='0' selected>インタビュー</option>
-                            <option value='1'>コラム</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div class="form-group row">
-                    <div class="col-sm-10">
-                        <button type="submit" class="btn btn-primary">登録</button>
-                    </div>
-                </div>
+    <div class="form-group row">
+        <label for="type" class="col-sm-2 col-form-label">{{__('タイプ')}}</label>
+        <div class="col-sm-10">
+            <select type="number" name="type" id="type" class="form-control" tabindex=1>
+                <option value='0' selected>インタビュー</option>
+                <option value='1'>コラム</option>
+            </select>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="display" class="col-sm-2 col-form-label">{{__('表示')}}</label>
+        <div class="col-sm-10">
+            <select class="form-control" name="display" id="display">
+                <option value="1" <?php if(old('display') == 1) echo 'selected' ?>>表示</option>
+                <option value="0" <?php if(old('display') == 0) echo 'selected' ?>>非表示</option>
+            </select>
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-sm-10">
+            <button type="submit" class="btn btn-primary">登録</button>
+        </div>
+    </div>
             </form>
         </div>
     </div>

@@ -35,6 +35,7 @@
         <th>{{__('表示順')}}</th>
         <th>{{__('タイプ')}}</th>
         <th>{{__('操作')}}</th>
+        <th>{{__('表示')}}</th>
 
     </tr>
     </thead>
@@ -65,6 +66,7 @@
                             <a class="btn btn-success" href="{{route('videos.edit',$video->id)}}">編集</a>
                         </div>
             </td>
+            <td>{{ $video->display == 1 ? '表示' : '非表示'}}</td>
         </tr>
     @endforeach
 

@@ -42,12 +42,14 @@ class MypageController extends Controller
         $columns = Column::select()
             ->select('columns.*', 'categories.name as category_name')
             ->join('categories', 'categories.id', '=', 'columns.category_id')
+            ->where('columns.display' , 1)
             ->whereIn('columns.id',$favorite_c)->get();
 
         /* Get event list have joined */
         $events = Event::select()
             ->select('events.*','categories.name as category_name')
             ->join('categories','categories.id','=','events.category_id')
+            ->where('events.display' , 1)
             ->whereIn('events.id',$favorite_e)->get();
 
         $date_now = new DateTime();
@@ -88,9 +90,15 @@ class MypageController extends Controller
         $event_cate = array();
         $videos_cate = array();
         if ($cat_id) {
-            $event_cate = Event::where('category_id',$cat_id->categories_id)->first();
-            $videos_cate = Video::where('category_id',$cat_id->categories_id)->first();
-            $column_cate = Column::where('category_id',$cat_id->categories_id)->first();
+            $event_cate = Event::where('category_id',$cat_id->categories_id)
+                ->where('events.display' , 1)
+                ->first();
+            $videos_cate = Video::where('category_id',$cat_id->categories_id)
+                ->where('videos.display' , 1)
+                ->first();
+            $column_cate = Column::where('category_id',$cat_id->categories_id)
+                ->where('columns.display' , 1)
+                ->first();
         }
 
         $array=[
@@ -164,9 +172,15 @@ class MypageController extends Controller
             $data['user_id'] = $user_id ;
             $results= UserCategory::create($data);
         }
-        $event = Event::where('category_id',$data['categories_id'])->first();
-        $videos = Video::where('category_id',$data['categories_id'])->first();
-        $column = Column::where('category_id',$data['categories_id'])->first();
+        $event = Event::where('category_id',$data['categories_id'])
+            ->where('events.display' , 1)
+            ->first();
+        $videos = Video::where('category_id',$data['categories_id'])
+            ->where('videos.display' , 1)
+            ->first();
+        $column = Column::where('category_id',$data['categories_id'])
+            ->where('columns.display' , 1)
+            ->first();
         return view('user.mypage_content',compact('event','videos','column'));
     }
 
@@ -342,6 +356,7 @@ class MypageController extends Controller
             ->select('events.*', 'categories.name as category_name')
             ->join('categories', 'categories.id', '=', 'events.category_id');
 
+
         $columns = Column::select()
             ->select('columns.*', 'categories.name as category_name')
             ->join('categories', 'categories.id', '=', 'columns.category_id');
@@ -436,18 +451,24 @@ class MypageController extends Controller
             $events = Event::select()
                 ->select('events.*', 'categories.name as category_name')
                 ->join('categories', 'categories.id', '=', 'events.category_id')
-                ->where('events.category_id', '=', $id);
+                ->where('events.category_id', '=', $id)
+                ->where('events.display' , 1)
+                ;
     
             $columns = Column::select()
                 ->select('columns.*', 'categories.name as category_name')
                 ->join('categories', 'categories.id', '=', 'columns.category_id')
-                ->where('columns.category_id', '=', $id);
+                ->where('columns.category_id', '=', $id)
+                ->where('columns.display' , 1)
+                ;
                 
     
             $videos = Video::select()
                 ->select('videos.*', 'categories.name as category_name')
                 ->join('categories', 'categories.id', '=', 'videos.category_id')
-                ->where('videos.category_id', '=', $id);
+                ->where('videos.category_id', '=', $id)
+                ->where('videos.display' , 1)
+                ;
 
             $events = $events->orderBy('id','desc')->get();
             $columns = $columns->orderBy('id','desc')->get();
@@ -494,18 +515,24 @@ class MypageController extends Controller
             $events = Event::select()
                 ->select('events.*', 'categories.name as category_name')
                 ->join('categories', 'categories.id', '=', 'events.category_id')
-                ->where('categories.slug', $slug);
+                ->where('categories.slug', $slug)
+                ->where('events.display' , 1)
+                ;
     
             $columns = Column::select()
                 ->select('columns.*', 'categories.name as category_name')
                 ->join('categories', 'categories.id', '=', 'columns.category_id')
-                ->where('categories.slug', $slug);
+                ->where('categories.slug', $slug)
+                ->where('columns.display' , 1)
+                ;
                 
     
             $videos = Video::select()
                 ->select('videos.*', 'categories.name as category_name')
                 ->join('categories', 'categories.id', '=', 'videos.category_id')
-                ->where('categories.slug', $slug);
+                ->where('categories.slug', $slug)
+                ->where('videos.display' , 1)
+                ;
 
             $events = $events->orderBy('id','desc')->get();
             $columns = $columns->orderBy('id','desc')->get();
@@ -552,7 +579,9 @@ class MypageController extends Controller
         $columns = Column::select()
             ->select('columns.*', 'categories.name as category_name')
             ->join('categories', 'categories.id', '=', 'columns.category_id')
-            ->where('columns.category_id', '=', $input['category'])->paginate(5);
+            ->where('columns.category_id', '=', $input['category'])
+            ->where('columns.display' , 1)
+            ->paginate(5);
 
         return view('user.searchcategory.column', compact('columns'));
     }
@@ -567,7 +596,9 @@ class MypageController extends Controller
         $videos = Video::select()
             ->select('videos.*', 'categories.name as category_name')
             ->join('categories', 'categories.id', '=', 'videos.category_id')
-            ->where('videos.category_id', '=', $input['category'])->paginate(6);
+            ->where('videos.category_id', '=', $input['category'])
+            ->where('videos.display' , 1)
+            ->paginate(6);
 
         $results = array();
         foreach ($videos as $video) {
@@ -609,7 +640,9 @@ class MypageController extends Controller
         $events = Event::select()
             ->select('events.*', 'categories.name as category_name')
             ->join('categories', 'categories.id', '=', 'events.category_id')
-            ->where('events.category_id', '=', $input['category'])->paginate(5);
+            ->where('events.category_id', '=', $input['category'])
+            ->where('events.display' , 1)
+            ->paginate(5);
         return view('user.searchcategory.event', compact('events'));
     }
 }

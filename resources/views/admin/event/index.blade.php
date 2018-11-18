@@ -39,6 +39,7 @@
         <th>{{__('受付期間')}}</th>
         <th>{{__('日程')}}</th>
         <th>{{__('操作')}}</th>
+        <th>{{__('表示')}}</th>
 
     </tr>
     </thead>
@@ -67,6 +68,7 @@
                     <a class="btn btn-success" href="{{route('events.edit',$event->id)}}">編集</a>
                 </div>
             </td>
+            <td>{{ $event->display == 1 ? '表示' : '非表示'}}</td>
         </tr>
     @endforeach
     </tbody>

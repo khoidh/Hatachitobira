@@ -28,6 +28,7 @@ class EventController extends Controller
             ->select('events.*','categories.name as category_name')
             ->join('categories','categories.id','=','events.category_id')
             ->where('categories.display', 1)
+            ->where('events.display' , 1)
             ->orderBy('started_at', 'desc')
             ->orderBy('closed_at', 'desc')
             ->orderBy('time_from', 'desc')
@@ -78,6 +79,7 @@ class EventController extends Controller
                 ->select('events.*','categories.name as category_name')
                 ->join('categories','categories.id','=','events.category_id')
                 ->where('categories.display', 1)
+                ->where('events.display' , 1)
                 ->orderBy('created_at', 'desc')
                 ->paginate(3);
             if(Auth::user())

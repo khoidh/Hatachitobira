@@ -39,6 +39,7 @@
                 <th>{{__('Sort')}}</th>
                 <th>{{__('タイプ')}}</th>
                 <th>{{__('操作')}}</th>
+                <th>{{__('表示')}}</th>
             </tr>
             </thead>
             <tbody>
@@ -68,6 +69,7 @@
                         </div>
                         
                     </td>
+                    <td>{{ $column->display == 1 ? '表示' : '非表示'}}</td>
                 </tr>
             @endforeach
             </tbody>

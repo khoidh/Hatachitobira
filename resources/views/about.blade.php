@@ -74,7 +74,7 @@
                             <p class="text_detail_title jladev_fix_img_title">社会に触れ選択肢を知れ<br>るジョブシャドウ動画 </p>
                             <p class="text_detail jladev_fix_img_title">多様な仕事の1日に触れ <br>自分の興味や視野を広げよう </p>
                             <p class="more-detail jladev_fix_img_title">
-                                <a href="{{route('video.index')}}" >
+                                <a href="{{route('video')}}" >
                                     <span>MORE</span>
                                     <img src="{{asset("images/user/top/arrow-1.png")}}" alt="" />
                                 </a>
@@ -128,7 +128,7 @@
                         <p class="about-hatachi-detail">学校と社会をつなぐ"ハタチのトビラ"は、 <br>将来の選択肢に触れ、マイテーマを探すきっかけを提供します </p>
                     </div>
                     <div class="col-md-4 col-sm-4 col-xs-12 mb-20">
-                        <a class="round-button black lg full" href="{{route('video.index')}}" class="btn-link">動画をみる</a>
+                        <a class="round-button black lg full" href="{{route('video')}}" class="btn-link">動画をみる</a>
                     </div>
                     <div class="col-md-4 col-sm-4 col-xs-12 mb-20">
                         <a class="round-button black lg full" href="{{route('event.index')}}" class="btn-link">イベントに参加する</a>
