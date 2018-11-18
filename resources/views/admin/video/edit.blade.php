@@ -69,7 +69,7 @@
             <div class="col-sm-10">
                 <select type="number" name="type" id="type" class="form-control"  value="{{$video->type}}" tabindex=1>
                     <option value='0' {{($video->type==0) ? 'selected' : ''}}>ジョブシャドウ</option>
-                    <option value='1' {{($video->type==1) ? 'selected' : ''}}>ロールプレイ</option>
+                    <option value='1' {{($video->type==1) ? 'selected' : ''}}>ロールモデル</option>
                     <option value='2' {{($video->type==2) ? 'selected' : ''}}>コンセプトムービー</option>
                 </select>
             </div>

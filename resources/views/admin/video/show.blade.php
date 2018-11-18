@@ -79,7 +79,7 @@
       <?php 
           $type = '';
           if($video->type==0) $type ='ジョブシャドウ';
-          if($video->type==1) $type ='ロールプレイ';
+          if($video->type==1) $type ='ロールモデル';
           if($video->type==2) $type = 'コンセプトムービー';
        ?>
       <input id="Type" value="<?php echo $type ?>"class="form-control" disabled="">
