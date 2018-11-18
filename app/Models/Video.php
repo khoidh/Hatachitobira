@@ -14,7 +14,7 @@ class Video extends Model
     CONST ROLE_PLAY = 'ロールプレイ';
 
     protected $table = 'videos';
-    protected $fillable = ['category_id', 'url', 'description', 'image', 'sort','type','published_at'];
+    protected $fillable = ['category_id', 'url', 'description', 'image', 'sort','type','published_at', 'display'];
     protected $appends = ['categoryname','videoliked'];
 
     public function category()

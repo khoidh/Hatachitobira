@@ -9,7 +9,7 @@ use Auth;
 class Event extends Model
 {
     protected $table = 'events';
-    protected $fillable = ['category_id', 'title','content','image', 'sort', 'time_from', 'time_to','started_at','closed_at','address','overview','capacity','entry_fee'];
+    protected $fillable = ['category_id', 'title','content','image', 'sort', 'time_from', 'time_to','started_at','closed_at','address','overview','capacity','entry_fee', 'display'];
 
     protected $appends = ['eventstatus','categoryname','eventliked'];
 

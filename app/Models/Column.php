@@ -8,7 +8,7 @@ class Column extends Model
 {
     protected $table = 'columns';
 
-    protected $fillable = ['category_id', 'title', 'description', 'content', 'image', 'sort', 'type', 'created_at', 'updated_at'];
+    protected $fillable = ['category_id', 'title', 'description', 'content', 'image', 'sort', 'type', 'created_at', 'updated_at', 'display'];
 
     protected $appends = ['columnliked','categoryname'];
 
