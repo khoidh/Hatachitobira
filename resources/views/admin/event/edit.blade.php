@@ -174,6 +174,16 @@
             </div>
         </div>
     </div>
+    <div class="form-group row">
+        <label for="display" class="col-sm-2 col-form-label">{{__('表示')}}</label>
+        <div class="col-sm-10">
+            <select class="form-control" name="display" id="display">
+                <option value="1" <?php if($event->display == 1) echo 'selected' ?> >表示</option>
+                <option value="0"<?php if($event->display == 0) echo 'selected' ?> >非表示</option>
+            </select>
+        </div>
+    </div>
+
 
     <div class="form-group row">
         <div class="col-sm-10">

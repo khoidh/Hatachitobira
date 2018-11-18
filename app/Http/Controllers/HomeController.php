@@ -47,23 +47,27 @@ class HomeController extends Controller
         $events = Event::select()
             ->select('events.*','categories.name as category_name')
             ->join('categories','categories.id','=','events.category_id')
+            ->where('events.display' , 1)
             ->orderBy('id','desc')
             ->take(3)->get();
 
         $columns = Column::select()
             ->select('columns.*', 'categories.name as category_name')
             ->join('categories', 'categories.id', '=', 'columns.category_id')
+            ->where('columns.display' , 1)
             ->orderBy('id','desc')
             ->take(3)->get();
 
         $videos_1 = Video::select()
             ->select('videos.*','video_types.name as category_name')
             ->join('video_types','video_types.id','=','videos.type')
+            ->where('videos.display' , 1)
             ->orderBy('id','desc')->get();
 
         $video_concept = Video::select()
             ->select('videos.*','video_types.name as category_name')
             ->join('video_types','video_types.id','=','videos.type')
+            ->where('videos.display' , 1)
             ->orderBy('sort','asc')
             ->where('type',Video::JOB_SHADOW_TYPE)
             ->first();
@@ -71,6 +75,7 @@ class HomeController extends Controller
         $videos_2 = Video::select()
             ->select('videos.*','video_types.name as category_name')
             ->join('video_types','video_types.id','=','videos.type')
+            ->where('videos.display' , 1)
             ->orderBy('id','desc')
             ->where('type',Video::ROLE_PLAY_TYPE)
             ->get();

@@ -19,7 +19,9 @@ class VideoController extends Controller
         $video_types = VideoType::all();
         $videos = Video::select()
             ->select('videos.*','video_types.name as category_name')
-            ->join('video_types','video_types.id','=','videos.type');
+            ->join('video_types','video_types.id','=','videos.type')
+            ->where('videos.display', 1)
+            ;
 
         if ($request->has('slug')) {
             $videos = $videos->where('video_types.slug', $request->get('slug'));
@@ -55,7 +57,9 @@ class VideoController extends Controller
         $categories = VideoType::all();
         $videos = Video::select()
             ->select('videos.*','video_types.name as category_name')
-            ->join('video_types','video_types.id','=','videos.type');
+            ->join('video_types','video_types.id','=','videos.type')
+            ->where('videos.display', 1)
+            ;
 
         if (isset($data['category']) && $data['category'] != 0) {
             $videos =$videos->where('category_id',$data['category']);
@@ -92,7 +96,9 @@ class VideoController extends Controller
         
         $videos = Video::select()
             ->select('videos.*','video_types.name as category_name')
-            ->join('video_types','video_types.id','=','videos.type');
+            ->join('video_types','video_types.id','=','videos.type')
+            ->where('videos.display', 1)
+            ;
 
         if($request->video_type !='')
         {

@@ -212,6 +212,16 @@
 <script src="{{asset('js/admin/customizer.min.js')}}" type="text/javascript"></script>
 <script src="{{asset('js/admin/drag-drop.min.js')}}" type="text/javascript"></script>
 <!-- <script src="{{ asset('js/admin.js') }}"></script> -->
+<script type="text/javascript">
+    $(document).ready(function(){
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
+            }
+        });
+    });
+</script>
+
 @show
 @yield('customjavascript')
 <div class="selection_bubble_root" style="display: none;"></div>
