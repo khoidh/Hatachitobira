@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Video;
 use App\Category;
+use App\Models\VideoType;
 use App\Http\Requests\VideoRequest;
 
 class VideoController extends Controller
@@ -27,8 +28,12 @@ class VideoController extends Controller
     public function create()
     {
         $categories = Category::all();
+        $types = VideoType::all();
 
-        return view('admin.video.create', ['categories' => $categories]);
+        return view('admin.video.create', [
+                'categories' => $categories,
+                'types' => $types
+            ]);
     }
 
     public function store(VideoRequest $request)
@@ -85,8 +90,13 @@ class VideoController extends Controller
     public function edit($id)
     {
         $video = Video::find($id);
+        $types = VideoType::all();
         $categories = Category::all();
-        return view('admin.video.edit', ['video' => $video, 'categories' => $categories]);
+        return view('admin.video.edit', [
+            'video' => $video,
+            'categories' => $categories,
+            'types' => $types
+        ]);
     }
 
     public function update(VideoRequest $request, $id)

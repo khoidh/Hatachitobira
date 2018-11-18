@@ -68,10 +68,9 @@
         <label for="type" class="col-sm-2 col-form-label">{{__('タイプ')}}</label>
         <div class="col-sm-10">
             <select type="number" name="type" id="type" class="form-control" tabindex=1>
-                <option value='0' selected>ジョブシャドウ</option>
-                <option value='1'>ロールモデル</option>
-                <option value='2'>コンセプトムービー</option>
-
+                @foreach($types as $type)
+                    <option value="{{ $type->id }}">{{$type->name}}</option>
+                @endforeach
             </select>
         </div>
     </div>
