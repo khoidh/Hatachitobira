@@ -24,6 +24,7 @@ $description = '学校と社会をつなぐ「ハタチのトビラ」は、将�
 
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/slick/slick.css') }}" rel="stylesheet">
+    @include('includes.gtm_head')
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('assets/slick/slick.min.js') }}"></script>
     <script>
@@ -38,7 +39,7 @@ $description = '学校と社会をつなぐ「ハタチのトビラ」は、将�
     </script>
 </head>
 <body id="top" style="overflow-x: hidden;">
-    
+    @include('includes.gtm_body')
     <header id="myHeader" class="top-header">
         <div class="bx_header">
             <div class="hd_left">
