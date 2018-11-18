@@ -14,7 +14,7 @@
 @import '~loaders.css/loaders.css';
 
 @import url('https://fonts.googleapis.com/css?family=Oswald');
-@import url(http://fonts.googleapis.com/earlyaccess/notosansjapanese.css);
+@import url(https://fonts.googleapis.com/earlyaccess/notosansjapanese.css);
 
 // Variables
 @import "variables";
@@ -28,6 +28,7 @@
 @import "components/collapse";
 @import "components/select";
 @import "components/modal";
+@import "components/merit_box";
 
 @import "projects/layout";
 @import "projects/header";

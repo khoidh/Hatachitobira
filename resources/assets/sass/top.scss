@@ -339,31 +339,15 @@ footer .footer-bottom li {
             }
         }
 
-        .text-tittle {
-            font-family: $font-family-oswald;
-            color: $yellow-color;
-            font-size: 58px;
-            border-top: 4px solid $yellow-color;
-        }
-
         .image {
             margin: 50px 20px 0;
-            position: relative;
-            text-align: right;
-            height: 200px;
-            .movie-image {
-                width: 165px;
-                height: 165px;
-            }
-            .text-tittle {
-                position: absolute;
-                bottom: 0;
-                left: 0;
-            }
-
             @include only-for-mobile() {
                 margin: 50px 0 0;
-                text-align: center;
+            }
+        }
+        .c-merit_box {
+            .title {
+                padding: 0 20px;
             }
         }
 
