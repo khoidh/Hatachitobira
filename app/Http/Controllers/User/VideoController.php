@@ -21,6 +21,7 @@ class VideoController extends Controller
             ->select('videos.*','video_types.name as category_name')
             ->join('video_types','video_types.id','=','videos.type')
             ->where('videos.display', 1)
+            ->where('videos.type', '!=', 3)
             ;
 
         $selected_video_type_id = '';
@@ -68,6 +69,7 @@ class VideoController extends Controller
             ->select('videos.*','video_types.name as category_name')
             ->join('video_types','video_types.id','=','videos.type')
             ->where('videos.display', 1)
+            ->where('videos.type', '!=', 3)
             ;
 
         if (isset($data['category']) && $data['category'] != 0) {
@@ -107,6 +109,7 @@ class VideoController extends Controller
             ->select('videos.*','video_types.name as category_name')
             ->join('video_types','video_types.id','=','videos.type')
             ->where('videos.display', 1)
+            ->where('videos.type', '!=', 3)
             ;
 
         if($request->video_type !='')

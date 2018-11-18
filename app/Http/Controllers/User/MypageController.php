@@ -95,6 +95,7 @@ class MypageController extends Controller
                 ->first();
             $videos_cate = Video::where('category_id',$cat_id->categories_id)
                 ->where('videos.display' , 1)
+                ->where('videos.type', '!=', 3)
                 ->first();
             $column_cate = Column::where('category_id',$cat_id->categories_id)
                 ->where('columns.display' , 1)
@@ -177,6 +178,7 @@ class MypageController extends Controller
             ->first();
         $videos = Video::where('category_id',$data['categories_id'])
             ->where('videos.display' , 1)
+            ->where('videos.type', '!=', 3)
             ->first();
         $column = Column::where('category_id',$data['categories_id'])
             ->where('columns.display' , 1)
@@ -370,6 +372,7 @@ class MypageController extends Controller
             ->select('videos.*', 'categories.name as category_name')
             ->join('categories', 'categories.id', '=', 'videos.category_id')
             ->where('videos.display' , 1)
+            ->where('videos.type', '!=', 3)
             ;
             
 
@@ -474,6 +477,7 @@ class MypageController extends Controller
                 ->join('categories', 'categories.id', '=', 'videos.category_id')
                 ->where('videos.category_id', '=', $id)
                 ->where('videos.display' , 1)
+                ->where('videos.type', '!=', 3)
                 ;
 
             $events = $events->orderBy('id','desc')->get();
@@ -538,6 +542,7 @@ class MypageController extends Controller
                 ->join('categories', 'categories.id', '=', 'videos.category_id')
                 ->where('categories.slug', $slug)
                 ->where('videos.display' , 1)
+                ->where('videos.type', '!=', 3)
                 ;
 
             $events = $events->orderBy('id','desc')->get();
@@ -604,6 +609,7 @@ class MypageController extends Controller
             ->join('categories', 'categories.id', '=', 'videos.category_id')
             ->where('videos.category_id', '=', $input['category'])
             ->where('videos.display' , 1)
+            ->where('videos.type', '!=', 3)
             ->paginate(6);
 
         $results = array();

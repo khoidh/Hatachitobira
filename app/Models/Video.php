@@ -12,6 +12,7 @@ class Video extends Model
     const CONCEPT_MOVIE_TYPE = 3;
     CONST JOB_SHADOW = 'ジョブシャドウ';
     CONST ROLE_PLAY = 'ロールモデル';
+    CONST CONCEPT_MOVIE = 'コンセプトムービー';
 
     protected $table = 'videos';
     protected $fillable = ['category_id', 'url', 'description', 'image', 'sort','type','published_at', 'display'];

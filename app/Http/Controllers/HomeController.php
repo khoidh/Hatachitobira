@@ -62,6 +62,7 @@ class HomeController extends Controller
             ->select('videos.*','video_types.name as category_name')
             ->join('video_types','video_types.id','=','videos.type')
             ->where('videos.display' , 1)
+            ->where('videos.type',Video::JOB_SHADOW_TYPE)
             ->orderBy('id','desc')->get();
 
         $video_concept = Video::select()
@@ -69,7 +70,7 @@ class HomeController extends Controller
             ->join('video_types','video_types.id','=','videos.type')
             ->where('videos.display' , 1)
             ->orderBy('sort','asc')
-            ->where('type',Video::JOB_SHADOW_TYPE)
+            ->where('videos.type',Video::CONCEPT_MOVIE_TYPE)
             ->first();
 
         $videos_2 = Video::select()
@@ -77,7 +78,7 @@ class HomeController extends Controller
             ->join('video_types','video_types.id','=','videos.type')
             ->where('videos.display' , 1)
             ->orderBy('id','desc')
-            ->where('type',Video::ROLE_PLAY_TYPE)
+            ->where('videos.type',Video::ROLE_PLAY_TYPE)
             ->get();
 
         return view('top',compact('columns','events','videos_1','videos_2','categories','video_concept'));

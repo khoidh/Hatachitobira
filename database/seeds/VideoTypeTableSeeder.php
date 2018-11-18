@@ -27,6 +27,13 @@ class VideoTypeTableSeeder extends Seeder
             'slug'          => 'role_model',
             'description'   => 'ロールモデル',
         ]);
+        DB::table('video_types')->insert([
+            'id'            => 3,
+            'name'          => 'コンセプトムービー',
+            'slug'          => 'concept_movie',
+            'description'   => 'コンセプトムービー',
+        ]);
+
 
     }
 }
