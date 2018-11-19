@@ -453,11 +453,9 @@
 								<img src="{{asset('images/user/requiment/convertion-1.png')}}" alt="">
 								<div class="list-content">
 									<div class="inner">
-										<p class="inner-img"><img src="{{asset('images/user/requiment/before.png')}}" alt=""></p>
 										<h3 class="underline-text">サービスを利用してみた手応えはいかがでしたか？</h3>
 										<p>言葉だけでは伝えきれない社員1人ひとりの個性的な魅力や提供するサービスを立体的に可視化できたと感じています。</br>
 											あとは、ジョブシャドウイング参加学生が、弊社へ長期インターンとして参画してくれたことも嬉しかったですね。</p>
-										<p class="inner-img"><img src="{{asset('images/user/requiment/affter.png')}}" alt="" ></p>
 									</div>
 								</div>
 							</a>
@@ -466,10 +464,8 @@
 			                <a href="https://originalpoint.co.jp/recruit/013/" target="_blank">
 								<div class="list-content">
 								    <div class="inner">
-										<p class="inner-img"><img src="{{asset('images/user/requiment/before.png')}}" alt=""></p>
 								        <h3 class="underline-text">ハタチのトビラに参加してみていかがでしたか？</h3>
 								        <p>私の以前働いていたインターン先では、社員 の方と仕事でのコミユニケーションはあって も、将来や仕事観等について深くお話する機 会はないので‘1日に多くの社員の方とコミユ ニケーションを取れる機会はすごく貴重でし た。働く現場の実態を知ることができました ね。</p>
-										<p class="inner-img"><img src="{{asset('images/user/requiment/affter.png')}}" alt="" ></p>
 								    </div>
 								</div>
 								<img src="{{asset('images/user/requiment/convertion-2.png')}}" alt="">
