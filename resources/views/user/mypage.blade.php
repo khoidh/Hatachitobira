@@ -65,7 +65,11 @@
                         <?php $key = $i>4 ? $i : $i+1 ?>
                         @if($i!=4)
                         <div class="col-sm-4 col-xs-4 col-4 panel-info-wrapper">
-                            <div class="panel-info-content  {{$i%2 == 1 ? 'chan' : ''}}">
+                            <div class="panel-info-content  {{$i%2 == 1 ? 'chan' : ''}}"
+                            	data-month="{{isset($mythemes[$i]->month) ? $mythemes[$i]->month : $data_date['month']}}" 
+                                            data-year="{{isset($mythemes[$i]->year) ? $mythemes[$i]->year : $data_date['year']}}" 
+                                            data-category = "{{isset($mythemes[$i]->category_id) ? $mythemes[$i]->category_id : $key}}" 
+                                            data-id = "{{isset($mythemes[$i]->id) ? $mythemes[$i]->id : ''}}">
                                 <div class="number">
                                     <span>0{{$index++}}</span>
                                 </div>
@@ -1073,7 +1077,7 @@
             }
         })
 
-        $(document).on('click','.favorite.edit.label .fa-pencil',function(e){
+        $(document).on('click','.panel-info-content',function(e){
             e.preventDefault();
             var _this = $(this);
             var year = _this.data('year');
@@ -1093,7 +1097,7 @@
                 success : function (result){
                     $('#show-detail-mypage').find('.panel-body').html(result);
                     $('#show-detail-mypage').modal('show');
-                    _this.parents('.panel-info-content').find('.edit-input-lable').addClass('editing');
+                    _this.find('.edit-input-lable').addClass('editing');
                 }   
             })
         })

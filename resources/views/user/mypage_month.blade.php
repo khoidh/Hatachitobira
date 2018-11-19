@@ -43,7 +43,12 @@
             <?php $key = $i>4 ? $i : $i+1 ?>
             @if($i!=4)
             <div class="col-sm-4 col-xs-4 col-4 panel-info-wrapper">
-                <div class="panel-info-content {{$i%2 == 1 ? 'chan' : ''}}">
+                <div class="panel-info-content {{$i%2 == 1 ? 'chan' : ''}}"
+                    data-month="{{isset($mythemes[$i]->month) ? $mythemes[$i]->month : $data_search['month']}}" 
+                    data-year="{{isset($mythemes[$i]->year) ? $mythemes[$i]->year : $data_search['year']}}" 
+                    data-category = "{{isset($mythemes[$i]->category_id) ? $mythemes[$i]->category_id : $key}}" 
+                    data-id = "{{isset($mythemes[$i]->id) ? $mythemes[$i]->id : ''}}"
+                >
                     <div class="number">
                         <span>0{{$index++}}</span>
                     </div>
