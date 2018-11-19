@@ -38,7 +38,8 @@ $description = '学校と社会をつなぐ「ハタチのトビラ」は、将�
       })(document);
     </script>
 </head>
-<body id="top" style="overflow-x: hidden;">
+
+<body id="top" style="overflow-x: hidden;position: unset;">
     @include('includes.gtm_body')
     <header id="myHeader" class="top-header">
         <div class="bx_header">
@@ -164,19 +165,19 @@ $description = '学校と社会をつなぐ「ハタチのトビラ」は、将�
         </div>
         <div class="image-top row">
             <div class="img-size">
-                <img src="{{ asset('images/user/top/image-slide-1.png') }}" class="img-detail" alt="Image slide">
+                <img src="{{ asset('images/user/top/image-slide-1.jpg') }}" class="img-detail" alt="Image slide">
             </div>
             <div class="img-size">
-                <img src="{{ asset('images/user/top/image-slide-2.png') }}" class="img-detail" alt="Image slide">
+                <img src="{{ asset('images/user/top/image-slide-2.jpg') }}" class="img-detail" alt="Image slide">
             </div>
             <div class="img-size">
-                <img src="{{ asset('images/user/top/image-slide-3.png') }}" class="img-detail" alt="Image slide">
+                <img src="{{ asset('images/user/top/image-slide-3.jpg') }}" class="img-detail" alt="Image slide">
             </div>
             <div class="img-size">
-                <img src="{{ asset('images/user/top/image-slide-4.png') }}" class="img-detail" alt="Image slide">
+                <img src="{{ asset('images/user/top/image-slide-4.jpg') }}" class="img-detail" alt="Image slide">
             </div>
             <div class="img-size">
-                <img src="{{ asset('images/user/top/image-slide-5.png') }}" class="img-detail" alt="Image slide">
+                <img src="{{ asset('images/user/top/image-slide-5.jpg') }}" class="img-detail" alt="Image slide">
             </div>
         </div>
         <div class="content top">
