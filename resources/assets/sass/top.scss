@@ -476,7 +476,7 @@ a.show-modal-register-mypage:hover{
     .slick-slider {
         min-height: $height;
         .slick-list {
-            height: 100%;
+            min-height: $height;
         }
     }
     .btn_find {
