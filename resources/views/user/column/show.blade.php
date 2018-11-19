@@ -1,4 +1,8 @@
 @extends('layouts.app')
+@section('og-image')
+    @php $image='images/admin/column/'.$column->image; @endphp
+    <meta property="og:image" content="{{ file_exists($image) ? asset($image): asset('images/default/column_default.jpg') }}"" />
+@endsection
 
 @section('css-add')
     @parent
