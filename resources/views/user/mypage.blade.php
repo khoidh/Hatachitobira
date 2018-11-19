@@ -921,7 +921,7 @@
                         _this.attr('data-id',result.id);
                         _this.parents('.panel-info-content').find('.favorite.edit').find('.fa-pencil').attr('data-category',result.category_id);
                         _this.parents('.panel-info-content').find('.favorite.edit').find('.fa-pencil').attr('data-id',result.id);
-                        iziToast.success({timeout: 5000, icon: 'fa fa-chrome', title: 'OK', message: '更新いたしました'});
+                        iziToast.success({timeout: 5000, icon: 'fa fa-chrome', title: 'OK', message: '更新いたしました', progressBar: false});
                     }   
                 })
             }
@@ -969,7 +969,7 @@
                                 $(element).attr('placeholder', '');
                             });
                         }
-                        iziToast.success({timeout: 5000, icon: 'fa fa-chrome', title: 'OK', message: '更新いたしました'});
+                        iziToast.success({timeout: 5000, icon: 'fa fa-chrome', title: 'OK', message: '更新いたしました', progressBar: false});
                     }
                 })
             }
@@ -1036,8 +1036,7 @@
                         $('.input-memo').text(data.memo);
                         $('.input-my-theme').text(data.this_mytheme);
                         $('.action-of-month').text(data.this_action);
-                        iziToast.success({timeout: 5000, icon: 'fa fa-chrome', title: 'OK', message: '更新いたしました'});
-                        
+                        iziToast.success({timeout: 5000, icon: 'fa fa-chrome', title: 'OK', message: '更新いたしました', progressBar: false});
                     }
                 })
             }
@@ -1068,7 +1067,7 @@
                     },
                     success : function (result){
                         _this.parents('.detail-infor').find('.edit-input-content').attr('data-id',result.id);
-                        iziToast.success({timeout: 5000, icon: 'fa fa-chrome', title: 'OK', message: '更新いたしました'});
+                        iziToast.success({timeout: 5000, icon: 'fa fa-chrome', title: 'OK', message: '更新いたしました', progressBar: false});
                     }   
                 })
             }
