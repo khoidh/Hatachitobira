@@ -243,7 +243,7 @@
 
                 <div class="row justify-content-center form-group btn-category-list">
                     <div class="col-sm-6 col-sm-offset-3">
-                        <button type="submit" class="round-button black lg" id="btn_search_category">一覧を見る</button>
+                        <button type="submit" class="round-button black lg" id="btn_search_category">新着情報をみる</button>
                     </div>
                 </div>
             </div>
