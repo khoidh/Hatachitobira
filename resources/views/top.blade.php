@@ -16,7 +16,7 @@ $description = '学校と社会をつなぐ「ハタチのトビラ」は、将�
     <meta property="og:title" content="{{$title}}" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="{{ Request::url() }}" />
-    <meta property="og:image" content="{{ asset('images/ogp.png') }}"" />
+    <meta property="og:image" content="{{ asset('images/logo_og.png') }}"" />
     <meta property="og:site_name" content="{{ $title }}" />
     <meta property="og:description" content="{{ $description }}" />
     <meta property="fb:app_id" content="{{ env('FACEBOOK_ID') }}" />
@@ -38,6 +38,7 @@ $description = '学校と社会をつなぐ「ハタチのトビラ」は、将�
       })(document);
     </script>
 </head>
+
 <body id="top" style="overflow-x: hidden">
     @include('includes.gtm_body')
     <header id="myHeader" class="top-header">
