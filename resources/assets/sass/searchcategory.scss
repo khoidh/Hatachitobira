@@ -1,4 +1,12 @@
+.content-search .event,
+.content-search .column {
+    margin-top: 60px;
+    .article-list {
+        margin-top: 40px;
+    }
+}
 .container.searchcategory {
+    margin-bottom: 50px;
     >.row {
         @include only-for-mobile() {
             padding: 15px;
@@ -22,15 +30,6 @@
     }
 }
 .content-search {
-    .underline-text {
-        margin-left: 0;
-        font-size: 36px;
-        font-weight: 700;
-        margin-bottom: 30px;
-        @include only-for-mobile() {
-            font-size: 24px;
-        }
-    }
     .video-list {
         @include only-for-mobile() {
             margin: -28px auto 0;
@@ -225,33 +224,35 @@
     height: 175px;
 }
 
-.carousel-control-prev,
-.carousel-control-next {
-    top: -22px !important;
-    .carousel-control-prev-icon {
-        background-image: url('/images/user/top/arrow_prev.png');
-        width: 35px;
-        height: 35px;
-        border: none;
-        background-color: transparent !important;
-        background-size: 100% !important;
-        position: relative;
-        top: -15px;
-        @include only-for-mobile() {
-            right: 9px;
-        }
+
+@include only-for-mobile() {
+    .carousel-control-prev,
+    .carousel-control-next {
+        top: -19% !important;
     }
-    .carousel-control-next-icon {
-        background-image: url('/images/user/top/arrow_next.png');
-        width: 35px;
-        height: 35px;
-         border: none;
-        background-color: transparent !important;
-        background-size: 95% !important;
-        position: relative;
-        top: -15px;
-        right: -7px;
-    }
+}
+
+.carousel-control-prev {
+    right: 48px !important;
+}
+
+.carousel-control-prev-icon {
+    background-image: url('/images/user/top/arrow_prev.png');
+    width: 35px;
+    height: 35px;
+    border: none;
+    background-color: transparent !important;
+    background-size: 100% !important;
+    position: relative;
+}
+.carousel-control-next-icon {
+    background-image: url('/images/user/top/arrow_next.png');
+    width: 35px;
+    height: 35px;
+     border: none;
+    background-color: transparent !important;
+    background-size: 95% !important;
+    position: relative;
 }
 
 .video-search .carousel-control-prev,

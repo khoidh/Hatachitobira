@@ -14,5 +14,6 @@
             src="{{asset('images/user/column/column-visible-icon.png')}}" alt="column-visible-icon.png"
         @endif
     >
-    <span style="@if($column->type ==1) left: 25px; @endif">{{$column_state}}</span>
+    <span style="">{{$column_state}}</span>
+    {{-- @if($column->type ==1) left: 25px; @endif --}}
 </div>

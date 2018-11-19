@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Video;
 use App\Category;
+use App\Models\VideoType;
 use App\Http\Requests\VideoRequest;
 
 class VideoController extends Controller
@@ -16,8 +17,9 @@ class VideoController extends Controller
     public function index()
     {
         $events = Video::select()
-            ->select('videos.*','categories.name as category_name')
+            ->select('videos.*','categories.name as category_name','video_types.name as type_name')
             ->join('categories','categories.id','=','videos.category_id')
+            ->join('video_types','video_types.id','=','videos.type')
             ->orderBy('id','desc')
             ->paginate(10);
 
@@ -27,8 +29,12 @@ class VideoController extends Controller
     public function create()
     {
         $categories = Category::all();
+        $types = VideoType::all();
 
-        return view('admin.video.create', ['categories' => $categories]);
+        return view('admin.video.create', [
+                'categories' => $categories,
+                'types' => $types
+            ]);
     }
 
     public function store(VideoRequest $request)
@@ -52,6 +58,7 @@ class VideoController extends Controller
                 $video->url = $request->url; 
                 $video->sort = (int)($request->sort);
                 $video->type = (int)($request->type);
+                $video->display = (int)($request->display);
                 $video->title = $result->items[0]->snippet->title; 
                 $video->thumbnails = $result->items[0]->snippet->thumbnails->high->url; 
                 $video->embedHtml = $result->items[0]->player->embedHtml; 
@@ -74,8 +81,9 @@ class VideoController extends Controller
     {
         $video = Video::select()
             ->where('videos.id', $id)
-            ->select('videos.*','categories.name as category_name')
+            ->select('videos.*','categories.name as category_name','video_types.name as type_name')
             ->join('categories','categories.id','=','videos.category_id')
+            ->join('video_types','video_types.id','=','videos.type')
             ->first();
 
         return view('admin.video.show', ['video' => $video]);
@@ -84,8 +92,13 @@ class VideoController extends Controller
     public function edit($id)
     {
         $video = Video::find($id);
+        $types = VideoType::all();
         $categories = Category::all();
-        return view('admin.video.edit', ['video' => $video, 'categories' => $categories]);
+        return view('admin.video.edit', [
+            'video' => $video,
+            'categories' => $categories,
+            'types' => $types
+        ]);
     }
 
     public function update(VideoRequest $request, $id)
@@ -110,6 +123,7 @@ class VideoController extends Controller
                 $video->url = $request->url; 
                 $video->sort = (int)($request->sort);
                 $video->type = (int)($request->type);
+                $video->display = (int)($request->display);
                 $video->title = $result->items[0]->snippet->title; 
                 $video->thumbnails = $result->items[0]->snippet->thumbnails->high->url; 
                 $video->embedHtml = $result->items[0]->player->embedHtml; 

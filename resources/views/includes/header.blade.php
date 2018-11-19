@@ -16,7 +16,7 @@
                 <li class="nav-item aaaafixed">
                     <a class="nav-link active" href="{{url('about')}}">ABOUT</a>
                 </li>
-                <li class="nav-item dropdown aaaafixed">
+                <li class="nav-item dropdown aaaafixed d-none d-md-block">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                       マイテーマを探す
                     </a>
@@ -27,6 +27,17 @@
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="{{ url('event')}}">イベントに参加する</a>
                         <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="{{ url('column')}}">ハタチのトビラコラム</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown aaaafixed d-md-none">
+                    <a class="nav-link collapse-toggle" href="#collapseListMyTheme" role="button" data-toggle="collapse" aria-expanded="false" aria-controls="collapseListMyTheme">
+                      マイテーマを探す
+                    </a>
+                    <div class="collapse" role="tabpanel" id="collapseListMyTheme" aria-expanded="false">
+                        <a class="dropdown-item" href="{{ url('search-category')}}">自分の興味から探す</a>
+                        <a class="dropdown-item" href="{{ url('video')}}">将来の選択肢を動画でみる</a>
+                        <a class="dropdown-item" href="{{ url('event')}}">イベントに参加する</a>
                         <a class="dropdown-item" href="{{ url('column')}}">ハタチのトビラコラム</a>
                     </div>
                 </li>

@@ -32,7 +32,7 @@
             </div>
 
             <div class="txt col-md-12 col-sm-12 col-xs-12">
-                <div class="txt_content">
+                <div class="ckeditor-body">
                     {!! $column->content !!}
                 </div>
             </div>

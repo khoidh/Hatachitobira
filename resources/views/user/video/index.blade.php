@@ -29,22 +29,22 @@
 @endsection
 @section('content')
     <div class="container video">
-        <div class="row">
-            <div class="form-group col-md-6 col-sm-6">
-                <select name="category_id" id="category_id" class="form-control">
-                    <option value="">Category</option>
-                    @foreach($categories as $category)
-                    <option value="{{$category->id}}">{{$category->name}}</option>
+        <div class="category row">
+            <div class="col-md-6 col-12 category-input select-wrapper">
+                <select name="video_type" id="video_type" class="">
+                    <option value="">動画のタイプ</option>
+                    @foreach($video_types as $type)
+                    <option
+                        value="{{$type->id}}"
+                        {{ ($selected_video_type_id == $type->id) ? 'selected' : ''}}
+                        >{{$type->name}}</option>
                     @endforeach
+                    <option value="">全て</option>
                 </select>
             </div>
-            <div class="form-group col-md-6 col-sm-6">
-                <div class="topnav">
-                    <div class="search-container">
-                        <input type="text" placeholder="" name="search">
-                        <button id="searchvideo"><i class="fa fa-search" ></i></button>
-                    </div>
-                </div>
+            <div class="col-md-6 col-12 input-wrapper">
+                <input type="text" placeholder="" name="search">
+                <button id="searchvideo"><i class="fa fa-search" ></i></button>
             </div>
         </div>
         <div class="row video-list list-video-tall">
@@ -137,13 +137,13 @@
                 }
             });
 
-            $(document).on('change','#category_id',function(e){
+            $(document).on('change','#video_type',function(e){
 
                 e.preventDefault();
                 var text = $('.search-container input').val();
                 var id = $(this).val();
                 $.ajax({
-                    url : '{{url("video-search-text?category_id=")}}'+ id +'&page=1&description='+text,
+                    url : '{{url("video-search-text?video_type=")}}'+ id +'&page=1&description='+text,
 
                     success: function (data) {
                         $('.row.video-list').html(data);

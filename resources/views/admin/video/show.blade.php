@@ -76,15 +76,15 @@
   <div class="form-group row">
     <label for="Type" class="col-sm-2 col-form-label">{{__('タイプ')}}</label>
     <div class="col-sm-10">
-      <?php 
-          $type = '';
-          if($video->type==0) $type ='ジョブシャドウ';
-          if($video->type==1) $type ='ロールプレイ';
-          if($video->type==2) $type = 'コンセプトムービー';
-       ?>
-      <input id="Type" value="<?php echo $type ?>"class="form-control" disabled="">
+      <input id="Type" value="<?php echo $video->type_name ?>"class="form-control" disabled="">
     </div>
   </div>
+    <div class="form-group row">
+        <label for="display" class="col-sm-2 col-form-label">{{__('表示')}}</label>
+        <div class="col-sm-10">
+          <input id="display" value="<?php echo ($video->display==0)?'非表示':'表示' ?>"class="form-control" disabled="">
+        </div>
+    </div>
 
   <div class="form-group row">
     <div class="col-sm-10">

@@ -265,7 +265,10 @@
           .checkboxtext
           {
             /* Checkbox text */
-            font-size: 30vm;
+            font-size: 4vw;
+            @include only-for-tab-pc(){
+              font-size: 1vw;
+            }
             display: inline;
           }
 
@@ -280,10 +283,6 @@
 .enquiry{
   .panel-default{
     margin: 30px 0 0;
-  }
-
-  p{
-    letter-spacing: 3px;
   }
 
   .title-x{

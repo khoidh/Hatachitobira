@@ -97,6 +97,14 @@
                     </div>
                 </div>
 
+            <div class="form-group row">
+                <label for="display" class="col-sm-2 col-form-label">{{__('表示')}}</label>
+                <div class="col-sm-10">
+                  <input id="display" value="<?php echo ($column->display==0)?'非表示':'表示' ?>"class="form-control" disabled="">
+                </div>
+            </div>
+
+
                 <div class="form-group row">
                 <div class="col-sm-10">
                     <a class="btn btn-info" href="{{route('columns.index')}}">一覧に戻る </a>

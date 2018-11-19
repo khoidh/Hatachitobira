@@ -16,6 +16,7 @@ class ColumnController extends Controller
             ->select('columns.*', 'categories.name as category_name')
             ->join('categories', 'categories.id', '=', 'columns.category_id')
             ->where('categories.display', 1)
+            ->where('columns.display', 1)
             ->orderBy('created_at', 'desc')
             ->paginate(6);
 
@@ -35,22 +36,33 @@ class ColumnController extends Controller
     {
         $column = Column::find($id);
         // get previous $column id
-        $previous = Column::select('id', 'title')->where('id', '<', $column->id)->orderBy('id', 'desc')->first();
+        $previous = Column::select('id', 'title')
+            ->where('id', '<', $column->id)
+            ->where('display' , 1)
+            ->orderBy('id', 'desc')->first();
         if (empty($previous)) {
             $previous = $column;
         }
 
         // get next $column id
-        $next = Column::select('id', 'title')->where('id', '>', $column->id)->orderBy('id', 'asc')->first();
+        $next = Column::select('id', 'title')
+            ->where('id', '>', $column->id)
+            ->where('display' , 1)
+            ->orderBy('id', 'asc')->first();
         if (empty($next)) {
             $next = $column;
         }
 
         // get 6 random records
-        $columns_random = Column::inRandomOrder()->select('id', 'title')->take(6)->get();
+        $columns_random = Column::inRandomOrder()
+            ->select('id', 'title')
+            ->where('display' , 1)
+            ->take(6)->get();
 
         // get 6 nearest records
-        $columns_latest = Column::select('id', 'title')->orderBy('updated_at', 'desc')->take(6)->get();
+        $columns_latest = Column::select('id', 'title')
+            ->where('display' , 1)
+            ->orderBy('updated_at', 'desc')->take(6)->get();
 
         $data = [
             'column' => $column,

@@ -67,13 +67,25 @@
         <div class="form-group row">
             <label for="type" class="col-sm-2 col-form-label">{{__('タイプ')}}</label>
             <div class="col-sm-10">
-                <select type="number" name="type" id="type" class="form-control"  value="{{$video->type}}" tabindex=1>
-                    <option value='0' {{($video->type==0) ? 'selected' : ''}}>ジョブシャドウ</option>
-                    <option value='1' {{($video->type==1) ? 'selected' : ''}}>ロールプレイ</option>
-                    <option value='2' {{($video->type==2) ? 'selected' : ''}}>コンセプトムービー</option>
+                <select type="number" name="type" id="type" class="form-control" tabindex=1>
+                    @foreach($types as $type)
+                        <option value="{{ $type->id }}"
+                            {{($type->id == $video->type) ? 'selected' : ''}} >{{$type->name}}
+                        </option>
+                    @endforeach
                 </select>
             </div>
         </div>
+        <div class="form-group row">
+            <label for="display" class="col-sm-2 col-form-label">{{__('表示')}}</label>
+            <div class="col-sm-10">
+                <select class="form-control" name="display" id="display">
+                    <option value="1" <?php if($video->display == 1) echo 'selected' ?> >表示</option>
+                    <option value="0"<?php if($video->display == 0) echo 'selected' ?> >非表示</option>
+                </select>
+            </div>
+        </div>
+
         <div class="form-group row">
             <div class="col-sm-10">
                 <input type="hidden" name="_method" value="patch">

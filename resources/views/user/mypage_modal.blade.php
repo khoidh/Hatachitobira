@@ -13,7 +13,7 @@
         </div>
     </div>
     <div class="title-detail">
-        <span>0{{$data['category_id']}} の要素を深掘り</span>
+        <span>0{{$data['category_id']}}の要素を深掘り</span>
     </div>
 </div>
 <div class="col-md-12 detail-infor row">

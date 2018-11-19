@@ -28,11 +28,12 @@
         }
         @include only-for-mobile() {
             background-color: $white-color;
-            padding: 3px ;
+            padding: 20px;
             a {
                 display: block;
                 background-color: $black-color;
                 color: $white-color !important;
+                text-align: center;
             }
         }
     }
@@ -45,10 +46,23 @@
     width: 100%;
     justify-content: flex-end;
 }
+
 .navbar-nav {
+    padding-top: 10px;
     li {
         height: 80px;
         line-height: 80px;
+        @include only-for-mobile() {
+            min-height: 60px;
+            height: auto;
+            line-height: 60px;
+            border-bottom: 1px solid $light-gray-color;
+
+            .collapse.show,
+            &:first-child {
+                border-top: 1px solid $light-gray-color;
+            }
+        }
     }
 
     .dropdown-menu {
@@ -112,7 +126,6 @@
 
 #myHeader .bx_header {
     position: relative;
-    top: -110px !important;
 }
 
 #myHeader.fixed .bx_header {
@@ -168,7 +181,7 @@ header.fixed {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
+    width: 100vw;
     transform: translate3d(0, 0, 0);
     background-color: #fff;
     box-shadow: 0 0 8px 0 rgba(50, 49, 49, 0.39);
@@ -331,7 +344,7 @@ header.fixed {
         .navbar.navbar-expand-lg.navbar-light {
             span {
                 font-size: 14px;
-                font-family: 500;
+                font-weight: 500;
                 display: inline-block;
                 margin-left: 10px;
             }
@@ -339,8 +352,8 @@ header.fixed {
     }
 
     .c-top {
-        width: 96vw;
-        margin: 0 auto;
+        width: 100%;
+        margin: 0 20px;
     }
 
     #myHeader.fixed .bx_header {
@@ -386,8 +399,7 @@ header.fixed {
     }
 
     .navbar-toggler:not(:disabled):not(.disabled) {
-        top: 20px;
-        right: 50px !important;
+        margin-top: 20px;
     }
 
     .bx_header .hd_left {

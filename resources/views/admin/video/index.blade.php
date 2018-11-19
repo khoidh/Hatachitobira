@@ -35,6 +35,7 @@
         <th>{{__('表示順')}}</th>
         <th>{{__('タイプ')}}</th>
         <th>{{__('操作')}}</th>
+        <th>{{__('表示')}}</th>
 
     </tr>
     </thead>
@@ -50,13 +51,7 @@
                 
             </td>
             <td>{{$video->sort}}</td>
-              <?php 
-                  $type = '';
-                  if($video->type==0) $type ='ジョブシャドウ';
-                  if($video->type==1) $type ='ロールプレイ';
-                  if($video->type==2) $type = 'コンセプトムービー';
-               ?>
-            <td>{{$type}}</td>
+            <td>{{$video->type_name}}</td>
             <td>
                 <div >
                             <a class="btn btn-info" href="{{route('videos.show',$video->id)}}">詳細</a>
@@ -65,6 +60,7 @@
                             <a class="btn btn-success" href="{{route('videos.edit',$video->id)}}">編集</a>
                         </div>
             </td>
+            <td>{{ $video->display == 1 ? '表示' : '非表示'}}</td>
         </tr>
     @endforeach
 

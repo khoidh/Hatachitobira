@@ -1,0 +1,64 @@
+@mixin wrapper_layout {
+  position: relative;
+  line-height: 1.5;
+  margin-bottom: 15px;
+}
+
+@mixin select_input_layout {
+  background: $white;
+  border: 2px solid $black-color;
+  border-radius: 35px;
+  padding: 10px 20px;
+  font-size: 18px;
+  color: $black-color;
+  appearance: none;
+}
+
+.select-wrapper {
+  @include wrapper_layout;
+
+  select {
+    @include select_input_layout;
+    width: 100%;
+  }
+
+  select::-ms-expand {
+    display: none;
+  }
+
+  &:after {
+    font-family: FontAwesome;
+    content: '\f107';
+    font-size: 28px;
+    position: absolute;
+    top: 5px;
+    right: 30px;
+    color: $black-color;
+    pointer-events: none;
+  }
+}
+
+.input-wrapper {
+  @include wrapper_layout;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+
+  input {
+    @include select_input_layout;
+    width: 1%;
+    flex: 1 1 auto;
+    border-right: none;
+
+    &:not(:last-child) {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+  }
+  button {
+    @include select_input_layout;
+    border-left: none;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+}

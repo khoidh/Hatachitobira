@@ -290,17 +290,4 @@
       @extend %shape-8;
     }
   }
-
-  .txt{
-    .txt_content{
-      color: $text2-color;
-      text-align: justify;
-      @include only-for-mobile(){
-        img {
-          max-width: 100% !important;
-          height: 100% !important;
-        }
-      }
-    }
-  }
 }

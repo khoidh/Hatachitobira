@@ -24,6 +24,7 @@ $description = '学校と社会をつなぐ「ハタチのトビラ」は、将�
 
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/slick/slick.css') }}" rel="stylesheet">
+    @include('includes.gtm_head')
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('assets/slick/slick.min.js') }}"></script>
     <script>
@@ -38,7 +39,7 @@ $description = '学校と社会をつなぐ「ハタチのトビラ」は、将�
     </script>
 </head>
 <body id="top" style="overflow-x: hidden;">
-    
+    @include('includes.gtm_body')
     <header id="myHeader" class="top-header">
         <div class="bx_header">
             <div class="hd_left">
@@ -195,9 +196,8 @@ $description = '学校と社会をつなぐ「ハタチのトビラ」は、将�
                     <div class="cb-path last"></div>
                     
                     <div class="text-my-theme text-my-theme2">
-                        <h3>
-                            <p class="text_detail_title">WHAT IS マイテーマ</p>
-                            <p class="text-detail">マイテーマとは、自分の興味と意志からつくられる「私が、探求したいこと」です。誰にでも見出せるマイテーマは、変化していくものでありながら、今と未来をより充実させるための行動指針となっていきます。</p>
+                        <p class="text_detail_title">WHAT IS マイテーマ</p>
+                        <p class="text-detail">マイテーマとは、自分の興味と意志からつくられる「私が、探求したいこと」です。誰にでも見出せるマイテーマは、変化していくものでありながら、今と未来をより充実させるための行動指針となっていきます。</p>
                     </div>
                 </div>
                 <div class="cb-path"></div>
@@ -242,27 +242,21 @@ $description = '学校と社会をつなぐ「ハタチのトビラ」は、将�
                     <div class="c-col p-text">
                         <div class="text-vertical-pc"><span>マイテーマ</span>を<br>探す3つの理由</div>
                     </div>
-                    <div class="c-col">
-                        <div class="image">
-                            <img class="movie-image" src="{{ asset('images/user/top/movie-image-1.png') }}" alt="大学生活をはじめ、今をより充実させるための行動が定まる">
-                            <span class="text-tittle">01</span>
-                        </div>
-                        <p class="movie_image_description">大学生活をはじめ、今をより充実させるための行動が定まる</p>
-                    </div>
-                    <div class="c-col">
-                        <div class="image">
-                            <img class="movie-image" src="{{ asset('images/user/top/movie-image-2.png') }}" alt="マイテーマを探す経験が、個性を際立たせる">
-                            <span class="text-tittle">02</span>
-                        </div>
-                        <p class="movie_image_description">マイテーマを探す経験が、個性を際立たせる</p>
-                    </div>
-                    <div class="c-col">
-                        <div class="image">
-                            <img class="movie-image" src="{{ asset('images/user/top/movie-image-3.png') }}" alt="人生100年時代でのキャリア選択や就活の指針に">
-                            <span class="text-tittle">03</span>
-                        </div>
-                        <p class="movie_image_description">人生100年時代でのキャリア選択や就活の指針に</p>
-                    </div>
+                    @include('includes.merit_box', [
+                        'number'=>1,
+                        'image'=>'images/user/top/movie-image-1.png',
+                        'title'=>'大学生活をはじめ、今をより充実させるための行動が定まる',
+                    ])
+                    @include('includes.merit_box', [
+                        'number'=>2,
+                        'image'=>'images/user/top/movie-image-2.png',
+                        'title'=>'マイテーマを探す経験が、個性を際立たせる',
+                    ])
+                    @include('includes.merit_box', [
+                        'number'=>3,
+                        'image'=>'images/user/top/movie-image-3.png',
+                        'title'=>'人生100年時代でのキャリア選択や就活の指針に',
+                    ])
                 </div>
                 <img src="/images/user/top/back-gr-2.png" class="back-gr">
             </div>
@@ -295,7 +289,7 @@ $description = '学校と社会をつなぐ「ハタチのトビラ」は、将�
                 <div class="cb-path"></div>
                 <p class="movie-top-text">将来の選択肢から探す</p>
                 <p class="movie-top-descroption">多様な仕事現場の働く1日に学生が密着した映像から、マイテーマの種をみつけよう</p>
-                <div class="col-md-10 video-detail row">
+                <div class="col-md-10 video-detail row mx-auto">
                     <div class="col-md-8">
                         <div class="corner-wrapper video movie-1">
                             <div class="video-list">
@@ -319,7 +313,7 @@ $description = '学校と社会をつなぐ「ハタチのトビラ」は、将�
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4 video-movie">
+                    <div class="col-md-4 video-movie flex-space-between-mobile">
                         <div class="corner-wrapper video movie-2">
                             <div class="video-list">
                                 @foreach($videos_1 as $key => $result)
@@ -365,7 +359,7 @@ $description = '学校と社会をつなぐ「ハタチのトビラ」は、将�
                         
                     </div>
                 </div>
-                <a href="{{url('video')}}">
+                <a href="{{ route('video', ['slug' => 'job_shadow']) }}">
                     <span class="more-detail ">MORE</span>
                     <img src="{{ asset('images/user/top/arrow-1.png') }}" >
                 </a>
@@ -375,7 +369,7 @@ $description = '学校と社会をつなぐ「ハタチのトビラ」は、将�
                 <div class="cb-path"></div>
                 <p class="movie-top-text">ロールモデルから探す</p>
                 <p class="movie-top-descroption">多様なロールモデルのマイテーマに沿った生き方から、マイテーマの種をみつけよう</p>
-                <div class="col-md-10 video-detail row">
+                <div class="col-md-10 video-detail row mx-auto">
                     <div class="col-md-8">
                         <div class="corner-wrapper video movie-1">
                             <div class="video-list">
@@ -399,7 +393,7 @@ $description = '学校と社会をつなぐ「ハタチのトビラ」は、将�
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4 video-movie">
+                    <div class="col-md-4 video-movie flex-space-between-mobile">
                         <div class="corner-wrapper video movie-2">
                             <div class="video-list">
                                 @foreach($videos_2 as $key => $result)
@@ -445,7 +439,7 @@ $description = '学校と社会をつなぐ「ハタチのトビラ」は、将�
                         
                     </div>
                 </div>
-                <a href="{{ url('video') }}">
+                <a href="{{ route('video', ['slug' => 'role_model']) }}">
                     <span class="more-detail ">MORE</span>
                     <img src="{{ asset('images/user/top/arrow-1.png') }}">
                 </a>

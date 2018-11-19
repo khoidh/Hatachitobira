@@ -19,8 +19,8 @@
         </div>
         <div class="col-sm-8 wrapper-content content-column">
             <p class="clearfix icon-favorior"><i class="fa fa-heart-o {{$column->columnliked == 1 ? 'liked' : ''}}" style="font-size: 24px;" data-user = "{{Auth::User()->id}}" data-id = "{{$column->id}}"></i></p>
-            <span class="text-title"><b><a style="color: #111" href="{{route('column.show', $column->id)}}">{{$column->title}}</a></b></span>
-            <span class="text-category">{{ $column->categoryname }}</span>
+            <p class="text-title"><b><a style="color: #111" href="{{route('column.show', $column->id)}}">{{$column->title}}</a></b></p>
+            <p class="text-category">{{ $column->categoryname }}</p>
             <p class="text-date">{{date('Y-m-d', strtotime($column->created_at))}}</p>
         </div>
     </div>
@@ -37,7 +37,8 @@
                     src="{{asset('images/user/event/event-visible-icon.png')}}" alt="event-visible-icon.png"
                 @endif
             >
-            <span style="@if($event->eventstatus == '受付前' || $event->eventstatus == '受付終了'|| $event->eventstatus == '開催終了' ) left: 48px; color: white !important; @else color: black !important @endif">{{$event->eventstatus}}</span>
+            <span style="">{{$event->eventstatus}}</span>
+            {{-- @if($event->eventstatus == '受付前' || $event->eventstatus == '受付終了'|| $event->eventstatus == '開催終了' ) left: 48px; color: white !important; @else color: black !important @endif --}}
         </div>
         <div class="col-sm-4 wrapper-icon">
             <a href="{{route('event.show', $event->id)}}" style="text-decoration:none;">
@@ -47,8 +48,8 @@
         </div>
         <div class="col-sm-8 wrapper-content content-event">
             <p class="clearfix icon-favorior"><i class="fa fa-heart-o {{$event->columnliked == 1 ? 'liked' : ''}}" style="font-size: 24px;" data-user = "{{Auth::User()->id}}" data-id = "{{$event->id}}"></i></p>
-            <span class="text-title"><b><a style="color: #111" href="{{route('event.show', $event->id)}}">{{ $event->title }}</a></b></span>
-            <span class="text-category">{{ $event->categoryname }}</span>
+            <p class="text-title"><b><a style="color: #111" href="{{route('event.show', $event->id)}}">{{ $event->title }}</a></b></p>
+            <p class="text-category">{{ $event->categoryname }}</p>
             <p class="text-date">{{date('Y-m-d', strtotime($event->started_at))}}</p>
         </div>
     </div>
@@ -65,8 +66,8 @@
         </div>
         <div class="col-sm-8 wrapper-content content-video">
             <p class="clearfix icon-favorior"><i class="fa fa-heart-o {{$videos->videoliked == 1? 'liked' : ''}}"  style="font-size: 24px;" data-user = "{{Auth::User()->id}}" data-id = "{{$videos->id}}"></i></p>
-            <span class="text-title"><b>{{ $videos->title }}</b></span>
-            <span class="text-category">{{ $videos->categoryname }}</span>
+            <p class="text-title"><b>{{ $videos->title }}</b></p>
+            <p class="text-category">{{ $videos->categoryname }}</p>
             <p class="text-date">{{ $videos->created_at }}</p>
         </div>
     </div>

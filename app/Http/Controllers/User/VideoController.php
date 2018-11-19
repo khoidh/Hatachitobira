@@ -5,7 +5,7 @@ namespace App\Http\Controllers\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 Use App\Video;
-Use App\Category;
+Use App\Models\VideoType;
 Use DateTime;
 use Illuminate\Pagination\LengthAwarePaginator;
 use App\Favorite;
@@ -16,15 +16,23 @@ class VideoController extends Controller
 
     public function index(Request $request)
     {
-
-        $categories = Category::where('display',1)->get();
+        $video_types = VideoType::all();
         $videos = Video::select()
-            ->select('videos.*','categories.name as category_name')
-            ->join('categories','categories.id','=','videos.category_id')
-            ->where('categories.display', 1)
-            ->orderBy('sort','desc')->orderBy('published_at','desc')->orderBy('id','desc')
-            ->paginate(9);
-        
+            ->select('videos.*','video_types.name as category_name')
+            ->join('video_types','video_types.id','=','videos.type')
+            ->where('videos.display', 1)
+            ->where('videos.type', '!=', 3)
+            ;
+
+        $selected_video_type_id = '';
+        if ($request->has('slug')) {
+            $videos = $videos->where('video_types.slug', $request->get('slug'));
+            $selected_video_type = VideoType::where('slug', $request->get('slug'))->first();
+            if (isset($selected_video_type)) {
+                $selected_video_type_id = $selected_video_type->id;
+            }
+        }
+        $videos =$videos->orderBy('sort','desc')->orderBy('published_at','desc')->orderBy('id','desc')->paginate(9);
         foreach ($videos as $video)
         {
 
@@ -46,16 +54,23 @@ class VideoController extends Controller
 
         }
 
-        return view('user.video.index', ['videos' => $videos,'categories'=>$categories]);
+        return view('user.video.index', [
+            'videos' => $videos,
+            'video_types'=>$video_types,
+            'selected_video_type_id'=>$selected_video_type_id
+        ]);
     }
 
     public function videoSearchCategory(Request $request) {
         $data = $request->all();
         
-        $categories = Category::where('display',1)->get();
+        $categories = VideoType::all();
         $videos = Video::select()
-            ->select('videos.*','categories.name as category_name')
-            ->join('categories','categories.id','=','videos.category_id');
+            ->select('videos.*','video_types.name as category_name')
+            ->join('video_types','video_types.id','=','videos.type')
+            ->where('videos.display', 1)
+            ->where('videos.type', '!=', 3)
+            ;
 
         if (isset($data['category']) && $data['category'] != 0) {
             $videos =$videos->where('category_id',$data['category']);
@@ -91,21 +106,23 @@ class VideoController extends Controller
        
         
         $videos = Video::select()
-            ->select('videos.*','categories.name as category_name')
-            ->join('categories','categories.id','=','videos.category_id');
+            ->select('videos.*','video_types.name as category_name')
+            ->join('video_types','video_types.id','=','videos.type')
+            ->where('videos.display', 1)
+            ->where('videos.type', '!=', 3)
+            ;
 
-        
-        if($request->category_id !='')
+        if($request->video_type !='')
         {
-            $category_id = $request->category_id;
-            $videos = $videos->where('category_id',$category_id);
+            $video_type = $request->video_type;
+            $videos = $videos->where('type',$video_type);
         }
         
-        if($request->description !='')
-        {
-            $description = $request->description;
-            $videos = $videos->where('title','like',"%$description%");
-        }
+        // if($request->description !='')
+        // {
+        //     $description = $request->description;
+        //     $videos = $videos->where('title','like',"%$description%");
+        // }
         
         /*End filter*/
         $videos = $videos->orderBy('sort','desc')->orderBy('published_at','desc')->orderBy('id','desc')->paginate(9);
