@@ -360,6 +360,10 @@ $title-to-slide-height: 35px;
 
 }
 
+.container.video {
+    margin-top: 60px;
+}
+
 @media (max-width: 426px) {
 
     #modal_video .modal-content iframe {
@@ -370,14 +374,6 @@ $title-to-slide-height: 35px;
     .container.video {
         margin-top: unset;
     }
-    //.home > .main > .title-lx > .container > .relative > .info .absolute p {
-    //    font-size: 24px;
-    //}
-    //
-    //.home .main .title-lx .container .relative .info .absolute {
-    //    bottom: -175px;
-    //}
-
 }
 .video-content.video {
     padding-top: 0;
