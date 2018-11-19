@@ -118,11 +118,11 @@ class VideoController extends Controller
             $videos = $videos->where('type',$video_type);
         }
         
-        // if($request->description !='')
-        // {
-        //     $description = $request->description;
-        //     $videos = $videos->where('title','like',"%$description%");
-        // }
+        if($request->description !='')
+        {
+            $description = $request->description;
+            $videos = $videos->where('title','like',"%$description%");
+        }
         
         /*End filter*/
         $videos = $videos->orderBy('sort','desc')->orderBy('published_at','desc')->orderBy('id','desc')->paginate(9);
