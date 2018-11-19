@@ -103,7 +103,7 @@ $contents-width: 1000px;
   color: $black-color;
   background-color: $background-panel-color;
 }
-@mixin mainvisual-font($font-size: 20px, $line-height: 40px, $font-weight: 400)
+@mixin mainvisual-font($font-size: 20px, $line-height: 40px, $font-weight: 700)
 {
   color: $black-color;
   font-size: $font-size;
