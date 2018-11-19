@@ -150,6 +150,7 @@
     <div class="container-fluid my-page">
         <div class="main ">
             <div class="container searchcategory">
+                <div class="title-categories-mypage"><b>自分の興味があるカテゴリー</b></div>
                 <div class="row fix-mb">
                     @foreach($categories as $categorie)
                     <div class="image-category">
