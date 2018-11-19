@@ -153,8 +153,17 @@
 
     <div class="container-fluid my-page">
         <div class="main ">
+            <div class="container searchcategory">
+                <div class="row fix-mb">
+                    @foreach($categories as $categorie)
+                    <div class="image-category">
+                        <img class="img-cat-detail {{isset($cat_id) &&  $categorie->id == $cat_id->categories_id ? 'selected' : ''}}" id="category_id_value" data-id="{{$categorie->id}}" src="{{ asset('images/admin/category/'.$categorie->icon) }}" alt="{{$categorie->name}}">
+                    </div>
+                    @endforeach
+                </div>
+            </div>
             <div class="container group-1">
-                <div class="category row">
+                <!-- <div class="category row">
                     <strong class="col-sm-10 col-8 category-input">
                         <select name="category_id" class="cb-category" id="category_id_value" required="true" autofocus>
                             <option selected disabled>あなたのカテゴリ</option>
@@ -167,8 +176,8 @@
                             @endforeach
                         </select>
                     </strong>
-                    <span class="col-sm-2 col-4 category-text"><b>の新着</b></span>
-                </div>
+                    
+                </div> -->
 
                 <div class="content-text" id="content-text">
                     @if(isset($cat_id))
@@ -599,13 +608,15 @@
             $('#modal_register').modal('show');
         }
 
-        $(document).on('change','#category_id_value', function(e){
-            var category_id = $(this).val();
+        $(document).on('click','#category_id_value', function(e){
+            var category_id = $(this).data('id');
+            var _this = $(this);
             $.ajax({
                 url: "{{ url('content-category-new?categories_id=') }}"+ category_id,
                 success: function (data) {
-                    console.log(data)
-                     $('#content-text').html(data);
+                    $('#category_id_value.selected').removeClass('selected');
+                    $('#content-text').html(data);
+                    _this.addClass('selected');
                 }
             })
         })
