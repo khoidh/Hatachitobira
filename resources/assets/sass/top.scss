@@ -331,7 +331,7 @@ footer .footer-bottom li {
             width: 25%;
         }
         .p-text {
-            font-size: 38px;
+            @include mainvisual-font(38px, 50px);
             font-weight: 700;
             color: $black-color;
             span {
@@ -377,7 +377,7 @@ footer .footer-bottom li {
 
     .movie-top-3 {
         .content-tile-movie {
-            font-size: 38px;
+            @include mainvisual-font(38px, 50px);
             font-weight: 700;
             color: $black-color;
             span {
