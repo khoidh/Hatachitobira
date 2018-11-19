@@ -42,7 +42,7 @@
                     <option value="">全て</option>
                 </select>
             </div>
-            <div class="col-md-6 col-12 input-wrapper">
+            <div class="col-md-6 col-12 search-container input-wrapper">
                 <input type="text" placeholder="" name="search">
                 <button id="searchvideo"><i class="fa fa-search" ></i></button>
             </div>
