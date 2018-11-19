@@ -623,7 +623,7 @@
 
         $(document).on('click','#btn_search_category',function(e){
             e.preventDefault();
-            var category_id = $('#category_id_value').data('slug');
+            var category_id = $('#category_id_value.selected').data('slug');
             window.open("{{ url('search-category') }}"+'/' +category_id,'_blank');
         })
 
@@ -1009,8 +1009,6 @@
             var _this = $(this);
             var year = _this.data('year');
             var month = _this.data('month');
-            console.log(year);
-            console.log(month);
             var text_memo = $('#input-memo').val();
             var text_memo_old = $('#input-memo').data('value');
             var text_last_log = $('.input-lat-log').val();
@@ -1032,6 +1030,9 @@
                         this_mytheme: text_my_theme,
                         this_action: text_action
                     },success:function(data) {
+                        $('#input-memo').attr('data-value',data.memo);
+                        $('.input-action').attr('data-value',data.this_action);
+                        $('#input-my-theme').attr('data-value',data.this_mytheme);
                         $('.input-memo').text(data.memo);
                         $('.input-my-theme').text(data.this_mytheme);
                         $('.action-of-month').text(data.this_action);
@@ -1229,9 +1230,19 @@
         $('#show-detail-mypage').on('hide.bs.modal', function(){
             var text = $('#show-detail-mypage').find('.image-description').val();
             var src = $('#tmppath').val();
-            $('.description').text(text);
-            $('.event-image').find('img').attr('src',"{{ asset('images/user/mypage')}}"+"/"+src);
-            $('#dissmiss_modal_show').removeClass('editing');
+            if (typeof value === "undefined") {
+                src = $('.event-image img').attr('src');
+                $('.event-image').find('img').attr('src',src);
+            }else {
+                $('.event-image').find('img').attr('src',"{{ asset('images/user/mypage')}}"+"/"+src);
+            }
+            if (typeof text === "undefined") {
+                
+                text = $('.event-image .description').text();
+            }
+                $('.description').text(text);
+                $('#dissmiss_modal_show').removeClass('editing');
+           
         });
 
     });
