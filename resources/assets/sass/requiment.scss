@@ -98,6 +98,10 @@
     font-size: 20px;
     line-height: 1;
     padding-bottom: 80px;
+
+    p {
+        line-height: 1.6;
+    }
 }
 
 .requiment-staff .requiment-slide {
@@ -607,10 +611,6 @@
         text-align: left;
     }
 
-    .container.content-1.requiment .content-1-title {
-        font-size: 20px !important;
-    }
-
     .requiment-staff .requiment-step .col-md-3.arrow:after {
         content: "弊社";
         background-color: #d1d1d1;
@@ -641,6 +641,31 @@
         z-index: -1;
     }
 
+
+    .recruiment-page {
+        .container.content-1.requiment .content-1-title {
+            font-size: 20px !important;
+        }
+        .top .container.content-1 {
+            background: none;
+        }
+        .top .content-1-content {
+            margin-top: -80px;
+
+            .cb-path {
+                top: 120px;
+                left: 35px;
+            }
+
+            .text-my-theme {
+                top: 80px;
+            }
+        }
+
+        .video {
+            margin-top: 220px;
+        }
+    }
 }
 
 .requiment-staff {

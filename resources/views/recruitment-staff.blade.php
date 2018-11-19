@@ -39,22 +39,22 @@
 				<div class="video-detail row">
 	                <div class="col-xs-12">
 	                    <div class="corner-wrapper">
-	                        <a href="https://www.youtube.com/watch?v=OLLai7lzepw" target="_blank" class="thumb-link big">
-	                        	<img src="https://i.ytimg.com/vi/OLLai7lzepw/hqdefault.jpg" alt="ハタチのトビラ#2（株）shake 〜人材育成業界で働くLGBT当事者の1日とは〜">
+	                        <a href="https://www.youtube.com/watch?v=3MgOXBydsf0" target="_blank" class="thumb-link big">
+	                        	<img src="https://i.ytimg.com/vi/3MgOXBydsf0/hqdefault.jpg" alt="#8-1 コクヨで建築！空間を設計・デザインする社員の1日とは？~ファニチャー事業の仕事理解編~/ハタチのトビラ">
 	                        </a>
 	                    </div>
 					</div>
 					<div class="col-xs-6" style="padding-right:5px;">
 	                    <div class="corner-wrapper">
-	                        <a href="https://www.youtube.com/watch?v=KO9MH9-hz38" target="_blank" class="thumb-link small">
-	                        	<img src="https://i.ytimg.com/vi/KO9MH9-hz38/hqdefault.jpg" alt="ハタチのトビラ#3 （株）Huber. 〜インバウンド事業に取り組む社会人の1日にとは〜">
+	                        <a href="https://www.youtube.com/watch?v=CcqZwmM1vtk" target="_blank" class="thumb-link small">
+	                        	<img src="https://i.ytimg.com/vi/CcqZwmM1vtk/hqdefault.jpg" alt="#7-1 島根県雲南市役所で働く職員の1日とは？ ~政策推進課の仕事理解編~/ハタチのトビラ">
 	                        </a>
 	                    </div>
 					</div>
 					<div class="col-xs-6" style="padding-left:5px;">
 	                    <div class="corner-wrapper">
-	                    	<a href="https://www.youtube.com/watch?v=uvaMVEDj6Cc" target="_blank" class="thumb-link small">
-	                    		<img src="https://i.ytimg.com/vi/uvaMVEDj6Cc/hqdefault.jpg" alt="ハタチのトビラ#6 NPO法人グリーンズ〜持続可能な社会をつくるために活動するNPO職員の1日とは〜">
+	                    	<a href="https://www.youtube.com/watch?v=ivARuHtRclk" target="_blank" class="thumb-link small">
+	                    		<img src="https://i.ytimg.com/vi/ivARuHtRclk/hqdefault.jpg" alt="ハタチのトビラ#6 NPO法人グリーンズ〜持続可能な社会をつくるために活動するNPO職員の1日とは〜">
 	                    	</a>
 	                    </div>
 	                </div>
@@ -230,25 +230,25 @@
 				<div class="col-md-12 video-detail row">
 	                <div class="col-md-9">
 	                    <div class="corner-wrapper">
-	                        <a href="https://www.youtube.com/watch?v=OLLai7lzepw" target="_blank" class="thumb-link big">
-	                        	<img src="https://i.ytimg.com/vi/OLLai7lzepw/hqdefault.jpg" alt="ハタチのトビラ#2（株）shake 〜人材育成業界で働くLGBT当事者の1日とは〜">
+	                        <a href="https://www.youtube.com/watch?v=3MgOXBydsf0" target="_blank" class="thumb-link big">
+	                        	<img src="https://i.ytimg.com/vi/3MgOXBydsf0/hqdefault.jpg" alt="#8-1 コクヨで建築！空間を設計・デザインする社員の1日とは？~ファニチャー事業の仕事理解編~/ハタチのトビラ">
 	                        </a>
 	                    </div>
 	                </div>
 	                <div class="col-md-3 video-movie ">
 	                    <div class="corner-wrapper pdd">
-	                        <a href="https://www.youtube.com/watch?v=KO9MH9-hz38" target="_blank" class="thumb-link small">
-	                        	<img src="https://i.ytimg.com/vi/KO9MH9-hz38/hqdefault.jpg" alt="ハタチのトビラ#3 （株）Huber. 〜インバウンド事業に取り組む社会人の1日にとは〜">
+	                        <a href="https://www.youtube.com/watch?v=CcqZwmM1vtk" target="_blank" class="thumb-link small">
+	                        	<img src="https://i.ytimg.com/vi/CcqZwmM1vtk/hqdefault.jpg" alt="#7-1 島根県雲南市役所で働く職員の1日とは？ ~政策推進課の仕事理解編~/ハタチのトビラ">
 	                        </a>
 	                    </div>
 	                    <div class="corner-wrapper pdd">
-	                        <a href="https://www.youtube.com/watch?v=uvaMVEDj6Cc" target="_blank" class="thumb-link small">
-	                        	<img src="https://i.ytimg.com/vi/uvaMVEDj6Cc/hqdefault.jpg" alt="ハタチのトビラ#6 NPO法人グリーンズ〜持続可能な社会をつくるために活動するNPO職員の1日とは〜">
+	                        <a href="https://www.youtube.com/watch?v=ivARuHtRclk" target="_blank" class="thumb-link small">
+	                        	<img src="https://i.ytimg.com/vi/ivARuHtRclk/hqdefault.jpg" alt="#3-1 （株）Huber.インバウンド事業に取り組む社員の1日とは？~訪日外国人と国際交流したい日本人をつなぐビジネスとは~/ハタチのトビラ">
 	                        </a>
 	                    </div>
 	                    <div class="corner-wrapper">
-	                        <a href="https://www.youtube.com/watch?v=CgQimHyhNUQ" target="_blank" class="thumb-link small">
-	                        	<img src="https://i.ytimg.com/vi/CgQimHyhNUQ/hqdefault.jpg" alt="行政職員の1日とは？島根県雲南市役所にて、未来を見据えて政策を考え推進する仕事とは_ハタチのトビラ予告編">
+	                        <a href="https://www.youtube.com/watch?v=pGJRCQagr18" target="_blank" class="thumb-link small">
+	                        	<img src="https://i.ytimg.com/vi/pGJRCQagr18/hqdefault.jpg" alt="#1-1 NPOフローレンスに新卒就職した職員の1日とは？~NPOってなに？フローレンスが取り組んでいることとは？~/ハタチのトビラ">
 	                        </a>
 	                    </div>
 	                </div>
