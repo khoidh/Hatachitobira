@@ -14,8 +14,8 @@
                     <ul>
                         <li><a class="a-first">マイテーマを</a></li>
                         <li><a href="{{url('video')}}">- &nbsp;動画から探す</a></li>
-                        <li><a href="{{url('event')}}">- &nbsp; イベントで見つける</a></li>
-                        <li><a href="{{url('column')}}">- &nbsp; 記事で知る</a></li>
+                        <li><a href="{{url('event')}}">- &nbsp;イベントで見つける</a></li>
+                        <li><a href="{{url('column')}}">- &nbsp;記事で知る</a></li>
                     </ul>
                 </div>
                 <div class="col-md-8 col-xs-6 col-sm-6 footter-mobile">
