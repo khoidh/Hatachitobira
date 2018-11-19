@@ -1225,6 +1225,14 @@
             $('#dissmiss_modal_show').removeClass('editing');
             $('#show-detail-mypage').modal('hide');
         })
+        $('#show-detail-mypage').on('hide.bs.modal', function(){
+            var text = $('#show-detail-mypage').find('.image-description').val();
+            var src = $('#tmppath').val();
+            $('.description').text(text);
+            $('.event-image').find('img').attr('src',"{{ asset('images/user/mypage')}}"+"/"+src);
+            $('#dissmiss_modal_show').removeClass('editing');
+        });
+
     });
 </script>
 @endsection
