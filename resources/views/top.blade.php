@@ -16,7 +16,7 @@ $description = '学校と社会をつなぐ「ハタチのトビラ」は、将�
     <meta property="og:title" content="{{$title}}" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="{{ Request::url() }}" />
-    <meta property="og:image" content="{{ asset('images/user/top/logo.png') }}"" />
+    <meta property="og:image" content="{{ asset('images/ogp.png') }}"" />
     <meta property="og:site_name" content="{{ $title }}" />
     <meta property="og:description" content="{{ $description }}" />
     <meta property="fb:app_id" content="{{ env('FACEBOOK_ID') }}" />
