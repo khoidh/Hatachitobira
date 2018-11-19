@@ -131,7 +131,7 @@ $description = '学校と社会をつなぐ「ハタチのトビラ」は、将�
                         <img class="image-pc" src="{{ asset('images/user/top/banner.png') }}" alt="楽しもう、背伸びしない自分を">
                         <figcaption class="first">
                             <div class="text-vertical-pc">
-                                <p class="title">やりたいことって必要なの？<br>楽しもう、背伸びしない自分を。</p>
+                                <p class="title">やりたいことって必要なの？<br>楽しもう、背伸びしない自分を</p>
                                 <p class="description">What students want to know,Is it transmitted to real?</p>
                             </div>
                         </figcaption>
