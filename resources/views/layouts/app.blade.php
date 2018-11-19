@@ -28,7 +28,7 @@
     @show
     @yield('css')
 </head>
-<body class="@yield('body-class')" style="overflow-x: hidden;position: unset;">
+<body class="@yield('body-class')">
     @include('includes.gtm_body')
     <div id="app" style="background: #FFFFFF">
 
