@@ -15,11 +15,11 @@
 <div class="col-sm-12 info-1">
     <div class="row memo">
         <div class="col-sm-2 col-4 memo-text">
-            <div class="underline">&nbsp;MEMO&nbsp;</div>
+            <h5 class="underline-text font-weight-bold">&nbsp;MEMO&nbsp;</h5>
         </div>
         <div class="col-sm-10 col-8 memo-input">
-           <textarea type="text" name="" class="input-memo" data-month="{{isset($mytheme_first->month) ? $mytheme_first->month : $data_date['month']}}"  disabled 
-                                            data-year="{{isset($mytheme_first->year) ? $mytheme_first->year : $data_date['year']}}"  placeholder="先月の行動を振り返り記録しよう"> {{$mytheme_first? $mytheme_first->memo : ''}}</textarea>
+           <textarea type="text" name="" class="input-memo" data-month="{{$data_search['month']}}"  disabled 
+                                            data-year="{{$data_search['year']}}"  placeholder="先月の行動を振り返り記録しよう"> {{$mytheme_first? $mytheme_first->memo : ''}}</textarea>
                         <i class="fa fa-pencil pencil-memo" data-toggle="modal" data-target="#modal_memo">
                                         <span>Edit</span></i>
         </div>
@@ -27,11 +27,11 @@
     <hr class="shape-8"/>
     <div class="row log">
         <div class="col-sm-2 col-4 log-text">
-            <div class="underline">&nbsp;先月のログ&nbsp;</div>
+            <h5 class="underline-text font-weight-bold">&nbsp;先月のログ&nbsp;</h5>
         </div>
         <div class="col-sm-10 col-8 log-input">
-            <input type="text" name="" class="input-lat-log" data-role="tagsinput" data-month="{{isset($mytheme_first->month) ? $mytheme_first->month : $data_date['month']}}" 
-                                data-year="{{isset($mytheme_first->year) ? $mytheme_first->year : $data_date['year']}}" placeholder="先月の自分を#で記録しよう　#バイト三昧　#初ボランティア" value="{{$mytheme_first ? $mytheme_first->last_log : ''}}">
+            <input type="text" name="" class="input-lat-log" data-role="tagsinput" data-month="{{$data_search['month']}}" data-value="{{$mytheme_first ? $mytheme_first->last_log : ''}}"
+                                data-year="{{$data_search['year']}}" placeholder="先月の自分を#で記録しよう　#バイト三昧　#初ボランティア" value="{{$mytheme_first ? $mytheme_first->last_log : ''}}">
 
         </div>
     </div>
@@ -95,8 +95,8 @@
             <h5 class="underline-text font-weight-bold">&nbsp;今月のマイテーマ&nbsp;</h5>
         </div>
         <div class="col-sm-9 col-8 my-theme-input">
-            <textarea type="text" name="my-therme-month" class="input-my-theme" data-month="{{isset($mytheme_first->month) ? $mytheme_first->month : $data_date['month']}}" 
-                                            data-year="{{isset($mytheme_first->year) ? $mytheme_first->year : $data_date['year']}}" placeholder="例:「人に喜んでもらう接客とは？」「自分の理想のチームをつくるには？」">{{$mytheme_first ? $mytheme_first->this_mytheme : ''}}</textarea>
+            <textarea type="text" name="my-therme-month" class="input-my-theme" data-month="{{$data_search['month']}}" 
+                                            data-year="{{$data_search['year']}}" placeholder="例:「人に喜んでもらう接客とは？」「自分の理想のチームをつくるには？」">{{$mytheme_first ? $mytheme_first->this_mytheme : ''}}</textarea>
                         <i class="fa fa-pencil pencil-theme" data-toggle="modal" data-target="#modal_my_theme">
                                         <span>Edit</span></i>
         </div>
@@ -107,8 +107,8 @@
                         <h5 class="underline-text font-weight-bold">&nbsp;今月のアクション &nbsp;</h5>
                     </div>
                     <div class="col-sm-9 col-7 action-input">
-                        <textarea style="width: 100%;border: none;" type="text" rows="2" name="action-of-month" data-month="{{isset($mytheme_first->month) ? $mytheme_first->month : $data_date['month']}}" 
-                                            data-year="{{isset($mytheme_first->year) ? $mytheme_first->year : $data_date['year']}}" placeholder="考えたいこと、行動したいことを3つ決めよう" disabled>{{$mytheme_first ? $mytheme_first->this_action : ''}}</textarea>
+                        <textarea style="width: 100%;border: none;" type="text" rows="2" name="action-of-month" data-month="{{$data_search['month']}}" 
+                                            data-year="{{$data_search['year']}}" placeholder="考えたいこと、行動したいことを3つ決めよう" disabled>{{$mytheme_first ? $mytheme_first->this_action : ''}}</textarea>
                                     <i class="fa fa-pencil pencil-action" data-toggle="modal" data-target="#modal_action">
                                         <span>Edit</span></i>
                     </div>

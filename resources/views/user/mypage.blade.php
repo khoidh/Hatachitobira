@@ -150,10 +150,11 @@
     <div class="container-fluid my-page">
         <div class="main ">
             <div class="container searchcategory">
+                <div class="title-categories-mypage"><b>自分の興味があるカテゴリー</b></div>
                 <div class="row fix-mb">
                     @foreach($categories as $categorie)
                     <div class="image-category">
-                        <img class="img-cat-detail {{isset($cat_id) &&  $categorie->id == $cat_id->categories_id ? 'selected' : ''}}" id="category_id_value" data-id="{{$categorie->id}}" src="{{ asset('images/admin/category/'.$categorie->icon) }}" alt="{{$categorie->name}}">
+                        <img class="img-cat-detail {{isset($cat_id) &&  $categorie->id == $cat_id->categories_id ? 'selected' : ''}}" id="category_id_value" data-slug="{{$categorie->slug}}" data-id="{{$categorie->id}}" src="{{ asset('images/admin/category/'.$categorie->icon) }}" alt="{{$categorie->name}}">
                     </div>
                     @endforeach
                 </div>
@@ -242,7 +243,7 @@
 
                 <div class="row justify-content-center form-group btn-category-list">
                     <div class="col-sm-6 col-sm-offset-3">
-                        <button type="submit" class="round-button black lg" id="btn_search_category">一覧を見る</button>
+                        <button type="submit" class="round-button black lg" id="btn_search_category">新着情報をみる</button>
                     </div>
                 </div>
             </div>
@@ -622,8 +623,8 @@
 
         $(document).on('click','#btn_search_category',function(e){
             e.preventDefault();
-            var category_id = $('#category_id_value').val();
-            window.open("{{ url('search-category?search=') }}"+ category_id,'_blank');
+            var category_id = $('#category_id_value').data('slug');
+            window.open("{{ url('search-category') }}"+'/' +category_id,'_blank');
         })
 
         $(document).on('click','.browse-details .favorite',function(e){
@@ -1004,10 +1005,12 @@
             })
         })
 
-        $(document).on('focusout','.input-memo,.input-lat-log,.input-my-theme,.input-action',function(e){
+        $(document).on('focusout','#input-memo,.input-lat-log,#input-my-theme,.input-action',function(e){
             var _this = $(this);
             var year = _this.data('year');
             var month = _this.data('month');
+            console.log(year);
+            console.log(month);
             var text_memo = $('#input-memo').val();
             var text_memo_old = $('#input-memo').data('value');
             var text_last_log = $('.input-lat-log').val();
@@ -1016,8 +1019,6 @@
             var text_my_theme_old = $('#input-my-theme').data('value');
             var text_action= $('.input-action').val();
             var text_action_old= $('.input-action').data('value');
-            console.log(text_memo)
-            console.log(text_memo_old)
             if (text_memo.trim() != text_memo_old.trim() || text_last_log.trim() != text_last_log_old.trim() || text_my_theme.trim()  != text_my_theme_old.trim() || text_action.trim() !=text_action_old.trim()) {
                 $.ajax({
                     url : '{{route("mypage.change-content")}}',
