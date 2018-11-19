@@ -10,6 +10,10 @@
     display: inline;
 }
 
+.dropzone .dz-preview.dz-error .dz-error-message {
+    display: none !important;
+}
+
 #modal_memo,
 #modal_my_theme,
 #modal_action {
@@ -1014,4 +1018,8 @@ $panel_info_height_sp: 130px;
     border-radius: 5px;
     left: 0;
     text-align: center;
+}
+
+.my-page{
+    overflow: unset;
 }

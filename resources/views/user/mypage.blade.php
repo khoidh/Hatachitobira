@@ -38,7 +38,9 @@
                             type="text" name="" class="input-memo" placeholder="先月の行動を振り返り記録しよう" readonly
                             data-month="{{isset($mytheme_first->month) ? $mytheme_first->month : $data_date['month']}}" 
                             data-year="{{isset($mytheme_first->year) ? $mytheme_first->year : $data_date['year']}}"
+                            data-value = "{{$mytheme_first? $mytheme_first->memo : ''}}"
                         >{{ $mytheme_first ? $mytheme_first->memo : '' }}</textarea>
+
                         <i class="fa fa-pencil pencil-memo" data-toggle="modal" data-target="#modal_memo">
                                         <span>Edit</span></i>
                     </div>
@@ -49,11 +51,10 @@
                         <h5 class="underline-text font-weight-bold">&nbsp;先月のログ&nbsp;</h5>
                     </div>
                     <div class="col-sm-10 log-input">
-                        <input type="text" name="" class="input-lat-log" data-role="tagsinput"
-                            data-month="{{isset($mytheme_first->month) ? $mytheme_first->month : $data_date['month']}}" 
-                            data-year="{{isset($mytheme_first->year) ? $mytheme_first->year : $data_date['year']}}"
-                            placeholder="{{isset($mytheme_first->last_log) ? '' : '先月の自分を#で記録しよう　#バイト三昧　#初ボランティア'}}"
-                            value="{{$mytheme_first ? $mytheme_first->last_log : ''}}">
+                        <input type="text" name="" class="input-lat-log" data-role="tagsinput" data-month="{{isset($mytheme_first->month) ? $mytheme_first->month : $data_date['month']}}" data-value="{{$mytheme_first ? $mytheme_first->last_log : ''}}"
+                                            data-year="{{isset($mytheme_first->year) ? $mytheme_first->year : $data_date['year']}}" placeholder="先月の自分を#で記録しよう　#バイト三昧　#初ボランティア" value="{{$mytheme_first ? $mytheme_first->last_log : ''}}">
+
+
                     </div>
                 </div>
             </div>
@@ -148,23 +149,17 @@
 
     <div class="container-fluid my-page">
         <div class="main ">
-            <div class="container group-1">
-                <div class="category row">
-                    <div class="col-sm-10 col-9 category-input select-wrapper">
-                        <select name="category_id" class="" id="category_id_value" required="true" autofocus>
-                            <option selected readonly>あなたのカテゴリ</option>
-                            @foreach($categories as $category)
-                                @if(isset($cat_id))
-                                <option value="{{$category->id}}" {{$category->id == $cat_id->categories_id ? 'selected' : ''}} >{{$category->name}}</option>
-                                @else
-                                <option value="{{$category->id}}">{{$category->name}}</option>
-                                @endif
-                            @endforeach
-                        </select>
+            <div class="container searchcategory">
+                <div class="title-categories-mypage"><b>自分の興味があるカテゴリー</b></div>
+                <div class="row fix-mb">
+                    @foreach($categories as $categorie)
+                    <div class="image-category">
+                        <img class="img-cat-detail {{isset($cat_id) &&  $categorie->id == $cat_id->categories_id ? 'selected' : ''}}" id="category_id_value" data-slug="{{$categorie->slug}}" data-id="{{$categorie->id}}" src="{{ asset('images/admin/category/'.$categorie->icon) }}" alt="{{$categorie->name}}">
                     </div>
-                    <span class="col-sm-2 col-3 category-text"><b>の新着</b></span>
+                    @endforeach
                 </div>
-
+            </div>
+            <div class="container group-1">
                 <div class="content-text" id="content-text">
                     @if(isset($cat_id))
                         @if(isset($column_cate))
@@ -248,7 +243,7 @@
 
                 <div class="row justify-content-center form-group btn-category-list">
                     <div class="col-sm-6 col-sm-offset-3">
-                        <button type="submit" class="round-button black lg" id="btn_search_category">一覧を見る</button>
+                        <button type="submit" class="round-button black lg" id="btn_search_category">新着情報をみる</button>
                     </div>
                 </div>
             </div>
@@ -461,11 +456,9 @@
                         </div>
                     </div>
                     <div class="event-information-wrapper col-md-12 clearfix">
-                        <textarea style="width: 100%;border: none;" type="text" rows="3" id="action-of-month" name="action-of-month" class="input-action"
-                            data-month="{{isset($mytheme_first->month) ? $mytheme_first->month : $data_date['month']}}"
-                            data-year="{{isset($mytheme_first->year) ? $mytheme_first->year : $data_date['year']}}"
-                            placeholder="考えたいこと、行動したいことを3つ決めよう"
-                        >{{$mytheme_first ? $mytheme_first->this_action : ''}}</textarea>
+                        <textarea style="width: 100%;border: none;" type="text" rows="3" id="action-of-month" name="action-of-month" class="input-action" data-month="{{isset($mytheme_first->month) ? $mytheme_first->month : $data_date['month']}}" data-value="{{$mytheme_first ? $mytheme_first->this_action : ''}}"
+                                            data-year="{{isset($mytheme_first->year) ? $mytheme_first->year : $data_date['year']}}" placeholder="考えたいこと、行動したいことを3つ決めよう">{{$mytheme_first ? $mytheme_first->this_action : ''}}</textarea>
+
                     </div>
                 </div>
             </div>
@@ -484,11 +477,9 @@
                         </div>
                     </div>
                     <div class="event-information-wrapper col-md-12 clearfix">
-                        <textarea style="width: 100%;border: none;" type="text" rows="3" name="my-therme-month" id="input-my-theme" class="input-my-theme"
-                            data-month="{{isset($mytheme_first->month) ? $mytheme_first->month : $data_date['month']}}" 
-                            data-year="{{isset($mytheme_first->year) ? $mytheme_first->year : $data_date['year']}}"
-                            placeholder="例:「人に喜んでもらう接客とは？」「自分の理想のチームをつくるには？」"
-                        >{{$mytheme_first ? $mytheme_first->this_mytheme : ''}}</textarea>
+
+                        <textarea style="width: 100%;border: none;" type="text" rows="3" name="my-therme-month" id="input-my-theme" class="input-my-theme"  data-month="{{isset($mytheme_first->month) ? $mytheme_first->month : $data_date['month']}}" data-value = "{{$mytheme_first ? $mytheme_first->this_mytheme : ''}}"
+                                            data-year="{{isset($mytheme_first->year) ? $mytheme_first->year : $data_date['year']}}" placeholder="例:「人に喜んでもらう接客とは？」「自分の理想のチームをつくるには？」">{{$mytheme_first ? $mytheme_first->this_mytheme : ''}}</textarea>
                     </div>
                 </div>
             </div>
@@ -507,12 +498,8 @@
                         </div>
                     </div>
                     <div class="event-information-wrapper col-md-12 clearfix">
-                        <textarea style="width: 100%;border: none;" type="text" rows="3" name="my-therme-month" id="input-memo" class="input-memo"
-                            data-month="{{isset($mytheme_first->month) ? $mytheme_first->month : $data_date['month']}}" 
-                            data-year="{{isset($mytheme_first->year) ? $mytheme_first->year : $data_date['year']}}"
-                            placeholder="先月の行動を振り返り記録しよう">
-                                {{$mytheme_first ? $mytheme_first->memo : ''}}
-                        </textarea>
+                        <textarea style="width: 100%;border: none;" type="text" rows="3" name="my-therme-month" id="input-memo" class="input-memo"  data-month="{{isset($mytheme_first->month) ? $mytheme_first->month : $data_date['month']}}" 
+                                        data-value= "{{$mytheme_first ? $mytheme_first->memo : ''}}"   data-year="{{isset($mytheme_first->year) ? $mytheme_first->year : $data_date['year']}}" placeholder="先月の行動を振り返り記録しよう">{{$mytheme_first ? $mytheme_first->memo : ''}}</textarea>
                     </div>
                 </div>
             </div>
@@ -621,21 +608,23 @@
             $('#modal_register').modal('show');
         }
 
-        $(document).on('change','#category_id_value', function(e){
-            var category_id = $(this).val();
+        $(document).on('click','#category_id_value', function(e){
+            var category_id = $(this).data('id');
+            var _this = $(this);
             $.ajax({
                 url: "{{ url('content-category-new?categories_id=') }}"+ category_id,
                 success: function (data) {
-                    console.log(data)
-                     $('#content-text').html(data);
+                    $('#category_id_value.selected').removeClass('selected');
+                    $('#content-text').html(data);
+                    _this.addClass('selected');
                 }
             })
         })
 
         $(document).on('click','#btn_search_category',function(e){
             e.preventDefault();
-            var category_id = $('#category_id_value').val();
-            window.open("{{ url('search-category?search=') }}"+ category_id,'_blank');
+            var category_id = $('#category_id_value').data('slug');
+            window.open("{{ url('search-category') }}"+'/' +category_id,'_blank');
         })
 
         $(document).on('click','.browse-details .favorite',function(e){
@@ -913,26 +902,29 @@
             var category = $(this).data('category');
             var id = $(this).data('id');
             var text = $(this).val();
+            var text_old = $(this).data('value');
             var _this = $(this);
-            $.ajax({
-                url : '{{route("mypage.change-lable")}}',
-                type: 'post',
-                dataType: 'json',
-                data: {
-                    year : year,
-                    month : month,
-                    category_id : category,
-                    id : id,
-                    content_lable: text
-                },
-                success : function (result){
-                    _this.attr('data-category',result.category_id);
-                    _this.attr('data-id',result.id);
-                    _this.parents('.panel-info-content').find('.favorite.edit').find('.fa-pencil').attr('data-category',result.category_id);
-                    _this.parents('.panel-info-content').find('.favorite.edit').find('.fa-pencil').attr('data-id',result.id);
-                    iziToast.success({timeout: 1500, iconUrl: '/images/site_icon.png', title: 'OK', message: '更新いたしました', progressBar: false});
-                }   
-            })
+            if (text.trim() != text_old.trim()) {
+                $.ajax({
+                    url : '{{route("mypage.change-lable")}}',
+                    type: 'post',
+                    dataType: 'json',
+                    data: {
+                        year : year,
+                        month : month,
+                        category_id : category,
+                        id : id,
+                        content_lable: text
+                    },
+                    success : function (result){
+                        _this.attr('data-category',result.category_id);
+                        _this.attr('data-id',result.id);
+                        _this.parents('.panel-info-content').find('.favorite.edit').find('.fa-pencil').attr('data-category',result.category_id);
+                        _this.parents('.panel-info-content').find('.favorite.edit').find('.fa-pencil').attr('data-id',result.id);
+                        iziToast.success({timeout: 5000, icon: 'fa fa-chrome', title: 'OK', message: '更新いたしました', progressBar: false});
+                    }   
+                })
+            }
         })
 
         iziToast.settings({
@@ -955,29 +947,32 @@
             var month = $('.input-lat-log').data('month');
             var text_memo = $('.input-memo').val();
             var text_last_log = $('.input-lat-log').val();
+            var text_last_log_old = $('.input-lat-log').data('value');
             var text_my_theme = $('.input-my-theme').val();
             var text_action= $('.input-action').val();
             console.log(text_last_log+','+$(this).val());
-            $.ajax({
-                url : '{{route("mypage.change-content")}}',
-                type: 'post',
-                dataType: 'json',
-                data: {
-                    year : year,
-                    month : month,
-                    memo : text_memo,
-                    last_log : text_last_log,
-                    this_mytheme: text_my_theme,
-                    this_action: text_action
-                },success:function(data) {
-                    if (text_last_log.length > 0) {
-                        $('.input-lat-log').parent('.log-input').find('input').each(function(index, element) {
-                            $(element).attr('placeholder', '');
-                        });
+            if (text_last_log.trim() != text_last_log_old.trim()) {
+                $.ajax({
+                    url : '{{route("mypage.change-content")}}',
+                    type: 'post',
+                    dataType: 'json',
+                    data: {
+                        year : year,
+                        month : month,
+                        memo : text_memo,
+                        last_log : text_last_log,
+                        this_mytheme: text_my_theme,
+                        this_action: text_action
+                    },success:function(data) {
+                        if (text_last_log.length > 0) {
+                            $('.input-lat-log').parent('.log-input').find('input').each(function(index, element) {
+                                $(element).attr('placeholder', '');
+                            });
+                        }
+                        iziToast.success({timeout: 5000, icon: 'fa fa-chrome', title: 'OK', message: '更新いたしました', progressBar: false});
                     }
-                    iziToast.success({timeout: 1500, iconUrl: '/images/site_icon.png', title: 'OK', message: '更新いたしました', progressBar: false});
-                }
-            })
+                })
+            }
         })
 
         $('.input-lat-log').on('itemRemoved', function(event) {
@@ -1010,32 +1005,40 @@
             })
         })
 
-        $(document).on('focusout','.input-memo,.input-lat-log,.input-my-theme,.input-action',function(e){
+        $(document).on('focusout','#input-memo,.input-lat-log,#input-my-theme,.input-action',function(e){
             var _this = $(this);
             var year = _this.data('year');
             var month = _this.data('month');
+            console.log(year);
+            console.log(month);
             var text_memo = $('#input-memo').val();
+            var text_memo_old = $('#input-memo').data('value');
             var text_last_log = $('.input-lat-log').val();
+            var text_last_log_old = $('.input-lat-log').data('value');
             var text_my_theme = $('#input-my-theme').val();
+            var text_my_theme_old = $('#input-my-theme').data('value');
             var text_action= $('.input-action').val();
-            $.ajax({
-                url : '{{route("mypage.change-content")}}',
-                type: 'post',
-                dataType: 'json',
-                data: {
-                    year : year,
-                    month : month,
-                    memo : text_memo,
-                    last_log : text_last_log,
-                    this_mytheme: text_my_theme,
-                    this_action: text_action
-                },success:function(data) {
-                    $('.input-memo').text(data.memo);
-                    $('.input-my-theme').text(data.this_mytheme);
-                    $('.action-of-month').text(data.this_action);
-                    iziToast.success({timeout: 1500, iconUrl: '/images/site_icon.png', title: 'OK', message: '更新いたしました', progressBar: false});
-                }
-            })
+            var text_action_old= $('.input-action').data('value');
+            if (text_memo.trim() != text_memo_old.trim() || text_last_log.trim() != text_last_log_old.trim() || text_my_theme.trim()  != text_my_theme_old.trim() || text_action.trim() !=text_action_old.trim()) {
+                $.ajax({
+                    url : '{{route("mypage.change-content")}}',
+                    type: 'post',
+                    dataType: 'json',
+                    data: {
+                        year : year,
+                        month : month,
+                        memo : text_memo,
+                        last_log : text_last_log,
+                        this_mytheme: text_my_theme,
+                        this_action: text_action
+                    },success:function(data) {
+                        $('.input-memo').text(data.memo);
+                        $('.input-my-theme').text(data.this_mytheme);
+                        $('.action-of-month').text(data.this_action);
+                        iziToast.success({timeout: 5000, icon: 'fa fa-chrome', title: 'OK', message: '更新いたしました', progressBar: false});
+                    }
+                })
+            }
         })
 
         $(document).on('focusout','.edit-input-content',function(e){
@@ -1045,24 +1048,28 @@
             var content = $(this).data('content');
             var id = $(this).data('id');
             var text = $(this).val();
+            var text_old = $(this).data('value');
             var _this = $(this);
-            $.ajax({
-                url : '{{route("mypage.change-content-child")}}',
-                type: 'post',
-                dataType: 'json',
-                data: {
-                    year : year,
-                    month : month,
-                    category_id : category,
-                    id : id,
-                    content_data: text,
-                    content: content
-                },
-                success : function (result){
-                    _this.parents('.detail-infor').find('.edit-input-content').attr('data-id',result.id);
-                    iziToast.success({timeout: 1500, iconUrl: '/images/site_icon.png', title: 'OK', message: '更新いたしました', progressBar: false});
-                }   
-            })
+
+            if (text.trim() !=  text_old.trim()) {
+                $.ajax({
+                    url : '{{route("mypage.change-content-child")}}',
+                    type: 'post',
+                    dataType: 'json',
+                    data: {
+                        year : year,
+                        month : month,
+                        category_id : category,
+                        id : id,
+                        content_data: text,
+                        content: content
+                    },
+                    success : function (result){
+                        _this.parents('.detail-infor').find('.edit-input-content').attr('data-id',result.id);
+                        iziToast.success({timeout: 5000, icon: 'fa fa-chrome', title: 'OK', message: '更新いたしました', progressBar: false});
+                    }   
+                })
+            }
         })
 
         $(document).on('click','.favorite.edit.label .fa-pencil',function(e){
@@ -1219,6 +1226,14 @@
             $('#dissmiss_modal_show').removeClass('editing');
             $('#show-detail-mypage').modal('hide');
         })
+        $('#show-detail-mypage').on('hide.bs.modal', function(){
+            var text = $('#show-detail-mypage').find('.image-description').val();
+            var src = $('#tmppath').val();
+            $('.description').text(text);
+            $('.event-image').find('img').attr('src',"{{ asset('images/user/mypage')}}"+"/"+src);
+            $('#dissmiss_modal_show').removeClass('editing');
+        });
+
     });
 </script>
 @endsection

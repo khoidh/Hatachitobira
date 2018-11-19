@@ -38,7 +38,8 @@ $description = '学校と社会をつなぐ「ハタチのトビラ」は、将�
       })(document);
     </script>
 </head>
-<body id="top" style="overflow-x: hidden;">
+
+<body id="top" style="overflow-x: hidden;position: unset;">
     @include('includes.gtm_body')
     <header id="myHeader" class="top-header">
         <div class="bx_header">
