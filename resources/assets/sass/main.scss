@@ -17,6 +17,9 @@ body {
     font-size: 32px;
     font-weight: bold;
     margin-bottom: 0;
+    @include only-for-mobile() {
+        font-size: 21px;
+    }
 }
 
 .top .movie-top-description {
@@ -222,14 +225,18 @@ body {
     }
 }
 
-.top .movie-top-text,
+.top .movie-top-text {
+    font-size: 24px;
+    font-weight: bold;
+    color: $black-color;
+    @include only-for-mobile() {
+        font-size: 21px;
+    }
+}
 .top .more-detail {
     font-size: 24px;
     font-weight: bold;
-    color: #000;
-}
-
-.top .more-detail {
+    color: $black-color;
     font-family: $font-family-gothic;
 }
 
@@ -288,10 +295,6 @@ body {
             margin-bottom: 10px;
         }
     }
-}
-
-.top .container.movie-top-4.content-2 {
-    margin-top: 90px
 }
 
 .top .video-detail.row .col-md-4 {
@@ -416,10 +419,6 @@ body {
             padding: 0
         }
     }
-}
-
-.top .container.movie-top-4 {
-    margin-top: 220px;
 }
 
 .top .movie-top-3.row .col-md-10,
@@ -746,7 +745,7 @@ body {
 
     .top .movie-top-1:after {
         height: 73%;
-        top: 45px;
+        top: 38px;
     }
 
     .top .text-vertical,
@@ -833,23 +832,6 @@ body {
         left: 0;
     }
 
-    .top .container.movie-top-4 {
-        margin-top: -0;
-        padding-left: 0;
-        padding-bottom: 60px;
-        margin-left: 0;
-    }
-
-    .top .container.movie-top-4 .cb-path,
-    .top .content-last .cb-path {
-        top: 0;
-        left: 0
-    }
-
-    .top .container.movie-top-4 .cb-path {
-        margin-top: 0
-    }
-
     .top .content-last .icon-favorior {
         position: relative;
         top: 18px
@@ -906,11 +888,6 @@ body {
     .top .corner-wrapper.movie-2 {
         width: 48%;
         height: 131px;
-    }
-
-    .top .container.movie-top-4.content-2 {
-        margin: 0;
-        padding-left: 0;
     }
 
     #modal_register .modal-content {

@@ -38,7 +38,7 @@ $description = '学校と社会をつなぐ「ハタチのトビラ」は、将�
       })(document);
     </script>
 </head>
-<body id="top">
+<body id="top" style="overflow-x: hidden">
     @include('includes.gtm_body')
     <header id="myHeader" class="top-header">
         <div class="bx_header">
@@ -456,7 +456,7 @@ $description = '学校と社会をつなぐ「ハタチのトビラ」は、将�
                     <img src="{{ asset('images/user/top/arrow-1.png') }}" >
                 </a>
             </div>
-            <div class=" content-last" style="margin-top:150px;">
+            <div class=" content-last" style="margin-top:50px;">
                 <div class="container">
                     <div class="cb-path"></div>
                     <p class="movie-top-text">ハタチのトビラコラム</p>
