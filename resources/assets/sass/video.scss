@@ -364,6 +364,7 @@ $title-to-slide-height: 35px;
     .video .pagination {
         padding: 30px 0;
     }
+
 }
 
 @media (max-width: 426px) {
@@ -391,4 +392,19 @@ $title-to-slide-height: 35px;
 
 .home .main .title-lx {
     z-index: 111;
+}
+
+@media (max-width: 575.98px){
+    .video .main .title-lx .container .relative .info .absolute p {
+        font-size: 20px;
+        letter-spacing: 5px;
+        margin-top: 10px;
+    }
+}
+@media (max-width: 426px){
+    .video .main .title-lx .container .relative .info .absolute p {
+        font-size: 16px;
+        letter-spacing: 5px;
+        margin-top: 10px;
+    }
 }

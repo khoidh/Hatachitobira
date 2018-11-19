@@ -466,3 +466,20 @@ footer .footer-bottom li {
         margin-top: 5px !important;
     }
 }
+
+.banner .slick-slider{
+    overflow-x: hidden;
+    overflow-y:hidden;
+}
+.text-vertical-pc{
+    float: right !important;
+}
+a.show-modal-register-mypage:hover{
+    color: white !important;
+}
+
+@media (max-width: 575.98px){
+    .text-vertical-pc{
+        float: none !important;
+    }
+}

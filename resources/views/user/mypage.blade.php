@@ -11,24 +11,7 @@
 @section('description', '学校と社会をつなぐ「ハタチのトビラ」のマイページです。月単位で、「私が、探求したいこと」であるマイテーマや、自分の行動を記録してみましょう。')
 @section('title-e', 'MY PAGE')
 @section('title-j', 'マイページ')
-@section('main')
-    <div class="container-fluid mypage">
-        <div class="main row">
-            <div class="title-lx">
-                <div class="container">
-                    <div class="relative row">
-                        <div class="info col-md-12">
-                            <span class="title-e">MY PAGE</span>
-                            <div class="absolute">
-                                <p><span class="title-j"> マイページ</span></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-@endsection
+@section('body-class', 'my-page')
 @section('content')
     <div class="container my-page">
         <div class="row my-page-top">
@@ -41,18 +24,23 @@
             <div class="col-sm-12 select-month">
                 <h1>
                     <i class="fa fa-chevron-circle-left icon-back" data-month="{{$data_date['month'] == 1 ? '12' : $data_date['month'] - 1}}" data-year = "{{$data_date['month'] == 1 ? $data_date['year'] - 1 : $data_date['year']}}" aria-hidden="true"> </i>
-                    <b>&nbsp;{{$data_date['year']}}年{{$data_date['month']}}月&nbsp;</b>
+                    <b>&nbsp;{{$data_date['year']}}<span>年</span>{{$data_date['month']}}<span>月</span>&nbsp;</b>
                     <i class="fa fa-chevron-circle-right icon-next" aria-hidden="true" data-month="{{$data_date['month'] == 12 ? '1' : $data_date['month'] + 1}}" data-year = "{{$data_date['month'] == 12 ? $data_date['year'] + 1 :  $data_date['year']}}"> </i>
                 </h1>
             </div>
             <div class="col-sm-12 info-1">
                 <div class="row memo">
-                    <div class="col-sm-2 col-3 memo-text">
-                        <h3 class="underline-text">&nbsp;MEMO&nbsp;</h3>
+                    <div class="col-sm-2 memo-text">
+                        <h5 class="underline-text font-weight-bold">&nbsp;MEMO&nbsp;</h5>
                     </div>
-                    <div class="col-sm-10 col-9 memo-input">
-                        <textarea type="text" name="" class="input-memo" data-month="{{isset($mytheme_first->month) ? $mytheme_first->month : $data_date['month']}}"  disabled data-value = "{{$mytheme_first? $mytheme_first->memo : ''}}"
-                                            data-year="{{isset($mytheme_first->year) ? $mytheme_first->year : $data_date['year']}}"  placeholder="先月の行動を振り返り記録しよう"> {{$mytheme_first? $mytheme_first->memo : ''}}</textarea>
+                    <div class="col-sm-10 memo-input">
+                        <textarea
+                            type="text" name="" class="input-memo" placeholder="先月の行動を振り返り記録しよう" readonly
+                            data-month="{{isset($mytheme_first->month) ? $mytheme_first->month : $data_date['month']}}" 
+                            data-year="{{isset($mytheme_first->year) ? $mytheme_first->year : $data_date['year']}}"
+                            data-value = "{{$mytheme_first? $mytheme_first->memo : ''}}"
+                        >{{ $mytheme_first ? $mytheme_first->memo : '' }}</textarea>
+
                         <i class="fa fa-pencil pencil-memo" data-toggle="modal" data-target="#modal_memo">
                                         <span>Edit</span></i>
                     </div>
@@ -60,11 +48,12 @@
                 <hr class="shape-8"/>
                 <div class="row log">
                     <div class="col-sm-2 log-text">
-                        <h3 class="underline-text">&nbsp;先月のログ&nbsp;</h3>
+                        <h5 class="underline-text font-weight-bold">&nbsp;先月のログ&nbsp;</h5>
                     </div>
                     <div class="col-sm-10 log-input">
                         <input type="text" name="" class="input-lat-log" data-role="tagsinput" data-month="{{isset($mytheme_first->month) ? $mytheme_first->month : $data_date['month']}}" data-value="{{$mytheme_first ? $mytheme_first->last_log : ''}}"
                                             data-year="{{isset($mytheme_first->year) ? $mytheme_first->year : $data_date['year']}}" placeholder="先月の自分を#で記録しよう　#バイト三昧　#初ボランティア" value="{{$mytheme_first ? $mytheme_first->last_log : ''}}">
+
 
                     </div>
                 </div>
@@ -82,12 +71,13 @@
                                 </div>
                                 <div class="mypage-text">
                                     <span>
-                                        <textarea name="value-lable" class="edit-input-lable" 
+                                        <textarea name="value-lable" class="edit-input-lable" readonly
                                             data-month="{{isset($mythemes[$i]->month) ? $mythemes[$i]->month : $data_date['month']}}" 
                                             data-year="{{isset($mythemes[$i]->year) ? $mythemes[$i]->year : $data_date['year']}}" 
                                             data-category = "{{isset($mythemes[$i]->category_id) ? $mythemes[$i]->category_id : $key}}" 
                                             data-id = "{{isset($mythemes[$i]->id) ? $mythemes[$i]->id : ''}}"
-                                            placeholder="マイテーマにつながる要素を入力しましょう" disabled>{{isset($mythemes[$i]->content_lable) ? $mythemes[$i]->content_lable : ''}}</textarea>
+                                            placeholder="マイテーマにつながる要素を入力しましょう"
+                                        >{{isset($mythemes[$i]->content_lable) ? $mythemes[$i]->content_lable : ''}}</textarea>
                                     </span>
                                 </div>
                                 <div class="favorite edit label">
@@ -123,26 +113,32 @@
             </div>
             <div class="col-sm-12 info-2">
                 <div class="row my-theme">
-                    <div class="col-sm-3 col-5 my-theme-text">
-                        <div class="underline">&nbsp;今月のマイテーマ&nbsp;</div>
+                    <div class="col-sm-3 my-theme-text">
+                        <h5 class="underline-text font-weight-bold">&nbsp;今月のマイテーマ&nbsp;</h5>
                     </div>
-                    <div class="col-sm-9 col-7 my-theme-input">
-                        <textarea type="text" name="my-therme-month" class="input-my-theme" data-month="{{isset($mytheme_first->month) ? $mytheme_first->month : $data_date['month']}}" 
-                                            data-year="{{isset($mytheme_first->year) ? $mytheme_first->year : $data_date['year']}}" placeholder="例:「人に喜んでもらう接客とは？」「自分の理想のチームをつくるには？」">{{$mytheme_first ? $mytheme_first->this_mytheme : ''}}</textarea>
+                    <div class="col-sm-9 my-theme-input">
+                        <textarea type="text" name="my-therme-month" class="input-my-theme" readonly
+                            data-month="{{isset($mytheme_first->month) ? $mytheme_first->month : $data_date['month']}}" 
+                            data-year="{{isset($mytheme_first->year) ? $mytheme_first->year : $data_date['year']}}"
+                            placeholder="例:「人に喜んでもらう接客とは？」「自分の理想のチームをつくるには？」"
+                        >{{$mytheme_first ? $mytheme_first->this_mytheme : ''}}</textarea>
                         <i class="fa fa-pencil pencil-theme" data-toggle="modal" data-target="#modal_my_theme">
-                                        <span>Edit</span></i>
+                        <span>Edit</span></i>
                     </div>
                 </div>
                 <hr class="shape-8"/>
                 <div class="row action">
-                    <div class="col-sm-3 col-5 action-text">
-                        <div class="underline">&nbsp;今月のアクション &nbsp;</div>
+                    <div class="col-sm-3 action-text">
+                        <h5 class="underline-text font-weight-bold">&nbsp;今月のアクション &nbsp;</h5>
                     </div>
-                    <div class="col-sm-9 col-7 action-input">
-                        <textarea style="width: 100%;border: none;" type="text" rows="2" disabled name="action-of-month" class="action-of-month" data-month="{{isset($mytheme_first->month) ? $mytheme_first->month : $data_date['month']}}" 
-                                            data-year="{{isset($mytheme_first->year) ? $mytheme_first->year : $data_date['year']}}" placeholder="考えたいこと、行動したいことを3つ決めよう" disabled>{{$mytheme_first ? $mytheme_first->this_action : ''}}</textarea>
-                                    <i class="fa fa-pencil pencil-action" data-toggle="modal" data-target="#modal_action">
-                                        <span>Edit</span></i>
+                    <div class="col-sm-9 action-input">
+                        <textarea style="width: 100%;border: none;" type="text" rows="2" readonly name="action-of-month" class="action-of-month"
+                            data-month="{{isset($mytheme_first->month) ? $mytheme_first->month : $data_date['month']}}" 
+                            data-year="{{isset($mytheme_first->year) ? $mytheme_first->year : $data_date['year']}}"
+                            placeholder="考えたいこと、行動したいことを3つ決めよう" 
+                        >{{$mytheme_first ? $mytheme_first->this_action : ''}}</textarea>
+                        <i class="fa fa-pencil pencil-action" data-toggle="modal" data-target="#modal_action">
+                        <span>Edit</span></i>
                     </div>
                    
                 </div>
@@ -163,22 +159,6 @@
                 </div>
             </div>
             <div class="container group-1">
-                <!-- <div class="category row">
-                    <strong class="col-sm-10 col-8 category-input">
-                        <select name="category_id" class="cb-category" id="category_id_value" required="true" autofocus>
-                            <option selected disabled>あなたのカテゴリ</option>
-                            @foreach($categories as $category)
-                                @if(isset($cat_id))
-                                <option value="{{$category->id}}" {{$category->id == $cat_id->categories_id ? 'selected' : ''}} >{{$category->name}}</option>
-                                @else
-                                <option value="{{$category->id}}">{{$category->name}}</option>
-                                @endif
-                            @endforeach
-                        </select>
-                    </strong>
-                    
-                </div> -->
-
                 <div class="content-text" id="content-text">
                     @if(isset($cat_id))
                         @if(isset($column_cate))
@@ -202,8 +182,8 @@
                                 </div>
                                 <div class="col-sm-8 wrapper-content content-column">
                                     <p class="clearfix icon-favorior"><i class="fa fa-heart-o {{$column_cate->columnliked == 1 ? 'liked' : ''}}" style="font-size: 24px;" data-user = "{{Auth::User()->id}}" data-id = "{{$column_cate->id}}"></i></p>
-                                    <span class="text-title"><b><a style="color: #111" href="{{route('column.show', $column_cate->id)}}">{{$column_cate->title}}</a></b></span>
-                                    <span class="text-category">{{$column_cate->categoryname}}</span>
+                                    <p class="text-title"><b><a style="color: #111" href="{{route('column.show', $column_cate->id)}}">{{$column_cate->title}}</a></b></p>
+                                    <p class="text-category">{{$column_cate->categoryname}}</p>
                                     <p class="text-date">{{date('Y-m-d', strtotime($column_cate->created_at))}}</p>
                                 </div>
                             </div>
@@ -220,7 +200,8 @@
                                             src="{{asset('images/user/event/event-visible-icon.png')}}" alt="event-visible-icon.png"
                                         @endif
                                     >
-                                    <span class="ws-text"  style="@if($event_cate->eventstatus == '受付前' || $event_cate->eventstatus == '受付終了'|| $event_cate->eventstatus == '開催終了' ) color: white !important; @endif">{{$event_cate->eventstatus}}</span>
+                                    <span class="ws-text" style="">{{$event_cate->eventstatus}}</span>
+                                    {{-- @f($event_cate->eventstatus == '受付前' || $event_cate->eventstatus == '受付終了'|| $event_cate->eventstatus == '開催終了' ) color: white !important; @endif --}}
                                 </div>
                                 <div class="col-sm-4 wrapper-icon">
                                     <a href="{{route('event.show', $event_cate->id)}}" style="text-decoration:none;">
@@ -230,8 +211,8 @@
                                 </div>
                                 <div class="col-sm-8 wrapper-content content-event">
                                     <p class="clearfix icon-favorior"><i class="fa fa-heart-o {{$event_cate->eventliked == 1? 'liked' : ''}}" style="font-size: 24px;" data-user = "{{Auth::User()->id}}" data-id = "{{$event_cate->id}}"></i></p>
-                                    <span class="text-title"><b><a style="color: #111111" href="{{route('event.show', $event_cate->id)}}">{{ $event_cate->title }}</a></b></span>
-                                    <span class="text-category">{{ $event_cate->categoryname }}</span>
+                                    <p class="text-title"><b><a style="color: #111111" href="{{route('event.show', $event_cate->id)}}">{{ $event_cate->title }}</a></b></p>
+                                    <p class="text-category">{{ $event_cate->categoryname }}</p>
                                     <p class="text-date">{{date('Y-m-d', strtotime($event_cate->started_at))}}</p>
                                 </div>
                             </div>
@@ -249,8 +230,8 @@
                                 </div>
                                 <div class="col-sm-8 wrapper-content content-video">
                                     <p class="clearfix icon-favorior"><i class="fa fa-heart-o {{$videos_cate->videoliked == 1? 'liked' : ''}}" style="font-size: 24px;" data-user = "{{Auth::User()->id}}" data-id = "{{$videos_cate->id}}"></i></p>
-                                    <span class="text-title"><b>{{ $videos_cate->title }}</b></span>
-                                    <span class="text-category">{{ $videos_cate->categoryname }}</span>
+                                    <p class="text-title"><b>{{ $videos_cate->title }}</b></p>
+                                    <p class="text-category">{{ $videos_cate->categoryname }}</p>
                                     <p class="text-date">{{ $videos_cate->created_at }}</p>
                                 </div>
                             </div>
@@ -271,106 +252,117 @@
 
     <div class="container my-page">
         <div class="group-2">
-            <div class="item video1">
-                <div class="underline video-title">お気に入り動画(<span class="count-video">{{count($videos)}}</span>)</div>
-                <div class="row video-content video">
-                    <div class="row video-list col-md-12">
-                        <div class="carousel-inner carosel-video-list row mx-auto">
-                            @forelse($videos as $key => $result)
-                                <div class=" item col-xs-12 col-sm-12 col-md-12 col-lg-12 video-detail carousel-item {{ $key == 0  ? 'active' : ''}}">
-                                    <div class="wrapper">
-                                        <div class="thump">
-                                            <div class="browse-details" data-id='{{$result->id}}' data-user='{{Auth::user() ? Auth::user()->id : "" }}' data-src='{{$result->embedHtml}}' data-url="{{$result->url}}">
-                                                <img src="{{ asset('images/user/video/btn-play.png')}}" alt="" >
-                                                <div class="favorite" data-id='{{$result->id}}' data-user='{{Auth::user() ? Auth::user()->id : "" }}'><i class="fa fa-heart-o {{$result->favorite == 1 ? 'liked' : ''}}"></i></div>
-                                             </div>
-                                            <a href="#">
-                                                <img class="img-icon" src="{{  $result->thumbnails}}" alt="">
-                                            </a>
+            <div class="video">
+                <h2 class="underline-text font-weight-bold">お気に入り動画 <span class="count-video">({{count($videos)}})</span></h2>
+                <div class="article-list video-list">
+                    @if(count($videos) > 0)
+                    <div class="carousel-inner carosel-video-list">
+                        @forelse($videos as $key => $result)
+                            <div class=" item col-12 video-detail carousel-item {{ $key == 0  ? 'active' : ''}}">
+                                <div class="wrapper">
+                                    <div class="thump">
+                                        <div class="browse-details" data-id='{{$result->id}}' data-user='{{Auth::user() ? Auth::user()->id : "" }}' data-src='{{$result->embedHtml}}' data-url="{{$result->url}}">
+                                            <img src="{{ asset('images/user/video/btn-play.png')}}" alt="" >
+                                            <div class="favorite" data-id='{{$result->id}}' data-user='{{Auth::user() ? Auth::user()->id : "" }}'><i class="fa fa-heart-o {{$result->favorite == 1 ? 'liked' : ''}}"></i></div>
+                                         </div>
+                                        <a href="#">
+                                            <img class="img-icon" src="{{  $result->thumbnails}}" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="description">
+                                        <p>{{ $result->title }}</p>
+                                        <span>{{$result->viewCount}} Views / {{$result->date_diff}} month ago / {{$result->category_name}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        @empty
+                        @endforelse
+                    </div>
+                    @else
+                        <p class="empty-text">多様な仕事の1日に触れ、自分の興味や視野を広げよう</p>
+                        <span class="more-detail">
+                            <a href="{{url('video')}}">
+                                <b>動画を探す</b><img src="{{asset('images/user/top/arrow-1.png')}}">
+                            </a>
+                        </span>
+                    @endif
+                </div>
+            </div>
+
+            <div class="event">
+                <h2 class="underline-text font-weight-bold">参加したイベント <span class="count-video">({{$events->count()}})</span></h2>
+                <div class="article-list">
+                    @if(count($events) > 0)
+                    <div id="carouselExample" class="carousel slide" data-ride="carousel" data-interval="false" data-wrap="false">
+                        <div class="carousel-inner row mx-auto" role="listbox">
+                            @forelse($events as $key => $event)
+                            <div class="article carousel-item {{ $key == 0 ? 'active' : ''}}">
+                                <div class="article-status">
+                                    <hr class="shape-8"/>
+                                    <div class="wrapper-status">
+                                        <img
+                                                @if($event->eventstatus == '受付中' || $event->eventstatus == '開催中')
+                                                src="{{asset('images/user/event/event-icon.png')}}" alt="event-icon.png"
+                                                @else
+                                                src="{{asset('images/user/event/event-visible-icon.png')}}" alt="event-visible-icon.png"
+                                                @endif
+                                        >
+                                        <span class="ws-text" style="">{{$event->eventstatus}}</span>
+                                        {{-- @if($event->eventstatus == '受付前' || $event->eventstatus == '受付終了'|| $event->eventstatus == '開催終了' ) color: white !important;@else color: black !important @endif --}}
+                                    </div>
+
+                                </div>
+                                <div class="article-content row">
+                                    <div class="content-left col-md-4">
+                                        <a href="{{route('event.show', $event->id)}}" style="text-decoration:none;">
+                                            @php $image='images/admin/event/'.$event->image; @endphp
+                                            <img src="{{file_exists($image)?asset($image): asset('images/user/event/event_default.jpg')}}" alt="{{$event->title}}">
+                                        </a>
+                                    </div>
+                                    <div class="content-right col-md-8">
+                                        <div class="icon-favorite">
+                                            <i class="fa fa-heart-o {{ $event->eventliked == 1 ? 'liked' : ''}}"  data-id='{{$event->id}}' data-user='{{Auth::user() ? Auth::user()->id : "" }}' style="font-size:24px;"></i>
                                         </div>
-                                        <div class="description">
-                                            <p>{{ $result->title }}</p>
-                                            <span>{{$result->viewCount}} Views / {{$result->date_diff}} month ago / {{$result->category_name}}</span>
+                                        <div class="title"><a href="{{route('event.show', $event->id)}}">{{$event->title}}</a> &nbsp;&nbsp; <span style="color: #636B6F;">{{$event->category_name}}</span></div>
+                                        <div class="category" style="color: #636B6F;">
+                                            <p>{{$event->category_name}}</p>
+                                        </div>
+                                        <div class="date" >
+                                            <p>{{date('Y-m-d', strtotime($event->started_at))}}</p>
                                         </div>
                                     </div>
                                 </div>
+                            </div>
                             @empty
-                            <span class="more-detail" style="width: 100%;top: 0;margin-left: 15px; ">
-                            <a href="{{url('video')}}" style="color: #111111;margin-left: 0;display: -webkit-inline-box;margin-top: 12px;"><b>MORE</b><img src="{{asset('images/user/top/arrow-1.png')}}" style="max-width:99px; max-height:23px;"></a></span>
                             @endforelse
                         </div>
-                     </div>
-                </div>
-            </div>
 
-            <div class="item event">
-                <div class="underline event-title">参加したイベント({{$events->count()}})</div>
-                <div class="event-content">
-                    <div class="article-list col-md-12">
-                        <div id="carouselExample" class="carousel slide" data-ride="carousel" data-interval="false" data-wrap="false">
-                            <div class="carousel-inner row mx-auto" role="listbox">
-                                @forelse($events as $key => $event)
-                                <div class="article carousel-item {{ $key == 0 ? 'active' : ''}}">
-                                    <div class="article-status">
-                                        <hr class="shape-8"/>
-                                        <div class="wrapper-status">
-                                            <img
-                                                    @if($event->eventstatus == '受付中' || $event->eventstatus == '開催中')
-                                                    src="{{asset('images/user/event/event-icon.png')}}" alt="event-icon.png"
-                                                    @else
-                                                    src="{{asset('images/user/event/event-visible-icon.png')}}" alt="event-visible-icon.png"
-                                                    @endif
-                                            >
-                                            <span class="ws-text" style="@if($event->eventstatus == '受付前' || $event->eventstatus == '受付終了'|| $event->eventstatus == '開催終了' ) color: white !important;@else color: black !important @endif">{{$event->eventstatus}}</span>
-                                        </div>
-
-                                    </div>
-                                    <div class="article-content row">
-                                        <div class="content-left col-md-4">
-                                            <a href="{{route('event.show', $event->id)}}" style="text-decoration:none;">
-                                                @php $image='images/admin/event/'.$event->image; @endphp
-                                                <img src="{{file_exists($image)?asset($image): asset('images/user/event/event_default.jpg')}}" alt="{{$event->title}}">
-                                            </a>
-                                        </div>
-                                        <div class="content-right col-md-8">
-                                            <div class="icon-favorite">
-                                                <i class="fa fa-heart-o {{ $event->eventliked == 1 ? 'liked' : ''}}"  data-id='{{$event->id}}' data-user='{{Auth::user() ? Auth::user()->id : "" }}' style="font-size:24px;"></i>
-                                            </div>
-                                            <div class="title"><a href="{{route('event.show', $event->id)}}">{{$event->title}}</a> &nbsp;&nbsp; <span style="color: #636B6F;">{{$event->category_name}}</span></div>
-                                            <div class="category" style="color: #636B6F;">
-                                                <p>{{$event->category_name}}</p>
-                                            </div>
-                                            <div class="date" >
-                                                <p>{{date('Y-m-d', strtotime($event->started_at))}}</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                @empty
-                                <p>社会人から話を聞いて、マイテーマ探しをしてみよう</p>
-                                <span class="more-detail" style="width: 100%;top: 0;">
-                                <a href="{{url('event')}}"><b>イベントを探す</b><img src="{{asset('images/user/top/arrow-1.png')}}"></a></span>
-                                @endforelse
-                            </div>
-                            @if(count($events) > 1)
-                             <a class="carousel-control-prev" style="display: none;" href="#carouselExample" role="button" data-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="sr-only">Previous</span>
-                            </a>
-                            <a class="carousel-control-next text-faded" href="#carouselExample" role="button" data-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="sr-only">Next</span>
-                            </a>
-                            @endif
-                        </div>
+                        @else
+                            <p class="empty-text">社会人から話を聞いて、マイテーマ探しをしてみよう</p>
+                            <span class="more-detail">
+                                <a href="{{url('event')}}">
+                                    <b>イベントを探す</b><img src="{{asset('images/user/top/arrow-1.png')}}">
+                                </a>
+                            </span>
+                        @endif
+                        @if(count($events) > 1)
+                         <a class="carousel-control-prev" style="display: none;" href="#carouselExample" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next text-faded" href="#carouselExample" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                        @endif
                     </div>
-                    
                 </div>
             </div>
 
-            <div class="item column">
-                <div class="underline column-title">お気に入り記事(<span class="column-count">{{$columns->count()}}</span>)</div>
-                <div class="article-list col-md-12">
+            <div class="event">
+                <h2 class="underline-text font-weight-bold">お気に入り記事 <span class="column-count">({{$columns->count()}})</span></h2>
+                <div class="article-list">
+                    @if(count($columns) > 0)
                     <div id="carouselExampleevent" class="carousel slide" data-ride="carousel" data-interval="false" data-wrap="false">
                         <div class="carousel-inner carouselExampleevent-item row mx-auto" role="listbox">
                             @forelse($columns as $key_1 => $column)
@@ -414,10 +406,15 @@
                                 </div>
                             </div>
                             @empty
-                            <span class="more-detail" style="width: 100%;top: 0;margin-top: 40px;">
-                                <a href="{{url('column')}}" style="color: #111111;"><b>MORE</b><img src="{{asset('images/user/top/arrow-1.png')}}"></a></span>
                             @endforelse
                         </div>
+
+                        @else
+                            <p class="empty-text">マイテーマをみつけるノウハウ、イベントレポートを見てみよう</p>
+                            <span class="more-detail">
+                                <a href="{{url('column')}}"><b>記事を探す</b><img src="{{asset('images/user/top/arrow-1.png')}}"></a>
+                            </span>
+                        @endif
                         @if(count($columns) > 1)
                          <a class="carousel-control-prev" style="display: none;" href="#carouselExampleevent" role="button" data-slide="prev">
                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -460,6 +457,7 @@
                     <div class="event-information-wrapper col-md-12 clearfix">
                         <textarea style="width: 100%;border: none;" type="text" rows="3" id="action-of-month" name="action-of-month" class="input-action" data-month="{{isset($mytheme_first->month) ? $mytheme_first->month : $data_date['month']}}" data-value="{{$mytheme_first ? $mytheme_first->this_action : ''}}"
                                             data-year="{{isset($mytheme_first->year) ? $mytheme_first->year : $data_date['year']}}" placeholder="考えたいこと、行動したいことを3つ決めよう">{{$mytheme_first ? $mytheme_first->this_action : ''}}</textarea>
+
                     </div>
                 </div>
             </div>
@@ -478,6 +476,7 @@
                         </div>
                     </div>
                     <div class="event-information-wrapper col-md-12 clearfix">
+
                         <textarea style="width: 100%;border: none;" type="text" rows="3" name="my-therme-month" id="input-my-theme" class="input-my-theme"  data-month="{{isset($mytheme_first->month) ? $mytheme_first->month : $data_date['month']}}" data-value = "{{$mytheme_first ? $mytheme_first->this_mytheme : ''}}"
                                             data-year="{{isset($mytheme_first->year) ? $mytheme_first->year : $data_date['year']}}" placeholder="例:「人に喜んでもらう接客とは？」「自分の理想のチームをつくるには？」">{{$mytheme_first ? $mytheme_first->this_mytheme : ''}}</textarea>
                     </div>
@@ -651,7 +650,7 @@
 
                         $('.count-video').text(_number);
                         if (_number == 0) {
-                            $('.carousel-inner.carosel-video-list').html('<span class="more-detail" style="width: 100%;top: 0;margin-left: 15px; "><a href="{{url('video')}}" style="color: #111111;margin-left: 0;display: -webkit-inline-box;margin-top: 12px;"><b>MORE</b><img src="{{asset('images/user/top/arrow-1.png')}}"></a></span>');
+                            $('.carousel-inner.carosel-video-list').html('<span class="more-detail"><a href="{{url('video')}}" style="color: #111111;margin-left: 0;display: -webkit-inline-box;margin-top: 12px;"><b>MORE</b><img src="{{asset('images/user/top/arrow-1.png')}}"></a></span>');
                         }
                     }
                 }   
@@ -738,7 +737,7 @@
                         _this.parents('.article.carousel-item').next().addClass('active');
                         _this.parents('.article.carousel-item').remove();
                         if (number == 0) {
-                            $('.carouselExampleevent-item').html('<span class="more-detail" style="width: 100%;margin-top: 40px; "><a href="{{url('column')}}" style="color: #111111;margin-left: 0;display: -webkit-inline-box;margin-top: 30px;"><b>MORE</b><img src="{{asset('images/user/top/arrow-1.png')}}"></a></span>');
+                            $('.carouselExampleevent-item').html('<span class="more-detail"><a href="{{url('column')}}" style="color: #111111;margin-left: 0;display: -webkit-inline-box;margin-top: 30px;"><b>MORE</b><img src="{{asset('images/user/top/arrow-1.png')}}"></a></span>');
                         }
                     }
                 }   
@@ -964,6 +963,11 @@
                         this_mytheme: text_my_theme,
                         this_action: text_action
                     },success:function(data) {
+                        if (text_last_log.length > 0) {
+                            $('.input-lat-log').parent('.log-input').find('input').each(function(index, element) {
+                                $(element).attr('placeholder', '');
+                            });
+                        }
                         iziToast.success({timeout: 5000, icon: 'fa fa-chrome', title: 'OK', message: '更新いたしました'});
                     }
                 })
@@ -990,7 +994,12 @@
                     this_mytheme: text_my_theme,
                     this_action: text_action
                 },success:function(data) {
-                    iziToast.success({timeout: 5000, icon: 'fa fa-chrome', title: 'OK', message: '更新いたしました'});
+                    if (text_last_log.length < 1) {
+                        $('.input-lat-log').parent('.log-input').find('input').each(function(index, element) {
+                        $(element).attr('placeholder', '先月の自分を#で記録しよう　#バイト三昧　#初ボランティア');
+                    });
+                    }
+                    iziToast.success({timeout: 1500, iconUrl: '/images/site_icon.png', title: 'OK', message: '更新いたしました', progressBar: false});
                 }
             })
         })
@@ -1040,6 +1049,7 @@
             var text = $(this).val();
             var text_old = $(this).data('value');
             var _this = $(this);
+
             if (text.trim() !=  text_old.trim()) {
                 $.ajax({
                     url : '{{route("mypage.change-content-child")}}',
@@ -1111,7 +1121,7 @@
             $('#input-memo').focus();
             $('#input-memo').text($('.memo-input .input-memo').text());
             $('#input-memo').attr('data-month',$('.memo-input .input-memo').data('month'));
-            $('#input-memo').attr('data-month',$('.memo-input .input-memo').data('year'));
+            $('#input-memo').attr('data-year',$('.memo-input .input-memo').data('year'));
         })
 
         $(document).on('click','.favorite.edit.image .fa-pencil',function(e){
@@ -1180,7 +1190,7 @@
         //         async: false,
         //         success: function (key) {
         //             $('#dissmiss_modal_show').addClass('editing');
-        //             iziToast.success({timeout: 5000, icon: 'fa fa-chrome', title: 'OK', message: '更新いたしました'});
+        //             iziToast.success({timeout: 1500, iconUrl: '/images/site_icon.png', title: 'OK', message: '更新いたしました', progressBar: false});
         //         },
         //         processData: false,
         //         cache: false,
@@ -1198,7 +1208,7 @@
                 async: false,
                 success: function (key) {
                     $('#dissmiss_modal_show').addClass('editing');
-                    iziToast.success({timeout: 5000, icon: 'fa fa-chrome', title: 'OK', message: '更新いたしました'});
+                    iziToast.success({timeout: 1500, iconUrl: '/images/site_icon.png', title: 'OK', message: '更新いたしました', progressBar: false});
                 },
                 processData: false,
                 cache: false,
