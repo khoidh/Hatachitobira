@@ -154,7 +154,7 @@
                 <div class="row fix-mb">
                     @foreach($categories as $categorie)
                     <div class="image-category">
-                        <img class="img-cat-detail {{isset($cat_id) &&  $categorie->id == $cat_id->categories_id ? 'selected' : ''}}" id="category_id_value" data-id="{{$categorie->id}}" src="{{ asset('images/admin/category/'.$categorie->icon) }}" alt="{{$categorie->name}}">
+                        <img class="img-cat-detail {{isset($cat_id) &&  $categorie->id == $cat_id->categories_id ? 'selected' : ''}}" id="category_id_value" data-slug="{{$categorie->slug}}" data-id="{{$categorie->id}}" src="{{ asset('images/admin/category/'.$categorie->icon) }}" alt="{{$categorie->name}}">
                     </div>
                     @endforeach
                 </div>
@@ -623,7 +623,7 @@
 
         $(document).on('click','#btn_search_category',function(e){
             e.preventDefault();
-            var category_id = $('#category_id_value').val();
+            var category_id = $('#category_id_value').data('slug');
             window.open("{{ url('search-category?search=') }}"+ category_id,'_blank');
         })
 
