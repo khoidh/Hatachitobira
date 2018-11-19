@@ -17,6 +17,9 @@ body {
     font-size: 32px;
     font-weight: bold;
     margin-bottom: 0;
+    @include only-for-mobile() {
+        font-size: 21px;
+    }
 }
 
 .top .movie-top-description {
@@ -222,14 +225,18 @@ body {
     }
 }
 
-.top .movie-top-text,
+.top .movie-top-text {
+    font-size: 24px;
+    font-weight: bold;
+    color: $black-color;
+    @include only-for-mobile() {
+        font-size: 21px;
+    }
+}
 .top .more-detail {
     font-size: 24px;
     font-weight: bold;
-    color: #000;
-}
-
-.top .more-detail {
+    color: $black-color;
     font-family: $font-family-gothic;
 }
 
@@ -738,7 +745,7 @@ body {
 
     .top .movie-top-1:after {
         height: 73%;
-        top: 45px;
+        top: 38px;
     }
 
     .top .text-vertical,
