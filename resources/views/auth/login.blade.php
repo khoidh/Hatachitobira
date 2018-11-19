@@ -9,7 +9,7 @@
                 @if(session('status'))
                     <p style="color: red">{{session('status')}}</p>
                 @endif
-                <div class="panel-heading">{{__('ログイン')}}</div>
+                <div class="panel-heading">&nbsp;</div>
 
                 <div class="panel-body">
                     <form class="form-horizontal" method="POST" action="{{ route('login') }}">
