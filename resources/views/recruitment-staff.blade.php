@@ -39,22 +39,22 @@
 				<div class="video-detail row">
 	                <div class="col-xs-12">
 	                    <div class="corner-wrapper">
-	                        <a href="https://www.youtube.com/watch?v=OLLai7lzepw" target="_blank" class="thumb-link big">
-	                        	<img src="https://i.ytimg.com/vi/OLLai7lzepw/hqdefault.jpg" alt="ハタチのトビラ#2（株）shake 〜人材育成業界で働くLGBT当事者の1日とは〜">
+	                        <a href="https://www.youtube.com/watch?v=3MgOXBydsf0" target="_blank" class="thumb-link big">
+	                        	<img src="https://i.ytimg.com/vi/3MgOXBydsf0/hqdefault.jpg" alt="#8-1 コクヨで建築！空間を設計・デザインする社員の1日とは？~ファニチャー事業の仕事理解編~/ハタチのトビラ">
 	                        </a>
 	                    </div>
 					</div>
 					<div class="col-xs-6" style="padding-right:5px;">
 	                    <div class="corner-wrapper">
-	                        <a href="https://www.youtube.com/watch?v=KO9MH9-hz38" target="_blank" class="thumb-link small">
-	                        	<img src="https://i.ytimg.com/vi/KO9MH9-hz38/hqdefault.jpg" alt="ハタチのトビラ#3 （株）Huber. 〜インバウンド事業に取り組む社会人の1日にとは〜">
+	                        <a href="https://www.youtube.com/watch?v=CcqZwmM1vtk" target="_blank" class="thumb-link small">
+	                        	<img src="https://i.ytimg.com/vi/CcqZwmM1vtk/hqdefault.jpg" alt="#7-1 島根県雲南市役所で働く職員の1日とは？ ~政策推進課の仕事理解編~/ハタチのトビラ">
 	                        </a>
 	                    </div>
 					</div>
 					<div class="col-xs-6" style="padding-left:5px;">
 	                    <div class="corner-wrapper">
-	                    	<a href="https://www.youtube.com/watch?v=uvaMVEDj6Cc" target="_blank" class="thumb-link small">
-	                    		<img src="https://i.ytimg.com/vi/uvaMVEDj6Cc/hqdefault.jpg" alt="ハタチのトビラ#6 NPO法人グリーンズ〜持続可能な社会をつくるために活動するNPO職員の1日とは〜">
+	                    	<a href="https://www.youtube.com/watch?v=ivARuHtRclk" target="_blank" class="thumb-link small">
+	                    		<img src="https://i.ytimg.com/vi/ivARuHtRclk/hqdefault.jpg" alt="ハタチのトビラ#6 NPO法人グリーンズ〜持続可能な社会をつくるために活動するNPO職員の1日とは〜">
 	                    	</a>
 	                    </div>
 	                </div>
@@ -230,25 +230,25 @@
 				<div class="col-md-12 video-detail row">
 	                <div class="col-md-9">
 	                    <div class="corner-wrapper">
-	                        <a href="https://www.youtube.com/watch?v=OLLai7lzepw" target="_blank" class="thumb-link big">
-	                        	<img src="https://i.ytimg.com/vi/OLLai7lzepw/hqdefault.jpg" alt="ハタチのトビラ#2（株）shake 〜人材育成業界で働くLGBT当事者の1日とは〜">
+	                        <a href="https://www.youtube.com/watch?v=3MgOXBydsf0" target="_blank" class="thumb-link big">
+	                        	<img src="https://i.ytimg.com/vi/3MgOXBydsf0/hqdefault.jpg" alt="#8-1 コクヨで建築！空間を設計・デザインする社員の1日とは？~ファニチャー事業の仕事理解編~/ハタチのトビラ">
 	                        </a>
 	                    </div>
 	                </div>
 	                <div class="col-md-3 video-movie ">
 	                    <div class="corner-wrapper pdd">
-	                        <a href="https://www.youtube.com/watch?v=KO9MH9-hz38" target="_blank" class="thumb-link small">
-	                        	<img src="https://i.ytimg.com/vi/KO9MH9-hz38/hqdefault.jpg" alt="ハタチのトビラ#3 （株）Huber. 〜インバウンド事業に取り組む社会人の1日にとは〜">
+	                        <a href="https://www.youtube.com/watch?v=CcqZwmM1vtk" target="_blank" class="thumb-link small">
+	                        	<img src="https://i.ytimg.com/vi/CcqZwmM1vtk/hqdefault.jpg" alt="#7-1 島根県雲南市役所で働く職員の1日とは？ ~政策推進課の仕事理解編~/ハタチのトビラ">
 	                        </a>
 	                    </div>
 	                    <div class="corner-wrapper pdd">
-	                        <a href="https://www.youtube.com/watch?v=uvaMVEDj6Cc" target="_blank" class="thumb-link small">
-	                        	<img src="https://i.ytimg.com/vi/uvaMVEDj6Cc/hqdefault.jpg" alt="ハタチのトビラ#6 NPO法人グリーンズ〜持続可能な社会をつくるために活動するNPO職員の1日とは〜">
+	                        <a href="https://www.youtube.com/watch?v=ivARuHtRclk" target="_blank" class="thumb-link small">
+	                        	<img src="https://i.ytimg.com/vi/ivARuHtRclk/hqdefault.jpg" alt="#3-1 （株）Huber.インバウンド事業に取り組む社員の1日とは？~訪日外国人と国際交流したい日本人をつなぐビジネスとは~/ハタチのトビラ">
 	                        </a>
 	                    </div>
 	                    <div class="corner-wrapper">
-	                        <a href="https://www.youtube.com/watch?v=CgQimHyhNUQ" target="_blank" class="thumb-link small">
-	                        	<img src="https://i.ytimg.com/vi/CgQimHyhNUQ/hqdefault.jpg" alt="行政職員の1日とは？島根県雲南市役所にて、未来を見据えて政策を考え推進する仕事とは_ハタチのトビラ予告編">
+	                        <a href="https://www.youtube.com/watch?v=pGJRCQagr18" target="_blank" class="thumb-link small">
+	                        	<img src="https://i.ytimg.com/vi/pGJRCQagr18/hqdefault.jpg" alt="#1-1 NPOフローレンスに新卒就職した職員の1日とは？~NPOってなに？フローレンスが取り組んでいることとは？~/ハタチのトビラ">
 	                        </a>
 	                    </div>
 	                </div>
@@ -453,11 +453,9 @@
 								<img src="{{asset('images/user/requiment/convertion-1.png')}}" alt="">
 								<div class="list-content">
 									<div class="inner">
-										<p class="inner-img"><img src="{{asset('images/user/requiment/before.png')}}" alt=""></p>
 										<h3 class="underline-text">サービスを利用してみた手応えはいかがでしたか？</h3>
 										<p>言葉だけでは伝えきれない社員1人ひとりの個性的な魅力や提供するサービスを立体的に可視化できたと感じています。</br>
 											あとは、ジョブシャドウイング参加学生が、弊社へ長期インターンとして参画してくれたことも嬉しかったですね。</p>
-										<p class="inner-img"><img src="{{asset('images/user/requiment/affter.png')}}" alt="" ></p>
 									</div>
 								</div>
 							</a>
@@ -466,10 +464,8 @@
 			                <a href="https://originalpoint.co.jp/recruit/013/" target="_blank">
 								<div class="list-content">
 								    <div class="inner">
-										<p class="inner-img"><img src="{{asset('images/user/requiment/before.png')}}" alt=""></p>
 								        <h3 class="underline-text">ハタチのトビラに参加してみていかがでしたか？</h3>
 								        <p>私の以前働いていたインターン先では、社員 の方と仕事でのコミユニケーションはあって も、将来や仕事観等について深くお話する機 会はないので‘1日に多くの社員の方とコミユ ニケーションを取れる機会はすごく貴重でし た。働く現場の実態を知ることができました ね。</p>
-										<p class="inner-img"><img src="{{asset('images/user/requiment/affter.png')}}" alt="" ></p>
 								    </div>
 								</div>
 								<img src="{{asset('images/user/requiment/convertion-2.png')}}" alt="">

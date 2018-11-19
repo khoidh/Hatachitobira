@@ -132,7 +132,7 @@ $description = '学校と社会をつなぐ「ハタチのトビラ」は、将�
                         <img class="image-pc" src="{{ asset('images/user/top/banner.png') }}" alt="楽しもう、背伸びしない自分を">
                         <figcaption class="first">
                             <div class="text-vertical-pc">
-                                <p class="title">やりたいことって必要なの？<br>楽しもう、背伸びしない自分を。</p>
+                                <p class="title">やりたいことって必要なの？<br>楽しもう、背伸びしない自分を</p>
                                 <p class="description">What students want to know,Is it transmitted to real?</p>
                             </div>
                         </figcaption>
@@ -367,7 +367,7 @@ $description = '学校と社会をつなぐ「ハタチのトビラ」は、将�
             </div>
 
             <div class="container movie-top-4 content-2">
-                <div class="cb-path"></div>
+                <div class="cb-path mt-30"></div>
                 <p class="movie-top-text">ロールモデルから探す</p>
                 <p class="movie-top-descroption">多様なロールモデルのマイテーマに沿った生き方から、マイテーマの種をみつけよう</p>
                 <div class="col-md-10 video-detail row mx-auto">
@@ -446,7 +446,7 @@ $description = '学校と社会をつなぐ「ハタチのトビラ」は、将�
                 </a>
             </div>
             <div class="container movie-top-4 content-2">
-                <div class="cb-path"></div>
+                <div class="cb-path mt-30"></div>
                 <p class="movie-top-text">イベントに参加する</p>
                 <div class="event col-md-10" style="padding-left:0px;">
                     <p class="movie-top-descroption">多様なロールモデルや同世代に出会い、普段のコミュニティでは話にくい"ちょっと真面目な対話"を通じて、マイテーマを考えてみよう</p>
@@ -457,9 +457,9 @@ $description = '学校と社会をつなぐ「ハタチのトビラ」は、将�
                     <img src="{{ asset('images/user/top/arrow-1.png') }}" >
                 </a>
             </div>
-            <div class=" content-last" style="margin-top:50px;">
+            <div class=" content-last">
                 <div class="container">
-                    <div class="cb-path"></div>
+                    <div class="cb-path mt-30"></div>
                     <p class="movie-top-text">ハタチのトビラコラム</p>
                     <p class="movie-top-descroption">マイテーマをみつけるノウハウ、イベントレポート、アラハタ世代の活躍を発信していきます</p>
                     <div class="content-text col-md-12">

@@ -292,7 +292,7 @@ footer .footer-bottom li {
 @media (max-width: 800px) {
 
     .banner figure figcaption .title{
-        font-size: 5.5vw;
+        font-size: 5.7vw;
     }
 }
 
@@ -458,10 +458,6 @@ footer .footer-bottom li {
     }
 }
 
-.banner .slick-slider{
-    overflow-x: hidden;
-    overflow-y:hidden;
-}
 .top .text-vertical-pc{
     float: right !important;
 }
@@ -472,5 +468,18 @@ a.show-modal-register-mypage:hover{
 @media (max-width: 575.98px){
     .top .text-vertical-pc{
         float: none !important;
+    }
+}
+
+@media screen and (orientation: landscape) {
+    $height: 450px;
+    .slick-slider {
+        min-height: $height;
+        .slick-list {
+            min-height: $height;
+        }
+    }
+    .btn_find {
+        display: none;
     }
 }

@@ -132,10 +132,6 @@
         left: 0;
     }
 
-    .top .content-1.requiment {
-        top: -90px;
-    }
-
     .container .cb-path {
         left: 20px;
     }
@@ -146,10 +142,6 @@
 
     .top .container .text-my-theme .text-detail:first-child {
         margin-bottom: 30px;
-    }
-
-    .video {
-        margin-top: 150px;
     }
 
     .requiment-staff .video .cb-path {
