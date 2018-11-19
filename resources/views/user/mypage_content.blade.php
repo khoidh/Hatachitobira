@@ -9,7 +9,7 @@
                     src="{{asset('images/user/column/column-visible-icon.png')}}" alt="column-visible-icon.png"
                 @endif
             >
-            <span style="@if($column->type ==1) left: 50px; @endif">{{$column->type == 1 ? 'コラム' : 'インタビュー' }}</span>
+            <span class="ws-text">{{$column->type == 1 ? 'コラム' : 'インタビュー' }}</span>
         </div>
         <div class="col-sm-4 wrapper-icon">
             <a href="{{route('column.show', $column->id)}}" style="text-decoration:none;">
@@ -37,7 +37,7 @@
                     src="{{asset('images/user/event/event-visible-icon.png')}}" alt="event-visible-icon.png"
                 @endif
             >
-            <span style="">{{$event->eventstatus}}</span>
+            <span class="ws-text" style="">{{$event->eventstatus}}</span>
             {{-- @if($event->eventstatus == '受付前' || $event->eventstatus == '受付終了'|| $event->eventstatus == '開催終了' ) left: 48px; color: white !important; @else color: black !important @endif --}}
         </div>
         <div class="col-sm-4 wrapper-icon">

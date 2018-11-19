@@ -154,6 +154,7 @@
     <div class="container-fluid my-page">
         <div class="main ">
             <div class="container searchcategory">
+            	<div class="cb-path"></div>
                 <div class="title-categories-mypage"><b>自分の興味があるカテゴリー</b></div>
                 <div class="row fix-mb">
                     @foreach($categories as $categorie)
@@ -627,8 +628,8 @@
 
         $(document).on('click','#btn_search_category',function(e){
             e.preventDefault();
-            var category_id = $('#category_id_value.selected').data('slug');
-            window.open("{{ url('search-category') }}"+'/' +category_id,'_blank');
+            var category_id = $('#category_id_value').data('slug');
+            window.location.href = "{{ url('search-category') }}"+'/' +category_id;
         })
 
         $(document).on('click','.browse-details .favorite',function(e){
