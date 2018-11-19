@@ -472,11 +472,14 @@ a.show-modal-register-mypage:hover{
 }
 
 @media screen and (orientation: landscape) {
-    $height: 380px;
+    $height: 420px;
     .slick-slider {
         min-height: $height;
         .slick-list {
             height: 100%;
         }
+    }
+    .btn_find {
+        display: none;
     }
 }
