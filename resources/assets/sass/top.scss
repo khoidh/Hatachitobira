@@ -96,7 +96,7 @@ main {
                 font-weight: bold;
                 width: 80px;
                 font-size: 36px;
-                line-height: 160%;
+                line-height: 1.5;
                 padding: 3px 10px;
                 margin: 1px;
                 letter-spacing: 0px;
@@ -376,6 +376,7 @@ footer .footer-bottom li {
     }
 
     .movie-top-3 {
+        margin-bottom: 160px;
         .content-tile-movie {
             @include mainvisual-font(38px, 50px);
             font-weight: 700;
@@ -449,21 +450,11 @@ footer .footer-bottom li {
     .top .movie_image_description{
         font-size: 18px !important;
     }
-    .top .container.movie-top-4{
-        margin-top: -90px !important;
-    }
-    .top .container.movie-top-4.content-2{
-        position: relative;
-        top: 100px;
-    }
 }
 
 @media (max-width: 480px){
     .top .movie-top-2 .flex-space-between-pc {
         height: 1150px;
-    }
-    .top .container.movie-top-4 {
-        margin-top: 5px !important;
     }
 }
 
