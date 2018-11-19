@@ -624,7 +624,7 @@
         $(document).on('click','#btn_search_category',function(e){
             e.preventDefault();
             var category_id = $('#category_id_value').data('slug');
-            window.open("{{ url('search-category?search=') }}"+ category_id,'_blank');
+            window.open("{{ url('search-category') }}"+'/' +category_id,'_blank');
         })
 
         $(document).on('click','.browse-details .favorite',function(e){
