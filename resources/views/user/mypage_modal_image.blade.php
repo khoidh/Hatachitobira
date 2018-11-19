@@ -49,10 +49,12 @@
         })
       });
       myDropzone.on("complete", function(file) {
-        $('#dissmiss_modal_show').addClass('editing');
-        var responseText = file.xhr.responseText.replace('"', "");
-        responseText = responseText.replace('"', "");
-        $('#tmppath').val(responseText);
+        if (file.status =='success') {
+          $('#dissmiss_modal_show').addClass('editing');
+          var responseText = file.xhr.responseText.replace('"', "");
+          responseText = responseText.replace('"', "");
+          $('#tmppath').val(responseText);
+        }
       });
       var file_name = "{{ isset($result) && $result->content_lable ? $result->content_lable : '' }}";
       var mockFile = { name: file_name, size: 12345 };

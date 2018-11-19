@@ -1004,10 +1004,12 @@
             })
         })
 
-        $(document).on('focusout','.input-memo,.input-lat-log,.input-my-theme,.input-action',function(e){
+        $(document).on('focusout','#input-memo,.input-lat-log,#input-my-theme,.input-action',function(e){
             var _this = $(this);
             var year = _this.data('year');
             var month = _this.data('month');
+            console.log(year);
+            console.log(month);
             var text_memo = $('#input-memo').val();
             var text_memo_old = $('#input-memo').data('value');
             var text_last_log = $('.input-lat-log').val();
@@ -1016,8 +1018,6 @@
             var text_my_theme_old = $('#input-my-theme').data('value');
             var text_action= $('.input-action').val();
             var text_action_old= $('.input-action').data('value');
-            console.log(text_memo)
-            console.log(text_memo_old)
             if (text_memo.trim() != text_memo_old.trim() || text_last_log.trim() != text_last_log_old.trim() || text_my_theme.trim()  != text_my_theme_old.trim() || text_action.trim() !=text_action_old.trim()) {
                 $.ajax({
                     url : '{{route("mypage.change-content")}}',
