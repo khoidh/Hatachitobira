@@ -122,12 +122,13 @@
                         <h5 class="underline-text font-weight-bold">&nbsp;今月のマイテーマ&nbsp;</h5>
                     </div>
                     <div class="col-sm-9 my-theme-input">
-                        <textarea type="text" name="my-therme-month" class="input-my-theme" readonly
+                        <textarea type="text" name="my-therme-month" id="input-my-theme" class="input-my-theme"
                             data-month="{{isset($mytheme_first->month) ? $mytheme_first->month : $data_date['month']}}" 
                             data-year="{{isset($mytheme_first->year) ? $mytheme_first->year : $data_date['year']}}"
+                            data-value = "{{$mytheme_first ? $mytheme_first->this_mytheme : ''}}"
                             placeholder="例:「人に喜んでもらう接客とは？」「自分の理想のチームをつくるには？」"
                         >{{$mytheme_first ? $mytheme_first->this_mytheme : ''}}</textarea>
-                        <i class="fa fa-pencil pencil-theme" data-toggle="modal" data-target="#modal_my_theme">
+                        <i class="fa fa-pencil pencil-theme">
                         <span>Edit</span></i>
                     </div>
                 </div>
@@ -137,12 +138,13 @@
                         <h5 class="underline-text font-weight-bold">&nbsp;今月のアクション &nbsp;</h5>
                     </div>
                     <div class="col-sm-9 action-input">
-                        <textarea style="width: 100%;border: none;" type="text" rows="2" readonly name="action-of-month" class="action-of-month"
+                        <textarea style="width: 100%;border: none;" type="text" rows="2" name="action-of-month" id="action-of-month"　class="input-action action-of-month"
                             data-month="{{isset($mytheme_first->month) ? $mytheme_first->month : $data_date['month']}}" 
                             data-year="{{isset($mytheme_first->year) ? $mytheme_first->year : $data_date['year']}}"
+                            data-value="{{$mytheme_first ? $mytheme_first->this_action : ''}}"
                             placeholder="考えたいこと、行動したいことを3つ決めよう" 
                         >{{$mytheme_first ? $mytheme_first->this_action : ''}}</textarea>
-                        <i class="fa fa-pencil pencil-action" data-toggle="modal" data-target="#modal_action">
+                        <i class="fa fa-pencil pencil-action">
                         <span>Edit</span></i>
                     </div>
                    
@@ -450,27 +452,6 @@
         </div>
     </div>
 </div>
-<div id="modal_action" class="modal fade modal_register" role="dialog">
-    <div class="modal-dialog" style="margin-top:150px">
-        <div class="modal-content">
-            <div class="modal-body" style="text-align:center">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <div class="panel-body">
-                    <div class="event-information-wrapper col-md-12 clearfix">
-                        <div class="title-detail">
-                            <span>今月のアクション</span>
-                        </div>
-                    </div>
-                    <div class="event-information-wrapper col-md-12 clearfix">
-                        <textarea style="width: 100%;border: none;" type="text" rows="3" id="action-of-month" name="action-of-month" class="input-action" data-month="{{isset($mytheme_first->month) ? $mytheme_first->month : $data_date['month']}}" data-value="{{$mytheme_first ? $mytheme_first->this_action : ''}}"
-                                            data-year="{{isset($mytheme_first->year) ? $mytheme_first->year : $data_date['year']}}" placeholder="考えたいこと、行動したいことを3つ決めよう">{{$mytheme_first ? $mytheme_first->this_action : ''}}</textarea>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 <div id="modal_my_theme" class="modal fade modal_register" role="dialog">
     <div class="modal-dialog" style="margin-top:150px">
         <div class="modal-content">
@@ -484,7 +465,7 @@
                     </div>
                     <div class="event-information-wrapper col-md-12 clearfix">
 
-                        <textarea style="width: 100%;border: none;" type="text" rows="3" name="my-therme-month" id="input-my-theme" class="input-my-theme"  data-month="{{isset($mytheme_first->month) ? $mytheme_first->month : $data_date['month']}}" data-value = "{{$mytheme_first ? $mytheme_first->this_mytheme : ''}}"
+                        <textarea style="width: 100%;border: none;" type="text" rows="3" name="my-therme-month" class="input-my-theme"  data-month="{{isset($mytheme_first->month) ? $mytheme_first->month : $data_date['month']}}" data-value = "{{$mytheme_first ? $mytheme_first->this_mytheme : ''}}"
                                             data-year="{{isset($mytheme_first->year) ? $mytheme_first->year : $data_date['year']}}" placeholder="例:「人に喜んでもらう接客とは？」「自分の理想のチームをつくるには？」">{{$mytheme_first ? $mytheme_first->this_mytheme : ''}}</textarea>
                     </div>
                 </div>
@@ -1011,7 +992,7 @@
             })
         })
 
-        $(document).on('focusout','#input-memo,.input-lat-log,#input-my-theme,.input-action',function(e){
+        $(document).on('focusout','#input-memo, .input-lat-log, #input-my-theme, #action-of-month',function(e){
             var _this = $(this);
             var year = _this.data('year');
             var month = _this.data('month');
@@ -1021,9 +1002,14 @@
             var text_last_log_old = $('.input-lat-log').data('value');
             var text_my_theme = $('#input-my-theme').val();
             var text_my_theme_old = $('#input-my-theme').data('value');
-            var text_action= $('.input-action').val();
-            var text_action_old= $('.input-action').data('value');
-            if (text_memo.trim() != text_memo_old.trim() || text_last_log.trim() != text_last_log_old.trim() || text_my_theme.trim()  != text_my_theme_old.trim() || text_action.trim() !=text_action_old.trim()) {
+            var text_action= $('#action-of-month').val();
+            var text_action_old= $('#action-of-month').data('value');
+
+            if (
+                text_memo.trim() != text_memo_old.trim() 
+            ||  text_my_theme.trim() != text_my_theme_old.trim() 
+            ||  text_action.trim() !=text_action_old.trim()
+            ) {
                 $.ajax({
                     url : '{{route("mypage.change-content")}}',
                     type: 'post',
@@ -1037,16 +1023,28 @@
                         this_action: text_action
                     },success:function(data) {
                         $('#input-memo').attr('data-value',data.memo);
-                        $('.input-action').attr('data-value',data.this_action);
+                        $('#action-of-month').attr('data-value',data.this_action);
                         $('#input-my-theme').attr('data-value',data.this_mytheme);
                         $('.input-memo').text(data.memo);
                         $('.input-my-theme').text(data.this_mytheme);
                         $('.action-of-month').text(data.this_action);
+
+                        setTextareaHeight($('#action-of-month'));
+                        setTextareaHeight($('#input-my-theme'));
+
                         iziToast.success({timeout: 1500, iconUrl: '/images/site_icon.png', title: 'OK', message: '更新いたしました', progressBar: false});
                     }
                 })
             }
         })
+
+        var setTextareaHeight = function(textarea) {
+            var lineHeight = parseInt(textarea.css('lineHeight'));
+            var lines = (textarea.val() + '\n').match(/\n/g).length;
+            textarea.height(lineHeight * lines);
+        }
+        setTextareaHeight($('#action-of-month'));
+        setTextareaHeight($('#input-my-theme'));
 
         $(document).on('focusout','.edit-input-content',function(e){
             var year = $(this).data('year');
