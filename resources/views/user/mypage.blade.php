@@ -133,7 +133,6 @@
                             placeholder="例:「人に喜んでもらう接客とは？」「自分の理想のチームをつくるには？」"
                             data-value ="{{$mytheme_first ? $mytheme_first->this_mytheme : ''}}"
                         >{{$mytheme_first ? $mytheme_first->this_mytheme : ''}}</textarea>
-                        <i class="fa fa-pencil pencil-theme">
                         <i class="fa fa-pencil pencil-theme pencil-action-click"
                             data-month="{{isset($mytheme_first->month) ? $mytheme_first->month : $data_date['month']}}" 
                             data-year="{{isset($mytheme_first->year) ? $mytheme_first->year : $data_date['year']}}"
