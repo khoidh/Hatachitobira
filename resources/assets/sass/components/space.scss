@@ -1,4 +1,4 @@
-$numbers: (0, 5, 10, 20, 30, 40, 70);
+$numbers: (0, 5, 10, 20, 30, 40, 60, 70, 80);
 @each $num in $numbers {
   .m-#{$num} { margin: #{$num}px !important; }
   .mt-#{$num} { margin-top: #{$num}px !important; }

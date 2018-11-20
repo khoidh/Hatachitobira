@@ -316,6 +316,11 @@ footer .footer-bottom li {
             margin: -20px auto 20px;
         }
     }
+
+    .p-vertical-title {
+        @include mainvisual-font(38px, 50px);
+    }
+
     .content-1 {
         .text-my-theme2 {
 
@@ -433,7 +438,7 @@ footer .footer-bottom li {
 
 @media (max-width: 768px){
     .top .movie-top-2 .flex-space-between-pc{
-        height: 570px;
+        height: auto;
     }
     .top .movie-top-2 .p-text{
         font-size: 27px;
@@ -445,7 +450,7 @@ footer .footer-bottom li {
 }
 @media(max-width: 575.98px) {
     .top .movie-top-2 .flex-space-between-pc {
-        height: 1160px;
+        height: auto;
     }
     .top .movie_image_description{
         font-size: 18px !important;
@@ -454,7 +459,7 @@ footer .footer-bottom li {
 
 @media (max-width: 480px){
     .top .movie-top-2 .flex-space-between-pc {
-        height: 1150px;
+        height: auto;
     }
 }
 

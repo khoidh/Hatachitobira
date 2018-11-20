@@ -197,15 +197,15 @@ $description = '学校と社会をつなぐ「ハタチのトビラ」は、将�
                     <div class="cb-path last"></div>
                     
                     <div class="text-my-theme text-my-theme2">
-                        <p class="text_detail_title">WHAT IS マイテーマ</p>
+                        <h3 class="text_detail_title"><img src="/images/user/top/back-gr-1.png"><span>WHAT IS マイテーマ</span></h3>
                         <p class="text-detail">マイテーマとは、自分の興味と意志からつくられる「私が、探求したいこと」です。誰にでも見出せるマイテーマは、変化していくものでありながら、今と未来をより充実させるための行動指針となっていきます。</p>
                     </div>
                 </div>
-                <div class="cb-path"></div>
+                <div class="cb-path last2"></div>
             </div>
             <div class="movie-top-1">
                 <div class="container">
-                    <p class="movie-top-title">Movie</p>
+                    <h2 class="movie-top-title">Movie</h2>
                     <p class="movie-top-description">コンセプトムービー</p>
                     <div class="corner-wrapper video">
                         <div class="video-list">
@@ -241,7 +241,7 @@ $description = '学校と社会をつなぐ「ハタチのトビラ」は、将�
             <div class="movie-top-2">
                 <div class="container flex-space-between-pc">
                     <div class="c-col p-text">
-                        <div class="text-vertical-pc"><span>マイテーマ</span>を<br>探す3つの理由</div>
+                        <h2 class="text-vertical-pc p-vertical-title"><span>マイテーマ</span>を<br>探す3つの理由</h2>
                     </div>
                     @include('includes.merit_box', [
                         'number'=>1,
@@ -266,12 +266,12 @@ $description = '学校と社会をつなぐ「ハタチのトビラ」は、将�
             <div class="movie-top-3">
                 <div class="container">
                     <div class="content-tile-movie">
-                        <div class="text-vertical-pc"><span>マイテーマ</span>の<br class="pc">探し方</div>
+                        <h2 class="text-vertical-pc p-vertical-title"><span>マイテーマ</span>の<br class="pc">探し方</h2>
                     </div>
                     <div class="cb-path cb-path-black"></div>
                     <div class="content-row">
                         <div class="col-md-12">
-                            <p class="text-title-3">自分の興味から探す</p>
+                            <h3 class="text-title-3">自分の興味から探す</h3>
                         </div>
                         <div class="row">
                             @foreach($categories as $categorie)
@@ -288,7 +288,7 @@ $description = '学校と社会をつなぐ「ハタチのトビラ」は、将�
             </div>
             <div class="container movie-top-4">
                 <div class="cb-path"></div>
-                <p class="movie-top-text">将来の選択肢から探す</p>
+                <h3 class="movie-top-text">将来の選択肢から探す</h3>
                 <p class="movie-top-descroption">多様な仕事現場の働く1日に学生が密着した映像から、マイテーマの種をみつけよう</p>
                 <div class="col-md-10 video-detail row mx-auto">
                     <div class="col-md-8">
@@ -368,7 +368,7 @@ $description = '学校と社会をつなぐ「ハタチのトビラ」は、将�
 
             <div class="container movie-top-4 content-2">
                 <div class="cb-path mt-30"></div>
-                <p class="movie-top-text">ロールモデルから探す</p>
+                <h2 class="movie-top-text">ロールモデルから探す</h2>
                 <p class="movie-top-descroption">多様なロールモデルのマイテーマに沿った生き方から、マイテーマの種をみつけよう</p>
                 <div class="col-md-10 video-detail row mx-auto">
                     <div class="col-md-8">
@@ -447,7 +447,7 @@ $description = '学校と社会をつなぐ「ハタチのトビラ」は、将�
             </div>
             <div class="container movie-top-4 content-2">
                 <div class="cb-path mt-30"></div>
-                <p class="movie-top-text">イベントに参加する</p>
+                <h3 class="movie-top-text">イベントに参加する</h3>
                 <div class="event col-md-10" style="padding-left:0px;">
                     <p class="movie-top-descroption">多様なロールモデルや同世代に出会い、普段のコミュニティでは話にくい"ちょっと真面目な対話"を通じて、マイテーマを考えてみよう</p>
                             
@@ -460,7 +460,7 @@ $description = '学校と社会をつなぐ「ハタチのトビラ」は、将�
             <div class=" content-last">
                 <div class="container">
                     <div class="cb-path mt-30"></div>
-                    <p class="movie-top-text">ハタチのトビラコラム</p>
+                    <h3 class="movie-top-text">ハタチのトビラコラム</h3>
                     <p class="movie-top-descroption">マイテーマをみつけるノウハウ、イベントレポート、アラハタ世代の活躍を発信していきます</p>
                     <div class="content-text col-md-12">
                         @forelse($columns as $key => $column)
