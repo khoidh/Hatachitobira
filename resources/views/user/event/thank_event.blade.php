@@ -20,14 +20,29 @@
         <div class="row">
             <div class="col-md-12 col-md-offset-1">
                 <p class="panel panel-default">
-                <div class="title-x"><b>イベントへのお申し込み、ありがとうございます！</b></div>
-                <div>イベントへ名： {{ $thisUser->title }}</div>
-                <div>日程       ： {{ $thisUser->started_at }} ~ {{ $thisUser->closed_at }}</div>
-                <div>場所       ： {{ $thisUser->address }}</div>
-                <div>概要       ： {{ $thisUser->overview }}</div>
-                <div>参加費      ： {{ $thisUser->entry_fee}} ¥</div>
-                <div>定員       ： {{ $thisUser->capacity}} 人</div>
-                <div>info@originalpoint.co.jpからのメールが受信できるよう設定の上お待ちください</div>
+                <h2 class="title-x"><b>イベントへのお申し込み、ありがとうございます！</b></h2>
+                <p class="mb-40"><a href="info@originalpoint.co.jp">info@originalpoint.co.jp</a>より受付完了メールをお送りしておりますので、ご確認ください</p>
+
+                <h3>お申込み内容</h3>
+                <div class="txt-form">
+                    <table class="table">
+                        <tbody>
+                        <tr>
+                            <td class="table-td_1" scope="row"><b>日程</b></td>
+                            <td class="table-td_2">{{ date(config('const.ymdHi'), strtotime($thisUser->started_at)) }} 〜 {{ date(config('const.ymdHi'), strtotime($thisUser->closed_at)) }}</td>
+                        </tr>
+                        <tr>
+                            <td class="table-td_1" scope="row"><b>場所</b></td>
+                            <td class="table-td_2">{!! nl2br($thisUser->address) !!}</td>
+                        </tr>
+                        <tr>
+                            <td class="table-td_1" scope="row"><b>概要</b></td>
+                            <td class="table-td_2">{!! nl2br($thisUser->overview) !!}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+
                 <div class="image text-center">
                     <img src="{{asset('images/user/share/contact-email.png')}}" alt="contact-email.png">
                 </div>
