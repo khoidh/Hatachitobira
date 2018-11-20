@@ -605,7 +605,7 @@
     }
 
     #uservoice_list li:last-child .list-content .inner .inner-img:last-child img {
-        bottom: 00;
+        bottom: 0;
         right: -15px;
     }
 
