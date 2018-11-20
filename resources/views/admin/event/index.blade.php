@@ -58,8 +58,8 @@
 
             <td>{{$event->category_name}}</td>
             <td>{{$event->sort}}</td>
-            <td>{{$event->time_from}}~{{$event->time_to}}</td>
-            <td>{{$event->started_at}}~{{$event->closed_at}}</td>
+            <td>{{$event->time_from->format(config('const.ymdHi'))}}~{{$event->time_to->format(config('const.ymdHi'))}}</td>
+            <td>{{$event->started_at->format(config('const.ymdHi'))}}~{{$event->closed_at->format(config('const.ymdHi'))}}</td>
             <td>
                 <div >
                     <a class="btn btn-info" href="{{route('events.show',$event->id)}}">詳細</a>

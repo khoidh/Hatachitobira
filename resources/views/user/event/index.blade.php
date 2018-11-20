@@ -81,7 +81,7 @@
                                     <span class="category">&nbsp;&nbsp;{{$event->category_name}}</span>
                                 </a>
                                 <div class="date" >
-                                    <p>{{date('Y-m-d', strtotime($event->started_at))}}</p>
+                                    <p>{{$event->started_at->format(config('const.ymd'))}}</p>
                                 </div>
                             </div>
                         </div>
