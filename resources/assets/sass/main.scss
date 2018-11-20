@@ -14,11 +14,12 @@ body {
 }
 
 .top .movie-top-title {
+    font-family: $font-family-oswald;
     font-size: 32px;
     font-weight: bold;
     margin-bottom: 0;
     @include only-for-mobile() {
-        font-size: 21px;
+        font-size: 25px;
     }
 }
 
@@ -678,11 +679,12 @@ body {
         background-position-y: 5%;
         background-position-x: 45%;
         z-index: 123;
+        margin-bottom: 30px;
     }
 
     .top .text-title-3 {
         position: relative;
-        left: 15px;
+        left: 18px;
     }
 
     .top .content-title {
@@ -766,8 +768,7 @@ body {
     }
 
     .top .movie-top-1:after {
-        height: 73%;
-        top: 38px;
+        top: 15px;
     }
 
     .top .text-vertical,
