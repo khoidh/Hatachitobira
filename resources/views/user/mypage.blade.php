@@ -42,7 +42,11 @@
                             style="outline: 0;"
                         >{{ $mytheme_first ? $mytheme_first->memo : '' }}</textarea>
 
-                        <i class="fa fa-pencil pencil-memo">
+                        <i class="fa fa-pencil pencil-memo pencil-action-click"
+                            data-month="{{isset($mytheme_first->month) ? $mytheme_first->month : $data_date['month']}}" 
+                            data-year="{{isset($mytheme_first->year) ? $mytheme_first->year : $data_date['year']}}"
+                            data-type="memo"
+                        >
                                         <span>Edit</span></i>
                     </div>
                 </div>
@@ -126,8 +130,13 @@
                             data-month="{{isset($mytheme_first->month) ? $mytheme_first->month : $data_date['month']}}" 
                             data-year="{{isset($mytheme_first->year) ? $mytheme_first->year : $data_date['year']}}"
                             placeholder="例:「人に喜んでもらう接客とは？」「自分の理想のチームをつくるには？」"
+                            data-value ="{{$mytheme_first ? $mytheme_first->this_mytheme : ''}}"
                         >{{$mytheme_first ? $mytheme_first->this_mytheme : ''}}</textarea>
-                        <i class="fa fa-pencil pencil-theme" data-toggle="modal" data-target="#modal_my_theme">
+                        <i class="fa fa-pencil pencil-theme pencil-action-click"
+                            data-month="{{isset($mytheme_first->month) ? $mytheme_first->month : $data_date['month']}}" 
+                            data-year="{{isset($mytheme_first->year) ? $mytheme_first->year : $data_date['year']}}"
+                            data-type="theme"
+                        >
                         <span>Edit</span></i>
                     </div>
                 </div>
@@ -141,8 +150,13 @@
                             data-month="{{isset($mytheme_first->month) ? $mytheme_first->month : $data_date['month']}}" 
                             data-year="{{isset($mytheme_first->year) ? $mytheme_first->year : $data_date['year']}}"
                             placeholder="考えたいこと、行動したいことを3つ決めよう" 
+                            data-value="{{$mytheme_first ? $mytheme_first->this_action : ''}}"
                         >{{$mytheme_first ? $mytheme_first->this_action : ''}}</textarea>
-                        <i class="fa fa-pencil pencil-action" data-toggle="modal" data-target="#modal_action">
+                        <i class="fa fa-pencil pencil-action pencil-action-click"
+                            data-month="{{isset($mytheme_first->month) ? $mytheme_first->month : $data_date['month']}}" 
+                            data-year="{{isset($mytheme_first->year) ? $mytheme_first->year : $data_date['year']}}"
+                            data-type="action"
+                        >
                         <span>Edit</span></i>
                     </div>
                    
@@ -456,62 +470,13 @@
             <div class="modal-body" style="text-align:center">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                 <div class="panel-body">
-                    <div class="event-information-wrapper col-md-12 clearfix">
-                        <div class="title-detail">
-                            <span>今月のアクション</span>
-                        </div>
-                    </div>
-                    <div class="event-information-wrapper col-md-12 clearfix">
-                        <textarea style="width: 100%;border: none;" type="text" rows="3" id="action-of-month" name="action-of-month" class="input-action" data-month="{{isset($mytheme_first->month) ? $mytheme_first->month : $data_date['month']}}" data-value="{{$mytheme_first ? $mytheme_first->this_action : ''}}"
-                                            data-year="{{isset($mytheme_first->year) ? $mytheme_first->year : $data_date['year']}}" placeholder="考えたいこと、行動したいことを3つ決めよう">{{$mytheme_first ? $mytheme_first->this_action : ''}}</textarea>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<div id="modal_my_theme" class="modal fade modal_register" role="dialog">
-    <div class="modal-dialog" style="margin-top:150px">
-        <div class="modal-content">
-            <div class="modal-body" style="text-align:center">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <div class="panel-body">
-                    <div class="event-information-wrapper col-md-12 clearfix">
-                        <div class="title-detail">
-                            <span>今月のマイテーマ</span>
-                        </div>
-                    </div>
-                    <div class="event-information-wrapper col-md-12 clearfix">
-
-                        <textarea style="width: 100%;border: none;" type="text" rows="3" name="my-therme-month" id="input-my-theme" class="input-my-theme"  data-month="{{isset($mytheme_first->month) ? $mytheme_first->month : $data_date['month']}}" data-value = "{{$mytheme_first ? $mytheme_first->this_mytheme : ''}}"
-                                            data-year="{{isset($mytheme_first->year) ? $mytheme_first->year : $data_date['year']}}" placeholder="例:「人に喜んでもらう接客とは？」「自分の理想のチームをつくるには？」">{{$mytheme_first ? $mytheme_first->this_mytheme : ''}}</textarea>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<div id="modal_memo" class="modal fade modal_register" role="dialog">
-    <div class="modal-dialog" style="margin-top:150px">
-        <div class="modal-content">
-            <div class="modal-body" style="text-align:center">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <div class="panel-body">
-                    <div class="event-information-wrapper col-md-12 clearfix">
-                        <div class="title-detail">
-                            <span>MEMO</span>
-                        </div>
-                    </div>
-                    <div class="event-information-wrapper col-md-12 clearfix">
-                        <textarea style="width: 100%;border: none;" type="text" rows="3" name="my-therme-month" id="input-memo" class="input-memo"  data-month="{{isset($mytheme_first->month) ? $mytheme_first->month : $data_date['month']}}" 
-                                        data-value= "{{$mytheme_first ? $mytheme_first->memo : ''}}"   data-year="{{isset($mytheme_first->year) ? $mytheme_first->year : $data_date['year']}}" placeholder="先月の行動を振り返り記録しよう">{{$mytheme_first ? $mytheme_first->memo : ''}}</textarea>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 <div id="modal_video" class="modal fade modal_register" role="dialog">
     <div class="modal-dialog" style="margin-top:50px">
         <div class="modal-content" style="border-radius: 13px;">
@@ -1011,43 +976,6 @@
             })
         })
 
-        $(document).on('focusout','#input-memo,.input-lat-log,#input-my-theme,.input-action',function(e){
-            var _this = $(this);
-            var year = _this.data('year');
-            var month = _this.data('month');
-            var text_memo = $('#input-memo').val();
-            var text_memo_old = $('#input-memo').data('value');
-            var text_last_log = $('.input-lat-log').val();
-            var text_last_log_old = $('.input-lat-log').data('value');
-            var text_my_theme = $('#input-my-theme').val();
-            var text_my_theme_old = $('#input-my-theme').data('value');
-            var text_action= $('.input-action').val();
-            var text_action_old= $('.input-action').data('value');
-            if (text_memo.trim() != text_memo_old.trim() || text_last_log.trim() != text_last_log_old.trim() || text_my_theme.trim()  != text_my_theme_old.trim() || text_action.trim() !=text_action_old.trim()) {
-                $.ajax({
-                    url : '{{route("mypage.change-content")}}',
-                    type: 'post',
-                    dataType: 'json',
-                    data: {
-                        year : year,
-                        month : month,
-                        memo : text_memo,
-                        last_log : text_last_log,
-                        this_mytheme: text_my_theme,
-                        this_action: text_action
-                    },success:function(data) {
-                        $('#input-memo').attr('data-value',data.memo);
-                        $('.input-action').attr('data-value',data.this_action);
-                        $('#input-my-theme').attr('data-value',data.this_mytheme);
-                        $('.input-memo').text(data.memo);
-                        $('.input-my-theme').text(data.this_mytheme);
-                        $('.action-of-month').text(data.this_action);
-                        iziToast.success({timeout: 1500, iconUrl: '/images/site_icon.png', title: 'OK', message: '更新いたしました', progressBar: false});
-                    }
-                })
-            }
-        })
-
         $(document).on('focusout','.edit-input-content',function(e){
             var year = $(this).data('year');
             var month = $(this).data('month');
@@ -1104,31 +1032,6 @@
             })
         })
 
-        $('#show-detail-mypage').on('shown.bs.modal', function () {
-            
-        })
-
-        $('#modal_action').on('shown.bs.modal', function () {
-            $('#modal_action .close').addClass('editting');
-            $('#action-of-month').text($('.action-input textarea').text());
-            $('#action-of-month').attr('data-month',$('.action-input textarea').data('month'));
-            $('#action-of-month').attr('data-year',$('.action-input textarea').data('year'));
-        })
-
-        $('#modal_my_theme').on('shown.bs.modal', function () {
-            $('#modal_my_theme .close').addClass('editting');
-            $('#input-my-theme').text($('.my-theme-input .input-my-theme').text());
-            $('#input-my-theme').attr('data-month',$('.my-theme-input .input-my-theme').data('month'));
-            $('#input-my-theme').attr('data-year',$('.my-theme-input .input-my-theme').data('year'));
-        })
-
-        $('#modal_memo').on('shown.bs.modal', function () {
-            $('#modal_memo .close').addClass('editting');
-            $('#input-memo').text($('.memo-input .input-memo').text());
-            $('#input-memo').attr('data-month',$('.memo-input .input-memo').data('month'));
-            $('#input-memo').attr('data-year',$('.memo-input .input-memo').data('year'));
-        })
-
         $(document).on('click','.favorite.edit.image .fa-pencil',function(e){
             e.preventDefault();
             var _this = $(this);
@@ -1182,27 +1085,6 @@
             })
         })
 
-        // $(document).on('change','.file-image',function(e){
-        //     var formData = new FormData($('#form_information')[0]);
-        //     console.log(formData)
-        //     var tmppath = URL.createObjectURL(e.target.files[0]);
-        //     $('#tmppath').val(tmppath);
-        //     $.ajax({
-        //         type: 'post',
-        //         url: '{{route("mypage.change-avatar")}}',
-        //         dataType: "json",
-        //         data: formData,
-        //         async: false,
-        //         success: function (key) {
-        //             $('#dissmiss_modal_show').addClass('editing');
-        //             iziToast.success({timeout: 1500, iconUrl: '/images/site_icon.png', title: 'OK', message: '更新いたしました', progressBar: false});
-        //         },
-        //         processData: false,
-        //         cache: false,
-        //         contentType: false,
-        //     });
-        // })
-
         $(document).on('focusout','.image-description',function(e){
             var formData = new FormData($('#form_information')[0]);
             $.ajax({
@@ -1247,6 +1129,69 @@
                 $('#dissmiss_modal_show').removeClass('editing');
            
         });
+
+        $(document).on('click','.pencil-action-click', function(e) {
+            e.preventDefault();
+            var month = $(this).data('month');
+            var year = $(this).data('year');
+            var typies = $(this).data('type');
+            $.ajax({
+                url : '{{route("mypage.change-content-get")}}',
+                type: 'post',
+                dataType: 'html',
+                data: {
+                    year : year,
+                    month : month,
+                    typies : typies
+                },success:function(data) {
+                    $('#modal_action .panel-body').html(data);
+                    $('#modal_action').modal('show');
+                }
+            })
+        })
+
+        $(document).on('focusout','#action-of-month',function(e){
+    
+            var _this = $(this);
+            var _year = _this.data('year');
+            var _month = _this.data('month');
+            var _type = _this.data('type');
+
+            var text_memo = _type == 'memo' ? $('#action-of-month').val() : $('.input-memo').val();
+            var text_memo_old = _type == 'memo' ? $('#action-of-month').data('value') : $('.input-memo').data('value');
+
+            var text_last_log = $('.input-lat-log').val();
+
+            var text_my_theme = _type == 'theme' ? $('#action-of-month').val() : $('.input-my-theme').val();
+            var text_my_theme_old = _type == 'theme' ? $('#action-of-month').data('value') : $('.input-my-theme').data('value');
+
+            var text_action = _type == 'action' ? $('#action-of-month').val() : $('.action-of-month').val();
+            var text_action_old = _type == 'action' ? $('#action-of-month').data('value') : $('.action-of-month').data('value');
+
+
+            if (text_memo.trim() != text_memo_old.trim() || text_my_theme.trim()  != text_my_theme_old.trim() || text_action.trim() !=text_action_old.trim()) {
+                $.ajax({
+                    url : '{{route("mypage.change-content")}}',
+                    type: 'post',
+                    dataType: 'json',
+                    data: {
+                        year : _year,
+                        month : _month,
+                        memo : text_memo,
+                        last_log : text_last_log,
+                        this_mytheme: text_my_theme,
+                        this_action: text_action
+                    },success:function(data) {
+                        
+                        $('.input-memo').text(data.memo);
+                        $('.input-my-theme').text(data.this_mytheme);
+                        $('.action-of-month').text(data.this_action);
+                        iziToast.success({timeout: 5000, icon: 'fa fa-chrome', title: 'OK', message: '更新いたしました'});
+                        
+                    }
+                })
+            }
+        })
 
     });
 </script>

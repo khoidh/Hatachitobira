@@ -203,6 +203,29 @@ class MypageController extends Controller
         return json_encode($results);
     }
 
+    public function changeContentGet(Request $request) {
+        $data= $request->all();
+        $user_id = Auth::User()->id;
+        $data['user_id'] = $user_id;
+        $mytheme_first = Mytheme::where('user_id',$user_id)->where('month',$data['month'])->where('year',$data['year'])->first();
+        if ($data['typies'] == 'memo') {
+            $data['_text'] = 'MEMO';
+            $data['placehoder'] = '先月の行動を振り返り記録しよう';
+            $data['field'] = $mytheme_first ? $mytheme_first->memo : '';
+        }elseif ($data['typies'] == 'action') {
+            $data['_text'] = '今月のアクション';
+            $data['placehoder'] = '考えたいこと、行動したいことを3つ決めよう';
+            $data['field'] = $mytheme_first ? $mytheme_first->this_action: '';
+        }else {
+            $data['_text'] = '今月のマイテーマ';
+            $data['placehoder'] = '例:「人に喜んでもらう接客とは？」「自分の理想のチームをつくるには？';
+            $data['field'] = $mytheme_first ? $mytheme_first->this_mytheme: '';
+        }
+
+        
+        return view('user.mypage-text',compact('data','mytheme_first'));
+    }
+
     public function changeContent(Request $request) {
         $data = $request->all();
 

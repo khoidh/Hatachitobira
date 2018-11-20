@@ -156,7 +156,7 @@
                 if(e.which == 13) {
                     scroll_to("list-top");
                     var text = $('.search-container input').val();
-                    var id = $('#category_id').val();
+                    var id = $('#video_type').val();
                     $.ajax({
                         url : '{{url("video-search-text?category_id=")}}'+ id +'&page=1&description='+text,
                         success: function (data) {
@@ -170,7 +170,7 @@
                 e.preventDefault();
                 scroll_to("list-top");
                 var text = $('.search-container input').val();
-                var id = $('#category_id').val();
+                var id = $('#video_type').val();
                 $.ajax({
                     url : '{{url("video-search-text?category_id=")}}'+ id +'&page=1&description='+text,
                     success: function (data) {
