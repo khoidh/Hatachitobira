@@ -154,7 +154,7 @@
             $(document).on('keypress','.search-container input',function(e){
                 if(e.which == 13) {
                     var text = $('.search-container input').val();
-                    var id = $('#category_id').val();
+                    var id = $('#video_type').val();
                     $.ajax({
                         url : '{{url("video-search-text?category_id=")}}'+ id +'&page=1&description='+text,
                         success: function (data) {
@@ -167,7 +167,7 @@
             $(document).on('click','#searchvideo',function(e){
                 e.preventDefault();
                 var text = $('.search-container input').val();
-                var id = $('#category_id').val();
+                var id = $('#video_type').val();
                 $.ajax({
                     url : '{{url("video-search-text?category_id=")}}'+ id +'&page=1&description='+text,
                     success: function (data) {
