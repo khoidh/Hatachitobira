@@ -14,10 +14,10 @@
 </div>
 <div class="col-sm-12 info-1">
     <div class="row memo">
-        <div class="col-sm-2 col-4 memo-text">
+        <div class="col-sm-2 memo-text">
             <h5 class="underline-text font-weight-bold">&nbsp;MEMO&nbsp;</h5>
         </div>
-        <div class="col-sm-10 col-8 memo-input">
+        <div class="col-sm-10 memo-input">
            <textarea type="text" name="" class="input-memo" 
             data-month="{{$data_search['month']}}"  readonly 
             data-year="{{$data_search['year']}}"  
@@ -34,10 +34,10 @@
     </div>
     <hr class="shape-8"/>
     <div class="row log">
-        <div class="col-sm-2 col-4 log-text">
+        <div class="col-sm-2 log-text">
             <h5 class="underline-text font-weight-bold">&nbsp;先月のログ&nbsp;</h5>
         </div>
-        <div class="col-sm-10 col-8 log-input">
+        <div class="col-sm-10 log-input">
             <input type="text" name="" class="input-lat-log" data-role="tagsinput" data-month="{{$data_search['month']}}" data-value="{{$mytheme_first ? $mytheme_first->last_log : ''}}"
                                 data-year="{{$data_search['year']}}" placeholder="先月の自分を#で記録しよう　#バイト三昧　#初ボランティア" value="{{$mytheme_first ? $mytheme_first->last_log : ''}}">
 
@@ -104,10 +104,10 @@
 </div>
 <div class="col-sm-12 info-2">
     <div class="row my-theme">
-        <div class="col-sm-3 col-4 my-theme-text">
+        <div class="col-sm-3 my-theme-text">
             <h5 class="underline-text font-weight-bold">&nbsp;今月のマイテーマ&nbsp;</h5>
         </div>
-        <div class="col-sm-9 col-8 my-theme-input">
+        <div class="col-sm-9 my-theme-input">
             <textarea type="text" name="my-therme-month" class="input-my-theme" readonly
             data-month="{{isset($mytheme_first->month) ? $mytheme_first->month : $data_date['month']}}" 
             data-year="{{isset($mytheme_first->year) ? $mytheme_first->year : $data_date['year']}}"
@@ -124,10 +124,10 @@
     </div>
     <hr class="shape-8"/>
     <div class="row action">
-                    <div class="col-sm-3 col-5 action-text">
+                    <div class="col-sm-3 action-text">
                         <h5 class="underline-text font-weight-bold">&nbsp;今月のアクション &nbsp;</h5>
                     </div>
-                    <div class="col-sm-9 col-7 action-input">
+                    <div class="col-sm-9 action-input">
                          <textarea style="width: 100%;border: none;" type="text" rows="2" readonly name="action-of-month" class="action-of-month"
                             data-month="{{isset($mytheme_first->month) ? $mytheme_first->month : $data_date['month']}}" 
                             data-year="{{isset($mytheme_first->year) ? $mytheme_first->year : $data_date['year']}}"
