@@ -16,7 +16,7 @@ class VideoController extends Controller
 
     public function index(Request $request)
     {
-        $video_types = VideoType::all();
+        $video_types = VideoType::where('id','!=',3)->get();
         $videos = Video::select()
             ->select('videos.*','video_types.name as category_name')
             ->join('video_types','video_types.id','=','videos.type')
