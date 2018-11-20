@@ -1104,12 +1104,11 @@
         })
 
         $('#show-detail-mypage').on('shown.bs.modal', function () {
-            $('#value-lable-main').focus();
+            
         })
 
         $('#modal_action').on('shown.bs.modal', function () {
             $('#modal_action .close').addClass('editting');
-            $('#action-of-month').focus();
             $('#action-of-month').text($('.action-input textarea').text());
             $('#action-of-month').attr('data-month',$('.action-input textarea').data('month'));
             $('#action-of-month').attr('data-year',$('.action-input textarea').data('year'));
@@ -1117,7 +1116,6 @@
 
         $('#modal_my_theme').on('shown.bs.modal', function () {
             $('#modal_my_theme .close').addClass('editting');
-            $('#input-my-theme').focus();
             $('#input-my-theme').text($('.my-theme-input .input-my-theme').text());
             $('#input-my-theme').attr('data-month',$('.my-theme-input .input-my-theme').data('month'));
             $('#input-my-theme').attr('data-year',$('.my-theme-input .input-my-theme').data('year'));
@@ -1125,7 +1123,6 @@
 
         $('#modal_memo').on('shown.bs.modal', function () {
             $('#modal_memo .close').addClass('editting');
-            $('#input-memo').focus();
             $('#input-memo').text($('.memo-input .input-memo').text());
             $('#input-memo').attr('data-month',$('.memo-input .input-memo').data('month'));
             $('#input-memo').attr('data-year',$('.memo-input .input-memo').data('year'));
