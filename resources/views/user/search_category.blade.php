@@ -1,4 +1,5 @@
 <div class="searchcategory">
+    @if(count($columns) > 0)
     <div class="event">
         <h2 class="underline-text font-weight-bold">コラム</h2>
         <div class="article-list">
@@ -45,6 +46,8 @@
             </div>
         </div>
     </div>
+    @endif
+    @if(count($events) > 0)
     <div class="event">
         <h2 class="underline-text font-weight-bold">イベント</h2>
         <div class="article-list">
@@ -92,6 +95,8 @@
             </div>
         </div>
     </div>
+    @endif
+    @if(count($videos) > 0)
     <div class="video">
         <h2 class="underline-text font-weight-bold">動画</h2>
         <div class="video-list">
@@ -121,6 +126,7 @@
             </div>
         </div>
     </div>
+    @endif
     <script src="{{ asset('assets/slick/slick.min.js') }}"></script>
 <script type="text/javascript" async defer>
     $(document).ready(function(){
