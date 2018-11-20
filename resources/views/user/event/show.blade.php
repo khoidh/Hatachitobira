@@ -34,7 +34,7 @@
                         data-id="{{$event->id}}"
                         data-user='{{Auth::user() ? Auth::user()->id : ""}}'>
                     </i>
-                    <span class="heart-create-at">&nbsp&nbsp{{date('Y-m-d', strtotime($event->started_at))}}</span>
+                    <span class="heart-create-at">&nbsp&nbsp{{$event->started_at->format(config('const.ymd'))}}</span>
                 </div>
                 <hr class="shape-8"/>
             </div>
@@ -48,23 +48,23 @@
                         <tbody>
                         <tr>
                             <td class="table-td_1" scope="row"><b>日程</b></td>
-                            <td class="table-td_2">{{$event->started_at}} 〜 {{$event->closed_at}}</td>
+                            <td class="table-td_2">{{$event->started_at->format(config('const.ymdHi'))}} 〜 {{$event->closed_at->format(config('const.ymdHi'))}}</td>
                         </tr>
                         <tr>
                             <td class="table-td_1" scope="row"><b>場所</b></td>
-                            <td class="table-td_2">{{$event->address}}</td>
+                            <td class="table-td_2">{!! nl2br($event->address) !!}</td>
                         </tr>
                         <tr>
                             <td class="table-td_1" scope="row"><b>概要</b></td>
-                            <td class="table-td_2">{{$event->overview}}</td>
+                            <td class="table-td_2">{!! nl2br($event->overview) !!}</td>
                         </tr>
                         <tr>
                             <td class="table-td_1" scope="row"><b>参加費</b></td>
-                            <td class="table-td_2">{{$event->entry_fee}}</td>
+                            <td class="table-td_2">{!! number_format($event->entry_fee) !!} 円</td>
                         </tr>
                         <tr>
                             <td class="table-td_1" scope="row"><b>定員</b></td>
-                            <td class="table-td_2">{{$event->capacity}}</td>
+                            <td class="table-td_2">{!! number_format($event->capacity) !!} 人</td>
                         </tr>
                         </tbody>
                     </table>

@@ -12,7 +12,7 @@ class Event extends Model
     protected $fillable = ['category_id', 'title','content','image', 'sort', 'time_from', 'time_to','started_at','closed_at','address','overview','capacity','entry_fee', 'display'];
 
     protected $appends = ['eventstatus','categoryname','eventliked'];
-
+    protected $dates = ['created_at','updated_at','time_from', 'time_to','started_at','closed_at'];
 
     public function category()
     {

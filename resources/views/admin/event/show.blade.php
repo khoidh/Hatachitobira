@@ -131,8 +131,9 @@
     <div class="form-group row">
         <label for="address" class="col-sm-2 col-form-label" >{{__('場所')}}</label>
         <div class="col-sm-10">
-            <input type="text" class="form-control" name="address" id="address" placeholder="{{__('場所')}}"
-                   value="{{$event->address}}" disabled="">
+            <textarea type="text" class="form-control" name="address" id="address" placeholder="{{__('場所')}}" cols="50" rows="4"
+                  disabled="" >{{$event->address}}
+               </textarea>
         </div>
     </div>
 

@@ -136,8 +136,7 @@
     <div class="form-group row">
         <label for="address" class="col-sm-2 col-form-label" >{{__('場所')}}</label>
         <div class="col-sm-10">
-            <input type="text" class="form-control" name="address" id="address" placeholder="{{__('場所')}}"
-                   value="{{old('address')}}">
+            <textarea class="form-control" name="address" id="address" placeholder="{{__('場所')}}" rows="4">{{old('address')}}</textarea>
         </div>
     </div>
 
