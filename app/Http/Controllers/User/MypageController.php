@@ -13,6 +13,7 @@ use App\UserCategory;
 use DateTime;
 use Date;
 use Response;
+use Image;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -142,7 +143,10 @@ class MypageController extends Controller
         $file = $request->file('file');
         $fileName = time().'_'.$file->getClientOriginalName();
         $destinationPath = public_path('images/user/mypage/');
-        $file->move($destinationPath, $fileName);
+        $img = Image::make($file)->resize(250, 250);
+        $img->orientate();
+        $img->save($destinationPath.$fileName);
+
         unset($data['file']);
         unset($data['_token']);
 
