@@ -7,13 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Video extends Model
 {
-    const JOB_SHADOW_TYPE = 1;
-    const ROLE_PLAY_TYPE = 2;
-    const CONCEPT_MOVIE_TYPE = 3;
-    CONST JOB_SHADOW = 'ジョブシャドウ';
-    CONST ROLE_PLAY = 'ロールモデル';
-    CONST CONCEPT_MOVIE = 'コンセプトムービー';
-
     protected $table = 'videos';
     protected $fillable = ['category_id', 'url', 'description', 'image', 'sort','type','published_at', 'display'];
     protected $appends = ['categoryname','videoliked'];
