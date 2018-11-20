@@ -7,6 +7,7 @@ require('./bootstrap');
 window.$ = window.jQuery = require('jquery');
 require('owl.carousel');
 require('loaders.css');
+require('./components/scroll.js');
 
 /* set loader for all Ajax call */
 $(document).bind("ajaxSend", function(){
@@ -20,4 +21,3 @@ $(document).bind("ajaxSend", function(){
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
-

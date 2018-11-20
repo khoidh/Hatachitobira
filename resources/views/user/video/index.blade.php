@@ -47,7 +47,7 @@
                 <button id="searchvideo"><i class="fa fa-search" ></i></button>
             </div>
         </div>
-        <div class="row video-list list-video-tall">
+        <div id="list-top" class="row video-list list-video-tall">
             @forelse($videos as $result)
                 <?php 
                     $title = $result->title;
@@ -72,7 +72,7 @@
                     </div>
                 </div>
             @empty
-                <h4 class="data-not-found">Data not found</h4>
+                <h4 class="data-not-found">登録データがありません。</h4>
             @endforelse
             <div class="col-md-12 col-lg-12 col-sm-12 col-xm-12 paging text-center clearfix">
                 <ul class="pagination pagination-lg" role="navigation">
@@ -140,25 +140,27 @@
             $(document).on('change','#video_type',function(e){
 
                 e.preventDefault();
+                scroll_to("list-top");
                 var text = $('.search-container input').val();
                 var id = $(this).val();
                 $.ajax({
                     url : '{{url("video-search-text?video_type=")}}'+ id +'&page=1&description='+text,
 
                     success: function (data) {
-                        $('.row.video-list').html(data);
+                        set_video_list(data);
                     }
                 });
             });
 
             $(document).on('keypress','.search-container input',function(e){
                 if(e.which == 13) {
+                    scroll_to("list-top");
                     var text = $('.search-container input').val();
                     var id = $('#category_id').val();
                     $.ajax({
                         url : '{{url("video-search-text?category_id=")}}'+ id +'&page=1&description='+text,
                         success: function (data) {
-                            $('.row.video-list').html(data);
+                            set_video_list(data);
                         }
                     });
                 }
@@ -166,12 +168,13 @@
 
             $(document).on('click','#searchvideo',function(e){
                 e.preventDefault();
+                scroll_to("list-top");
                 var text = $('.search-container input').val();
                 var id = $('#category_id').val();
                 $.ajax({
                     url : '{{url("video-search-text?category_id=")}}'+ id +'&page=1&description='+text,
                     success: function (data) {
-                        $('.row.video-list').html(data);
+                        set_video_list(data);
                     }
                 
                 });
@@ -179,16 +182,21 @@
 
             $(document).on('click','.pagination .page-link',function(e){
                 e.preventDefault();
+                scroll_to("list-top");
                 var text = $('.search-container input').val();
                 var id = $('#category_id').val();
                 var page = $(this).attr('href').split('page=')[1];
                 $.ajax({
                     url : '{{url("video-search-text?category_id=")}}'+ id +'&page='+page+'&description='+text,
                     success: function (data) {
-                        $('.video-list').html(data);
+                        set_video_list(data);
                     }
                 });
             });
+
+            var set_video_list = function(data) {
+                $('.row.video-list').html(data);
+            }
 
             $(document).on('click','.browse-details .favorite',function(e){
                 e.stopPropagation();

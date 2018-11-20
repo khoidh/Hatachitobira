@@ -22,7 +22,7 @@
         </div>
     </div>
 @empty
-    <h4 class="data-not-found">Data not found</h4>
+    <h4 class="data-not-found">登録データがありません。</h4>
 @endforelse
 <div class="col-md-12 col-lg-12 col-sm-12 col-xm-12 paging text-center clearfix">
     <ul class="pagination" role="navigation">
