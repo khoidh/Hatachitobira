@@ -877,8 +877,6 @@
             var text = $(this).val();
             var text_old = $(this).data('value');
             var _this = $(this);
-            console.log(text);
-            console.log(text_old);
             if (text.trim() != text_old.trim()) {
                 $.ajax({
                     url : '{{route("mypage.change-lable")}}',
@@ -1172,12 +1170,6 @@
             var text_action = _type == 'action' ? $('#model-textarea-edit').val() : $('.action-of-month').val();
             var text_action_old = _type == 'action' ? $('#model-textarea-edit').data('value') : $('.action-of-month').data('value');
 
-            console.log(text_memo);
-            console.log(text_memo_old);
-            console.log(text_my_theme);
-            console.log(text_my_theme_old);
-            console.log(text_action);
-            console.log(text_action_old);
             if (text_memo.trim() != text_memo_old.trim() || text_my_theme.trim()  != text_my_theme_old.trim() || text_action.trim() !=text_action_old.trim()) {
                 $.ajax({
                     url : '{{route("mypage.change-content")}}',
