@@ -2,7 +2,6 @@
 
 @section('css-add')
     @parent
-    <link href="{{ asset('css/recruitment-staff.css') }}" rel="stylesheet">
     <style>
         .recruiment .main .title-lx .container .relative .info .absolute .title-j {
             letter-spacing: 10px;
