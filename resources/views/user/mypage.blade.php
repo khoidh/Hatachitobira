@@ -33,15 +33,16 @@
                     <div class="col-sm-2 memo-text">
                         <h5 class="underline-text font-weight-bold">&nbsp;MEMO&nbsp;</h5>
                     </div>
-                    <div class="col-sm-10 memo-input">
+                    <div class="col-sm-10 memo-input" data-toggle="modal" data-target="#modal_memo">
                         <textarea
                             type="text" name="" class="input-memo" placeholder="先月の行動を振り返り記録しよう" readonly
                             data-month="{{isset($mytheme_first->month) ? $mytheme_first->month : $data_date['month']}}" 
                             data-year="{{isset($mytheme_first->year) ? $mytheme_first->year : $data_date['year']}}"
                             data-value = "{{$mytheme_first? $mytheme_first->memo : ''}}"
+                            style="outline: 0;"
                         >{{ $mytheme_first ? $mytheme_first->memo : '' }}</textarea>
 
-                        <i class="fa fa-pencil pencil-memo" data-toggle="modal" data-target="#modal_memo">
+                        <i class="fa fa-pencil pencil-memo">
                                         <span>Edit</span></i>
                     </div>
                 </div>
