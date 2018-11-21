@@ -246,6 +246,155 @@ body {
         font-size: 21px;
     }
 }
+
+.top .movie-top-4 {
+    .event-article-list {
+        width: 100%;
+        .article {
+            width: 100%;
+            padding-top: 32px;
+            position: relative;
+            -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+            .article-status {
+                line-height: 200%;
+                font-size: small;
+                //font-weight: bold;
+                color: $black-color;
+
+                position: relative;
+                display: inline-block;
+                width: 100%;
+
+                .shape-8 {
+                    @extend %shape-8;
+                    margin: 8px 0 16px !important;
+                    height: 1px !important;
+                    background-color: #DCDCDC !important;
+                }
+
+                img {
+                    position: absolute;
+                    max-height: 24px;
+                    max-width: 111px;
+                    top: 0;
+                }
+
+                span {
+                    position: absolute;
+                    max-height: 24px;
+                    max-width: 101px;
+                    top: 0;
+                    color: $white;
+                }
+            }
+
+            .article-content {
+                padding-top: 8px;
+                @include title-font();
+
+                a{
+                    color: $black-color;
+                }
+
+                .content-left img {
+                    border-radius: 15px;
+                    -moz-border-radius: 15px; /*Firefox*/
+                    -webkit-border-radius: 15px; /*Chrome và Safary*/
+
+                    max-height: 230px;
+                    width: 100%;
+                    object-fit: cover;
+                }
+
+                .content-right {
+                    @include only-for-mobile() {
+                        padding-top: 8px;
+                    }
+                    .icon-favorite {
+                        text-align: right;
+                        //padding-bottom: 24px;
+                        font-size:24px;
+                        >i{
+                            color: rgb(99, 107, 111);
+                        }
+                    }
+
+                    .title {
+                        font-size: 16px !important;
+                        font-weight: normal !important;
+                        text-align: justify;
+                    }
+
+                    .category, .date {
+                        color: $text2-color;
+                        font-size: small;
+                        display: block;
+
+                        @include only-for-tab-pc() {
+                            display: inline;
+                        }
+                    }
+
+                    .date {
+                        text-align: right;
+                    }
+                }
+
+                @include only-for-tab-pc(){
+                    padding-bottom: 20px;
+                }
+            }
+        }
+
+        .shape-8 {
+            @extend %shape-8;
+            margin: 32px 0 8px !important;
+            height: 1px !important;
+            background-color: #DCDCDC !important;
+        }
+
+        .paging {
+            //for sp
+            padding: 32px 0 !important;
+            //for pc
+            @include only-for-tab-pc(){
+                padding: 32px 0 0 !important;
+            }
+
+            .pagination {
+                justify-content: center;
+                -webkit-box-align: center;
+            }
+            .pagination .page-item .page-link {
+                background-color: #d2d2d2;
+                color: #323233;
+                border: #d2d2d2;
+                //for sp
+                border-radius: 19px;
+                margin: 4px;
+                padding: 2px 11px;
+                //for pc
+                @include only-for-tab-pc(){
+                    border-radius: 35px;
+                    margin: 10px;
+                    padding: 8px 17px;
+                }
+            }
+            .pagination .page-item:first-child .page-link,
+            .pagination .page-item:last-child .page-link {
+                background-color: transparent;
+                border: none;
+                font-weight: bold;
+            }
+            .pagination .page-item.active .page-link {
+                background-color: #fff100;
+                border: #fff100;
+            }
+        }
+    }
+}
+
 .top .more-detail {
     font-size: 24px;
     font-weight: bold;

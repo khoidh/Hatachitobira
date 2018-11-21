@@ -50,7 +50,7 @@ class HomeController extends Controller
             ->join('categories','categories.id','=','events.category_id')
             ->where('events.display' , 1)
             ->orderBy('id','desc')
-            ->take(3)->get();
+            ->take(1)->get();
 
         $columns = Column::select()
             ->select('columns.*', 'categories.name as category_name')
