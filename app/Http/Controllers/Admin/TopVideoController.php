@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\TopVideos;
-use App\Requests\TopVideosRequest;
+use App\Models\VideoType;
+use App\Http\Requests\TopVideosRequest;
+
 class TopVideoController extends Controller
 {
     /**
@@ -30,7 +32,11 @@ class TopVideoController extends Controller
      */
     public function create()
     {
-        //
+        $types = VideoType::all();
+
+        return view('admin.top_videos.create', [
+                'types' => $types
+            ]);
     }
 
     /**
@@ -41,7 +47,16 @@ class TopVideoController extends Controller
      */
     public function store(TopVideosRequest $request)
     {
-        //
+        $data = $request->all();
+        if($request->hasFile('image')){
+            $file = $request->file('image');
+            $fileName = time().'_'.$file->getClientOriginalName();
+            $data['thumbnail'] = $fileName;
+            $destinationPath = public_path('images/admin/top_videos');
+            $file->move($destinationPath, $fileName);
+        }
+        TopVideos::create($data);
+        return redirect()->route('topvideos.index');
     }
 
     /**
@@ -52,7 +67,11 @@ class TopVideoController extends Controller
      */
     public function show($id)
     {
-        //
+        $top_video = TopVideos::where('top_videos.id',$id)
+            ->select('top_videos.*','video_types.name as type')
+            ->join('video_types','video_types.id','=','top_videos.video_type_id')
+            ->first();
+        return view('admin.top_videos.show', ['top_video' => $top_video]);
     }
 
     /**
@@ -63,7 +82,12 @@ class TopVideoController extends Controller
      */
     public function edit($id)
     {
-        //
+        $types = VideoType::all();
+        $top_video = TopVideos::find($id);
+        return view('admin.top_videos.edit', [
+                'types' => $types,
+                'top_video' => $top_video
+            ]);
     }
 
     /**
@@ -75,7 +99,17 @@ class TopVideoController extends Controller
      */
     public function update(TopVideosRequest $request, $id)
     {
-        //
+        $top_video = TopVideos::find($id);
+        $data = $request->all();
+        if($request->hasFile('image')){
+            $file = $request->file('image');
+            $fileName = time().'_'.$file->getClientOriginalName();
+            $data['thumbnail'] = $fileName;
+            $destinationPath = public_path('images/admin/top_videos');
+            $file->move($destinationPath, $fileName);
+        }
+        $top_video->fill($data)->save();
+        return redirect()->route('topvideos.index');
     }
 
     /**
@@ -86,6 +120,8 @@ class TopVideoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $video = TopVideos::find($id);
+        $video->delete();
+        return redirect()->route('topvideos.index');
     }
 }

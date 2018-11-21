@@ -31,7 +31,7 @@ class TopVideosRequest extends FormRequest
         ];
     }
 
-    public function ()
+    public function Attributes()
     {
         return [
             'video_type_id'     => __('動画タイプ'),

@@ -14,7 +14,7 @@
     </div>
     <div class="content-header-right col-md-6 col-12">
         <div class="btn-group float-md-right" role="group" aria-label="Button group with nested dropdown">
-            <a class="btn btn-info" href="{{route('categories.create')}}" ><i class="la la-plus"></i> {{__('追加')}}</a>
+            <a class="btn btn-info" href="{{route('topvideos.create')}}" ><i class="la la-plus"></i> {{__('追加')}}</a>
         </div>
     </div>
 @endsection
@@ -41,15 +41,16 @@
                     <td>{{ $video->type }}</td>
                     <td>{{ $video->title }}</td>
                     <td>
-                        {{ $video->thumbnail }}
+                        <img src="<?php echo asset('images/admin/top_videos/'.$video->thumbnail) ?>" width="150px" height="150px">
+
                     </td>
                     <td>{{ $video->youtube_url }}</td>
                     <td>
                         <div >
-                            <a class="btn btn-info" href="{{route('categories.show',$video->id)}}">詳細</a>
+                            <a class="btn btn-info" href="{{route('topvideos.show',$video->id)}}">詳細</a>
                         </div>
                         <div style="margin-top: 10px;">
-                            <a class="btn btn-success" href="{{route('categories.edit',$video->id)}}">編集</a>
+                            <a class="btn btn-success" href="{{route('topvideos.edit',$video->id)}}">編集</a>
                         </div>
 
                     </td>

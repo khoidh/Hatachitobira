@@ -7,7 +7,7 @@
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{ route('admin.home') }}">{{__('ホーム')}}</a></li>
                     <li class="breadcrumb-item"><a href="{{route('categories.index')}}">{{__('カテゴリ一覧')}}</a></li>
-                    <li class="breadcrumb-item active">{{__('つ追加')}}</li>
+                    <li class="breadcrumb-item active">{{__('追加')}}</li>
                 </ol>
             </div>
         </div>
