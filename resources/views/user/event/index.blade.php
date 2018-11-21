@@ -17,26 +17,37 @@
                     <span>ちょっと真面目な出会いや対話を通じて</span>
                     <br>
                     <span>マイテーマを磨くための一歩を踏みだすイベント情報</span>
+
                 </div>
-                <div class="row flex-space-between-pc p-features">
-                    @include('includes.merit_box', [
-                        'number'=>1,
-                        'image'=>'images/user/event/img-event-1.png',
-                        'title'=>'ちょっと変わった <br>ロールモデルに出会える',
-                        'body'=>'ベンチャー、大手、公務員、NPO、フリーランス、将来の選択肢を知ることで視野を広げる',
-                    ])
-                    @include('includes.merit_box', [
-                        'number'=>2,
-                        'image'=>'images/user/event/img-event-2.png',
-                        'title'=>'ちょっと真面目に <br> 同世代と対話ができる',
-                        'body'=>'毎月20日に会って対話をする大学やバイト以外の第3のコミュニティができる',
-                    ])
-                    @include('includes.merit_box', [
-                        'number'=>3,
-                        'image'=>'images/user/event/img-event-3.png',
-                        'title'=>'自分の個性をあらわす <br/> マイテーマを探求できる',
-                        'body'=>'やりたいこと探しとは異なる<br>これからの時代に合ったやり方で大学生活や将来の方向性を探る',
-                    ])
+                <div class="button-show-list-down">
+                    <button class="round-button black lg">イベントの特徴</button>
+                </div>
+                
+                <div class="flex-space-between-pc p-features ">
+                    <div class="row col-md-12">
+                        @include('includes.merit_box', [
+                            'number'=>1,
+                            'image'=>'images/user/event/img-event-1.png',
+                            'title'=>'ちょっと変わった <br>ロールモデルに出会える',
+                            'body'=>'ベンチャー、大手、公務員、NPO、フリーランス、将来の選択肢を知ることで視野を広げる',
+                        ])
+                        @include('includes.merit_box', [
+                            'number'=>2,
+                            'image'=>'images/user/event/img-event-2.png',
+                            'title'=>'ちょっと真面目に <br> 同世代と対話ができる',
+                            'body'=>'毎月20日に会って対話をする大学やバイト以外の第3のコミュニティができる',
+                        ])
+                        @include('includes.merit_box', [
+                            'number'=>3,
+                            'image'=>'images/user/event/img-event-3.png',
+                            'title'=>'自分の個性をあらわす <br/> マイテーマを探求できる',
+                            'body'=>'やりたいこと探しとは異なる<br>これからの時代に合ったやり方で大学生活や将来の方向性を探る',
+                        ])
+                    </div>
+
+                    <div class="button-show-list-up">
+                        <button class="round-button black lg">閉じる</button>
+                    </div>
                 </div>
             </div>
 
@@ -111,6 +122,20 @@
                     'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
                 }
             });
+            $(document).on('click','.button-show-list-down button',function(e){
+                e.preventDefault();
+                $('.flex-space-between-pc').slideDown();
+                $('.flex-space-between-pc').css('display','block');
+                $(this).css('display','none');
+            })
+
+            $(document).on('click','.button-show-list-up button',function(e){
+                e.preventDefault();
+                $('.flex-space-between-pc').slideUp();
+                setTimeout(function(){ $('.button-show-list-down button').css('display','block'); }, 300);
+                
+            })
+
             $(document).on('click','.icon-favorite .fa-heart-o', function(e) {
                 e.stopPropagation();
                 var user_id = $(this).data('user');

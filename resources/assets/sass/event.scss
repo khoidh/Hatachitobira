@@ -18,7 +18,48 @@
       box-shadow: inset 0 -5px 0 $yellow-color;
       transition: background .15s cubic-bezier(.33,.66,.66,1);
       display: inline;
+
     }
+  }
+  .button-show-list-down {
+     .round-button:after{
+        content: "";
+        display: block;
+        position: relative;
+        top: -51px;
+        width: 93px;
+        height: 34px;
+        background-image: url(/images/user/event/image_down.png);
+        background-repeat: no-repeat;
+        right: -400px;
+        @include only-for-mobile() {
+              right: -270px;
+              top: -44px;
+        }
+     }
+  }
+
+  .button-show-list-up {
+     .round-button:after{
+        content: "";
+        display: block;
+        position: relative;
+        top: -51px;
+        width: 93px;
+        height: 34px;
+        background-image: url(/images/user/event/image-up.png);
+        background-repeat: no-repeat;
+        right: -400px;
+        @include only-for-mobile() {
+                  right: -84%;
+              top: -44px;
+        }
+     }
+  }
+
+  .flex-space-between-pc {
+    display: none;
+    margin-top: 30px !important;
   }
 
   .p-features {
