@@ -212,7 +212,7 @@ $description = '学校と社会をつなぐ「ハタチのトビラ」は、将�
                                 <div class="wrapper">
                                     <div class="thump">
                                         @if(isset($video_concept) && $video_concept->count() > 0)
-                                        <div class="browse-details" data-id='{{$video_concept->id}}' data-src='{{$video_concept->embedHtml}}' data-url = "{{$video_concept->url}}">
+                                        <div class="browse-details video_concept" data-id='{{$video_concept->id}}' data-src='{{$video_concept->embedHtml}}' data-url = "{{$video_concept->url}}">
                                             <img src="{{ asset('images/user/video/btn-play.png')}}" alt="" >
                                         </div>
                                         <a href="#">
@@ -220,7 +220,7 @@ $description = '学校と社会をつなぐ「ハタチのトビラ」は、将�
                                         </a>
                                         <p class="video-title">{{$video_concept->title}}</p>
                                         @else
-                                        <div class="browse-details" data-id='1' data-src='' data-url = "">
+                                        <div class="browse-details video_concept" data-id='1' data-src='' data-url = "">
                                             <img src="{{ asset('images/user/video/btn-play.png')}}" alt="" >
                                         </div>
                                         <a href="#">
@@ -293,16 +293,19 @@ $description = '学校と社会をつなぐ「ハタチのトビラ」は、将�
                     <div class="col-md-8">
                         <div class="corner-wrapper video movie-1">
                             <div class="video-list">
-                                @foreach($videos_1 as $key => $result)
+                                @foreach($videos_jobshadow as $key => $result)
                                     @if($key == 0)
                                     <div class="video-detail">
                                         <div class="wrapper">
                                             <div class="thump">
-                                                <div class="browse-details" data-id='{{$result->id}}' data-src='{{$result->embedHtml}}' data-url = "{{$result->url}}">
+                                                <a href="{{$result->youtube_url}}" target="_blank">
+                                                     <div class="browse-details">
                                                     <img src="{{ asset('images/user/video/btn-play.png')}}" alt="" >
                                                 </div>
+                                                </a>
+                                               
                                                 <a href="#">
-                                                    <img class="img-icon" src="{{  $result->thumbnails}}" alt="{{$result->title}}">
+                                                    <img class="img-icon" src="<?php echo asset('images/admin/top_videos/'.$result->thumbnail) ?>" alt="{{$result->title}}">
                                                 </a>
                                                 <p class="video-title">{{ $result->title }}</p>
                                             </div>
@@ -316,16 +319,18 @@ $description = '学校と社会をつなぐ「ハタチのトビラ」は、将�
                     <div class="col-md-4 video-movie flex-space-between-mobile">
                         <div class="corner-wrapper video movie-2">
                             <div class="video-list">
-                                @foreach($videos_1 as $key => $result)
+                                @foreach($videos_jobshadow as $key => $result)
                                     @if($key == 1)
                                     <div class="video-detail">
                                         <div class="wrapper">
                                             <div class="thump">
-                                                <div class="browse-details" data-id='{{$result->id}}' data-src='{{$result->embedHtml}}' data-url = "{{$result->url}}">
-                                                    <img src="{{ asset('images/user/video/btn-play.png')}}" alt="" >
-                                                </div>
+                                                <a href="{{$result->youtube_url}}" target="_blank">
+                                                    <div class="browse-details">
+                                                        <img src="{{ asset('images/user/video/btn-play.png')}}" alt="" >
+                                                    </div>
+                                                </a>
                                                 <a href="#">
-                                                    <img class="img-icon" src="{{  $result->thumbnails}}" alt="{{$result->title}}">
+                                                    <img class="img-icon" src="<?php echo asset('images/admin/top_videos/'.$result->thumbnail) ?>" alt="{{$result->title}}">
                                                 </a>
                                                 <p class="video-title sub-title">{{ $result->title }}</p>
                                             </div>
@@ -337,16 +342,18 @@ $description = '学校と社会をつなぐ「ハタチのトビラ」は、将�
                         </div>
                         <div class="corner-wrapper video movie-2">
                             <div class="video-list">
-                                @foreach($videos_1 as $key => $result)
+                                @foreach($videos_jobshadow as $key => $result)
                                     @if($key == 2)
                                     <div class="video-detail">
                                         <div class="wrapper">
                                             <div class="thump">
-                                                <div class="browse-details" data-id='{{$result->id}}' data-src='{{$result->embedHtml}}' data-url = "{{$result->url}}">
-                                                    <img src="{{ asset('images/user/video/btn-play.png')}}" alt="" >
-                                                </div>
+                                                <a href="{{$result->youtube_url}}" target="_blank">
+                                                    <div class="browse-details">
+                                                        <img src="{{ asset('images/user/video/btn-play.png')}}" alt="" >
+                                                    </div>
+                                                </a>
                                                 <a href="#">
-                                                    <img class="img-icon" src="{{  $result->thumbnails}}" alt="{{$result->title}}">
+                                                    <img class="img-icon" src="<?php echo asset('images/admin/top_videos/'.$result->thumbnail) ?>" alt="{{$result->title}}">
                                                 </a>
                                                 <p class="video-title sub-title">{{ $result->title }}</p>
                                             </div>
@@ -373,16 +380,18 @@ $description = '学校と社会をつなぐ「ハタチのトビラ」は、将�
                     <div class="col-md-8">
                         <div class="corner-wrapper video movie-1">
                             <div class="video-list">
-                                @foreach($videos_2 as $key => $result)
+                                @foreach($videos_roleplay as $key => $result)
                                     @if($key == 0)
                                     <div class="video-detail">
                                         <div class="wrapper">
                                             <div class="thump">
-                                                <div class="browse-details" data-id='{{$result->id}}' data-src='{{$result->embedHtml}}' data-url = "{{$result->url}}">
-                                                    <img src="{{ asset('images/user/video/btn-play.png')}}" alt="" >
-                                                </div>
+                                                <a href="{{$result->youtube_url}}" target="_blank">
+                                                    <div class="browse-details">
+                                                        <img src="{{ asset('images/user/video/btn-play.png')}}" alt="" >
+                                                    </div>
+                                                </a>
                                                 <a href="#">
-                                                    <img class="img-icon" src="{{  $result->thumbnails}}" alt="{{$result->title}}">
+                                                    <img class="img-icon" src="<?php echo asset('images/admin/top_videos/'.$result->thumbnail) ?>" alt="{{$result->title}}">
                                                 </a>
                                                 <p class="video-title">{{ $result->title }}</p>
                                             </div>
@@ -396,16 +405,18 @@ $description = '学校と社会をつなぐ「ハタチのトビラ」は、将�
                     <div class="col-md-4 video-movie flex-space-between-mobile">
                         <div class="corner-wrapper video movie-2">
                             <div class="video-list">
-                                @foreach($videos_2 as $key => $result)
+                                @foreach($videos_roleplay as $key => $result)
                                     @if($key == 1)
                                     <div class="video-detail">
                                         <div class="wrapper">
                                             <div class="thump">
-                                                <div class="browse-details" data-id='{{$result->id}}' data-src='{{$result->embedHtml}}' data-url = "{{$result->url}}">
-                                                    <img src="{{ asset('images/user/video/btn-play.png')}}" alt="" >
-                                                </div>
+                                                <a href="{{$result->youtube_url}}" target="_blank">
+                                                    <div class="browse-details">
+                                                        <img src="{{ asset('images/user/video/btn-play.png')}}" alt="" >
+                                                    </div>
+                                                </a>
                                                 <a href="#">
-                                                    <img class="img-icon" src="{{  $result->thumbnails}}" alt="{{$result->title}}">
+                                                    <img class="img-icon" src="<?php echo asset('images/admin/top_videos/'.$result->thumbnail) ?>" alt="{{$result->title}}">
                                                 </a>
                                                 <p class="video-title sub-title">{{ $result->title }}</p>
                                             </div>
@@ -417,16 +428,18 @@ $description = '学校と社会をつなぐ「ハタチのトビラ」は、将�
                         </div>
                         <div class="corner-wrapper video movie-2">
                             <div class="video-list">
-                                @foreach($videos_2 as $key => $result)
+                                @foreach($videos_roleplay as $key => $result)
                                     @if($key == 2)
                                     <div class="video-detail">
                                         <div class="wrapper">
                                             <div class="thump">
-                                                <div class="browse-details" data-id='{{$result->id}}' data-src='{{$result->embedHtml}}' data-url = "{{$result->url}}">
-                                                    <img src="{{ asset('images/user/video/btn-play.png')}}" alt="" >
-                                                </div>
+                                                <a href="{{$result->youtube_url}}" target="_blank">
+                                                    <div class="browse-details">
+                                                        <img src="{{ asset('images/user/video/btn-play.png')}}" alt="" >
+                                                    </div>
+                                                </a>
                                                 <a href="#">
-                                                    <img class="img-icon" src="{{  $result->thumbnails}}" alt="{{$result->title}}">
+                                                    <img class="img-icon" src="<?php echo asset('images/admin/top_videos/'.$result->thumbnail) ?>" alt="{{$result->title}}">
                                                 </a>
                                                 <p class="video-title sub-title">{{ $result->title }}</p>
                                             </div>
@@ -654,7 +667,7 @@ $description = '学校と社会をつなぐ「ハタチのトビラ」は、将�
                 arrows: false
             });
 
-            $(document).on('click','.video .video-list .browse-details', function(e){
+            $(document).on('click','.video .video-list .video_concept', function(e){
                 e.preventDefault();
                 var idvideo = $(this).data('id');
                 var src = $(this).data('src');
