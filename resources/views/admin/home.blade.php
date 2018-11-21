@@ -115,7 +115,16 @@
                     </li>
                     <li class=""><a class="menu-item" href="{{route('videos.create')}}" data-i18n="nav.dash.addVideo">{{__('追加する')}}</a>
                     </li>
-        </ul>
+                </ul>
+            </li>
+            {{--=========================================== Top Videos ====================================================--}}
+            <li class="nav-item has-sub"><a href="#"><i class="la la-file-video-o"></i><span class="menu-title" data-i18n="nav.events.main">{{__('トップ動画')}}</span></a>
+                <ul class="menu-content" style="">
+                    <li class=""><a class="menu-item" href="{{route('topvideos.index')}}" data-i18n="nav.dash.allVideo">{{__('トップ動画一覧')}}</a>
+                    </li>
+                    <li class=""><a class="menu-item" href="{{route('topvideos.create')}}" data-i18n="nav.dash.addVideo">{{__('追加する')}}</a>
+                    </li>
+                </ul>
             </li>
             {{--=========================================== Columns ===================================================--}}
             <li class="nav-item has-sub"><a href="#"><i class="la la-columns"></i><span class="menu-title" data-i18n="nav.columns.main">{{__('コラム')}}</span></a>
