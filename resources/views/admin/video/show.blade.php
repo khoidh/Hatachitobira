@@ -34,7 +34,7 @@
   <div class="form-group row">
     <label for="category" class="col-sm-2 col-form-label">{{__('カテゴリ')}}</label>
     <div class="col-sm-10">
-      <input id="category" value="{{$video->category_name}}" class="form-control" disabled="">
+      <input id="category" value="{{$video->categoryname}}" class="form-control" disabled="">
     </div>
   </div>
   <div class="form-group row">

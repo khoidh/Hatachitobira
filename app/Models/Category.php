@@ -9,6 +9,8 @@ class Category extends Model
     protected $table = 'categories';
     protected $fillable = ['name','description','slug','icon','sort','display'];
 
+    const DEFAULT = 9;
+
     public function columns()
     {
         return $this->hasMany('App\Models\column','category_id');
