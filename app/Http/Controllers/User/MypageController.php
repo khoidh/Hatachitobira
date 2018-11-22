@@ -589,7 +589,7 @@ class MypageController extends Controller
             $columns = Column::whereIn('columns.id', $columns_id)->where('columns.display', 1)->orderBy('id','desc')->get();
             
 
-            $videos_id = Taggable::where('category_id',$slug_id->id)->where('taggable_type',(new Column())->getTable())->pluck('taggable_id')->toArray();
+            $videos_id = Taggable::where('category_id',$slug_id->id)->where('taggable_type',(new Video())->getTable())->pluck('taggable_id')->toArray();
             $_videos_id = Video::where('category_id',$slug_id->id)->get();
             foreach ($_videos_id as $key => $value) {
                 array_push($videos_id, $value->id);
