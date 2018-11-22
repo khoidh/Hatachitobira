@@ -505,32 +505,7 @@ class MypageController extends Controller
             $id = $_GET['search'];
 
             $categories = Category::where('display',1)->where('id','!=',Category::DEFAULT)->get();
-            
-            $events_id = Taggable::where('category_id',$id)->where('taggable_type',(new Event())->getTable())->pluck('taggable_id')->toArray();
-            $_event = Event::where('category_id',$id)->get();
-            foreach ($_event as $key => $value) {
-                array_push($events_id, $value->id);
-            }
-
-            $events = Event::whereIn('id', $events_id )->where('events.display' , 1)->orderBy('id','desc')->get();
-            
-
-            $columns_id = Taggable::where('category_id',$id)->where('taggable_type',(new Column())->getTable())->pluck('taggable_id')->toArray();
-            $_columns_id = Column::where('category_id',$id)->get();
-            foreach ($_columns_id as $key => $value) {
-                array_push($columns_id, $value->id);
-            }
-
-            $columns = Column::whereIn('columns.id', $columns_id)->where('columns.display', 1)->orderBy('id','desc')->get();
-            
-
-            $videos_id = Taggable::where('category_id',$id)->where('taggable_type',(new Video())->getTable())->pluck('taggable_id')->toArray();
-            $_videos_id = Video::where('category_id',$id)->get();
-            foreach ($_videos_id as $key => $value) {
-                array_push($videos_id, $value->id);
-            }
-
-            $videos = Video::whereIn('id', $columns_id)->where('display' , 1)->orderBy('id','desc')->get();
+            list($events, $columns, $videos) = $this->__getSearchCategoryDataByCategoryId($id);
 
             foreach ($events as $key => $event) {
                 $like_e = 0;
@@ -569,33 +544,8 @@ class MypageController extends Controller
         {
            
             $categories = Category::where('display',1)->where('id','!=',Category::DEFAULT)->get();
-            
-            $slug_id = Category::where('slug',$slug)->first();
-
-            $events_id = Taggable::where('category_id',$slug_id->id)->where('taggable_type',(new Event())->getTable())->pluck('taggable_id')->toArray();
-            $_event = Event::where('category_id',$slug_id->id)->get();
-            foreach ($_event as $key => $value) {
-                array_push($events_id, $value->id);
-            }
-            $events = Event::whereIn('id', $events_id )->where('events.display' , 1)->orderBy('id','desc')->get();
-            
-
-            $columns_id = Taggable::where('category_id',$slug_id->id)->where('taggable_type',(new Column())->getTable())->pluck('taggable_id')->toArray();
-            $_columns_id = Column::where('category_id',$slug_id->id)->get();
-            foreach ($_columns_id as $key => $value) {
-                array_push($columns_id, $value->id);
-            }
-
-            $columns = Column::whereIn('columns.id', $columns_id)->where('columns.display', 1)->orderBy('id','desc')->get();
-            
-
-            $videos_id = Taggable::where('category_id',$slug_id->id)->where('taggable_type',(new Video())->getTable())->pluck('taggable_id')->toArray();
-            $_videos_id = Video::where('category_id',$slug_id->id)->get();
-            foreach ($_videos_id as $key => $value) {
-                array_push($videos_id, $value->id);
-            }
-
-            $videos = Video::whereIn('id', $columns_id)->where('display' , 1)->orderBy('id','desc')->get();
+            $slug = Category::where('slug',$slug)->first();
+            list($events, $columns, $videos) = $this->__getSearchCategoryDataByCategoryId($slug->id);
 
             foreach ($events as $key => $event) {
                 $like_e = 0;
@@ -630,6 +580,22 @@ class MypageController extends Controller
             
             return view('user.searchcategory', compact('categories', 'events', 'columns', 'videos','slug'));
         }
+    }
+
+    private function __getSearchCategoryDataByCategoryId($category_id) {
+
+        $events_id = Taggable::where('category_id',$category_id)->where('taggable_type',(new Event())->getTable())->pluck('taggable_id')->toArray();
+        $events = Event::whereIn('id', $events_id )->where('events.display' , 1)->orderBy('id','desc')->get();
+        
+
+        $columns_id = Taggable::where('category_id',$category_id)->where('taggable_type',(new Column())->getTable())->pluck('taggable_id')->toArray();
+        $columns = Column::whereIn('columns.id', $columns_id)->where('columns.display', 1)->orderBy('id','desc')->get();
+        
+
+        $videos_id = Taggable::where('category_id',$category_id)->where('taggable_type',(new Video())->getTable())->pluck('taggable_id')->toArray();
+        $videos = Video::whereIn('id', $videos_id)->where('display' , 1)->orderBy('id','desc')->get();
+
+        return [$events, $columns, $videos];
     }
 
     public function paginateColumn(Request $request)
