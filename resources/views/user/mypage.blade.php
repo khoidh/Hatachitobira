@@ -126,7 +126,7 @@
                         <h5 class="underline-text font-weight-bold">&nbsp;今月のマイテーマ&nbsp;</h5>
                     </div>
                     <div class="col-sm-9 my-theme-input">
-                        <textarea type="text" name="my-therme-month" id="input-my-theme" class="input-my-theme" readonly style="outline: 0;"
+                        <textarea type="text" name="my-therme-month" id="input-my-theme" class="input-my-theme"
                             data-month="{{isset($mytheme_first->month) ? $mytheme_first->month : $data_date['month']}}" 
                             data-year="{{isset($mytheme_first->year) ? $mytheme_first->year : $data_date['year']}}"
                             data-value = "{{$mytheme_first ? $mytheme_first->this_mytheme : ''}}"
@@ -147,7 +147,7 @@
                         <h5 class="underline-text font-weight-bold">&nbsp;今月のアクション &nbsp;</h5>
                     </div>
                     <div class="col-sm-9 action-input">
-                        <textarea type="text" rows="2" name="action-of-month" id="action-of-month" class="input-action action-of-month" readonly
+                        <textarea style="width: 100%;border: none;" type="text" rows="2" name="action-of-month" id="action-of-month"　class="input-action action-of-month"
                             data-month="{{isset($mytheme_first->month) ? $mytheme_first->month : $data_date['month']}}" 
                             data-year="{{isset($mytheme_first->year) ? $mytheme_first->year : $data_date['year']}}"
                             data-value="{{$mytheme_first ? $mytheme_first->this_action : ''}}"
@@ -877,8 +877,6 @@
             var text = $(this).val();
             var text_old = $(this).data('value');
             var _this = $(this);
-            console.log(text);
-            console.log(text_old);
             if (text.trim() != text_old.trim()) {
                 $.ajax({
                     url : '{{route("mypage.change-lable")}}',
@@ -1154,30 +1152,25 @@
             })
         })
 
-        $(document).on('focusout','#model-textarea-edit',function(e){
+        $(document).on('focusout','#action-of-month',function(e){
     
             var _this = $(this);
             var _year = _this.data('year');
             var _month = _this.data('month');
             var _type = _this.data('type');
 
-            var text_memo = _type == 'memo' ? $('#model-textarea-edit').val() : $('.input-memo').val();
-            var text_memo_old = _type == 'memo' ? $('#model-textarea-edit').data('value') : $('.input-memo').data('value');
+            var text_memo = _type == 'memo' ? $('#action-of-month').val() : $('.input-memo').val();
+            var text_memo_old = _type == 'memo' ? $('#action-of-month').data('value') : $('.input-memo').data('value');
 
             var text_last_log = $('.input-lat-log').val();
 
-            var text_my_theme = _type == 'theme' ? $('#model-textarea-edit').val() : $('.input-my-theme').val();
-            var text_my_theme_old = _type == 'theme' ? $('#model-textarea-edit').data('value') : $('.input-my-theme').data('value');
+            var text_my_theme = _type == 'theme' ? $('#action-of-month').val() : $('.input-my-theme').val();
+            var text_my_theme_old = _type == 'theme' ? $('#action-of-month').data('value') : $('.input-my-theme').data('value');
 
-            var text_action = _type == 'action' ? $('#model-textarea-edit').val() : $('.action-of-month').val();
-            var text_action_old = _type == 'action' ? $('#model-textarea-edit').data('value') : $('.action-of-month').data('value');
+            var text_action = _type == 'action' ? $('#action-of-month').val() : $('.action-of-month').val();
+            var text_action_old = _type == 'action' ? $('#action-of-month').data('value') : $('.action-of-month').data('value');
 
-            console.log(text_memo);
-            console.log(text_memo_old);
-            console.log(text_my_theme);
-            console.log(text_my_theme_old);
-            console.log(text_action);
-            console.log(text_action_old);
+
             if (text_memo.trim() != text_memo_old.trim() || text_my_theme.trim()  != text_my_theme_old.trim() || text_action.trim() !=text_action_old.trim()) {
                 $.ajax({
                     url : '{{route("mypage.change-content")}}',
