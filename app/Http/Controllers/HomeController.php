@@ -94,7 +94,7 @@ class HomeController extends Controller
         $array=[
             'columns'       => $columns,
             'events'        => $events,
-            'videos_1'      => $videos_1,
+            // 'videos_1'      => $videos_1,
             'videos_2'      => $videos_2,
             'categories'    => $categories,
             'video_concept' => $video_concept,
