@@ -59,6 +59,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function() {
     Route::resource('videos', 'Admin\VideoController');
     Route::resource('enquiry', 'Admin\EnquiryController');
     Route::resource('categories', 'Admin\CategoryController');
+    Route::resource('topvideos', 'Admin\TopVideoController');
     Route::get('delete-enquiry/{id}','Admin\EnquiryController@destroy')->name('admin.delete-enquiry');
     // Route::get('delete-category/{id}','Admin\CategoryController@destroy')->name('admin.delete-category');
     Route::resource('columns', 'Admin\ColumnController');
@@ -90,6 +91,7 @@ Route::group(['middleware' => 'auth:user'],function ()
     Route::get('file-upload-remove','User\MypageController@uploadImageDelete');
     Route::post('change-lable','User\MypageController@changeLable')->name('mypage.change-lable');
     Route::post('change-content','User\MypageController@changeContent')->name('mypage.change-content');
+    Route::post('change-content-get','User\MypageController@changeContentGet')->name('mypage.change-content-get');
     Route::post('change-content-child','User\MypageController@changeContentChild')->name('mypage.change-content-child');
     Route::post('show-modal','User\MypageController@showModal')->name('mypage.show-modal');
     Route::post('show-modal-image','User\MypageController@showModalImage')->name('mypage.show-modal-image');

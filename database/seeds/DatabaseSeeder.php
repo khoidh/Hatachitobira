@@ -16,5 +16,6 @@ class DatabaseSeeder extends Seeder
         $this->call(Events::class);
         $this->call(Columns::class);
         $this->call(Videos::class);
+        $this->call(VideoTypeTableSeeder::class);
     }
 }

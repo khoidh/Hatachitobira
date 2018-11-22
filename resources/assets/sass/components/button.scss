@@ -1,7 +1,9 @@
+$round-radius: 40px;
 .round-button {
-    border-radius: 30px;
-    -moz-border-radius: 30px;
-    -webkit-border-radius: 30px;
+    position: relative;
+    border-radius: $round-radius;
+    -moz-border-radius: $round-radius;
+    -webkit-border-radius: $round-radius;
     border: none;
     cursor: pointer;
     display: block;
@@ -54,4 +56,24 @@
     &:hover {
         opacity: 0.7;
     }
+
+    &.button-show-list-down:after,
+    &.button-show-list-up:after {
+        position: absolute;
+        right: 20px;
+        pointer-events: none;
+        font-size: 30px;
+        @include only-for-mobile() {
+            font-size: 25px;
+        }
+    }
+    &.button-show-list-down:after {
+        font-family: FontAwesome;
+        content: "\F13A";
+    }
+    &.button-show-list-up:after {
+        font-family: FontAwesome;
+        content: "\F139";
+    }
+
 }

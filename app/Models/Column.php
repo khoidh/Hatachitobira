@@ -37,9 +37,9 @@ class Column extends Model
         return $like;
     }
 
-    // public function getCategorynameAttribute(){
-    //     $category_id = $this->attributes['category_id'];
-    //     $categoryname =Category::find($category_id);
-    //     return $categoryname->name;
-    // }
+     public function getCategorynameAttribute(){
+         $category_id = $this->attributes['category_id'];
+         $categoryname =Category::find($category_id);
+         return $categoryname->name;
+     }
 }

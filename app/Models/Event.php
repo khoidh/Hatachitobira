@@ -24,11 +24,11 @@ class Event extends Model
         return $this->morphMany('App\Models\favorite','favoritable');
     }
 
-    // public function getCategorynameAttribute(){
-    //     $category_id = $this->attributes['category_id'];
-    //     $categoryname =Category::find($category_id);
-    //     return $categoryname->name;
-    // }
+     public function getCategorynameAttribute(){
+         $category_id = $this->attributes['category_id'];
+         $categoryname =Category::find($category_id);
+         return $categoryname->name;
+     }
 
     public function getEventstatusAttribute(){
         $time_now = Carbon::now();

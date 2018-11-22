@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Event;
 use App\Column;
 use App\Video;
+use App\Models\TopVideos;
+use App\Models\VideoType;
 use App\Category;
 
 class HomeController extends Controller
@@ -58,29 +60,20 @@ class HomeController extends Controller
             ->orderBy('id','desc')
             ->take(3)->get();
 
-        $videos_1 = Video::select()
-            ->select('videos.*','video_types.name as category_name')
-            ->join('video_types','video_types.id','=','videos.type')
-            ->where('videos.display' , 1)
-            ->where('videos.type',Video::JOB_SHADOW_TYPE)
-            ->orderBy('id','desc')->get();
-
+        $videos_jobshadow = TopVideos::where('video_type_id',VideoType::JOB_SHADOW_TYPE)
+                        ->orderBy('id','desc')->get();
+        $videos_roleplay = TopVideos::where('video_type_id',VideoType::ROLE_PLAY_TYPE)
+                        ->orderBy('id','desc')->get();
         $video_concept = Video::select()
             ->select('videos.*','video_types.name as category_name')
             ->join('video_types','video_types.id','=','videos.type')
             ->where('videos.display' , 1)
             ->orderBy('sort','asc')
-            ->where('videos.type',Video::CONCEPT_MOVIE_TYPE)
+            ->where('videos.type',VideoType::CONCEPT_MOVIE_TYPE)
             ->first();
+        
+                        
 
-        $videos_2 = Video::select()
-            ->select('videos.*','video_types.name as category_name')
-            ->join('video_types','video_types.id','=','videos.type')
-            ->where('videos.display' , 1)
-            ->orderBy('id','desc')
-            ->where('videos.type',Video::ROLE_PLAY_TYPE)
-            ->get();
-
-        return view('top',compact('columns','events','videos_1','videos_2','categories','video_concept'));
+        return view('top',compact('columns','events','videos_jobshadow','videos_roleplay','categories','video_concept'));
     }
 }
