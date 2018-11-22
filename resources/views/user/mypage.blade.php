@@ -63,7 +63,7 @@
                             data-month="{{isset($mytheme_first->month) ? $mytheme_first->month : $data_date['month']}}"
                             data-value="{{$mytheme_first ? $mytheme_first->last_log : ''}}"
                             data-year="{{isset($mytheme_first->year) ? $mytheme_first->year : $data_date['year']}}"
-                            placeholder="{{$mytheme_first->last_log ? '' : '先月の自分を#で記録しよう　#バイト三昧　#初ボランティア'}}"
+                            placeholder="{{isset($mytheme_first->last_log) ? '' : '先月の自分を#で記録しよう　#バイト三昧　#初ボランティア'}}"
                             value="{{$mytheme_first ? $mytheme_first->last_log : ''}}">
                     </div>
                 </div>
