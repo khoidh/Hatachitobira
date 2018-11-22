@@ -1189,7 +1189,7 @@
                         $('.action-of-month').text(data.this_action);
                         setTextareaHeight($('.action-of-month'));
                         setTextareaHeight($('.input-my-theme'));
-                        iziToast.success({timeout: 5000, icon: 'fa fa-chrome', title: 'OK', message: '更新いたしました'});
+                        iziToast.success({timeout: 1500, iconUrl: '/images/site_icon.png', title: 'OK', message: '更新いたしました', progressBar: false});
 
                         
                     }
