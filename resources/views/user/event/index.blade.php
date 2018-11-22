@@ -19,11 +19,9 @@
                     <span>マイテーマを磨くための一歩を踏みだすイベント情報</span>
 
                 </div>
-                <div class="button-show-list-down">
-                    <button class="round-button black lg">イベントの特徴</button>
-                </div>
-                
-                <div class="flex-space-between-pc p-features ">
+                <button class="round-button black lg button-show-list-down">イベントの特徴</button>
+
+                <div class="p-features js-features">
                     <div class="row col-md-12">
                         @include('includes.merit_box', [
                             'number'=>1,
@@ -45,9 +43,7 @@
                         ])
                     </div>
 
-                    <div class="button-show-list-up">
-                        <button class="round-button black lg">閉じる</button>
-                    </div>
+                    <button class="round-button black lg button-show-list-up">閉じる</button>
                 </div>
             </div>
 
@@ -122,18 +118,17 @@
                     'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
                 }
             });
-            $(document).on('click','.button-show-list-down button',function(e){
+            $(document).on('click','.button-show-list-down',function(e){
                 e.preventDefault();
-                $('.flex-space-between-pc').slideDown();
-                $('.flex-space-between-pc').css('display','block');
+                $('.js-features').slideDown();
+                $('.js-features').css('display','block');
                 $(this).css('display','none');
             })
 
-            $(document).on('click','.button-show-list-up button',function(e){
+            $(document).on('click','.button-show-list-up',function(e){
                 e.preventDefault();
-                $('.flex-space-between-pc').slideUp();
-                setTimeout(function(){ $('.button-show-list-down button').css('display','block'); }, 300);
-                
+                $('.js-features').slideUp();
+                setTimeout(function(){ $('.button-show-list-down').css('display','block'); }, 300);
             })
 
             $(document).on('click','.icon-favorite .fa-heart-o', function(e) {
