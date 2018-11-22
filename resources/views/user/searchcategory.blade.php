@@ -42,9 +42,9 @@
                                     <div class="icon-favorite">
                                         <i class="fa fa-heart-o {{ $column->favorite == 1 ? 'liked' : ''}}" data-id='{{$column->id}}' data-user='{{Auth::user() ? Auth::user()->id : "" }}' style="font-size:24px;"></i>
                                     </div>
-                                    <div class="title"><a href="{{route('column.show', $column->id)}}">{{$column->title}}</a> &nbsp;&nbsp; <span style="color: #636B6F;">{{$column->category_name}}</span></div>
+                                    <div class="title"><a href="{{route('column.show', $column->id)}}">{{$column->title}}</a> &nbsp;&nbsp; <span style="color: #636B6F;">{{$column->multicategoty}}</span></div>
                                     <div class="category" style="color: #636B6F;">
-                                        <p>#{{$column->category_name}}</p>
+                                        <p>#{{$column->multicategoty}}</p>
                                     </div>
                                     <div class="date" style="text-align: right">
                                         <p>{{date('Y.m.d', strtotime($column->created_at))}}</p>
@@ -139,7 +139,7 @@
                             </div>
                             <div class="description">
                                 <p>{{ $result->title }}</p>
-                                <span>{{$result->viewCount}} Views / {{$result->date_diff}} month ago / {{$result->category_name}}</span>
+                                <span>{{$result->viewCount}} Views / {{$result->date_diff}} month ago / {{$result->categoryname}}</span>
                             </div>
                         </div>
                     </div>

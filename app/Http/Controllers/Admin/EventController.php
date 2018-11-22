@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Event;
 use App\Category;
+use App\Taggable;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
@@ -38,7 +39,7 @@ class EventController extends Controller
         $data['time_to']    = date('Y-m-d H:i:s',strtotime($data['time_to']));
         $data['started_at'] = date('Y-m-d H:i:s',strtotime($data['started_at']));
         $data['closed_at']   = date('Y-m-d H:i:s',strtotime($data['closed_at']));
-
+        $cate_id = explode(',', $data['category_id']);
         if($request->hasFile('image_selected')){
             $file = $request->file('image_selected');
             $fileName = time().'_'.$file->getClientOriginalName();
@@ -46,8 +47,16 @@ class EventController extends Controller
             $file->move($destinationPath, $fileName);
             $data['image']= $fileName;
         }
-
-        Event::create($data);
+        $data['category_id'] = 1;
+        $events = Event::create($data);
+        
+        foreach ($cate_id as $key => $value) {
+            Taggable::create([
+                'category_id' => $value,
+                'taggable_id' => $events->id,
+                'taggable_type' => (new Event())->getTable()
+            ]);
+        }
 
         return redirect()->route('events.index');
     }
@@ -68,7 +77,12 @@ class EventController extends Controller
         $event = Event::find($id);
         $categories = Category::all();
 
-        return view('admin.event.edit', ['event' => $event, 'categories' => $categories]);
+        $cate_id = Taggable::where('taggable_id',$event->id)->where('taggable_type',(new Event())->getTable())->pluck('category_id')->toArray();
+        if (!$cate_id) {
+            array_push($cate_id, $event->category_id);
+        }
+
+        return view('admin.event.edit', ['event' => $event, 'categories' => $categories,'cate_id'=>$cate_id]);
     }
 
     public function update(EventRequest $request, $id)
@@ -87,8 +101,16 @@ class EventController extends Controller
             $file->move($destinationPath, $fileName);
             $data['image']= $fileName;
         }
-
-
+        $cate_id = explode(',', $data['category_id']);
+        $data['category_id'] = 1;
+        Taggable::where('taggable_id',$event->id)->where('taggable_type',(new Event())->getTable())->delete();
+        foreach ($cate_id as $key => $value) {
+            Taggable::create([
+                'category_id' => $value,
+                'taggable_id' => $event->id,
+                'taggable_type' => (new Event())->getTable()
+            ]);
+        }
         $event->update($data);
         return redirect()->route('events.show',$event->id);
     }

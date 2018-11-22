@@ -41,7 +41,7 @@ class HomeController extends Controller
     }
 
     public function topPage() {
-        $categories = Category::where('display',1)->get();
+        $categories = Category::where('display',1)->where('id','!=',Category::DEFAULT)->get();
         $api_key = 'AIzaSyCHOj6MNDK2YFRLQhK5yKP2KEBIRKHlHuU';
         $BASE_PART = '&part=id,contentDetails,snippet,statistics,player&key=';
         $BASE_URL = 'https://www.googleapis.com/youtube/v3/videos?id=';

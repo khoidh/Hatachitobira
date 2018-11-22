@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Category;
 use App\Column;
+use App\Taggable;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
@@ -34,7 +35,7 @@ class ColumnController extends Controller
     public function store(ColumnRequest $request)
     {
         $data = $request->all();
-
+        $cate_id = explode(',', $data['category_id']);
 
         if($request->hasFile('image_selected')){
             $file = $request->file('image_selected');
@@ -44,7 +45,16 @@ class ColumnController extends Controller
 
             $data['image']= $fileName;
         }
-        Column::create($data);
+        $data['category_id'] = 1;
+        $columns = Column::create($data);
+
+        foreach ($cate_id as $key => $value) {
+            Taggable::create([
+                'category_id' => $value,
+                'taggable_id' => $columns->id,
+                'taggable_type' => (new Column())->getTable()
+            ]);
+        }
 
         return redirect()->route('columns.index');
     }
@@ -62,10 +72,15 @@ class ColumnController extends Controller
 
     public function edit($id)
     {
+
         $column = Column::find($id);
         $categories = Category::all();
 
-        return view('admin.column.edit', ['column' => $column, 'categories' => $categories]);
+        $cate_id = Taggable::where('taggable_id',$column->id)->where('taggable_type',(new Column())->getTable())->pluck('category_id')->toArray();
+        if (!$cate_id) {
+            array_push($cate_id, $column->category_id);
+        }
+        return view('admin.column.edit', ['column' => $column, 'categories' => $categories,'cate_id'=>$cate_id]);
     }
 
     public function update(ColumnRequest $request, $id)
@@ -80,6 +95,18 @@ class ColumnController extends Controller
             $file->move($destinationPath, $fileName);
             $data["image"] = $fileName;
         }
+
+        $cate_id = explode(',', $data['category_id']);
+        $data['category_id'] = 1;
+        Taggable::where('taggable_id',$column->id)->where('taggable_type',(new Column())->getTable())->delete();
+        foreach ($cate_id as $key => $value) {
+            Taggable::create([
+                'category_id' => $value,
+                'taggable_id' => $column->id,
+                'taggable_type' => (new Column())->getTable()
+            ]);
+        }
+
         $column->update($data);
         return redirect()->route('columns.show',$column->id);
     }
