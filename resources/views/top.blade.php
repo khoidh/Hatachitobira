@@ -464,8 +464,9 @@ $description = '学校と社会をつなぐ「ハタチのトビラ」は、将�
                                         src="{{asset('images/user/event/event-visible-icon.png')}}" alt="event-visible-icon.png"
                                         @endif
                                 >
-                                <span style="">{{$event->eventstatus}}</span>
-                                {{-- @if($event->eventstatus == '受付前' || $event->eventstatus == '受付終了'|| $event->eventstatus == '開催終了' ) color: white !important; @endif --}}
+                                {{--<span style="">{{$event->eventstatus}}</span>--}}
+                                <span style="@if($event->eventstatus == '受付中' || $event->eventstatus == '開催中') color: black @else color: white !important; @endif">{{$event->eventstatus}}</span>
+
                             </div>
                             <div class="article-content row">
                                 <div class="content-left col-md-4">
@@ -478,13 +479,14 @@ $description = '学校と社会をつなぐ「ハタチのトビラ」は、将�
                                     <div class="icon-favorite">
                                         {{--==================== favorite ====================--}}
                                         <i class="fa fa-heart-o" style="
-                                        @if(Auth::user() and in_array($event->id,$favorites_id))
+                                        @if(Auth::user() and in_array($event->id,$event_favorites_id))
                                                 color: pink !important;
                                         @else
-                                                color: rgb(99, 107, 111) !important;
-                                        @endif "
+                                                color: #c3c2c2 !important;
+                                        @endif font-size:24px;"
                                            data-id="{{$event->id}}"
-                                           data-user='{{Auth::user() ? Auth::user()->id : ""}}'>
+                                           data-user='{{Auth::user() ? Auth::user()->id : ""}}'
+                                           data-table="events">
                                         </i>
                                         {{--==================== /end favorite ====================--}}
                                     </div>
@@ -513,7 +515,7 @@ $description = '学校と社会をつなぐ「ハタチのトビラ」は、将�
                     <p class="movie-top-descroption">マイテーマをみつけるノウハウ、イベントレポート、アラハタ世代の活躍を発信していきます</p>
                     <div class="content-text col-md-12">
                         @forelse($columns as $key => $column)
-                        <div class="item {{$key > 0 ? 'second' : ''}}">
+                        <div class="item {{$key > 0 ? 'second' : ''}} {{$column->favorite > 0 ? 'favorite' : 'No favorite'}}">
                             <div class="text-category {{ $column->type == 1 ? 'last' : ''}}">{{ $column->type == 1 ?'コラム' :'インタビュー'}}</div>
                             <div class="wrapper">
                                 <div class="icon">
@@ -523,8 +525,22 @@ $description = '学校と社会をつなぐ「ハタチのトビラ」は、将�
                                     </a>
                                 </div>
                                 <div class="content">
-                                    <p class="clearfix icon-favorior"><i class="fa fa-heart-o {{ $column->favorite == 1 ? 'liked' : ''}}" data-id='{{$column->id}}' data-user='{{Auth::user() ? Auth::user()->id : "" }}' style="font-size:24px;"></i></p>
-                                    <p class="text-title"><a href="{{route('column.show', $column->id)}}">{{$column->title}}</a></p>
+                                    <p class="clearfix icon-favorite">
+                                        {{--==================== favorite ====================--}}
+                                        <i class="fa fa-heart-o " style="
+                                        @if(Auth::user() and in_array($column->id,$column_favorites_id))
+                                                color: pink !important;
+                                        @else
+                                                color: #c3c2c2 !important;
+                                        @endif font-size:24px;"
+                                           data-id="{{$column->id}}"
+                                           data-user='{{Auth::user() ? Auth::user()->id : ""}}'
+                                           data-table="columns">
+                                        </i>
+                                        {{--==================== /end favorite ====================--}}
+                                    </p>
+                                    <p class="text-title"><a
+                                                href="{{route('column.show', $column->id)}}">{{$column->title}}</a></p>
                                     <p class="category-aa">&nbsp;&nbsp;{{$column->category_name}}</p>
                                     <p class="text-date">{{date('Y-m-d', strtotime($column->created_at))}}</p>
                                 </div>
@@ -739,10 +755,11 @@ $description = '学校と社会をつなぐ「ハタチのトビラ」は、将�
 
 
 
-            $(document).on('click','.content-last .icon-favorior .fa-heart-o', function(e) {
+            $(document).on('click','.icon-favorite .fa-heart-o', function(e) {
                 e.stopPropagation();
                 var idevent = $(this).data('id');
                 var user = $(this).data('user');
+                var table= $(this).data('table');
                 var _this = $(this);
                 if (user == '') {
                     $html = '';
@@ -773,25 +790,49 @@ $description = '学校と社会をつなぐ「ハタチのトビラ」は、将�
                     $html +='</div>';
                     $('#modal_register').find('.panel-body').html($html);
                     $('#modal_register').modal('show');
-                }else {
-                    $.ajax({
-                        url : '{{route("column.favorite")}}',
-                        type: 'post',
-                        dataType: 'json',
-                        data: {
-                            column_id : idevent,
-                            user_id: user
-                        },
-                        success : function (result){
-                            if (result == 'ok') {
-                                _this.addClass('liked');
-                                _this.css('color','pink');
-                            }else {
-                                _this.removeClass('liked');
-                                _this.css('color','#c3c2c2');
-                            }
-                        }   
-                   })
+                }else{
+                    switch(table) {
+                        case "columns":
+                            $.ajax({
+                                url : '{{route("column.favorite")}}',
+                                type: 'post',
+                                dataType: 'json',
+                                data: {
+                                    column_id : idevent,
+                                    user_id: user
+                                },
+                                success : function (result){
+                                    if (result == 'ok') {
+                                        _this.addClass('liked');
+                                        _this.css('color','pink');
+                                    }else {
+                                        _this.removeClass('liked');
+                                        _this.css('color','#c3c2c2');
+                                    }
+                                }
+                            })
+                            break;
+                        case "events":
+                            $.ajax({
+                                url : '{{route("event.favorite")}}',
+                                type: 'post',
+                                dataType: 'json',
+                                data: {
+                                    video_id : idevent,
+                                    user_id: user
+                                },
+                                success : function (result){
+                                    if (result == 'ok') {
+                                        _this.addClass('liked');
+                                        _this.css('color','pink');
+                                    }else {
+                                        _this.removeClass('liked');
+                                        _this.css('color','#c3c2c2');
+                                    }
+                                }
+                            })
+                            break;
+                    }
                 }
             })
 

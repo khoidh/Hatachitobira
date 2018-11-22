@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Favorite;
 use Illuminate\Http\Request;
 use App\Event;
 use App\Column;
 use App\Video;
 use App\Models\VideoType;
 use App\Category;
+use Carbon\Carbon;
+use Auth;
 
 class HomeController extends Controller
 {
@@ -40,17 +43,24 @@ class HomeController extends Controller
     }
 
     public function topPage() {
+
         $categories = Category::where('display',1)->get();
         $api_key = 'AIzaSyCHOj6MNDK2YFRLQhK5yKP2KEBIRKHlHuU';
         $BASE_PART = '&part=id,contentDetails,snippet,statistics,player&key=';
         $BASE_URL = 'https://www.googleapis.com/youtube/v3/videos?id=';
-        // $event = Event::all();
+        $timenow=Carbon::now();
+
         $events = Event::select()
             ->select('events.*','categories.name as category_name')
             ->join('categories','categories.id','=','events.category_id')
             ->where('events.display' , 1)
-            ->orderBy('id','desc')
-            ->take(1)->get();
+            ->where('time_from', '<=' , $timenow)
+            ->where('time_to', '>=', $timenow)
+            ->orderBy('started_at', 'desc')
+            ->orderBy('closed_at', 'desc')
+            ->orderBy('time_from', 'desc')
+            ->orderBy('time_to', 'desc')
+            ->get();
 
         $columns = Column::select()
             ->select('columns.*', 'categories.name as category_name')
@@ -82,6 +92,31 @@ class HomeController extends Controller
             ->where('videos.type',VideoType::ROLE_PLAY_TYPE)
             ->get();
 
-        return view('top',compact('columns','events','videos_1','videos_2','categories','video_concept'));
+        $array=[
+            'columns'       => $columns,
+            'events'        => $events,
+            'videos_1'      => $videos_1,
+            'videos_2'      => $videos_2,
+            'categories'    => $categories,
+            'video_concept' => $video_concept,
+        ];
+
+        if(Auth::user())
+        {
+            $user_id            = Auth::user()->id;
+            /*======== Event favorite list ===========*/
+            $favoritable_type   = (new Event())->getTable();   //Get table name "Events"
+            $favorites_id= Favorite::where([['user_id',$user_id],
+                ['favoritable_type',$favoritable_type]])->pluck('favoritable_id')->toArray();
+            $array['event_favorites_id'] = $favorites_id;
+
+            /*======== Column favorite list ===========*/
+            $favoritable_type   = (new Column())->getTable();   //Get table name "Columns"
+            $favorites_id= Favorite::where([['user_id',$user_id],
+                ['favoritable_type',$favoritable_type]])->pluck('favoritable_id')->toArray();
+            $array['column_favorites_id'] = $favorites_id;
+        }
+
+        return view('top',$array);
     }
 }

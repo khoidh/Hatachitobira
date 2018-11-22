@@ -340,10 +340,6 @@ body {
                         text-align: right;
                     }
                 }
-
-                @include only-for-tab-pc(){
-                    padding-bottom: 20px;
-                }
             }
         }
 
@@ -391,6 +387,10 @@ body {
                 background-color: #fff100;
                 border: #fff100;
             }
+        }
+
+        @include only-for-tab-pc(){
+            padding-bottom: 20px;
         }
     }
 }
@@ -653,7 +653,7 @@ body {
     object-fit: cover;
 }
 
-.top .content-last .icon-favorior {
+.top .content-last .icon-favorite {
     text-align: right;
     color: #c3c2c2;
     cursor: pointer;
@@ -750,7 +750,7 @@ body {
 
 }
 
-.top .content-last .icon-favorior a {
+.top .content-last .icon-favorite a {
     color: #c3c2c2;
 }
 
@@ -1004,7 +1004,7 @@ body {
         left: 0;
     }
 
-    .top .content-last .icon-favorior {
+    .top .content-last .icon-favorite {
         position: relative;
         top: 18px
     }
