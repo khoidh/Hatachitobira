@@ -1,4 +1,4 @@
-<div class="c-list_box article">aaa
+<div class="c-list_box article">
     <div class="article-status">
         <hr class="shape-8"/>
         <img
