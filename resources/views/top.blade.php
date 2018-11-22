@@ -285,6 +285,8 @@ $description = '学校と社会をつなぐ「ハタチのトビラ」は、将�
                 </div>
                 
             </div>
+
+            @isset($videos_jobshadow)
             <div class="container movie-top-4">
                 <div class="cb-path"></div>
                 <h3 class="movie-top-text">将来の選択肢から探す</h3>
@@ -299,7 +301,7 @@ $description = '学校と社会をつなぐ「ハタチのトビラ」は、将�
                                         <div class="wrapper">
                                             <div class="thump">
                                                 <a href="{{$result->youtube_url}}" target="_blank">
-                                                     <div class="browse-details">
+                                                <div class="browse-details">
                                                     <img src="{{ asset('images/user/video/btn-play.png')}}" alt="" >
                                                 </div>
                                                 </a>
@@ -316,6 +318,7 @@ $description = '学校と社会をつなぐ「ハタチのトビラ」は、将�
                             </div>
                         </div>
                     </div>
+
                     <div class="col-md-4 video-movie flex-space-between-mobile">
                         <div class="corner-wrapper video movie-2">
                             <div class="video-list">
@@ -371,7 +374,9 @@ $description = '学校と社会をつなぐ「ハタチのトビラ」は、将�
                     <img src="{{ asset('images/user/top/arrow-1.png') }}" >
                 </a>
             </div>
+            @endisset
 
+            @isset($videos_roleplay)
             <div class="container movie-top-4 content-2">
                 <div class="cb-path mt-30"></div>
                 <h2 class="movie-top-text">ロールモデルから探す</h2>
@@ -457,6 +462,9 @@ $description = '学校と社会をつなぐ「ハタチのトビラ」は、将�
                     <img src="{{ asset('images/user/top/arrow-1.png') }}">
                 </a>
             </div>
+            @endisset
+
+            @isset($events)
             <div class="container movie-top-4 content-2">
                 <div class="cb-path mt-30"></div>
                 <h3 class="movie-top-text">イベントに参加する</h3>
@@ -466,52 +474,7 @@ $description = '学校と社会をつなぐ「ハタチのトビラ」は、将�
 
                 <div class="event-article-list col-md-12">
                     @foreach($events as $event)
-                        <div class="article">
-                            <div class="article-status">
-                                <hr class="shape-8"/>
-                                <img
-                                        @if($event->eventstatus == '受付中' || $event->eventstatus == '開催中')
-                                        src="{{asset('images/user/event/event-icon.png')}}" alt="event-icon.png"
-                                        @else
-                                        src="{{asset('images/user/event/event-visible-icon.png')}}" alt="event-visible-icon.png"
-                                        @endif
-                                >
-                                {{--<span style="">{{$event->eventstatus}}</span>--}}
-                                <span style="@if($event->eventstatus == '受付中' || $event->eventstatus == '開催中') color: black @else color: white !important; @endif">{{$event->eventstatus}}</span>
-
-                            </div>
-                            <div class="article-content row">
-                                <div class="content-left col-md-4">
-                                    <a href="{{route('event.show', $event->id)}}" style="text-decoration:none;">
-                                        @php $image='images/admin/event/'.$event->image; @endphp
-                                        <img src="{{file_exists($image)?asset($image): asset('images/user/event//event_default.jpg')}}" alt="{{$event->title}}">
-                                    </a>
-                                </div>
-                                <div class="content-right col-md-8">
-                                    <div class="icon-favorite">
-                                        {{--==================== favorite ====================--}}
-                                        <i class="fa fa-heart-o" style="
-                                        @if(Auth::user() and in_array($event->id,$event_favorites_id))
-                                                color: pink !important;
-                                        @else
-                                                color: #c3c2c2 !important;
-                                        @endif font-size:24px;"
-                                           data-id="{{$event->id}}"
-                                           data-user='{{Auth::user() ? Auth::user()->id : ""}}'
-                                           data-table="events">
-                                        </i>
-                                        {{--==================== /end favorite ====================--}}
-                                    </div>
-                                    <a href="{{route('event.show', $event->id)}}" style="text-decoration:none;">
-                                        <span class="title">{{$event->title}}</span>
-                                        <span class="category">&nbsp;&nbsp;{{$event->category_name}}</span>
-                                    </a>
-                                    <div class="date" >
-                                        <p>{{$event->started_at->format(config('const.ymd'))}}</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        @include('includes.list_box_event', compact('event'))
                     @endforeach
                 </div>
 
@@ -520,6 +483,9 @@ $description = '学校と社会をつなぐ「ハタチのトビラ」は、将�
                     <img src="{{ asset('images/user/top/arrow-1.png') }}" >
                 </a>
             </div>
+            @endisset
+
+            @isset($columns)
             <div class=" content-last">
                 <div class="container">
                     <div class="cb-path mt-30"></div>
@@ -573,7 +539,9 @@ $description = '学校と社会をつなぐ「ハタチのトビラ」は、将�
             <div class="container button-link bottom">
                 <a class="round-button black lg {{Auth::Guest() ? "show-modal-register-mypage" : ""}}" href="{{url("my-page")}}">マイテーマを見つける</a>
             </div>
+            @endisset
         </div>
+
         <div id="modal_video" class="modal fade modal_register" role="dialog">
             <div class="modal-dialog" style="margin-top:50px">
                 <div class="modal-content" style="border-radius: 13px;">
