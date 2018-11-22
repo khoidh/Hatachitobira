@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class VideoRequest extends FormRequest
+class TopVideosRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,20 +24,20 @@ class VideoRequest extends FormRequest
     public function rules()
     {
         return [
-            'category_id' => 'required',
-            'url'      => 'required|max:256',
-            'sort'     => 'required|integer|min:0',
-            'type'     => 'required|integer', 
+            'video_type_id'     => 'required|integer',
+            'title'             => 'required|max:256',
+            'thumbnail'         => 'required|max:256',
+            'youtube_url'       => 'required|max:256',
         ];
     }
 
     public function Attributes()
     {
         return [
-            'category_id'   => __('カテゴリ'),
-            'url'           => __('Url'),
-            'sort'          => __('Sort'),
-            'type'          => __('タイプ'),
+            'video_type_id'     => __('動画タイプ'),
+            'title'             => __('タイトル'),
+            'thumbnail'         => __('サムネイル'),
+            'youtube_url'       => __('YoutubeURL'),
         ];
     }
 }

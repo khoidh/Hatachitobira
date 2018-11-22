@@ -26,11 +26,18 @@ class Video extends Model
         return $this->morphMany('App\Models\favorite','favoritable');
     }
 
-    // public function getCategorynameAttribute(){
-    //     $category_id = $this->attributes['category_id'];
-    //     $categoryname =Category::find($category_id);
-    //     return $categoryname->name;
-    // }
+    public function getCategorynameAttribute(){
+        $category_id = $this->attributes['category_id'];
+        $id = $this->attributes['id'];
+        $cate_id = Taggable::where('taggable_id',$id)->where('taggable_type',(new Video())->getTable())->pluck('category_id')->toArray();
+        if (!$cate_id) {
+            array_push($cate_id, $category_id);
+        }
+        $categoryname = Category::whereIn('id',$cate_id)->pluck('name')->toArray();
+        $categoryname = implode('   ,   ', $categoryname);
+        
+        return $categoryname;
+    }
 
     public function getVideolikedAttribute(){
         $like = 0;

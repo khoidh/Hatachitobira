@@ -90,6 +90,14 @@ class Categories extends Seeder
             'display'       => 1,
             'description'   => 'リクルート事業開発のプロが講師！起業アイデアの磨き方＆アイデアを行動に変えるステップとは？',
         ]);
-
+        DB::table('categories')->insert([
+            'id'            => 9,
+            'name'          => 'その他',
+            'slug'          => 'その他',
+            'icon'          => 'img-cate.png',
+            'sort'          => 1,            
+            'display'       => 1,
+            'description'   => 'リクルート事業開発のプロが講師！起業アイデアの磨き方＆アイデアを行動に変えるステップとは？',
+        ]);
     }
 }

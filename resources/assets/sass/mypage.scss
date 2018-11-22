@@ -356,15 +356,14 @@ $panel_info_height_sp: 130px;
             }
         }
     }
+    textarea.action-of-month,
     textarea.input-my-theme,
-    .action-of-month,
     textarea.input-memo {
         background: none;
         color: $black-color;
         border: none;
         width: 100%;
         resize: none;
-        outline: 0;
         @include only-for-mobile() {
             line-height: 1.7;
             font-size: 4vw;
@@ -571,6 +570,9 @@ $panel_info_height_sp: 130px;
                 input {
                     width: 100%;
                     border: none;
+                }
+                textarea {
+                    color: $black-color;
                 }
                 .pencil-action {
                     position: absolute;

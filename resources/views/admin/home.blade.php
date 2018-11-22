@@ -30,6 +30,7 @@
     <link rel="stylesheet" type="text/css" href="{{asset('css/admin/vertical-menu-modern.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('css/admin/palette-gradient.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('css/admin/switch.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('css/admin/bootstrap-multiselect.css')}}">
     <link href="{{asset('css/admin/font-awesome.min.css')}}" rel="stylesheet">
     <!-- END Page Level CSS-->
     <!-- BEGIN Custom CSS-->
@@ -115,7 +116,16 @@
                     </li>
                     <li class=""><a class="menu-item" href="{{route('videos.create')}}" data-i18n="nav.dash.addVideo">{{__('追加する')}}</a>
                     </li>
-        </ul>
+                </ul>
+            </li>
+            {{--=========================================== Top Videos ====================================================--}}
+            <li class="nav-item has-sub"><a href="#"><i class="la la-file-video-o"></i><span class="menu-title" data-i18n="nav.events.main">{{__('トップ動画')}}</span></a>
+                <ul class="menu-content" style="">
+                    <li class=""><a class="menu-item" href="{{route('topvideos.index')}}" data-i18n="nav.dash.allVideo">{{__('トップ動画一覧')}}</a>
+                    </li>
+                    <li class=""><a class="menu-item" href="{{route('topvideos.create')}}" data-i18n="nav.dash.addVideo">{{__('追加する')}}</a>
+                    </li>
+                </ul>
             </li>
             {{--=========================================== Columns ===================================================--}}
             <li class="nav-item has-sub"><a href="#"><i class="la la-columns"></i><span class="menu-title" data-i18n="nav.columns.main">{{__('コラム')}}</span></a>
@@ -211,6 +221,7 @@
 <script src="{{asset('js/admin/app.min.js')}}" type="text/javascript"></script>
 <script src="{{asset('js/admin/customizer.min.js')}}" type="text/javascript"></script>
 <script src="{{asset('js/admin/drag-drop.min.js')}}" type="text/javascript"></script>
+<script src="{{asset('js/admin/bootstrap-multiselect.js')}}" type="text/javascript"></script>
 <!-- <script src="{{ asset('js/admin.js') }}"></script> -->
 <script type="text/javascript">
     $(document).ready(function(){

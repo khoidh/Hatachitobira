@@ -17,26 +17,33 @@
                     <span>ちょっと真面目な出会いや対話を通じて</span>
                     <br>
                     <span>マイテーマを磨くための一歩を踏みだすイベント情報</span>
+
                 </div>
-                <div class="row flex-space-between-pc p-features">
-                    @include('includes.merit_box', [
-                        'number'=>1,
-                        'image'=>'images/user/event/img-event-1.png',
-                        'title'=>'ちょっと変わった <br>ロールモデルに出会える',
-                        'body'=>'ベンチャー、大手、公務員、NPO、フリーランス、将来の選択肢を知ることで視野を広げる',
-                    ])
-                    @include('includes.merit_box', [
-                        'number'=>2,
-                        'image'=>'images/user/event/img-event-2.png',
-                        'title'=>'ちょっと真面目に <br> 同世代と対話ができる',
-                        'body'=>'毎月20日に会って対話をする大学やバイト以外の第3のコミュニティができる',
-                    ])
-                    @include('includes.merit_box', [
-                        'number'=>3,
-                        'image'=>'images/user/event/img-event-3.png',
-                        'title'=>'自分の個性をあらわす <br/> マイテーマを探求できる',
-                        'body'=>'やりたいこと探しとは異なる<br>これからの時代に合ったやり方で大学生活や将来の方向性を探る',
-                    ])
+                <button class="round-button black lg button-show-list-down">イベントの特徴</button>
+
+                <div class="p-features js-features">
+                    <div class="row col-md-12">
+                        @include('includes.merit_box', [
+                            'number'=>1,
+                            'image'=>'images/user/event/img-event-1.png',
+                            'title'=>'ちょっと変わった <br>ロールモデルに出会える',
+                            'body'=>'ベンチャー、大手、公務員、NPO、フリーランス、将来の選択肢を知ることで視野を広げる',
+                        ])
+                        @include('includes.merit_box', [
+                            'number'=>2,
+                            'image'=>'images/user/event/img-event-2.png',
+                            'title'=>'ちょっと真面目に <br> 同世代と対話ができる',
+                            'body'=>'毎月20日に会って対話をする大学やバイト以外の第3のコミュニティができる',
+                        ])
+                        @include('includes.merit_box', [
+                            'number'=>3,
+                            'image'=>'images/user/event/img-event-3.png',
+                            'title'=>'自分の個性をあらわす <br/> マイテーマを探求できる',
+                            'body'=>'やりたいこと探しとは異なる<br>これからの時代に合ったやり方で大学生活や将来の方向性を探る',
+                        ])
+                    </div>
+
+                    <button class="round-button black lg button-show-list-up">閉じる</button>
                 </div>
             </div>
 
@@ -78,7 +85,7 @@
                                 </div>
                                 <a href="{{route('event.show', $event->id)}}" style="text-decoration:none;">
                                     <span class="title">{{$event->title}}</span>
-                                    <span class="category">&nbsp;&nbsp;{{$event->category_name}}</span>
+                                    <span class="category">&nbsp;&nbsp;{{$event->categoryname}}</span>
                                 </a>
                                 <div class="date" >
                                     <p>{{$event->started_at->format(config('const.ymd'))}}</p>
@@ -111,6 +118,19 @@
                     'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
                 }
             });
+            $(document).on('click','.button-show-list-down',function(e){
+                e.preventDefault();
+                $('.js-features').slideDown();
+                $('.js-features').css('display','block');
+                $(this).css('display','none');
+            })
+
+            $(document).on('click','.button-show-list-up',function(e){
+                e.preventDefault();
+                $('.js-features').slideUp();
+                setTimeout(function(){ $('.button-show-list-down').css('display','block'); }, 300);
+            })
+
             $(document).on('click','.icon-favorite .fa-heart-o', function(e) {
                 e.stopPropagation();
                 var user_id = $(this).data('user');

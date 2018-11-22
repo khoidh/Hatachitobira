@@ -35,19 +35,22 @@
                     </div>
                     <div class="col-sm-10 memo-input" data-toggle="modal" data-target="#modal_memo">
                         <textarea
-                            type="text" name="" class="input-memo" placeholder="先月の行動を振り返り記録しよう" readonly
+                            type="text" name="" class="input-memo pencil-action-click"
+                            placeholder="先月の行動を振り返り記録しよう" readonly
                             data-month="{{isset($mytheme_first->month) ? $mytheme_first->month : $data_date['month']}}" 
                             data-year="{{isset($mytheme_first->year) ? $mytheme_first->year : $data_date['year']}}"
                             data-value = "{{$mytheme_first? $mytheme_first->memo : ''}}"
-                            style="outline: 0;"
+                            style="outline: 0;cursor: pointer;"
+                            data-type="memo"
                         >{{ $mytheme_first ? $mytheme_first->memo : '' }}</textarea>
 
                         <i class="fa fa-pencil pencil-memo pencil-action-click"
                             data-month="{{isset($mytheme_first->month) ? $mytheme_first->month : $data_date['month']}}" 
                             data-year="{{isset($mytheme_first->year) ? $mytheme_first->year : $data_date['year']}}"
+                            data-value = "{{$mytheme_first? $mytheme_first->memo : ''}}"
                             data-type="memo"
                         >
-                                        <span>Edit</span></i>
+                        <span>Edit</span></i>
                     </div>
                 </div>
                 <hr class="shape-8"/>
@@ -56,10 +59,12 @@
                         <h5 class="underline-text font-weight-bold">&nbsp;先月のログ&nbsp;</h5>
                     </div>
                     <div class="col-sm-10 log-input">
-                        <input type="text" name="" class="input-lat-log" data-role="tagsinput" data-month="{{isset($mytheme_first->month) ? $mytheme_first->month : $data_date['month']}}" data-value="{{$mytheme_first ? $mytheme_first->last_log : ''}}"
-                                            data-year="{{isset($mytheme_first->year) ? $mytheme_first->year : $data_date['year']}}" placeholder="先月の自分を#で記録しよう　#バイト三昧　#初ボランティア" value="{{$mytheme_first ? $mytheme_first->last_log : ''}}">
-
-
+                        <input type="text" name="" class="input-lat-log" data-role="tagsinput" 
+                            data-month="{{isset($mytheme_first->month) ? $mytheme_first->month : $data_date['month']}}"
+                            data-value="{{$mytheme_first ? $mytheme_first->last_log : ''}}"
+                            data-year="{{isset($mytheme_first->year) ? $mytheme_first->year : $data_date['year']}}"
+                            placeholder="{{isset($mytheme_first->last_log) ? '' : '先月の自分を#で記録しよう　#バイト三昧　#初ボランティア'}}"
+                            value="{{$mytheme_first ? $mytheme_first->last_log : ''}}">
                     </div>
                 </div>
             </div>
@@ -126,18 +131,16 @@
                         <h5 class="underline-text font-weight-bold">&nbsp;今月のマイテーマ&nbsp;</h5>
                     </div>
                     <div class="col-sm-9 my-theme-input">
-                        <textarea type="text" name="my-therme-month" id="input-my-theme" class="input-my-theme" readonly style="outline: 0;"
+                        <textarea type="text" name="my-therme-month"
+                            class="input-my-theme model-textarea-edit"
                             data-month="{{isset($mytheme_first->month) ? $mytheme_first->month : $data_date['month']}}" 
                             data-year="{{isset($mytheme_first->year) ? $mytheme_first->year : $data_date['year']}}"
                             data-value = "{{$mytheme_first ? $mytheme_first->this_mytheme : ''}}"
                             placeholder="例:「人に喜んでもらう接客とは？」「自分の理想のチームをつくるには？」"
                             data-value ="{{$mytheme_first ? $mytheme_first->this_mytheme : ''}}"
-                        >{{$mytheme_first ? $mytheme_first->this_mytheme : ''}}</textarea>
-                        <i class="fa fa-pencil pencil-theme pencil-action-click"
-                            data-month="{{isset($mytheme_first->month) ? $mytheme_first->month : $data_date['month']}}" 
-                            data-year="{{isset($mytheme_first->year) ? $mytheme_first->year : $data_date['year']}}"
                             data-type="theme"
-                        >
+                        >{{$mytheme_first ? $mytheme_first->this_mytheme : ''}}</textarea>
+                        <i class="fa fa-pencil pencil-theme">
                         <span>Edit</span></i>
                     </div>
                 </div>
@@ -147,18 +150,15 @@
                         <h5 class="underline-text font-weight-bold">&nbsp;今月のアクション &nbsp;</h5>
                     </div>
                     <div class="col-sm-9 action-input">
-                        <textarea type="text" rows="2" name="action-of-month" id="action-of-month" class="input-action action-of-month" readonly
-                            data-month="{{isset($mytheme_first->month) ? $mytheme_first->month : $data_date['month']}}" 
-                            data-year="{{isset($mytheme_first->year) ? $mytheme_first->year : $data_date['year']}}"
-                            data-value="{{$mytheme_first ? $mytheme_first->this_action : ''}}"
-                            placeholder="考えたいこと、行動したいことを3つ決めよう" 
-                            data-value="{{$mytheme_first ? $mytheme_first->this_action : ''}}"
-                        >{{$mytheme_first ? $mytheme_first->this_action : ''}}</textarea>
-                        <i class="fa fa-pencil pencil-action pencil-action-click"
+                        <textarea type="text" name="action-of-month"
+                            class="action-of-month model-textarea-edit"
                             data-month="{{isset($mytheme_first->month) ? $mytheme_first->month : $data_date['month']}}" 
                             data-year="{{isset($mytheme_first->year) ? $mytheme_first->year : $data_date['year']}}"
                             data-type="action"
-                        >
+                            data-value="{{$mytheme_first ? $mytheme_first->this_action : ''}}"
+                            placeholder="考えたいこと、行動したいことを3つ決めよう" 
+                        >{{$mytheme_first ? $mytheme_first->this_action : ''}}</textarea>
+                        <i class="fa fa-pencil pencil-action">
                         <span>Edit</span></i>
                     </div>
                    
@@ -206,7 +206,7 @@
                                 <div class="col-sm-8 wrapper-content content-column">
                                     <p class="clearfix icon-favorior"><i class="fa fa-heart-o {{$column_cate->columnliked == 1 ? 'liked' : ''}}" style="font-size: 24px;" data-user = "{{Auth::User()->id}}" data-id = "{{$column_cate->id}}"></i></p>
                                     <p class="text-title"><b><a style="color: #111" href="{{route('column.show', $column_cate->id)}}">{{$column_cate->title}}</a></b></p>
-                                    <p class="text-category">{{$column_cate->categoryname}}</p>
+                                    <p class="text-category">{{$column_cate->multicategoty}}</p>
                                     <p class="text-date">{{date('Y-m-d', strtotime($column_cate->created_at))}}</p>
                                 </div>
                             </div>
@@ -294,7 +294,7 @@
                                     </div>
                                     <div class="description">
                                         <p>{{ $result->title }}</p>
-                                        <span>{{$result->viewCount}} Views / {{$result->date_diff}} month ago / {{$result->category_name}}</span>
+                                        <span>{{$result->viewCount}} Views / {{$result->date_diff}} month ago / {{$result->categoryname}}</span>
                                     </div>
                                 </div>
                             </div>
@@ -346,7 +346,7 @@
                                         <div class="icon-favorite">
                                             <i class="fa fa-heart-o {{ $event->eventliked == 1 ? 'liked' : ''}}"  data-id='{{$event->id}}' data-user='{{Auth::user() ? Auth::user()->id : "" }}' style="font-size:24px;"></i>
                                         </div>
-                                        <div class="title"><a href="{{route('event.show', $event->id)}}">{{$event->title}}</a> &nbsp;&nbsp; <span style="color: #636B6F;">{{$event->category_name}}</span></div>
+                                        <div class="title"><a href="{{route('event.show', $event->id)}}">{{$event->title}}</a> &nbsp;&nbsp; <span style="color: #636B6F;">{{$event->categoryname}}</span></div>
                                         <div class="category" style="color: #636B6F;">
                                             <p>{{$event->category_name}}</p>
                                         </div>
@@ -421,7 +421,7 @@
                                         <div class="icon-favorite">
                                             <i class="fa fa-heart-o {{ $column->columnliked == 1 ? 'liked' : ''}}" data-id='{{$column->id}}' data-user='{{Auth::user() ? Auth::user()->id : "" }}' style="font-size:24px;"></i>
                                         </div>
-                                        <div class="title"><a href="{{route('column.show', $column->id)}}">{{$column->title}}</a> &nbsp;&nbsp; <span style="color: #636B6F;">{{$column->category_name}}</span></div>
+                                        <div class="title"><a href="{{route('column.show', $column->id)}}">{{$column->title}}</a> &nbsp;&nbsp; <span style="color: #636B6F;">{{$column->multicategoty}}</span></div>
                                         <div class="date" style="text-align: right">
                                             <p>{{date('Y-m-d', strtotime($column->created_at))}}</p>
                                         </div>
@@ -915,7 +915,20 @@
           }
         });
 
-        $('.input-lat-log').on('itemAdded', function(event) {
+        function emptyInputLogPlaceholder () {
+            var text_last_log = $('.input-lat-log').val();
+            if (text_last_log.length < 1) {
+                $('.input-lat-log').parent('.log-input').find('input').each(function(index, element) {
+                    $(element).attr('placeholder', '先月の自分を#で記録しよう　#バイト三昧　#初ボランティア');
+                });
+            } else {
+                $('.input-lat-log').parent('.log-input').find('input').each(function(index, element) {
+                    $(element).attr('placeholder', '');
+                });
+            }
+        }
+
+        $(document).on('itemAdded','.input-lat-log', function(event) {
             var year = $('.input-lat-log').data('year');
             var month = $('.input-lat-log').data('month');
             var text_memo = $('.input-memo').val();
@@ -937,18 +950,14 @@
                         this_mytheme: text_my_theme,
                         this_action: text_action
                     },success:function(data) {
-                        if (text_last_log.length > 0) {
-                            $('.input-lat-log').parent('.log-input').find('input').each(function(index, element) {
-                                $(element).attr('placeholder', '');
-                            });
-                        }
+                        emptyInputLogPlaceholder();
                         iziToast.success({timeout: 1500, iconUrl: '/images/site_icon.png', title: 'OK', message: '更新いたしました', progressBar: false});
                     }
                 })
             }
         })
 
-        $('.input-lat-log').on('itemRemoved', function(event) {
+        $(document).on('itemRemoved','.input-lat-log', function(event) {
             var year = $('.input-lat-log').data('year');
             var month = $('.input-lat-log').data('month');
             var text_memo = $('.input-memo').val();
@@ -968,11 +977,7 @@
                     this_mytheme: text_my_theme,
                     this_action: text_action
                 },success:function(data) {
-                    if (text_last_log.length < 1) {
-                        $('.input-lat-log').parent('.log-input').find('input').each(function(index, element) {
-                        $(element).attr('placeholder', '先月の自分を#で記録しよう　#バイト三昧　#初ボランティア');
-                    });
-                    }
+                    emptyInputLogPlaceholder();
                     iziToast.success({timeout: 1500, iconUrl: '/images/site_icon.png', title: 'OK', message: '更新いたしました', progressBar: false});
                 }
             })
@@ -1083,6 +1088,7 @@
                 },
                 success : function (result){
                     $('.row.my-page-top').html(result);
+                    emptyInputLogPlaceholder();
                 }   
             })
         })
@@ -1091,7 +1097,7 @@
             var formData = new FormData($('#form_information')[0]);
             $.ajax({
                 type: 'post',
-                url: '{{route("mypage.change-avatar")}}',
+                url: '{{route("mypage.change-avatar")}}f',
                 dataType: "json",
                 data: formData,
                 async: false,
@@ -1152,23 +1158,24 @@
             })
         })
 
-        $(document).on('focusout','#model-textarea-edit',function(e){
+        $(document).on('focusout','.model-textarea-edit',function(e){
     
             var _this = $(this);
             var _year = _this.data('year');
             var _month = _this.data('month');
             var _type = _this.data('type');
 
-            var text_memo = _type == 'memo' ? $('#model-textarea-edit').val() : $('.input-memo').val();
-            var text_memo_old = _type == 'memo' ? $('#model-textarea-edit').data('value') : $('.input-memo').data('value');
+            var text_memo = _type == 'memo' ? _this.val() : $('.input-memo').val();
+            var text_memo_old = _type == 'memo' ? _this.data('value') : $('.input-memo').data('value');
 
             var text_last_log = $('.input-lat-log').val();
 
-            var text_my_theme = _type == 'theme' ? $('#model-textarea-edit').val() : $('.input-my-theme').val();
-            var text_my_theme_old = _type == 'theme' ? $('#model-textarea-edit').data('value') : $('.input-my-theme').data('value');
+            var text_my_theme = _type == 'theme' ? _this.val() : $('.input-my-theme').val();
+            var text_my_theme_old = _type == 'theme' ? _this.data('value') : $('.input-my-theme').data('value');
 
-            var text_action = _type == 'action' ? $('#model-textarea-edit').val() : $('.action-of-month').val();
-            var text_action_old = _type == 'action' ? $('#model-textarea-edit').data('value') : $('.action-of-month').data('value');
+            var text_action = _type == 'action' ? _this.val() : $('.action-of-month').val();
+            var text_action_old = _type == 'action' ? _this.data('value') : $('.action-of-month').data('value');
+
 
             if (text_memo.trim() != text_memo_old.trim() || text_my_theme.trim()  != text_my_theme_old.trim() || text_action.trim() !=text_action_old.trim()) {
                 $.ajax({
@@ -1183,16 +1190,26 @@
                         this_mytheme: text_my_theme,
                         this_action: text_action
                     },success:function(data) {
-                        
                         $('.input-memo').text(data.memo);
                         $('.input-my-theme').text(data.this_mytheme);
                         $('.action-of-month').text(data.this_action);
-                        iziToast.success({timeout: 5000, icon: 'fa fa-chrome', title: 'OK', message: '更新いたしました'});
+                        setTextareaHeight($('.action-of-month'));
+                        setTextareaHeight($('.input-my-theme'));
+                        iziToast.success({timeout: 1500, iconUrl: '/images/site_icon.png', title: 'OK', message: '更新いたしました', progressBar: false});
+
                         
                     }
                 })
             }
         })
+
+        var setTextareaHeight = function(textarea) {
+            var lineHeight = parseInt(textarea.css('lineHeight'));
+            var lines = (textarea.val() + '\n').match(/\n/g).length;
+            textarea.height(lineHeight * lines);
+        }
+        setTextareaHeight($('.action-of-month'));
+        setTextareaHeight($('.input-my-theme'));
 
     });
 </script>

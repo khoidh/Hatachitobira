@@ -15,6 +15,14 @@
     </div>
    
 @endsection
+@section('css')
+    @parent
+    <style>
+        .multiselect.dropdown-toggle.btn.btn-default {
+            width: 200px;
+        }
+    </style>
+@endsection
 @section('content-title','動画情報')
 @section('card-content')
 @endsection
@@ -42,11 +50,12 @@
 
         <label class="col-sm-2 col-form-label" for="category_id">{{__('カテゴリ')}}</label>
         <div class="col-sm-10">
-        <select name="category_id" id="category_id" class="form-control" >
-            @foreach($categories as $category)
-                <option value="<?php  echo $category->id ?>"><?php  echo $category->name ?></option>
-            @endforeach
-        </select>
+            <input type="hidden" name="category_id" id="category_id">
+            <select name="" id="category_id_select" class="form-control" multiple="multiple">
+                @foreach($categories as $category)
+                    <option value="{{$category->id}}">{{$category->name}}</option>
+                @endforeach
+            </select>
         </div>
     </div>
      <div class="form-group row">
@@ -86,10 +95,31 @@
 
     <div class="form-group row">
         <div class="col-sm-10">
-            <button type="submit" class="btn btn-primary">{{__('登録')}}</button>
+            <button type="submit" id="btnApply" class="btn btn-primary">{{__('登録')}}</button>
         </div>
     </div>
 </form>
         </div>
     </div>
     @endsection
+@section('customjavascript')
+<script type="text/javascript">
+    
+    $('#category_id_select').multiselect();
+    $('#btnApply').click(function(e){
+        var checked = $('.checkbox').find('input:checked'); 
+        var type = getType(checked);
+        console.log(type)
+        $('input[name=category_id]').val(type);  
+        
+    })
+
+    function getType(checked){
+        var ids = [];
+        checked.each(function () {
+            ids.push($(this).val());
+        });
+        return ids;
+    }
+</script>
+@endsection
