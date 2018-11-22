@@ -10,6 +10,7 @@ use App\Column;
 use App\Favorite;
 use App\Mytheme;
 use App\UserCategory;
+use App\Taggable;
 use DateTime;
 use Date;
 use Response;
@@ -26,8 +27,7 @@ class MypageController extends Controller
     public function index()
     {
        
-        /* Get category list */
-        $categories = Category::where('display',1)->get();
+        $categories = Category::where('display',1)->where('id','!=',Category::DEFAULT)->get();
         
         $user_id = Auth::User()->id;
         
@@ -91,16 +91,27 @@ class MypageController extends Controller
         $event_cate = array();
         $videos_cate = array();
         if ($cat_id) {
-            $event_cate = Event::where('category_id',$cat_id->categories_id)
-                ->where('events.display' , 1)
-                ->first();
-            $videos_cate = Video::where('category_id',$cat_id->categories_id)
-                ->where('videos.display' , 1)
-                ->where('videos.type', '!=', 3)
-                ->first();
-            $column_cate = Column::where('category_id',$cat_id->categories_id)
-                ->where('columns.display' , 1)
-                ->first();
+            $event_cate = Event::select()
+                            ->select('events.*')
+                            ->join('taggables','taggables.taggable_id','=','events.id')
+                            ->where('taggables.category_id',$cat_id->categories_id)
+                            ->where('events.display' , 1)
+                            ->first();
+
+            $videos_cate = Video::select()
+                            ->select('videos.*')
+                            ->join('taggables','taggables.taggable_id','=','videos.id')
+                            ->where('taggables.category_id',$cat_id->categories_id)
+                            ->where('videos.display' , 1)
+                            ->where('videos.type', '!=', 3)
+                            ->first();
+                            
+            $column_cate = Column::select()
+                            ->select('columns.*')
+                            ->join('taggables','taggables.taggable_id','=','columns.id')
+                            ->where('taggables.category_id',$cat_id->categories_id)
+                            ->where('columns.display' , 1)
+                            ->first();
         }
 
         $array=[
@@ -177,16 +188,28 @@ class MypageController extends Controller
             $data['user_id'] = $user_id ;
             $results= UserCategory::create($data);
         }
-        $event = Event::where('category_id',$data['categories_id'])
-            ->where('events.display' , 1)
-            ->first();
-        $videos = Video::where('category_id',$data['categories_id'])
-            ->where('videos.display' , 1)
-            ->where('videos.type', '!=', 3)
-            ->first();
-        $column = Column::where('category_id',$data['categories_id'])
-            ->where('columns.display' , 1)
-            ->first();
+
+        $event = Event::select()
+                        ->select('events.*')
+                        ->join('taggables','taggables.taggable_id','=','events.id')
+                        ->where('taggables.category_id',$data['categories_id'])
+                        ->where('events.display' , 1)
+                        ->first();
+        $videos = Video::select()
+                        ->select('videos.*')
+                        ->join('taggables','taggables.taggable_id','=','videos.id')
+                        ->where('taggables.category_id',$data['categories_id'])
+                        ->where('videos.display' , 1)
+                        ->where('videos.type', '!=', 3)
+                            ->first();
+        $column = Column::select()
+                        ->select('columns.*')
+                        ->join('taggables','taggables.taggable_id','=','columns.id')
+                        ->where('taggables.category_id',$data['categories_id'])
+                        ->where('columns.display' , 1)
+                        ->first();
+
+
         return view('user.mypage_content',compact('event','videos','column'));
     }
 
@@ -379,7 +402,7 @@ class MypageController extends Controller
         // $BASE_URL = 'https://www.googleapis.com/youtube/v3/videos?id=';
         // $BASE_PART = '&part=id,contentDetails,snippet,statistics,player&key=';
 
-        $categories = Category::where('display',1)->get();
+        $categories = Category::where('display',1)->where('id','!=',Category::DEFAULT)->get();
 
         $events = Event::select()
             ->select('events.*', 'categories.name as category_name')
@@ -480,37 +503,35 @@ class MypageController extends Controller
     public function searchCategorySlug(){
         {
             $id = $_GET['search'];
-          
-    
-            $categories = Category::where('display',1)->get();
-    
-            $events = Event::select()
-                ->select('events.*', 'categories.name as category_name')
-                ->join('categories', 'categories.id', '=', 'events.category_id')
-                ->where('events.category_id', '=', $id)
-                ->where('events.display' , 1)
-                ;
-    
-            $columns = Column::select()
-                ->select('columns.*', 'categories.name as category_name')
-                ->join('categories', 'categories.id', '=', 'columns.category_id')
-                ->where('columns.category_id', '=', $id)
-                ->where('columns.display' , 1)
-                ;
-                
-    
-            $videos = Video::select()
-                ->select('videos.*', 'categories.name as category_name')
-                ->join('categories', 'categories.id', '=', 'videos.category_id')
-                ->where('videos.category_id', '=', $id)
-                ->where('videos.display' , 1)
-                ->where('videos.type', '!=', 3)
-                ;
 
-            $events = $events->orderBy('id','desc')->get();
-            $columns = $columns->orderBy('id','desc')->get();
-            $videos = $videos->orderBy('id','desc')->get();
+            $categories = Category::where('display',1)->where('id','!=',Category::DEFAULT)->get();
             
+            $events_id = Taggable::where('category_id',$id)->where('taggable_type',(new Event())->getTable())->pluck('taggable_id')->toArray();
+            $_event = Event::where('category_id',$id)->get();
+            foreach ($_event as $key => $value) {
+                array_push($events_id, $value->id);
+            }
+
+            $events = Event::whereIn('id', $events_id )->where('events.display' , 1)->orderBy('id','desc')->get();
+            
+
+            $columns_id = Taggable::where('category_id',$id)->where('taggable_type',(new Column())->getTable())->pluck('taggable_id')->toArray();
+            $_columns_id = Column::where('category_id',$id)->get();
+            foreach ($_columns_id as $key => $value) {
+                array_push($columns_id, $value->id);
+            }
+
+            $columns = Column::whereIn('columns.id', $columns_id)->where('columns.display', 1)->orderBy('id','desc')->get();
+            
+
+            $videos_id = Taggable::where('category_id',$id)->where('taggable_type',(new Column())->getTable())->pluck('taggable_id')->toArray();
+            $_videos_id = Video::where('category_id',$id)->get();
+            foreach ($_videos_id as $key => $value) {
+                array_push($videos_id, $value->id);
+            }
+
+            $videos = Video::whereIn('id', $columns_id)->where('display' , 1)->orderBy('id','desc')->get();
+
             foreach ($events as $key => $event) {
                 $like_e = 0;
                 if (Auth::user()) {
@@ -547,35 +568,35 @@ class MypageController extends Controller
     public function searchCategoryForSlug($slug){
         {
            
-            $categories = Category::where('display',1)->get();
-    
-            $events = Event::select()
-                ->select('events.*', 'categories.name as category_name')
-                ->join('categories', 'categories.id', '=', 'events.category_id')
-                ->where('categories.slug', $slug)
-                ->where('events.display' , 1)
-                ;
-    
-            $columns = Column::select()
-                ->select('columns.*', 'categories.name as category_name')
-                ->join('categories', 'categories.id', '=', 'columns.category_id')
-                ->where('categories.slug', $slug)
-                ->where('columns.display' , 1)
-                ;
-                
-    
-            $videos = Video::select()
-                ->select('videos.*', 'categories.name as category_name')
-                ->join('categories', 'categories.id', '=', 'videos.category_id')
-                ->where('categories.slug', $slug)
-                ->where('videos.display' , 1)
-                ->where('videos.type', '!=', 3)
-                ;
-
-            $events = $events->orderBy('id','desc')->get();
-            $columns = $columns->orderBy('id','desc')->get();
-            $videos = $videos->orderBy('id','desc')->get();
+            $categories = Category::where('display',1)->where('id','!=',Category::DEFAULT)->get();
             
+            $slug_id = Category::where('slug',$slug)->first();
+
+            $events_id = Taggable::where('category_id',$slug_id->id)->where('taggable_type',(new Event())->getTable())->pluck('taggable_id')->toArray();
+            $_event = Event::where('category_id',$slug_id->id)->get();
+            foreach ($_event as $key => $value) {
+                array_push($events_id, $value->id);
+            }
+            $events = Event::whereIn('id', $events_id )->where('events.display' , 1)->orderBy('id','desc')->get();
+            
+
+            $columns_id = Taggable::where('category_id',$slug_id->id)->where('taggable_type',(new Column())->getTable())->pluck('taggable_id')->toArray();
+            $_columns_id = Column::where('category_id',$slug_id->id)->get();
+            foreach ($_columns_id as $key => $value) {
+                array_push($columns_id, $value->id);
+            }
+
+            $columns = Column::whereIn('columns.id', $columns_id)->where('columns.display', 1)->orderBy('id','desc')->get();
+            
+
+            $videos_id = Taggable::where('category_id',$slug_id->id)->where('taggable_type',(new Column())->getTable())->pluck('taggable_id')->toArray();
+            $_videos_id = Video::where('category_id',$slug_id->id)->get();
+            foreach ($_videos_id as $key => $value) {
+                array_push($videos_id, $value->id);
+            }
+
+            $videos = Video::whereIn('id', $columns_id)->where('display' , 1)->orderBy('id','desc')->get();
+
             foreach ($events as $key => $event) {
                 $like_e = 0;
                 if (Auth::user()) {

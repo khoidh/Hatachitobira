@@ -85,7 +85,7 @@
                                 </div>
                                 <a href="{{route('event.show', $event->id)}}" style="text-decoration:none;">
                                     <span class="title">{{$event->title}}</span>
-                                    <span class="category">&nbsp;&nbsp;{{$event->category_name}}</span>
+                                    <span class="category">&nbsp;&nbsp;{{$event->categoryname}}</span>
                                 </a>
                                 <div class="date" >
                                     <p>{{$event->started_at->format(config('const.ymd'))}}</p>

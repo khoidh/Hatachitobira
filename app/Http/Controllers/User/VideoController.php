@@ -63,7 +63,7 @@ class VideoController extends Controller
 
     public function videoSearchCategory(Request $request) {
         $data = $request->all();
-        
+
         $video_types = VideoType::noConceptMovie()->get();
         $videos = Video::select()
             ->select('videos.*','video_types.name as category_name')
