@@ -63,7 +63,7 @@
                             data-month="{{isset($mytheme_first->month) ? $mytheme_first->month : $data_date['month']}}"
                             data-value="{{$mytheme_first ? $mytheme_first->last_log : ''}}"
                             data-year="{{isset($mytheme_first->year) ? $mytheme_first->year : $data_date['year']}}"
-                            placeholder="先月の自分を#で記録しよう　#バイト三昧　#初ボランティア"
+                            placeholder="{{$mytheme_first ? '' : '先月の自分を#で記録しよう　#バイト三昧　#初ボランティア'}}"
                             value="{{$mytheme_first ? $mytheme_first->last_log : ''}}">
                     </div>
                 </div>
@@ -915,6 +915,19 @@
           }
         });
 
+        function emptyInputLogPlaceholder () {
+            var text_last_log = $('.input-lat-log').val();
+            if (text_last_log.length < 1) {
+                $('.input-lat-log').parent('.log-input').find('input').each(function(index, element) {
+                    $(element).attr('placeholder', '先月の自分を#で記録しよう　#バイト三昧　#初ボランティア');
+                });
+            } else {
+                $('.input-lat-log').parent('.log-input').find('input').each(function(index, element) {
+                    $(element).attr('placeholder', '');
+                });
+            }
+        }
+
         $(document).on('itemAdded','.input-lat-log', function(event) {
             var year = $('.input-lat-log').data('year');
             var month = $('.input-lat-log').data('month');
@@ -937,11 +950,7 @@
                         this_mytheme: text_my_theme,
                         this_action: text_action
                     },success:function(data) {
-                        if (text_last_log.length > 0) {
-                            $('.input-lat-log').parent('.log-input').find('input').each(function(index, element) {
-                                $(element).attr('placeholder', '');
-                            });
-                        }
+                        emptyInputLogPlaceholder();
                         iziToast.success({timeout: 1500, iconUrl: '/images/site_icon.png', title: 'OK', message: '更新いたしました', progressBar: false});
                     }
                 })
@@ -968,11 +977,7 @@
                     this_mytheme: text_my_theme,
                     this_action: text_action
                 },success:function(data) {
-                    if (text_last_log.length < 1) {
-                        $('.input-lat-log').parent('.log-input').find('input').each(function(index, element) {
-                        $(element).attr('placeholder', '先月の自分を#で記録しよう　#バイト三昧　#初ボランティア');
-                    });
-                    }
+                    emptyInputLogPlaceholder();
                     iziToast.success({timeout: 1500, iconUrl: '/images/site_icon.png', title: 'OK', message: '更新いたしました', progressBar: false});
                 }
             })
@@ -1083,6 +1088,7 @@
                 },
                 success : function (result){
                     $('.row.my-page-top').html(result);
+                    emptyInputLogPlaceholder();
                 }   
             })
         })
