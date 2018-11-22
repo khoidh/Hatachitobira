@@ -59,8 +59,8 @@
                                     src="{{asset('images/user/event/event-visible-icon.png')}}" alt="event-visible-icon.png"
                                 @endif
                             >
-                            <span style="">{{$event->eventstatus}}</span>
-                            {{-- @if($event->eventstatus == '受付前' || $event->eventstatus == '受付終了'|| $event->eventstatus == '開催終了' ) color: white !important; @endif --}}
+                            {{--<span style="">{{$event->eventstatus}}</span>--}}
+                            <span style="@if($event->eventstatus == '受付中' || $event->eventstatus == '開催中') color: black @else color: white !important; @endif">{{$event->eventstatus}}</span>
                         </div>
                         <div class="article-content row">
                             <div class="content-left col-md-4">
