@@ -35,19 +35,22 @@
                     </div>
                     <div class="col-sm-10 memo-input" data-toggle="modal" data-target="#modal_memo">
                         <textarea
-                            type="text" name="" class="input-memo" placeholder="先月の行動を振り返り記録しよう" readonly
+                            type="text" name="" class="input-memo pencil-action-click"
+                            placeholder="先月の行動を振り返り記録しよう" readonly
                             data-month="{{isset($mytheme_first->month) ? $mytheme_first->month : $data_date['month']}}" 
                             data-year="{{isset($mytheme_first->year) ? $mytheme_first->year : $data_date['year']}}"
                             data-value = "{{$mytheme_first? $mytheme_first->memo : ''}}"
-                            style="outline: 0;"
+                            style="outline: 0;cursor: pointer;"
+                            data-type="memo"
                         >{{ $mytheme_first ? $mytheme_first->memo : '' }}</textarea>
 
                         <i class="fa fa-pencil pencil-memo pencil-action-click"
                             data-month="{{isset($mytheme_first->month) ? $mytheme_first->month : $data_date['month']}}" 
                             data-year="{{isset($mytheme_first->year) ? $mytheme_first->year : $data_date['year']}}"
+                            data-value = "{{$mytheme_first? $mytheme_first->memo : ''}}"
                             data-type="memo"
                         >
-                                        <span>Edit</span></i>
+                        <span>Edit</span></i>
                     </div>
                 </div>
                 <hr class="shape-8"/>
@@ -56,10 +59,12 @@
                         <h5 class="underline-text font-weight-bold">&nbsp;先月のログ&nbsp;</h5>
                     </div>
                     <div class="col-sm-10 log-input">
-                        <input type="text" name="" class="input-lat-log" data-role="tagsinput" data-month="{{isset($mytheme_first->month) ? $mytheme_first->month : $data_date['month']}}" data-value="{{$mytheme_first ? $mytheme_first->last_log : ''}}"
-                                            data-year="{{isset($mytheme_first->year) ? $mytheme_first->year : $data_date['year']}}" placeholder="先月の自分を#で記録しよう　#バイト三昧　#初ボランティア" value="{{$mytheme_first ? $mytheme_first->last_log : ''}}">
-
-
+                        <input type="text" name="" class="input-lat-log" data-role="tagsinput" 
+                            data-month="{{isset($mytheme_first->month) ? $mytheme_first->month : $data_date['month']}}"
+                            data-value="{{$mytheme_first ? $mytheme_first->last_log : ''}}"
+                            data-year="{{isset($mytheme_first->year) ? $mytheme_first->year : $data_date['year']}}"
+                            placeholder="先月の自分を#で記録しよう　#バイト三昧　#初ボランティア"
+                            value="{{$mytheme_first ? $mytheme_first->last_log : ''}}">
                     </div>
                 </div>
             </div>
@@ -126,18 +131,16 @@
                         <h5 class="underline-text font-weight-bold">&nbsp;今月のマイテーマ&nbsp;</h5>
                     </div>
                     <div class="col-sm-9 my-theme-input">
-                        <textarea type="text" name="my-therme-month" id="input-my-theme" class="input-my-theme"
+                        <textarea type="text" name="my-therme-month"
+                            class="input-my-theme model-textarea-edit"
                             data-month="{{isset($mytheme_first->month) ? $mytheme_first->month : $data_date['month']}}" 
                             data-year="{{isset($mytheme_first->year) ? $mytheme_first->year : $data_date['year']}}"
                             data-value = "{{$mytheme_first ? $mytheme_first->this_mytheme : ''}}"
                             placeholder="例:「人に喜んでもらう接客とは？」「自分の理想のチームをつくるには？」"
                             data-value ="{{$mytheme_first ? $mytheme_first->this_mytheme : ''}}"
-                        >{{$mytheme_first ? $mytheme_first->this_mytheme : ''}}</textarea>
-                        <i class="fa fa-pencil pencil-theme pencil-action-click"
-                            data-month="{{isset($mytheme_first->month) ? $mytheme_first->month : $data_date['month']}}" 
-                            data-year="{{isset($mytheme_first->year) ? $mytheme_first->year : $data_date['year']}}"
                             data-type="theme"
-                        >
+                        >{{$mytheme_first ? $mytheme_first->this_mytheme : ''}}</textarea>
+                        <i class="fa fa-pencil pencil-theme">
                         <span>Edit</span></i>
                     </div>
                 </div>
@@ -147,18 +150,15 @@
                         <h5 class="underline-text font-weight-bold">&nbsp;今月のアクション &nbsp;</h5>
                     </div>
                     <div class="col-sm-9 action-input">
-                        <textarea style="width: 100%;border: none;" type="text" rows="2" name="action-of-month" id="action-of-month"　class="input-action action-of-month"
-                            data-month="{{isset($mytheme_first->month) ? $mytheme_first->month : $data_date['month']}}" 
-                            data-year="{{isset($mytheme_first->year) ? $mytheme_first->year : $data_date['year']}}"
-                            data-value="{{$mytheme_first ? $mytheme_first->this_action : ''}}"
-                            placeholder="考えたいこと、行動したいことを3つ決めよう" 
-                            data-value="{{$mytheme_first ? $mytheme_first->this_action : ''}}"
-                        >{{$mytheme_first ? $mytheme_first->this_action : ''}}</textarea>
-                        <i class="fa fa-pencil pencil-action pencil-action-click"
+                        <textarea type="text" name="action-of-month"
+                            class="action-of-month model-textarea-edit"
                             data-month="{{isset($mytheme_first->month) ? $mytheme_first->month : $data_date['month']}}" 
                             data-year="{{isset($mytheme_first->year) ? $mytheme_first->year : $data_date['year']}}"
                             data-type="action"
-                        >
+                            data-value="{{$mytheme_first ? $mytheme_first->this_action : ''}}"
+                            placeholder="考えたいこと、行動したいことを3つ決めよう" 
+                        >{{$mytheme_first ? $mytheme_first->this_action : ''}}</textarea>
+                        <i class="fa fa-pencil pencil-action">
                         <span>Edit</span></i>
                     </div>
                    
@@ -1091,7 +1091,7 @@
             var formData = new FormData($('#form_information')[0]);
             $.ajax({
                 type: 'post',
-                url: '{{route("mypage.change-avatar")}}',
+                url: '{{route("mypage.change-avatar")}}f',
                 dataType: "json",
                 data: formData,
                 async: false,
@@ -1152,23 +1152,23 @@
             })
         })
 
-        $(document).on('focusout','#action-of-month',function(e){
+        $(document).on('focusout','.model-textarea-edit',function(e){
     
             var _this = $(this);
             var _year = _this.data('year');
             var _month = _this.data('month');
             var _type = _this.data('type');
 
-            var text_memo = _type == 'memo' ? $('#action-of-month').val() : $('.input-memo').val();
-            var text_memo_old = _type == 'memo' ? $('#action-of-month').data('value') : $('.input-memo').data('value');
+            var text_memo = _type == 'memo' ? _this.val() : $('.input-memo').val();
+            var text_memo_old = _type == 'memo' ? _this.data('value') : $('.input-memo').data('value');
 
             var text_last_log = $('.input-lat-log').val();
 
-            var text_my_theme = _type == 'theme' ? $('#action-of-month').val() : $('.input-my-theme').val();
-            var text_my_theme_old = _type == 'theme' ? $('#action-of-month').data('value') : $('.input-my-theme').data('value');
+            var text_my_theme = _type == 'theme' ? _this.val() : $('.input-my-theme').val();
+            var text_my_theme_old = _type == 'theme' ? _this.data('value') : $('.input-my-theme').data('value');
 
-            var text_action = _type == 'action' ? $('#action-of-month').val() : $('.action-of-month').val();
-            var text_action_old = _type == 'action' ? $('#action-of-month').data('value') : $('.action-of-month').data('value');
+            var text_action = _type == 'action' ? _this.val() : $('.action-of-month').val();
+            var text_action_old = _type == 'action' ? _this.data('value') : $('.action-of-month').data('value');
 
 
             if (text_memo.trim() != text_memo_old.trim() || text_my_theme.trim()  != text_my_theme_old.trim() || text_action.trim() !=text_action_old.trim()) {
@@ -1184,16 +1184,26 @@
                         this_mytheme: text_my_theme,
                         this_action: text_action
                     },success:function(data) {
-                        
                         $('.input-memo').text(data.memo);
                         $('.input-my-theme').text(data.this_mytheme);
                         $('.action-of-month').text(data.this_action);
+                        setTextareaHeight($('.action-of-month'));
+                        setTextareaHeight($('.input-my-theme'));
                         iziToast.success({timeout: 5000, icon: 'fa fa-chrome', title: 'OK', message: '更新いたしました'});
+
                         
                     }
                 })
             }
         })
+
+        var setTextareaHeight = function(textarea) {
+            var lineHeight = parseInt(textarea.css('lineHeight'));
+            var lines = (textarea.val() + '\n').match(/\n/g).length;
+            textarea.height(lineHeight * lines);
+        }
+        setTextareaHeight($('.action-of-month'));
+        setTextareaHeight($('.input-my-theme'));
 
     });
 </script>

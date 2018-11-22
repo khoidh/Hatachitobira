@@ -1,4 +1,3 @@
-<link href="{{ asset('css/bootstrap-tagsinput.css') }}" rel="stylesheet">
 <div class="col-sm-12 how-to-use">
     <a class="a-user" href="#">
         <i class="fa fa-question-circle-o"></i>
@@ -8,7 +7,7 @@
 <div class="col-sm-12 select-month">
     <h1>
         <i class="fa fa-chevron-circle-left icon-back" data-month="{{$data_search['month'] == 1 ? '12' : $data_search['month'] - 1}}" data-year = "{{$data_search['month'] == 1 ? $data_search['year'] - 1 : $data_search['year']}}" aria-hidden="true"> </i>
-        <b>&nbsp;{{$data_search['year']}}年{{$data_search['month']}}月&nbsp;</b>
+        <b>&nbsp;{{$data_search['year']}}<span>年</span>{{$data_search['month']}}<span>月</span>&nbsp;</b>
         <i class="fa fa-chevron-circle-right {{$data_search['month'] >= $data_date['month'] && $data_search['year'] >= $data_date['month'] ? 'icon-next' : 'icon-back'}}" aria-hidden="true" data-month="{{$data_search['month'] == 12 ? '1' : $data_search['month'] + 1}}" data-year = "{{$data_search['month'] == 12 ? $data_search['year'] + 1 : $data_search['year']}}"> </i>
     </h1>
 </div>
@@ -18,18 +17,21 @@
             <h5 class="underline-text font-weight-bold">&nbsp;MEMO&nbsp;</h5>
         </div>
         <div class="col-sm-10 memo-input">
-           <textarea type="text" name="" class="input-memo" 
-            data-month="{{$data_search['month']}}"  readonly 
+           <textarea type="text" name="" class="input-memo pencil-action-click" 
+            placeholder="先月の行動を振り返り記録しよう" readonly 
+            data-month="{{$data_search['month']}}" 
             data-year="{{$data_search['year']}}"  
-            placeholder="先月の行動を振り返り記録しよう"
             data-value = "{{$mytheme_first? $mytheme_first->memo : ''}}"
+            style="outline: 0;cursor: pointer;"
+            data-type="memo"
             > {{$mytheme_first? $mytheme_first->memo : ''}}</textarea>
-            <i class="fa fa-pencil pencil-memo pencil-action-click"
-                            data-month="{{isset($mytheme_first->month) ? $mytheme_first->month : $data_date['month']}}" 
-                            data-year="{{isset($mytheme_first->year) ? $mytheme_first->year : $data_date['year']}}"
-                            data-type="memo"
-                        >
-                                        <span>Edit</span></i>
+        <i class="fa fa-pencil pencil-memo pencil-action-click"
+            data-month="{{$data_search['month']}}"
+            data-year="{{$data_search['year']}}"
+            data-value = "{{$mytheme_first? $mytheme_first->memo : ''}}"
+            data-type="memo"
+            >
+        <span>Edit</span></i>
         </div>
     </div>
     <hr class="shape-8"/>
@@ -38,15 +40,18 @@
             <h5 class="underline-text font-weight-bold">&nbsp;先月のログ&nbsp;</h5>
         </div>
         <div class="col-sm-10 log-input">
-            <input type="text" name="" class="input-lat-log" data-role="tagsinput" data-month="{{$data_search['month']}}" data-value="{{$mytheme_first ? $mytheme_first->last_log : ''}}"
-                                data-year="{{$data_search['year']}}" placeholder="先月の自分を#で記録しよう　#バイト三昧　#初ボランティア" value="{{$mytheme_first ? $mytheme_first->last_log : ''}}">
-
+            <input type="text" name="" class="input-lat-log" data-role="tagsinput"
+                data-month="{{$data_search['month']}}"
+                data-value="{{$mytheme_first ? $mytheme_first->last_log : ''}}"
+                data-year="{{$data_search['year']}}"
+                placeholder="先月の自分を#で記録しよう　#バイト三昧　#初ボランティア"
+                value="{{$mytheme_first ? $mytheme_first->last_log : ''}}">
         </div>
     </div>
 </div>
 <div class="col-sm-12 col-xs-12 panel-info">
     <div class="row">
-        @php ($index=1)
+        @php ($index=1) @endphp
         @for ($i = 0; $i < 9; $i++)
             <?php $key = $i>4 ? $i : $i+1 ?>
             @if($i!=4)
@@ -62,12 +67,13 @@
                     </div>
                     <div class="mypage-text">
                         <span>
-                            <textarea name="value-lable" class="edit-input-lable" 
+                            <textarea name="value-lable" class="edit-input-lable" readonly
                                 data-month="{{isset($mythemes[$i]->month) ? $mythemes[$i]->month : $data_search['month']}}" 
                                 data-year="{{isset($mythemes[$i]->year) ? $mythemes[$i]->year : $data_search['year']}}" 
                                 data-category = "{{isset($mythemes[$i]->category_id) ? $mythemes[$i]->category_id : $key}}" 
                                 data-id = "{{isset($mythemes[$i]->id) ? $mythemes[$i]->id : ''}}"
-                                placeholder="マイテーマにつながる要素を入力しましょう" disabled>{{isset($mythemes[$i]->content_lable) ? $mythemes[$i]->content_lable : ''}}</textarea>
+                                placeholder="マイテーマにつながる要素を入力しましょう"
+                            >{{isset($mythemes[$i]->content_lable) ? $mythemes[$i]->content_lable : ''}}</textarea>
                         </span>
                     </div>
                     <div class="favorite edit label">
@@ -108,18 +114,16 @@
             <h5 class="underline-text font-weight-bold">&nbsp;今月のマイテーマ&nbsp;</h5>
         </div>
         <div class="col-sm-9 my-theme-input">
-            <textarea type="text" name="my-therme-month" class="input-my-theme" readonly
+            <textarea type="text" name="my-therme-month"
+            class="input-my-theme model-textarea-edit"
             data-month="{{isset($mytheme_first->month) ? $mytheme_first->month : $data_date['month']}}" 
             data-year="{{isset($mytheme_first->year) ? $mytheme_first->year : $data_date['year']}}"
+            data-type="theme"
             placeholder="例:「人に喜んでもらう接客とは？」「自分の理想のチームをつくるには？」"
             data-value ="{{$mytheme_first ? $mytheme_first->this_mytheme : ''}}"
                         >{{$mytheme_first ? $mytheme_first->this_mytheme : ''}}</textarea>
-            <i class="fa fa-pencil pencil-theme pencil-action-click"
-                data-month="{{isset($mytheme_first->month) ? $mytheme_first->month : $data_date['month']}}" 
-                data-year="{{isset($mytheme_first->year) ? $mytheme_first->year : $data_date['year']}}"
-                data-type="theme"
-            >
-                                        <span>Edit</span></i>
+            <i class="fa fa-pencil pencil-theme">
+            <span>Edit</span></i>
         </div>
     </div>
     <hr class="shape-8"/>
@@ -128,18 +132,17 @@
                         <h5 class="underline-text font-weight-bold">&nbsp;今月のアクション &nbsp;</h5>
                     </div>
                     <div class="col-sm-9 action-input">
-                         <textarea style="width: 100%;border: none;" type="text" rows="2" readonly name="action-of-month" class="action-of-month"
+                         <textarea type="text" name="action-of-month"
+                            class="action-of-month model-textarea-edit"
                             data-month="{{isset($mytheme_first->month) ? $mytheme_first->month : $data_date['month']}}" 
                             data-year="{{isset($mytheme_first->year) ? $mytheme_first->year : $data_date['year']}}"
                             placeholder="考えたいこと、行動したいことを3つ決めよう" 
                             data-value="{{$mytheme_first ? $mytheme_first->this_action : ''}}"
-                        >{{$mytheme_first ? $mytheme_first->this_action : ''}}</textarea>
-                        <i class="fa fa-pencil pencil-action pencil-action-click"
-                            data-month="{{isset($mytheme_first->month) ? $mytheme_first->month : $data_date['month']}}" 
-                            data-year="{{isset($mytheme_first->year) ? $mytheme_first->year : $data_date['year']}}"
                             data-type="action"
-                        >
-                                        <span>Edit</span></i>
+                        >{{$mytheme_first ? $mytheme_first->this_action : ''}}</textarea>
+                        <i class="fa fa-pencil pencil-action">
+                            <span>Edit</span>
+                        </i>
                     </div>
                    
                 </div>
