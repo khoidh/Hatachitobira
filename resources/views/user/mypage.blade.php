@@ -915,7 +915,7 @@
           }
         });
 
-        $('.input-lat-log').on('itemAdded', function(event) {
+        $(document).on('itemAdded','.input-lat-log', function(event) {
             var year = $('.input-lat-log').data('year');
             var month = $('.input-lat-log').data('month');
             var text_memo = $('.input-memo').val();
@@ -948,7 +948,7 @@
             }
         })
 
-        $('.input-lat-log').on('itemRemoved', function(event) {
+        $(document).on('itemRemoved','.input-lat-log', function(event) {
             var year = $('.input-lat-log').data('year');
             var month = $('.input-lat-log').data('month');
             var text_memo = $('.input-memo').val();
