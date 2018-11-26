@@ -158,7 +158,7 @@
                     var text = $('.search-container input').val();
                     var id = $('#video_type').val();
                     $.ajax({
-                        url : '{{url("video-search-text?category_id=")}}'+ id +'&page=1&description='+text,
+                        url : '{{url("video-search-text?video_type=")}}'+ id +'&page=1&description='+text,
                         success: function (data) {
                             set_video_list(data);
                         }
@@ -172,7 +172,7 @@
                 var text = $('.search-container input').val();
                 var id = $('#video_type').val();
                 $.ajax({
-                    url : '{{url("video-search-text?category_id=")}}'+ id +'&page=1&description='+text,
+                    url : '{{url("video-search-text?video_type=")}}'+ id +'&page=1&description='+text,
                     success: function (data) {
                         set_video_list(data);
                     }
@@ -184,10 +184,10 @@
                 e.preventDefault();
                 scroll_to("list-top");
                 var text = $('.search-container input').val();
-                var id = $('#category_id').val();
+                var id = $('#video_type').val();
                 var page = $(this).attr('href').split('page=')[1];
                 $.ajax({
-                    url : '{{url("video-search-text?category_id=")}}'+ id +'&page='+page+'&description='+text,
+                    url : '{{url("video-search-text?video_type=")}}'+ id +'&page='+page+'&description='+text,
                     success: function (data) {
                         set_video_list(data);
                     }

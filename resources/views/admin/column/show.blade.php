@@ -49,7 +49,7 @@
 
         <label class="col-sm-2 col-form-label" for="category_id">{{__('カテゴリ')}}</label>
         <div class="col-sm-10">
-            <input type="text" class="form-control" value="{{$column->category_name}}" disabled="">
+            <input type="text" class="form-control" value="{{$column->multicategoty}}" disabled="">
         </div>
     </div>
 

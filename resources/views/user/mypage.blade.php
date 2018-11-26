@@ -63,7 +63,7 @@
                             data-month="{{isset($mytheme_first->month) ? $mytheme_first->month : $data_date['month']}}"
                             data-value="{{$mytheme_first ? $mytheme_first->last_log : ''}}"
                             data-year="{{isset($mytheme_first->year) ? $mytheme_first->year : $data_date['year']}}"
-                            placeholder="先月の自分を#で記録しよう　#バイト三昧　#初ボランティア"
+                            placeholder="{{isset($mytheme_first->last_log) ? '' : '先月の自分を#で記録しよう　#バイト三昧　#初ボランティア'}}"
                             value="{{$mytheme_first ? $mytheme_first->last_log : ''}}">
                     </div>
                 </div>
@@ -206,7 +206,7 @@
                                 <div class="col-sm-8 wrapper-content content-column">
                                     <p class="clearfix icon-favorior"><i class="fa fa-heart-o {{$column_cate->columnliked == 1 ? 'liked' : ''}}" style="font-size: 24px;" data-user = "{{Auth::User()->id}}" data-id = "{{$column_cate->id}}"></i></p>
                                     <p class="text-title"><b><a style="color: #111" href="{{route('column.show', $column_cate->id)}}">{{$column_cate->title}}</a></b></p>
-                                    <p class="text-category">{{$column_cate->categoryname}}</p>
+                                    <p class="text-category">{{$column_cate->multicategoty}}</p>
                                     <p class="text-date">{{date('Y-m-d', strtotime($column_cate->created_at))}}</p>
                                 </div>
                             </div>
@@ -223,8 +223,8 @@
                                             src="{{asset('images/user/event/event-visible-icon.png')}}" alt="event-visible-icon.png"
                                         @endif
                                     >
-                                    <span class="ws-text" style="">{{$event_cate->eventstatus}}</span>
-                                    {{-- @f($event_cate->eventstatus == '受付前' || $event_cate->eventstatus == '受付終了'|| $event_cate->eventstatus == '開催終了' ) color: white !important; @endif --}}
+                                    {{--<span class="ws-text" style="">{{$event_cate->eventstatus}}</span>--}}
+                                    <span class="ws-text" style="@if($event->eventstatus == '受付中' || $event->eventstatus == '開催中') color: black @else color: white !important; @endif">{{$event->eventstatus}}</span>
                                 </div>
                                 <div class="col-sm-4 wrapper-icon">
                                     <a href="{{route('event.show', $event_cate->id)}}" style="text-decoration:none;">
@@ -294,7 +294,7 @@
                                     </div>
                                     <div class="description">
                                         <p>{{ $result->title }}</p>
-                                        <span>{{$result->viewCount}} Views / {{$result->date_diff}} month ago / {{$result->category_name}}</span>
+                                        <span>{{$result->viewCount}} Views / {{$result->date_diff}} month ago / {{$result->categoryname}}</span>
                                     </div>
                                 </div>
                             </div>
@@ -330,8 +330,8 @@
                                                 src="{{asset('images/user/event/event-visible-icon.png')}}" alt="event-visible-icon.png"
                                                 @endif
                                         >
-                                        <span class="ws-text" style="">{{$event->eventstatus}}</span>
-                                        {{-- @if($event->eventstatus == '受付前' || $event->eventstatus == '受付終了'|| $event->eventstatus == '開催終了' ) color: white !important;@else color: black !important @endif --}}
+                                        {{--<span class="ws-text" style="">{{$event->eventstatus}}</span>--}}
+                                        <span class="ws-text" style="@if($event->eventstatus == '受付中' || $event->eventstatus == '開催中') color: black @else color: white !important; @endif">{{$event->eventstatus}}</span>
                                     </div>
 
                                 </div>
@@ -346,7 +346,7 @@
                                         <div class="icon-favorite">
                                             <i class="fa fa-heart-o {{ $event->eventliked == 1 ? 'liked' : ''}}"  data-id='{{$event->id}}' data-user='{{Auth::user() ? Auth::user()->id : "" }}' style="font-size:24px;"></i>
                                         </div>
-                                        <div class="title"><a href="{{route('event.show', $event->id)}}">{{$event->title}}</a> &nbsp;&nbsp; <span style="color: #636B6F;">{{$event->category_name}}</span></div>
+                                        <div class="title"><a href="{{route('event.show', $event->id)}}">{{$event->title}}</a> &nbsp;&nbsp; <span style="color: #636B6F;">{{$event->categoryname}}</span></div>
                                         <div class="category" style="color: #636B6F;">
                                             <p>{{$event->category_name}}</p>
                                         </div>
@@ -421,7 +421,7 @@
                                         <div class="icon-favorite">
                                             <i class="fa fa-heart-o {{ $column->columnliked == 1 ? 'liked' : ''}}" data-id='{{$column->id}}' data-user='{{Auth::user() ? Auth::user()->id : "" }}' style="font-size:24px;"></i>
                                         </div>
-                                        <div class="title"><a href="{{route('column.show', $column->id)}}">{{$column->title}}</a> &nbsp;&nbsp; <span style="color: #636B6F;">{{$column->category_name}}</span></div>
+                                        <div class="title"><a href="{{route('column.show', $column->id)}}">{{$column->title}}</a> &nbsp;&nbsp; <span style="color: #636B6F;">{{$column->multicategoty}}</span></div>
                                         <div class="date" style="text-align: right">
                                             <p>{{date('Y-m-d', strtotime($column->created_at))}}</p>
                                         </div>
@@ -915,7 +915,20 @@
           }
         });
 
-        $('.input-lat-log').on('itemAdded', function(event) {
+        function emptyInputLogPlaceholder () {
+            var text_last_log = $('.input-lat-log').val();
+            if (text_last_log.length < 1) {
+                $('.input-lat-log').parent('.log-input').find('input').each(function(index, element) {
+                    $(element).attr('placeholder', '先月の自分を#で記録しよう　#バイト三昧　#初ボランティア');
+                });
+            } else {
+                $('.input-lat-log').parent('.log-input').find('input').each(function(index, element) {
+                    $(element).attr('placeholder', '');
+                });
+            }
+        }
+
+        $(document).on('itemAdded','.input-lat-log', function(event) {
             var year = $('.input-lat-log').data('year');
             var month = $('.input-lat-log').data('month');
             var text_memo = $('.input-memo').val();
@@ -937,18 +950,14 @@
                         this_mytheme: text_my_theme,
                         this_action: text_action
                     },success:function(data) {
-                        if (text_last_log.length > 0) {
-                            $('.input-lat-log').parent('.log-input').find('input').each(function(index, element) {
-                                $(element).attr('placeholder', '');
-                            });
-                        }
+                        emptyInputLogPlaceholder();
                         iziToast.success({timeout: 1500, iconUrl: '/images/site_icon.png', title: 'OK', message: '更新いたしました', progressBar: false});
                     }
                 })
             }
         })
 
-        $('.input-lat-log').on('itemRemoved', function(event) {
+        $(document).on('itemRemoved','.input-lat-log', function(event) {
             var year = $('.input-lat-log').data('year');
             var month = $('.input-lat-log').data('month');
             var text_memo = $('.input-memo').val();
@@ -968,11 +977,7 @@
                     this_mytheme: text_my_theme,
                     this_action: text_action
                 },success:function(data) {
-                    if (text_last_log.length < 1) {
-                        $('.input-lat-log').parent('.log-input').find('input').each(function(index, element) {
-                        $(element).attr('placeholder', '先月の自分を#で記録しよう　#バイト三昧　#初ボランティア');
-                    });
-                    }
+                    emptyInputLogPlaceholder();
                     iziToast.success({timeout: 1500, iconUrl: '/images/site_icon.png', title: 'OK', message: '更新いたしました', progressBar: false});
                 }
             })
@@ -1083,6 +1088,7 @@
                 },
                 success : function (result){
                     $('.row.my-page-top').html(result);
+                    emptyInputLogPlaceholder();
                 }   
             })
         })

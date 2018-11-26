@@ -24,7 +24,7 @@ class ColumnRequest extends FormRequest
     public function rules()
     {
         return [
-            'category_id'   => 'required|integer|min:0',
+            'category_id'   => 'required',
             'title'         => 'required|max:256',
             'description'   => 'required|max:256',
             'content'       => 'required|max:10000',

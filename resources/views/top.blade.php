@@ -16,7 +16,7 @@ $description = '学校と社会をつなぐ「ハタチのトビラ」は、将�
     <meta property="og:title" content="{{$title}}" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="{{ Request::url() }}" />
-    <meta property="og:image" content="{{ asset('images/logo_og.png') }}"" />
+    <meta property="og:image" content="{{ asset('images/logo_og.png') }}" />
     <meta property="og:site_name" content="{{ $title }}" />
     <meta property="og:description" content="{{ $description }}" />
     <meta property="fb:app_id" content="{{ env('FACEBOOK_ID') }}" />
@@ -285,6 +285,8 @@ $description = '学校と社会をつなぐ「ハタチのトビラ」は、将�
                 </div>
                 
             </div>
+
+            @isset($videos_jobshadow)
             <div class="container movie-top-4">
                 <div class="cb-path"></div>
                 <h3 class="movie-top-text">将来の選択肢から探す</h3>
@@ -299,7 +301,7 @@ $description = '学校と社会をつなぐ「ハタチのトビラ」は、将�
                                         <div class="wrapper">
                                             <div class="thump">
                                                 <a href="{{$result->youtube_url}}" target="_blank">
-                                                     <div class="browse-details">
+                                                <div class="browse-details">
                                                     <img src="{{ asset('images/user/video/btn-play.png')}}" alt="" >
                                                 </div>
                                                 </a>
@@ -316,6 +318,7 @@ $description = '学校と社会をつなぐ「ハタチのトビラ」は、将�
                             </div>
                         </div>
                     </div>
+
                     <div class="col-md-4 video-movie flex-space-between-mobile">
                         <div class="corner-wrapper video movie-2">
                             <div class="video-list">
@@ -371,7 +374,9 @@ $description = '学校と社会をつなぐ「ハタチのトビラ」は、将�
                     <img src="{{ asset('images/user/top/arrow-1.png') }}" >
                 </a>
             </div>
+            @endisset
 
+            @isset($videos_roleplay)
             <div class="container movie-top-4 content-2">
                 <div class="cb-path mt-30"></div>
                 <h2 class="movie-top-text">ロールモデルから探す</h2>
@@ -457,18 +462,30 @@ $description = '学校と社会をつなぐ「ハタチのトビラ」は、将�
                     <img src="{{ asset('images/user/top/arrow-1.png') }}">
                 </a>
             </div>
+            @endisset
+
+            @isset($events)
             <div class="container movie-top-4 content-2">
                 <div class="cb-path mt-30"></div>
                 <h3 class="movie-top-text">イベントに参加する</h3>
-                <div class="event col-md-10" style="padding-left:0px;">
+                <div class="event col-md-12" style="padding-left:0px;">
                     <p class="movie-top-descroption">多様なロールモデルや同世代に出会い、普段のコミュニティでは話にくい"ちょっと真面目な対話"を通じて、マイテーマを考えてみよう</p>
-                            
                 </div>
+
+                <div class="event-article-list col-md-12">
+                    @foreach($events as $event)
+                        @include('includes.list_box_event', compact('event'))
+                    @endforeach
+                </div>
+
                 <a href="{{ url('event') }}">
                     <span class="more-detail ">MORE</span>
                     <img src="{{ asset('images/user/top/arrow-1.png') }}" >
                 </a>
             </div>
+            @endisset
+
+            @isset($columns)
             <div class=" content-last">
                 <div class="container">
                     <div class="cb-path mt-30"></div>
@@ -476,7 +493,7 @@ $description = '学校と社会をつなぐ「ハタチのトビラ」は、将�
                     <p class="movie-top-descroption">マイテーマをみつけるノウハウ、イベントレポート、アラハタ世代の活躍を発信していきます</p>
                     <div class="content-text col-md-12">
                         @forelse($columns as $key => $column)
-                        <div class="item {{$key > 0 ? 'second' : ''}}">
+                        <div class="item {{$key > 0 ? 'second' : ''}} {{$column->favorite > 0 ? 'favorite' : 'No favorite'}}">
                             <div class="text-category {{ $column->type == 1 ? 'last' : ''}}">{{ $column->type == 1 ?'コラム' :'インタビュー'}}</div>
                             <div class="wrapper">
                                 <div class="icon">
@@ -486,8 +503,22 @@ $description = '学校と社会をつなぐ「ハタチのトビラ」は、将�
                                     </a>
                                 </div>
                                 <div class="content">
-                                    <p class="clearfix icon-favorior"><i class="fa fa-heart-o {{ $column->favorite == 1 ? 'liked' : ''}}" data-id='{{$column->id}}' data-user='{{Auth::user() ? Auth::user()->id : "" }}' style="font-size:24px;"></i></p>
-                                    <p class="text-title"><a href="{{route('column.show', $column->id)}}">{{$column->title}}</a></p>
+                                    <p class="clearfix icon-favorite">
+                                        {{--==================== favorite ====================--}}
+                                        <i class="fa fa-heart-o " style="
+                                        @if(Auth::user() and in_array($column->id,$column_favorites_id))
+                                                color: pink !important;
+                                        @else
+                                                color: #c3c2c2 !important;
+                                        @endif font-size:24px;"
+                                           data-id="{{$column->id}}"
+                                           data-user='{{Auth::user() ? Auth::user()->id : ""}}'
+                                           data-table="columns">
+                                        </i>
+                                        {{--==================== /end favorite ====================--}}
+                                    </p>
+                                    <p class="text-title"><a
+                                                href="{{route('column.show', $column->id)}}">{{$column->title}}</a></p>
                                     <p class="category-aa">&nbsp;&nbsp;{{$column->category_name}}</p>
                                     <p class="text-date">{{date('Y-m-d', strtotime($column->created_at))}}</p>
                                 </div>
@@ -508,7 +539,9 @@ $description = '学校と社会をつなぐ「ハタチのトビラ」は、将�
             <div class="container button-link bottom">
                 <a class="round-button black lg {{Auth::Guest() ? "show-modal-register-mypage" : ""}}" href="{{url("my-page")}}">マイテーマを見つける</a>
             </div>
+            @endisset
         </div>
+
         <div id="modal_video" class="modal fade modal_register" role="dialog">
             <div class="modal-dialog" style="margin-top:50px">
                 <div class="modal-content" style="border-radius: 13px;">
@@ -702,10 +735,11 @@ $description = '学校と社会をつなぐ「ハタチのトビラ」は、将�
 
 
 
-            $(document).on('click','.content-last .icon-favorior .fa-heart-o', function(e) {
+            $(document).on('click','.icon-favorite .fa-heart-o', function(e) {
                 e.stopPropagation();
                 var idevent = $(this).data('id');
                 var user = $(this).data('user');
+                var table= $(this).data('table');
                 var _this = $(this);
                 if (user == '') {
                     $html = '';
@@ -736,25 +770,49 @@ $description = '学校と社会をつなぐ「ハタチのトビラ」は、将�
                     $html +='</div>';
                     $('#modal_register').find('.panel-body').html($html);
                     $('#modal_register').modal('show');
-                }else {
-                    $.ajax({
-                        url : '{{route("column.favorite")}}',
-                        type: 'post',
-                        dataType: 'json',
-                        data: {
-                            column_id : idevent,
-                            user_id: user
-                        },
-                        success : function (result){
-                            if (result == 'ok') {
-                                _this.addClass('liked');
-                                _this.css('color','pink');
-                            }else {
-                                _this.removeClass('liked');
-                                _this.css('color','#c3c2c2');
-                            }
-                        }   
-                   })
+                }else{
+                    switch(table) {
+                        case "columns":
+                            $.ajax({
+                                url : '{{route("column.favorite")}}',
+                                type: 'post',
+                                dataType: 'json',
+                                data: {
+                                    column_id : idevent,
+                                    user_id: user
+                                },
+                                success : function (result){
+                                    if (result == 'ok') {
+                                        _this.addClass('liked');
+                                        _this.css('color','pink');
+                                    }else {
+                                        _this.removeClass('liked');
+                                        _this.css('color','#c3c2c2');
+                                    }
+                                }
+                            })
+                            break;
+                        case "events":
+                            $.ajax({
+                                url : '{{route("event.favorite")}}',
+                                type: 'post',
+                                dataType: 'json',
+                                data: {
+                                    video_id : idevent,
+                                    user_id: user
+                                },
+                                success : function (result){
+                                    if (result == 'ok') {
+                                        _this.addClass('liked');
+                                        _this.css('color','pink');
+                                    }else {
+                                        _this.removeClass('liked');
+                                        _this.css('color','#c3c2c2');
+                                    }
+                                }
+                            })
+                            break;
+                    }
                 }
             })
 

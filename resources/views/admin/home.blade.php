@@ -30,6 +30,7 @@
     <link rel="stylesheet" type="text/css" href="{{asset('css/admin/vertical-menu-modern.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('css/admin/palette-gradient.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('css/admin/switch.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('css/admin/bootstrap-multiselect.css')}}">
     <link href="{{asset('css/admin/font-awesome.min.css')}}" rel="stylesheet">
     <!-- END Page Level CSS-->
     <!-- BEGIN Custom CSS-->
@@ -220,6 +221,7 @@
 <script src="{{asset('js/admin/app.min.js')}}" type="text/javascript"></script>
 <script src="{{asset('js/admin/customizer.min.js')}}" type="text/javascript"></script>
 <script src="{{asset('js/admin/drag-drop.min.js')}}" type="text/javascript"></script>
+<script src="{{asset('js/admin/bootstrap-multiselect.js')}}" type="text/javascript"></script>
 <!-- <script src="{{ asset('js/admin.js') }}"></script> -->
 <script type="text/javascript">
     $(document).ready(function(){

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Video;
 use App\Category;
+use App\Taggable;
 use App\Models\VideoType;
 use App\Http\Requests\VideoRequest;
 
@@ -54,12 +55,15 @@ class VideoController extends Controller
             $result = json_decode(file_get_contents($api_url));
             if($result->items)
             {
-                $video->category_id = $request->category_id;
+                $video->category_id = 1;
                 $video->url = $request->url; 
                 $video->sort = (int)($request->sort);
                 $video->type = (int)($request->type);
                 $video->display = (int)($request->display);
-                $video->title = $result->items[0]->snippet->title; 
+                if($request->title)
+                    $video->title = $request->title;
+                else 
+                    $video->title = $result->items[0]->snippet->title; 
                 $video->thumbnails = $result->items[0]->snippet->thumbnails->high->url; 
                 $video->embedHtml = $result->items[0]->player->embedHtml; 
                 $video->viewCount = (double)($result->items[0]->statistics->viewCount); 
@@ -67,6 +71,15 @@ class VideoController extends Controller
                 $video->published_at = date('Y-m-d H:i:s',$published_at);
                 
                 $video->save();
+
+                $cate_id = explode(',', $request->category_id);
+                foreach ($cate_id as $key => $value) {
+                    Taggable::create([
+                        'category_id' => $value,
+                        'taggable_id' => $video->id,
+                        'taggable_type' => (new Video())->getTable()
+                    ]);
+                }
                 return redirect()->route('videos.index');
             }
             else
@@ -94,10 +107,17 @@ class VideoController extends Controller
         $video = Video::find($id);
         $types = VideoType::all();
         $categories = Category::all();
+
+        $cate_id = Taggable::where('taggable_id',$video->id)->where('taggable_type',(new Video())->getTable())->pluck('category_id')->toArray();
+        if (!$cate_id) {
+            array_push($cate_id, $video->category_id);
+        }
+
         return view('admin.video.edit', [
-            'video' => $video,
-            'categories' => $categories,
-            'types' => $types
+            'video'         => $video,
+            'cate_id'       => $cate_id,
+            'categories'    => $categories,
+            'types'         => $types
         ]);
     }
 
@@ -119,19 +139,32 @@ class VideoController extends Controller
             $result = json_decode(file_get_contents($api_url));
             if($result->items)
             {
-                $video->category_id = $request->category_id;
+                $video->category_id = 1;
                 $video->url = $request->url; 
                 $video->sort = (int)($request->sort);
                 $video->type = (int)($request->type);
                 $video->display = (int)($request->display);
-                $video->title = $result->items[0]->snippet->title; 
+                if($request->title)
+                    $video->title = $request->title;
+                else 
+                    $video->title = $result->items[0]->snippet->title; 
                 $video->thumbnails = $result->items[0]->snippet->thumbnails->high->url; 
                 $video->embedHtml = $result->items[0]->player->embedHtml; 
                 $video->viewCount = (double)($result->items[0]->statistics->viewCount); 
                 $published_at = strtotime($result->items[0]->snippet->publishedAt);
                 $video->published_at = date('Y-m-d H:i:s',$published_at);
-                
+                    
                 $video->save();
+
+                $cate_id = explode(',', $request->category_id);
+                Taggable::where('taggable_id',$video->id)->where('taggable_type',(new Video())->getTable())->delete();
+                foreach ($cate_id as $key => $value) {
+                    Taggable::create([
+                        'category_id' => $value,
+                        'taggable_id' => $video->id,
+                        'taggable_type' => (new Video())->getTable()
+                    ]);
+                }
                 return redirect()->route('videos.show',['id' => $video->id]);
             }
             else

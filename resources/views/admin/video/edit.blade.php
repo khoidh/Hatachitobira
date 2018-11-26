@@ -1,5 +1,12 @@
 @extends('admin.home')
-
+@section('css')
+    @parent
+    <style>
+        .multiselect.dropdown-toggle.btn.btn-default {
+            width: 200px;
+        }
+    </style>
+@endsection
 @section('content-header')
     <div class="content-header-left col-md-6 col-12 mb-2 breadcrumb-new">
         <h3 class="content-header-title mb-0 d-inline-block" style="font-size: 30px">{{__('動画')}}</h3>
@@ -43,14 +50,20 @@
             <label class="col-sm-2 col-form-label" for="category_id">{{__('カテゴリ')}}</label>
             <div class="col-sm-10">
 
-                <select name="category_id" id="category_id" value="<?php echo $video->id ?>" class="form-control">
+                <input type="hidden" name="category_id" id="category_id">
+                <select name="" id="category_id_select" class="form-control" multiple="multiple">
                     @foreach($categories as $category)
-                        <option value="{{ $category->id }}" {{($category->id == $video->category_id) ? 'selected' : ''}} >{{$category->name}}</option>
+                        <option value="{{ $category->id }}" {{in_array($category->id,$cate_id) ? 'selected' : ''}} >{{$category->name}}</option>
                     @endforeach
                 </select>
             </div>
         </div>
-
+        <div class="form-group row">
+            <label for="title" class="col-sm-2 col-form-label">{{__('タイトル')}}</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" name="title" id="title" value="{{$video->title}}">
+            </div>
+        </div>
         <div class="form-group row">
             <label for="url" class="col-sm-2 col-form-label">{{__('URL')}}</label>
             <div class="col-sm-10">
@@ -89,7 +102,7 @@
         <div class="form-group row">
             <div class="col-sm-10">
                 <input type="hidden" name="_method" value="patch">
-                <button type="submit" class="btn btn-primary">{{__('更新')}}</button>
+                <button type="submit" id="btnApply" class="btn btn-primary">{{__('更新')}}</button>
             </div>
             
         </div>
@@ -97,4 +110,24 @@
     </form>
     </div>
     </div>
+@endsection
+@section('customjavascript')
+<script type="text/javascript">
+    $('#category_id_select').multiselect();
+    $('#btnApply').click(function(e){
+        var checked = $('.checkbox').find('input:checked'); 
+        var type = getType(checked);
+        console.log(type)
+        $('input[name=category_id]').val(type);  
+        
+    })
+
+    function getType(checked){
+        var ids = [];
+        checked.each(function () {
+            ids.push($(this).val());
+        });
+        return ids;
+    }
+</script>
 @endsection

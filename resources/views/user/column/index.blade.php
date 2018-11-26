@@ -56,7 +56,7 @@
                                 </div>
                                 <a href="{{route('column.show', $column->id)}}" style="text-decoration:none;">
                                     <span class="title">{{$column->title}}</span>
-                                    <span class="category">&nbsp;&nbsp;{{$column->category_name}}</span>
+                                    <span class="category">&nbsp;&nbsp;{{$column->multicategoty}}</span>
                                 </a>
                                 <div class="date" >
                                     <p>{{date('Y-m-d', strtotime($column->created_at))}}</p>
