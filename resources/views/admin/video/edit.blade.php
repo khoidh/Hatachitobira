@@ -58,7 +58,12 @@
                 </select>
             </div>
         </div>
-
+        <div class="form-group row">
+            <label for="title" class="col-sm-2 col-form-label">{{__('タイトル')}}</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" name="title" id="title" value="{{$video->title}}">
+            </div>
+        </div>
         <div class="form-group row">
             <label for="url" class="col-sm-2 col-form-label">{{__('URL')}}</label>
             <div class="col-sm-10">
