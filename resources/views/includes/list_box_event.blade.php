@@ -22,7 +22,7 @@
             <div class="icon-favorite">
                 {{--==================== favorite ====================--}}
                 <i class="fa fa-heart-o" style="
-                    @if(Auth::user() && is_array($favorites_id) && in_array($event->id, $favorites_id))
+                    @if(Auth::user() && isset($favorites_id) && in_array($event->id, $favorites_id))
                             color: pink !important;
                     @else
                             color: rgb(99, 107, 111) !important;
