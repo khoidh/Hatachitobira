@@ -98,6 +98,8 @@ class HomeController extends Controller
             'videos_2'      => $videos_2,
             'categories'    => $categories,
             'video_concept' => $video_concept,
+            'videos_jobshadow' => $videos_jobshadow,
+            'videos_roleplay' => $videos_roleplay,
         ];
 
         if(Auth::user())
