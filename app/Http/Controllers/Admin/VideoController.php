@@ -60,7 +60,10 @@ class VideoController extends Controller
                 $video->sort = (int)($request->sort);
                 $video->type = (int)($request->type);
                 $video->display = (int)($request->display);
-                $video->title = $result->items[0]->snippet->title; 
+                if($request->title)
+                    $video->title = $request->title;
+                else 
+                    $video->title = $result->items[0]->snippet->title; 
                 $video->thumbnails = $result->items[0]->snippet->thumbnails->high->url; 
                 $video->embedHtml = $result->items[0]->player->embedHtml; 
                 $video->viewCount = (double)($result->items[0]->statistics->viewCount); 
