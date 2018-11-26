@@ -132,7 +132,7 @@ $description = '学校と社会をつなぐ「ハタチのトビラ」は、将�
                         <figcaption class="first">
                             <div class="text-vertical-pc">
                                 <p class="title">やりたいことって必要なの？<br>楽しもう、背伸びしない自分を</p>
-                                <p class="description">What students want to know,Is it transmitted to real?</p>
+                                <p class="description">Don’t need to aim too high. You only live once. Might as well enjoy it.</p>
                             </div>
                         </figcaption>
                     </figure>
@@ -142,7 +142,7 @@ $description = '学校と社会をつなぐ「ハタチのトビラ」は、将�
                         <figcaption>
                             <div class="text-vertical-pc">
                                 <p class="title"><span class="title-background">マイテーマ</span>を軸にする、<br>これからの就活。</p>
-                                <p class="description">What students want to know,Is it transmitted to real?</p>
+                                <p class="description">What is to be an adult? What is your theme? Find yourself here!</p>
                             </div>
                         </figcaption>
                     </figure>
@@ -152,7 +152,7 @@ $description = '学校と社会をつなぐ「ハタチのトビラ」は、将�
                         <figcaption>
                             <div class="text-vertical-pc">
                                 <p class="title">オトナって何だろう。<br><span class="title-background">マイテーマ</span>って何だろう。</p>
-                                <p class="description">What students want to know,Is it transmitted to real?</p>
+                                <p class="description">Job hunting will be based on themes.</p>
                             </div>
                         </figcaption>
                     </figure>
