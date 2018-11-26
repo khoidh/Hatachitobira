@@ -158,7 +158,7 @@
                         {{--Trong thời gian đăng ký--}}
                         @if($user_event_register == 0)
                             @if($event->eventstatus == '受付中')
-                                <button type="button" class="round-button black lg" onclick="myFunction()">送信</button>
+                                <button type="button" class="round-button black lg" onclick="myFunction()">申し込む<</button>
                             @endif
                         @else
                             <button type="submit" class="btn btn-primary btn-lg btn-block" data-toggle="modal"
@@ -168,7 +168,7 @@
                     @endif
                 @else
                     @if($event->eventstatus == '受付中')
-                        <button type="button" class="round-button black lg show-modal-register-mypage">送信</button>
+                        <button type="button" class="round-button black lg show-modal-register-mypage">申し込む<</button>
 
                     @endif
                 @endif
