@@ -594,10 +594,16 @@ $panel_info_height_sp: 130px;
     //Group-1
     .main {
         background-color: $yellow-color;
-        padding: 16px 0;
+        padding: 16px 0 60px;
         margin-top: 60px;
+        @include only-for-mobile() {
+            padding: 16px 0 20px;
+        }
         .container.searchcategory {
             margin-bottom: 10px;
+        }
+        .title-categories-mypage {
+            margin-bottom: 20px;
         }
         .cb-path {
             margin-top: -66px;
