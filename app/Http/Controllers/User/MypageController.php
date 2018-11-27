@@ -144,13 +144,15 @@ class MypageController extends Controller
 
     public function uploadImage(Request $request) {
         $data = $request->all();
-
+        ini_set("post_max_size", "10MB");
+        ini_set("upload_max_filesize", "10MB");
+        ini_set("memory_limit", "20000M");
         $rules = array(
-            'file' => 'image|max:3000',
+            'file' => 'image|max:11000',
         );
 
         $messages = [
-            'max' => 'File size need smaller than 2MB',
+            'max' => 'File size need smaller than 10MB',
         ];
 
         $validation = Validator::make($data, $rules,$messages);
@@ -554,9 +556,9 @@ class MypageController extends Controller
 
     public function searchCategoryForSlug($slug){
         {
-           
             $categories = Category::where('display',1)->where('id','!=',Category::DEFAULT)->get();
-            $slug = Category::where('slug',$slug)->first();
+            $slug_val = explode(',', $slug);
+            $slug = Category::whereIn('slug',$slug_val)->first();
             list($events, $columns, $videos) = $this->__getSearchCategoryDataByCategoryId($slug->id);
 
             foreach ($events as $key => $event) {
