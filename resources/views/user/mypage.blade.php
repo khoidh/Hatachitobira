@@ -894,7 +894,7 @@
             var text = $(this).val();
             var text_old = $(this).data('value');
             var _this = $(this);
-            if (text.trim() != text_old.trim()) {
+            if (text != text_old) {
                 $.ajax({
                     url : '{{route("mypage.change-lable")}}',
                     type: 'post',
