@@ -187,7 +187,7 @@
             <div class="container group-1">
                 <div class="content-text" id="content-text">
                     @if(isset($cat_id))
-                        @if(isset($column_cate))
+                        @if(!empty($column_cate))
                         <div class="col-sm-12 item">
                             <div class="row wrapper">
                                 <div class="wrapper-status">
@@ -215,7 +215,7 @@
                             </div>
                         </div>
                         @endif
-                        @if(isset($event_cate))
+                        @if(!empty($event_cate))
                         <div class="col-sm-12 item item-2">
                             <div class="row wrapper">
                                 <div class="wrapper-status">
@@ -244,7 +244,7 @@
                             </div>
                         </div>
                         @endif
-                        @if(isset($videos_cate))
+                        @if(!empty($videos_cate))
                         <div class="col-sm-12 item item-2 video-category" data-src='{{$videos_cate->embedHtml}}' data-url="{{$videos_cate->url}}" style="cursor: pointer;">
                             <div class="row wrapper">
 
