@@ -25,14 +25,10 @@
                 <br>
                 <p class="title">{{$event->title}}</p>
                 <div class="icon-favorite">
-                    <i class="heart-icon fa fa-heart-o" style="
-                        @if(Auth::user() and in_array($event->id,$favorites_id))
-                                color: pink !important;
-                        @else
-                                color: rgb(99, 107, 111) !important;
-                        @endif "
-                        data-id="{{$event->id}}"
-                        data-user='{{Auth::user() ? Auth::user()->id : ""}}'>
+                    <i class="fa heart-icon {{$event->eventliked == 1 ? 'fa-heart' : 'fa-heart-o'}}" style="font-size:24px;"
+                       data-id="{{$event->id}}"
+                       data-user='{{Auth::user() ? Auth::user()->id : ""}}'
+                       data-table="events">
                     </i>
                     <span class="heart-create-at">&nbsp&nbsp{{$event->started_at->format(config('const.ymd'))}}</span>
                 </div>
@@ -245,7 +241,7 @@
                 $('#modal_register').modal('show');
             })
 
-            $(document).on('click','.icon-favorite .fa-heart-o', function(e) {
+            $(document).on('click','.icon-favorite .fa-heart-o,.icon-favorite .fa-heart', function(e) {
                 e.stopPropagation();
                 var user_id = $(this).data('user');
                 var event_id = $(this).data('id');
@@ -261,11 +257,11 @@
                         },
                         success : function (result){
                             if (result == 'ok') {
-                                _this.addClass('liked');
-                                _this.css('color','pink');
+                                _this.addClass('fa-heart');
+                                _this.removeClass('fa-heart-o');
                             }else {
-                                _this.removeClass('liked');
-                                _this.css('color','#636B6F');
+                                _this.removeClass('fa-heart');
+                                _this.addClass('fa-heart-o');
                             }
                         }
                     })
