@@ -59,7 +59,7 @@
           $('#error-message-upload').text('');
         }
         else {
-          $('#error-message-upload').text(file.xhr.responseText + ' File size need smaller than 2MB');
+          $('#error-message-upload').text(file.xhr.responseText + ' File size need smaller than 10MB');
         }
       });
       var file_name = "{{ isset($result) && $result->content_lable ? $result->content_lable : '' }}";

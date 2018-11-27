@@ -607,8 +607,12 @@
 
         $(document).on('click','#btn_search_category',function(e){
             e.preventDefault();
-            var category_id = $('#category_id_value').data('slug');
-            window.location.href = "{{ url('search-category') }}"+'/' +category_id;
+            var checked = $('#category_id_value.selected');
+            var ids = [];
+            checked.each(function () {
+                ids.push($(this).data('slug'));
+            });
+            window.location.href = "{{ url('search-category') }}"+'/' +ids;
         })
 
         $(document).on('click','.browse-details .favorite',function(e){
