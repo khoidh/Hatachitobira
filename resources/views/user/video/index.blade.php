@@ -243,11 +243,11 @@
                         success : function (result){
                             console.log(result);
                             if (result == 'ok') {
-                                _this.addClass('fa-heart');
-                                _this.removeClass('fa-heart-o');
+                                _this.find('.fa').addClass('fa-heart');
+                                _this.find('.fa').removeClass('fa-heart-o');
                             }else {
-                                _this.removeClass('fa-heart');
-                                _this.addClass('fa-heart-o');
+                                _this.find('.fa').removeClass('fa-heart');
+                                _this.find('.fa').addClass('fa-heart-o');
                             }
                         }
                     })
