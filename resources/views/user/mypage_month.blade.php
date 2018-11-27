@@ -66,14 +66,12 @@
                         <span>0{{$index++}}</span>
                     </div>
                     <div class="mypage-text">
-                        <span>
-                            <textarea name="value-lable" class="edit-input-lable" readonly
+                        <span name="value-lable" class="edit-input-lable" readonly
                                 data-month="{{isset($mythemes[$i]->month) ? $mythemes[$i]->month : $data_search['month']}}" 
                                 data-year="{{isset($mythemes[$i]->year) ? $mythemes[$i]->year : $data_search['year']}}" 
                                 data-category = "{{isset($mythemes[$i]->category_id) ? $mythemes[$i]->category_id : $key}}" 
                                 data-id = "{{isset($mythemes[$i]->id) ? $mythemes[$i]->id : ''}}"
-                                placeholder="マイテーマにつながる要素を入力しましょう"
-                            >{{isset($mythemes[$i]->content_lable) ? $mythemes[$i]->content_lable : ''}}</textarea>
+                            >{{isset($mythemes[$i]->content_lable) ? $mythemes[$i]->content_lable : 'マイテーマにつながる要素を入力しましょう'}}
                         </span>
                     </div>
                     <div class="favorite edit label">

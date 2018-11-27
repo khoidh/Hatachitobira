@@ -90,27 +90,32 @@ class MypageController extends Controller
         $column_cate = array();
         $event_cate = array();
         $videos_cate = array();
+        $cate_user_id = array();
         if ($cat_id) {
+            $cate_user_id = explode(',', $cat_id->categories_id);
             $event_cate = Event::select()
                             ->select('events.*')
                             ->join('taggables','taggables.taggable_id','=','events.id')
-                            ->where('taggables.category_id',$cat_id->categories_id)
+                            ->whereIn('taggables.category_id',$cate_user_id)
                             ->where('events.display' , 1)
+                            ->orderBy('id','DESC')
                             ->first();
 
             $videos_cate = Video::select()
                             ->select('videos.*')
                             ->join('taggables','taggables.taggable_id','=','videos.id')
-                            ->where('taggables.category_id',$cat_id->categories_id)
+                            ->whereIn('taggables.category_id',$cate_user_id)
                             ->where('videos.display' , 1)
                             ->where('videos.type', '!=', 3)
+                            ->orderBy('id','DESC')
                             ->first();
                             
             $column_cate = Column::select()
                             ->select('columns.*')
                             ->join('taggables','taggables.taggable_id','=','columns.id')
-                            ->where('taggables.category_id',$cat_id->categories_id)
+                            ->whereIn('taggables.category_id',$cate_user_id)
                             ->where('columns.display' , 1)
+                            ->orderBy('id','DESC')
                             ->first();
         }
 
@@ -125,7 +130,7 @@ class MypageController extends Controller
             'column_cate'   => $column_cate,
             'event_cate'    => $event_cate,
             'videos_cate'   => $videos_cate,
-            'cat_id'        => $cat_id,
+            'cat_id'        => $cate_user_id,
         ];
         return view('user.mypage', $array);
     }
@@ -144,11 +149,15 @@ class MypageController extends Controller
             'file' => 'image|max:3000',
         );
 
-        $validation = Validator::make($data, $rules);
+        $messages = [
+            'max' => 'File size need smaller than 2MB',
+        ];
+
+        $validation = Validator::make($data, $rules,$messages);
 
         if ($validation->fails())
         {
-            return Response::make($validation->errors->first(), 400);
+            return Response::make($validation->errors()->first(), 400);
         }
 
         $file = $request->file('file');
@@ -188,25 +197,28 @@ class MypageController extends Controller
             $data['user_id'] = $user_id ;
             $results= UserCategory::create($data);
         }
-
+        $id_Category = explode(',', $data['categories_id']);
         $event = Event::select()
                         ->select('events.*')
                         ->join('taggables','taggables.taggable_id','=','events.id')
-                        ->where('taggables.category_id',$data['categories_id'])
+                        ->whereIn('taggables.category_id',$id_Category)
                         ->where('events.display' , 1)
+                        ->orderBy('id','DESC')
                         ->first();
         $videos = Video::select()
                         ->select('videos.*')
                         ->join('taggables','taggables.taggable_id','=','videos.id')
-                        ->where('taggables.category_id',$data['categories_id'])
+                        ->whereIn('taggables.category_id',$id_Category)
                         ->where('videos.display' , 1)
                         ->where('videos.type', '!=', 3)
-                            ->first();
+                        ->orderBy('id','DESC')
+                        ->first();
         $column = Column::select()
                         ->select('columns.*')
                         ->join('taggables','taggables.taggable_id','=','columns.id')
-                        ->where('taggables.category_id',$data['categories_id'])
+                        ->whereIn('taggables.category_id',$id_Category)
                         ->where('columns.display' , 1)
+                        ->orderBy('id','DESC')
                         ->first();
 
 

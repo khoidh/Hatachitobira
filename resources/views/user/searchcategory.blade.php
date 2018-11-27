@@ -40,7 +40,7 @@
                                 </div>
                                 <div class="content-right col-md-8">
                                     <div class="icon-favorite">
-                                        <i class="fa fa-heart-o {{ $column->favorite == 1 ? 'liked' : ''}}" data-id='{{$column->id}}' data-user='{{Auth::user() ? Auth::user()->id : "" }}' style="font-size:24px;"></i>
+                                        <i class="fa {{ $column->favorite == 1 ? 'fa-heart' : 'fa-heart-o'}}" data-id='{{$column->id}}' data-user='{{Auth::user() ? Auth::user()->id : "" }}' style="font-size:24px;"></i>
                                     </div>
                                     <div class="title"><a href="{{route('column.show', $column->id)}}">{{$column->title}}</a> &nbsp;&nbsp; <span style="color: #636B6F;">{{$column->multicategoty}}</span></div>
                                     <div class="category" style="color: #636B6F;">
@@ -88,7 +88,7 @@
                                 </div>
                                 <div class="content-right col-md-8">
                                     <div class="icon-favorite">
-                                        <i class="fa fa-heart-o {{ $event->favorite == 1 ? 'liked' : ''}}"  data-id='{{$event->id}}' data-user='{{Auth::user() ? Auth::user()->id : "" }}' style="font-size:24px;"></i>
+                                        <i class="fa {{ $event->favorite == 1 ? 'fa-heart' : 'fa-heart-o'}}"  data-id='{{$event->id}}' data-user='{{Auth::user() ? Auth::user()->id : "" }}' style="font-size:24px;"></i>
                                     </div>
                                     <div class="title"><a href="{{route('event.show', $event->id)}}">{{$event->title}}</a> &nbsp;&nbsp; <span style="color: #636B6F;">{{$event->category_name}}</span></div>
                                     <div class="category" style="color: #636B6F;">
@@ -131,7 +131,7 @@
                             <div class="thump">
                                 <div class="browse-details" data-id='{{$result->id}}' data-user='{{Auth::user() ? Auth::user()->id : "" }}' data-src='{{$result->embedHtml}}' data-url="{{$result->url}}">
                                     <img src="{{ asset('images/user/video/btn-play.png')}}" alt="" >
-                                    <div class="favorite" data-id='{{$result->id}}' data-user='{{Auth::user() ? Auth::user()->id : "" }}'><i class="fa fa-heart-o {{$result->favorite == 1 ? 'liked' : ''}}"></i></div>
+                                    <div class="favorite" data-id='{{$result->id}}' data-user='{{Auth::user() ? Auth::user()->id : "" }}'><i class="fa {{$result->favorite == 1 ? 'fa-heart' : 'fa-heart-o'}}"></i></div>
                                  </div>
                                 <a href="#">
                                     <img class="img-icon" src="{{  $result->thumbnails}}" alt="">
@@ -399,11 +399,11 @@
                     },
                     success : function (result){
                          if (result == 'ok') {
-                             _this.find('.fa.fa-heart-o').addClass('liked');
-                             _this.find('.fa.fa-heart-o').css('color','pink');
+                             _this.find('.fa.fa-heart-o').addClass('fa-heart');
+                             _this.find('.fa.fa-heart-o').removeClass('fa-heart-o');
                         }else {
-                             _this.find('.fa.fa-heart-o').removeClass('liked');
-                             _this.find('.fa.fa-heart-o').css('color','#fff');
+                             _this.find('.fa').removeClass('fa-heart');
+                             _this.find('.fa').addClass('fa-heart-o');
                         }
                     }   
                })
@@ -411,7 +411,7 @@
 
         })
 
-        $(document).on('click','.row.event-search .fa.fa-heart-o',function(e){
+        $(document).on('click','#carouselExampleevent .fa.fa-heart-o,#carouselExampleevent .fa.fa-heart',function(e){
             e.stopPropagation();
             var idevent = $(this).data('id');
             var user = $(this).data('user');
@@ -455,11 +455,11 @@
                     },
                     success : function (result){
                         if (result == 'ok') {
-                            _this.addClass('liked');
-                            _this.css('color','pink');
+                            _this.addClass('fa-heart');
+                            _this.removeClass('fa-heart-o');
                         }else {
-                            _this.removeClass('liked');
-                            _this.css('color','#636B6F');
+                            _this.removeClass('fa-heart');
+                            _this.addClass('fa-heart-o');
                         }
                     }   
                })
@@ -468,7 +468,7 @@
         })
 
 
-        $(document).on('click','.row.column-search .fa.fa-heart-o',function(e){
+        $(document).on('click','#carouselExample .fa.fa-heart-o,#carouselExample .fa.fa-heart',function(e){
             e.stopPropagation();
             var idevent = $(this).data('id');
             var user = $(this).data('user');
@@ -513,11 +513,11 @@
                     },
                     success : function (result){
                         if (result == 'ok') {
-                            _this.addClass('liked');
-                            _this.css('color','pink');
+                            _this.addClass('fa-heart');
+                            _this.removeClass('fa-heart-o');
                         }else {
-                            _this.removeClass('liked');
-                            _this.css('color','#636B6F');
+                            _this.removeClass('fa-heart');
+                            _this.addClass('fa-heart-o');
                         }
                     }   
                })
