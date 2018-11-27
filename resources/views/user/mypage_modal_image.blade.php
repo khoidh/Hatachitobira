@@ -1,5 +1,6 @@
     
 <div class="event-information-wrapper col-md-12 clearfix">
+            <span id="error-message-upload" style="color: red"></span>
             <form action="{{url('file-upload')}}" id="fileupload" accept-charset="utf-8" class="dropzone dropzone-area" enctype="multipart/form-data" method="POST">
                 {{ csrf_field() }}
                 <DIV class="dz-message needsclick">    
@@ -47,6 +48,7 @@
         $.ajax({
             url : '{{url("file-upload-remove?category_id=")}}'+ $('#data-cat_id').val() +'&year='+$('#data-year').val()+'&month='+$('#data-month').val(),
         })
+        $('#error-message-upload').text('');
       });
       myDropzone.on("complete", function(file) {
         if (file.status =='success') {
@@ -54,6 +56,10 @@
           var responseText = file.xhr.responseText.replace('"', "");
           responseText = responseText.replace('"', "");
           $('#tmppath').val(responseText);
+          $('#error-message-upload').text('');
+        }
+        else {
+          $('#error-message-upload').text(file.xhr.responseText + ' File size need smaller than 10MB');
         }
       });
       var file_name = "{{ isset($result) && $result->content_lable ? $result->content_lable : '' }}";

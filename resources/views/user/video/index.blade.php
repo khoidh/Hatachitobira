@@ -58,7 +58,7 @@
                         <div class="thump">
                             <div class="browse-details" data-id='{{$result->id}}' data-user='{{Auth::user() ? Auth::user()->id : "" }}' data-src='{{$result->embedHtml}}' data-url = "{{$result->url}}">
                                 <img src="{{ asset('images/user/video/btn-play.png')}}" alt="" >
-                                <div class="favorite" data-id='{{$result->id}}' data-user='{{Auth::user() ? Auth::user()->id : "" }}'><i class="fa fa-heart-o {{$result->favorite == 1 ? 'liked' : ''}}"></i></div>
+                                <div class="favorite" data-id='{{$result->id}}' data-user='{{Auth::user() ? Auth::user()->id : "" }}'><i class="fa  {{$result->favorite == 1 ? 'fa-heart' : 'fa-heart-o'}}"></i></div>
                             </div>
                             <a href="#">
                                 <img class="img-icon" src="{{  $result->thumbnails}}" alt="">
@@ -243,11 +243,11 @@
                         success : function (result){
                             console.log(result);
                             if (result == 'ok') {
-                                _this.find('.fa.fa-heart-o').addClass('liked');
-                                _this.find('.fa.fa-heart-o').css('color','pink');
+                                _this.find('.fa').addClass('fa-heart');
+                                _this.find('.fa').removeClass('fa-heart-o');
                             }else {
-                                _this.find('.fa.fa-heart-o').removeClass('liked');
-                                _this.find('.fa.fa-heart-o').css('color','#fff');
+                                _this.find('.fa').removeClass('fa-heart');
+                                _this.find('.fa').addClass('fa-heart-o');
                             }
                         }
                     })

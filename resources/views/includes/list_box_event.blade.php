@@ -21,14 +21,10 @@
         <div class="content-right col-md-8">
             <div class="icon-favorite">
                 {{--==================== favorite ====================--}}
-                <i class="fa fa-heart-o" style="
-                    @if(Auth::user() && isset($favorites_id) && in_array($event->id, $favorites_id))
-                            color: pink !important;
-                    @else
-                            color: rgb(99, 107, 111) !important;
-                    @endif "
-                       data-id="{{$event->id}}"
-                       data-user='{{Auth::user() ? Auth::user()->id : ""}}'>
+                <i class="fa {{$event->eventliked == 1 ? 'fa-heart' : 'fa-heart-o'}}" style="font-size:24px;"
+                   data-id="{{$event->id}}"
+                   data-user='{{Auth::user() ? Auth::user()->id : ""}}'
+                   data-table="events">
                 </i>
                 {{--==================== /end favorite ====================--}}
             </div>

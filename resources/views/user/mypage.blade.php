@@ -30,10 +30,10 @@
             </div>
             <div class="col-sm-12 info-1">
                 <div class="row memo">
-                    <div class="col-sm-2 memo-text">
-                        <h5 class="underline-text font-weight-bold">&nbsp;MEMO&nbsp;</h5>
+                    <div class="col-sm-3 memo-text">
+                        <h5 class="underline-text font-weight-bold">&nbsp;先月の振り返り&nbsp;</h5>
                     </div>
-                    <div class="col-sm-10 memo-input" data-toggle="modal" data-target="#modal_memo">
+                    <div class="col-sm-9 memo-input" data-toggle="modal" data-target="#modal_memo">
                         <textarea
                             type="text" name="" class="input-memo pencil-action-click"
                             placeholder="先月の行動を振り返り記録しよう" readonly
@@ -54,19 +54,6 @@
                     </div>
                 </div>
                 <hr class="shape-8"/>
-                <div class="row log">
-                    <div class="col-sm-2 log-text">
-                        <h5 class="underline-text font-weight-bold">&nbsp;先月のログ&nbsp;</h5>
-                    </div>
-                    <div class="col-sm-10 log-input">
-                        <input type="text" name="" class="input-lat-log" data-role="tagsinput" 
-                            data-month="{{isset($mytheme_first->month) ? $mytheme_first->month : $data_date['month']}}"
-                            data-value="{{$mytheme_first ? $mytheme_first->last_log : ''}}"
-                            data-year="{{isset($mytheme_first->year) ? $mytheme_first->year : $data_date['year']}}"
-                            placeholder="{{isset($mytheme_first->last_log) ? '' : '先月の自分を#で記録しよう　#バイト三昧　#初ボランティア'}}"
-                            value="{{$mytheme_first ? $mytheme_first->last_log : ''}}">
-                    </div>
-                </div>
             </div>
             <div class="col-sm-12 col-xs-12 panel-info">
                 <div class="row">
@@ -84,15 +71,12 @@
                                     <span>0{{$index++}}</span>
                                 </div>
                                 <div class="mypage-text">
-                                    <span>
-                                        <textarea name="value-lable" class="edit-input-lable" readonly
+                                    <span name="value-lable" class="edit-input-lable" readonly
                                             data-month="{{isset($mythemes[$i]->month) ? $mythemes[$i]->month : $data_date['month']}}" 
                                             data-year="{{isset($mythemes[$i]->year) ? $mythemes[$i]->year : $data_date['year']}}" 
                                             data-category = "{{isset($mythemes[$i]->category_id) ? $mythemes[$i]->category_id : $key}}" 
                                             data-id = "{{isset($mythemes[$i]->id) ? $mythemes[$i]->id : ''}}"
-                                            placeholder="マイテーマにつながる要素を入力しましょう"
-                                        >{{isset($mythemes[$i]->content_lable) ? $mythemes[$i]->content_lable : ''}}</textarea>
-                                    </span>
+                                        >{{isset($mythemes[$i]->content_lable) ? $mythemes[$i]->content_lable : 'マイテーマにつながる要素を入力しましょう'}}</span>
                                 </div>
                                 <div class="favorite edit label">
                                     <i class="fa fa-pencil"
@@ -108,7 +92,12 @@
                         @else
                             {{--05--}}
                             <div class="col-sm-4 col-xs-4 col-4 panel-info-wrapper">
-                                <div class="event-image">
+                                <div class="event-image"
+                                            data-month="{{isset($mythemes['9']->month) ? $mythemes['9']->month : $data_date['month']}}" 
+                                            data-year="{{isset($mythemes['9']->year) ? $mythemes['9']->year : $data_date['year']}}" 
+                                            data-category = "{{isset($mythemes['9']->category_id) ? $mythemes['9']->category_id : '9'}}" 
+                                            data-id = "{{isset($mythemes['9']->id) ? $mythemes['9']->id : ''}}"
+                                >
                                     <img src="{{isset($mythemes['9']->content_lable) ? asset('images/user/mypage/'.$mythemes['9']->content_lable) :asset('images/user/mypage/no_image.png')}}" alt="">
                                     <div class="description"> {{isset($mythemes['9']->content_1) ? $mythemes['9']->content_1 : ''}}</div>
                                     <div class="favorite edit image">
@@ -126,6 +115,20 @@
                 </div>
             </div>
             <div class="col-sm-12 info-2">
+                <div class="row log">
+                    <div class="col-sm-3 log-text">
+                        <h5 class="underline-text font-weight-bold">&nbsp;自分を表す#&nbsp;</h5>
+                    </div>
+                    <div class="col-sm-9 log-input">
+                        <input type="text" name="" class="input-lat-log" data-role="tagsinput"
+                               data-month="{{isset($mytheme_first->month) ? $mytheme_first->month : $data_date['month']}}"
+                               data-value="{{$mytheme_first ? $mytheme_first->last_log : ''}}"
+                               data-year="{{isset($mytheme_first->year) ? $mytheme_first->year : $data_date['year']}}"
+                               placeholder="{{isset($mytheme_first->last_log) ? '' : '自分を表す#で記録しよう　#バイト三昧　#初ボランティア'}}"
+                               value="{{$mytheme_first ? $mytheme_first->last_log : ''}}">
+                    </div>
+                </div>
+                <hr class="shape-8"/>
                 <div class="row my-theme">
                     <div class="col-sm-3 my-theme-text">
                         <h5 class="underline-text font-weight-bold">&nbsp;今月のマイテーマ&nbsp;</h5>
@@ -176,7 +179,7 @@
                 <div class="row fix-mb">
                     @foreach($categories as $categorie)
                     <div class="image-category">
-                        <img class="img-cat-detail {{isset($cat_id) &&  $categorie->id == $cat_id->categories_id ? 'selected' : ''}}" id="category_id_value" data-slug="{{$categorie->slug}}" data-id="{{$categorie->id}}" src="{{ asset('images/admin/category/'.$categorie->icon) }}" alt="{{$categorie->name}}">
+                        <img class="img-cat-detail {{isset($cat_id) &&  in_array($categorie->id,$cat_id) ? 'selected' : ''}}" id="category_id_value" data-slug="{{$categorie->slug}}" data-id="{{$categorie->id}}" src="{{ asset('images/admin/category/'.$categorie->icon) }}" alt="{{$categorie->name}}">
                     </div>
                     @endforeach
                 </div>
@@ -204,7 +207,7 @@
                                     </a>
                                 </div>
                                 <div class="col-sm-8 wrapper-content content-column">
-                                    <p class="clearfix icon-favorior"><i class="fa fa-heart-o {{$column_cate->columnliked == 1 ? 'liked' : ''}}" style="font-size: 24px;" data-user = "{{Auth::User()->id}}" data-id = "{{$column_cate->id}}"></i></p>
+                                    <p class="clearfix icon-favorior"><i class="fa {{$column_cate->columnliked == 1 ? 'fa-heart' : 'fa-heart-o'}}" style="font-size: 24px;" data-user = "{{Auth::User()->id}}" data-id = "{{$column_cate->id}}"></i></p>
                                     <p class="text-title"><b><a style="color: #111" href="{{route('column.show', $column_cate->id)}}">{{$column_cate->title}}</a></b></p>
                                     <p class="text-category">{{$column_cate->multicategoty}}</p>
                                     <p class="text-date">{{date('Y-m-d', strtotime($column_cate->created_at))}}</p>
@@ -224,7 +227,7 @@
                                         @endif
                                     >
                                     {{--<span class="ws-text" style="">{{$event_cate->eventstatus}}</span>--}}
-                                    <span class="ws-text" style="@if($event->eventstatus == '受付中' || $event->eventstatus == '開催中') color: black @else color: white !important; @endif">{{$event->eventstatus}}</span>
+                                    <span class="ws-text" style="@if($event_cate->eventstatus == '受付中' || $event_cate->eventstatus == '開催中') color: black @else color: white !important; @endif">{{$event_cate->eventstatus}}</span>
                                 </div>
                                 <div class="col-sm-4 wrapper-icon">
                                     <a href="{{route('event.show', $event_cate->id)}}" style="text-decoration:none;">
@@ -233,7 +236,7 @@
                                     </a>
                                 </div>
                                 <div class="col-sm-8 wrapper-content content-event">
-                                    <p class="clearfix icon-favorior"><i class="fa fa-heart-o {{$event_cate->eventliked == 1? 'liked' : ''}}" style="font-size: 24px;" data-user = "{{Auth::User()->id}}" data-id = "{{$event_cate->id}}"></i></p>
+                                    <p class="clearfix icon-favorior"><i class="fa {{$event_cate->eventliked == 1? 'fa-heart' : 'fa-heart-o'}}" style="font-size: 24px;" data-user = "{{Auth::User()->id}}" data-id = "{{$event_cate->id}}"></i></p>
                                     <p class="text-title"><b><a style="color: #111111" href="{{route('event.show', $event_cate->id)}}">{{ $event_cate->title }}</a></b></p>
                                     <p class="text-category">{{ $event_cate->categoryname }}</p>
                                     <p class="text-date">{{date('Y-m-d', strtotime($event_cate->started_at))}}</p>
@@ -252,7 +255,7 @@
                                     <img class="thumbnails" src="{{ $videos_cate->thumbnails }}" alt="img-event-1.png">
                                 </div>
                                 <div class="col-sm-8 wrapper-content content-video">
-                                    <p class="clearfix icon-favorior"><i class="fa fa-heart-o {{$videos_cate->videoliked == 1? 'liked' : ''}}" style="font-size: 24px;" data-user = "{{Auth::User()->id}}" data-id = "{{$videos_cate->id}}"></i></p>
+                                    <p class="clearfix icon-favorior"><i class="fa  {{$videos_cate->videoliked == 1? 'fa-heart' : 'fa-heart-o'}}" style="font-size: 24px;" data-user = "{{Auth::User()->id}}" data-id = "{{$videos_cate->id}}"></i></p>
                                     <p class="text-title"><b>{{ $videos_cate->title }}</b></p>
                                     <p class="text-category">{{ $videos_cate->categoryname }}</p>
                                     <p class="text-date">{{ $videos_cate->created_at }}</p>
@@ -276,7 +279,7 @@
     <div class="container my-page">
         <div class="group-2">
             <div class="video">
-                <h2 class="underline-text font-weight-bold">お気に入り動画 <span class="count-video">({{count($videos)}})</span></h2>
+                <h2 class="underline-text font-weight-bold">お気に入り動画 <span>(<span class="count-video">{{count($videos)}}</span>)</span></h2>
                 <div class="article-list video-list">
                     @if(count($videos) > 0)
                     <div class="carousel-inner carosel-video-list">
@@ -286,7 +289,7 @@
                                     <div class="thump">
                                         <div class="browse-details" data-id='{{$result->id}}' data-user='{{Auth::user() ? Auth::user()->id : "" }}' data-src='{{$result->embedHtml}}' data-url="{{$result->url}}">
                                             <img src="{{ asset('images/user/video/btn-play.png')}}" alt="" >
-                                            <div class="favorite" data-id='{{$result->id}}' data-user='{{Auth::user() ? Auth::user()->id : "" }}'><i class="fa fa-heart-o {{$result->favorite == 1 ? 'liked' : ''}}"></i></div>
+                                            <div class="favorite" data-id='{{$result->id}}' data-user='{{Auth::user() ? Auth::user()->id : "" }}'><i class="fa  {{$result->favorite == 1 ? 'fa-heart' : 'fa-heart-o'}}"></i></div>
                                          </div>
                                         <a href="#">
                                             <img class="img-icon" src="{{  $result->thumbnails}}" alt="">
@@ -313,7 +316,7 @@
             </div>
 
             <div class="event">
-                <h2 class="underline-text font-weight-bold">参加したイベント <span class="count-video">({{$events->count()}})</span></h2>
+                <h2 class="underline-text font-weight-bold">参加したイベント <span>(<span class="count-event">{{$events->count()}}</span>)</span></h2>
                 <div class="article-list">
                     @if(count($events) > 0)
                     <div id="carouselExample" class="carousel slide" data-ride="carousel" data-interval="false" data-wrap="false">
@@ -344,7 +347,7 @@
                                     </div>
                                     <div class="content-right col-md-8">
                                         <div class="icon-favorite">
-                                            <i class="fa fa-heart-o {{ $event->eventliked == 1 ? 'liked' : ''}}"  data-id='{{$event->id}}' data-user='{{Auth::user() ? Auth::user()->id : "" }}' style="font-size:24px;"></i>
+                                            <i class="fa {{ $event->eventliked == 1 ? 'fa-heart' : 'fa-heart-o'}}"  data-id='{{$event->id}}' data-user='{{Auth::user() ? Auth::user()->id : "" }}' style="font-size:24px;"></i>
                                         </div>
                                         <div class="title"><a href="{{route('event.show', $event->id)}}">{{$event->title}}</a> &nbsp;&nbsp; <span style="color: #636B6F;">{{$event->categoryname}}</span></div>
                                         <div class="category" style="color: #636B6F;">
@@ -383,7 +386,7 @@
             </div>
 
             <div class="event">
-                <h2 class="underline-text font-weight-bold">お気に入り記事 <span class="column-count">({{$columns->count()}})</span></h2>
+                <h2 class="underline-text font-weight-bold">お気に入り記事 <span>(<span class="column-count">{{$columns->count()}}</span>)</span></h2>
                 <div class="article-list">
                     @if(count($columns) > 0)
                     <div id="carouselExampleevent" class="carousel slide" data-ride="carousel" data-interval="false" data-wrap="false">
@@ -419,7 +422,7 @@
                                     </div>
                                     <div class="content-right col-md-8">
                                         <div class="icon-favorite">
-                                            <i class="fa fa-heart-o {{ $column->columnliked == 1 ? 'liked' : ''}}" data-id='{{$column->id}}' data-user='{{Auth::user() ? Auth::user()->id : "" }}' style="font-size:24px;"></i>
+                                            <i class="fa {{ $column->columnliked == 1 ? 'fa-heart' : 'fa-heart'}}" data-id='{{$column->id}}' data-user='{{Auth::user() ? Auth::user()->id : "" }}' style="font-size:24px;"></i>
                                         </div>
                                         <div class="title"><a href="{{route('column.show', $column->id)}}">{{$column->title}}</a> &nbsp;&nbsp; <span style="color: #636B6F;">{{$column->multicategoty}}</span></div>
                                         <div class="date" style="text-align: right">
@@ -582,22 +585,35 @@
         }
 
         $(document).on('click','#category_id_value', function(e){
-            var category_id = $(this).data('id');
+            // var category_id = $(this).data('id');
             var _this = $(this);
+            var ids = [];
+            if (_this.hasClass('selected')) {
+                _this.removeClass('selected');
+            }else{
+                _this.addClass('selected');
+            }
+            var checked = $('#category_id_value.selected');
+            checked.each(function () {
+                ids.push($(this).data('id'));
+            });
+            console.log(ids)
             $.ajax({
-                url: "{{ url('content-category-new?categories_id=') }}"+ category_id,
+                url: "{{ url('content-category-new?categories_id=') }}"+ ids,
                 success: function (data) {
-                    $('#category_id_value.selected').removeClass('selected');
                     $('#content-text').html(data);
-                    _this.addClass('selected');
                 }
             })
         })
 
         $(document).on('click','#btn_search_category',function(e){
             e.preventDefault();
-            var category_id = $('#category_id_value').data('slug');
-            window.location.href = "{{ url('search-category') }}"+'/' +category_id;
+            var checked = $('#category_id_value.selected');
+            var ids = [];
+            checked.each(function () {
+                ids.push($(this).data('slug'));
+            });
+            window.location.href = "{{ url('search-category') }}"+'/' +ids;
         })
 
         $(document).on('click','.browse-details .favorite',function(e){
@@ -605,7 +621,7 @@
             var idvideo = $(this).data('id');
             var user = $(this).data('user');
             var _this = $(this);
-            var _number = $('.count-video').text() - 1;
+            var _number = parseInt($('.count-video').text()) - 1;
             $.ajax({
                 url : '{{route("video.favorite")}}',
                 type: 'post',
@@ -616,8 +632,8 @@
                 },
                 success : function (result){
                      if (result == 'ok') {
-                        _this.find('.fa.fa-heart-o').addClass('liked');
-                        _this.find('.fa.fa-heart-o').css('color','pink');
+                        _this.find('.fa.fa-heart-o').addClass('fa-heart');
+                        _this.find('.fa.fa-heart-o').removeClass('fa-heart-o');
                     }else {
                         _this.parents('.video-detail.carousel-item').next().addClass('slick-active');
                         _this.parents('.video-detail.carousel-item').remove();
@@ -632,7 +648,7 @@
             
         })
 
-        $(document).on('click','#carouselExample .fa.fa-heart-o',function(e){
+        $(document).on('click','#carouselExample .fa.fa-heart-o,#carouselExample .fa.fa-heart',function(e){
             e.stopPropagation();
             var idevent = $(this).data('id');
             var user = $(this).data('user');
@@ -676,11 +692,11 @@
                     },
                     success : function (result){
                         if (result == 'ok') {
-                            _this.addClass('liked');
-                            _this.css('color','pink');
+                            _this.addClass('fa-heart');
+                            _this.removeClass('fa-heart-o');
                         }else {
-                            _this.removeClass('liked');
-                            _this.css('color','#636B6F');
+                            _this.removeClass('fa-heart');
+                            _this.addClass('fa-heart-o');
                         }
                     }   
                })
@@ -688,12 +704,12 @@
         })
 
 
-        $(document).on('click','#carouselExampleevent .fa.fa-heart-o',function(e){
+        $(document).on('click','#carouselExampleevent .fa.fa-heart-o,#carouselExampleevent .fa.fa-heart',function(e){
             e.stopPropagation();
             var idevent = $(this).data('id');
             var user = $(this).data('user');
             var _this = $(this);
-            var number = $('.column-count').text() - 1;
+            var number = parseInt($('.column-count').text()) - 1;
             $.ajax({
                 url : '{{route("column.favorite")}}',
                 type: 'post',
@@ -704,13 +720,15 @@
                 },
                 success : function (result){
                     if (result == 'ok') {
-                        _this.addClass('liked');
-                        _this.css('color','pink');
+                        _this.addClass('fa-heart');
+                        _this.removeClass('fa-heart-o');
                     }else {
                         $('.column-count').text(number);
+                        console.log(number)
                         _this.parents('.article.carousel-item').next().addClass('active');
                         _this.parents('.article.carousel-item').remove();
                         if (number == 0) {
+                            $('.column-count').text(0);
                             $('.carouselExampleevent-item').html('<span class="more-detail"><a href="{{url('column')}}" style="color: #111111;margin-left: 0;display: -webkit-inline-box;margin-top: 30px;"><b>MORE</b><img src="{{asset('images/user/top/arrow-1.png')}}"></a></span>');
                         }
                     }
@@ -719,7 +737,7 @@
             
         })
 
-        $(document).on('click','.content-video .fa-heart-o',function(e){
+        $(document).on('click','.content-video .fa-heart-o,.content-video .fa-heart',function(e){
             e.stopPropagation();
             var idvideo = $(this).data('id');
             var user = $(this).data('user');
@@ -735,17 +753,17 @@
                 },
                 success : function (result){
                     if (result == 'ok') {
-                        _this.addClass('liked');
-                        _this.css('color','pink');
+                        _this.addClass('fa-heart');
+                        _this.removeClass('fa-heart-o');
                     }else {
-                         _this.removeClass('liked');
-                         _this.css('color','636B6F');
+                         _this.removeClass('fa-heart');
+                         _this.addClass('fa-heart-o');
                     }
                 }   
            })
         })
 
-        $(document).on('click','.content-event .fa-heart-o',function(e){
+        $(document).on('click','.content-event .fa-heart-o,.content-event .fa-heart',function(e){
             e.stopPropagation();
             var idevent = $(this).data('id');
             var user = $(this).data('user');
@@ -761,17 +779,17 @@
                 },
                 success : function (result){
                     if (result == 'ok') {
-                        _this.addClass('liked');
-                        _this.css('color','pink');
+                        _this.addClass('fa-heart');
+                        _this.removeClass('fa-heart-o');
                     }else {
-                        _this.removeClass('liked');
-                        _this.css('color','#636B6F');
+                         _this.removeClass('fa-heart');
+                         _this.addClass('fa-heart-o');
                     }
                 }   
            })
         })
 
-        $(document).on('click','.content-column .fa-heart-o',function(e){
+        $(document).on('click','.content-column .fa-heart-o,.content-column .fa-heart',function(e){
             e.stopPropagation();
             var idevent = $(this).data('id');
             var user = $(this).data('user');
@@ -787,11 +805,11 @@
                     },
                     success : function (result){
                         if (result == 'ok') {
-                            _this.addClass('liked');
-                            _this.css('color','pink');
+                            _this.addClass('fa-heart');
+                            _this.removeClass('fa-heart-o');
                         }else {
-                            _this.removeClass('liked');
-                            _this.css('color','#636B6F');
+                             _this.removeClass('fa-heart');
+                             _this.addClass('fa-heart-o');
                         }
                     }   
                })
@@ -877,7 +895,7 @@
             var text = $(this).val();
             var text_old = $(this).data('value');
             var _this = $(this);
-            if (text.trim() != text_old.trim()) {
+            if (text != text_old) {
                 $.ajax({
                     url : '{{route("mypage.change-lable")}}',
                     type: 'post',
@@ -1039,7 +1057,7 @@
             })
         })
 
-        $(document).on('click','.favorite.edit.image .fa-pencil',function(e){
+        $(document).on('click','.event-image',function(e){
             e.preventDefault();
             var _this = $(this);
             var year = _this.data('year');
@@ -1068,7 +1086,10 @@
         $(document).on('click','#dissmiss_modal_show',function(e){
             e.preventDefault();
             var text = $('#show-detail-mypage').find('.edit-input-lable').val();
-            $('.edit-input-lable.editing').val(text);
+            if (text == '') {
+                text = 'マイテーマにつながる要素を入力しましょう';
+            }
+            $('.edit-input-lable.editing').text(text);
             $('.edit-input-lable.editing').removeClass('editing');
             $('#show-detail-mypage').modal('hide');
         })
@@ -1097,7 +1118,7 @@
             var formData = new FormData($('#form_information')[0]);
             $.ajax({
                 type: 'post',
-                url: '{{route("mypage.change-avatar")}}f',
+                url: '{{route("mypage.change-avatar")}}',
                 dataType: "json",
                 data: formData,
                 async: false,

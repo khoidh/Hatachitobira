@@ -505,12 +505,7 @@ $description = '学校と社会をつなぐ「ハタチのトビラ」は、将�
                                 <div class="content">
                                     <p class="clearfix icon-favorite">
                                         {{--==================== favorite ====================--}}
-                                        <i class="fa fa-heart-o " style="
-                                        @if(Auth::user() and in_array($column->id,$column_favorites_id))
-                                                color: pink !important;
-                                        @else
-                                                color: #c3c2c2 !important;
-                                        @endif font-size:24px;"
+                                        <i class="fa {{$column->columnliked == 1 ? 'fa-heart' : 'fa-heart-o'}}" style="font-size:24px;"
                                            data-id="{{$column->id}}"
                                            data-user='{{Auth::user() ? Auth::user()->id : ""}}'
                                            data-table="columns">
@@ -735,7 +730,7 @@ $description = '学校と社会をつなぐ「ハタチのトビラ」は、将�
 
 
 
-            $(document).on('click','.icon-favorite .fa-heart-o', function(e) {
+            $(document).on('click','.icon-favorite .fa-heart-o,.icon-favorite .fa-heart', function(e) {
                 e.stopPropagation();
                 var idevent = $(this).data('id');
                 var user = $(this).data('user');
@@ -783,11 +778,11 @@ $description = '学校と社会をつなぐ「ハタチのトビラ」は、将�
                                 },
                                 success : function (result){
                                     if (result == 'ok') {
-                                        _this.addClass('liked');
-                                        _this.css('color','pink');
+                                        _this.addClass('fa-heart');
+                                        _this.removeClass('fa-heart-o');
                                     }else {
-                                        _this.removeClass('liked');
-                                        _this.css('color','#c3c2c2');
+                                        _this.removeClass('fa-heart');
+                                        _this.addClass('fa-heart-o');
                                     }
                                 }
                             })
@@ -803,11 +798,11 @@ $description = '学校と社会をつなぐ「ハタチのトビラ」は、将�
                                 },
                                 success : function (result){
                                     if (result == 'ok') {
-                                        _this.addClass('liked');
-                                        _this.css('color','pink');
+                                        _this.addClass('fa-heart');
+                                        _this.removeClass('fa-heart-o');
                                     }else {
-                                        _this.removeClass('liked');
-                                        _this.css('color','#c3c2c2');
+                                        _this.removeClass('fa-heart');
+                                        _this.addClass('fa-heart-o');
                                     }
                                 }
                             })

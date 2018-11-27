@@ -88,7 +88,7 @@
                 setTimeout(function(){ $('.button-show-list-down').css('display','block'); }, 300);
             })
 
-            $(document).on('click','.icon-favorite .fa-heart-o', function(e) {
+            $(document).on('click','.icon-favorite .fa-heart-o,.icon-favorite .fa-heart', function(e) {
                 e.stopPropagation();
                 var user_id = $(this).data('user');
                 var event_id = $(this).data('id');
@@ -104,11 +104,11 @@
                         },
                         success : function (result){
                             if (result == 'ok') {
-                                _this.addClass('liked');
-                                _this.css('color','pink');
+                                _this.addClass('fa-heart');
+                                _this.removeClass('fa-heart-o');
                             }else {
-                                _this.removeClass('liked');
-                                _this.css('color','#636B6F');
+                                _this.removeClass('fa-heart');
+                                _this.addClass('fa-heart-o');
                             }
                         }
                    })
