@@ -236,7 +236,7 @@ class MypageController extends Controller
         $data['user_id'] = $user_id;
         $mytheme_first = Mytheme::where('user_id',$user_id)->where('month',$data['month'])->where('year',$data['year'])->first();
         if ($data['typies'] == 'memo') {
-            $data['_text'] = 'MEMO';
+            $data['_text'] = '先月の振り返り';
             $data['placehoder'] = '先月の行動を振り返り記録しよう';
             $data['field'] = $mytheme_first ? $mytheme_first->memo : '';
         }elseif ($data['typies'] == 'action') {

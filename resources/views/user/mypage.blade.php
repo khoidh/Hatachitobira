@@ -30,10 +30,10 @@
             </div>
             <div class="col-sm-12 info-1">
                 <div class="row memo">
-                    <div class="col-sm-2 memo-text">
-                        <h5 class="underline-text font-weight-bold">&nbsp;MEMO&nbsp;</h5>
+                    <div class="col-sm-3 memo-text">
+                        <h5 class="underline-text font-weight-bold">&nbsp;先月の振り返り&nbsp;</h5>
                     </div>
-                    <div class="col-sm-10 memo-input" data-toggle="modal" data-target="#modal_memo">
+                    <div class="col-sm-9 memo-input" data-toggle="modal" data-target="#modal_memo">
                         <textarea
                             type="text" name="" class="input-memo pencil-action-click"
                             placeholder="先月の行動を振り返り記録しよう" readonly
@@ -54,19 +54,6 @@
                     </div>
                 </div>
                 <hr class="shape-8"/>
-                <div class="row log">
-                    <div class="col-sm-2 log-text">
-                        <h5 class="underline-text font-weight-bold">&nbsp;先月のログ&nbsp;</h5>
-                    </div>
-                    <div class="col-sm-10 log-input">
-                        <input type="text" name="" class="input-lat-log" data-role="tagsinput" 
-                            data-month="{{isset($mytheme_first->month) ? $mytheme_first->month : $data_date['month']}}"
-                            data-value="{{$mytheme_first ? $mytheme_first->last_log : ''}}"
-                            data-year="{{isset($mytheme_first->year) ? $mytheme_first->year : $data_date['year']}}"
-                            placeholder="{{isset($mytheme_first->last_log) ? '' : '先月の自分を#で記録しよう　#バイト三昧　#初ボランティア'}}"
-                            value="{{$mytheme_first ? $mytheme_first->last_log : ''}}">
-                    </div>
-                </div>
             </div>
             <div class="col-sm-12 col-xs-12 panel-info">
                 <div class="row">
@@ -126,6 +113,20 @@
                 </div>
             </div>
             <div class="col-sm-12 info-2">
+                <div class="row log">
+                    <div class="col-sm-3 log-text">
+                        <h5 class="underline-text font-weight-bold">&nbsp;自分を表す#&nbsp;</h5>
+                    </div>
+                    <div class="col-sm-9 log-input">
+                        <input type="text" name="" class="input-lat-log" data-role="tagsinput"
+                               data-month="{{isset($mytheme_first->month) ? $mytheme_first->month : $data_date['month']}}"
+                               data-value="{{$mytheme_first ? $mytheme_first->last_log : ''}}"
+                               data-year="{{isset($mytheme_first->year) ? $mytheme_first->year : $data_date['year']}}"
+                               placeholder="{{isset($mytheme_first->last_log) ? '' : '自分を表す#で記録しよう　#バイト三昧　#初ボランティア'}}"
+                               value="{{$mytheme_first ? $mytheme_first->last_log : ''}}">
+                    </div>
+                </div>
+                <hr class="shape-8"/>
                 <div class="row my-theme">
                     <div class="col-sm-3 my-theme-text">
                         <h5 class="underline-text font-weight-bold">&nbsp;今月のマイテーマ&nbsp;</h5>

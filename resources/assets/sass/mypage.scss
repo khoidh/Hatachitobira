@@ -319,42 +319,6 @@ $panel_info_height_sp: 130px;
         .shape-8 {
             @extend %shape-8;
         }
-
-        .log {
-            .log-text {
-                padding-top: 10px;
-                @include only-for-mobile() {
-                    padding-top: 0px;
-                }
-            }
-
-            .log-input {
-                padding-top: 10px;
-
-                .bootstrap-tagsinput {
-                    width: 100%;
-                    border: 2px solid $black-color;
-                    border-radius: 10px;
-                    line-height: 1.5;
-                    input {
-                        width: 100%;
-                        padding: 5px 7px;
-                    }
-                    .label-info {
-                        color: black;
-                        padding: 5px 7px;
-                        margin: 2px;
-                        border-radius: 5px;
-                        border: 1px solid darken(#ededed, 10%);
-                        background-color: #ededed;
-                        float: left;
-                        @include only-for-mobile() {
-                            // line-height: 3
-                        }
-                    }
-                }
-            }
-        }
     }
     textarea.action-of-month,
     textarea.input-my-theme,
@@ -530,6 +494,43 @@ $panel_info_height_sp: 130px;
         @include only-for-mobile() {
             padding: 20px;
         }
+        .log {
+            padding-bottom: 30px;
+            .log-text {
+                padding-top: 10px;
+                @include only-for-mobile() {
+                    padding-top: 0px;
+                }
+            }
+
+            .log-input {
+                padding-top: 10px;
+
+                .bootstrap-tagsinput {
+                    width: 100%;
+                    border: 2px solid $black-color;
+                    border-radius: 10px;
+                    line-height: 1.5;
+                    input {
+                        width: 100%;
+                        padding: 5px 7px;
+                    }
+                    .label-info {
+                        color: black;
+                        padding: 5px 7px;
+                        margin: 2px;
+                        border-radius: 5px;
+                        border: 1px solid darken(#ededed, 10%);
+                        background-color: #ededed;
+                        float: left;
+                        @include only-for-mobile() {
+                            // line-height: 3
+                        }
+                    }
+                }
+            }
+        }
+
         .my-theme {
             .my-theme-text {
                 padding-bottom: 10px;
@@ -1003,7 +1004,7 @@ $panel_info_height_sp: 130px;
 }
 
 @media (max-width: 575.98px){
-    .my-page .info-1 .log .log-input .bootstrap-tagsinput .label-info {
+    .my-page .info-2 .log .log-input .bootstrap-tagsinput .label-info {
         // display: block;
     }
 
