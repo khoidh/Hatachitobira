@@ -71,7 +71,7 @@
                                     <span>0{{$index++}}</span>
                                 </div>
                                 <div class="mypage-text">
-                                    <span name="value-lable" class="edit-input-lable" readonly
+                                    <span name="value-lable" class="edit-input-lable {{isset($mythemes[$i]->content_lable) ? 'not-blank' : ''}}" readonly
                                             data-month="{{isset($mythemes[$i]->month) ? $mythemes[$i]->month : $data_date['month']}}" 
                                             data-year="{{isset($mythemes[$i]->year) ? $mythemes[$i]->year : $data_date['year']}}" 
                                             data-category = "{{isset($mythemes[$i]->category_id) ? $mythemes[$i]->category_id : $key}}" 
@@ -1089,9 +1089,11 @@
             var text = $('#show-detail-mypage').find('.edit-input-lable').val();
             if (text == '') {
                 $('.edit-input-lable.editing').parents('.panel-info-content').find('.number').removeClass('not-blank');
+                $('.edit-input-lable.editing').removeClass('not-blank');
                 text = 'マイテーマにつながる要素を入力しましょう';
             } else {
                 $('.edit-input-lable.editing').parents('.panel-info-content').find('.number').addClass('not-blank');
+                $('.edit-input-lable.editing').addClass('not-blank');
             }
             $('.edit-input-lable.editing').text(text);
             $('.edit-input-lable.editing').removeClass('editing');

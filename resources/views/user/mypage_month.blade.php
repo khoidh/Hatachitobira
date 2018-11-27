@@ -49,11 +49,11 @@
                     data-category = "{{isset($mythemes[$i]->category_id) ? $mythemes[$i]->category_id : $key}}" 
                     data-id = "{{isset($mythemes[$i]->id) ? $mythemes[$i]->id : ''}}"
                 >
-                    <div class="number">
+                    <div class="number {{isset($mythemes[$i]->content_lable) ? 'not-blank' : ''}}">
                         <span>0{{$index++}}</span>
                     </div>
                     <div class="mypage-text">
-                        <span name="value-lable" class="edit-input-lable" readonly
+                        <span name="value-lable" class="edit-input-lable {{isset($mythemes[$i]->content_lable) ? 'not-blank' : ''}}" readonly
                                 data-month="{{isset($mythemes[$i]->month) ? $mythemes[$i]->month : $data_search['month']}}" 
                                 data-year="{{isset($mythemes[$i]->year) ? $mythemes[$i]->year : $data_search['year']}}" 
                                 data-category = "{{isset($mythemes[$i]->category_id) ? $mythemes[$i]->category_id : $key}}" 

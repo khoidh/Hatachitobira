@@ -413,8 +413,9 @@ $panel_info_height_sp: 130px;
 
                     .edit-input-lable_1,
                     .edit-input-lable {
+                        font-family: $font-family-tsuku-ard-gothic !important;
                         background: none;
-                        color: #000;
+                        color: $text2-color;
                         border: none;
                         width: 100%;
                         height: 100%;
@@ -428,6 +429,9 @@ $panel_info_height_sp: 130px;
                         vertical-align: middle;
                         display: flex;
                         align-items: center;
+                        &.not-blank {
+                            color: #000;
+                        }
                         @include only-for-mobile() {
                             line-height: 1.7;
                             font-size: 16px;
