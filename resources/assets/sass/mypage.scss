@@ -393,6 +393,10 @@ $panel_info_height_sp: 130px;
                         left: 4px;
                         bottom: 10px;
                         font-size: 50px;
+                        &.not-blank {
+                            bottom: 0px;
+                            font-size: 35px;
+                        }
                     }
                 }
 

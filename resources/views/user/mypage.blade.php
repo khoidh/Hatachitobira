@@ -67,7 +67,7 @@
                                             data-year="{{isset($mythemes[$i]->year) ? $mythemes[$i]->year : $data_date['year']}}" 
                                             data-category = "{{isset($mythemes[$i]->category_id) ? $mythemes[$i]->category_id : $key}}" 
                                             data-id = "{{isset($mythemes[$i]->id) ? $mythemes[$i]->id : ''}}">
-                                <div class="number">
+                                <div class="number {{isset($mythemes[$i]->content_lable) ? 'not-blank' : ''}}">
                                     <span>0{{$index++}}</span>
                                 </div>
                                 <div class="mypage-text">
@@ -912,6 +912,7 @@
                         _this.attr('data-id',result.id);
                         _this.parents('.panel-info-content').find('.favorite.edit').find('.fa-pencil').attr('data-category',result.category_id);
                         _this.parents('.panel-info-content').find('.favorite.edit').find('.fa-pencil').attr('data-id',result.id);
+                        _this.parents('.panel-info-content').find('.number').addClass('not-blank');
                         iziToast.success({timeout: 1500, iconUrl: '/images/site_icon.png', title: 'OK', message: '更新いたしました', progressBar: false});
                     }   
                 })
@@ -1087,7 +1088,10 @@
             e.preventDefault();
             var text = $('#show-detail-mypage').find('.edit-input-lable').val();
             if (text == '') {
+                $('.edit-input-lable.editing').parents('.panel-info-content').find('.number').removeClass('not-blank');
                 text = 'マイテーマにつながる要素を入力しましょう';
+            } else {
+                $('.edit-input-lable.editing').parents('.panel-info-content').find('.number').addClass('not-blank');
             }
             $('.edit-input-lable.editing').text(text);
             $('.edit-input-lable.editing').removeClass('editing');
