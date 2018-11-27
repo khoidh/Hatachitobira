@@ -1098,7 +1098,7 @@
             var formData = new FormData($('#form_information')[0]);
             $.ajax({
                 type: 'post',
-                url: '{{route("mypage.change-avatar")}}f',
+                url: '{{route("mypage.change-avatar")}}',
                 dataType: "json",
                 data: formData,
                 async: false,
