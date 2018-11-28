@@ -27,6 +27,7 @@
         <script src="{{ asset('js/app.js') }}"></script>
     @show
     @yield('css')
+    @include('includes.js-typekit')
 </head>
 <body class="@yield('body-class')">
     @include('includes.gtm_body')
